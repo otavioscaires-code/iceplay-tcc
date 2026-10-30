@@ -1,0 +1,27 @@
+{
+  "result": "inspected",
+  "integrity": [
+    [
+      "ok"
+    ]
+  ],
+  "foreignKeyErrors": [],
+  "logicalSha256": "d6f00f03e6cc9e39eaa32025b5a227728e50bfabf41c1377a902c6d7f9999f39",
+  "sameAsEarlierHistoryRound": false,
+  "counts": {
+    "Geladeiras": 0,
+    "Leituras": 0,
+    "__EFMigrationsHistory": 2
+  },
+  "migrations": [
+    [
+      "20261013172101_InitialCreate",
+      "10.0.12"
+    ],
+    [
+      "20261018023456_AddLeituras",
+      "10.0.12"
+    ]
+  ],
+  "note": "Comparacao com rodada historica, nao com baseline capturada no inicio desta etapa visual; divergencia nao comprova modificacao por esta etapa."
+}

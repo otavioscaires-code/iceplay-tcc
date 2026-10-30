@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780">
+  <defs>
+    <g id="snow" fill="none" stroke="#a5dfff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 5v38M7.5 14.5l33 19M7.5 33.5l33-19M17 9l7 7 7-7M17 39l7-7 7 7M8 23l9.5-2.5L15 11M33 37l-2.5-9.5L40 25M8 25l9.5 2.5L15 37M33 11l-2.5 9.5L40 23"/>
+    </g>
+  </defs>
+  <rect width="1200" height="780" fill="#070b10"/>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="44" y="44" fill="#48a9ff" font-size="11" letter-spacing="3">ICEPLAY / DIREÇÃO VISUAL 01</text>
+    <text x="44" y="91" fill="#edf5fc" font-size="36" font-weight="650">Black &amp; Ice Blue</text>
+    <text x="44" y="121" fill="#9cb0c4" font-size="15">Precisão visual. Superfícies escuras. Luz azul na medida.</text>
+    <text x="1156" y="44" text-anchor="end" fill="#9cb0c4" font-size="10" letter-spacing="1">ESTUDO VISUAL · SEM MEDIÇÕES</text>
+    <rect x="44" y="158" width="780" height="438" rx="16" fill="#0e151f" stroke="#263546"/>
+    <path d="M44 225h780" stroke="#263546"/>
+    <use href="#snow" transform="translate(64 174) scale(.72)"/>
+    <text x="111" y="202" fill="#edf5fc" font-size="20" font-weight="750" letter-spacing="1">ICE<tspan fill="#48a9ff">PLAY</tspan></text>
+    <g fill="#9cb0c4" font-size="11">
+      <text x="301" y="199" fill="#a5dfff">Visão geral</text><text x="405" y="199">Geladeiras</text><text x="511" y="199">Histórico</text><text x="607" y="199">Alertas</text><text x="690" y="199">Configurações</text>
+    </g>
+    <path d="M301 224h61" stroke="#48a9ff" stroke-width="2"/>
+    <text x="72" y="267" fill="#48a9ff" font-size="10" letter-spacing="2">MONITORAMENTO</text>
+    <text x="72" y="309" fill="#edf5fc" font-size="30" font-weight="650">Tudo começa com</text>
+    <text x="72" y="346" fill="#a5dfff" font-size="30" font-weight="650">uma visão clara.</text>
+    <text x="72" y="379" fill="#9cb0c4" font-size="12">Temperatura, porta e origem. Informação com contexto.</text>
+    <rect x="72" y="401" width="147" height="42" rx="8" fill="#48a9ff"/>
+    <text x="94" y="427" fill="#04111d" font-size="12" font-weight="700">Abrir painel</text><text x="190" y="427" fill="#04111d" font-size="16">↗</text>
+    <rect x="514" y="255" width="280" height="190" rx="12" fill="#121d2a" stroke="#263546"/>
+    <text x="535" y="281" fill="#9cb0c4" font-size="10" letter-spacing="1">ESTADO DA APLICAÇÃO</text>
+    <text x="535" y="316" fill="#edf5fc" font-size="19" font-weight="650">Conexão com a base</text>
+    <path d="M535 334h238M535 378h238" stroke="#263546"/>
+    <text x="535" y="361" fill="#9cb0c4" font-size="12">API e SQLite</text><text x="773" y="361" text-anchor="end" fill="#a5dfff" font-size="12">A verificar</text>
+    <text x="535" y="408" fill="#9cb0c4" font-size="12">O estado é consultado na API real.</text>
+    <rect x="72" y="477" width="722" height="89" rx="10" fill="#121d2a" stroke="#263546"/>
+    <text x="94" y="504" fill="#edf5fc" font-size="14" font-weight="650">Última leitura</text>
+    <text x="94" y="543" fill="#a5dfff" font-size="28" font-weight="600">— °C</text>
+    <text x="250" y="541" fill="#9cb0c4" font-size="12">Sem dados</text>
+    <text x="773" y="518" text-anchor="end" fill="#9cb0c4" font-size="11">Origem e horários sempre visíveis</text>
+    <g opacity=".1"><use href="#snow" transform="translate(447 365) scale(.8)"/></g>
+    <rect x="865" y="158" width="291" height="438" rx="26" fill="#070b10" stroke="#263546" stroke-width="2"/>
+    <use href="#snow" transform="translate(884 178) scale(.6)"/>
+    <text x="922" y="200" fill="#edf5fc" font-size="17" font-weight="750">ICE<tspan fill="#48a9ff">PLAY</tspan></text>
+    <path d="M883 220h255" stroke="#263546"/>
+    <text x="887" y="252" fill="#48a9ff" font-size="10" letter-spacing="1.6">SEU MONITORAMENTO</text>
+    <text x="887" y="287" fill="#edf5fc" font-size="24" font-weight="650">Informação.</text>
+    <text x="887" y="317" fill="#a5dfff" font-size="24" font-weight="650">Em qualquer tela.</text>
+    <rect x="887" y="345" width="247" height="137" rx="12" fill="#121d2a" stroke="#263546"/>
+    <text x="906" y="374" fill="#9cb0c4" font-size="11">Última leitura</text>
+    <text x="906" y="419" fill="#edf5fc" font-size="32" font-weight="650">— °C</text>
+    <text x="906" y="454" fill="#9cb0c4" font-size="11">Sem dados · Aguardando leitura</text>
+    <rect x="887" y="502" width="247" height="43" rx="8" fill="#48a9ff"/>
+    <text x="1010" y="529" text-anchor="middle" fill="#04111d" font-size="12" font-weight="700">Consultar equipamentos</text>
+    <text x="1010" y="576" text-anchor="middle" fill="#9cb0c4" font-size="10">Layout de referência para celular</text>
+    <g font-size="10" fill="#9cb0c4">
+      <rect x="44" y="638" width="122" height="45" rx="8" fill="#070b10" stroke="#263546"/><text x="44" y="705">BLACK / #070B10</text>
+      <rect x="185" y="638" width="122" height="45" rx="8" fill="#121d2a"/><text x="185" y="705">SURFACE / #121D2A</text>
+      <rect x="326" y="638" width="122" height="45" rx="8" fill="#48a9ff"/><text x="326" y="705">ELECTRIC / #48A9FF</text>
+      <rect x="467" y="638" width="122" height="45" rx="8" fill="#a5dfff"/><text x="467" y="705">ICE / #A5DFFF</text>
+      <rect x="608" y="638" width="122" height="45" rx="8" fill="#edf5fc"/><text x="608" y="705">TEXT / #EDF5FC</text>
+      <text x="865" y="651" fill="#edf5fc" font-size="12">Estados operacionais</text>
+      <circle cx="871" cy="676" r="5" fill="#70d7ac"/><circle cx="895" cy="676" r="5" fill="#f1c572"/><circle cx="919" cy="676" r="5" fill="#ff929c"/>
+      <text x="865" y="705">Cor + texto. Decoração sem movimento.</text>
+    </g>
+    <path d="M44 735h1112" stroke="#263546"/>
+    <text x="44" y="760" fill="#9cb0c4" font-size="10">Floco geométrico · Tipografia do sistema · Componentes compartilhados · Alvos de toque de 44 px ou mais</text>
+  </g>
+</svg>

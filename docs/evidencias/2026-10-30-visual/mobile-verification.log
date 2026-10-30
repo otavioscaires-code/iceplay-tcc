@@ -1,0 +1,89 @@
+PASSOU: GET /api/health por HTTP retorna 200
+PASSOU: Banco isolado inicia vazio, sem seed
+PASSOU: GET / por HTTPS retorna 200
+PASSOU: HTML móvel oferece conexão e assets versionados
+PASSOU: GET /acesso.js por HTTPS retorna 200
+PASSOU: GET /styles.css por HTTPS retorna 200
+PASSOU: GET /monitoramento.js por HTTPS retorna 200
+PASSOU: GET /monitoramento-estado.mjs por HTTPS retorna 200
+PASSOU: GET /api/health por HTTPS retorna 401
+PASSOU: GET /api/geladeiras por HTTPS retorna 401
+PASSOU: GET /api/geladeiras/1 por HTTPS retorna 401
+PASSOU: POST /api/geladeiras por HTTPS retorna 401
+PASSOU: PUT /api/geladeiras/1 por HTTPS retorna 401
+PASSOU: DELETE /api/geladeiras/1 por HTTPS retorna 401
+PASSOU: POST /api/leituras por HTTPS retorna 401
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao por HTTPS retorna 401
+PASSOU: GET /api/monitoramento?origem=Simulacao por HTTPS retorna 401
+PASSOU: GET /certificado.cer por HTTP retorna 200
+PASSOU: Porta HTTP entrega somente o certificado público esperado
+PASSOU: GET / por HTTP retorna 200
+PASSOU: GET /api/health por HTTP retorna 404
+PASSOU: POST /api/acesso/entrar por HTTP retorna 404
+PASSOU: GET /api/acesso por HTTPS retorna 400
+PASSOU: TLS rejeita hostname que não pertence ao certificado
+PASSOU: TLS exige confiar explicitamente na CA local; não usa bypass de validação
+PASSOU: GET /api/acesso por HTTPS retorna 200
+PASSOU: Acesso remoto inicia sem autenticação
+PASSOU: Cookie antiforgery possui Secure, HttpOnly e SameSite Strict
+PASSOU: POST /api/acesso/entrar por HTTPS retorna 400
+PASSOU: POST /api/acesso/entrar por HTTPS retorna 401
+PASSOU: POST /api/acesso/entrar por HTTPS retorna 204
+PASSOU: Login cria cookie de sessão protegido, sem token em URL
+PASSOU: POST /api/geladeiras por HTTPS retorna 400
+PASSOU: GET /api/acesso por HTTPS retorna 200
+PASSOU: Sessão é reconhecida e o token é renovado após login
+PASSOU: POST /api/geladeiras por HTTPS retorna 400
+PASSOU: POST /api/geladeiras por HTTPS retorna 403
+PASSOU: POST /api/geladeiras por HTTPS retorna 400
+PASSOU: POST /api/geladeiras por HTTPS retorna 201
+PASSOU: GET /api/geladeiras/1 por HTTPS retorna 200
+PASSOU: PUT /api/geladeiras/1 por HTTPS retorna 200
+PASSOU: POST /api/leituras por HTTPS retorna 201
+PASSOU: GET /api/monitoramento?origem=Simulacao por HTTPS retorna 200
+PASSOU: Painel autenticado preserva zero e porta fechada
+PASSOU: Simulador existente envia pela API local da mesma instância
+PASSOU: GET /api/monitoramento?origem=Simulacao por HTTPS retorna 200
+PASSOU: Consulta HTTPS enxerga a leitura persistida enviada pelo simulador
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao por HTTPS retorna 200
+PASSOU: Historico autenticado HTTPS consulta as duas leituras da mesma API
+PASSOU: DELETE /api/geladeiras/1 por HTTPS retorna 409
+PASSOU: POST /api/geladeiras por HTTPS retorna 201
+PASSOU: DELETE /api/geladeiras/2 por HTTPS retorna 204
+PASSOU: GET /api/geladeiras/2 por HTTPS retorna 404
+PASSOU: POST /api/acesso/sair por HTTPS retorna 204
+PASSOU: GET /api/geladeiras por HTTPS retorna 401
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao por HTTPS retorna 401
+PASSOU: GET /api/acesso por HTTPS retorna 200
+PASSOU: Saída remove a autenticação deste cliente
+PASSOU: POST /api/acesso/entrar por HTTPS retorna 204
+PASSOU: GET /api/geladeiras por HTTPS retorna 401
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao por HTTPS retorna 401
+PASSOU: Reiniciar o servidor invalida a sessão anterior
+PASSOU: GET /api/acesso por HTTPS retorna 200
+PASSOU: POST /api/acesso/entrar por HTTPS retorna 204
+PASSOU: GET /api/geladeiras/1 por HTTPS retorna 200
+PASSOU: Cadastro editado permanece após reiniciar
+PASSOU: GET /api/monitoramento?origem=Simulacao por HTTPS retorna 200
+PASSOU: Última leitura permanece após reiniciar
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao por HTTPS retorna 200
+PASSOU: Historico HTTPS permanece apos reinicio e nova autenticacao
+PASSOU: POST /api/acesso/sair por HTTPS retorna 400
+PASSOU: GET /api/acesso por HTTPS retorna 200
+PASSOU: POST /api/acesso/sair por HTTPS retorna 204
+PASSOU: GET /api/acesso por HTTPS retorna 200
+PASSOU: POST /api/acesso/entrar por HTTPS retorna 401
+PASSOU: POST /api/acesso/entrar por HTTPS retorna 401
+PASSOU: POST /api/acesso/entrar por HTTPS retorna 401
+PASSOU: POST /api/acesso/entrar por HTTPS retorna 401
+PASSOU: POST /api/acesso/entrar por HTTPS retorna 401
+PASSOU: POST /api/acesso/entrar por HTTPS retorna 401
+PASSOU: POST /api/acesso/entrar por HTTPS retorna 401
+PASSOU: POST /api/acesso/entrar por HTTPS retorna 429
+PASSOU: GET /api/health por HTTP retorna 403
+PASSOU: GET / por HTTP retorna 403
+PASSOU: Modo comum bloqueia acesso remoto mesmo se a URL for sobrescrita
+PASSOU: SQLite mantém integridade
+PASSOU: SQLite mantém vínculos válidos
+PASSOU: Somente uma geladeira e duas leituras fixture permanecem no banco isolado
+PASSOU: Duas migrations existentes, sem nova migration de autenticação

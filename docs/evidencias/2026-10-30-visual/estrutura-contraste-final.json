@@ -1,0 +1,618 @@
+{
+  "result": "passed",
+  "scope": "Final static HTML/CSS/reference and token contrast audit; no browser, no application tests or build",
+  "structurePassed": true,
+  "essentialContrastPassed": true,
+  "uniqueIds": 66,
+  "duplicateIds": [],
+  "missingHtmlReferences": [],
+  "literalJsIdReferences": {
+    "acesso.js": [
+      "access-code",
+      "access-form",
+      "access-logout",
+      "access-shortcut",
+      "access-status",
+      "access-submit",
+      "acesso-movel",
+      "monitoramento"
+    ],
+    "app.js": [
+      "api-status",
+      "check-health",
+      "checked-at",
+      "database-status",
+      "health-badge",
+      "health-badge-text",
+      "health-message",
+      "health-panel",
+      "refrigerator-count"
+    ],
+    "geladeiras.js": [
+      "cancelar-edicao",
+      "confirmar-exclusao",
+      "equipment-workspace",
+      "excluir-cancelar",
+      "excluir-confirmar",
+      "exclusao-nome",
+      "fechar-detalhes",
+      "geladeira-detalhes",
+      "geladeira-detalhes-dados",
+      "geladeira-fields",
+      "geladeira-form",
+      "geladeira-form-mode",
+      "geladeira-form-title",
+      "geladeira-localizacao",
+      "geladeira-nome",
+      "geladeiras-lista",
+      "geladeiras-resumo",
+      "geladeiras-status",
+      "localizacao-erro",
+      "nome-erro",
+      "recarregar-geladeiras",
+      "salvar-geladeira"
+    ],
+    "monitoramento.js": [
+      "atualizar-monitoramento",
+      "monitoramento-consultado",
+      "monitoramento-idade-nota",
+      "monitoramento-lista",
+      "monitoramento-origem",
+      "monitoramento-origem-nota",
+      "monitoramento-referencia",
+      "monitoramento-resumo",
+      "monitoramento-status"
+    ],
+    "monitoramento-estado.mjs": []
+  },
+  "missingJsIds": {},
+  "unlabeledControls": [],
+  "localAssets": [
+    "acesso.js",
+    "app.js",
+    "assets/iceplay-mark.svg",
+    "geladeiras.js",
+    "monitoramento.js",
+    "styles.css",
+    "theme.css"
+  ],
+  "missingAssets": [],
+  "svg": [
+    {
+      "asset": "assets/iceplay-mark.svg",
+      "validXml": true,
+      "viewBox": "0 0 48 48"
+    }
+  ],
+  "undefinedCssVariables": [],
+  "idsComparedWithGitHead": {
+    "head": "abca77b",
+    "beforeCount": 66,
+    "afterCount": 66,
+    "removed": [],
+    "added": []
+  },
+  "contrast": [
+    {
+      "name": "--text on --background",
+      "foreground": "#edf5fc",
+      "background": "#070b10",
+      "ratio": 17.914,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "--muted on --background",
+      "foreground": "#9cb0c4",
+      "background": "#070b10",
+      "ratio": 8.851,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "--accent on --background",
+      "foreground": "#48a9ff",
+      "background": "#070b10",
+      "ratio": 7.887,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "--ice on --background",
+      "foreground": "#a5dfff",
+      "background": "#070b10",
+      "ratio": 13.716,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "--text on --surface",
+      "foreground": "#edf5fc",
+      "background": "#0e151f",
+      "ratio": 16.642,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "--muted on --surface",
+      "foreground": "#9cb0c4",
+      "background": "#0e151f",
+      "ratio": 8.223,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "--accent on --surface",
+      "foreground": "#48a9ff",
+      "background": "#0e151f",
+      "ratio": 7.327,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "--ice on --surface",
+      "foreground": "#a5dfff",
+      "background": "#0e151f",
+      "ratio": 12.742,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "--text on --surface-raised",
+      "foreground": "#edf5fc",
+      "background": "#121d2a",
+      "ratio": 15.441,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "--muted on --surface-raised",
+      "foreground": "#9cb0c4",
+      "background": "#121d2a",
+      "ratio": 7.629,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "--accent on --surface-raised",
+      "foreground": "#48a9ff",
+      "background": "#121d2a",
+      "ratio": 6.798,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "--ice on --surface-raised",
+      "foreground": "#a5dfff",
+      "background": "#121d2a",
+      "ratio": 11.822,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "--text on --surface-hover",
+      "foreground": "#edf5fc",
+      "background": "#182637",
+      "ratio": 13.905,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "--muted on --surface-hover",
+      "foreground": "#9cb0c4",
+      "background": "#182637",
+      "ratio": 6.87,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "--accent on --surface-hover",
+      "foreground": "#48a9ff",
+      "background": "#182637",
+      "ratio": 6.122,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "--ice on --surface-hover",
+      "foreground": "#a5dfff",
+      "background": "#182637",
+      "ratio": 10.646,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "success text on state surface",
+      "foreground": "#70d7ac",
+      "background": "#102820",
+      "ratio": 8.916,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "success text on main surface",
+      "foreground": "#70d7ac",
+      "background": "#0e151f",
+      "ratio": 10.478,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "success decorative border on state surface",
+      "foreground": "#2a624d",
+      "background": "#102820",
+      "ratio": 2.193,
+      "minimum": 3,
+      "passes": false,
+      "category": "decorative-border"
+    },
+    {
+      "name": "warning text on state surface",
+      "foreground": "#f1c572",
+      "background": "#292216",
+      "ratio": 9.717,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "warning text on main surface",
+      "foreground": "#f1c572",
+      "background": "#0e151f",
+      "ratio": 11.32,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "warning decorative border on state surface",
+      "foreground": "#735b2f",
+      "background": "#292216",
+      "ratio": 2.447,
+      "minimum": 3,
+      "passes": false,
+      "category": "decorative-border"
+    },
+    {
+      "name": "danger text on state surface",
+      "foreground": "#ff929c",
+      "background": "#301a23",
+      "ratio": 7.585,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "danger text on main surface",
+      "foreground": "#ff929c",
+      "background": "#0e151f",
+      "ratio": 8.592,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "danger decorative border on state surface",
+      "foreground": "#b36979",
+      "background": "#301a23",
+      "ratio": 4.017,
+      "minimum": 3,
+      "passes": true,
+      "category": "decorative-border"
+    },
+    {
+      "name": "primary action --accent",
+      "foreground": "#04111d",
+      "background": "#48a9ff",
+      "ratio": 7.61,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "primary action --ice",
+      "foreground": "#04111d",
+      "background": "#a5dfff",
+      "ratio": 13.235,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "danger hover text",
+      "foreground": "#ff929c",
+      "background": "#47222d",
+      "ratio": 6.414,
+      "minimum": 4.5,
+      "passes": true,
+      "category": "text"
+    },
+    {
+      "name": "focus ring on --background",
+      "foreground": "#a5dfff",
+      "background": "#070b10",
+      "ratio": 13.716,
+      "minimum": 3,
+      "passes": true,
+      "category": "focus"
+    },
+    {
+      "name": "essential control border on --background",
+      "foreground": "#607b95",
+      "background": "#070b10",
+      "ratio": 4.476,
+      "minimum": 3,
+      "passes": true,
+      "category": "control-border"
+    },
+    {
+      "name": "focus ring on --surface",
+      "foreground": "#a5dfff",
+      "background": "#0e151f",
+      "ratio": 12.742,
+      "minimum": 3,
+      "passes": true,
+      "category": "focus"
+    },
+    {
+      "name": "essential control border on --surface",
+      "foreground": "#607b95",
+      "background": "#0e151f",
+      "ratio": 4.159,
+      "minimum": 3,
+      "passes": true,
+      "category": "control-border"
+    },
+    {
+      "name": "focus ring on --surface-raised",
+      "foreground": "#a5dfff",
+      "background": "#121d2a",
+      "ratio": 11.822,
+      "minimum": 3,
+      "passes": true,
+      "category": "focus"
+    },
+    {
+      "name": "essential control border on --surface-raised",
+      "foreground": "#607b95",
+      "background": "#121d2a",
+      "ratio": 3.858,
+      "minimum": 3,
+      "passes": true,
+      "category": "control-border"
+    },
+    {
+      "name": "focus ring on --surface-hover",
+      "foreground": "#a5dfff",
+      "background": "#182637",
+      "ratio": 10.646,
+      "minimum": 3,
+      "passes": true,
+      "category": "focus"
+    },
+    {
+      "name": "essential control border on --surface-hover",
+      "foreground": "#607b95",
+      "background": "#182637",
+      "ratio": 3.475,
+      "minimum": 3,
+      "passes": true,
+      "category": "control-border"
+    },
+    {
+      "name": "focus ring on --success-surface",
+      "foreground": "#a5dfff",
+      "background": "#102820",
+      "ratio": 10.843,
+      "minimum": 3,
+      "passes": true,
+      "category": "focus"
+    },
+    {
+      "name": "essential control border on --success-surface",
+      "foreground": "#607b95",
+      "background": "#102820",
+      "ratio": 3.539,
+      "minimum": 3,
+      "passes": true,
+      "category": "control-border"
+    },
+    {
+      "name": "focus ring on --warning-surface",
+      "foreground": "#a5dfff",
+      "background": "#292216",
+      "ratio": 10.938,
+      "minimum": 3,
+      "passes": true,
+      "category": "focus"
+    },
+    {
+      "name": "essential control border on --warning-surface",
+      "foreground": "#607b95",
+      "background": "#292216",
+      "ratio": 3.57,
+      "minimum": 3,
+      "passes": true,
+      "category": "control-border"
+    },
+    {
+      "name": "focus ring on --danger-surface",
+      "foreground": "#a5dfff",
+      "background": "#301a23",
+      "ratio": 11.25,
+      "minimum": 3,
+      "passes": true,
+      "category": "focus"
+    },
+    {
+      "name": "essential control border on --danger-surface",
+      "foreground": "#607b95",
+      "background": "#301a23",
+      "ratio": 3.672,
+      "minimum": 3,
+      "passes": true,
+      "category": "control-border"
+    },
+    {
+      "name": "focus ring on #47222d",
+      "foreground": "#a5dfff",
+      "background": "#47222d",
+      "ratio": 9.513,
+      "minimum": 3,
+      "passes": true,
+      "category": "focus"
+    },
+    {
+      "name": "essential control border on #47222d",
+      "foreground": "#607b95",
+      "background": "#47222d",
+      "ratio": 3.105,
+      "minimum": 3,
+      "passes": true,
+      "category": "control-border"
+    },
+    {
+      "name": "decorative card border on --background",
+      "foreground": "#263546",
+      "background": "#070b10",
+      "ratio": 1.578,
+      "minimum": 3,
+      "passes": false,
+      "category": "decorative-border"
+    },
+    {
+      "name": "decorative card border on --surface",
+      "foreground": "#263546",
+      "background": "#0e151f",
+      "ratio": 1.466,
+      "minimum": 3,
+      "passes": false,
+      "category": "decorative-border"
+    },
+    {
+      "name": "decorative card border on --surface-raised",
+      "foreground": "#263546",
+      "background": "#121d2a",
+      "ratio": 1.361,
+      "minimum": 3,
+      "passes": false,
+      "category": "decorative-border"
+    },
+    {
+      "name": "decorative card border on --surface-hover",
+      "foreground": "#263546",
+      "background": "#182637",
+      "ratio": 1.225,
+      "minimum": 3,
+      "passes": false,
+      "category": "decorative-border"
+    },
+    {
+      "name": "danger control border on --danger-surface",
+      "foreground": "#b36979",
+      "background": "#301a23",
+      "ratio": 4.017,
+      "minimum": 3,
+      "passes": true,
+      "category": "control-border"
+    },
+    {
+      "name": "danger control border on #47222d",
+      "foreground": "#b36979",
+      "background": "#47222d",
+      "ratio": 3.397,
+      "minimum": 3,
+      "passes": true,
+      "category": "control-border"
+    },
+    {
+      "name": "danger control border on --surface",
+      "foreground": "#b36979",
+      "background": "#0e151f",
+      "ratio": 4.55,
+      "minimum": 3,
+      "passes": true,
+      "category": "control-border"
+    }
+  ],
+  "belowThreshold": [
+    {
+      "name": "success decorative border on state surface",
+      "foreground": "#2a624d",
+      "background": "#102820",
+      "ratio": 2.193,
+      "minimum": 3,
+      "passes": false,
+      "category": "decorative-border"
+    },
+    {
+      "name": "warning decorative border on state surface",
+      "foreground": "#735b2f",
+      "background": "#292216",
+      "ratio": 2.447,
+      "minimum": 3,
+      "passes": false,
+      "category": "decorative-border"
+    },
+    {
+      "name": "decorative card border on --background",
+      "foreground": "#263546",
+      "background": "#070b10",
+      "ratio": 1.578,
+      "minimum": 3,
+      "passes": false,
+      "category": "decorative-border"
+    },
+    {
+      "name": "decorative card border on --surface",
+      "foreground": "#263546",
+      "background": "#0e151f",
+      "ratio": 1.466,
+      "minimum": 3,
+      "passes": false,
+      "category": "decorative-border"
+    },
+    {
+      "name": "decorative card border on --surface-raised",
+      "foreground": "#263546",
+      "background": "#121d2a",
+      "ratio": 1.361,
+      "minimum": 3,
+      "passes": false,
+      "category": "decorative-border"
+    },
+    {
+      "name": "decorative card border on --surface-hover",
+      "foreground": "#263546",
+      "background": "#182637",
+      "ratio": 1.225,
+      "minimum": 3,
+      "passes": false,
+      "category": "decorative-border"
+    }
+  ],
+  "limitations": [
+    "Ratios are static sRGB token calculations, not computed-style/browser validation or full WCAG conformance.",
+    "Neutral/state surfaces and danger-hover are checked for borders; primary accent/ice backgrounds use on-accent text and no border-strong.",
+    "Decorative borders may remain below3 when unnecessary for recognizing controls/state.",
+    "Responsive breakpoints, 44/46px targets, 16px mobile input font and safe area remain in source; no runtime mobile layout verification."
+  ]
+}

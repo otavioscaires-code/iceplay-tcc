@@ -1,0 +1,32 @@
+{
+  "result": "passed",
+  "executedAtUtc": "2026-10-30T12:18:59.6928933Z",
+  "scope": "HTTP real de assets estaticos; sem navegador/renderizacao/Safari",
+  "isolatedDatabase": "C:\\Users\\otavi\\Downloads\\iceplay\\.tools\\verification\\20261030T121800Z-f35a9844\\iceplay.db",
+  "assets": [
+    {
+      "path": "/theme.css?v=20261030-black-ice",
+      "status": 200,
+      "contentType": "text/css",
+      "characters": 684
+    },
+    {
+      "path": "/styles.css?v=20261030-black-ice",
+      "status": 200,
+      "contentType": "text/css",
+      "characters": 21816
+    },
+    {
+      "path": "/assets/iceplay-mark.svg",
+      "status": 200,
+      "contentType": "image/svg+xml",
+      "characters": 323
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "contentType": "text/html",
+      "characters": 15442
+    }
+  ]
+}

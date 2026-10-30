@@ -1,0 +1,72 @@
+PASSOU: Build sem restauracao termina com codigo zero
+PASSOU: GET /api/monitoramento?origem=Simulacao retorna 200
+PASSOU: Banco vazio devolve array vazio e origem explicita, sem dados ficticios
+PASSOU: GET /api/monitoramento?origem=Hardware retorna 200
+PASSOU: Banco vazio devolve array vazio e origem explicita, sem dados ficticios
+PASSOU: GET /api/monitoramento retorna 400
+PASSOU: Origem ausente ou invalida recebe validacao 400
+PASSOU: GET /api/monitoramento?origem= retorna 400
+PASSOU: Origem ausente ou invalida recebe validacao 400
+PASSOU: GET /api/monitoramento?origem=hardware retorna 400
+PASSOU: Origem ausente ou invalida recebe validacao 400
+PASSOU: GET /api/monitoramento?origem=0 retorna 400
+PASSOU: Origem ausente ou invalida recebe validacao 400
+PASSOU: GET /api/monitoramento?origem=Outra retorna 400
+PASSOU: Origem ausente ou invalida recebe validacao 400
+PASSOU: GET /api/monitoramento?origem=%20 retorna 400
+PASSOU: Origem ausente ou invalida recebe validacao 400
+PASSOU: POST /api/geladeiras retorna 201
+PASSOU: POST /api/geladeiras retorna 201
+PASSOU: POST /api/geladeiras retorna 201
+PASSOU: GET /api/monitoramento?origem=Simulacao retorna 200
+PASSOU: Equipamentos sem amostras permanecem com ultimaLeitura null
+PASSOU: POST /api/leituras retorna 201
+PASSOU: POST /api/leituras retorna 201
+PASSOU: GET /api/monitoramento?origem=Simulacao retorna 200
+PASSOU: Painel contem uma unica geladeira 1
+PASSOU: Ultima leitura, zero/false, porta e origem correspondem ao SQLite
+PASSOU: Os dois timestamps e o horario da consulta sao UTC
+PASSOU: POST /api/leituras retorna 201
+PASSOU: POST /api/leituras retorna 201
+PASSOU: GET /api/monitoramento?origem=Simulacao retorna 200
+PASSOU: Painel contem uma unica geladeira 1
+PASSOU: Ultima leitura, zero/false, porta e origem correspondem ao SQLite
+PASSOU: Os dois timestamps e o horario da consulta sao UTC
+PASSOU: Leitura atrasada tem ID maior, mas nao substitui medicao mais recente
+PASSOU: POST /api/leituras retorna 201
+PASSOU: GET /api/monitoramento?origem=Simulacao retorna 200
+PASSOU: GET /api/monitoramento?origem=Hardware retorna 200
+PASSOU: Painel contem uma unica geladeira 1
+PASSOU: Ultima leitura, zero/false, porta e origem correspondem ao SQLite
+PASSOU: Os dois timestamps e o horario da consulta sao UTC
+PASSOU: Painel contem uma unica geladeira 1
+PASSOU: Ultima leitura, zero/false, porta e origem correspondem ao SQLite
+PASSOU: Os dois timestamps e o horario da consulta sao UTC
+PASSOU: Hardware selecionado nao reaproveita simulacao de outra origem
+SIMULAÇÃO: valores de teste, sem sensor físico. Origem sempre Simulacao.
+PASSOU: Simulador existente envia amostra pela mesma API
+PASSOU: GET /api/monitoramento?origem=Simulacao retorna 200
+PASSOU: Painel contem uma unica geladeira 2
+PASSOU: Ultima leitura, zero/false, porta e origem correspondem ao SQLite
+PASSOU: Os dois timestamps e o horario da consulta sao UTC
+PASSOU: POST /api/leituras retorna 201
+PASSOU: PUT /api/geladeiras/1 retorna 200
+PASSOU: DELETE /api/geladeiras/3 retorna 204
+PASSOU: DELETE 204 nao tem corpo
+PASSOU: GET /api/monitoramento?origem=Simulacao retorna 200
+PASSOU: Painel reflete edicao e exclusao de cadastro sem cache inventado
+PASSOU: Painel contem uma unica geladeira 1
+PASSOU: Ultima leitura, zero/false, porta e origem correspondem ao SQLite
+PASSOU: Os dois timestamps e o horario da consulta sao UTC
+PASSOU: GET /api/monitoramento?origem=Simulacao retorna 200
+PASSOU: Reinicio real preserva cadastros e exatamente as mesmas ultimas leituras
+PASSOU: GET /api/monitoramento?origem=Hardware retorna 200
+PASSOU: Painel contem uma unica geladeira 1
+PASSOU: Ultima leitura, zero/false, porta e origem correspondem ao SQLite
+PASSOU: Os dois timestamps e o horario da consulta sao UTC
+PASSOU: Modulo /monitoramento.js servido com MIME JavaScript
+PASSOU: Modulo /monitoramento-estado.mjs servido com MIME JavaScript
+PASSOU: GET /api/monitoramento?origem=Simulacao retorna 503
+PASSOU: Falha real devolve 503 generico, sem SQL ou caminho interno
+PASSOU: SQLite confirma integridade, duas migrations e nenhuma insercao pelo GET
+Painel verificado: 70 assercoes; 29 requisicoes HTTP registradas, alem do POST do simulador.

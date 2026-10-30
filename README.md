@@ -6,6 +6,8 @@ Existem uma aplicação ASP.NET Core, SQLite com EF Core, cadastro completo de g
 
 ## Executar neste computador
 
+A interface usa **Black & Ice Blue**, com tokens em `wwwroot/theme.css` e floco SVG local. Veja o [guia visual](docs/design/black-ice-blue.md) e o [relatório de verificação](docs/etapa-visual-2026-10-30.md). A tela do histórico e os módulos de alertas/configurações continuam pendentes e utilizarão os mesmos componentes.
+
 Abra **PowerShell 7** (`pwsh`, versão testada: **7.6.5**; a verificação exige 7.5 ou posterior). Os comandos abaixo partem da pasta do projeto:
 
 ```powershell

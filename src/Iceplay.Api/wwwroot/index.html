@@ -4,9 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="ICEPLAY: cadastro de geladeiras comerciais e recebimento de leituras por API, com simulador identificado.">
-  <meta name="theme-color" content="#102e43">
+  <meta name="theme-color" content="#070b10">
   <title>ICEPLAY | Monitoramento de geladeiras</title>
-  <link rel="stylesheet" href="styles.css?v=20261019-mobile">
+  <link rel="icon" href="assets/iceplay-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="theme.css?v=20261030-black-ice">
+  <link rel="stylesheet" href="styles.css?v=20261030-black-ice">
   <script src="acesso.js?v=20261019-mobile" defer></script>
   <script src="app.js?v=20261019-mobile" defer></script>
   <script src="geladeiras.js?v=20261019-mobile" defer></script>
@@ -19,12 +21,12 @@
     <div class="container header-content">
       <a class="brand" href="#inicio" aria-label="ICEPLAY, início">
         <span class="brand-symbol" aria-hidden="true">
-          <svg viewBox="0 0 32 32" fill="none"><path d="M16 3v26M4.7 9.5l22.6 13M4.7 22.5l22.6-13M12 5l4 4 4-4M12 27l4-4 4 4M4.4 14l5.5-1.5L8.4 7M23.6 25l-1.5-5.5 5.5-1.5M8.4 25l1.5-5.5L4.4 18M27.6 14l-5.5-1.5L23.6 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <img src="assets/iceplay-mark.svg" width="32" height="32" alt="">
         </span>
         <span>ICE<span class="brand-accent">PLAY</span></span>
       </a>
       <nav class="main-nav" aria-label="Navegação principal">
-        <a href="#inicio">Início</a>
+        <a href="#inicio">Visão geral</a>
         <a href="#monitoramento">Painel</a>
         <a href="#geladeiras">Geladeiras</a>
         <a href="#base-tecnica">Base técnica</a>
@@ -50,8 +52,8 @@
     <section class="hero" id="inicio" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> IoT · Ciência da Computação</p>
-          <h1 id="hero-title">Monitoramento de geladeiras,<br><span>passo a passo.</span></h1>
+          <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> ICEPLAY · Monitoramento</p>
+          <h1 id="hero-title">Sua refrigeração.<br><span>Uma visão clara.</span></h1>
           <p class="hero-description">Acompanhe a última temperatura e o estado da porta registrados para cada geladeira. Confira a origem e os horários antes de interpretar os dados.</p>
           <a class="button button-light" href="#monitoramento">Abrir painel <span aria-hidden="true">↗</span></a>
           <p class="hero-footnote">Etapa atual <span aria-hidden="true">/</span> Painel de últimas leituras</p>

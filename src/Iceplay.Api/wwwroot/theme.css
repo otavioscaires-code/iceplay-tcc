@@ -1,0 +1,27 @@
+/* Identidade compartilhada por todas as telas, incluindo as próximas etapas. */
+:root {
+  color-scheme: dark;
+  --background: #070b10;
+  --surface: #0e151f;
+  --surface-raised: #121d2a;
+  --surface-hover: #182637;
+  --text: #edf5fc;
+  --muted: #9cb0c4;
+  --border: #263546;
+  --border-strong: #607b95;
+  --accent: #48a9ff;
+  --ice: #a5dfff;
+  --on-accent: #04111d;
+  --success: #70d7ac;
+  --success-surface: #102820;
+  --success-border: #2a624d;
+  --warning: #f1c572;
+  --warning-surface: #292216;
+  --warning-border: #735b2f;
+  --danger: #ff929c;
+  --danger-surface: #301a23;
+  --danger-border: #b36979;
+  --radius: 14px;
+  --radius-small: 8px;
+  --shadow: 0 12px 32px #00000024;
+}

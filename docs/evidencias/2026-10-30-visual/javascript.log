@@ -1,0 +1,28 @@
+✔ modo local mantém acesso sem código e não envia token CSRF (36.6906ms)
+✔ origem móvel exige conexão e mantém segredo fora da URL (3.4589ms)
+✔ após login as alterações usam token renovado e credenciais na mesma origem (3.8848ms)
+✔ GET não envia token de alteração (2.4306ms)
+✔ código inválido mostra erro e não repete automaticamente o POST (2.1303ms)
+✔ saída usa CSRF, limpa acesso e informa a mudança aos módulos (2.4276ms)
+✔ consulta iniciada antes da saída não pode devolver dados à interface depois dela (2.5889ms)
+✔ falha inicial de rede permite recuperação posterior (1.5783ms)
+✔ zero e porta fechada permanecem valores válidos, distintos de ausência (2.6449ms)
+✔ cadastro sem leitura e banco sem geladeiras são respostas válidas (1.5608ms)
+✔ respostas de outra origem e leituras misturadas são recusadas (0.3751ms)
+✔ identidade inconsistente ou geladeiras duplicadas não podem ser exibidas (0.2505ms)
+✔ valores ausentes, strings numéricas e tipos incorretos são recusados (0.3372ms)
+✔ datas inválidas, sem UTC e medição posterior ao recebimento são recusadas (0.3229ms)
+✔ nenhuma leitura não é classificada como recente ou temperatura normal (0.3146ms)
+✔ referência de 60 segundos tem limite explícito (0.1426ms)
+✔ recebimento recente não torna medição atrasada recente (0.1656ms)
+✔ referência visual pode mudar ou ser desativada sem alterar a leitura (0.2331ms)
+✔ horário à frente da referência é indicado sem fingir recência (0.1182ms)
+✔ idade é apresentada em português nos limites de segundos, minutos e dias (0.1454ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 195.2241
