@@ -1,0 +1,98 @@
+info: Microsoft.EntityFrameworkCore.Migrations[20411]
+      Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (27ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2026-10-30 11:53:57.7951314+00:00');
+      SELECT changes();
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+          "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+          "ProductVersion" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: Microsoft.EntityFrameworkCore.Migrations[20405]
+      No migrations were applied. The database is already up to date.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "__EFMigrationsLock";
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:54960
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: https://192.168.1.123:54961
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://192.168.1.123:54962
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\otavi\Downloads\iceplay\src\Iceplay.Api
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+fail: Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery[7]
+      An exception was thrown while deserializing the token.
+      Microsoft.AspNetCore.Antiforgery.AntiforgeryValidationException: The antiforgery token could not be decrypted.
+       ---> System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+         at Microsoft.AspNetCore.Cryptography.UnsafeNativeMethods.ThrowExceptionForBCryptStatusImpl(Int32 ntstatus)
+         at Microsoft.AspNetCore.DataProtection.Cng.CngGcmAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+         at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+         at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+         at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+         at Microsoft.AspNetCore.Antiforgery.DefaultAntiforgeryTokenSerializer.Deserialize(String serializedToken)
+         --- End of inner exception stack trace ---
+         at Microsoft.AspNetCore.Antiforgery.DefaultAntiforgeryTokenSerializer.Deserialize(String serializedToken)
+         at Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery.GetCookieTokenDoesNotThrow(HttpContext httpContext)
+warn: Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery[8]
+      The 'Cache-Control' and 'Pragma' headers have been overridden and set to 'no-cache, no-store' and 'no-cache' respectively to prevent caching of this response. Any response that uses antiforgery should not be cached.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."CriadoEmUtc", "g"."Localizacao", "g"."Nome"
+      FROM "Geladeiras" AS "g"
+      WHERE "g"."Id" = @id
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@origemSelecionada='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."CriadoEmUtc", "g"."Localizacao", "g"."Nome", "l"."Id", "l"."GeladeiraId", "l"."MedidoEmUtc", "l"."Origem", "l"."PortaAberta", "l"."RecebidoEmUtc", "l"."TemperaturaC"
+      FROM "Geladeiras" AS "g"
+      LEFT JOIN "Leituras" AS "l" ON (
+          SELECT "l0"."Id"
+          FROM "Leituras" AS "l0"
+          WHERE "l0"."GeladeiraId" = "g"."Id" AND "l0"."Origem" = @origemSelecionada
+          ORDER BY "l0"."MedidoEmUtc" DESC, "l0"."Id" DESC
+          LIMIT 1) = "l"."Id"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@geladeiraId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Geladeiras" AS "g"
+          WHERE "g"."Id" = @geladeiraId)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@geladeiraId='?' (DbType = Int32), @origem='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Leituras" AS "l"
+      WHERE "l"."GeladeiraId" = @geladeiraId AND "l"."Origem" = @origem
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@geladeiraId='?' (DbType = Int32), @origem='?' (Size = 9), @p3='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."Id", "l"."GeladeiraId", "l"."MedidoEmUtc", "l"."Origem", "l"."PortaAberta", "l"."RecebidoEmUtc", "l"."TemperaturaC"
+      FROM "Leituras" AS "l"
+      WHERE "l"."GeladeiraId" = @geladeiraId AND "l"."Origem" = @origem
+      ORDER BY "l"."MedidoEmUtc" DESC, "l"."Id" DESC
+      LIMIT @p3 OFFSET @p
+warn: Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery[8]
+      The 'Cache-Control' and 'Pragma' headers have been overridden and set to 'no-cache, no-store' and 'no-cache' respectively to prevent caching of this response. Any response that uses antiforgery should not be cached.
+warn: Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery[8]
+      The 'Cache-Control' and 'Pragma' headers have been overridden and set to 'no-cache, no-store' and 'no-cache' respectively to prevent caching of this response. Any response that uses antiforgery should not be cached.

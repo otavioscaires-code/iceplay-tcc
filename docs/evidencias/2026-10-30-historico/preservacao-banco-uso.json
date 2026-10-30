@@ -1,0 +1,13 @@
+{
+  "result": "passed",
+  "database": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Data\\iceplay.db",
+  "integrity": "ok",
+  "foreignKeyErrors": [],
+  "counts": {
+    "Geladeiras": 1,
+    "Leituras": 0,
+    "__EFMigrationsHistory": 2
+  },
+  "logicalSha256": "860564af84e6563e4c9dd3acaab3038bf2bceb1762a4536ce0edcd48971d2c5e",
+  "sameAsBefore": true
+}

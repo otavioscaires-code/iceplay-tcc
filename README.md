@@ -2,7 +2,7 @@
 
 Projeto de TCC de Ciência da Computação: sistema IoT para monitoramento de geladeiras comerciais. Base iniciada em **13/10/2026**, com cadastro de geladeiras desenvolvido em **15/10/2026**, revisado em **17/10/2026** e ingestão/simulador verificados em **19/10/2026**. Pelo cronograma do professor, a versão completa deve ser entregue em **24/11/2026** e apresentada em **01/12/2026**.
 
-Existem uma aplicação ASP.NET Core, SQLite com EF Core, cadastro completo de geladeiras, saúde real do banco, recebimento de leituras, simulador por linha de comando e painel responsivo de últimas leituras por origem. Histórico paginado, configurações de limites, alertas e firmware continuam planejados. Não há ensaio físico comprovado nem registros inseridos automaticamente ao iniciar. As leituras de teste são identificadas como simulação.
+Existem uma aplicação ASP.NET Core, SQLite com EF Core, cadastro completo de geladeiras, saúde real do banco, recebimento de leituras, simulador por linha de comando, painel responsivo de últimas leituras por origem e API de histórico paginado (30/10). A tela do histórico, configurações de limites, alertas e firmware continuam pendentes. Não há ensaio físico comprovado nem registros inseridos automaticamente ao iniciar. As leituras de teste são identificadas como simulação. A retomada e o plano até o hardware estão em [plano de continuidade](docs/plano-continuidade-2026-10-30.md).
 
 ## Executar neste computador
 
@@ -102,6 +102,7 @@ A tela apresenta erros de validação, falhas de conexão e estado sem cadastros
 | `PUT /api/geladeiras/{id}` | `200` | Objeto atualizado, preservando ID e data de criação |
 | `DELETE /api/geladeiras/{id}` | `204` | Exclusão concluída, sem corpo na resposta |
 | `POST /api/leituras` | `201` | Persiste uma leitura e retorna `Location` para consultá-la |
+| `GET /api/leituras?geladeiraId=1&origem=Simulacao` | `200` | Histórico filtrado por geladeira/origem, com período UTC opcional e paginação |
 | `GET /api/leituras/{id}` | `200` | Consulta a leitura, sua origem e os dois timestamps |
 | `GET /api/monitoramento?origem=Simulacao` | `200` | Todas as geladeiras e uma última leitura por equipamento na origem selecionada |
 | `GET /api/acesso` | `200` | Estado de acesso deste dispositivo e token de formulário quando necessário |
@@ -183,9 +184,37 @@ Inicie a API e cadastre uma geladeira pela interface. Em outro PowerShell, subst
 
 Cada envio usa a mesma rota `POST /api/leituras`, com origem fixa `Simulacao` e horário UTC produzido no momento do envio. O valor padrão é 4 °C, porta fechada, uma leitura; os valores são constantes configuradas para o teste, sem representar coleta física. Use `-PortaAberta` para enviar `true` e `-ApiUrl http://localhost:5080` para selecionar a API. O script aceita de 1 a 1000 envios, intervalo de 0 a 3600 segundos e temperatura finita.
 
-O simulador não cria geladeiras nem acessa diretamente o SQLite. Retorna um objeto por confirmação com `indice`, `statusHttp`, `location` e `leitura`. Falha de rede ou timeout interrompe a execução sem repetição automática, pois uma resposta perdida pode corresponder a uma leitura já gravada. Ainda não há chave de idempotência ou consulta de coleção para reconciliar automaticamente esse caso.
+O simulador não cria geladeiras nem acessa diretamente o SQLite. Retorna um objeto por confirmação com `indice`, `statusHttp`, `location` e `leitura`. Falha de rede ou timeout interrompe a execução sem repetição automática, pois uma resposta perdida pode corresponder a uma leitura já gravada. Existe consulta de histórico, mas ainda não há chave de idempotência nem reconciliação automática desse caso.
+
+## Consultar o histórico pela API
+
+Com a aplicação em execução, substitua `1` por um ID existente:
+
+```powershell
+Invoke-RestMethod 'http://localhost:5080/api/leituras?geladeiraId=1&origem=Simulacao&pagina=1&tamanhoPagina=50'
+```
+
+`geladeiraId` (inteiro positivo) e `origem` (exatamente `Simulacao` ou `Hardware`) são obrigatórios. `pagina` começa em 1 e `tamanhoPagina` aceita 1 a 100 (padrão 50). `inicioUtc` e `fimUtc` são opcionais, inclusivos, por horário de **medição**, em ISO 8601 com segundos, até sete casas decimais e `Z`. O início não pode ultrapassar o fim. Parâmetros presentes mas vazios são inválidos; omita os opcionais quando não usados. Um deslocamento maior que `int.MaxValue` também recebe 400.
+
+Exemplo de período (formato de URL, sem inserir dados):
+
+```text
+/api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-01T00:00:00Z&fimUtc=2026-10-31T23:59:59.9999999Z&pagina=1&tamanhoPagina=20
+```
+
+A resposta tem `geladeiraId`, `origem`, `inicioUtc`, `fimUtc`, `pagina`, `tamanhoPagina`, `totalItens`, `totalPaginas` e `itens` (array do contrato de leitura já existente, com origem e os dois timestamps). Ordena por `medidoEmUtc` decrescente e maior ID no empate. Um equipamento existente sem leituras retorna 200 com array vazio e totais zero; página além da última retorna array vazio e preserva os totais; equipamento inexistente retorna 404. Validação: 400; banco indisponível: 503 genérico.
+
+A contagem e os itens compartilham uma transação de leitura na mesma resposta. Novos envios entre requisições podem deslocar as páginas por posição; essa API não fornece um snapshot fixo durante toda a navegação. A proteção HTTPS/sessão móvel também se aplica ao histórico. A tela de histórico ainda será implementada no próximo incremento.
 
 ## Reproduzir as verificações
+
+Para o histórico (PowerShell 7.5+, Python disponível), use uma pasta nova de evidências:
+
+```powershell
+.\scripts\verify-historico.ps1 -EvidenceDirectory docs/evidencias/nova-revisao/historico
+```
+
+O teste cria somente fixtures em banco isolado e verifica filtros, UTC, paginação, 400/404/503, preservação dos dados pelo GET e reinício. A rodada de retomada da base está em `docs/evidencias/2026-10-30-retomada` e a do histórico em `docs/evidencias/2026-10-30-historico`.
 
 Encerre a aplicação antes de executar as verificações, pois os scripts compilam o projeto e iniciam suas próprias instâncias:
 
@@ -273,6 +302,6 @@ Há somente dois pacotes NuGet diretos: `Microsoft.EntityFrameworkCore.Sqlite` e
 
 Sem hardware, as verificações comprovam software, esquema e persistência local. Não comprovam leitura DS18B20, detecção física da porta, comunicação ESP32, precisão térmica ou eficácia de alertas. Limites de temperatura e tolerâncias ainda precisam ser definidos com o orientador.
 
-A base usa uma instância, com modo comum HTTP em loopback e modo móvel HTTPS opcional na sub-rede local, protegido por código/sessão. Acesso pela internet, autenticação de sensores e implantação pública continuam pendentes. Ainda faltam histórico paginado, configurações de limites, alertas, firmware, texto final do TCC e artigo. O painel consulta todas as geladeiras, sem paginação de equipamentos. Próxima prioridade imediata: **validar o fluxo no iPhone físico**; depois, consultar o histórico com filtros e paginação e apresentá-lo na interface, preservando a identificação de simulação. Notificações externas ficam após o núcleo funcional.
+A base usa uma instância, com modo comum HTTP em loopback e modo móvel HTTPS opcional na sub-rede local, protegido por código/sessão. Acesso pela internet, autenticação de sensores e implantação pública continuam pendentes. Ainda faltam tela do histórico, configurações de limites, alertas, firmware, texto final do TCC e artigo. O painel consulta todas as geladeiras, sem paginação de equipamentos. Próximo incremento: **apresentar o histórico na interface**, preservando a identificação de simulação. A validação no iPhone físico e a aquisição do hardware precisam ocorrer em paralelo. Notificações externas ficam após o núcleo funcional.
 
-O Git foi inicializado localmente. Não foram feitos commits, criados remotos ou publicações. Commits e publicação dependem de autorização explícita.
+Em 30/10, o usuário autorizou commits/pushes rotineiros. A base revalidada foi commitada e enviada ao [GitHub ICEPLAY](https://github.com/otavioscaires-code/iceplay-tcc), na branch `codex/retomada-historico`. Bancos, SDK, caches e segredos móveis ficam fora do Git. Consulte `git log` e `git status` para o estado atual, sem atribuir commits a datas anteriores.

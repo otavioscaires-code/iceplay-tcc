@@ -66,4 +66,8 @@ A sessão não é administradora: a regra de firewall não foi aplicada, e insta
 
 ## Atualização semanal
 
+Em 30/10/2026, Codex (GPT-6.1) retomou o projeto a pedido do aluno: leitura das referências locais, inspeção SQLite somente leitura, revisão do código e execução dos verificadores existentes. Agentes auxiliares participaram de auditoria, execução de regressões e elaboração do verificador do histórico; o agente principal revisou e executou a integração. A base passou nos testes de software registrados em `evidencias/2026-10-30-retomada`. O aluno confirmou que ainda não tem hardware e ainda não validou o iPhone. A autorização para commits/pushes foi dada nesta sessão e a base foi efetivamente enviada ao GitHub, sem criar histórico retroativo.
+
+Foi implementado o contrato GET do histórico em etapa pequena, preservando arquitetura, banco, migrations e interface. Foram usados dados fixture explicitamente identificados em banco isolado; os resultados de software não comprovam medições físicas. O plano está em `plano-continuidade-2026-10-30.md`, o contrato no README e os resultados da nova verificação em `evidencias/2026-10-30-historico`. O aluno deve estudar, reproduzir, revisar e declarar a assistência conforme as normas da instituição.
+
 Registrar data, ferramenta/modelo quando conhecido, objetivo da assistência, arquivos afetados, decisões revisadas pelo aluno, comandos/testes reproduzidos e limitações. Não preencher retroativamente atividades que não tenham ocorrido.

@@ -2,13 +2,15 @@
 
 Documento de transferência de contexto do projeto, elaborado a partir dos arquivos presentes no repositório em 30/10/2026. Ele descreve implementação e evidências existentes, não substitui a leitura do código. Resultados registrados em `docs/evidencias/` são resultados históricos de execuções identificadas principalmente em 13, 15, 17 e 19/10/2026; não foram repetidos nesta tarefa de documentação.
 
+Atualização de desenvolvimento em 30/10: a base foi novamente executada e validada, Git/GitHub regularizados com autorização do usuário, e a API do histórico foi implementada em incremento separado. Ver seções abaixo, `docs/retomada-2026-10-30.md` e `docs/plano-continuidade-2026-10-30.md`; o parágrafo anterior descreve a elaboração documental inicial.
+
 ## 1. Objetivo e escopo do TCC
 
 ICEPLAY é um TCC de Ciência da Computação para monitoramento IoT de geladeiras comerciais. O núcleo proposto é cadastrar equipamentos, receber temperatura e estado da porta, registrar tanto o instante informado pelo emissor quanto o instante de recebimento pela API, persistir os dados, apresentá-los no navegador e evoluir para alertas de condições anormais e ausência de leituras.
 
 O prazo informado para versão completa é 24/11/2026, com apresentação/validação em 01/12/2026. O professor exige demonstração funcional e evidências concretas, não somente código.
 
-Escopo atualmente implementado: cadastro de geladeiras, saúde real do banco, ingestão de leituras, simulador, consulta da última leitura por origem, painel responsivo e modo de acesso local por iPhone. Escopo futuro: histórico paginado, limites configuráveis, alertas, ausência de leituras, firmware e ensaio físico. Controle por voz e notificações externas não são prioridade.
+Escopo atualmente implementado: cadastro de geladeiras, saúde real do banco, ingestão de leituras, simulador, consulta da última leitura por origem, painel responsivo, API de histórico paginado e modo de acesso local por iPhone. Escopo futuro: tela do histórico, limites configuráveis, alertas, ausência de leituras, firmware e ensaio físico. Controle por voz e notificações externas não são prioridade.
 
 ## 2. Arquitetura e tecnologias
 
@@ -45,7 +47,7 @@ Pacotes NuGet diretos: `Microsoft.EntityFrameworkCore.Sqlite` e `Microsoft.Entit
 | `.tools/` | SDK, caches, bancos e segredos/artefatos móveis locais; ignorados pelo Git. |
 | `README.md` | Instruções de execução, API, simulador, verificações e limitações. |
 
-Não havia `AGENTS.md` nem `CONTEXTO_ICEPLAY.md` antes desta documentação. O Git foi inicializado, mas `git log` não retornou commits; há arquivos já preparados/staged e arquivos não rastreados no estado de trabalho. Não houve remoto, push ou publicação comprovados.
+Na elaboração inicial deste contexto, não havia commits/remoto. Na retomada de 30/10 o usuário autorizou commits/pushes rotineiros e foi configurado `origin` para `https://github.com/otavioscaires-code/iceplay-tcc.git`. O primeiro commit real, `a788f2b`, registra a base revalidada; foi enviado na branch `codex/retomada-historico`. Não houve criação de histórico retroativo. Consultar `git log/status` para os commits posteriores.
 
 ## 4. Funcionalidades implementadas
 
@@ -55,6 +57,7 @@ Não havia `AGENTS.md` nem `CONTEXTO_ICEPLAY.md` antes desta documentação. O G
 - Persistência SQLite por EF Core, com duas migrations e execução de migrations automática apenas em Development.
 - Ingestão de temperatura, porta, origem e timestamp de medição; timestamp de recebimento é produzido pelo servidor.
 - Consulta de uma leitura por geladeira para uma origem selecionada, usando maior `medidoEmUtc` e maior ID no empate.
+- API de histórico `GET /api/leituras`, filtrada por geladeira/origem/período UTC, com paginação de até 100 itens e ordenação por medição/ID decrescentes; a tela ainda está pendente.
 - Painel responsivo para desktop/celular, filtro de origem Simulação/Hardware declarado, atualização automática a cada 15 segundos quando visível e referência visual de leitura desatualizada após mais de 60 segundos.
 - Interface para cadastro, edição e exclusão de geladeiras integrada à API, e apresentação de saúde real da API/banco.
 - Simulador PowerShell que envia para a mesma API do hardware planejado e não acessa SQLite diretamente.
@@ -72,7 +75,7 @@ Evidências de 19/10 registram build sem avisos/erros, verificadores de API, per
 ## 6. Funcionalidades pendentes
 
 1. Validar acesso no iPhone físico na mesma rede, seguindo `docs/acesso-iphone.md`; aplicar regra de firewall somente com autorização/administração local.
-2. Histórico de leituras com filtros de equipamento, origem e período, paginação na API e apresentação na interface.
+2. Apresentar na interface a API de histórico já implementada, com filtros de equipamento, origem e período e navegação paginada.
 3. Definir com o orientador limites de temperatura, tolerância/critério de porta aberta e política de ausência de leituras.
 4. Criar configuração persistida de limites, regras de negócio, entidade/registro de alertas e tela de consulta, em incrementos separados.
 5. Desenvolver firmware ESP32 e integração do DS18B20 e sensor magnético, preservando o contrato HTTP já existente ou versionando-o de modo compatível.
@@ -93,6 +96,7 @@ Todas as rotas são relativas ao host local (`http://localhost:5080` no modo com
 | `PUT /api/geladeiras/{id}` | 200 | Substitui nome/localização editáveis. ID ausente: 404. |
 | `DELETE /api/geladeiras/{id}` | 204 | Exclui geladeira sem leituras; ID ausente: 404; com leituras: 409. |
 | `POST /api/leituras` | 201 + Location | Cria leitura vinculada a geladeira existente. Geladeira ausente: 404. |
+| `GET /api/leituras?geladeiraId=1&origem=Simulacao` | 200 | Histórico; `inicioUtc`/`fimUtc` opcionais inclusivos UTC Z, `pagina=1`, `tamanhoPagina=50` (1..100). Resposta com filtros, totais e `itens`. Geladeira ausente: 404, entrada inválida: 400, banco indisponível: 503. |
 | `GET /api/leituras/{id}` | 200 | Uma leitura; ID ausente: 404. |
 | `GET /api/monitoramento?origem=Simulacao` | 200 | `{ consultadoEmUtc, origem, geladeiras }`; cada item inclui `ultimaLeitura` ou `null`. Também aceita `Hardware`. Origem inválida/ausente: 400. |
 | `GET /api/acesso` | 200 | Estado do acesso móvel e token CSRF quando necessário. |
@@ -125,7 +129,7 @@ Todas as rotas são relativas ao host local (`http://localhost:5080` no modo com
 
 `geladeiraId` é inteiro positivo existente; `temperaturaC` precisa ser número JSON finito; `portaAberta` é booleano; `origem` é exatamente `Simulacao` ou `Hardware`. `medidoEmUtc` exige ISO 8601 UTC com sufixo `Z`, segundos e até sete casas decimais, e não pode ser posterior ao recebimento. Leituras atrasadas são aceitas. A resposta inclui `id`, os campos recebidos, `recebidoEmUtc` UTC gerado pela API e `origem`. Campos extras de ID/recebimento são ignorados.
 
-Entradas inválidas e JSON malformado retornam 400, normalmente `ValidationProblemDetails`; erros reconhecidos de persistência retornam 503 genérico. Não existe `GET /api/leituras` de coleção, nem `DELETE /api/leituras`.
+Entradas inválidas e JSON malformado retornam 400, normalmente `ValidationProblemDetails`; erros reconhecidos de persistência retornam 503 genérico. Existe `GET /api/leituras` de histórico, com `geladeiraId` e `origem` obrigatórios. A resposta é `{geladeiraId, origem, inicioUtc, fimUtc, pagina, tamanhoPagina, totalItens, totalPaginas, itens}`. A contagem e a página usam a mesma transação de leitura; novas inserções podem deslocar páginas entre requisições. Não existe `DELETE /api/leituras`.
 
 ## 8. Banco SQLite e entidades
 
@@ -220,12 +224,12 @@ O hardware planejado é ESP32 + sensor de temperatura DS18B20 + sensor magnétic
 
 - Não há validação física no iPhone/Safari, regra de firewall aplicada, certificado confiado no aparelho, ESP32, DS18B20 ou sensor magnético.
 - Não há autenticação de ESP32, usuário individual, controle de perfis, implantação pública, HTTPS público ou acesso externo.
-- Não há histórico paginado, filtros de histórico, alertas, regras persistidas, notificações, dashboard agregado de alertas ou exclusão de leituras.
+- Não há tela de histórico, alertas, regras persistidas, notificações, dashboard agregado de alertas ou exclusão de leituras. A API do histórico já existe.
 - Não há faixa física aceita de temperatura; apenas rejeição de números não finitos. Limites devem ser definidos com o orientador.
 - A lista do painel não é paginada e traz uma única última leitura por equipamento/origem.
 - Cookies/sessão móvel são deliberadamente efêmeros e expiram em até 8 horas; reiniciar a API invalida sessão.
 - O IP local pode mudar, exigindo nova preparação de modo móvel. Não se deve ignorar aviso de certificado.
-- Há documentação/evidências históricas e código staged sem commits; revisar o estado antes de uma primeira confirmação de versionamento. Não realizar commit sem autorização.
+- Há autorização para commits/pushes rotineiros validados desde 30/10 e repositório remoto configurado. Preservar segredos e o banco local, e revisar o estado antes de cada commit.
 
 ## 13. Testes e evidências existentes
 
@@ -236,7 +240,7 @@ Os relatórios de 19/10 registram, entre outros, build sem avisos/erros, 807 ass
 ## 14. Próximas tarefas por prioridade
 
 1. **Validar o fluxo no iPhone físico:** mesma Wi-Fi, firewall restrito, certificado, login, consulta/painel e registro de evidência. Não inventar essa validação antes de executá-la.
-2. **Histórico:** definir contrato `GET` paginado, filtros por geladeira/origem/período, testes de API/persistência e depois interface responsiva.
+2. **Histórico:** usar o contrato `GET` paginado já implementado e testado para construir a interface responsiva, com testes de fluxo e estados de erro/vazio.
 3. **Regras e alertas:** definir critérios com o orientador; criar modelo/migration, avaliação de novas leituras e consulta de alertas, cada parte com testes.
 4. **Hardware:** construir firmware ESP32/DS18B20/sensor magnético, definir identificação/autenticação e executar ensaios reais documentados.
 5. **Refinamento e entrega:** renderizar UML, atualizar manual/README, organizar evidências, revisão de segurança/usabilidade e preparar demonstração de 01/12.
@@ -250,3 +254,11 @@ Os relatórios de 19/10 registram, entre outros, build sem avisos/erros, 807 ass
 - `docs/etapa-2026-10-19.md`, `docs/etapa-painel-2026-10-19.md` e `docs/etapa-mobile-2026-10-19.md`: decisões, comandos e resultados documentados das últimas etapas.
 - `docs/uso-de-ia.md`: registro de uso responsável de IA.
 - `AGENTS.md`: regras para a próxima sessão/agente.
+
+## 16. Resultado da retomada de desenvolvimento de 30/10
+
+A base foi revalidada de verdade: build 0 avisos/erros; base 13 verificações; cadastro 807 asserções/177 requisições; leituras 339/75; painel 70/29 e simulador; móvel 82/61; Node 20 testes; SQLite independente 12 verificações. Evidências em `docs/evidencias/2026-10-30-retomada`.
+
+O primeiro incremento foi somente a API do histórico, sem migration/dependência nova. O verificador final passou com 145 asserções/68 requisições (`docs/evidencias/2026-10-30-historico/final/historico-api.json`); a regressão de leituras passou com 339/75 na segunda tentativa, e a móvel ampliada com 89/66. A primeira regressão de leituras foi interrompida por bloqueio de escrita de um JSON de evidência, foi preservada e não é registrada como aprovação. Não foi possível determinar o processo que bloqueou o arquivo. O banco normal manteve o mesmo hash lógico e conteúdo, comprovado em `preservacao-banco-uso.json` dessa rodada.
+
+Arquivos novos: `Contracts/ConsultarHistoricoRequest.cs`, `Contracts/HistoricoLeiturasResponse.cs`, `scripts/verify-historico.ps1`; o GET foi adicionado a `LeiturasController`. O verificador móvel cobre também a proteção da nova rota. Ver `docs/etapa-historico-2026-10-30.md` para comandos e limitações. A próxima tarefa é a interface responsiva do histórico; depois configurações, regras e alertas. Hardware ainda não adquirido e iPhone ainda não validado conforme resposta do aluno nesta sessão.

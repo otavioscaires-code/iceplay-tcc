@@ -2,7 +2,7 @@
 
 Etapa de referência: **17/10/2026**. Este registro descreve o código atual de ingestão, consulta individual e simulador. Os diagramas são fontes Mermaid; este documento não comprova execução, renderização ou ensaio com sensores físicos.
 
-O backend permanece uma única aplicação ASP.NET Core, com Entity Framework Core e SQLite. O simulador envia HTTP para a mesma API prevista para o hardware. A página web gerencia geladeiras, verifica a saúde e, desde a [etapa do painel de 19/10](etapa-painel-2026-10-19.md), apresenta a última leitura por geladeira/origem. Histórico e alertas permanecem futuros. O contrato de ingestão descrito abaixo foi preservado.
+O backend permanece uma única aplicação ASP.NET Core, com Entity Framework Core e SQLite. O simulador envia HTTP para a mesma API prevista para o hardware. A página web gerencia geladeiras, verifica a saúde e, desde a [etapa do painel de 19/10](etapa-painel-2026-10-19.md), apresenta a última leitura por geladeira/origem. Em 30/10 foi acrescentada a [API de histórico paginado](etapa-historico-2026-10-30.md); sua interface e os alertas permanecem pendentes. O contrato de ingestão descrito abaixo foi preservado.
 
 ## 1. Entrada da API
 

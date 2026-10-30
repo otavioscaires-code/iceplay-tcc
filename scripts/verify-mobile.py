@@ -115,7 +115,8 @@ def main():
             request(secure, asset, 200)
         for path, method in (("/api/health", "GET"), ("/api/geladeiras", "GET"), ("/api/geladeiras/1", "GET"),
                              ("/api/geladeiras", "POST"), ("/api/geladeiras/1", "PUT"), ("/api/geladeiras/1", "DELETE"),
-                             ("/api/leituras", "POST"), ("/api/monitoramento?origem=Simulacao", "GET")):
+                             ("/api/leituras", "POST"), ("/api/leituras?geladeiraId=1&origem=Simulacao", "GET"),
+                             ("/api/monitoramento?origem=Simulacao", "GET")):
             request(secure, path, 401, method)
         public_cert, _ = request(bootstrap, "/certificado.cer", 200, opener=plain)
         check(hashlib.sha256(public_cert).digest() == hashlib.sha256(Path(settings["PublicCertificatePath"]).read_bytes()).digest(), "Porta HTTP entrega somente o certificado público esperado")
@@ -173,12 +174,16 @@ def main():
         snapshot, _ = request(secure, "/api/monitoramento?origem=Simulacao", 200)
         last = snapshot["geladeiras"][0]["ultimaLeitura"]
         check(last["temperaturaC"] == 4.25 and last["portaAberta"] and last["origem"] == "Simulacao", "Consulta HTTPS enxerga a leitura persistida enviada pelo simulador")
+        history_path = f"/api/leituras?geladeiraId={parent}&origem=Simulacao"
+        history, _ = request(secure, history_path, 200)
+        check(history["totalItens"] == 2 and history["itens"][0]["id"] == last["id"], "Historico autenticado HTTPS consulta as duas leituras da mesma API")
         request(secure, f"/api/geladeiras/{parent}", 409, "DELETE", headers=csrf)
         empty, _ = request(secure, "/api/geladeiras", 201, "POST", {"nome": "FIXTURE MOBILE EXCLUIR"}, csrf)
         request(secure, f'/api/geladeiras/{empty["id"]}', 204, "DELETE", headers=csrf)
         request(secure, f'/api/geladeiras/{empty["id"]}', 404)
         request(secure, "/api/acesso/sair", 204, "POST", headers=csrf)
         request(secure, "/api/geladeiras", 401)
+        request(secure, history_path, 401)
         session, _ = request(secure, "/api/acesso", 200)
         check(not session["autenticado"], "Saída remove a autenticação deste cliente")
         csrf = {"X-ICEPLAY-CSRF": session["csrfToken"]}
@@ -186,6 +191,7 @@ def main():
         stop()
         start("restart")
         request(secure, "/api/geladeiras", 401)
+        request(secure, history_path, 401)
         check(True, "Reiniciar o servidor invalida a sessão anterior")
         session, _ = request(secure, "/api/acesso", 200)
         csrf = {"X-ICEPLAY-CSRF": session["csrfToken"]}
@@ -194,6 +200,8 @@ def main():
         check(persisted["nome"] == "FIXTURE MOBILE EDITADA", "Cadastro editado permanece após reiniciar")
         snapshot, _ = request(secure, "/api/monitoramento?origem=Simulacao", 200)
         check(snapshot["geladeiras"][0]["ultimaLeitura"]["id"] == last["id"], "Última leitura permanece após reiniciar")
+        persisted_history, _ = request(secure, history_path, 200)
+        check(persisted_history == history, "Historico HTTPS permanece apos reinicio e nova autenticacao")
         request(secure, "/api/acesso/sair", 400, "POST", headers=csrf)
         session, _ = request(secure, "/api/acesso", 200)
         csrf = {"X-ICEPLAY-CSRF": session["csrfToken"]}

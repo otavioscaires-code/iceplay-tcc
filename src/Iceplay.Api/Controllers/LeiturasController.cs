@@ -11,6 +11,43 @@ namespace Iceplay.Api.Controllers;
 [Route("api/leituras")]
 public sealed class LeiturasController(IceplayDbContext database) : ControllerBase
 {
+    [HttpGet]
+    public async Task<ActionResult<HistoricoLeiturasResponse>> ConsultarHistorico(
+        [FromQuery] ConsultarHistoricoRequest request,
+        CancellationToken cancellationToken)
+    {
+        var geladeiraId = request.GeladeiraId!.Value;
+        var origem = request.Origem == nameof(OrigemLeitura.Simulacao)
+            ? OrigemLeitura.Simulacao : OrigemLeitura.Hardware;
+        var inicio = request.ObterInicioUtc();
+        var fim = request.ObterFimUtc();
+
+        // Existência, contagem e página compartilham a mesma visão do SQLite.
+        // A transação diferida começa com leitura, sem reservar escrita para um GET.
+        await database.Database.OpenConnectionAsync(cancellationToken);
+        await using var transaction = ((SqliteConnection)database.Database.GetDbConnection()).BeginTransaction(deferred: true);
+        await using var efTransaction = await database.Database.UseTransactionAsync(transaction, cancellationToken);
+        if (!await database.Geladeiras.AsNoTracking().AnyAsync(item => item.Id == geladeiraId, cancellationToken))
+            return GeladeiraNaoEncontrada();
+
+        var consulta = database.Leituras.AsNoTracking()
+            .Where(item => item.GeladeiraId == geladeiraId && item.Origem == origem);
+        if (inicio.HasValue) consulta = consulta.Where(item => item.MedidoEmUtc >= inicio.Value);
+        if (fim.HasValue) consulta = consulta.Where(item => item.MedidoEmUtc <= fim.Value);
+
+        var total = await consulta.LongCountAsync(cancellationToken);
+        var deslocamento = checked((int)((request.Pagina - 1L) * request.TamanhoPagina));
+        var leituras = await consulta.OrderByDescending(item => item.MedidoEmUtc)
+            .ThenByDescending(item => item.Id)
+            .Skip(deslocamento).Take(request.TamanhoPagina)
+            .ToListAsync(cancellationToken);
+        await transaction.CommitAsync(cancellationToken);
+
+        return Ok(new HistoricoLeiturasResponse(geladeiraId, request.Origem!, inicio, fim,
+            request.Pagina, request.TamanhoPagina, total, (total + request.TamanhoPagina - 1) / request.TamanhoPagina,
+            leituras.Select(ParaResposta).ToList()));
+    }
+
     [HttpPost]
     public async Task<ActionResult<LeituraResponse>> Criar(
         CriarLeituraRequest request,
