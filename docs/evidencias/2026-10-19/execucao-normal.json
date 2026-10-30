@@ -1,0 +1,10 @@
+{
+  "verifiedAtUtc": "2026-10-19T15:19:39.4624934Z",
+  "scope": "Somente GET no banco normal, sem fixtures",
+  "health": {
+    "status": "healthy",
+    "database": "connected",
+    "refrigeratorCount": 0,
+    "checkedAtUtc": "2026-10-19T15:19:39.344047Z"
+  }
+}

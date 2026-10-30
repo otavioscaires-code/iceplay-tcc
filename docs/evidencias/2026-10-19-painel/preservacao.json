@@ -1,0 +1,485 @@
+{
+  "result": "passed",
+  "verifiedAtUtc": "2026-10-19T16:21:12.0132416Z",
+  "protectedFileCount": 119,
+  "method": "SHA-256 comparado ao registro capturado antes das alterações",
+  "differences": [],
+  "files": [
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\global.json",
+      "Hash": "CE61F5AE207D33D00594C77C5999C7F0DC66434E85A85F38090335D588438974"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\NuGet.Config",
+      "Hash": "AEC93B5637AB6D62470979A008990A4A336A287AB83A3F2541849AE735674055"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\.config\\dotnet-tools.json",
+      "Hash": "8FFF2D5078C590B5233A87DC47CEA2F10F7FEA99894BC6E5C02C03D2BDC7B8D4"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Iceplay.Api.csproj",
+      "Hash": "1395E91B1AB66608960922136801169DFBA0AA60B48EB667B9B2A3977F801862"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\packages.lock.json",
+      "Hash": "B9A50D73B6E90EC6349DF032AF161D7A1DFDA18C7EA48E4A26D5B516C6A9F4A1"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Program.cs",
+      "Hash": "D5CCC3F7ED6E9E764D9894ABDFC6FC4E746CDC392E5E50DC583209B2603E2E5D"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Data\\IceplayDbContext.cs",
+      "Hash": "01696DE4AD5726E899FA969710882D4065C1865C394D9953ADEA82477385D2E9"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Models\\Geladeira.cs",
+      "Hash": "76BBB6F37338E5455582284639317821C328E92FEB8CCA63438B6C8C533B4FD2"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Models\\Leitura.cs",
+      "Hash": "6C9A0CB8A170F93F0B196C0F888A0C0E9D2D41B486167E54BA5381B38844ED52"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Models\\OrigemLeitura.cs",
+      "Hash": "0B493BA6E0CB56B260A5EADCC548F613163FC2459891773458723EAC5F0A326F"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Controllers\\GeladeirasController.cs",
+      "Hash": "DE93E47F9A1F13BD4231D56821C133DE06F0EA81C649F65BA6C46E25F18E2775"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Controllers\\LeiturasController.cs",
+      "Hash": "A8CC79DE535CFFA4DA1FF700DCF22C6275C40A880681015D087519773EDABD6B"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Controllers\\HealthController.cs",
+      "Hash": "60B6BA55BDE0E2459EBBA2DA2E6858DEEE1DB2F36E9AB62AF53BB9E2775CE8AB"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\appsettings.json",
+      "Hash": "351DE7CCD15B5AD5A539C2FA5A648BA51E7D5AAA9D8F37F0694FFCBDC86F07F0"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Properties\\launchSettings.json",
+      "Hash": "093D7E7355DE5DE220CDFCDE68C3A058BDBD33E43E597870ED2F0211A01787C3"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\scripts\\verify.ps1",
+      "Hash": "A3D840F64B281BC9AA8CD51661B7A4D7B42986BE0C2ED7AB0E5A8F13B095A532"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\scripts\\verify-geladeiras.ps1",
+      "Hash": "32A3A6A27443E3830C1F31CF713D548E96351674334E8D3DBEF592754C01A25E"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\scripts\\verify-leituras.ps1",
+      "Hash": "57AE66D8EDFA4E7EB3972DFD39D140B939D5C345A8A0C3BE883FC2641ED5513E"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\scripts\\verify-database.py",
+      "Hash": "0416520A78CBC5DFED2A74F9266E685D8DD83FAB6332D9376C773331B457A723"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\tools\\simulator\\enviar-leituras.ps1",
+      "Hash": "A7B67BD7D1471463E95F75EA53E636B5317DEAC63EB2FFC6508E2D4559D01701"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Migrations\\20261013172101_InitialCreate.cs",
+      "Hash": "1DE4F910BC32F2B63A271F2332410EB94C7F77AEB8ABEBB2B2939B4149C31B66"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Migrations\\20261013172101_InitialCreate.Designer.cs",
+      "Hash": "172E2F34DCC1F342638523C951DE08A9AE88CEA9DA1772C10297BD0662C4A1CB"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Migrations\\20261018023456_AddLeituras.cs",
+      "Hash": "6492354CF6B167998A82280C039EA8E31975818738A47792A7206BE6D1B4742E"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Migrations\\20261018023456_AddLeituras.Designer.cs",
+      "Hash": "6070E9B145A5F6A7F50EC551F050A8D00E0D737E844A925ED155923151BBC148"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Migrations\\IceplayDbContextModelSnapshot.cs",
+      "Hash": "33F2E071A6AFD237E4526D9A9D1AD1F0C7F48C18299BBB7B91515F1DEC7F4536"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\browser.json",
+      "Hash": "0E75041B0C3DC97970721C0561AE7E259121C62E324EC8AE72F9AB64578CAAD7"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\build.log",
+      "Hash": "7C0B254D38D17303BEF2357B095A36AD1E48F2C8582FB43FE7BB8191CED59CE5"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\database-latest.json",
+      "Hash": "73880F9CD93E092B0FB15BA0D0E2E9DB7484D28F3A2E51C53D68FCA8A7D245F8"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\dotnet-info.txt",
+      "Hash": "C5CCA128A9DD968321A45090D6EF6806C1EE889B3AD9381BD00B074E7DDB357D"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\missing-schema.log",
+      "Hash": "53DBA13C80AA933E311CCBEE703B6E40B97BCED677EA0F8CB89329D5A15DAEB9"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\smoke-latest.json",
+      "Hash": "C88A384DE592A4BA4977CDE033965CE9652CA72B78474DC90B55EE6AF35D202F"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\startup.log",
+      "Hash": "2461D0DB6F67D147EA15C45B1E15330D4F77C839799B8548C2E505FA5C819D62"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\tela-desktop.jpg",
+      "Hash": "28D0CE032369775D8A33E176ED43F92328057AC6FDE5DA5D4FDE60203EA2EA2F"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\tela-mobile.jpg",
+      "Hash": "DA509A6BC4A667D595D207B4475BE123C046C90CA78490F1EA0705B18C758C67"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\base-verification.log",
+      "Hash": "5A6B80583B7A99E3E5BFD7857EC42D9CE2240D47217660279011C25E3E45068B"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\browser.json",
+      "Hash": "46EA03A136A90B9B815F64ECD81C48D51FD3D180ED9405FDE9B7E467BDF1F38F"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\build.log",
+      "Hash": "00EE82471CA89CD00190E3E231B3862408666597F138AFDEFBCD0F3A2D1BF00A"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\cadastro-desktop.jpg",
+      "Hash": "9553F35347D8AE1BF2209D519A98F85C5573E195763713F53BCEB677F2A023C8"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\cadastro-mobile.jpg",
+      "Hash": "322BF4F0B38ED2B617B61A528290607D8BA3D12BAFA96BC78CA982237255733D"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-api.json",
+      "Hash": "AF3BA5BFEA487571CA9F9FE795356EB4E96E7485981384D22ECDAB133808181B"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-attempt-1.json",
+      "Hash": "85DC27BF87733C88F9CCF4B3E9C5A1D924A5604F7560A35CEE689F4859F7E43E"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-attempt-1.log",
+      "Hash": "B4E127D80BAE3E82C3ECC10C9F3AB36DBAC7FFF00DF7960CF08541001CF1BF0B"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-migrations-list.log",
+      "Hash": "7C4ABDD3C33DB195A746D3C6F35F9AB4D6001C0F6FD897421B74EA3D4CEBBCD4"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-missing-schema.stderr.log",
+      "Hash": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-missing-schema.stdout.log",
+      "Hash": "44B22FACABBB588ECAEE5265E8A8E0F8B0779C9B799511904CB6D8E7855B2654"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-restart.stderr.log",
+      "Hash": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-restart.stdout.log",
+      "Hash": "80209B4C631BF2C3B5BAFE58120622210D651D075BFAF58D05A7010A8865963B"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-startup.stderr.log",
+      "Hash": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-startup.stdout.log",
+      "Hash": "619793C31850DBF46E4083562C73CB8A19A01BA510122129DE5F7F8A5684A8D0"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-verification.log",
+      "Hash": "00EE82471CA89CD00190E3E231B3862408666597F138AFDEFBCD0F3A2D1BF00A"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\database.json",
+      "Hash": "FF8FF38BA26E8E8D75ED23FB1EED9D5D51C86565F8458A45A80E25CE1CCD18BC"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\execucao-normal.json",
+      "Hash": "38875B7A5E960276600A777AE0F0E1C18A729C20C6DB76D1EFFA015253214819"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\preservacao.json",
+      "Hash": "6F980B22A2F5DA83F9D747AA957103DB3A22840B264DB9B3A851C5924ED46CE9"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\setup.log",
+      "Hash": "471EE292DB50D2CA8AADFEE9D143427FB3291681DB6CB68186F325411C227096"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\ui-restart.log",
+      "Hash": "D19A36266360440E9D75A3DDDC360B00F1F11F88450BBF8552C2C28AACCD7225"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\ui-server.log",
+      "Hash": "BF9E5B4651B7E406F130CB145160528E3B1ACD8AA25C10EEB6AA830E9066AD6B"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\base\\smoke-latest.json",
+      "Hash": "0E33EFA51B0D057971C11A56821880E8F0162A8B25122D36243755ECE8205DF3"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\base-verification.log",
+      "Hash": "E8057040FF7A57D16534FFBECC0DE32BF43FC74D0844760672EEF206E728DFAB"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\browser.json",
+      "Hash": "C3F89A3B18430AE682D19712DA09926BB8EA0696EC4065A018667A2F16D46EA9"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\build.log",
+      "Hash": "5D89D037F90ED491A020F9F93F5641548AF063AE1072C45C49DD08E0F2C027E4"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\cadastro-desktop.jpg",
+      "Hash": "B8596062D1FBD618C1B955D5A596C121477C0CD76C4470594B4E325AD86642EF"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\cadastro-mobile.jpg",
+      "Hash": "A59B01068F06F0B722DB43CB3AAF2B4DFC21B12F1AFC008456852826E147C246"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\crud-api.json",
+      "Hash": "0DDCF9F63C8430B39BD0763C41E43297EACB4E1FCA5AABB45BBE5E8CFAE8F233"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\crud-migrations-list.log",
+      "Hash": "6CB90552CA9CC40484582578DF84FEEA35186C02635015BAF4DCD773B3C7DC0D"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\crud-missing-schema.stderr.log",
+      "Hash": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\crud-missing-schema.stdout.log",
+      "Hash": "73BAF7440263A638F354602A48C5312FC81662B38D53969E9FBDF6BB5EB42742"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\crud-restart.stderr.log",
+      "Hash": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\crud-restart.stdout.log",
+      "Hash": "B8D8AEC6CE2F4817B410CE1C4104DE30F891E3AAC3DF9EFE8DF98AFBA4E93A5A"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\crud-startup.stderr.log",
+      "Hash": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\crud-startup.stdout.log",
+      "Hash": "6E7BD109B84B1F2B1C9ABE496A7F7CC0912E9E7505E6D44887DEECEBBA920E16"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\crud-verification.log",
+      "Hash": "E874FEEDB4219B197C5B38B39B9F35026D8B29B824FA5D701DEBF1A00B7216DA"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\database.json",
+      "Hash": "A9DE27F0F323C6D6F8C5D21C30C5F6D1C36E546E114B13325581187F91F6E514"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\execucao-normal.json",
+      "Hash": "5B1AD3A90A22E4C8E6F910B2CC9B7F0E04B95F6786A51CB44C7E5AA3B4313B06"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\execucao-normal.log",
+      "Hash": "3649AC9E9EF45C90B22E72306C695BA9E28394996A60FA79590D1F5A315F3A6A"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\modelo-pendente.log",
+      "Hash": "C924DA1693AD60EB6A78717DDD333946A8A61A056C2CE2868AE514384F01C866"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\preservacao-evidencias-15.json",
+      "Hash": "3DCCD193A40742329D8694BB5618F459A0FE6421B8039B1A20DFC7380301C8E2"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\preservacao.json",
+      "Hash": "39397B8398F8AA5E964B7903BC6720781CC81EA72FC6D80BCF6804C54DD7D6B3"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\setup.log",
+      "Hash": "5A8E3452D2360B5BA2DD1BEC11CD3B9D0E523BE43E0670EC458EBDAB3A0E4585"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\ui-restart.log",
+      "Hash": "D1B8276B1CA66AD1E10ED579CCCA4EBA91DBA71AB036EA2F7BF36527C2A53E13"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\ui-startup.log",
+      "Hash": "1307622221342D6963F99E3033E2463651FE7AE12CEA6BD566F92F35C4931F2A"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17\\base\\smoke-latest.json",
+      "Hash": "BC3777ED216906C4EBF5B6160C9EAC466C2F1FABD082E1A9901E0BF97B624348"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17-leituras\\base-verification.log",
+      "Hash": "F5822512061DA2F6D99BF1F4B28B1D23CAAEDB90C66582178C08D1FB11A1FDEA"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17-leituras\\cadastro-verification.log",
+      "Hash": "6CAF86C60C046757B50B54C5C191E217377064863D7ABF1EE83F301C743FFBBC"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17-leituras\\migration-generation.log",
+      "Hash": "B74AF21E5D043AB82589A1812652A383B57CA549614073097ED722405FB2A36B"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17-leituras\\setup.log",
+      "Hash": "A101FF97C8460CE7F8D1E402C1CAD47D276F44A978E447B16E4AE580DF1C54F5"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17-leituras\\sintaxe-powershell.json",
+      "Hash": "615EFC1025A23F3860EF30E3D28D1F4B376165250CCADEAC90492497EDABB3AC"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17-leituras\\base\\smoke-latest.json",
+      "Hash": "0AAFC19F8FC1B198B835064FADB5C6C9B9162108A19DC52D56A57D39BCCDA26A"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17-leituras\\cadastro\\build.log",
+      "Hash": "7605FE2BF1832B9DF48BCD270E0C97CC6A662EC10668F5AB38150FACA623D34F"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17-leituras\\cadastro\\crud-api.json",
+      "Hash": "C4DEFD18C86D6BB9D557CC3DB9B9CD3F41F09B4F01E157341257C0306496C733"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17-leituras\\cadastro\\crud-migrations-list.log",
+      "Hash": "566B1F0B0775E57BC37335D529DC71EF70E4EF4DE7C5E0D9BCDC6EDAD3DF0A33"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17-leituras\\cadastro\\crud-missing-schema.stderr.log",
+      "Hash": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17-leituras\\cadastro\\crud-missing-schema.stdout.log",
+      "Hash": "55617E708C0B75EE2C9FA0BA14E6DA168CE7A1B1255ACC8AE73DD9B2375DBC42"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17-leituras\\cadastro\\crud-restart.stderr.log",
+      "Hash": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17-leituras\\cadastro\\crud-restart.stdout.log",
+      "Hash": "A62942BDBE73F8C52803260080C5182D1EC700E88DDE9FD882ADD90E5A9CDEA6"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17-leituras\\cadastro\\crud-startup.stderr.log",
+      "Hash": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-17-leituras\\cadastro\\crud-startup.stdout.log",
+      "Hash": "EAF17B82AE04068BE9ECD4D7FC99015EF920654BC55E13E82A06C8FD50B1ADE1"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\backup-normal.json",
+      "Hash": "39AB318BACE16C46D0EED95D4D09581D3A17C89070836CAF26028C7BD3CE9FFF"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\build.log",
+      "Hash": "238642DF87567F983705D68FD467BCC8D68A6DF9F30C89491B01EE486CCB09B2"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\database.json",
+      "Hash": "C05271F8FBBEC7A9E288106D9921B2EFC308A8CD07B9F73E003825BBC1D343EE"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\execucao-normal.json",
+      "Hash": "50005FCE14A250184D5CB93935B9E1EC76438DA5E70DB2EDC2F6BE39D8DFDDB1"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\execucao-normal.log",
+      "Hash": "11147F182F60D0043DA7DEA8F50C4A52B4FF2A1C5D51A1DB1AE06F15BC83FC6C"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\leituras-after-upgrade.json",
+      "Hash": "BB3C524F24F79DF786B5EAB0EEBDB00EE8C2C6C054560611CA58CC177DB7181E"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\leituras-api.json",
+      "Hash": "AF6E1EB568EB34551AB9F668C02C92CBAEEC1CFA10A9F610122CA8E540F0BF02"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\leituras-before-upgrade.json",
+      "Hash": "B260763D57A2750F9EF57016F0F32AC652F17DE43C30EACB6A9677A880563A30"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\leituras-count-latest.json",
+      "Hash": "C1F49954EB5BF04A38E34845B7B6D66B634F8D507D54FD2543E15DF3F4853B31"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\leituras-final-database.json",
+      "Hash": "A1AD0F7AD59328EEE4BB5D4A213389A8B969ED09C620380AB9FB68323AC76A31"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\leituras-foreign-key.json",
+      "Hash": "A1AD0F7AD59328EEE4BB5D4A213389A8B969ED09C620380AB9FB68323AC76A31"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\leituras-initial-migration.stderr.log",
+      "Hash": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\leituras-initial-migration.stdout.log",
+      "Hash": "D827B08321773400495E92F52EB746FDFA85E49A638631338A13E16A5D46010A"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\leituras-missing-schema.stderr.log",
+      "Hash": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\leituras-missing-schema.stdout.log",
+      "Hash": "A1285B99B7E59B1D3CD6AF34EA374FD2F9DA91CC133AFD735A63145B8DBAC351"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\leituras-restart.stderr.log",
+      "Hash": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\leituras-restart.stdout.log",
+      "Hash": "DFE7D0EA9C8402B61CED031A398E09E87334922C4822DE6FC3D530C9EE725BD6"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\leituras-startup.stderr.log",
+      "Hash": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\leituras-startup.stdout.log",
+      "Hash": "5456F60B3FF1367502AE0C2F8C1BE6931F3515D2AC6EE331ADB34FF31B18D9E1"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\leituras-verification.log",
+      "Hash": "26D067E92FCD14C3A90DCB634FC925EE714E9FB2B97E7A65DF1E8974FECE4E5D"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\preservacao.json",
+      "Hash": "96B5BB9D2BEEC789FFB1ECFF93CFADB4B320567E83CDEC77152B6096D5CF521E"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\sql-creation.json",
+      "Hash": "587B1A2A43A7474F0D0E77619EC71005521DE73DFFAE2AD71A17BA8B76588F36"
+    },
+    {
+      "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-19\\ui-leituras.log",
+      "Hash": "BB4E00701E6D37CE826B690344B07A10E1065F11308EDBE98578481D952BFE57"
+    }
+  ]
+}

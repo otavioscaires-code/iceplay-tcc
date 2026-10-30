@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ICEPLAY: cadastro de geladeiras comerciais e recebimento de leituras por API, com simulador identificado.">
+  <meta name="theme-color" content="#102e43">
+  <title>ICEPLAY | Monitoramento de geladeiras</title>
+  <link rel="stylesheet" href="styles.css?v=20261019-mobile">
+  <script src="acesso.js?v=20261019-mobile" defer></script>
+  <script src="app.js?v=20261019-mobile" defer></script>
+  <script src="geladeiras.js?v=20261019-mobile" defer></script>
+  <script type="module" src="monitoramento.js?v=20261019-mobile"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="#inicio" aria-label="ICEPLAY, início">
+        <span class="brand-symbol" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M16 3v26M4.7 9.5l22.6 13M4.7 22.5l22.6-13M12 5l4 4 4-4M12 27l4-4 4 4M4.4 14l5.5-1.5L8.4 7M23.6 25l-1.5-5.5 5.5-1.5M8.4 25l1.5-5.5L4.4 18M27.6 14l-5.5-1.5L23.6 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>ICE<span class="brand-accent">PLAY</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#monitoramento">Painel</a>
+        <a href="#geladeiras">Geladeiras</a>
+        <a href="#base-tecnica">Base técnica</a>
+        <a href="#proximas-etapas">Próximas etapas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="container mobile-access" id="acesso-movel" aria-labelledby="access-title" hidden>
+      <p class="eyebrow">Acesso neste dispositivo</p>
+      <h2 id="access-title">Conectar ao ICEPLAY</h2>
+      <p>Use o código de acesso disponível no computador que está executando o projeto.</p>
+      <p id="access-status" role="status" aria-live="polite">Consultando a sessão…</p>
+      <form id="access-form">
+        <label for="access-code">Código de acesso</label>
+        <input id="access-code" name="codigo" type="password" required maxlength="128" autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="access-help">
+        <p id="access-help" class="field-help">O código autoriza consultas e alterações neste navegador. Ele não será salvo no armazenamento do navegador.</p>
+        <button class="button button-primary" id="access-submit" type="submit">Conectar dispositivo</button>
+      </form>
+      <button class="button button-secondary" id="access-logout" type="button" hidden>Sair deste dispositivo</button>
+    </section>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> IoT · Ciência da Computação</p>
+          <h1 id="hero-title">Monitoramento de geladeiras,<br><span>passo a passo.</span></h1>
+          <p class="hero-description">Acompanhe a última temperatura e o estado da porta registrados para cada geladeira. Confira a origem e os horários antes de interpretar os dados.</p>
+          <a class="button button-light" href="#monitoramento">Abrir painel <span aria-hidden="true">↗</span></a>
+          <p class="hero-footnote">Etapa atual <span aria-hidden="true">/</span> Painel de últimas leituras</p>
+        </div>
+
+        <aside class="health-panel" aria-labelledby="health-title" id="health-panel" aria-busy="false">
+          <div class="panel-heading">
+            <div>
+              <p class="overline">Verificação da aplicação</p>
+              <h2 id="health-title">Estado da base</h2>
+            </div>
+            <span class="status-pill" id="health-badge" data-state="unknown"><span class="status-dot" aria-hidden="true"></span><span id="health-badge-text">Não verificada</span></span>
+          </div>
+          <dl class="health-metrics">
+            <div><dt>API</dt><dd id="api-status">Não verificada</dd></div>
+            <div><dt>Banco SQLite</dt><dd id="database-status">Não verificado</dd></div>
+            <div><dt>Geladeiras cadastradas</dt><dd id="refrigerator-count">—</dd></div>
+          </dl>
+          <p class="health-message" id="health-message" role="status" aria-live="polite" aria-atomic="true">A conexão será consultada ao carregar a página.</p>
+          <button class="button button-primary" id="check-health" type="button">Verificar conexão <span aria-hidden="true">↻</span></button>
+          <p class="checked-at">Última verificação (hora local)<br><time id="checked-at">Ainda não consultado</time></p>
+          <noscript><p class="notice">Ative o JavaScript para consultar o estado da API e do banco.</p></noscript>
+        </aside>
+      </div>
+    </section>
+
+    <div class="container scope-note">
+      <span class="note-icon" aria-hidden="true">i</span>
+      <p><strong>Dados consultados na API e no SQLite.</strong> O simulador identifica seus envios como simulação. Não há ensaio com sensores físicos comprovado; histórico, limites e alertas serão desenvolvidos nas próximas etapas.</p>
+    </div>
+
+    <section class="section container monitoring-section" id="monitoramento" aria-labelledby="monitoramento-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Monitoramento</p>
+          <h2 id="monitoramento-title">Últimas leituras.</h2>
+        </div>
+        <p>Uma leitura por geladeira, escolhida pelo horário da medição na origem selecionada.</p>
+      </div>
+      <div class="monitor-toolbar">
+        <div class="monitor-control">
+          <label for="monitoramento-origem">Origem das leituras</label>
+          <select id="monitoramento-origem" aria-describedby="monitoramento-origem-nota">
+            <option value="Simulacao">Simulação</option>
+            <option value="Hardware">Hardware declarado</option>
+          </select>
+        </div>
+        <div class="monitor-control">
+          <label for="monitoramento-referencia">Referência visual de idade</label>
+          <select id="monitoramento-referencia" aria-describedby="monitoramento-idade-nota">
+            <option value="60">60 segundos</option>
+            <option value="300">5 minutos</option>
+            <option value="0">Somente mostrar a idade</option>
+          </select>
+        </div>
+        <button class="button button-secondary" id="atualizar-monitoramento" type="button">Atualizar painel</button>
+      </div>
+      <p class="monitor-note" id="monitoramento-origem-nota">Simulação selecionada: dados de teste, sem comprovar uma medição física.</p>
+      <p class="monitor-note" id="monitoramento-idade-nota">Mais de 60 segundos desde a medição marca a leitura como desatualizada. Referência desta sessão; não configura limites nem gera alertas.</p>
+      <div class="monitor-meta">
+        <p>Consulta à API (hora local): <time id="monitoramento-consultado">Ainda não consultada</time></p>
+        <p>Atualização automática a cada 15 segundos enquanto esta página estiver visível.</p>
+      </div>
+      <p class="equipment-status" id="monitoramento-status" role="status" aria-live="polite">Consultando as últimas leituras…</p>
+      <p class="list-summary" id="monitoramento-resumo"></p>
+      <div class="monitor-grid" id="monitoramento-lista" aria-busy="true"></div>
+      <p class="monitor-note">A recência não avalia se a temperatura é adequada. O estado da porta corresponde à medição exibida. Acesso ao histórico e configuração de alertas ainda não estão disponíveis.</p>
+      <noscript><p class="notice">Ative o JavaScript para consultar as leituras da API.</p></noscript>
+    </section>
+
+    <section class="section container equipment-section" id="geladeiras" aria-labelledby="equipment-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 / Geladeiras</p>
+          <h2 id="equipment-title">Cada equipamento,<br>um cadastro.</h2>
+        </div>
+        <p>Cadastre, consulte e mantenha a identificação das geladeiras. Os registros abaixo são consultados no banco da aplicação.</p>
+      </div>
+      <p class="equipment-status" id="geladeiras-status" role="status" aria-live="polite" aria-atomic="true">A lista será consultada ao carregar a página.</p>
+      <div class="equipment-workspace" id="equipment-workspace" aria-busy="false">
+        <form class="equipment-form" id="geladeira-form" novalidate aria-labelledby="geladeira-form-title">
+          <p class="overline">Identificação do equipamento</p>
+          <h3 id="geladeira-form-title">Cadastrar geladeira</h3>
+          <p class="form-mode" id="geladeira-form-mode">O nome é obrigatório. A localização é opcional.</p>
+          <fieldset id="geladeira-fields" disabled>
+            <legend class="visually-hidden">Dados da geladeira</legend>
+            <div class="form-field">
+              <label for="geladeira-nome">Nome <span class="required-label">(obrigatório)</span></label>
+              <input id="geladeira-nome" name="nome" type="text" maxlength="100" required autocomplete="off" aria-describedby="nome-ajuda nome-erro">
+              <p class="field-help" id="nome-ajuda">Até 100 caracteres.</p>
+              <p class="field-error" id="nome-erro" hidden></p>
+            </div>
+            <div class="form-field">
+              <label for="geladeira-localizacao">Localização <span class="required-label">(opcional)</span></label>
+              <input id="geladeira-localizacao" name="localizacao" type="text" maxlength="200" autocomplete="off" aria-describedby="localizacao-ajuda localizacao-erro">
+              <p class="field-help" id="localizacao-ajuda">Até 200 caracteres. Pode ficar em branco.</p>
+              <p class="field-error" id="localizacao-erro" hidden></p>
+            </div>
+            <div class="form-actions">
+              <button class="button button-primary" id="salvar-geladeira" type="submit">Cadastrar geladeira</button>
+              <button class="button button-secondary" id="cancelar-edicao" type="button" hidden>Cancelar edição</button>
+            </div>
+          </fieldset>
+        </form>
+        <div class="equipment-records">
+          <div class="records-heading">
+            <h3>Geladeiras cadastradas</h3>
+            <button class="button button-secondary button-small" id="recarregar-geladeiras" type="button">Recarregar lista</button>
+          </div>
+          <p class="list-summary" id="geladeiras-resumo">Lista ainda não consultada.</p>
+          <div class="equipment-list" id="geladeiras-lista"></div>
+          <section class="equipment-details" id="geladeira-detalhes" aria-labelledby="geladeira-detalhes-title" tabindex="-1" hidden>
+            <div class="records-heading">
+              <h3 id="geladeira-detalhes-title">Detalhes da geladeira</h3>
+              <button class="button button-secondary button-small" id="fechar-detalhes" type="button">Fechar detalhes</button>
+            </div>
+            <p class="field-help">Dados recebidos da consulta individual à API.</p>
+            <dl id="geladeira-detalhes-dados"></dl>
+          </section>
+        </div>
+      </div>
+      <section class="delete-confirmation" id="confirmar-exclusao" role="dialog" aria-labelledby="confirmar-exclusao-title" aria-describedby="confirmar-exclusao-description" hidden>
+        <p class="overline">Confirmação necessária</p>
+        <h3 id="confirmar-exclusao-title">Excluir geladeira?</h3>
+        <p class="delete-name" id="exclusao-nome"></p>
+        <p id="confirmar-exclusao-description">A exclusão remove o cadastro da geladeira. Geladeiras com leituras registradas não podem ser excluídas, para preservar o histórico. A ação só será executada ao confirmar abaixo.</p>
+        <div class="confirmation-actions">
+          <button class="button button-danger" id="excluir-confirmar" type="button">Confirmar exclusão</button>
+          <button class="button button-secondary" id="excluir-cancelar" type="button">Cancelar</button>
+        </div>
+      </section>
+      <noscript><p class="notice">Ative o JavaScript para consultar e gerenciar os cadastros pela API.</p></noscript>
+    </section>
+
+    <section class="section container" id="base-tecnica" aria-labelledby="base-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">02 / Base técnica</p>
+          <h2 id="base-title">Uma estrutura simples.<br>Um caminho para evoluir.</h2>
+        </div>
+        <p>A primeira etapa reúne a interface, a API e a persistência de dados na mesma aplicação.</p>
+      </div>
+
+      <div class="architecture-grid">
+        <article class="architecture-card">
+          <span class="card-number" aria-hidden="true">01</span>
+          <h3>Interface web</h3>
+          <p>Uma página responsiva para acompanhar as últimas leituras, gerenciar geladeiras e consultar o estado da aplicação.</p>
+          <span class="technology">HTML · CSS · JavaScript</span>
+        </article>
+        <article class="architecture-card">
+          <span class="card-number" aria-hidden="true">02</span>
+          <h3>API da aplicação</h3>
+          <p>Recebe leituras do simulador e atende às consultas de cadastro. A integração física com o ESP32 será uma etapa futura.</p>
+          <span class="technology">ASP.NET Core</span>
+        </article>
+        <article class="architecture-card">
+          <span class="card-number" aria-hidden="true">03</span>
+          <h3>Persistência local</h3>
+          <p>Um banco em arquivo para armazenar os dados. A verificação de saúde consulta o banco.</p>
+          <span class="technology">Entity Framework Core · SQLite</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="next-section" id="proximas-etapas" aria-labelledby="next-title">
+      <div class="container next-grid">
+        <div>
+          <p class="eyebrow">03 / Próximas etapas</p>
+          <h2 id="next-title">Da base ao<br>monitoramento.</h2>
+          <p class="next-intro">O painel já apresenta as últimas leituras. Histórico, configurações e alertas serão as próximas etapas.</p>
+          <span class="scope-tag">Planejado · Ainda não disponível</span>
+        </div>
+        <ol class="roadmap">
+          <li><span class="step-number" aria-hidden="true">01</span><div><h3>Histórico na interface</h3><p>Exibir na página as leituras armazenadas, com origem e horários de medição e recebimento.</p></div></li>
+          <li><span class="step-number" aria-hidden="true">02</span><div><h3>Alertas de monitoramento</h3><p>Detectar condições anormais e ausência de leituras recentes.</p></div></li>
+          <li><span class="step-number" aria-hidden="true">03</span><div><h3>Validação no celular e integração física</h3><p>Validar o acesso HTTPS no iPhone e integrar o ESP32 quando o hardware estiver disponível.</p></div></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p><strong>ICEPLAY</strong><span>Projeto de TCC · Ciência da Computação</span></p>
+      <a href="#inicio">Voltar ao início <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+  <nav class="mobile-nav" aria-label="Atalhos no celular">
+    <a href="#monitoramento">Painel</a>
+    <a href="#geladeiras">Geladeiras</a>
+    <a id="access-shortcut" href="#acesso-movel" hidden>Acesso</a>
+  </nav>
+</body>
+</html>

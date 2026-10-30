@@ -1,0 +1,24 @@
+{
+  "result": "failed",
+  "startedAtUtc": "2026-10-19T16:45:19.008610+00:00",
+  "scope": "API móvel pela interface IPv4 local, TLS com CA explicitamente confiada e banco isolado; sem iPhone físico",
+  "isolatedDatabase": "C:\\Users\\otavi\\Downloads\\iceplay\\.tools\\verification\\mobile-20261019T164515Z-a0cad317\\iceplay.db",
+  "checks": [
+    "GET /api/health por HTTP retorna 200",
+    "Banco isolado inicia vazio, sem seed"
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "transport": "HTTP",
+      "status": 200
+    }
+  ],
+  "errors": [
+    "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1081)>"
+  ],
+  "finishedAtUtc": "2026-10-19T16:45:23.028141+00:00",
+  "checkCount": 2,
+  "requestCount": 1
+}

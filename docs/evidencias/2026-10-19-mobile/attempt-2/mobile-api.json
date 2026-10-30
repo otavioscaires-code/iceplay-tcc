@@ -1,0 +1,257 @@
+{
+  "result": "failed",
+  "startedAtUtc": "2026-10-19T16:46:29.833310+00:00",
+  "scope": "API móvel pela interface IPv4 local, TLS com CA explicitamente confiada e banco isolado; sem iPhone físico",
+  "isolatedDatabase": "C:\\Users\\otavi\\Downloads\\iceplay\\.tools\\verification\\mobile-20261019T164627Z-217f5c53\\iceplay.db",
+  "checks": [
+    "GET /api/health por HTTP retorna 200",
+    "Banco isolado inicia vazio, sem seed",
+    "GET / por HTTPS retorna 200",
+    "HTML móvel oferece conexão e assets versionados",
+    "GET /acesso.js por HTTPS retorna 200",
+    "GET /styles.css por HTTPS retorna 200",
+    "GET /monitoramento.js por HTTPS retorna 200",
+    "GET /monitoramento-estado.mjs por HTTPS retorna 200",
+    "GET /api/health por HTTPS retorna 401",
+    "GET /api/geladeiras por HTTPS retorna 401",
+    "GET /api/geladeiras/1 por HTTPS retorna 401",
+    "POST /api/geladeiras por HTTPS retorna 401",
+    "PUT /api/geladeiras/1 por HTTPS retorna 401",
+    "DELETE /api/geladeiras/1 por HTTPS retorna 401",
+    "POST /api/leituras por HTTPS retorna 401",
+    "GET /api/monitoramento?origem=Simulacao por HTTPS retorna 401",
+    "GET /certificado.cer por HTTP retorna 200",
+    "Porta HTTP entrega somente o certificado público esperado",
+    "GET / por HTTP retorna 200",
+    "GET /api/health por HTTP retorna 404",
+    "POST /api/acesso/entrar por HTTP retorna 404",
+    "GET /api/acesso por HTTPS retorna 400",
+    "TLS rejeita hostname que não pertence ao certificado",
+    "TLS exige confiar explicitamente na CA local; não usa bypass de validação",
+    "GET /api/acesso por HTTPS retorna 200",
+    "Acesso remoto inicia sem autenticação",
+    "Cookie antiforgery possui Secure, HttpOnly e SameSite Strict",
+    "POST /api/acesso/entrar por HTTPS retorna 400",
+    "POST /api/acesso/entrar por HTTPS retorna 401",
+    "POST /api/acesso/entrar por HTTPS retorna 204",
+    "Login cria cookie de sessão protegido, sem token em URL",
+    "POST /api/geladeiras por HTTPS retorna 400",
+    "GET /api/acesso por HTTPS retorna 200",
+    "Sessão é reconhecida e o token é renovado após login",
+    "POST /api/geladeiras por HTTPS retorna 400",
+    "POST /api/geladeiras por HTTPS retorna 403",
+    "POST /api/geladeiras por HTTPS retorna 400",
+    "POST /api/geladeiras por HTTPS retorna 201",
+    "GET /api/geladeiras/1 por HTTPS retorna 200",
+    "PUT /api/geladeiras/1 por HTTPS retorna 200",
+    "POST /api/leituras por HTTPS retorna 201",
+    "GET /api/monitoramento?origem=Simulacao por HTTPS retorna 200",
+    "Painel autenticado preserva zero e porta fechada"
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "transport": "HTTP",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/acesso.js",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/styles.css",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/monitoramento.js",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/monitoramento-estado.mjs",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/1",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/geladeiras/1",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Simulacao",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/certificado.cer",
+      "transport": "HTTP",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "transport": "HTTP",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "transport": "HTTP",
+      "status": 404
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTP",
+      "status": 404
+    },
+    {
+      "method": "GET",
+      "path": "/api/acesso",
+      "transport": "HTTPS",
+      "status": 400
+    },
+    {
+      "method": "GET",
+      "path": "/api/acesso",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTPS",
+      "status": 400
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTPS",
+      "status": 204
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 400
+    },
+    {
+      "method": "GET",
+      "path": "/api/acesso",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 400
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 403
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 400
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/1",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "transport": "HTTPS",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Simulacao",
+      "transport": "HTTPS",
+      "status": 200
+    }
+  ],
+  "errors": [
+    "TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'"
+  ],
+  "finishedAtUtc": "2026-10-19T16:46:34.865632+00:00",
+  "checkCount": 43,
+  "requestCount": 33
+}

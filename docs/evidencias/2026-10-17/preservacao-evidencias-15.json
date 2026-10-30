@@ -1,0 +1,140 @@
+[
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\base-verification.log",
+    "BeforeSha256": "5A6B80583B7A99E3E5BFD7857EC42D9CE2240D47217660279011C25E3E45068B",
+    "AfterSha256": "5A6B80583B7A99E3E5BFD7857EC42D9CE2240D47217660279011C25E3E45068B",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\browser.json",
+    "BeforeSha256": "46EA03A136A90B9B815F64ECD81C48D51FD3D180ED9405FDE9B7E467BDF1F38F",
+    "AfterSha256": "46EA03A136A90B9B815F64ECD81C48D51FD3D180ED9405FDE9B7E467BDF1F38F",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\build.log",
+    "BeforeSha256": "00EE82471CA89CD00190E3E231B3862408666597F138AFDEFBCD0F3A2D1BF00A",
+    "AfterSha256": "00EE82471CA89CD00190E3E231B3862408666597F138AFDEFBCD0F3A2D1BF00A",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\cadastro-desktop.jpg",
+    "BeforeSha256": "9553F35347D8AE1BF2209D519A98F85C5573E195763713F53BCEB677F2A023C8",
+    "AfterSha256": "9553F35347D8AE1BF2209D519A98F85C5573E195763713F53BCEB677F2A023C8",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\cadastro-mobile.jpg",
+    "BeforeSha256": "322BF4F0B38ED2B617B61A528290607D8BA3D12BAFA96BC78CA982237255733D",
+    "AfterSha256": "322BF4F0B38ED2B617B61A528290607D8BA3D12BAFA96BC78CA982237255733D",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-api.json",
+    "BeforeSha256": "AF3BA5BFEA487571CA9F9FE795356EB4E96E7485981384D22ECDAB133808181B",
+    "AfterSha256": "AF3BA5BFEA487571CA9F9FE795356EB4E96E7485981384D22ECDAB133808181B",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-attempt-1.json",
+    "BeforeSha256": "85DC27BF87733C88F9CCF4B3E9C5A1D924A5604F7560A35CEE689F4859F7E43E",
+    "AfterSha256": "85DC27BF87733C88F9CCF4B3E9C5A1D924A5604F7560A35CEE689F4859F7E43E",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-attempt-1.log",
+    "BeforeSha256": "B4E127D80BAE3E82C3ECC10C9F3AB36DBAC7FFF00DF7960CF08541001CF1BF0B",
+    "AfterSha256": "B4E127D80BAE3E82C3ECC10C9F3AB36DBAC7FFF00DF7960CF08541001CF1BF0B",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-migrations-list.log",
+    "BeforeSha256": "7C4ABDD3C33DB195A746D3C6F35F9AB4D6001C0F6FD897421B74EA3D4CEBBCD4",
+    "AfterSha256": "7C4ABDD3C33DB195A746D3C6F35F9AB4D6001C0F6FD897421B74EA3D4CEBBCD4",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-missing-schema.stderr.log",
+    "BeforeSha256": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6",
+    "AfterSha256": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-missing-schema.stdout.log",
+    "BeforeSha256": "44B22FACABBB588ECAEE5265E8A8E0F8B0779C9B799511904CB6D8E7855B2654",
+    "AfterSha256": "44B22FACABBB588ECAEE5265E8A8E0F8B0779C9B799511904CB6D8E7855B2654",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-restart.stderr.log",
+    "BeforeSha256": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6",
+    "AfterSha256": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-restart.stdout.log",
+    "BeforeSha256": "80209B4C631BF2C3B5BAFE58120622210D651D075BFAF58D05A7010A8865963B",
+    "AfterSha256": "80209B4C631BF2C3B5BAFE58120622210D651D075BFAF58D05A7010A8865963B",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-startup.stderr.log",
+    "BeforeSha256": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6",
+    "AfterSha256": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-startup.stdout.log",
+    "BeforeSha256": "619793C31850DBF46E4083562C73CB8A19A01BA510122129DE5F7F8A5684A8D0",
+    "AfterSha256": "619793C31850DBF46E4083562C73CB8A19A01BA510122129DE5F7F8A5684A8D0",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\crud-verification.log",
+    "BeforeSha256": "00EE82471CA89CD00190E3E231B3862408666597F138AFDEFBCD0F3A2D1BF00A",
+    "AfterSha256": "00EE82471CA89CD00190E3E231B3862408666597F138AFDEFBCD0F3A2D1BF00A",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\database.json",
+    "BeforeSha256": "FF8FF38BA26E8E8D75ED23FB1EED9D5D51C86565F8458A45A80E25CE1CCD18BC",
+    "AfterSha256": "FF8FF38BA26E8E8D75ED23FB1EED9D5D51C86565F8458A45A80E25CE1CCD18BC",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\execucao-normal.json",
+    "BeforeSha256": "38875B7A5E960276600A777AE0F0E1C18A729C20C6DB76D1EFFA015253214819",
+    "AfterSha256": "38875B7A5E960276600A777AE0F0E1C18A729C20C6DB76D1EFFA015253214819",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\preservacao.json",
+    "BeforeSha256": "6F980B22A2F5DA83F9D747AA957103DB3A22840B264DB9B3A851C5924ED46CE9",
+    "AfterSha256": "6F980B22A2F5DA83F9D747AA957103DB3A22840B264DB9B3A851C5924ED46CE9",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\setup.log",
+    "BeforeSha256": "471EE292DB50D2CA8AADFEE9D143427FB3291681DB6CB68186F325411C227096",
+    "AfterSha256": "471EE292DB50D2CA8AADFEE9D143427FB3291681DB6CB68186F325411C227096",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\ui-restart.log",
+    "BeforeSha256": "D19A36266360440E9D75A3DDDC360B00F1F11F88450BBF8552C2C28AACCD7225",
+    "AfterSha256": "D19A36266360440E9D75A3DDDC360B00F1F11F88450BBF8552C2C28AACCD7225",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\ui-server.log",
+    "BeforeSha256": "BF9E5B4651B7E406F130CB145160528E3B1ACD8AA25C10EEB6AA830E9066AD6B",
+    "AfterSha256": "BF9E5B4651B7E406F130CB145160528E3B1ACD8AA25C10EEB6AA830E9066AD6B",
+    "Preserved": true
+  },
+  {
+    "Path": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-10-15\\base\\smoke-latest.json",
+    "BeforeSha256": "0E33EFA51B0D057971C11A56821880E8F0162A8B25122D36243755ECE8205DF3",
+    "AfterSha256": "0E33EFA51B0D057971C11A56821880E8F0162A8B25122D36243755ECE8205DF3",
+    "Preserved": true
+  }
+]

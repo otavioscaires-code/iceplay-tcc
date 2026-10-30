@@ -1,0 +1,21 @@
+# SDK local e arquivos gerados
+.tools/
+**/bin/
+**/obj/
+.vs/
+.vscode/
+
+# Bancos locais e arquivos auxiliares do SQLite
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
+
+# Configurações pessoais e segredos
+.env
+*.user
+appsettings.Local.json
+
+# Cache dos verificadores Python
+__pycache__/
+*.pyc

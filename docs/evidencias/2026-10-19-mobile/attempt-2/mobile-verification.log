@@ -1,0 +1,57 @@
+Exception in thread Thread-1 (_readerthread):
+Traceback (most recent call last):
+  File "C:\Users\otavi\AppData\Local\Programs\Python\Python314\Lib\threading.py", line 1082, in _bootstrap_inner
+    self._context.run(self.run)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\otavi\AppData\Local\Programs\Python\Python314\Lib\threading.py", line 1024, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\otavi\AppData\Local\Programs\Python\Python314\Lib\subprocess.py", line 1613, in _readerthread
+    buffer.append(fh.read())
+                  ~~~~~~~^^
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x80 in position 6: invalid start byte
+PASSOU: GET /api/health por HTTP retorna 200
+PASSOU: Banco isolado inicia vazio, sem seed
+PASSOU: GET / por HTTPS retorna 200
+PASSOU: HTML m�vel oferece conex�o e assets versionados
+PASSOU: GET /acesso.js por HTTPS retorna 200
+PASSOU: GET /styles.css por HTTPS retorna 200
+PASSOU: GET /monitoramento.js por HTTPS retorna 200
+PASSOU: GET /monitoramento-estado.mjs por HTTPS retorna 200
+PASSOU: GET /api/health por HTTPS retorna 401
+PASSOU: GET /api/geladeiras por HTTPS retorna 401
+PASSOU: GET /api/geladeiras/1 por HTTPS retorna 401
+PASSOU: POST /api/geladeiras por HTTPS retorna 401
+PASSOU: PUT /api/geladeiras/1 por HTTPS retorna 401
+PASSOU: DELETE /api/geladeiras/1 por HTTPS retorna 401
+PASSOU: POST /api/leituras por HTTPS retorna 401
+PASSOU: GET /api/monitoramento?origem=Simulacao por HTTPS retorna 401
+PASSOU: GET /certificado.cer por HTTP retorna 200
+PASSOU: Porta HTTP entrega somente o certificado p�blico esperado
+PASSOU: GET / por HTTP retorna 200
+PASSOU: GET /api/health por HTTP retorna 404
+PASSOU: POST /api/acesso/entrar por HTTP retorna 404
+PASSOU: GET /api/acesso por HTTPS retorna 400
+PASSOU: TLS rejeita hostname que n�o pertence ao certificado
+PASSOU: TLS exige confiar explicitamente na CA local; n�o usa bypass de valida��o
+PASSOU: GET /api/acesso por HTTPS retorna 200
+PASSOU: Acesso remoto inicia sem autentica��o
+PASSOU: Cookie antiforgery possui Secure, HttpOnly e SameSite Strict
+PASSOU: POST /api/acesso/entrar por HTTPS retorna 400
+PASSOU: POST /api/acesso/entrar por HTTPS retorna 401
+PASSOU: POST /api/acesso/entrar por HTTPS retorna 204
+PASSOU: Login cria cookie de sess�o protegido, sem token em URL
+PASSOU: POST /api/geladeiras por HTTPS retorna 400
+PASSOU: GET /api/acesso por HTTPS retorna 200
+PASSOU: Sess�o � reconhecida e o token � renovado ap�s login
+PASSOU: POST /api/geladeiras por HTTPS retorna 400
+PASSOU: POST /api/geladeiras por HTTPS retorna 403
+PASSOU: POST /api/geladeiras por HTTPS retorna 400
+PASSOU: POST /api/geladeiras por HTTPS retorna 201
+PASSOU: GET /api/geladeiras/1 por HTTPS retorna 200
+PASSOU: PUT /api/geladeiras/1 por HTTPS retorna 200
+PASSOU: POST /api/leituras por HTTPS retorna 201
+PASSOU: GET /api/monitoramento?origem=Simulacao por HTTPS retorna 200
+PASSOU: Painel autenticado preserva zero e porta fechada
+FALHOU: TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'

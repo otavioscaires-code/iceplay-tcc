@@ -1,0 +1,90 @@
+{
+  "result": "passed",
+  "verifiedAtUtc": "2026-10-15T16:19:06.2Z",
+  "scope": "Interface real em banco SQLite isolado; fixture de software, sem equipamento real ou sensores",
+  "checks": [
+    {
+      "description": "Nome composto de espaços rejeitado na interface",
+      "passed": true,
+      "atUtc": "2026-10-15T16:16:09.461Z"
+    },
+    {
+      "description": "Cadastro pela interface aparece na listagem real",
+      "passed": true,
+      "atUtc": "2026-10-15T16:16:09.892Z"
+    },
+    {
+      "description": "Consulta individual exibe os dados salvos",
+      "passed": true,
+      "atUtc": "2026-10-15T16:16:10.289Z"
+    },
+    {
+      "description": "Cancelar edição preserva registro exibido",
+      "passed": true,
+      "atUtc": "2026-10-15T16:16:34.088Z"
+    },
+    {
+      "description": "Editar e salvar atualiza a listagem pela API",
+      "passed": true,
+      "atUtc": "2026-10-15T16:16:34.858Z"
+    },
+    {
+      "description": "Painel de saúde mantém contagem real após alteração",
+      "passed": true,
+      "atUtc": "2026-10-15T16:16:34.864Z"
+    },
+    {
+      "description": "Servidor parado: listagem antiga é removida e falha é explícita",
+      "passed": true,
+      "atUtc": "2026-10-15T16:17:45.253Z"
+    },
+    {
+      "description": "Servidor parado: cadastro fica bloqueado até recarregar a lista",
+      "passed": true,
+      "atUtc": "2026-10-15T16:17:45.26Z"
+    },
+    {
+      "description": "Servidor parado: painel de saúde não confirma conexão SQLite",
+      "passed": true,
+      "atUtc": "2026-10-15T16:17:45.613Z"
+    },
+    {
+      "description": "Reinício real da API preserva cadastro criado e editado pela interface",
+      "passed": true,
+      "atUtc": "2026-10-15T16:18:24.681Z"
+    },
+    {
+      "description": "Layout móvel de 375 pixels sem excesso horizontal",
+      "passed": true,
+      "atUtc": "2026-10-15T16:18:24.967Z"
+    },
+    {
+      "description": "Cancelar exclusão mantém o cadastro",
+      "passed": true,
+      "atUtc": "2026-10-15T16:19:05.303Z"
+    },
+    {
+      "description": "Exclusão confirmada remove a fixture pela interface",
+      "passed": true,
+      "atUtc": "2026-10-15T16:19:06.192Z"
+    },
+    {
+      "description": "Saúde real volta a zero após excluir a fixture",
+      "passed": true,
+      "atUtc": "2026-10-15T16:19:06.2Z"
+    }
+  ],
+  "checkCount": 14,
+  "mobile": {
+    "documentWidth": 360,
+    "heading": "Cada equipamento,um cadastro.",
+    "list": "TESTE UI — GELADEIRA EDITADABANCO ISOLADO — LOCALIZACAO EDITADAIdentificador #1ConsultarEditarExcluir",
+    "viewportWidth": 375
+  },
+  "screenshots": [
+    "cadastro-desktop.jpg",
+    "cadastro-mobile.jpg"
+  ],
+  "finalRefrigeratorCount": 0,
+  "isolatedDatabase": "C:\\Users\\otavi\\Downloads\\iceplay\\.tools\\verification\\ui-4903c86a546a4afd9a7c97271a884c99\\iceplay.db"
+}

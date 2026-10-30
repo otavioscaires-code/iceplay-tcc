@@ -1,0 +1,10 @@
+[
+  {
+    "file": "scripts/verify-geladeiras.ps1",
+    "errors": 0
+  },
+  {
+    "file": "tools/simulator/enviar-leituras.ps1",
+    "errors": 0
+  }
+]

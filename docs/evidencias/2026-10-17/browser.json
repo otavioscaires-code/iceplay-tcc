@@ -1,0 +1,96 @@
+{
+  "result": "passed",
+  "verifiedAtUtc": "2026-10-18T02:21:59.719Z",
+  "scope": "Interface real com fixture descartável em banco SQLite isolado; sem sensores",
+  "checkCount": 15,
+  "checks": [
+    {
+      "description": "Banco isolado começa sem cadastros",
+      "passed": true,
+      "atUtc": "2026-10-18T02:21:02.381Z"
+    },
+    {
+      "description": "Nome composto de espaços recusado na interface",
+      "passed": true,
+      "atUtc": "2026-10-18T02:21:02.772Z"
+    },
+    {
+      "description": "Cadastro enviado pela interface aparece na lista",
+      "passed": true,
+      "atUtc": "2026-10-18T02:21:03.194Z"
+    },
+    {
+      "description": "Consulta individual mostra dados salvos",
+      "passed": true,
+      "atUtc": "2026-10-18T02:21:03.585Z"
+    },
+    {
+      "description": "Cancelar edição mantém cadastro e usa mensagem sem afirmar ausência de requisição",
+      "passed": true,
+      "atUtc": "2026-10-18T02:21:13.771Z"
+    },
+    {
+      "description": "Edição salva pela interface atualiza a lista",
+      "passed": true,
+      "atUtc": "2026-10-18T02:21:14.503Z"
+    },
+    {
+      "description": "Saúde real apresenta um cadastro após gravação",
+      "passed": true,
+      "atUtc": "2026-10-18T02:21:14.511Z"
+    },
+    {
+      "description": "API parada remove lista antiga e apresenta falha",
+      "passed": true,
+      "atUtc": "2026-10-18T02:21:20.863Z"
+    },
+    {
+      "description": "API parada bloqueia novas gravações até recarregar",
+      "passed": true,
+      "atUtc": "2026-10-18T02:21:20.87Z"
+    },
+    {
+      "description": "Saúde não confirma SQLite com API parada",
+      "passed": true,
+      "atUtc": "2026-10-18T02:21:21.229Z"
+    },
+    {
+      "description": "Reinício no mesmo SQLite preserva nome e localização editados pela interface",
+      "passed": true,
+      "atUtc": "2026-10-18T02:21:48.344Z"
+    },
+    {
+      "description": "Interface em 375 pixels sem excesso horizontal",
+      "passed": true,
+      "atUtc": "2026-10-18T02:21:57.035Z"
+    },
+    {
+      "description": "Cancelar exclusão mantém o cadastro",
+      "passed": true,
+      "atUtc": "2026-10-18T02:21:58.966Z"
+    },
+    {
+      "description": "Exclusão confirmada remove a fixture pela interface",
+      "passed": true,
+      "atUtc": "2026-10-18T02:21:59.713Z"
+    },
+    {
+      "description": "Saúde real volta a zero após a exclusão",
+      "passed": true,
+      "atUtc": "2026-10-18T02:21:59.719Z"
+    }
+  ],
+  "mobile": {
+    "documentWidth": 360,
+    "viewportWidth": 375
+  },
+  "screenshots": [
+    "cadastro-desktop.jpg",
+    "cadastro-mobile.jpg"
+  ],
+  "finalRefrigeratorCount": 0,
+  "observationNotes": [
+    "A primeira asserção imediatamente após reload ocorreu antes de concluir a consulta assíncrona. A observação seguinte mostrou o cadastro preservado; a verificação foi repetida após aguardar o botão Editar ficar visível."
+  ],
+  "isolatedDatabase": "C:\\Users\\otavi\\Downloads\\iceplay\\.tools\\verification\\ui17-a220361c57f8465d8558b43edf61d9e3\\iceplay.db"
+}

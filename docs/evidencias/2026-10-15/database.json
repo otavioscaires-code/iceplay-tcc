@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "scope": "verificacao de software com fixture; sem hardware ou sensores",
+  "pythonVersion": "3.14.3",
+  "sqliteVersion": "3.50.4",
+  "startedAtUtc": "2026-10-15T16:13:34.216399Z",
+  "checksPassed": [
+    "PRAGMA integrity_check retornou ok",
+    "Esquema Geladeiras: chave, quatro colunas, tipos e nulabilidade",
+    "Histórico EF Core contém exatamente uma migration",
+    "Banco inicial vazio, sem cadastros reais",
+    "Insert/commit/leitura persistente após fechar e reabrir a conexão",
+    "Nome vazio rejeitado",
+    "Nome com apenas espaços rejeitado",
+    "Nome com 101 caracteres rejeitado",
+    "Localizacao com 201 caracteres rejeitada",
+    "Nome NULL rejeitado",
+    "CriadoEmUtc NULL rejeitado",
+    "Somente a fixture foi removida; contagem final igual a zero"
+  ],
+  "errors": [],
+  "database": ".tools/verification/20261015T161256Z-c8501c51/iceplay.db",
+  "finalRefrigeratorCount": 0,
+  "finishedAtUtc": "2026-10-15T16:13:36.203414Z"
+}

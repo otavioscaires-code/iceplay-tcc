@@ -1,0 +1,8 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-10-19T16:58:36.7282574Z",
+  "filesChecked": 272,
+  "credentialValuesChecked": 10,
+  "leakingPaths": [],
+  "note": "Somente valores reais de credenciais geradas foram procurados; nenhum segredo é incluído neste relatório."
+}

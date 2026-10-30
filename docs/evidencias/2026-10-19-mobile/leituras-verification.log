@@ -1,0 +1,349 @@
+  Iceplay.Api -> C:\Users\otavi\Downloads\iceplay\src\Iceplay.Api\bin\Debug\net10.0\Iceplay.Api.dll
+
+Compilação com êxito.
+    0 Aviso(s)
+    0 Erro(s)
+
+Tempo Decorrido 00:00:01.02
+PASSOU: Build sem restauracao conclui com codigo zero
+PASSOU: Fontes contem exatamente InitialCreate e AddLeituras previstas
+PASSOU: Ferramenta EF initial-migration retorna codigo zero
+PASSOU: Python SQLite before-upgrade retorna codigo zero
+PASSOU: Fixture geladeira existe antes de criar tabela Leituras
+PASSOU: upgrade aditivo pela aplicacao: GET /api/geladeiras/1 retorna HTTP 200
+PASSOU: upgrade aditivo pela aplicacao: corpo possui tipo JSON
+PASSOU: Geladeira anterior a migration preserva ID, nome, localizacao e criacao
+PASSOU: upgrade aditivo pela aplicacao: GET /api/health retorna HTTP 200
+PASSOU: upgrade aditivo pela aplicacao: corpo possui tipo JSON
+PASSOU: Saude real confirma exatamente uma geladeira fixture preservada
+PASSOU: Python SQLite after-upgrade retorna codigo zero
+PASSOU: Upgrade preserva cadastro, cria Leituras vazia e aplica somente as duas migrations previstas
+PASSOU: POST Simulacao com zero e porta false: POST /api/leituras retorna HTTP 201
+PASSOU: POST Simulacao com zero e porta false: corpo possui tipo JSON
+PASSOU: POST simulacao: sete campos, tipos, identidade, temperatura, porta e origem correspondem a fixture
+PASSOU: POST simulacao: instante de medicao preservado, UTC e nao posterior ao recebimento
+PASSOU: ID e recebimento sao gerados pelo servidor, sem aceitar campos extras do cliente
+PASSOU: POST 201 fornece Location da leitura criada na mesma instancia
+PASSOU: POST Simulacao com zero e porta false: GET /api/leituras/1 retorna HTTP 200
+PASSOU: POST Simulacao com zero e porta false: corpo possui tipo JSON
+PASSOU: GET pelo Location: sete campos, tipos, identidade, temperatura, porta e origem correspondem a fixture
+PASSOU: GET pelo Location: instante de medicao preservado, UTC e nao posterior ao recebimento
+PASSOU: POST origem Hardware declarada em fixture de software: POST /api/leituras retorna HTTP 201
+PASSOU: POST origem Hardware declarada em fixture de software: corpo possui tipo JSON
+PASSOU: Hardware apenas declarado, temperatura finita sem faixa arbitraria: sete campos, tipos, identidade, temperatura, porta e origem correspondem a fixture
+PASSOU: Hardware apenas declarado, temperatura finita sem faixa arbitraria: instante de medicao preservado, UTC e nao posterior ao recebimento
+PASSOU: Leituras de origens diferentes recebem IDs distintos
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Duas leituras validas: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: geladeiraId ausente: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: geladeiraId ausente: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de geladeiraId ausente: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: geladeiraId nulo: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: geladeiraId nulo: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de geladeiraId nulo: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: temperaturaC ausente: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: temperaturaC ausente: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de temperaturaC ausente: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: temperaturaC nulo: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: temperaturaC nulo: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de temperaturaC nulo: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: portaAberta ausente: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: portaAberta ausente: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de portaAberta ausente: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: portaAberta nulo: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: portaAberta nulo: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de portaAberta nulo: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: medidoEmUtc ausente: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: medidoEmUtc ausente: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de medidoEmUtc ausente: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: medidoEmUtc nulo: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: medidoEmUtc nulo: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de medidoEmUtc nulo: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: origem ausente: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: origem ausente: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de origem ausente: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: origem nulo: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: origem nulo: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de origem nulo: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: geladeiraId zero: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: geladeiraId zero: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de geladeiraId zero: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: geladeiraId negativo: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: geladeiraId negativo: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de geladeiraId negativo: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: geladeiraId fracionario: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: geladeiraId fracionario: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de geladeiraId fracionario: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: geladeiraId string numerica: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: geladeiraId string numerica: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de geladeiraId string numerica: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: geladeiraId array: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: geladeiraId array: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de geladeiraId array: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: temperatura string numerica: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: temperatura string numerica: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de temperatura string numerica: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: temperatura NaN textual: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: temperatura NaN textual: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de temperatura NaN textual: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: temperatura Infinity textual: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: temperatura Infinity textual: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de temperatura Infinity textual: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: temperatura menos Infinity textual: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: temperatura menos Infinity textual: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de temperatura menos Infinity textual: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: temperatura booleana: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: temperatura booleana: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de temperatura booleana: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: temperatura objeto: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: temperatura objeto: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de temperatura objeto: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: porta string: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: porta string: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de porta string: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: porta numero: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: porta numero: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de porta numero: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: medicao sem fuso: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: medicao sem fuso: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de medicao sem fuso: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: medicao offset zero sem Z: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: medicao offset zero sem Z: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de medicao offset zero sem Z: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: medicao offset diferente: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: medicao offset diferente: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de medicao offset diferente: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: medicao oito casas fracionarias: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: medicao oito casas fracionarias: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de medicao oito casas fracionarias: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: medicao data inexistente: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: medicao data inexistente: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de medicao data inexistente: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: medicao sem segundos: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: medicao sem segundos: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de medicao sem segundos: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: medicao z minusculo: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: medicao z minusculo: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de medicao z minusculo: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: medicao vazia: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: medicao vazia: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de medicao vazia: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: medicao numerica: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: medicao numerica: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de medicao numerica: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: medicao futura: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: medicao futura: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de medicao futura: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: origem minuscula: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: origem minuscula: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de origem minuscula: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: origem com espaco: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: origem com espaco: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de origem com espaco: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: origem desconhecida: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: origem desconhecida: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de origem desconhecida: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: origem vazia: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: origem vazia: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de origem vazia: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: origem numero: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: origem numero: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de origem numero: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: origem booleana: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: origem booleana: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de origem booleana: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: temperatura numero excede double finito: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: temperatura numero excede double finito: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de temperatura numero excede double finito: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: JSON incompleto: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: JSON incompleto: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de JSON incompleto: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: corpo vazio: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: corpo vazio: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de corpo vazio: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: raiz nula: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: raiz nula: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de raiz nula: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: POST invalido: raiz array: POST /api/leituras retorna HTTP 400
+PASSOU: POST invalido: raiz array: corpo possui tipo JSON
+PASSOU: Entrada invalida responde JSON de validacao com mensagens de errors
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Rejeicao de raiz array: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: geladeira inexistente nao recebe leitura: POST /api/leituras retorna HTTP 404
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Geladeira inexistente: SQLite preserva exatamente 2 leituras, sem insert indevido
+PASSOU: GET leitura inexistente/invalida 0: GET /api/leituras/0 retorna HTTP 404
+PASSOU: GET leitura inexistente/invalida -1: GET /api/leituras/-1 retorna HTTP 404
+PASSOU: GET leitura inexistente/invalida texto: GET /api/leituras/texto retorna HTTP 404
+PASSOU: GET leitura inexistente/invalida 2147483647: GET /api/leituras/2147483647 retorna HTTP 404
+PASSOU: Simulador CLI existe para teste integrado
+SIMULAÇÃO: valores de teste, sem sensor físico. Origem sempre Simulacao.
+PASSOU: Simulador retorna exatamente dois resultados estruturados
+PASSOU: Simulador informa indice, HTTP 201 e leitura recebida
+PASSOU: Resposta do simulador: sete campos, tipos, identidade, temperatura, porta e origem correspondem a fixture
+PASSOU: Resposta do simulador: instante de medicao preservado, UTC e nao posterior ao recebimento
+PASSOU: Location devolvido pelo simulador identifica sua leitura nesta API
+PASSOU: simulador CLI pela mesma API: GET /api/leituras/3 retorna HTTP 200
+PASSOU: simulador CLI pela mesma API: corpo possui tipo JSON
+PASSOU: GET confirma persistencia e origem Simulacao da leitura enviada pelo CLI: sete campos, tipos, identidade, temperatura, porta e origem correspondem a fixture
+PASSOU: GET confirma persistencia e origem Simulacao da leitura enviada pelo CLI: instante de medicao preservado, UTC e nao posterior ao recebimento
+PASSOU: Simulador informa indice, HTTP 201 e leitura recebida
+PASSOU: Resposta do simulador: sete campos, tipos, identidade, temperatura, porta e origem correspondem a fixture
+PASSOU: Resposta do simulador: instante de medicao preservado, UTC e nao posterior ao recebimento
+PASSOU: Location devolvido pelo simulador identifica sua leitura nesta API
+PASSOU: simulador CLI pela mesma API: GET /api/leituras/4 retorna HTTP 200
+PASSOU: simulador CLI pela mesma API: corpo possui tipo JSON
+PASSOU: GET confirma persistencia e origem Simulacao da leitura enviada pelo CLI: sete campos, tipos, identidade, temperatura, porta e origem correspondem a fixture
+PASSOU: GET confirma persistencia e origem Simulacao da leitura enviada pelo CLI: instante de medicao preservado, UTC e nao posterior ao recebimento
+PASSOU: Simulador cria duas leituras novas com IDs distintos
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Duas fixtures diretas e duas leituras do simulador: SQLite preserva exatamente 4 leituras, sem insert indevido
+PASSOU: DELETE geladeira com historico: DELETE /api/geladeiras/1 retorna HTTP 409
+PASSOU: DELETE geladeira com historico: corpo possui tipo JSON
+PASSOU: Exclusao com historico responde ProblemDetails 409
+PASSOU: DELETE geladeira com historico: GET /api/geladeiras/1 retorna HTTP 200
+PASSOU: DELETE geladeira com historico: corpo possui tipo JSON
+PASSOU: Geladeira anterior a migration preserva ID, nome, localizacao e criacao
+PASSOU: DELETE geladeira com historico: GET /api/health retorna HTTP 200
+PASSOU: DELETE geladeira com historico: corpo possui tipo JSON
+PASSOU: Saude real confirma exatamente uma geladeira fixture preservada
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Conflito de exclusao preserva todas as leituras: SQLite preserva exatamente 4 leituras, sem insert indevido
+PASSOU: Python SQLite foreign-key retorna codigo zero
+PASSOU: FK RESTRICT/NO ACTION impede DELETE SQL direto e preserva parent e leituras
+PASSOU: geladeira sem historico continua excluivel: POST /api/geladeiras retorna HTTP 201
+PASSOU: geladeira sem historico continua excluivel: corpo possui tipo JSON
+PASSOU: Geladeira auxiliar sem leituras possui ID proprio
+PASSOU: geladeira sem historico continua excluivel: DELETE /api/geladeiras/2 retorna HTTP 204
+PASSOU: HTTP 204 nao possui corpo
+PASSOU: geladeira sem historico continua excluivel: DELETE /api/geladeiras/2 retorna HTTP 404
+PASSOU: geladeira sem historico continua excluivel: GET /api/geladeiras/1 retorna HTTP 200
+PASSOU: geladeira sem historico continua excluivel: corpo possui tipo JSON
+PASSOU: Geladeira anterior a migration preserva ID, nome, localizacao e criacao
+PASSOU: geladeira sem historico continua excluivel: GET /api/health retorna HTTP 200
+PASSOU: geladeira sem historico continua excluivel: corpo possui tipo JSON
+PASSOU: Saude real confirma exatamente uma geladeira fixture preservada
+PASSOU: persistencia real apos reiniciar API: GET /api/leituras/1 retorna HTTP 200
+PASSOU: persistencia real apos reiniciar API: corpo possui tipo JSON
+PASSOU: Reinicio preserva identidade, campos, origem e os dois timestamps: sete campos, tipos, identidade, temperatura, porta e origem correspondem a fixture
+PASSOU: Reinicio preserva identidade, campos, origem e os dois timestamps: instante de medicao preservado, UTC e nao posterior ao recebimento
+PASSOU: persistencia real apos reiniciar API: GET /api/leituras/2 retorna HTTP 200
+PASSOU: persistencia real apos reiniciar API: corpo possui tipo JSON
+PASSOU: Reinicio preserva identidade, campos, origem e os dois timestamps: sete campos, tipos, identidade, temperatura, porta e origem correspondem a fixture
+PASSOU: Reinicio preserva identidade, campos, origem e os dois timestamps: instante de medicao preservado, UTC e nao posterior ao recebimento
+PASSOU: persistencia real apos reiniciar API: GET /api/leituras/3 retorna HTTP 200
+PASSOU: persistencia real apos reiniciar API: corpo possui tipo JSON
+PASSOU: Reinicio preserva leitura Simulacao do CLI: sete campos, tipos, identidade, temperatura, porta e origem correspondem a fixture
+PASSOU: Reinicio preserva leitura Simulacao do CLI: instante de medicao preservado, UTC e nao posterior ao recebimento
+PASSOU: persistencia real apos reiniciar API: GET /api/leituras/4 retorna HTTP 200
+PASSOU: persistencia real apos reiniciar API: corpo possui tipo JSON
+PASSOU: Reinicio preserva leitura Simulacao do CLI: sete campos, tipos, identidade, temperatura, porta e origem correspondem a fixture
+PASSOU: Reinicio preserva leitura Simulacao do CLI: instante de medicao preservado, UTC e nao posterior ao recebimento
+PASSOU: persistencia real apos reiniciar API: GET /api/geladeiras/1 retorna HTTP 200
+PASSOU: persistencia real apos reiniciar API: corpo possui tipo JSON
+PASSOU: Geladeira anterior a migration preserva ID, nome, localizacao e criacao
+PASSOU: persistencia real apos reiniciar API: GET /api/health retorna HTTP 200
+PASSOU: persistencia real apos reiniciar API: corpo possui tipo JSON
+PASSOU: Saude real confirma exatamente uma geladeira fixture preservada
+PASSOU: persistencia real apos reiniciar API: DELETE /api/geladeiras/1 retorna HTTP 409
+PASSOU: persistencia real apos reiniciar API: corpo possui tipo JSON
+PASSOU: Python SQLite count-latest retorna codigo zero
+PASSOU: Historico continua protegido depois do reinicio: SQLite preserva exatamente 4 leituras, sem insert indevido
+PASSOU: Python SQLite final-database retorna codigo zero
+PASSOU: Estado final tem quatro leituras fixture preservadas, um parent e integridade valida
+PASSOU: schema ausente gera 503 generico: GET /api/leituras/1 retorna HTTP 503
+PASSOU: schema ausente gera 503 generico: corpo possui tipo JSON
+PASSOU: Banco sem schema responde ProblemDetails 503 para leituras
+PASSOU: 503 nao divulga excecao, SQL nem caminho interno
+PASSOU: schema ausente gera 503 generico: POST /api/leituras retorna HTTP 503
+PASSOU: schema ausente gera 503 generico: corpo possui tipo JSON
+PASSOU: Banco sem schema responde ProblemDetails 503 para leituras
+PASSOU: 503 nao divulga excecao, SQL nem caminho interno
+Leituras: 339 verificacoes aprovadas; 75 requisicoes registradas. Relatorio: C:\Users\otavi\Downloads\iceplay\docs\evidencias\2026-10-19-mobile\leituras\leituras-api.json
+Fixtures preservadas somente no banco isolado: C:\Users\otavi\Downloads\iceplay\.tools\verification\20261019T164850Z-0ad9b775\iceplay.db

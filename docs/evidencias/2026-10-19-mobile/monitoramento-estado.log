@@ -1,0 +1,20 @@
+✔ zero e porta fechada permanecem valores válidos, distintos de ausência (2.3554ms)
+✔ cadastro sem leitura e banco sem geladeiras são respostas válidas (1.5869ms)
+✔ respostas de outra origem e leituras misturadas são recusadas (0.4013ms)
+✔ identidade inconsistente ou geladeiras duplicadas não podem ser exibidas (0.325ms)
+✔ valores ausentes, strings numéricas e tipos incorretos são recusados (0.4212ms)
+✔ datas inválidas, sem UTC e medição posterior ao recebimento são recusadas (0.2884ms)
+✔ nenhuma leitura não é classificada como recente ou temperatura normal (0.2892ms)
+✔ referência de 60 segundos tem limite explícito (0.1367ms)
+✔ recebimento recente não torna medição atrasada recente (0.1402ms)
+✔ referência visual pode mudar ou ser desativada sem alterar a leitura (0.1904ms)
+✔ horário à frente da referência é indicado sem fingir recência (0.1338ms)
+✔ idade é apresentada em português nos limites de segundos, minutos e dias (0.1402ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 94.3579

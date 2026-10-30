@@ -1,0 +1,15 @@
+{
+  "verifiedAtUtc": "2026-10-18T02:22:51.4354221Z",
+  "scope": "Execução normal via run.ps1; somente consultas, sem fixtures",
+  "url": "http://localhost:5080",
+  "database": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\data\\iceplay.db",
+  "healthStatus": 200,
+  "health": {
+    "status": "healthy",
+    "database": "connected",
+    "refrigeratorCount": 0,
+    "checkedAtUtc": "2026-10-18T02:22:51.28755Z"
+  },
+  "listStatus": 200,
+  "list": []
+}

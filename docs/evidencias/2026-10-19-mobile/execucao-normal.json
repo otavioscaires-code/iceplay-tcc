@@ -1,0 +1,124 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-10-19T16:57:10.895374+00:00",
+  "scope": "Execução móvel normal, TLS validado com CA local e login/logout HTTP reais; nenhuma mutação de cadastro ou leitura",
+  "health": {
+    "status": "healthy",
+    "database": "connected",
+    "refrigeratorCount": 1,
+    "checkedAtUtc": "2026-10-19T16:57:10.698498Z"
+  },
+  "secureHealth": {
+    "status": "healthy",
+    "database": "connected",
+    "refrigeratorCount": 1,
+    "checkedAtUtc": "2026-10-19T16:57:10.8327328Z"
+  },
+  "monitoring": [
+    {
+      "origin": "Simulacao",
+      "refrigeratorCount": 1,
+      "withReading": 0
+    },
+    {
+      "origin": "Hardware",
+      "refrigeratorCount": 1,
+      "withReading": 0
+    }
+  ],
+  "requests": [
+    {
+      "path": "/api/health",
+      "transport": "http",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "transport": "https",
+      "status": 401
+    },
+    {
+      "path": "/api/acesso",
+      "transport": "https",
+      "status": 200
+    },
+    {
+      "path": "/api/acesso/entrar",
+      "transport": "https",
+      "status": 204
+    },
+    {
+      "path": "/api/acesso",
+      "transport": "https",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "transport": "https",
+      "status": 200
+    },
+    {
+      "path": "/api/monitoramento?origem=Simulacao",
+      "transport": "https",
+      "status": 200
+    },
+    {
+      "path": "/api/monitoramento?origem=Hardware",
+      "transport": "https",
+      "status": 200
+    },
+    {
+      "path": "/api/acesso/sair",
+      "transport": "https",
+      "status": 204
+    },
+    {
+      "path": "/api/health",
+      "transport": "https",
+      "status": 401
+    },
+    {
+      "path": "/certificado.cer",
+      "transport": "http",
+      "status": 200
+    }
+  ],
+  "certificateSha256": "88D3FB783C95962ABD48CBE913A9D1DC55C068517E938BA57773B795694C64CC",
+  "phonePhysicalTest": "pending",
+  "firewallRuleApplied": false,
+  "databaseBefore": {
+    "checkedAtUtc": "2026-10-19T13:39:06.261121-03:00",
+    "database": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Data\\iceplay.db",
+    "readOnly": true,
+    "counts": {
+      "Geladeiras": 1,
+      "Leituras": 0,
+      "__EFMigrationsHistory": 2
+    },
+    "logicalRowsSha256": "48c762d62fbf6ef87e5bdb8372bebb0afd99fa792fa4b17cd9e2595422585c18",
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreignKeyViolations": []
+  },
+  "databaseAfter": {
+    "checkedAtUtc": "2026-10-19T13:57:11.074951-03:00",
+    "database": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Data\\iceplay.db",
+    "readOnly": true,
+    "counts": {
+      "Geladeiras": 1,
+      "Leituras": 0,
+      "__EFMigrationsHistory": 2
+    },
+    "logicalRowsSha256": "48c762d62fbf6ef87e5bdb8372bebb0afd99fa792fa4b17cd9e2595422585c18",
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreignKeyViolations": []
+  },
+  "logicalRowsPreserved": true
+}

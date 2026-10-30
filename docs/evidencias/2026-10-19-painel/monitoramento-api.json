@@ -1,0 +1,369 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-10-19T16:08:07.2165306Z",
+  "finishedAtUtc": "2026-10-19T16:08:18.8389565Z",
+  "scope": "Painel, API e fixtures de software; Hardware e apenas rotulo declarado de teste",
+  "isolatedDatabase": "C:\\Users\\otavi\\Downloads\\iceplay\\.tools\\verification\\painel-20261019T160807Z-0fc5da04\\iceplay.db",
+  "checks": [
+    "Build sem restauracao termina com codigo zero",
+    "GET /api/monitoramento?origem=Simulacao retorna 200",
+    "Banco vazio devolve array vazio e origem explicita, sem dados ficticios",
+    "GET /api/monitoramento?origem=Hardware retorna 200",
+    "Banco vazio devolve array vazio e origem explicita, sem dados ficticios",
+    "GET /api/monitoramento retorna 400",
+    "Origem ausente ou invalida recebe validacao 400",
+    "GET /api/monitoramento?origem= retorna 400",
+    "Origem ausente ou invalida recebe validacao 400",
+    "GET /api/monitoramento?origem=hardware retorna 400",
+    "Origem ausente ou invalida recebe validacao 400",
+    "GET /api/monitoramento?origem=0 retorna 400",
+    "Origem ausente ou invalida recebe validacao 400",
+    "GET /api/monitoramento?origem=Outra retorna 400",
+    "Origem ausente ou invalida recebe validacao 400",
+    "GET /api/monitoramento?origem=%20 retorna 400",
+    "Origem ausente ou invalida recebe validacao 400",
+    "POST /api/geladeiras retorna 201",
+    "POST /api/geladeiras retorna 201",
+    "POST /api/geladeiras retorna 201",
+    "GET /api/monitoramento?origem=Simulacao retorna 200",
+    "Equipamentos sem amostras permanecem com ultimaLeitura null",
+    "POST /api/leituras retorna 201",
+    "POST /api/leituras retorna 201",
+    "GET /api/monitoramento?origem=Simulacao retorna 200",
+    "Painel contem uma unica geladeira 1",
+    "Ultima leitura, zero/false, porta e origem correspondem ao SQLite",
+    "Os dois timestamps e o horario da consulta sao UTC",
+    "POST /api/leituras retorna 201",
+    "POST /api/leituras retorna 201",
+    "GET /api/monitoramento?origem=Simulacao retorna 200",
+    "Painel contem uma unica geladeira 1",
+    "Ultima leitura, zero/false, porta e origem correspondem ao SQLite",
+    "Os dois timestamps e o horario da consulta sao UTC",
+    "Leitura atrasada tem ID maior, mas nao substitui medicao mais recente",
+    "POST /api/leituras retorna 201",
+    "GET /api/monitoramento?origem=Simulacao retorna 200",
+    "GET /api/monitoramento?origem=Hardware retorna 200",
+    "Painel contem uma unica geladeira 1",
+    "Ultima leitura, zero/false, porta e origem correspondem ao SQLite",
+    "Os dois timestamps e o horario da consulta sao UTC",
+    "Painel contem uma unica geladeira 1",
+    "Ultima leitura, zero/false, porta e origem correspondem ao SQLite",
+    "Os dois timestamps e o horario da consulta sao UTC",
+    "Hardware selecionado nao reaproveita simulacao de outra origem",
+    "Simulador existente envia amostra pela mesma API",
+    "GET /api/monitoramento?origem=Simulacao retorna 200",
+    "Painel contem uma unica geladeira 2",
+    "Ultima leitura, zero/false, porta e origem correspondem ao SQLite",
+    "Os dois timestamps e o horario da consulta sao UTC",
+    "POST /api/leituras retorna 201",
+    "PUT /api/geladeiras/1 retorna 200",
+    "DELETE /api/geladeiras/3 retorna 204",
+    "DELETE 204 nao tem corpo",
+    "GET /api/monitoramento?origem=Simulacao retorna 200",
+    "Painel reflete edicao e exclusao de cadastro sem cache inventado",
+    "Painel contem uma unica geladeira 1",
+    "Ultima leitura, zero/false, porta e origem correspondem ao SQLite",
+    "Os dois timestamps e o horario da consulta sao UTC",
+    "GET /api/monitoramento?origem=Simulacao retorna 200",
+    "Reinicio real preserva cadastros e exatamente as mesmas ultimas leituras",
+    "GET /api/monitoramento?origem=Hardware retorna 200",
+    "Painel contem uma unica geladeira 1",
+    "Ultima leitura, zero/false, porta e origem correspondem ao SQLite",
+    "Os dois timestamps e o horario da consulta sao UTC",
+    "Modulo /monitoramento.js servido com MIME JavaScript",
+    "Modulo /monitoramento-estado.mjs servido com MIME JavaScript",
+    "GET /api/monitoramento?origem=Simulacao retorna 503",
+    "Falha real devolve 503 generico, sem SQL ou caminho interno",
+    "SQLite confirma integridade, duas migrations e nenhuma insercao pelo GET"
+  ],
+  "requests": [
+    {
+      "atUtc": "2026-10-19T16:08:12.1417592Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Simulacao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"consultadoEmUtc\":\"2026-10-19T16:08:12.1225784Z\",\"origem\":\"Simulacao\",\"geladeiras\":[]}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.1710683Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Hardware",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"consultadoEmUtc\":\"2026-10-19T16:08:12.1703327Z\",\"origem\":\"Hardware\",\"geladeiras\":[]}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.1915966Z",
+      "method": "GET",
+      "path": "/api/monitoramento",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"origem\":[\"The origem field is required.\"]},\"traceId\":\"00-f815b47deeec94dba95cd42827e92c6f-8b818dc88e00843e-00\"}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.1987463Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"origem\":[\"The origem field is required.\"]},\"traceId\":\"00-a80754f381827420d34050538591650d-751bb1fcca97e7b4-00\"}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.2026284Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=hardware",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"origem\":[\"Informe exatamente Simulacao ou Hardware.\"]},\"traceId\":\"00-4adee917453667878f696de1620813ca-fa55e634e9e94628-00\"}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.2060964Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=0",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"origem\":[\"Informe exatamente Simulacao ou Hardware.\"]},\"traceId\":\"00-c83fc845b579a49e9723f69d36a82253-df35fab97c5ae92e-00\"}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.2091458Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Outra",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"origem\":[\"Informe exatamente Simulacao ou Hardware.\"]},\"traceId\":\"00-ad73ddd94ee6e40c625c5401ce149edc-6b98c74de76e6d39-00\"}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.2131978Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=%20",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"origem\":[\"The origem field is required.\"]},\"traceId\":\"00-edb4579224ec662af11304e69d63bd9d-0c35d228d87149a7-00\"}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.4414069Z",
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": "{\"nome\":\"FIXTURE PAINEL - A\",\"localizacao\":\"BANCO ISOLADO\"}",
+      "responseBody": "{\"id\":1,\"nome\":\"FIXTURE PAINEL - A\",\"localizacao\":\"BANCO ISOLADO\",\"criadoEmUtc\":\"2026-10-19T16:08:12.2419252Z\"}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.4836806Z",
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": "{\"nome\":\"FIXTURE PAINEL - B\"}",
+      "responseBody": "{\"id\":2,\"nome\":\"FIXTURE PAINEL - B\",\"localizacao\":null,\"criadoEmUtc\":\"2026-10-19T16:08:12.4441254Z\"}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.5016312Z",
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": "{\"nome\":\"FIXTURE PAINEL - SEM LEITURAS\"}",
+      "responseBody": "{\"id\":3,\"nome\":\"FIXTURE PAINEL - SEM LEITURAS\",\"localizacao\":null,\"criadoEmUtc\":\"2026-10-19T16:08:12.4858757Z\"}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.5107620Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Simulacao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"consultadoEmUtc\":\"2026-10-19T16:08:12.5095877Z\",\"origem\":\"Simulacao\",\"geladeiras\":[{\"id\":1,\"nome\":\"FIXTURE PAINEL - A\",\"localizacao\":\"BANCO ISOLADO\",\"ultimaLeitura\":null},{\"id\":2,\"nome\":\"FIXTURE PAINEL - B\",\"localizacao\":null,\"ultimaLeitura\":null},{\"id\":3,\"nome\":\"FIXTURE PAINEL - SEM LEITURAS\",\"localizacao\":null,\"ultimaLeitura\":null}]}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.6127702Z",
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": "{\"origem\":\"Simulacao\",\"portaAberta\":true,\"geladeiraId\":1,\"medidoEmUtc\":\"2026-10-19T16:06:12.5366910Z\",\"temperaturaC\":10.25}",
+      "responseBody": "{\"id\":1,\"geladeiraId\":1,\"temperaturaC\":10.25,\"portaAberta\":true,\"medidoEmUtc\":\"2026-10-19T16:06:12.536691Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.5569138Z\",\"origem\":\"Simulacao\"}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.6850521Z",
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": "{\"origem\":\"Simulacao\",\"portaAberta\":false,\"geladeiraId\":1,\"medidoEmUtc\":\"2026-10-19T16:06:12.536691Z\",\"temperaturaC\":11.5}",
+      "responseBody": "{\"id\":2,\"geladeiraId\":1,\"temperaturaC\":11.5,\"portaAberta\":false,\"medidoEmUtc\":\"2026-10-19T16:06:12.536691Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.6162006Z\",\"origem\":\"Simulacao\"}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.6917486Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Simulacao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"consultadoEmUtc\":\"2026-10-19T16:08:12.6910634Z\",\"origem\":\"Simulacao\",\"geladeiras\":[{\"id\":1,\"nome\":\"FIXTURE PAINEL - A\",\"localizacao\":\"BANCO ISOLADO\",\"ultimaLeitura\":{\"id\":2,\"geladeiraId\":1,\"temperaturaC\":11.5,\"portaAberta\":false,\"medidoEmUtc\":\"2026-10-19T16:06:12.536691Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.6162006Z\",\"origem\":\"Simulacao\"}},{\"id\":2,\"nome\":\"FIXTURE PAINEL - B\",\"localizacao\":null,\"ultimaLeitura\":null},{\"id\":3,\"nome\":\"FIXTURE PAINEL - SEM LEITURAS\",\"localizacao\":null,\"ultimaLeitura\":null}]}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.7312411Z",
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": "{\"origem\":\"Simulacao\",\"portaAberta\":false,\"geladeiraId\":1,\"medidoEmUtc\":\"2026-10-19T16:07:42.5351266Z\",\"temperaturaC\":0}",
+      "responseBody": "{\"id\":3,\"geladeiraId\":1,\"temperaturaC\":0,\"portaAberta\":false,\"medidoEmUtc\":\"2026-10-19T16:07:42.5351266Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.7102748Z\",\"origem\":\"Simulacao\"}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.7516317Z",
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": "{\"origem\":\"Simulacao\",\"portaAberta\":true,\"geladeiraId\":1,\"medidoEmUtc\":\"2026-10-19T15:08:12.7320393Z\",\"temperaturaC\":99}",
+      "responseBody": "{\"id\":4,\"geladeiraId\":1,\"temperaturaC\":99,\"portaAberta\":true,\"medidoEmUtc\":\"2026-10-19T15:08:12.7320393Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.7349908Z\",\"origem\":\"Simulacao\"}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.7553571Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Simulacao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"consultadoEmUtc\":\"2026-10-19T16:08:12.7544331Z\",\"origem\":\"Simulacao\",\"geladeiras\":[{\"id\":1,\"nome\":\"FIXTURE PAINEL - A\",\"localizacao\":\"BANCO ISOLADO\",\"ultimaLeitura\":{\"id\":3,\"geladeiraId\":1,\"temperaturaC\":0,\"portaAberta\":false,\"medidoEmUtc\":\"2026-10-19T16:07:42.5351266Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.7102748Z\",\"origem\":\"Simulacao\"}},{\"id\":2,\"nome\":\"FIXTURE PAINEL - B\",\"localizacao\":null,\"ultimaLeitura\":null},{\"id\":3,\"nome\":\"FIXTURE PAINEL - SEM LEITURAS\",\"localizacao\":null,\"ultimaLeitura\":null}]}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.7813243Z",
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": "{\"origem\":\"Hardware\",\"portaAberta\":true,\"geladeiraId\":1,\"medidoEmUtc\":\"2026-10-19T16:08:07.7596941Z\",\"temperaturaC\":7.75}",
+      "responseBody": "{\"id\":5,\"geladeiraId\":1,\"temperaturaC\":7.75,\"portaAberta\":true,\"medidoEmUtc\":\"2026-10-19T16:08:07.7596941Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.761615Z\",\"origem\":\"Hardware\"}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.7849574Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Simulacao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"consultadoEmUtc\":\"2026-10-19T16:08:12.7842434Z\",\"origem\":\"Simulacao\",\"geladeiras\":[{\"id\":1,\"nome\":\"FIXTURE PAINEL - A\",\"localizacao\":\"BANCO ISOLADO\",\"ultimaLeitura\":{\"id\":3,\"geladeiraId\":1,\"temperaturaC\":0,\"portaAberta\":false,\"medidoEmUtc\":\"2026-10-19T16:07:42.5351266Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.7102748Z\",\"origem\":\"Simulacao\"}},{\"id\":2,\"nome\":\"FIXTURE PAINEL - B\",\"localizacao\":null,\"ultimaLeitura\":null},{\"id\":3,\"nome\":\"FIXTURE PAINEL - SEM LEITURAS\",\"localizacao\":null,\"ultimaLeitura\":null}]}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.7885130Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Hardware",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"consultadoEmUtc\":\"2026-10-19T16:08:12.7877138Z\",\"origem\":\"Hardware\",\"geladeiras\":[{\"id\":1,\"nome\":\"FIXTURE PAINEL - A\",\"localizacao\":\"BANCO ISOLADO\",\"ultimaLeitura\":{\"id\":5,\"geladeiraId\":1,\"temperaturaC\":7.75,\"portaAberta\":true,\"medidoEmUtc\":\"2026-10-19T16:08:07.7596941Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.761615Z\",\"origem\":\"Hardware\"}},{\"id\":2,\"nome\":\"FIXTURE PAINEL - B\",\"localizacao\":null,\"ultimaLeitura\":null},{\"id\":3,\"nome\":\"FIXTURE PAINEL - SEM LEITURAS\",\"localizacao\":null,\"ultimaLeitura\":null}]}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.8853283Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Simulacao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"consultadoEmUtc\":\"2026-10-19T16:08:12.8845907Z\",\"origem\":\"Simulacao\",\"geladeiras\":[{\"id\":1,\"nome\":\"FIXTURE PAINEL - A\",\"localizacao\":\"BANCO ISOLADO\",\"ultimaLeitura\":{\"id\":3,\"geladeiraId\":1,\"temperaturaC\":0,\"portaAberta\":false,\"medidoEmUtc\":\"2026-10-19T16:07:42.5351266Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.7102748Z\",\"origem\":\"Simulacao\"}},{\"id\":2,\"nome\":\"FIXTURE PAINEL - B\",\"localizacao\":null,\"ultimaLeitura\":{\"id\":6,\"geladeiraId\":2,\"temperaturaC\":-3.25,\"portaAberta\":true,\"medidoEmUtc\":\"2026-10-19T16:08:12.8346996Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.8447571Z\",\"origem\":\"Simulacao\"}},{\"id\":3,\"nome\":\"FIXTURE PAINEL - SEM LEITURAS\",\"localizacao\":null,\"ultimaLeitura\":null}]}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.9148286Z",
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": "{\"origem\":\"Simulacao\",\"portaAberta\":false,\"geladeiraId\":1,\"medidoEmUtc\":\"2026-10-19T16:07:42.5351266Z\",\"temperaturaC\":4.5}",
+      "responseBody": "{\"id\":7,\"geladeiraId\":1,\"temperaturaC\":4.5,\"portaAberta\":false,\"medidoEmUtc\":\"2026-10-19T16:07:42.5351266Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.896895Z\",\"origem\":\"Simulacao\"}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:12.9599121Z",
+      "method": "PUT",
+      "path": "/api/geladeiras/1",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": "{\"nome\":\"FIXTURE PAINEL - A EDITADA\",\"localizacao\":\"BANCO ISOLADO\"}",
+      "responseBody": "{\"id\":1,\"nome\":\"FIXTURE PAINEL - A EDITADA\",\"localizacao\":\"BANCO ISOLADO\",\"criadoEmUtc\":\"2026-10-19T16:08:12.2419252Z\"}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:13.0000816Z",
+      "method": "DELETE",
+      "path": "/api/geladeiras/3",
+      "expectedStatus": 204,
+      "actualStatus": 204,
+      "requestBody": null,
+      "responseBody": ""
+    },
+    {
+      "atUtc": "2026-10-19T16:08:13.0056399Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Simulacao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"consultadoEmUtc\":\"2026-10-19T16:08:13.0049862Z\",\"origem\":\"Simulacao\",\"geladeiras\":[{\"id\":1,\"nome\":\"FIXTURE PAINEL - A EDITADA\",\"localizacao\":\"BANCO ISOLADO\",\"ultimaLeitura\":{\"id\":7,\"geladeiraId\":1,\"temperaturaC\":4.5,\"portaAberta\":false,\"medidoEmUtc\":\"2026-10-19T16:07:42.5351266Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.896895Z\",\"origem\":\"Simulacao\"}},{\"id\":2,\"nome\":\"FIXTURE PAINEL - B\",\"localizacao\":null,\"ultimaLeitura\":{\"id\":6,\"geladeiraId\":2,\"temperaturaC\":-3.25,\"portaAberta\":true,\"medidoEmUtc\":\"2026-10-19T16:08:12.8346996Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.8447571Z\",\"origem\":\"Simulacao\"}}]}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:15.7931847Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Simulacao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"consultadoEmUtc\":\"2026-10-19T16:08:15.7809178Z\",\"origem\":\"Simulacao\",\"geladeiras\":[{\"id\":1,\"nome\":\"FIXTURE PAINEL - A EDITADA\",\"localizacao\":\"BANCO ISOLADO\",\"ultimaLeitura\":{\"id\":7,\"geladeiraId\":1,\"temperaturaC\":4.5,\"portaAberta\":false,\"medidoEmUtc\":\"2026-10-19T16:07:42.5351266Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.896895Z\",\"origem\":\"Simulacao\"}},{\"id\":2,\"nome\":\"FIXTURE PAINEL - B\",\"localizacao\":null,\"ultimaLeitura\":{\"id\":6,\"geladeiraId\":2,\"temperaturaC\":-3.25,\"portaAberta\":true,\"medidoEmUtc\":\"2026-10-19T16:08:12.8346996Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.8447571Z\",\"origem\":\"Simulacao\"}}]}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:15.8060611Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Hardware",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"consultadoEmUtc\":\"2026-10-19T16:08:15.8054128Z\",\"origem\":\"Hardware\",\"geladeiras\":[{\"id\":1,\"nome\":\"FIXTURE PAINEL - A EDITADA\",\"localizacao\":\"BANCO ISOLADO\",\"ultimaLeitura\":{\"id\":5,\"geladeiraId\":1,\"temperaturaC\":7.75,\"portaAberta\":true,\"medidoEmUtc\":\"2026-10-19T16:08:07.7596941Z\",\"recebidoEmUtc\":\"2026-10-19T16:08:12.761615Z\",\"origem\":\"Hardware\"}},{\"id\":2,\"nome\":\"FIXTURE PAINEL - B\",\"localizacao\":null,\"ultimaLeitura\":null}]}"
+    },
+    {
+      "atUtc": "2026-10-19T16:08:18.5820880Z",
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Simulacao",
+      "expectedStatus": 503,
+      "actualStatus": 503,
+      "requestBody": null,
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.6.4\",\"title\":\"Banco de dados indisponível.\",\"status\":503,\"detail\":\"Não foi possível concluir a operação. Tente novamente em instantes.\"}"
+    }
+  ],
+  "errors": [],
+  "checkCount": 70,
+  "finalDatabase": {
+    "integrity": "ok",
+    "geladeiras": 2,
+    "leituras": 7,
+    "migrations": [
+      "20261013172101_InitialCreate",
+      "20261018023456_AddLeituras"
+    ]
+  },
+  "simulatorResults": [
+    {
+      "indice": 1,
+      "statusHttp": 201,
+      "location": "http://127.0.0.1:51696/api/leituras/6",
+      "leitura": {
+        "id": 6,
+        "geladeiraId": 2,
+        "temperaturaC": -3.25,
+        "portaAberta": true,
+        "medidoEmUtc": "2026-10-19T16:08:12.8346996Z",
+        "recebidoEmUtc": "2026-10-19T16:08:12.8447571Z",
+        "origem": "Simulacao"
+      }
+    }
+  ]
+}

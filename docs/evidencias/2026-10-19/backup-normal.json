@@ -1,0 +1,8 @@
+{
+  "verifiedAtUtc": "2026-10-19T15:17:38.574466+00:00",
+  "backup": "C:\\Users\\otavi\\Downloads\\iceplay\\.tools\\task-2026-10-19\\iceplay-before-migration.db",
+  "geladeiras": 0,
+  "migrations": [
+    "20261013172101_InitialCreate"
+  ]
+}

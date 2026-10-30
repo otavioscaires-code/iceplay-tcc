@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Iceplay.Api/Iceplay.Api.csproj" />
+  </Folder>
+</Solution>

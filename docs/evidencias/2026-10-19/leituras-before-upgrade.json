@@ -1,0 +1,1 @@
+{"result": "passed", "migrations": ["20261013172101_InitialCreate"], "leituraTableExists": false, "fixture": {"id": 1, "nome": "FIXTURE LEITURAS UPGRADE - NAO E CADASTRO REAL", "localizacao": "BANCO ISOLADO - cadastro anterior a migration de leituras", "criadoEmUtc": "2026-10-19T15:14:02.501949Z"}}

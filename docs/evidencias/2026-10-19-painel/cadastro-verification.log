@@ -1,0 +1,816 @@
+  Iceplay.Api -> C:\Users\otavi\Downloads\iceplay\src\Iceplay.Api\bin\Debug\net10.0\Iceplay.Api.dll
+
+Compilação com êxito.
+    0 Aviso(s)
+    0 Erro(s)
+
+Tempo Decorrido 00:00:01.07
+PASSOU: Build sem restauracao conclui com codigo zero
+PASSOU: API cria SQLite apenas no diretorio isolado de verificacao
+PASSOU: banco inicial vazio: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: banco inicial vazio: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: Banco inicial: lista JSON possui exatamente 0 fixtures
+PASSOU: banco inicial vazio: GET /api/health retorna exatamente HTTP 200
+PASSOU: banco inicial vazio: resposta GET /api/health possui tipo JSON
+PASSOU: Banco inicial: health confirma banco conectado e contagem real 0
+PASSOU: POST fixture 1 e campos pertencentes ao servidor: POST /api/geladeiras retorna exatamente HTTP 201
+PASSOU: POST fixture 1 e campos pertencentes ao servidor: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST fixture 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST fixture 1: timestamp de criacao e UTC valido
+PASSOU: POST ignora ID/data extras e gera ID e criacao no intervalo real da requisicao
+PASSOU: POST 201 fornece header Location
+PASSOU: Location aponta ao ID criado na mesma instancia isolada
+PASSOU: POST fixture 1 e campos pertencentes ao servidor: GET /api/geladeiras/1 retorna exatamente HTTP 200
+PASSOU: POST fixture 1 e campos pertencentes ao servidor: resposta GET /api/geladeiras/1 possui tipo JSON
+PASSOU: GET pelo Location: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: GET pelo Location: timestamp de criacao e UTC valido
+PASSOU: POST fixture 2 com localizacao omitida: POST /api/geladeiras retorna exatamente HTTP 201
+PASSOU: POST fixture 2 com localizacao omitida: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST fixture 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST fixture 2: timestamp de criacao e UTC valido
+PASSOU: As duas fixtures recebem IDs distintos
+PASSOU: POST fixture 2 com localizacao omitida: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST fixture 2 com localizacao omitida: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: Duas fixtures persistidas: lista JSON possui exatamente 2 fixtures
+PASSOU: Duas fixtures persistidas: ID 1 aparece exatamente uma vez
+PASSOU: Duas fixtures persistidas / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: Duas fixtures persistidas / ID 1: timestamp de criacao e UTC valido
+PASSOU: Duas fixtures persistidas: ID 2 aparece exatamente uma vez
+PASSOU: Duas fixtures persistidas / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: Duas fixtures persistidas / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST fixture 2 com localizacao omitida: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST fixture 2 com localizacao omitida: resposta GET /api/health possui tipo JSON
+PASSOU: Duas fixtures persistidas: health confirma banco conectado e contagem real 2
+PASSOU: PUT normalizacao e protecao de ID/criacao: PUT /api/geladeiras/1 retorna exatamente HTTP 200
+PASSOU: PUT normalizacao e protecao de ID/criacao: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT preserva ID e data originais e normaliza campos editaveis: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT preserva ID e data originais e normaliza campos editaveis: timestamp de criacao e UTC valido
+PASSOU: PUT localizacao explicitamente nula: PUT /api/geladeiras/2 retorna exatamente HTTP 200
+PASSOU: PUT localizacao explicitamente nula: resposta PUT /api/geladeiras/2 possui tipo JSON
+PASSOU: PUT localizacao explicitamente nula: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT localizacao explicitamente nula: timestamp de criacao e UTC valido
+PASSOU: PUT localizacao omitida: PUT /api/geladeiras/2 retorna exatamente HTTP 200
+PASSOU: PUT localizacao omitida: resposta PUT /api/geladeiras/2 possui tipo JSON
+PASSOU: PUT localizacao omitida: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT localizacao omitida: timestamp de criacao e UTC valido
+PASSOU: PUT localizacao omitida: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT localizacao omitida: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: Edicoes confirmadas por GET e health: lista JSON possui exatamente 2 fixtures
+PASSOU: Edicoes confirmadas por GET e health: ID 1 aparece exatamente uma vez
+PASSOU: Edicoes confirmadas por GET e health / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: Edicoes confirmadas por GET e health / ID 1: timestamp de criacao e UTC valido
+PASSOU: Edicoes confirmadas por GET e health: ID 2 aparece exatamente uma vez
+PASSOU: Edicoes confirmadas por GET e health / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: Edicoes confirmadas por GET e health / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT localizacao omitida: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT localizacao omitida: resposta GET /api/health possui tipo JSON
+PASSOU: Edicoes confirmadas por GET e health: health confirma banco conectado e contagem real 2
+PASSOU: POST invalido: nome ausente: POST /api/geladeiras retorna exatamente HTTP 400
+PASSOU: POST invalido: nome ausente: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome ausente: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: POST invalido: nome ausente: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST invalido: nome ausente: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome ausente nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: POST invalido: nome ausente nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: POST invalido: nome ausente nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome ausente nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome ausente nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: POST invalido: nome ausente nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome ausente nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome ausente: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST invalido: nome ausente: resposta GET /api/health possui tipo JSON
+PASSOU: POST invalido: nome ausente nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: POST invalido: nome nulo: POST /api/geladeiras retorna exatamente HTTP 400
+PASSOU: POST invalido: nome nulo: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome nulo: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: POST invalido: nome nulo: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST invalido: nome nulo: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome nulo nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: POST invalido: nome nulo nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: POST invalido: nome nulo nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome nulo nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome nulo nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: POST invalido: nome nulo nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome nulo nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome nulo: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST invalido: nome nulo: resposta GET /api/health possui tipo JSON
+PASSOU: POST invalido: nome nulo nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: POST invalido: nome vazio: POST /api/geladeiras retorna exatamente HTTP 400
+PASSOU: POST invalido: nome vazio: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome vazio: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: POST invalido: nome vazio: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST invalido: nome vazio: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome vazio nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: POST invalido: nome vazio nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: POST invalido: nome vazio nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome vazio nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome vazio nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: POST invalido: nome vazio nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome vazio nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome vazio: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST invalido: nome vazio: resposta GET /api/health possui tipo JSON
+PASSOU: POST invalido: nome vazio nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: POST invalido: nome so espacos ASCII: POST /api/geladeiras retorna exatamente HTTP 400
+PASSOU: POST invalido: nome so espacos ASCII: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome so espacos ASCII: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: POST invalido: nome so espacos ASCII: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST invalido: nome so espacos ASCII: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome so espacos ASCII nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: POST invalido: nome so espacos ASCII nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: POST invalido: nome so espacos ASCII nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome so espacos ASCII nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome so espacos ASCII nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: POST invalido: nome so espacos ASCII nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome so espacos ASCII nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome so espacos ASCII: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST invalido: nome so espacos ASCII: resposta GET /api/health possui tipo JSON
+PASSOU: POST invalido: nome so espacos ASCII nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: POST invalido: nome so espacos Unicode: POST /api/geladeiras retorna exatamente HTTP 400
+PASSOU: POST invalido: nome so espacos Unicode: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome so espacos Unicode: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: POST invalido: nome so espacos Unicode: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST invalido: nome so espacos Unicode: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome so espacos Unicode nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: POST invalido: nome so espacos Unicode nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: POST invalido: nome so espacos Unicode nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome so espacos Unicode nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome so espacos Unicode nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: POST invalido: nome so espacos Unicode nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome so espacos Unicode nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome so espacos Unicode: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST invalido: nome so espacos Unicode: resposta GET /api/health possui tipo JSON
+PASSOU: POST invalido: nome so espacos Unicode nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: POST invalido: nome com 101 caracteres: POST /api/geladeiras retorna exatamente HTTP 400
+PASSOU: POST invalido: nome com 101 caracteres: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome com 101 caracteres: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: POST invalido: nome com 101 caracteres: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST invalido: nome com 101 caracteres: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome com 101 caracteres nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: POST invalido: nome com 101 caracteres nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: POST invalido: nome com 101 caracteres nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome com 101 caracteres nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome com 101 caracteres nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: POST invalido: nome com 101 caracteres nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome com 101 caracteres nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome com 101 caracteres: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST invalido: nome com 101 caracteres: resposta GET /api/health possui tipo JSON
+PASSOU: POST invalido: nome com 101 caracteres nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: POST invalido: localizacao com 201 caracteres: POST /api/geladeiras retorna exatamente HTTP 400
+PASSOU: POST invalido: localizacao com 201 caracteres: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: localizacao com 201 caracteres: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: POST invalido: localizacao com 201 caracteres: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST invalido: localizacao com 201 caracteres: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: localizacao com 201 caracteres nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: POST invalido: localizacao com 201 caracteres nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: POST invalido: localizacao com 201 caracteres nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: localizacao com 201 caracteres nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: POST invalido: localizacao com 201 caracteres nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: POST invalido: localizacao com 201 caracteres nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: localizacao com 201 caracteres nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST invalido: localizacao com 201 caracteres: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST invalido: localizacao com 201 caracteres: resposta GET /api/health possui tipo JSON
+PASSOU: POST invalido: localizacao com 201 caracteres nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: POST invalido: nome numerico: POST /api/geladeiras retorna exatamente HTTP 400
+PASSOU: POST invalido: nome numerico: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome numerico: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: POST invalido: nome numerico: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST invalido: nome numerico: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome numerico nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: POST invalido: nome numerico nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: POST invalido: nome numerico nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome numerico nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome numerico nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: POST invalido: nome numerico nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome numerico nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome numerico: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST invalido: nome numerico: resposta GET /api/health possui tipo JSON
+PASSOU: POST invalido: nome numerico nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: POST invalido: nome objeto: POST /api/geladeiras retorna exatamente HTTP 400
+PASSOU: POST invalido: nome objeto: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome objeto: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: POST invalido: nome objeto: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST invalido: nome objeto: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome objeto nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: POST invalido: nome objeto nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: POST invalido: nome objeto nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome objeto nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome objeto nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: POST invalido: nome objeto nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome objeto nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome objeto: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST invalido: nome objeto: resposta GET /api/health possui tipo JSON
+PASSOU: POST invalido: nome objeto nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: POST invalido: nome array: POST /api/geladeiras retorna exatamente HTTP 400
+PASSOU: POST invalido: nome array: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome array: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: POST invalido: nome array: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST invalido: nome array: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: nome array nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: POST invalido: nome array nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: POST invalido: nome array nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome array nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome array nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: POST invalido: nome array nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: nome array nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST invalido: nome array: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST invalido: nome array: resposta GET /api/health possui tipo JSON
+PASSOU: POST invalido: nome array nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: POST invalido: localizacao numerica: POST /api/geladeiras retorna exatamente HTTP 400
+PASSOU: POST invalido: localizacao numerica: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: localizacao numerica: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: POST invalido: localizacao numerica: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST invalido: localizacao numerica: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: localizacao numerica nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: POST invalido: localizacao numerica nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: POST invalido: localizacao numerica nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: localizacao numerica nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: POST invalido: localizacao numerica nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: POST invalido: localizacao numerica nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: localizacao numerica nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST invalido: localizacao numerica: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST invalido: localizacao numerica: resposta GET /api/health possui tipo JSON
+PASSOU: POST invalido: localizacao numerica nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: POST invalido: localizacao objeto: POST /api/geladeiras retorna exatamente HTTP 400
+PASSOU: POST invalido: localizacao objeto: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: localizacao objeto: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: POST invalido: localizacao objeto: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST invalido: localizacao objeto: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: localizacao objeto nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: POST invalido: localizacao objeto nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: POST invalido: localizacao objeto nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: localizacao objeto nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: POST invalido: localizacao objeto nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: POST invalido: localizacao objeto nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: localizacao objeto nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST invalido: localizacao objeto: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST invalido: localizacao objeto: resposta GET /api/health possui tipo JSON
+PASSOU: POST invalido: localizacao objeto nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: POST invalido: raiz array: POST /api/geladeiras retorna exatamente HTTP 400
+PASSOU: POST invalido: raiz array: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: raiz array: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: POST invalido: raiz array: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST invalido: raiz array: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: raiz array nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: POST invalido: raiz array nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: POST invalido: raiz array nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: raiz array nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: POST invalido: raiz array nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: POST invalido: raiz array nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: raiz array nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST invalido: raiz array: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST invalido: raiz array: resposta GET /api/health possui tipo JSON
+PASSOU: POST invalido: raiz array nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: POST invalido: JSON incompleto: POST /api/geladeiras retorna exatamente HTTP 400
+PASSOU: POST invalido: JSON incompleto: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: JSON incompleto: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: POST invalido: JSON incompleto: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST invalido: JSON incompleto: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: JSON incompleto nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: POST invalido: JSON incompleto nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: POST invalido: JSON incompleto nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: JSON incompleto nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: POST invalido: JSON incompleto nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: POST invalido: JSON incompleto nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: JSON incompleto nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST invalido: JSON incompleto: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST invalido: JSON incompleto: resposta GET /api/health possui tipo JSON
+PASSOU: POST invalido: JSON incompleto nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: POST invalido: corpo vazio: POST /api/geladeiras retorna exatamente HTTP 400
+PASSOU: POST invalido: corpo vazio: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: corpo vazio: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: POST invalido: corpo vazio: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST invalido: corpo vazio: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: corpo vazio nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: POST invalido: corpo vazio nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: POST invalido: corpo vazio nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: corpo vazio nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: POST invalido: corpo vazio nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: POST invalido: corpo vazio nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: corpo vazio nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST invalido: corpo vazio: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST invalido: corpo vazio: resposta GET /api/health possui tipo JSON
+PASSOU: POST invalido: corpo vazio nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: POST invalido: raiz nula: POST /api/geladeiras retorna exatamente HTTP 400
+PASSOU: POST invalido: raiz nula: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: raiz nula: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: POST invalido: raiz nula: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: POST invalido: raiz nula: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: POST invalido: raiz nula nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: POST invalido: raiz nula nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: POST invalido: raiz nula nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: raiz nula nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: POST invalido: raiz nula nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: POST invalido: raiz nula nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: POST invalido: raiz nula nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: POST invalido: raiz nula: GET /api/health retorna exatamente HTTP 200
+PASSOU: POST invalido: raiz nula: resposta GET /api/health possui tipo JSON
+PASSOU: POST invalido: raiz nula nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: PUT invalido: nome ausente: PUT /api/geladeiras/1 retorna exatamente HTTP 400
+PASSOU: PUT invalido: nome ausente: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT invalido: nome ausente: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: PUT invalido: nome ausente: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome ausente: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT invalido: nome ausente nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT invalido: nome ausente nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: PUT invalido: nome ausente nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome ausente nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome ausente nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: PUT invalido: nome ausente nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome ausente nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome ausente: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome ausente: resposta GET /api/health possui tipo JSON
+PASSOU: PUT invalido: nome ausente nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: PUT invalido: nome nulo: PUT /api/geladeiras/1 retorna exatamente HTTP 400
+PASSOU: PUT invalido: nome nulo: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT invalido: nome nulo: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: PUT invalido: nome nulo: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome nulo: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT invalido: nome nulo nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT invalido: nome nulo nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: PUT invalido: nome nulo nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome nulo nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome nulo nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: PUT invalido: nome nulo nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome nulo nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome nulo: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome nulo: resposta GET /api/health possui tipo JSON
+PASSOU: PUT invalido: nome nulo nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: PUT invalido: nome vazio: PUT /api/geladeiras/1 retorna exatamente HTTP 400
+PASSOU: PUT invalido: nome vazio: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT invalido: nome vazio: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: PUT invalido: nome vazio: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome vazio: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT invalido: nome vazio nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT invalido: nome vazio nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: PUT invalido: nome vazio nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome vazio nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome vazio nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: PUT invalido: nome vazio nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome vazio nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome vazio: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome vazio: resposta GET /api/health possui tipo JSON
+PASSOU: PUT invalido: nome vazio nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: PUT invalido: nome so espacos ASCII: PUT /api/geladeiras/1 retorna exatamente HTTP 400
+PASSOU: PUT invalido: nome so espacos ASCII: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT invalido: nome so espacos ASCII: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: PUT invalido: nome so espacos ASCII: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome so espacos ASCII: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT invalido: nome so espacos ASCII nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT invalido: nome so espacos ASCII nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: PUT invalido: nome so espacos ASCII nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome so espacos ASCII nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome so espacos ASCII nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: PUT invalido: nome so espacos ASCII nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome so espacos ASCII nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome so espacos ASCII: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome so espacos ASCII: resposta GET /api/health possui tipo JSON
+PASSOU: PUT invalido: nome so espacos ASCII nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: PUT invalido: nome so espacos Unicode: PUT /api/geladeiras/1 retorna exatamente HTTP 400
+PASSOU: PUT invalido: nome so espacos Unicode: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT invalido: nome so espacos Unicode: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: PUT invalido: nome so espacos Unicode: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome so espacos Unicode: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT invalido: nome so espacos Unicode nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT invalido: nome so espacos Unicode nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: PUT invalido: nome so espacos Unicode nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome so espacos Unicode nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome so espacos Unicode nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: PUT invalido: nome so espacos Unicode nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome so espacos Unicode nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome so espacos Unicode: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome so espacos Unicode: resposta GET /api/health possui tipo JSON
+PASSOU: PUT invalido: nome so espacos Unicode nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: PUT invalido: nome com 101 caracteres: PUT /api/geladeiras/1 retorna exatamente HTTP 400
+PASSOU: PUT invalido: nome com 101 caracteres: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT invalido: nome com 101 caracteres: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: PUT invalido: nome com 101 caracteres: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome com 101 caracteres: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT invalido: nome com 101 caracteres nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT invalido: nome com 101 caracteres nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: PUT invalido: nome com 101 caracteres nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome com 101 caracteres nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome com 101 caracteres nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: PUT invalido: nome com 101 caracteres nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome com 101 caracteres nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome com 101 caracteres: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome com 101 caracteres: resposta GET /api/health possui tipo JSON
+PASSOU: PUT invalido: nome com 101 caracteres nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: PUT invalido: localizacao com 201 caracteres: PUT /api/geladeiras/1 retorna exatamente HTTP 400
+PASSOU: PUT invalido: localizacao com 201 caracteres: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT invalido: localizacao com 201 caracteres: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: PUT invalido: localizacao com 201 caracteres: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT invalido: localizacao com 201 caracteres: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT invalido: localizacao com 201 caracteres nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT invalido: localizacao com 201 caracteres nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: PUT invalido: localizacao com 201 caracteres nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: localizacao com 201 caracteres nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: localizacao com 201 caracteres nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: PUT invalido: localizacao com 201 caracteres nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: localizacao com 201 caracteres nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: localizacao com 201 caracteres: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT invalido: localizacao com 201 caracteres: resposta GET /api/health possui tipo JSON
+PASSOU: PUT invalido: localizacao com 201 caracteres nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: PUT invalido: nome numerico: PUT /api/geladeiras/1 retorna exatamente HTTP 400
+PASSOU: PUT invalido: nome numerico: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT invalido: nome numerico: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: PUT invalido: nome numerico: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome numerico: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT invalido: nome numerico nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT invalido: nome numerico nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: PUT invalido: nome numerico nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome numerico nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome numerico nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: PUT invalido: nome numerico nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome numerico nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome numerico: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome numerico: resposta GET /api/health possui tipo JSON
+PASSOU: PUT invalido: nome numerico nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: PUT invalido: nome objeto: PUT /api/geladeiras/1 retorna exatamente HTTP 400
+PASSOU: PUT invalido: nome objeto: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT invalido: nome objeto: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: PUT invalido: nome objeto: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome objeto: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT invalido: nome objeto nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT invalido: nome objeto nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: PUT invalido: nome objeto nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome objeto nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome objeto nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: PUT invalido: nome objeto nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome objeto nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome objeto: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome objeto: resposta GET /api/health possui tipo JSON
+PASSOU: PUT invalido: nome objeto nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: PUT invalido: nome array: PUT /api/geladeiras/1 retorna exatamente HTTP 400
+PASSOU: PUT invalido: nome array: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT invalido: nome array: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: PUT invalido: nome array: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome array: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT invalido: nome array nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT invalido: nome array nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: PUT invalido: nome array nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome array nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome array nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: PUT invalido: nome array nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: nome array nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: nome array: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT invalido: nome array: resposta GET /api/health possui tipo JSON
+PASSOU: PUT invalido: nome array nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: PUT invalido: localizacao numerica: PUT /api/geladeiras/1 retorna exatamente HTTP 400
+PASSOU: PUT invalido: localizacao numerica: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT invalido: localizacao numerica: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: PUT invalido: localizacao numerica: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT invalido: localizacao numerica: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT invalido: localizacao numerica nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT invalido: localizacao numerica nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: PUT invalido: localizacao numerica nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: localizacao numerica nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: localizacao numerica nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: PUT invalido: localizacao numerica nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: localizacao numerica nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: localizacao numerica: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT invalido: localizacao numerica: resposta GET /api/health possui tipo JSON
+PASSOU: PUT invalido: localizacao numerica nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: PUT invalido: localizacao objeto: PUT /api/geladeiras/1 retorna exatamente HTTP 400
+PASSOU: PUT invalido: localizacao objeto: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT invalido: localizacao objeto: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: PUT invalido: localizacao objeto: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT invalido: localizacao objeto: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT invalido: localizacao objeto nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT invalido: localizacao objeto nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: PUT invalido: localizacao objeto nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: localizacao objeto nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: localizacao objeto nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: PUT invalido: localizacao objeto nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: localizacao objeto nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: localizacao objeto: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT invalido: localizacao objeto: resposta GET /api/health possui tipo JSON
+PASSOU: PUT invalido: localizacao objeto nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: PUT invalido: raiz array: PUT /api/geladeiras/1 retorna exatamente HTTP 400
+PASSOU: PUT invalido: raiz array: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT invalido: raiz array: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: PUT invalido: raiz array: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT invalido: raiz array: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT invalido: raiz array nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT invalido: raiz array nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: PUT invalido: raiz array nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: raiz array nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: raiz array nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: PUT invalido: raiz array nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: raiz array nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: raiz array: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT invalido: raiz array: resposta GET /api/health possui tipo JSON
+PASSOU: PUT invalido: raiz array nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: PUT invalido: JSON incompleto: PUT /api/geladeiras/1 retorna exatamente HTTP 400
+PASSOU: PUT invalido: JSON incompleto: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT invalido: JSON incompleto: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: PUT invalido: JSON incompleto: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT invalido: JSON incompleto: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT invalido: JSON incompleto nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT invalido: JSON incompleto nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: PUT invalido: JSON incompleto nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: JSON incompleto nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: JSON incompleto nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: PUT invalido: JSON incompleto nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: JSON incompleto nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: JSON incompleto: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT invalido: JSON incompleto: resposta GET /api/health possui tipo JSON
+PASSOU: PUT invalido: JSON incompleto nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: PUT invalido: corpo vazio: PUT /api/geladeiras/1 retorna exatamente HTTP 400
+PASSOU: PUT invalido: corpo vazio: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT invalido: corpo vazio: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: PUT invalido: corpo vazio: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT invalido: corpo vazio: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT invalido: corpo vazio nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT invalido: corpo vazio nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: PUT invalido: corpo vazio nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: corpo vazio nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: corpo vazio nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: PUT invalido: corpo vazio nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: corpo vazio nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: corpo vazio: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT invalido: corpo vazio: resposta GET /api/health possui tipo JSON
+PASSOU: PUT invalido: corpo vazio nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: PUT invalido: raiz nula: PUT /api/geladeiras/1 retorna exatamente HTTP 400
+PASSOU: PUT invalido: raiz nula: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: PUT invalido: raiz nula: JSON de validacao contem status 400 e mensagens de errors para o campo esperado
+PASSOU: PUT invalido: raiz nula: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT invalido: raiz nula: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT invalido: raiz nula nao altera nenhum cadastro: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT invalido: raiz nula nao altera nenhum cadastro: ID 1 aparece exatamente uma vez
+PASSOU: PUT invalido: raiz nula nao altera nenhum cadastro / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: raiz nula nao altera nenhum cadastro / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: raiz nula nao altera nenhum cadastro: ID 2 aparece exatamente uma vez
+PASSOU: PUT invalido: raiz nula nao altera nenhum cadastro / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT invalido: raiz nula nao altera nenhum cadastro / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT invalido: raiz nula: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT invalido: raiz nula: resposta GET /api/health possui tipo JSON
+PASSOU: PUT invalido: raiz nula nao altera nenhum cadastro: health confirma banco conectado e contagem real 2
+PASSOU: GET ID ausente/invalido 0: GET /api/geladeiras/0 retorna exatamente HTTP 404
+PASSOU: GET ID ausente/invalido 0: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: GET ID ausente/invalido 0: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: GET ID ausente/invalido 0 preserva as duas fixtures: lista JSON possui exatamente 2 fixtures
+PASSOU: GET ID ausente/invalido 0 preserva as duas fixtures: ID 1 aparece exatamente uma vez
+PASSOU: GET ID ausente/invalido 0 preserva as duas fixtures / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: GET ID ausente/invalido 0 preserva as duas fixtures / ID 1: timestamp de criacao e UTC valido
+PASSOU: GET ID ausente/invalido 0 preserva as duas fixtures: ID 2 aparece exatamente uma vez
+PASSOU: GET ID ausente/invalido 0 preserva as duas fixtures / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: GET ID ausente/invalido 0 preserva as duas fixtures / ID 2: timestamp de criacao e UTC valido
+PASSOU: GET ID ausente/invalido 0: GET /api/health retorna exatamente HTTP 200
+PASSOU: GET ID ausente/invalido 0: resposta GET /api/health possui tipo JSON
+PASSOU: GET ID ausente/invalido 0 preserva as duas fixtures: health confirma banco conectado e contagem real 2
+PASSOU: PUT ID ausente/invalido 0: PUT /api/geladeiras/0 retorna exatamente HTTP 404
+PASSOU: PUT ID ausente/invalido 0: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT ID ausente/invalido 0: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT ID ausente/invalido 0 preserva as duas fixtures: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT ID ausente/invalido 0 preserva as duas fixtures: ID 1 aparece exatamente uma vez
+PASSOU: PUT ID ausente/invalido 0 preserva as duas fixtures / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT ID ausente/invalido 0 preserva as duas fixtures / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT ID ausente/invalido 0 preserva as duas fixtures: ID 2 aparece exatamente uma vez
+PASSOU: PUT ID ausente/invalido 0 preserva as duas fixtures / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT ID ausente/invalido 0 preserva as duas fixtures / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT ID ausente/invalido 0: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT ID ausente/invalido 0: resposta GET /api/health possui tipo JSON
+PASSOU: PUT ID ausente/invalido 0 preserva as duas fixtures: health confirma banco conectado e contagem real 2
+PASSOU: DELETE ID ausente/invalido 0: DELETE /api/geladeiras/0 retorna exatamente HTTP 404
+PASSOU: DELETE ID ausente/invalido 0: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: DELETE ID ausente/invalido 0: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: DELETE ID ausente/invalido 0 preserva as duas fixtures: lista JSON possui exatamente 2 fixtures
+PASSOU: DELETE ID ausente/invalido 0 preserva as duas fixtures: ID 1 aparece exatamente uma vez
+PASSOU: DELETE ID ausente/invalido 0 preserva as duas fixtures / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: DELETE ID ausente/invalido 0 preserva as duas fixtures / ID 1: timestamp de criacao e UTC valido
+PASSOU: DELETE ID ausente/invalido 0 preserva as duas fixtures: ID 2 aparece exatamente uma vez
+PASSOU: DELETE ID ausente/invalido 0 preserva as duas fixtures / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: DELETE ID ausente/invalido 0 preserva as duas fixtures / ID 2: timestamp de criacao e UTC valido
+PASSOU: DELETE ID ausente/invalido 0: GET /api/health retorna exatamente HTTP 200
+PASSOU: DELETE ID ausente/invalido 0: resposta GET /api/health possui tipo JSON
+PASSOU: DELETE ID ausente/invalido 0 preserva as duas fixtures: health confirma banco conectado e contagem real 2
+PASSOU: GET ID ausente/invalido -1: GET /api/geladeiras/-1 retorna exatamente HTTP 404
+PASSOU: GET ID ausente/invalido -1: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: GET ID ausente/invalido -1: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: GET ID ausente/invalido -1 preserva as duas fixtures: lista JSON possui exatamente 2 fixtures
+PASSOU: GET ID ausente/invalido -1 preserva as duas fixtures: ID 1 aparece exatamente uma vez
+PASSOU: GET ID ausente/invalido -1 preserva as duas fixtures / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: GET ID ausente/invalido -1 preserva as duas fixtures / ID 1: timestamp de criacao e UTC valido
+PASSOU: GET ID ausente/invalido -1 preserva as duas fixtures: ID 2 aparece exatamente uma vez
+PASSOU: GET ID ausente/invalido -1 preserva as duas fixtures / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: GET ID ausente/invalido -1 preserva as duas fixtures / ID 2: timestamp de criacao e UTC valido
+PASSOU: GET ID ausente/invalido -1: GET /api/health retorna exatamente HTTP 200
+PASSOU: GET ID ausente/invalido -1: resposta GET /api/health possui tipo JSON
+PASSOU: GET ID ausente/invalido -1 preserva as duas fixtures: health confirma banco conectado e contagem real 2
+PASSOU: PUT ID ausente/invalido -1: PUT /api/geladeiras/-1 retorna exatamente HTTP 404
+PASSOU: PUT ID ausente/invalido -1: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT ID ausente/invalido -1: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT ID ausente/invalido -1 preserva as duas fixtures: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT ID ausente/invalido -1 preserva as duas fixtures: ID 1 aparece exatamente uma vez
+PASSOU: PUT ID ausente/invalido -1 preserva as duas fixtures / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT ID ausente/invalido -1 preserva as duas fixtures / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT ID ausente/invalido -1 preserva as duas fixtures: ID 2 aparece exatamente uma vez
+PASSOU: PUT ID ausente/invalido -1 preserva as duas fixtures / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT ID ausente/invalido -1 preserva as duas fixtures / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT ID ausente/invalido -1: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT ID ausente/invalido -1: resposta GET /api/health possui tipo JSON
+PASSOU: PUT ID ausente/invalido -1 preserva as duas fixtures: health confirma banco conectado e contagem real 2
+PASSOU: DELETE ID ausente/invalido -1: DELETE /api/geladeiras/-1 retorna exatamente HTTP 404
+PASSOU: DELETE ID ausente/invalido -1: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: DELETE ID ausente/invalido -1: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: DELETE ID ausente/invalido -1 preserva as duas fixtures: lista JSON possui exatamente 2 fixtures
+PASSOU: DELETE ID ausente/invalido -1 preserva as duas fixtures: ID 1 aparece exatamente uma vez
+PASSOU: DELETE ID ausente/invalido -1 preserva as duas fixtures / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: DELETE ID ausente/invalido -1 preserva as duas fixtures / ID 1: timestamp de criacao e UTC valido
+PASSOU: DELETE ID ausente/invalido -1 preserva as duas fixtures: ID 2 aparece exatamente uma vez
+PASSOU: DELETE ID ausente/invalido -1 preserva as duas fixtures / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: DELETE ID ausente/invalido -1 preserva as duas fixtures / ID 2: timestamp de criacao e UTC valido
+PASSOU: DELETE ID ausente/invalido -1: GET /api/health retorna exatamente HTTP 200
+PASSOU: DELETE ID ausente/invalido -1: resposta GET /api/health possui tipo JSON
+PASSOU: DELETE ID ausente/invalido -1 preserva as duas fixtures: health confirma banco conectado e contagem real 2
+PASSOU: GET ID ausente/invalido texto-invalido: GET /api/geladeiras/texto-invalido retorna exatamente HTTP 404
+PASSOU: GET ID ausente/invalido texto-invalido: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: GET ID ausente/invalido texto-invalido: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: GET ID ausente/invalido texto-invalido preserva as duas fixtures: lista JSON possui exatamente 2 fixtures
+PASSOU: GET ID ausente/invalido texto-invalido preserva as duas fixtures: ID 1 aparece exatamente uma vez
+PASSOU: GET ID ausente/invalido texto-invalido preserva as duas fixtures / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: GET ID ausente/invalido texto-invalido preserva as duas fixtures / ID 1: timestamp de criacao e UTC valido
+PASSOU: GET ID ausente/invalido texto-invalido preserva as duas fixtures: ID 2 aparece exatamente uma vez
+PASSOU: GET ID ausente/invalido texto-invalido preserva as duas fixtures / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: GET ID ausente/invalido texto-invalido preserva as duas fixtures / ID 2: timestamp de criacao e UTC valido
+PASSOU: GET ID ausente/invalido texto-invalido: GET /api/health retorna exatamente HTTP 200
+PASSOU: GET ID ausente/invalido texto-invalido: resposta GET /api/health possui tipo JSON
+PASSOU: GET ID ausente/invalido texto-invalido preserva as duas fixtures: health confirma banco conectado e contagem real 2
+PASSOU: PUT ID ausente/invalido texto-invalido: PUT /api/geladeiras/texto-invalido retorna exatamente HTTP 404
+PASSOU: PUT ID ausente/invalido texto-invalido: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT ID ausente/invalido texto-invalido: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT ID ausente/invalido texto-invalido preserva as duas fixtures: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT ID ausente/invalido texto-invalido preserva as duas fixtures: ID 1 aparece exatamente uma vez
+PASSOU: PUT ID ausente/invalido texto-invalido preserva as duas fixtures / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT ID ausente/invalido texto-invalido preserva as duas fixtures / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT ID ausente/invalido texto-invalido preserva as duas fixtures: ID 2 aparece exatamente uma vez
+PASSOU: PUT ID ausente/invalido texto-invalido preserva as duas fixtures / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT ID ausente/invalido texto-invalido preserva as duas fixtures / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT ID ausente/invalido texto-invalido: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT ID ausente/invalido texto-invalido: resposta GET /api/health possui tipo JSON
+PASSOU: PUT ID ausente/invalido texto-invalido preserva as duas fixtures: health confirma banco conectado e contagem real 2
+PASSOU: DELETE ID ausente/invalido texto-invalido: DELETE /api/geladeiras/texto-invalido retorna exatamente HTTP 404
+PASSOU: DELETE ID ausente/invalido texto-invalido: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: DELETE ID ausente/invalido texto-invalido: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: DELETE ID ausente/invalido texto-invalido preserva as duas fixtures: lista JSON possui exatamente 2 fixtures
+PASSOU: DELETE ID ausente/invalido texto-invalido preserva as duas fixtures: ID 1 aparece exatamente uma vez
+PASSOU: DELETE ID ausente/invalido texto-invalido preserva as duas fixtures / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: DELETE ID ausente/invalido texto-invalido preserva as duas fixtures / ID 1: timestamp de criacao e UTC valido
+PASSOU: DELETE ID ausente/invalido texto-invalido preserva as duas fixtures: ID 2 aparece exatamente uma vez
+PASSOU: DELETE ID ausente/invalido texto-invalido preserva as duas fixtures / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: DELETE ID ausente/invalido texto-invalido preserva as duas fixtures / ID 2: timestamp de criacao e UTC valido
+PASSOU: DELETE ID ausente/invalido texto-invalido: GET /api/health retorna exatamente HTTP 200
+PASSOU: DELETE ID ausente/invalido texto-invalido: resposta GET /api/health possui tipo JSON
+PASSOU: DELETE ID ausente/invalido texto-invalido preserva as duas fixtures: health confirma banco conectado e contagem real 2
+PASSOU: GET ID ausente/invalido 2147483647: GET /api/geladeiras/2147483647 retorna exatamente HTTP 404
+PASSOU: GET ID ausente/invalido 2147483647: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: GET ID ausente/invalido 2147483647: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: GET ID ausente/invalido 2147483647 preserva as duas fixtures: lista JSON possui exatamente 2 fixtures
+PASSOU: GET ID ausente/invalido 2147483647 preserva as duas fixtures: ID 1 aparece exatamente uma vez
+PASSOU: GET ID ausente/invalido 2147483647 preserva as duas fixtures / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: GET ID ausente/invalido 2147483647 preserva as duas fixtures / ID 1: timestamp de criacao e UTC valido
+PASSOU: GET ID ausente/invalido 2147483647 preserva as duas fixtures: ID 2 aparece exatamente uma vez
+PASSOU: GET ID ausente/invalido 2147483647 preserva as duas fixtures / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: GET ID ausente/invalido 2147483647 preserva as duas fixtures / ID 2: timestamp de criacao e UTC valido
+PASSOU: GET ID ausente/invalido 2147483647: GET /api/health retorna exatamente HTTP 200
+PASSOU: GET ID ausente/invalido 2147483647: resposta GET /api/health possui tipo JSON
+PASSOU: GET ID ausente/invalido 2147483647 preserva as duas fixtures: health confirma banco conectado e contagem real 2
+PASSOU: PUT ID ausente/invalido 2147483647: PUT /api/geladeiras/2147483647 retorna exatamente HTTP 404
+PASSOU: PUT ID ausente/invalido 2147483647: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT ID ausente/invalido 2147483647: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: PUT ID ausente/invalido 2147483647 preserva as duas fixtures: lista JSON possui exatamente 2 fixtures
+PASSOU: PUT ID ausente/invalido 2147483647 preserva as duas fixtures: ID 1 aparece exatamente uma vez
+PASSOU: PUT ID ausente/invalido 2147483647 preserva as duas fixtures / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT ID ausente/invalido 2147483647 preserva as duas fixtures / ID 1: timestamp de criacao e UTC valido
+PASSOU: PUT ID ausente/invalido 2147483647 preserva as duas fixtures: ID 2 aparece exatamente uma vez
+PASSOU: PUT ID ausente/invalido 2147483647 preserva as duas fixtures / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: PUT ID ausente/invalido 2147483647 preserva as duas fixtures / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT ID ausente/invalido 2147483647: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT ID ausente/invalido 2147483647: resposta GET /api/health possui tipo JSON
+PASSOU: PUT ID ausente/invalido 2147483647 preserva as duas fixtures: health confirma banco conectado e contagem real 2
+PASSOU: DELETE ID ausente/invalido 2147483647: DELETE /api/geladeiras/2147483647 retorna exatamente HTTP 404
+PASSOU: DELETE ID ausente/invalido 2147483647: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: DELETE ID ausente/invalido 2147483647: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: DELETE ID ausente/invalido 2147483647 preserva as duas fixtures: lista JSON possui exatamente 2 fixtures
+PASSOU: DELETE ID ausente/invalido 2147483647 preserva as duas fixtures: ID 1 aparece exatamente uma vez
+PASSOU: DELETE ID ausente/invalido 2147483647 preserva as duas fixtures / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: DELETE ID ausente/invalido 2147483647 preserva as duas fixtures / ID 1: timestamp de criacao e UTC valido
+PASSOU: DELETE ID ausente/invalido 2147483647 preserva as duas fixtures: ID 2 aparece exatamente uma vez
+PASSOU: DELETE ID ausente/invalido 2147483647 preserva as duas fixtures / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: DELETE ID ausente/invalido 2147483647 preserva as duas fixtures / ID 2: timestamp de criacao e UTC valido
+PASSOU: DELETE ID ausente/invalido 2147483647: GET /api/health retorna exatamente HTTP 200
+PASSOU: DELETE ID ausente/invalido 2147483647: resposta GET /api/health possui tipo JSON
+PASSOU: DELETE ID ausente/invalido 2147483647 preserva as duas fixtures: health confirma banco conectado e contagem real 2
+PASSOU: persistencia apos reinicio do processo: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: persistencia apos reinicio do processo: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: Reinicio no mesmo arquivo preserva lista, campos e contagem: lista JSON possui exatamente 2 fixtures
+PASSOU: Reinicio no mesmo arquivo preserva lista, campos e contagem: ID 1 aparece exatamente uma vez
+PASSOU: Reinicio no mesmo arquivo preserva lista, campos e contagem / ID 1: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: Reinicio no mesmo arquivo preserva lista, campos e contagem / ID 1: timestamp de criacao e UTC valido
+PASSOU: Reinicio no mesmo arquivo preserva lista, campos e contagem: ID 2 aparece exatamente uma vez
+PASSOU: Reinicio no mesmo arquivo preserva lista, campos e contagem / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: Reinicio no mesmo arquivo preserva lista, campos e contagem / ID 2: timestamp de criacao e UTC valido
+PASSOU: persistencia apos reinicio do processo: GET /api/health retorna exatamente HTTP 200
+PASSOU: persistencia apos reinicio do processo: resposta GET /api/health possui tipo JSON
+PASSOU: Reinicio no mesmo arquivo preserva lista, campos e contagem: health confirma banco conectado e contagem real 2
+PASSOU: persistencia apos reinicio do processo: GET /api/geladeiras/1 retorna exatamente HTTP 200
+PASSOU: persistencia apos reinicio do processo: resposta GET /api/geladeiras/1 possui tipo JSON
+PASSOU: GET por ID depois de encerrar e reiniciar a API: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: GET por ID depois de encerrar e reiniciar a API: timestamp de criacao e UTC valido
+PASSOU: persistencia apos reinicio do processo: GET /api/geladeiras/2 retorna exatamente HTTP 200
+PASSOU: persistencia apos reinicio do processo: resposta GET /api/geladeiras/2 possui tipo JSON
+PASSOU: GET por ID depois de encerrar e reiniciar a API: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: GET por ID depois de encerrar e reiniciar a API: timestamp de criacao e UTC valido
+PASSOU: dotnet-ef consulta migrations do arquivo isolado sem falhar
+PASSOU: Arquivo isolado possui InitialCreate e todas as migrations do projeto aplicadas, sem pendencias
+PASSOU: DELETE fixture ID 1: DELETE /api/geladeiras/1 retorna exatamente HTTP 204
+PASSOU: DELETE fixture ID 1: HTTP 204 nao possui corpo
+PASSOU: DELETE fixture ID 1: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: DELETE fixture ID 1: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: Exclusao remove somente a fixture indicada: lista JSON possui exatamente 1 fixtures
+PASSOU: Exclusao remove somente a fixture indicada: ID 2 aparece exatamente uma vez
+PASSOU: Exclusao remove somente a fixture indicada / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: Exclusao remove somente a fixture indicada / ID 2: timestamp de criacao e UTC valido
+PASSOU: DELETE fixture ID 1: GET /api/health retorna exatamente HTTP 200
+PASSOU: DELETE fixture ID 1: resposta GET /api/health possui tipo JSON
+PASSOU: Exclusao remove somente a fixture indicada: health confirma banco conectado e contagem real 1
+PASSOU: GET repetido depois de excluir ID 1: GET /api/geladeiras/1 retorna exatamente HTTP 404
+PASSOU: GET repetido depois de excluir ID 1: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: GET repetido depois de excluir ID 1: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture: lista JSON possui exatamente 1 fixtures
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture: ID 2 aparece exatamente uma vez
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture / ID 2: timestamp de criacao e UTC valido
+PASSOU: GET repetido depois de excluir ID 1: GET /api/health retorna exatamente HTTP 200
+PASSOU: GET repetido depois de excluir ID 1: resposta GET /api/health possui tipo JSON
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture: health confirma banco conectado e contagem real 1
+PASSOU: PUT repetido depois de excluir ID 1: PUT /api/geladeiras/1 retorna exatamente HTTP 404
+PASSOU: PUT repetido depois de excluir ID 1: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT repetido depois de excluir ID 1: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture: lista JSON possui exatamente 1 fixtures
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture: ID 2 aparece exatamente uma vez
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture / ID 2: timestamp de criacao e UTC valido
+PASSOU: PUT repetido depois de excluir ID 1: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT repetido depois de excluir ID 1: resposta GET /api/health possui tipo JSON
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture: health confirma banco conectado e contagem real 1
+PASSOU: DELETE repetido depois de excluir ID 1: DELETE /api/geladeiras/1 retorna exatamente HTTP 404
+PASSOU: DELETE repetido depois de excluir ID 1: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: DELETE repetido depois de excluir ID 1: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture: lista JSON possui exatamente 1 fixtures
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture: ID 2 aparece exatamente uma vez
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture / ID 2: campos camelCase, ID, nome, localizacao e criacao correspondem exatamente a fixture
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture / ID 2: timestamp de criacao e UTC valido
+PASSOU: DELETE repetido depois de excluir ID 1: GET /api/health retorna exatamente HTTP 200
+PASSOU: DELETE repetido depois de excluir ID 1: resposta GET /api/health possui tipo JSON
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture: health confirma banco conectado e contagem real 1
+PASSOU: DELETE fixture ID 2: DELETE /api/geladeiras/2 retorna exatamente HTTP 204
+PASSOU: DELETE fixture ID 2: HTTP 204 nao possui corpo
+PASSOU: DELETE fixture ID 2: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: DELETE fixture ID 2: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: Exclusao remove somente a fixture indicada: lista JSON possui exatamente 0 fixtures
+PASSOU: DELETE fixture ID 2: GET /api/health retorna exatamente HTTP 200
+PASSOU: DELETE fixture ID 2: resposta GET /api/health possui tipo JSON
+PASSOU: Exclusao remove somente a fixture indicada: health confirma banco conectado e contagem real 0
+PASSOU: GET repetido depois de excluir ID 2: GET /api/geladeiras/2 retorna exatamente HTTP 404
+PASSOU: GET repetido depois de excluir ID 2: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: GET repetido depois de excluir ID 2: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture: lista JSON possui exatamente 0 fixtures
+PASSOU: GET repetido depois de excluir ID 2: GET /api/health retorna exatamente HTTP 200
+PASSOU: GET repetido depois de excluir ID 2: resposta GET /api/health possui tipo JSON
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture: health confirma banco conectado e contagem real 0
+PASSOU: PUT repetido depois de excluir ID 2: PUT /api/geladeiras/2 retorna exatamente HTTP 404
+PASSOU: PUT repetido depois de excluir ID 2: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: PUT repetido depois de excluir ID 2: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture: lista JSON possui exatamente 0 fixtures
+PASSOU: PUT repetido depois de excluir ID 2: GET /api/health retorna exatamente HTTP 200
+PASSOU: PUT repetido depois de excluir ID 2: resposta GET /api/health possui tipo JSON
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture: health confirma banco conectado e contagem real 0
+PASSOU: DELETE repetido depois de excluir ID 2: DELETE /api/geladeiras/2 retorna exatamente HTTP 404
+PASSOU: DELETE repetido depois de excluir ID 2: GET /api/geladeiras retorna exatamente HTTP 200
+PASSOU: DELETE repetido depois de excluir ID 2: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture: lista JSON possui exatamente 0 fixtures
+PASSOU: DELETE repetido depois de excluir ID 2: GET /api/health retorna exatamente HTTP 200
+PASSOU: DELETE repetido depois de excluir ID 2: resposta GET /api/health possui tipo JSON
+PASSOU: Operacao repetida nao ressuscita cadastro nem afeta outra fixture: health confirma banco conectado e contagem real 0
+PASSOU: 503 generico: GET /api/geladeiras: GET /api/geladeiras retorna exatamente HTTP 503
+PASSOU: 503 generico: GET /api/geladeiras: resposta GET /api/geladeiras possui tipo JSON
+PASSOU: Falha de banco responde ProblemDetails 503 com tipo correto
+PASSOU: ProblemDetails nao divulga excecao, SQL nem caminho interno
+PASSOU: 503 generico: POST /api/geladeiras: POST /api/geladeiras retorna exatamente HTTP 503
+PASSOU: 503 generico: POST /api/geladeiras: resposta POST /api/geladeiras possui tipo JSON
+PASSOU: Falha de banco responde ProblemDetails 503 com tipo correto
+PASSOU: ProblemDetails nao divulga excecao, SQL nem caminho interno
+PASSOU: 503 generico: PUT /api/geladeiras/1: PUT /api/geladeiras/1 retorna exatamente HTTP 503
+PASSOU: 503 generico: PUT /api/geladeiras/1: resposta PUT /api/geladeiras/1 possui tipo JSON
+PASSOU: Falha de banco responde ProblemDetails 503 com tipo correto
+PASSOU: ProblemDetails nao divulga excecao, SQL nem caminho interno
+PASSOU: 503 generico: DELETE /api/geladeiras/1: DELETE /api/geladeiras/1 retorna exatamente HTTP 503
+PASSOU: 503 generico: DELETE /api/geladeiras/1: resposta DELETE /api/geladeiras/1 possui tipo JSON
+PASSOU: Falha de banco responde ProblemDetails 503 com tipo correto
+PASSOU: ProblemDetails nao divulga excecao, SQL nem caminho interno
+PASSOU: 503 generico: GET por ID: GET /api/geladeiras/1 retorna exatamente HTTP 503
+PASSOU: 503 generico: GET por ID: resposta GET /api/geladeiras/1 possui tipo JSON
+PASSOU: GET por ID tambem preserva ProblemDetails generico na indisponibilidade
+CRUD verificado: 807 verificacoes aprovadas. Relatorio: C:\Users\otavi\Downloads\iceplay\docs\evidencias\2026-10-19-painel\cadastro\crud-api.json
+Banco isolado, agora vazio: C:\Users\otavi\Downloads\iceplay\.tools\verification\20261019T160858Z-dc8fbb27\iceplay.db

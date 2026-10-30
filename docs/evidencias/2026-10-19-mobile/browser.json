@@ -1,0 +1,86 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-10-19T16:53:29.128Z",
+  "scope": "Layout e cadastro em HTTP loopback, usando cópia SQLite isolada; não é teste em Safari/iPhone nem login TLS no navegador",
+  "checkCount": 9,
+  "checks": [
+    {
+      "description": "Tela de 390 px sem excesso horizontal, campos de 16 px e ações de pelo menos 44 px",
+      "passed": true,
+      "atUtc": "2026-10-19T16:52:38.899Z"
+    },
+    {
+      "description": "Atalhos inferiores permanecem dentro da área visível",
+      "passed": true,
+      "atUtc": "2026-10-19T16:52:38.899Z"
+    },
+    {
+      "description": "Cartão apresenta temperatura, porta e origem persistidas na fixture",
+      "passed": true,
+      "atUtc": "2026-10-19T16:52:38.899Z"
+    },
+    {
+      "description": "Cadastro pela interface em 390 px é confirmado e aparece na listagem",
+      "passed": true,
+      "atUtc": "2026-10-19T16:52:44.797Z"
+    },
+    {
+      "description": "Edição pela interface em 390 px é confirmada na lista",
+      "passed": true,
+      "atUtc": "2026-10-19T16:52:49.791Z"
+    },
+    {
+      "description": "Exclusão confirmada remove somente o cadastro fixture sem leituras",
+      "passed": true,
+      "atUtc": "2026-10-19T16:52:57.344Z"
+    },
+    {
+      "description": "Tela de 320 px preserva largura e ações de toque",
+      "passed": true,
+      "atUtc": "2026-10-19T16:52:57.368Z"
+    },
+    {
+      "description": "Tela de 844 por 390 px preserva conteúdo sem excesso horizontal",
+      "passed": true,
+      "atUtc": "2026-10-19T16:53:28.962Z"
+    },
+    {
+      "description": "Desktop preserva layout e oculta atalhos exclusivos de tela pequena",
+      "passed": true,
+      "atUtc": "2026-10-19T16:53:28.985Z"
+    }
+  ],
+  "viewport390": {
+    "cardText": "FIXTURE MOBILE EDITADA\nSIMULAÇÃO\n\nBANCO ISOLADO\n\nLeitura desatualizada\n\nÚltima temperatura registrada\n\n4,25 °C\n\nPorta na medição\nAberta\nMedição (hora local)\n19/10/2026, 13:48:18\nRecebimento (hora local)\n19/10/2026, 13:48:18\nIdade da medição\nhá 4 min 19 s\n\nGeladeira #1 · Leitura #2",
+    "document": 375,
+    "inputFont": "16px",
+    "nav": "fixed",
+    "navBottom": 844,
+    "selectFont": "16px",
+    "touchHeight": 44,
+    "viewport": 390
+  },
+  "viewport320": {
+    "buttonHeight": 44,
+    "document": 305,
+    "viewport": 320
+  },
+  "landscape": {
+    "document": 829,
+    "viewport": 844
+  },
+  "desktop": {
+    "document": 1265,
+    "nav": "none",
+    "viewport": 1280
+  },
+  "screenshots": [
+    "interface-390.png"
+  ],
+  "pending": [
+    "Instalação/confiança do certificado no iPhone",
+    "Regra de firewall com privilégios de administrador",
+    "Login e fluxo completo no Safari do aparelho"
+  ],
+  "isolatedDatabase": "C:\\Users\\otavi\\Downloads\\iceplay\\.tools\\verification\\ui-mobile-ba4b7a46\\iceplay.db"
+}

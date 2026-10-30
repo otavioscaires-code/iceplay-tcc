@@ -1,0 +1,22 @@
+  Iceplay.Api -> C:\Users\otavi\Downloads\iceplay\src\Iceplay.Api\bin\Debug\net10.0\Iceplay.Api.dll
+
+Compilação com êxito.
+    0 Aviso(s)
+    0 Erro(s)
+
+Tempo Decorrido 00:00:01.28
+PASSOU: GET /api/health retorna HTTP 200
+PASSOU: API consulta SQLite com sucesso
+PASSOU: Banco novo contém zero geladeiras, sem seed fictício
+PASSOU: Saúde fornece timestamp UTC
+PASSOU: Migration cria arquivo SQLite isolado
+PASSOU: Página inicial é servida pela aplicação
+PASSOU: Destinos da navegação existem no HTML servido
+PASSOU: CSS é servido com tipo correto
+PASSOU: JavaScript servido consulta a saúde
+PASSOU: Rota inexistente retorna HTTP 404
+PASSOU: Reinício reutiliza banco e migration sem falha
+PASSOU: Banco sem schema retorna HTTP 503 real
+PASSOU: Resposta de falha não divulga detalhes internos
+Verificação concluída: C:\Users\otavi\Downloads\iceplay\docs\evidencias\2026-10-17\base\smoke-latest.json
+Banco isolado: C:\Users\otavi\Downloads\iceplay\.tools\verification\20261018T021956Z-287747ca\iceplay.db

@@ -1,0 +1,16 @@
+{
+  "verifiedAtUtc": "2026-10-13T17:32:39.390Z",
+  "desktopScreenshot": "tela-desktop.jpg",
+  "mobileScreenshot": "tela-mobile.jpg",
+  "navigationTest": "Clique em Base técnica alterou URL para #base-tecnica",
+  "refreshTest": "Botão Verificar conexão consultou API e atualizou timestamp",
+  "mobile": {
+    "api": "Operacional",
+    "checkedAtUtc": "2026-10-13T17:32:20.8141596Z",
+    "database": "Conectado",
+    "documentWidth": 360,
+    "refrigeratorCount": "0",
+    "viewportWidth": 375
+  },
+  "scope": "Interface e API reais, sem sensores físicos"
+}

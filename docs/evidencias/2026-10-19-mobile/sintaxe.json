@@ -1,0 +1,58 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-10-19T16:59:26.0601827Z",
+  "checks": [
+    {
+      "file": "src/Iceplay.Api/wwwroot/acesso.js",
+      "check": "node --check",
+      "result": "passed"
+    },
+    {
+      "file": "src/Iceplay.Api/wwwroot/app.js",
+      "check": "node --check",
+      "result": "passed"
+    },
+    {
+      "file": "src/Iceplay.Api/wwwroot/geladeiras.js",
+      "check": "node --check",
+      "result": "passed"
+    },
+    {
+      "file": "src/Iceplay.Api/wwwroot/monitoramento.js",
+      "check": "node --check",
+      "result": "passed"
+    },
+    {
+      "file": "scripts/acesso.test.mjs",
+      "check": "node --check",
+      "result": "passed"
+    },
+    {
+      "file": "scripts/prepare-mobile.ps1",
+      "check": "PowerShell Parser",
+      "result": "passed"
+    },
+    {
+      "file": "scripts/run-mobile.ps1",
+      "check": "PowerShell Parser",
+      "result": "passed"
+    },
+    {
+      "file": "scripts/mobile-firewall.ps1",
+      "check": "PowerShell Parser",
+      "result": "passed"
+    },
+    {
+      "file": "scripts/verify-mobile.ps1",
+      "check": "PowerShell Parser",
+      "result": "passed"
+    },
+    {
+      "file": "scripts/verify-mobile.py",
+      "check": "Python ast.parse",
+      "result": "passed"
+    }
+  ],
+  "gitDiffCheck": "passed",
+  "gitDiffScope": "Fontes, scripts, README, Markdown e JSON; saídas brutas .log preservadas sem normalizar."
+}

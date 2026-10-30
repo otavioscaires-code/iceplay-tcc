@@ -1,0 +1,16 @@
+✔ modo local mantém acesso sem código e não envia token CSRF (29.438ms)
+✔ origem móvel exige conexão e mantém segredo fora da URL (3.4565ms)
+✔ após login as alterações usam token renovado e credenciais na mesma origem (3.8741ms)
+✔ GET não envia token de alteração (2.6256ms)
+✔ código inválido mostra erro e não repete automaticamente o POST (2.0239ms)
+✔ saída usa CSRF, limpa acesso e informa a mudança aos módulos (3.7836ms)
+✔ consulta iniciada antes da saída não pode devolver dados à interface depois dela (2.6827ms)
+✔ falha inicial de rede permite recuperação posterior (1.404ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 130.2375

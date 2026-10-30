@@ -1,0 +1,27 @@
+{
+  "result": "passed",
+  "verifiedAtUtc": "2026-10-19T15:15:28.301507+00:00",
+  "scope": "SQL executado somente em banco isolado novo; sem seed",
+  "sql": "docs\\sql\\iceplay-criacao.sql",
+  "sqlSha256": "d511ffa3a6d3ccdd01ae63959a62401d1f95565a87c2f84abd77f9c38bdc209a",
+  "database": ".tools\\verification\\sql-6v6y3vd4\\iceplay.db",
+  "integrity": "ok",
+  "migrations": [
+    "20261013172101_InitialCreate",
+    "20261018023456_AddLeituras"
+  ],
+  "foreignKeys": [
+    [
+      0,
+      0,
+      "Geladeiras",
+      "GeladeiraId",
+      "Id",
+      "NO ACTION",
+      "RESTRICT",
+      "NONE"
+    ]
+  ],
+  "geladeiras": 0,
+  "leituras": 0
+}

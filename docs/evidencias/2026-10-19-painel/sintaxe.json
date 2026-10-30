@@ -1,0 +1,36 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-10-19T16:23:40.1263846Z",
+  "checks": [
+    {
+      "path": "src/Iceplay.Api/wwwroot/app.js",
+      "check": "node --check",
+      "result": "passed"
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/geladeiras.js",
+      "check": "node --check",
+      "result": "passed"
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/monitoramento.js",
+      "check": "node --check",
+      "result": "passed"
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/monitoramento-estado.mjs",
+      "check": "node --check",
+      "result": "passed"
+    },
+    {
+      "path": "scripts/monitoramento-estado.test.mjs",
+      "check": "node --check",
+      "result": "passed"
+    },
+    {
+      "path": "scripts/verify-monitoramento.ps1",
+      "check": "PowerShell Parser",
+      "result": "passed"
+    }
+  ]
+}

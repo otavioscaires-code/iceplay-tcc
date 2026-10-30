@@ -1,0 +1,3 @@
+PASSOU: GET /api/health por HTTP retorna 200
+PASSOU: Banco isolado inicia vazio, sem seed
+FALHOU: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1081)>

@@ -1,0 +1,14 @@
+{
+  "indice": 1,
+  "statusHttp": 201,
+  "location": "http://localhost:5080/api/leituras/10",
+  "leitura": {
+    "id": 10,
+    "geladeiraId": 2,
+    "temperaturaC": 4.25,
+    "portaAberta": true,
+    "medidoEmUtc": "2026-10-19T16:15:26.1489912Z",
+    "recebidoEmUtc": "2026-10-19T16:15:26.2652391Z",
+    "origem": "Simulacao"
+  }
+}
