@@ -19,7 +19,7 @@ try {
     $env:DOTNET_ENVIRONMENT = 'Development'
     Write-Host "No computador: http://localhost:$($mobileSettings.Mobile.LocalPort)"
     Write-Host "Preparar iPhone: http://$($mobileSettings.Mobile.Address):$($mobileSettings.Mobile.CertificatePort)"
-    Write-Host "Painel móvel: https://$($mobileSettings.Mobile.Address):$($mobileSettings.Mobile.HttpsPort)/#acesso-movel"
+    Write-Host "Acesso móvel: https://$($mobileSettings.Mobile.Address):$($mobileSettings.Mobile.HttpsPort)/acesso"
     & $script:IceplayDotnet run --project 'src/Iceplay.Api/Iceplay.Api.csproj' --no-restore --no-launch-profile
     if ($LASTEXITCODE -ne 0) { throw 'A aplicação móvel terminou com erro.' }
 }

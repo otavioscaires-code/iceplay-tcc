@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b10">
+  <meta name="description" content="ICEPLAY — monitoramento de geladeiras comerciais.">
+  <title>ICEPLAY | Geladeiras</title>
+  <link rel="icon" href="/assets/iceplay-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/theme.css?v=20261109-pages">
+  <link rel="stylesheet" href="/styles.css?v=20261109-pages">
+  <script src="/shell.js?v=20261109-pages" defer></script>
+  <script src="/acesso.js?v=20261109-pages" defer></script>
+  <script type="module" src="/geladeiras.js?v=20261109-pages"></script>
+</head>
+<body class="app-layout" data-page="geladeiras">
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <aside class="sidebar" id="menu-lateral" aria-label="Menu do ICEPLAY">
+    <a class="brand" href="/dashboard" aria-label="ICEPLAY, visão geral"><span class="brand-symbol" aria-hidden="true"><img src="/assets/iceplay-mark.svg" width="32" height="32" alt=""></span><span>ICE<span class="brand-accent">PLAY</span></span></a>
+    <p class="sidebar-caption">Monitoramento inteligente</p>
+    <nav class="sidebar-nav" aria-label="Navegação principal">
+        <a href="/dashboard"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Visão geral</span></a>
+        <a href="/geladeiras" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M5 9h14M9 5v1M9 12v4"/></svg><span>Geladeiras</span></a>
+        <a href="/historico"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M6 15l4-5 4 3 6-8"/></svg><span>Histórico</span></a>
+        <a href="/alertas"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><span>Alertas</span></a>
+        <a href="/configuracoes"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="8" cy="6" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="10" cy="18" r="2"/></svg><span>Configurações</span></a>
+    </nav>
+    <div class="sidebar-footer"><a href="/sobre">Sobre o projeto</a><span>ICEPLAY · TCC</span></div>
+  </aside>
+  <div class="app-main">
+    <header class="app-topbar">
+      <button class="button button-secondary menu-toggle" id="menu-toggle" type="button" aria-controls="menu-lateral" aria-expanded="false" hidden>Menu</button>
+      <span class="topbar-label">ICEPLAY <span aria-hidden="true">/</span> Geladeiras</span>
+      <div class="access-indicator"><span id="access-summary" role="status">Consultando acesso…</span><a id="access-shortcut" href="/acesso" hidden>Conectar dispositivo</a></div>
+    </header>
+    <main id="conteudo" class="page-content">
+      <header class="page-heading"><p class="eyebrow">ICEPLAY / Geladeiras</p><h1>Geladeiras</h1><p>Identificação, cadastro e situação de monitoramento dos equipamentos.</p></header>
+<section class="section container equipment-section" id="geladeiras" aria-labelledby="equipment-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 / Geladeiras</p>
+          <h2 id="equipment-title">Cada equipamento,<br>um cadastro.</h2>
+        </div>
+        <p>Cadastre, consulte e mantenha a identificação das geladeiras. Os registros abaixo são consultados no banco da aplicação.</p>
+      </div>
+      <div class="monitor-control equipment-origin"><label for="geladeiras-origem">Origem do estado de monitoramento</label><select id="geladeiras-origem"><option value="Simulacao">Simulação</option><option value="Hardware">Hardware declarado</option></select><p class="field-help">A situação exibida é a da última medição consultada nesta origem.</p></div>
+      <p class="equipment-status" id="geladeiras-status" role="status" aria-live="polite" aria-atomic="true">A lista será consultada ao carregar a página.</p>
+      <div class="equipment-workspace" id="equipment-workspace" aria-busy="false">
+        <form class="equipment-form" id="geladeira-form" novalidate aria-labelledby="geladeira-form-title">
+          <p class="overline">Identificação do equipamento</p>
+          <h3 id="geladeira-form-title">Cadastrar geladeira</h3>
+          <p class="form-mode" id="geladeira-form-mode">O nome é obrigatório. A localização é opcional.</p>
+          <fieldset id="geladeira-fields" disabled>
+            <legend class="visually-hidden">Dados da geladeira</legend>
+            <div class="form-field">
+              <label for="geladeira-nome">Nome <span class="required-label">(obrigatório)</span></label>
+              <input id="geladeira-nome" name="nome" type="text" maxlength="100" required autocomplete="off" aria-describedby="nome-ajuda nome-erro">
+              <p class="field-help" id="nome-ajuda">Até 100 caracteres.</p>
+              <p class="field-error" id="nome-erro" hidden></p>
+            </div>
+            <div class="form-field">
+              <label for="geladeira-localizacao">Localização <span class="required-label">(opcional)</span></label>
+              <input id="geladeira-localizacao" name="localizacao" type="text" maxlength="200" autocomplete="off" aria-describedby="localizacao-ajuda localizacao-erro">
+              <p class="field-help" id="localizacao-ajuda">Até 200 caracteres. Pode ficar em branco.</p>
+              <p class="field-error" id="localizacao-erro" hidden></p>
+            </div>
+            <div class="form-actions">
+              <button class="button button-primary" id="salvar-geladeira" type="submit">Cadastrar geladeira</button>
+              <button class="button button-secondary" id="cancelar-edicao" type="button" hidden>Cancelar edição</button>
+            </div>
+          </fieldset>
+        </form>
+        <div class="equipment-records">
+          <div class="records-heading">
+            <h3>Geladeiras cadastradas</h3>
+            <button class="button button-secondary button-small" id="recarregar-geladeiras" type="button">Recarregar lista</button>
+          </div>
+          <p class="list-summary" id="geladeiras-resumo">Lista ainda não consultada.</p>
+          <div class="equipment-list" id="geladeiras-lista"></div>
+          <section class="equipment-details" id="geladeira-detalhes" aria-labelledby="geladeira-detalhes-title" tabindex="-1" hidden>
+            <div class="records-heading">
+              <h3 id="geladeira-detalhes-title">Detalhes da geladeira</h3>
+              <button class="button button-secondary button-small" id="fechar-detalhes" type="button">Fechar detalhes</button>
+            </div>
+            <p class="field-help">Dados recebidos da consulta individual à API.</p>
+            <dl id="geladeira-detalhes-dados"></dl>
+          </section>
+        </div>
+      </div>
+      <section class="delete-confirmation" id="confirmar-exclusao" role="dialog" aria-labelledby="confirmar-exclusao-title" aria-describedby="confirmar-exclusao-description" hidden>
+        <p class="overline">Confirmação necessária</p>
+        <h3 id="confirmar-exclusao-title">Excluir geladeira?</h3>
+        <p class="delete-name" id="exclusao-nome"></p>
+        <p id="confirmar-exclusao-description">A exclusão remove o cadastro da geladeira. Geladeiras com leituras registradas não podem ser excluídas, para preservar o histórico. A ação só será executada ao confirmar abaixo.</p>
+        <div class="confirmation-actions">
+          <button class="button button-danger" id="excluir-confirmar" type="button">Confirmar exclusão</button>
+          <button class="button button-secondary" id="excluir-cancelar" type="button">Cancelar</button>
+        </div>
+      </section>
+      <noscript><p class="notice">Ative o JavaScript para consultar e gerenciar os cadastros pela API.</p></noscript>
+    </section>
+    </main>
+    <footer class="app-footer"><span>ICEPLAY · Monitoramento de geladeiras</span><a href="/sobre">Base técnica e próximas etapas</a></footer>
+  </div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # ICEPLAY no iPhone — rede local
 
-Este modo usa a aplicação existente no computador, o mesmo SQLite e a interface responsiva. O computador pode estar conectado por cabo e o iPhone por Wi-Fi ao mesmo roteador. Em **09/11/2026**, o aluno confirmou parcialmente o fluxo no iPhone: acesso, saúde da base, cadastro/edição, navegação e atualização de página. A abertura da página de preparação também foi mostrada em foto enviada na conversa. Isso não encerra todos os testes abaixo; consulte o [registro da validação](evidencias/2026-11-09-iphone/validacao-manual.md).
+Este modo usa a aplicação existente no computador, o mesmo SQLite e a interface responsiva. O computador pode estar conectado por cabo e o iPhone por Wi-Fi ao mesmo roteador. Em **09/11/2026**, o aluno confirmou acesso, saúde da base, cadastro/edição, navegação e atualização de página. Fotos enviadas na conversa mostraram a preparação e, depois, a tabela/gráfico com três leituras de simulação no aparelho. Isso não encerra todos os testes abaixo; consulte o [registro da validação](evidencias/2026-11-09-iphone/validacao-manual.md). Os refinamentos posteriores da interface ainda precisam de nova conferência visual no iPhone.
 
 ## Preparar no computador
 
@@ -45,7 +45,7 @@ Mantenha o terminal e o computador ligados. Os endereços desta configuração s
 
 - Computador: `http://localhost:5080` — operação local, incluindo simulador.
 - Preparação do iPhone: `http://192.168.1.123:5081` — somente instruções e certificado público; API bloqueada nessa porta.
-- Aplicação no iPhone: `https://192.168.1.123:5443/#acesso-movel` — API protegida por sessão.
+- Aplicação no iPhone: `https://192.168.1.123:5443/acesso` — conexão da sessão que protege a API.
 
 Não inicie `run.ps1` e `run-mobile.ps1` juntos: compartilham a porta local e o banco. O script móvel recusa portas ocupadas e IP que já não pertença ao computador.
 
@@ -55,31 +55,33 @@ Não inicie `run.ps1` e `run-mobile.ps1` juntos: compartilham a porta local e o 
 2. No Safari, abra `http://192.168.1.123:5081`. Essa página HTTP entrega somente o certificado público. Compare o SHA-256 com o exibido no computador; a própria página HTTP não é uma fonte independente para confirmar sua autenticidade.
 3. Baixe o certificado **ICEPLAY Local**. Em Ajustes, abra **Perfil Baixado**, confira e instale o perfil. Também pode aparecer em Geral → VPN e Gerenciamento de Dispositivo. Você realiza pessoalmente essa alteração de confiança.
 4. Acesse Ajustes → Geral → Sobre → Certificados Confiáveis e ative a confiança total somente para a CA **ICEPLAY Local** que acabou de conferir.
-5. Abra `https://192.168.1.123:5443/#acesso-movel`. Caso apareça aviso de certificado, pare e confira IP, validade e instalação; não prossiga ignorando o aviso.
-6. Informe o código guardado no computador e toque em **Conectar dispositivo**. Na versão local reorganizada em páginas, use o botão **Menu**; o acesso também está em `/acesso`. O endereço antigo com `#acesso-movel` tem compatibilidade na interface.
+5. Abra `https://192.168.1.123:5443/acesso`. Caso apareça aviso de certificado, pare e confira IP, validade e instalação; não prossiga ignorando o aviso.
+6. Informe o código guardado no computador e toque em **Conectar dispositivo**. Após a conexão, use o botão **Menu** para navegar. O endereço antigo com `/#acesso-movel` encaminha para `/acesso` por compatibilidade.
+
+As funções ficam em páginas próprias: `/dashboard`, `/geladeiras`, `/historico`, `/alertas` e `/configuracoes`. Cada endereço abre seu próprio HTML e pode ser atualizado diretamente. Alertas e Configurações informam que seus backends ainda não existem; não representam regras já ativas. `/sobre` preserva a base técnica. No celular, o menu é recolhível; no desktop, a barra lateral é fixa. O atalho de acesso leva a `/acesso`, onde também fica **Sair deste dispositivo**.
 
 A Apple documenta separadamente a [instalação do perfil](https://support.apple.com/pt-br/102400) e a [ativação de confiança SSL/TLS](https://support.apple.com/pt-br/102390). Certificados instalados manualmente exigem essa ativação. Menus podem variar conforme a versão do iOS. Ao encerrar os testes, remova o perfil específico do ICEPLAY do iPhone.
 
 ## Verificar no aparelho — execução parcial registrada
 
-Em 09/11, o usuário respondeu "sim, tudo perfeito" após o roteiro de saúde, cadastro `TESTE IPHONE`, edição para `TESTE IPHONE EDITADO`, consulta de histórico vazio e retorno/atualização da página de geladeiras. A API confirmou o registro de ID 2. Isso é relato do usuário acompanhado de consulta real à API; não é observação automatizada de todas as ações do Safari. Exclusão, logout/reconexão, orientação/zoom, medições no histórico e reinício ainda precisam ser testados individualmente. Modelo do iPhone e versão do iOS não foram informados.
+Em 09/11, o usuário respondeu "sim, tudo perfeito" após o roteiro de saúde, cadastro `TESTE IPHONE`, edição para `TESTE IPHONE EDITADO`, consulta de histórico vazio e retorno/atualização da página de geladeiras. A API confirmou o registro de ID 2. Depois de três envios explícitos de simulação, uma segunda foto mostrou as leituras IDs 1/2/3, 4,25 °C e porta fechada, com tabela e gráfico no iPhone. Isso confirma a apresentação desses dados no aparelho, sem constituir observação automatizada de todas as ações. Exclusão, logout/reconexão, orientação/zoom/teclado, refinamentos posteriores do gráfico/acesso e reinício acompanhado no aparelho ainda precisam de conferência própria. Modelo do iPhone e versão do iOS não foram informados. As leituras não vieram de sensores físicos.
 
 Registrar versão do iOS, data e resultados reais quando o teste ocorrer:
 
 1. Confirmar que HTTPS abre sem aviso e que a API exige código antes de mostrar cadastros.
 2. Conectar, consultar a geladeira existente e conferir a saúde real.
 3. Cadastrar uma geladeira identificada como teste; consultar, editar e excluir somente esse registro, desde que esteja sem leituras.
-4. Para demonstrar monitoramento, enviar explicitamente uma simulação no computador com um ID escolhido pelo usuário e verificar origem, temperatura, porta e horários no iPhone. Isso grava dados de teste por ação explícita, nunca medição física.
-5. Conferir orientação vertical/horizontal, campos com teclado aberto, zoom e atalhos inferiores.
+4. Consultar as três leituras já registradas em **Histórico**, selecionando ID 2 e origem Simulação; conferir tabela/gráfico, filtros e horários. Novos envios de teste só devem ocorrer por ação explícita com ID escolhido pelo usuário; não são medições físicas. O gráfico mostra somente a página consultada e a tabela permite deslizar horizontalmente em telas estreitas.
+5. Conferir orientação vertical/horizontal, campos com teclado aberto, zoom, menu recolhível e acesso direto/atualização das URLs. Conferir também os refinamentos de gráfico/acesso feitos depois da foto.
 6. Sair, verificar que os dados deixam de ser acessíveis e reconectar. Reiniciar o servidor deve exigir nova conexão e preservar os dados SQLite.
 
-Não registrar aprovação dessas etapas antes de executá-las no aparelho. Os testes de viewport e os testes TLS no computador são evidências diferentes.
+O registro acima distingue as partes já confirmadas das pendências; não marcar o roteiro inteiro como aprovado. Verificações de viewport, HTTP, TLS e persistência no computador são evidências diferentes. O [relatório de páginas](etapa-paginas-2026-11-09.md) registra os testes de software e o reinício executados no computador, sem convertê-los em confirmação manual no iPhone.
 
 ## Sessão, manutenção e encerramento
 
 O código compartilhado autoriza consulta e alteração para um operador local. Não há contas individuais, perfis de permissão ou auditoria por usuário. A sessão usa cookie HttpOnly/Secure/SameSite Strict, dura até 8 horas sem renovação automática e é invalidada ao reiniciar. Alterações exigem token CSRF; a entrada aceita no máximo oito tentativas por minuto no total da instância. O código não é colocado em URL nem salvo em localStorage/sessionStorage. Não há funcionamento offline ou notificações com a página fechada.
 
-Para encerrar, use **Sair deste dispositivo**, Ctrl+C no servidor e, em PowerShell administrador, remova a regra específica:
+Para encerrar, abra `/acesso` e use **Sair deste dispositivo**, pressione Ctrl+C no servidor e, em PowerShell administrador, remova a regra específica:
 
 ```powershell
 .\scripts\mobile-firewall.ps1 -Acao Desativar

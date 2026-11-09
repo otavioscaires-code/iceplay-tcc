@@ -61,4 +61,18 @@ app.UseDefaultFiles();
 app.UseStaticFiles();
 app.MapControllers();
 
+// Cada URL entrega seu próprio documento HTML. Não há fallback de SPA:
+// rotas desconhecidas, inclusive da API, continuam retornando 404.
+foreach (var (route, file) in new[]
+{
+    ("/dashboard", "index.html"), ("/geladeiras", "geladeiras.html"),
+    ("/historico", "historico.html"), ("/alertas", "alertas.html"),
+    ("/configuracoes", "configuracoes.html"), ("/acesso", "acesso.html"),
+    ("/sobre", "sobre.html")
+})
+{
+    var documentPath = Path.Combine(app.Environment.WebRootPath, file);
+    app.MapGet(route, () => Results.File(documentPath, "text/html; charset=utf-8"));
+}
+
 app.Run();

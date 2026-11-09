@@ -1,4 +1,4 @@
-"use strict";
+import { validarMonitoramento } from "./monitoramento-estado.mjs";
 
 (() => {
   const workspace = document.getElementById("equipment-workspace");
@@ -21,6 +21,9 @@
   const confirmationName = document.getElementById("exclusao-nome");
   const confirmDeleteButton = document.getElementById("excluir-confirmar");
   const cancelDeleteButton = document.getElementById("excluir-cancelar");
+  const monitoringOrigin = document.getElementById("geladeiras-origem");
+  const monitoringFields = new Map();
+  let monitoringSequence = 0;
   const fieldElements = {
     nome: { input: nomeInput, error: document.getElementById("nome-erro") },
     localizacao: { input: localizacaoInput, error: document.getElementById("localizacao-erro") }
@@ -193,6 +196,8 @@
   }
 
   function markListUnavailable(message) {
+    monitoringSequence++;
+    monitoringFields.clear();
     needsReload = true;
     list.replaceChildren();
     summary.textContent = message;
@@ -211,11 +216,14 @@
 
   function renderList(records) {
     list.replaceChildren();
+    monitoringFields.clear();
     records.forEach(record => {
       const card = element("article", "equipment-card");
       card.append(element("h4", "", record.nome));
       card.append(element("p", "equipment-location", record.localizacao ?? "Localização não informada"));
       card.append(element("p", "equipment-id", `Identificador #${record.id}`));
+      const monitoringStatus = element("p", "equipment-reading", "Consultando a última medição…");
+      card.append(monitoringStatus);
       const actions = element("div", "equipment-actions");
       const actionDefinitions = [
         ["Consultar", () => consultRecord(record.id), ""],
@@ -229,6 +237,11 @@
         button.addEventListener("click", handler);
         actions.append(button);
       });
+      const historyLink = element("a", "button button-secondary button-small", "Histórico");
+      historyLink.href = `/historico?geladeiraId=${record.id}&origem=${monitoringOrigin.value}`;
+      historyLink.setAttribute("aria-label", `Histórico de ${record.nome}`);
+      actions.append(historyLink);
+      monitoringFields.set(record.id, { status: monitoringStatus, link: historyLink });
       card.append(actions);
       list.append(card);
     });
@@ -236,6 +249,31 @@
       ? "Nenhuma geladeira cadastrada. Use o formulário para cadastrar o primeiro equipamento."
       : `${records.length.toLocaleString("pt-BR")} ${records.length === 1 ? "geladeira retornada" : "geladeiras retornadas"} pela API.`;
     needsReload = false;
+    consultMonitoring();
+  }
+
+  async function consultMonitoring() {
+    const sequence = ++monitoringSequence;
+    const origin = monitoringOrigin.value;
+    for (const [id, field] of monitoringFields) {
+      field.status.textContent = "Consultando a última medição…";
+      field.link.href = `/historico?geladeiraId=${id}&origem=${origin}`;
+    }
+    try {
+      const data = validarMonitoramento(await apiRequest(`/api/monitoramento?origem=${origin}`), origin);
+      if (sequence !== monitoringSequence) return;
+      const source = origin === "Simulacao" ? "Simulação" : "Hardware declarado";
+      for (const [id, field] of monitoringFields) {
+        const equipment = data.geladeiras.find(item => item.id === id);
+        const reading = equipment?.ultimaLeitura;
+        field.status.textContent = !equipment ? "Cadastro não encontrado na consulta de monitoramento. Recarregue a lista."
+          : reading ? `${source} · ${reading.temperaturaC.toLocaleString("pt-BR", { maximumFractionDigits: 2 })} °C · Porta ${reading.portaAberta ? "aberta" : "fechada"} · Medição: ${new Date(reading.medidoEmUtc).toLocaleString("pt-BR")}`
+            : `${source} · Sem leitura nesta origem.`;
+      }
+    } catch {
+      if (sequence !== monitoringSequence) return;
+      for (const field of monitoringFields.values()) field.status.textContent = "Estado de monitoramento não confirmado. Recarregue a lista para tentar novamente.";
+    }
   }
 
   async function fetchAndRenderList() {
@@ -417,6 +455,7 @@
   }
 
   form.addEventListener("submit", saveRecord);
+  monitoringOrigin.addEventListener("change", consultMonitoring);
   reloadButton.addEventListener("click", reloadList);
   cancelEditButton.addEventListener("click", () => {
     if (busy || pendingDelete !== null) return;

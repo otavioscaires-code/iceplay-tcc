@@ -109,8 +109,11 @@ def main():
         start("startup")
         health, _ = request(local, "/api/health", 200)
         check(health["refrigeratorCount"] == 0, "Banco isolado inicia vazio, sem seed")
-        page, _ = request(secure, "/", 200)
+        page, _ = request(secure, "/acesso", 200)
         check(b'id="acesso-movel"' in page and b'acesso.js?v=' in page, "HTML móvel oferece conexão e assets versionados")
+        for page_path in ("/", "/dashboard", "/geladeiras", "/historico", "/alertas", "/configuracoes", "/sobre"):
+            _, page_headers = request(secure, page_path, 200)
+            check("text/html" in page_headers.get("Content-Type", ""), "Página independente acessível por HTTPS antes do login: " + page_path)
         for asset in ("/acesso.js", "/styles.css", "/monitoramento.js", "/monitoramento-estado.mjs"):
             request(secure, asset, 200)
         for path, method in (("/api/health", "GET"), ("/api/geladeiras", "GET"), ("/api/geladeiras/1", "GET"),

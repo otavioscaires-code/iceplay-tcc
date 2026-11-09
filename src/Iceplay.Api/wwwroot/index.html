@@ -3,63 +3,41 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="ICEPLAY: cadastro de geladeiras comerciais e recebimento de leituras por API, com simulador identificado.">
   <meta name="theme-color" content="#070b10">
-  <title>ICEPLAY | Monitoramento de geladeiras</title>
-  <link rel="icon" href="assets/iceplay-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="theme.css?v=20261030-black-ice">
-  <link rel="stylesheet" href="styles.css?v=20261030-black-ice">
-  <script src="acesso.js?v=20261019-mobile" defer></script>
-  <script src="app.js?v=20261019-mobile" defer></script>
-  <script src="geladeiras.js?v=20261019-mobile" defer></script>
-  <script type="module" src="monitoramento.js?v=20261019-mobile"></script>
+  <meta name="description" content="ICEPLAY — monitoramento de geladeiras comerciais.">
+  <title>ICEPLAY | Visão geral</title>
+  <link rel="icon" href="/assets/iceplay-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/theme.css?v=20261109-pages">
+  <link rel="stylesheet" href="/styles.css?v=20261109-pages">
+  <script src="/shell.js?v=20261109-pages" defer></script>
+  <script src="/acesso.js?v=20261109-pages" defer></script>
+  <script src="/app.js?v=20261109-pages" defer></script>
+  <script type="module" src="/monitoramento.js?v=20261109-pages"></script>
 </head>
-<body>
+<body class="app-layout" data-page="dashboard">
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
-
-  <header class="site-header">
-    <div class="container header-content">
-      <a class="brand" href="#inicio" aria-label="ICEPLAY, início">
-        <span class="brand-symbol" aria-hidden="true">
-          <img src="assets/iceplay-mark.svg" width="32" height="32" alt="">
-        </span>
-        <span>ICE<span class="brand-accent">PLAY</span></span>
-      </a>
-      <nav class="main-nav" aria-label="Navegação principal">
-        <a href="#inicio">Visão geral</a>
-        <a href="#monitoramento">Painel</a>
-        <a href="#geladeiras">Geladeiras</a>
-        <a href="#base-tecnica">Base técnica</a>
-        <a href="#proximas-etapas">Próximas etapas</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="conteudo">
-    <section class="container mobile-access" id="acesso-movel" aria-labelledby="access-title" hidden>
-      <p class="eyebrow">Acesso neste dispositivo</p>
-      <h2 id="access-title">Conectar ao ICEPLAY</h2>
-      <p>Use o código de acesso disponível no computador que está executando o projeto.</p>
-      <p id="access-status" role="status" aria-live="polite">Consultando a sessão…</p>
-      <form id="access-form">
-        <label for="access-code">Código de acesso</label>
-        <input id="access-code" name="codigo" type="password" required maxlength="128" autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="access-help">
-        <p id="access-help" class="field-help">O código autoriza consultas e alterações neste navegador. Ele não será salvo no armazenamento do navegador.</p>
-        <button class="button button-primary" id="access-submit" type="submit">Conectar dispositivo</button>
-      </form>
-      <button class="button button-secondary" id="access-logout" type="button" hidden>Sair deste dispositivo</button>
-    </section>
-    <section class="hero" id="inicio" aria-labelledby="hero-title">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> ICEPLAY · Monitoramento</p>
-          <h1 id="hero-title">Sua refrigeração.<br><span>Uma visão clara.</span></h1>
-          <p class="hero-description">Acompanhe a última temperatura e o estado da porta registrados para cada geladeira. Confira a origem e os horários antes de interpretar os dados.</p>
-          <a class="button button-light" href="#monitoramento">Abrir painel <span aria-hidden="true">↗</span></a>
-          <p class="hero-footnote">Etapa atual <span aria-hidden="true">/</span> Painel de últimas leituras</p>
-        </div>
-
-        <aside class="health-panel" aria-labelledby="health-title" id="health-panel" aria-busy="false">
+  <aside class="sidebar" id="menu-lateral" aria-label="Menu do ICEPLAY">
+    <a class="brand" href="/dashboard" aria-label="ICEPLAY, visão geral"><span class="brand-symbol" aria-hidden="true"><img src="/assets/iceplay-mark.svg" width="32" height="32" alt=""></span><span>ICE<span class="brand-accent">PLAY</span></span></a>
+    <p class="sidebar-caption">Monitoramento inteligente</p>
+    <nav class="sidebar-nav" aria-label="Navegação principal">
+        <a href="/dashboard" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Visão geral</span></a>
+        <a href="/geladeiras"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M5 9h14M9 5v1M9 12v4"/></svg><span>Geladeiras</span></a>
+        <a href="/historico"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M6 15l4-5 4 3 6-8"/></svg><span>Histórico</span></a>
+        <a href="/alertas"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><span>Alertas</span></a>
+        <a href="/configuracoes"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="8" cy="6" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="10" cy="18" r="2"/></svg><span>Configurações</span></a>
+    </nav>
+    <div class="sidebar-footer"><a href="/sobre">Sobre o projeto</a><span>ICEPLAY · TCC</span></div>
+  </aside>
+  <div class="app-main">
+    <header class="app-topbar">
+      <button class="button button-secondary menu-toggle" id="menu-toggle" type="button" aria-controls="menu-lateral" aria-expanded="false" hidden>Menu</button>
+      <span class="topbar-label">ICEPLAY <span aria-hidden="true">/</span> Visão geral</span>
+      <div class="access-indicator"><span id="access-summary" role="status">Consultando acesso…</span><a id="access-shortcut" href="/acesso" hidden>Conectar dispositivo</a></div>
+    </header>
+    <main id="conteudo" class="page-content">
+      <header class="page-heading"><p class="eyebrow">ICEPLAY / Visão geral</p><h1>Visão geral</h1><p>Acompanhe as últimas medições, portas e o estado real da aplicação.</p></header>
+      <div class="overview-grid">
+<aside class="health-panel" aria-labelledby="health-title" id="health-panel" aria-busy="false">
           <div class="panel-heading">
             <div>
               <p class="overline">Verificação da aplicação</p>
@@ -77,15 +55,15 @@
           <p class="checked-at">Última verificação (hora local)<br><time id="checked-at">Ainda não consultado</time></p>
           <noscript><p class="notice">Ative o JavaScript para consultar o estado da API e do banco.</p></noscript>
         </aside>
+        <section class="overview-context" aria-labelledby="overview-context-title"><p class="overline">Uma visão clara</p><h2 id="overview-context-title">Cada medição tem contexto.</h2><p>Confira a origem e os horários antes de interpretar temperatura e estado da porta.</p><a class="button button-secondary" href="/historico">Consultar histórico <span aria-hidden="true">↗</span></a><p class="field-help">Simulação é identificada. Hardware declarado não comprova um sensor autenticado.</p></section>
       </div>
-    </section>
-
-    <div class="container scope-note">
-      <span class="note-icon" aria-hidden="true">i</span>
-      <p><strong>Dados consultados na API e no SQLite.</strong> O simulador identifica seus envios como simulação. Não há ensaio com sensores físicos comprovado; histórico, limites e alertas serão desenvolvidos nas próximas etapas.</p>
-    </div>
-
-    <section class="section container monitoring-section" id="monitoramento" aria-labelledby="monitoramento-title">
+      <section class="summary-grid" aria-label="Resumo da origem selecionada">
+        <article class="summary-card"><p>Com leitura</p><strong id="resumo-com-leitura">—</strong><span>Equipamentos na consulta</span></article>
+        <article class="summary-card"><p>Sem leitura</p><strong id="resumo-sem-leitura">—</strong><span>Na origem selecionada</span></article>
+        <article class="summary-card"><p>Portas abertas</p><strong id="resumo-portas-abertas">—</strong><span>Estado na última medição</span></article>
+        <article class="summary-card"><p>Alertas recentes</p><strong class="summary-unavailable">Indisponível</strong><a href="/alertas">Regras ainda não implementadas</a></article>
+      </section>
+<section class="section container monitoring-section" id="monitoramento" aria-labelledby="monitoramento-title">
       <div class="section-heading">
         <div>
           <p class="eyebrow">Monitoramento</p>
@@ -120,132 +98,11 @@
       <p class="equipment-status" id="monitoramento-status" role="status" aria-live="polite">Consultando as últimas leituras…</p>
       <p class="list-summary" id="monitoramento-resumo"></p>
       <div class="monitor-grid" id="monitoramento-lista" aria-busy="true"></div>
-      <p class="monitor-note">A recência não avalia se a temperatura é adequada. O estado da porta corresponde à medição exibida. Acesso ao histórico e configuração de alertas ainda não estão disponíveis.</p>
+      <p class="monitor-note">A recência não avalia se a temperatura é adequada. O estado da porta corresponde à medição exibida. O histórico está disponível em sua própria página; as regras de alerta ainda estão pendentes.</p>
       <noscript><p class="notice">Ative o JavaScript para consultar as leituras da API.</p></noscript>
     </section>
-
-    <section class="section container equipment-section" id="geladeiras" aria-labelledby="equipment-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">01 / Geladeiras</p>
-          <h2 id="equipment-title">Cada equipamento,<br>um cadastro.</h2>
-        </div>
-        <p>Cadastre, consulte e mantenha a identificação das geladeiras. Os registros abaixo são consultados no banco da aplicação.</p>
-      </div>
-      <p class="equipment-status" id="geladeiras-status" role="status" aria-live="polite" aria-atomic="true">A lista será consultada ao carregar a página.</p>
-      <div class="equipment-workspace" id="equipment-workspace" aria-busy="false">
-        <form class="equipment-form" id="geladeira-form" novalidate aria-labelledby="geladeira-form-title">
-          <p class="overline">Identificação do equipamento</p>
-          <h3 id="geladeira-form-title">Cadastrar geladeira</h3>
-          <p class="form-mode" id="geladeira-form-mode">O nome é obrigatório. A localização é opcional.</p>
-          <fieldset id="geladeira-fields" disabled>
-            <legend class="visually-hidden">Dados da geladeira</legend>
-            <div class="form-field">
-              <label for="geladeira-nome">Nome <span class="required-label">(obrigatório)</span></label>
-              <input id="geladeira-nome" name="nome" type="text" maxlength="100" required autocomplete="off" aria-describedby="nome-ajuda nome-erro">
-              <p class="field-help" id="nome-ajuda">Até 100 caracteres.</p>
-              <p class="field-error" id="nome-erro" hidden></p>
-            </div>
-            <div class="form-field">
-              <label for="geladeira-localizacao">Localização <span class="required-label">(opcional)</span></label>
-              <input id="geladeira-localizacao" name="localizacao" type="text" maxlength="200" autocomplete="off" aria-describedby="localizacao-ajuda localizacao-erro">
-              <p class="field-help" id="localizacao-ajuda">Até 200 caracteres. Pode ficar em branco.</p>
-              <p class="field-error" id="localizacao-erro" hidden></p>
-            </div>
-            <div class="form-actions">
-              <button class="button button-primary" id="salvar-geladeira" type="submit">Cadastrar geladeira</button>
-              <button class="button button-secondary" id="cancelar-edicao" type="button" hidden>Cancelar edição</button>
-            </div>
-          </fieldset>
-        </form>
-        <div class="equipment-records">
-          <div class="records-heading">
-            <h3>Geladeiras cadastradas</h3>
-            <button class="button button-secondary button-small" id="recarregar-geladeiras" type="button">Recarregar lista</button>
-          </div>
-          <p class="list-summary" id="geladeiras-resumo">Lista ainda não consultada.</p>
-          <div class="equipment-list" id="geladeiras-lista"></div>
-          <section class="equipment-details" id="geladeira-detalhes" aria-labelledby="geladeira-detalhes-title" tabindex="-1" hidden>
-            <div class="records-heading">
-              <h3 id="geladeira-detalhes-title">Detalhes da geladeira</h3>
-              <button class="button button-secondary button-small" id="fechar-detalhes" type="button">Fechar detalhes</button>
-            </div>
-            <p class="field-help">Dados recebidos da consulta individual à API.</p>
-            <dl id="geladeira-detalhes-dados"></dl>
-          </section>
-        </div>
-      </div>
-      <section class="delete-confirmation" id="confirmar-exclusao" role="dialog" aria-labelledby="confirmar-exclusao-title" aria-describedby="confirmar-exclusao-description" hidden>
-        <p class="overline">Confirmação necessária</p>
-        <h3 id="confirmar-exclusao-title">Excluir geladeira?</h3>
-        <p class="delete-name" id="exclusao-nome"></p>
-        <p id="confirmar-exclusao-description">A exclusão remove o cadastro da geladeira. Geladeiras com leituras registradas não podem ser excluídas, para preservar o histórico. A ação só será executada ao confirmar abaixo.</p>
-        <div class="confirmation-actions">
-          <button class="button button-danger" id="excluir-confirmar" type="button">Confirmar exclusão</button>
-          <button class="button button-secondary" id="excluir-cancelar" type="button">Cancelar</button>
-        </div>
-      </section>
-      <noscript><p class="notice">Ative o JavaScript para consultar e gerenciar os cadastros pela API.</p></noscript>
-    </section>
-
-    <section class="section container" id="base-tecnica" aria-labelledby="base-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">02 / Base técnica</p>
-          <h2 id="base-title">Uma estrutura simples.<br>Um caminho para evoluir.</h2>
-        </div>
-        <p>A primeira etapa reúne a interface, a API e a persistência de dados na mesma aplicação.</p>
-      </div>
-
-      <div class="architecture-grid">
-        <article class="architecture-card">
-          <span class="card-number" aria-hidden="true">01</span>
-          <h3>Interface web</h3>
-          <p>Uma página responsiva para acompanhar as últimas leituras, gerenciar geladeiras e consultar o estado da aplicação.</p>
-          <span class="technology">HTML · CSS · JavaScript</span>
-        </article>
-        <article class="architecture-card">
-          <span class="card-number" aria-hidden="true">02</span>
-          <h3>API da aplicação</h3>
-          <p>Recebe leituras do simulador e atende às consultas de cadastro. A integração física com o ESP32 será uma etapa futura.</p>
-          <span class="technology">ASP.NET Core</span>
-        </article>
-        <article class="architecture-card">
-          <span class="card-number" aria-hidden="true">03</span>
-          <h3>Persistência local</h3>
-          <p>Um banco em arquivo para armazenar os dados. A verificação de saúde consulta o banco.</p>
-          <span class="technology">Entity Framework Core · SQLite</span>
-        </article>
-      </div>
-    </section>
-
-    <section class="next-section" id="proximas-etapas" aria-labelledby="next-title">
-      <div class="container next-grid">
-        <div>
-          <p class="eyebrow">03 / Próximas etapas</p>
-          <h2 id="next-title">Da base ao<br>monitoramento.</h2>
-          <p class="next-intro">O painel já apresenta as últimas leituras. Histórico, configurações e alertas serão as próximas etapas.</p>
-          <span class="scope-tag">Planejado · Ainda não disponível</span>
-        </div>
-        <ol class="roadmap">
-          <li><span class="step-number" aria-hidden="true">01</span><div><h3>Histórico na interface</h3><p>Exibir na página as leituras armazenadas, com origem e horários de medição e recebimento.</p></div></li>
-          <li><span class="step-number" aria-hidden="true">02</span><div><h3>Alertas de monitoramento</h3><p>Detectar condições anormais e ausência de leituras recentes.</p></div></li>
-          <li><span class="step-number" aria-hidden="true">03</span><div><h3>Validação no celular e integração física</h3><p>Validar o acesso HTTPS no iPhone e integrar o ESP32 quando o hardware estiver disponível.</p></div></li>
-        </ol>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-content">
-      <p><strong>ICEPLAY</strong><span>Projeto de TCC · Ciência da Computação</span></p>
-      <a href="#inicio">Voltar ao início <span aria-hidden="true">↑</span></a>
-    </div>
-  </footer>
-  <nav class="mobile-nav" aria-label="Atalhos no celular">
-    <a href="#monitoramento">Painel</a>
-    <a href="#geladeiras">Geladeiras</a>
-    <a id="access-shortcut" href="#acesso-movel" hidden>Acesso</a>
-  </nav>
+    </main>
+    <footer class="app-footer"><span>ICEPLAY · Monitoramento de geladeiras</span><a href="/sobre">Base técnica e próximas etapas</a></footer>
+  </div>
 </body>
 </html>

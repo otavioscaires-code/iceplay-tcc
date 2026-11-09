@@ -1,0 +1,194 @@
+PASSOU: Build sem restauracao termina com codigo zero
+PASSOU: POST /api/geladeiras retorna 201
+PASSOU: POST /api/leituras retorna 201
+PASSOU: SQLite isolado tem integridade e vinculos validos
+PASSOU: GET /dashboard retorna 200
+PASSOU: /dashboard e documento HTML, nao resposta generica de API
+PASSOU: /dashboard entrega documento completo independente
+PASSOU: /dashboard contem o conteudo funcional esperado
+PASSOU: /dashboard possui titulo proprio
+PASSOU: /dashboard possui conteudo principal proprio
+PASSOU: /dashboard oferece link real para /dashboard
+PASSOU: /dashboard oferece link real para /geladeiras
+PASSOU: /dashboard oferece link real para /historico
+PASSOU: /dashboard oferece link real para /alertas
+PASSOU: /dashboard oferece link real para /configuracoes
+PASSOU: /dashboard possui exatamente a opcao correta marcada como pagina atual
+PASSOU: GET /dashboard retorna 200
+PASSOU: Atualizar diretamente /dashboard preserva o documento correto
+PASSOU: GET /geladeiras retorna 200
+PASSOU: /geladeiras e documento HTML, nao resposta generica de API
+PASSOU: /geladeiras entrega documento completo independente
+PASSOU: /geladeiras contem o conteudo funcional esperado
+PASSOU: /geladeiras possui titulo proprio
+PASSOU: /geladeiras possui conteudo principal proprio
+PASSOU: /geladeiras oferece link real para /dashboard
+PASSOU: /geladeiras oferece link real para /geladeiras
+PASSOU: /geladeiras oferece link real para /historico
+PASSOU: /geladeiras oferece link real para /alertas
+PASSOU: /geladeiras oferece link real para /configuracoes
+PASSOU: /geladeiras possui exatamente a opcao correta marcada como pagina atual
+PASSOU: GET /geladeiras retorna 200
+PASSOU: Atualizar diretamente /geladeiras preserva o documento correto
+PASSOU: GET /historico retorna 200
+PASSOU: /historico e documento HTML, nao resposta generica de API
+PASSOU: /historico entrega documento completo independente
+PASSOU: /historico contem o conteudo funcional esperado
+PASSOU: /historico possui titulo proprio
+PASSOU: /historico possui conteudo principal proprio
+PASSOU: /historico oferece link real para /dashboard
+PASSOU: /historico oferece link real para /geladeiras
+PASSOU: /historico oferece link real para /historico
+PASSOU: /historico oferece link real para /alertas
+PASSOU: /historico oferece link real para /configuracoes
+PASSOU: /historico possui exatamente a opcao correta marcada como pagina atual
+PASSOU: GET /historico retorna 200
+PASSOU: Atualizar diretamente /historico preserva o documento correto
+PASSOU: GET /alertas retorna 200
+PASSOU: /alertas e documento HTML, nao resposta generica de API
+PASSOU: /alertas entrega documento completo independente
+PASSOU: /alertas possui titulo proprio
+PASSOU: /alertas possui conteudo principal proprio
+PASSOU: /alertas oferece link real para /dashboard
+PASSOU: /alertas oferece link real para /geladeiras
+PASSOU: /alertas oferece link real para /historico
+PASSOU: /alertas oferece link real para /alertas
+PASSOU: /alertas oferece link real para /configuracoes
+PASSOU: /alertas possui exatamente a opcao correta marcada como pagina atual
+PASSOU: GET /alertas retorna 200
+PASSOU: Atualizar diretamente /alertas preserva o documento correto
+PASSOU: GET /configuracoes retorna 200
+PASSOU: /configuracoes e documento HTML, nao resposta generica de API
+PASSOU: /configuracoes entrega documento completo independente
+PASSOU: /configuracoes possui titulo proprio
+PASSOU: /configuracoes possui conteudo principal proprio
+PASSOU: /configuracoes oferece link real para /dashboard
+PASSOU: /configuracoes oferece link real para /geladeiras
+PASSOU: /configuracoes oferece link real para /historico
+PASSOU: /configuracoes oferece link real para /alertas
+PASSOU: /configuracoes oferece link real para /configuracoes
+PASSOU: /configuracoes possui exatamente a opcao correta marcada como pagina atual
+PASSOU: GET /configuracoes retorna 200
+PASSOU: Atualizar diretamente /configuracoes preserva o documento correto
+PASSOU: GET /acesso retorna 200
+PASSOU: /acesso e documento HTML, nao resposta generica de API
+PASSOU: /acesso entrega documento completo independente
+PASSOU: /acesso contem o conteudo funcional esperado
+PASSOU: /acesso possui titulo proprio
+PASSOU: /acesso possui conteudo principal proprio
+PASSOU: /acesso oferece link real para /dashboard
+PASSOU: /acesso oferece link real para /geladeiras
+PASSOU: /acesso oferece link real para /historico
+PASSOU: /acesso oferece link real para /alertas
+PASSOU: /acesso oferece link real para /configuracoes
+PASSOU: /acesso auxiliar nao marca uma opcao principal incorreta
+PASSOU: GET /acesso retorna 200
+PASSOU: Atualizar diretamente /acesso preserva o documento correto
+PASSOU: GET /sobre retorna 200
+PASSOU: /sobre e documento HTML, nao resposta generica de API
+PASSOU: /sobre entrega documento completo independente
+PASSOU: /sobre contem o conteudo funcional esperado
+PASSOU: /sobre possui titulo proprio
+PASSOU: /sobre possui conteudo principal proprio
+PASSOU: /sobre oferece link real para /dashboard
+PASSOU: /sobre oferece link real para /geladeiras
+PASSOU: /sobre oferece link real para /historico
+PASSOU: /sobre oferece link real para /alertas
+PASSOU: /sobre oferece link real para /configuracoes
+PASSOU: /sobre auxiliar nao marca uma opcao principal incorreta
+PASSOU: GET /sobre retorna 200
+PASSOU: Atualizar diretamente /sobre preserva o documento correto
+PASSOU: GET / retorna 200
+PASSOU: Raiz e /dashboard entregam a mesma Visao geral
+PASSOU: Dashboard nao concentra os formularios das outras paginas
+PASSOU: Cadastro nao concentra formulario do historico
+PASSOU: Historico tem tabela propria e nao concentra CRUD
+PASSOU: Conteudo tecnico e proximas etapas foram preservados em Sobre
+PASSOU: /alertas nao oferece formulario de backend ainda inexistente
+PASSOU: /configuracoes nao oferece formulario de backend ainda inexistente
+PASSOU: Asset de /geladeiras usa URL absoluta da propria aplicacao: /assets/iceplay-mark.svg
+PASSOU: Asset de /geladeiras usa URL absoluta da propria aplicacao: /theme.css?v=20261030-pages
+PASSOU: Asset de /geladeiras usa URL absoluta da propria aplicacao: /styles.css?v=20261030-pages
+PASSOU: Asset de /geladeiras usa URL absoluta da propria aplicacao: /shell.js?v=20261030-pages
+PASSOU: Asset de /geladeiras usa URL absoluta da propria aplicacao: /acesso.js?v=20261030-pages
+PASSOU: Asset de /geladeiras usa URL absoluta da propria aplicacao: /geladeiras.js?v=20261030-pages
+PASSOU: Asset de /geladeiras usa URL absoluta da propria aplicacao: /assets/iceplay-mark.svg
+PASSOU: Ancora local de /geladeiras existe: #conteudo
+PASSOU: Asset de /historico usa URL absoluta da propria aplicacao: /assets/iceplay-mark.svg
+PASSOU: Asset de /historico usa URL absoluta da propria aplicacao: /theme.css?v=20261030-pages
+PASSOU: Asset de /historico usa URL absoluta da propria aplicacao: /styles.css?v=20261030-pages
+PASSOU: Asset de /historico usa URL absoluta da propria aplicacao: /shell.js?v=20261030-pages
+PASSOU: Asset de /historico usa URL absoluta da propria aplicacao: /acesso.js?v=20261030-pages
+PASSOU: Asset de /historico usa URL absoluta da propria aplicacao: /historico.js?v=20261030-pages
+PASSOU: Asset de /historico usa URL absoluta da propria aplicacao: /assets/iceplay-mark.svg
+PASSOU: Ancora local de /historico existe: #conteudo
+PASSOU: Asset de /configuracoes usa URL absoluta da propria aplicacao: /assets/iceplay-mark.svg
+PASSOU: Asset de /configuracoes usa URL absoluta da propria aplicacao: /theme.css?v=20261030-pages
+PASSOU: Asset de /configuracoes usa URL absoluta da propria aplicacao: /styles.css?v=20261030-pages
+PASSOU: Asset de /configuracoes usa URL absoluta da propria aplicacao: /shell.js?v=20261030-pages
+PASSOU: Asset de /configuracoes usa URL absoluta da propria aplicacao: /acesso.js?v=20261030-pages
+PASSOU: Asset de /configuracoes usa URL absoluta da propria aplicacao: /assets/iceplay-mark.svg
+PASSOU: Ancora local de /configuracoes existe: #conteudo
+PASSOU: Asset de /sobre usa URL absoluta da propria aplicacao: /assets/iceplay-mark.svg
+PASSOU: Asset de /sobre usa URL absoluta da propria aplicacao: /theme.css?v=20261030-pages
+PASSOU: Asset de /sobre usa URL absoluta da propria aplicacao: /styles.css?v=20261030-pages
+PASSOU: Asset de /sobre usa URL absoluta da propria aplicacao: /shell.js?v=20261030-pages
+PASSOU: Asset de /sobre usa URL absoluta da propria aplicacao: /acesso.js?v=20261030-pages
+PASSOU: Asset de /sobre usa URL absoluta da propria aplicacao: /assets/iceplay-mark.svg
+PASSOU: Ancora local de /sobre existe: #conteudo
+PASSOU: Asset de /alertas usa URL absoluta da propria aplicacao: /assets/iceplay-mark.svg
+PASSOU: Asset de /alertas usa URL absoluta da propria aplicacao: /theme.css?v=20261030-pages
+PASSOU: Asset de /alertas usa URL absoluta da propria aplicacao: /styles.css?v=20261030-pages
+PASSOU: Asset de /alertas usa URL absoluta da propria aplicacao: /shell.js?v=20261030-pages
+PASSOU: Asset de /alertas usa URL absoluta da propria aplicacao: /acesso.js?v=20261030-pages
+PASSOU: Asset de /alertas usa URL absoluta da propria aplicacao: /assets/iceplay-mark.svg
+PASSOU: Ancora local de /alertas existe: #conteudo
+PASSOU: Asset de /acesso usa URL absoluta da propria aplicacao: /assets/iceplay-mark.svg
+PASSOU: Asset de /acesso usa URL absoluta da propria aplicacao: /theme.css?v=20261030-pages
+PASSOU: Asset de /acesso usa URL absoluta da propria aplicacao: /styles.css?v=20261030-pages
+PASSOU: Asset de /acesso usa URL absoluta da propria aplicacao: /shell.js?v=20261030-pages
+PASSOU: Asset de /acesso usa URL absoluta da propria aplicacao: /acesso.js?v=20261030-pages
+PASSOU: Asset de /acesso usa URL absoluta da propria aplicacao: /assets/iceplay-mark.svg
+PASSOU: Ancora local de /acesso existe: #conteudo
+PASSOU: Asset de /dashboard usa URL absoluta da propria aplicacao: /assets/iceplay-mark.svg
+PASSOU: Asset de /dashboard usa URL absoluta da propria aplicacao: /theme.css?v=20261030-pages
+PASSOU: Asset de /dashboard usa URL absoluta da propria aplicacao: /styles.css?v=20261030-pages
+PASSOU: Asset de /dashboard usa URL absoluta da propria aplicacao: /shell.js?v=20261030-pages
+PASSOU: Asset de /dashboard usa URL absoluta da propria aplicacao: /acesso.js?v=20261030-pages
+PASSOU: Asset de /dashboard usa URL absoluta da propria aplicacao: /app.js?v=20261030-pages
+PASSOU: Asset de /dashboard usa URL absoluta da propria aplicacao: /monitoramento.js?v=20261030-pages
+PASSOU: Asset de /dashboard usa URL absoluta da propria aplicacao: /assets/iceplay-mark.svg
+PASSOU: Ancora local de /dashboard existe: #conteudo
+PASSOU: GET /assets/iceplay-mark.svg retorna 200
+PASSOU: GET /theme.css?v=20261030-pages retorna 200
+PASSOU: GET /styles.css?v=20261030-pages retorna 200
+PASSOU: GET /shell.js?v=20261030-pages retorna 200
+PASSOU: GET /acesso.js?v=20261030-pages retorna 200
+PASSOU: GET /geladeiras.js?v=20261030-pages retorna 200
+PASSOU: GET /historico.js?v=20261030-pages retorna 200
+PASSOU: GET /app.js?v=20261030-pages retorna 200
+PASSOU: GET /monitoramento.js?v=20261030-pages retorna 200
+PASSOU: GET /dashboard retorna 200
+PASSOU: GET /geladeiras retorna 200
+PASSOU: GET /historico retorna 200
+PASSOU: GET /alertas retorna 200
+PASSOU: GET /configuracoes retorna 200
+PASSOU: GET /sobre retorna 200
+PASSOU: GET /acesso retorna 200
+PASSOU: GET /pagina-inexistente retorna 404
+PASSOU: /pagina-inexistente nao cai no HTML da Visao geral como fallback SPA
+PASSOU: GET /historico/rota-inexistente retorna 404
+PASSOU: /historico/rota-inexistente nao cai no HTML da Visao geral como fallback SPA
+PASSOU: GET /api/rota-inexistente retorna 404
+PASSOU: /api/rota-inexistente nao cai no HTML da Visao geral como fallback SPA
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao retorna 200
+PASSOU: API real continua retornando fixture Simulacao com zero/false apos navegacao
+PASSOU: SQLite isolado tem integridade e vinculos validos
+PASSOU: GETs de paginas, assets, links e API nao alteram dados nem migrations
+PASSOU: GET /historico retorna 200
+PASSOU: URL direta de historico permanece correta apos reiniciar
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao retorna 200
+PASSOU: Fixtures persistem apos reinicio real
+PASSOU: SQLite isolado tem integridade e vinculos validos
+PASSOU: Reinicio preserva conteudo logico do SQLite isolado
+Paginas verificadas: 193 assercoes; 39 requisicoes HTTP registradas.

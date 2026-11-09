@@ -35,6 +35,10 @@ function limparDados() {
   resumo.textContent = "";
   consultado.textContent = "Não disponível";
   consultado.removeAttribute("datetime");
+  for (const id of ["resumo-com-leitura", "resumo-sem-leitura", "resumo-portas-abertas"]) {
+    const node = document.getElementById(id);
+    if (node) node.textContent = "—";
+  }
 }
 
 function atualizarNotas() {
@@ -81,7 +85,7 @@ function renderizar(data) {
   lista.replaceChildren();
   estadosVisuais = [];
   if (data.geladeiras.length === 0) {
-    const vazio = elemento("p", "monitor-empty", "Nenhuma geladeira cadastrada. Cadastre um equipamento na seção Geladeiras para começar.");
+    const vazio = elemento("p", "monitor-empty", "Nenhuma geladeira cadastrada. Cadastre um equipamento na página Geladeiras para começar.");
     lista.append(vazio);
   }
   let comLeitura = 0;
@@ -110,6 +114,15 @@ function renderizar(data) {
     if (leitura) comLeitura++;
   }
   resumo.textContent = `${data.geladeiras.length} geladeira(s) consultada(s); ${comLeitura} com leitura na origem selecionada.`;
+  const indicadores = {
+    "resumo-com-leitura": comLeitura,
+    "resumo-sem-leitura": data.geladeiras.length - comLeitura,
+    "resumo-portas-abertas": data.geladeiras.filter(item => item.ultimaLeitura?.portaAberta === true).length
+  };
+  for (const [id, value] of Object.entries(indicadores)) {
+    const node = document.getElementById(id);
+    if (node) node.textContent = value.toLocaleString("pt-BR");
+  }
   consultado.dateTime = data.consultadoEmUtc;
   consultado.textContent = new Date(data.consultadoEmUtc).toLocaleString("pt-BR");
   atualizarIdades();
@@ -135,7 +148,7 @@ async function consultar({ limpar = false, silencioso = false } = {}) {
       cache: "no-store", headers: { Accept: "application/json" }, signal: meuControlador.signal
     });
     if (!response.ok) {
-      throw new Error(response.status === 401 ? "Conecte este dispositivo na seção Acesso para consultar as leituras."
+      throw new Error(response.status === 401 ? "Conecte este dispositivo na página Acesso para consultar as leituras."
         : response.status === 503
         ? "A API não conseguiu consultar o banco de dados. Tente atualizar o painel."
         : `A consulta não foi confirmada (HTTP ${response.status}). Tente atualizar o painel.`);

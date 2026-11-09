@@ -78,7 +78,8 @@ try {
     Assert-Iceplay (Test-Path -LiteralPath $taskDatabase) 'Migration cria arquivo SQLite isolado'
     $taskPage = Invoke-WebRequest -Uri ($taskCurrent.Url + '/') -TimeoutSec 5
     Assert-Iceplay ($taskPage.StatusCode -eq 200 -and $taskPage.Content -match '<title>ICEPLAY') 'Página inicial é servida pela aplicação'
-    Assert-Iceplay ($taskPage.Content -match 'id="base-tecnica"' -and $taskPage.Content -match 'id="proximas-etapas"') 'Destinos da navegação existem no HTML servido'
+    $taskAbout = Invoke-WebRequest -Uri ($taskCurrent.Url + '/sobre') -TimeoutSec 5
+    Assert-Iceplay ($taskAbout.StatusCode -eq 200 -and $taskAbout.Content -match 'id="base-tecnica"' -and $taskAbout.Content -match 'id="proximas-etapas"') 'Destinos técnicos da navegação foram preservados na página Sobre'
     $taskCss = Invoke-WebRequest -Uri ($taskCurrent.Url + '/styles.css') -TimeoutSec 5
     $taskJs = Invoke-WebRequest -Uri ($taskCurrent.Url + '/app.js') -TimeoutSec 5
     Assert-Iceplay ($taskCss.StatusCode -eq 200 -and $taskCss.Headers['Content-Type'] -match 'text/css') 'CSS é servido com tipo correto'

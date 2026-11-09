@@ -1,8 +1,8 @@
 # CONTEXTO_ICEPLAY
 
-Documento de transferência de contexto do projeto, elaborado a partir dos arquivos presentes no repositório em 30/10/2026. Ele descreve implementação e evidências existentes, não substitui a leitura do código. Resultados registrados em `docs/evidencias/` são resultados históricos de execuções identificadas principalmente em 13, 15, 17 e 19/10/2026; não foram repetidos nesta tarefa de documentação.
+Documento de transferência de contexto do projeto, inicialmente elaborado em 30/10/2026 e atualizado em **09/11/2026**. As seções de situação atual descrevem o código de trabalho; as seções datadas preservam resultados e decisões anteriores. Este documento não substitui a leitura do código nem a consulta aos relatórios reais em `docs/evidencias/` e não declara uma nova execução de testes somente por atualizar a documentação.
 
-Atualização de desenvolvimento em 30/10: a base foi novamente executada e validada, Git/GitHub regularizados com autorização do usuário, e a API do histórico foi implementada em incremento separado. Ver seções abaixo, `docs/retomada-2026-10-30.md` e `docs/plano-continuidade-2026-10-30.md`; o parágrafo anterior descreve a elaboração documental inicial.
+Em 30/10, a base foi novamente executada e validada, Git/GitHub regularizados com autorização do usuário e a API do histórico implementada em incremento separado. O estado de 09/11 sucede esse diagnóstico: existem páginas HTML independentes e interface de histórico; o usuário confirmou parte do uso no iPhone e enviou foto da consulta das três leituras simuladas. O plano vigente é `docs/plano-ate-hardware-2026-11-09.md`; `docs/retomada-2026-10-30.md` e `docs/plano-continuidade-2026-10-30.md` permanecem como histórico. A conclusão das regressões/publicação deve ser verificada nos relatórios e no Git, sem inferir push a partir deste texto.
 
 ## 1. Objetivo e escopo do TCC
 
@@ -10,7 +10,7 @@ ICEPLAY é um TCC de Ciência da Computação para monitoramento IoT de geladeir
 
 O prazo informado para versão completa é 24/11/2026, com apresentação/validação em 01/12/2026. O professor exige demonstração funcional e evidências concretas, não somente código.
 
-Escopo atualmente implementado: cadastro de geladeiras, saúde real do banco, ingestão de leituras, simulador, consulta da última leitura por origem, painel responsivo, API de histórico paginado e modo de acesso local por iPhone. Escopo futuro: tela do histórico, limites configuráveis, alertas, ausência de leituras, firmware e ensaio físico. Controle por voz e notificações externas não são prioridade.
+Escopo implementado no código de trabalho: cadastro de geladeiras, saúde real do banco, ingestão de leituras, simulador, consulta da última leitura por origem, painel responsivo, API e interface de histórico paginado, páginas independentes e modo de acesso local por iPhone. Alertas e Configurações têm páginas informativas sem backend, controles de gravação ou dados inventados. Faltam limites persistidos, regras/registro e consulta de alertas, ausência de leituras como regra, autenticação de dispositivo, firmware e ensaio físico. O usuário ainda não possui hardware. Notificação por voz foi excluída do MVP em 09/11; notificações externas também ficam para depois do núcleo.
 
 ## 2. Arquitetura e tecnologias
 
@@ -40,6 +40,9 @@ Pacotes NuGet diretos: `Microsoft.EntityFrameworkCore.Sqlite` e `Microsoft.Entit
 | `src/Iceplay.Api/Migrations/` | Migrations EF: criação inicial e inclusão de leituras. |
 | `src/Iceplay.Api/Mobile/` | Limitação de rede, HTTPS local, cookie, CSRF e login por código no modo móvel. |
 | `src/Iceplay.Api/wwwroot/` | Interface, navegação, saúde, CRUD, painel e scripts JavaScript. |
+| `src/Iceplay.Api/wwwroot/index.html`, `geladeiras.html`, `historico.html`, `alertas.html`, `configuracoes.html`, `acesso.html`, `sobre.html` | Sete documentos independentes servidos pelo mesmo backend. |
+| `src/Iceplay.Api/wwwroot/shell.js`, `acesso.js` | Menu responsivo compartilhado e estado/sessão de acesso. |
+| `src/Iceplay.Api/wwwroot/historico.js`, `historico-estado.mjs` | Cliente de consulta, filtros, validação, tabela, gráfico e paginação do histórico. |
 | `scripts/` | Instalação, execução, preparação móvel e verificações automatizadas. |
 | `tools/simulator/enviar-leituras.ps1` | Emissor de leituras simuladas para `POST /api/leituras`. |
 | `docs/` | Planejamento, cronograma, contrato, UML, instruções, uso de IA, SQL e relatórios de etapa. |
@@ -57,31 +60,35 @@ Na elaboração inicial deste contexto, não havia commits/remoto. Na retomada d
 - Persistência SQLite por EF Core, com duas migrations e execução de migrations automática apenas em Development.
 - Ingestão de temperatura, porta, origem e timestamp de medição; timestamp de recebimento é produzido pelo servidor.
 - Consulta de uma leitura por geladeira para uma origem selecionada, usando maior `medidoEmUtc` e maior ID no empate.
-- API de histórico `GET /api/leituras`, filtrada por geladeira/origem/período UTC, com paginação de até 100 itens e ordenação por medição/ID decrescentes; a tela ainda está pendente.
+- API de histórico `GET /api/leituras`, filtrada por geladeira/origem/período UTC, com paginação de até 100 itens e ordenação por medição/ID decrescentes.
+- Interface de histórico com seleção de equipamento/origem/período, conversão de hora local para UTC, filtros/página na URL, tabela com os dois timestamps e gráfico somente das amostras da página consultada. Alterar filtros limpa a consulta anterior; falhas não mantêm dados como se estivessem confirmados.
+- Páginas próprias `/dashboard`, `/geladeiras`, `/historico`, `/alertas`, `/configuracoes`, `/acesso` e `/sobre`; a raiz também entrega a Visão geral. Menu lateral fixo no desktop e recolhível no celular. Não há fallback SPA nem alternância de blocos para substituir a navegação real.
 - Painel responsivo para desktop/celular, filtro de origem Simulação/Hardware declarado, atualização automática a cada 15 segundos quando visível e referência visual de leitura desatualizada após mais de 60 segundos.
 - Interface para cadastro, edição e exclusão de geladeiras integrada à API, e apresentação de saúde real da API/banco.
 - Simulador PowerShell que envia para a mesma API do hardware planejado e não acessa SQLite diretamente.
 - Modo móvel local opcional: HTTPS no IP privado configurado, certificado local, acesso com código, cookie Secure/HttpOnly/SameSite Strict, CSRF, limite de oito tentativas por minuto e restrição à sub-rede configurada.
 
-Evidências de 19/10 registram build sem avisos/erros, verificadores de API, persistência em reinício, simulador e testes JavaScript. As evidências não provam funcionamento em hardware físico e o login/uso no Safari do iPhone ainda está pendente de validação no aparelho.
+Evidências de 19/10 registram build sem avisos/erros, verificadores de API, persistência em reinício, simulador e testes JavaScript; são resultados históricos. O uso no iPhone teve confirmação parcial em 09/11 e foto posterior mostrando tabela/gráfico com três leituras de simulação. Essas evidências não provam funcionamento com sensores físicos nem validam antecipadamente os refinamentos posteriores do gráfico/acesso.
 
 ## 5. Funcionalidades parcialmente implementadas ou não validadas
 
-- Interface móvel: layout e integração foram exercitados em viewports de navegador e modo móvel foi testado por TCP/TLS/HTTP em banco isolado; falta validar o fluxo completo em Safari/iPhone real, incluindo instalação/confiança do certificado e firewall.
+- Interface móvel: além dos testes históricos de viewport/TCP/TLS/HTTP, houve acesso, saúde, cadastro/edição, navegação, atualização e consulta das leituras simuladas no iPhone em 09/11. Permanecem sem confirmação integral no aparelho logout/reconexão, exclusão de fixture sem leituras, reinício, orientações/zoom/teclado e os ajustes posteriores do gráfico/acesso. Modelo/iOS não foram informados.
 - Origem `Hardware`: contrato e rótulo existem, mas não há ESP32, autenticação de dispositivo ou ensaio físico. Ela é somente uma declaração do emissor.
-- Monitoramento: mostra a última leitura por origem, mas não oferece histórico nem decide se a temperatura é adequada. A regra de 60 segundos é exclusivamente visual e não gera alerta.
+- Monitoramento: mostra a última leitura por origem; o histórico fica em página separada. Não decide se a temperatura é adequada. A referência de 60 segundos é exclusivamente visual, ajustável na sessão, e não gera alerta.
+- Alertas e Configurações: existem documentos navegáveis com mensagens honestas sobre indisponibilidade, mas não há persistência de regras nem geração/consulta de alertas.
 - Documentação UML existe em `docs/uml.md`, mas as fontes PlantUML ainda não foram renderizadas segundo o README.
 
 ## 6. Funcionalidades pendentes
 
-1. Validar acesso no iPhone físico na mesma rede, seguindo `docs/acesso-iphone.md`; aplicar regra de firewall somente com autorização/administração local.
-2. Apresentar na interface a API de histórico já implementada, com filtros de equipamento, origem e período e navegação paginada.
-3. Definir com o orientador limites de temperatura, tolerância/critério de porta aberta e política de ausência de leituras.
-4. Criar configuração persistida de limites, regras de negócio, entidade/registro de alertas e tela de consulta, em incrementos separados.
-5. Desenvolver firmware ESP32 e integração do DS18B20 e sensor magnético, preservando o contrato HTTP já existente ou versionando-o de modo compatível.
-6. Definir autenticação/autorização do emissor de hardware antes de tratar dados declarados como hardware confiável.
-7. Completar diagramas UML renderizados, trabalho escrito, artigo, manual e evidências de execução física.
-8. Avaliar notificações externas somente após o núcleo acima estar funcional.
+1. Encerrar o registro documental e a publicação validada da revisão de páginas/histórico; regressões e reinício/persistência no computador foram aprovados conforme a seção 19. Conferir separadamente os novos ajustes visuais no iPhone.
+2. Definir e persistir por geladeira limites de temperatura, tolerância de porta aberta e política/início de monitoramento para ausência de leituras, com o aluno/orientador.
+3. Implementar regras e episódios de alertas abertos/resolvidos, evitando duplicação e tratando amostras atrasadas, lacunas e separação de origens.
+4. Integrar consulta de alertas e resumo real à interface, mantendo estados vazio/erro explícitos.
+5. Preparar autenticação/autorização da ingestão do ESP32 e definir políticas de relógio, falhas e repetição.
+6. Preparar e compilar firmware para a placa escolhida, instruções de montagem e testes do contrato; depois realizar integração e ensaios com ESP32, DS18B20 e sensor magnético reais.
+7. Completar a validação móvel restante, UML renderizado, trabalho escrito, artigo, manual e evidências, em paralelo às etapas apropriadas.
+
+O detalhamento e os critérios das seis entregas de software estão em `docs/plano-ate-hardware-2026-11-09.md`. Notificação por voz está fora do MVP; notificações externas são futuras. Não há aprovação documentada do professor que substitua a exigência de validação física.
 
 ## 7. API e contratos
 
@@ -171,6 +178,8 @@ Set-Location 'C:\Users\otavi\Downloads\iceplay'
 
 `setup.ps1` restaura pacotes/ferramentas e compila. `run.ps1` inicia em Development, aplica migrations pendentes e mantém o processo no terminal. Acesse `http://localhost:5080`; encerre com Ctrl+C. A API e a interface são entregues pelo mesmo processo.
 
+A raiz e `/dashboard` abrem Visão geral; o menu leva a `/geladeiras`, `/historico`, `/alertas` e `/configuracoes`. `/acesso` contém a sessão móvel e `/sobre` preserva base técnica/próximos passos. O `Program.cs` mapeia cada URL para seu HTML próprio; acessar diretamente ou atualizar usa esse documento. Rotas desconhecidas permanecem 404. Antigas âncoras de geladeiras/acesso/base técnica/próximas etapas são encaminhadas pelo `shell.js` para as novas páginas.
+
 Para verificar banco/API com a aplicação em execução:
 
 ```powershell
@@ -199,7 +208,7 @@ O modo móvel não é aplicativo nativo/PWA: o iPhone abre a interface web no Sa
 .\scripts\mobile-firewall.ps1 -Acao Ativar
 ```
 
-4. No iPhone na mesma rede, abrir `http://SEU_IP_PRIVADO:5081`, baixar o certificado público, instalá-lo e habilitar confiança; depois abrir `https://SEU_IP_PRIVADO:5443/#acesso-movel` e informar o código de `.tools/mobile/codigo-acesso.txt`.
+4. No iPhone na mesma rede, abrir `http://SEU_IP_PRIVADO:5081`, baixar o certificado público, instalá-lo e habilitar confiança; depois abrir `https://SEU_IP_PRIVADO:5443/acesso` e informar o código de `.tools/mobile/codigo-acesso.txt`.
 
 `docs/acesso-iphone.md` contém instruções e diagnóstico. Os arquivos privados/código ficam em `.tools/mobile` e não devem ser versionados ou copiados ao novo repositório. A instância comum atende somente loopback. No modo móvel, loopback continua em HTTP na porta 5080 e clientes remotos só podem usar HTTPS na porta 5443 após acesso.
 
@@ -219,12 +228,15 @@ O hardware planejado é ESP32 + sensor de temperatura DS18B20 + sensor magnétic
 - Recência acima de 60 segundos é estado visual, não alerta, desconexão ou diagnóstico térmico.
 - Acesso móvel é limitado à rede privada com HTTPS/código/CSRF, sem expor a aplicação na internet ou afirmar identidade do dispositivo.
 - Migrations automáticas são restritas a Development e instância local única.
+- Separar a interface em documentos HTML reais, com navegação por URL e assets compartilhados; preservar API, arquitetura, funções anteriores e mensagens honestas para backends pendentes.
+- O gráfico é uma representação das amostras da página, sem interpolação medida nem limites de alerta. A tabela preserva o contexto completo da leitura.
+- Notificação por voz foi excluída do MVP por decisão do usuário em 09/11/2026 e permanece somente como possibilidade futura.
 
 ## 12. Problemas conhecidos e limitações
 
 - Há validação parcial do iPhone relatada pelo usuário em 09/11 (ver seção 18). O roteiro completo e o hardware ESP32/DS18B20/sensor magnético continuam sem validação integral registrada.
 - Não há autenticação de ESP32, usuário individual, controle de perfis, implantação pública, HTTPS público ou acesso externo.
-- Não há tela de histórico, alertas, regras persistidas, notificações, dashboard agregado de alertas ou exclusão de leituras. A API do histórico já existe.
+- Histórico já tem API e interface; Alertas e Configurações possuem páginas informativas. Não há regras persistidas, geração/consulta de alertas, notificações, resumo agregado de alertas reais ou exclusão de leituras.
 - Não há faixa física aceita de temperatura; apenas rejeição de números não finitos. Limites devem ser definidos com o orientador.
 - A lista do painel não é paginada e traz uma única última leitura por equipamento/origem.
 - Cookies/sessão móvel são deliberadamente efêmeros e expiram em até 8 horas; reiniciar a API invalida sessão.
@@ -233,17 +245,20 @@ O hardware planejado é ESP32 + sensor de temperatura DS18B20 + sensor magnétic
 
 ## 13. Testes e evidências existentes
 
-Os scripts principais são `verify.ps1`, `verify-geladeiras.ps1`, `verify-leituras.ps1`, `verify-monitoramento.ps1` e `verify-mobile.ps1`. Eles criam bancos/instâncias isoladas e têm opção `-EvidenceDirectory`; use diretório novo a cada rodada importante. Há testes Node sem dependências em `scripts/monitoramento-estado.test.mjs` e `scripts/acesso.test.mjs`.
+Os scripts principais são `verify.ps1`, `verify-geladeiras.ps1`, `verify-leituras.ps1`, `verify-monitoramento.ps1`, `verify-historico.ps1`, `verify-pages.ps1` e `verify-mobile.ps1`. Eles criam bancos/instâncias isoladas e têm opção `-EvidenceDirectory`; use diretório novo a cada rodada importante. Há testes Node sem dependências em `scripts/monitoramento-estado.test.mjs`, `scripts/acesso.test.mjs`, `scripts/historico-estado.test.mjs` e `scripts/shell.test.mjs`. O README contém os comandos. HTTP e DOM/fetch controlados não equivalem à renderização no navegador/aparelho.
 
 Os relatórios de 19/10 registram, entre outros, build sem avisos/erros, 807 asserções/177 requisições do CRUD, 339/75 para leituras, 70/29 para painel, 82/61 para acesso móvel e testes JavaScript aprovados. Esses números estão nos arquivos de evidência e representam verificações históricas, não uma nova execução nesta transferência. As evidências também registram persistência após reinício e que o banco de uso ficou com uma geladeira e nenhuma leitura naquela execução. O estado atual do banco não foi inferido nesta documentação.
 
 ## 14. Próximas tarefas por prioridade
 
-1. **Validar o fluxo no iPhone físico:** mesma Wi-Fi, firewall restrito, certificado, login, consulta/painel e registro de evidência. Não inventar essa validação antes de executá-la.
-2. **Histórico:** usar o contrato `GET` paginado já implementado e testado para construir a interface responsiva, com testes de fluxo e estados de erro/vazio.
-3. **Regras e alertas:** definir critérios com o orientador; criar modelo/migration, avaliação de novas leituras e consulta de alertas, cada parte com testes.
-4. **Hardware:** construir firmware ESP32/DS18B20/sensor magnético, definir identificação/autenticação e executar ensaios reais documentados.
-5. **Refinamento e entrega:** renderizar UML, atualizar manual/README, organizar evidências, revisão de segurança/usabilidade e preparar demonstração de 01/12.
+1. **Fechamento das páginas:** concluir documentação/publicação após as regressões aprovadas e conferir os ajustes visuais restantes no iPhone, preservando a tabela/gráfico já confirmados como evidência da versão anterior aos refinamentos.
+2. **Configurações:** definir regras e criar modelo/migration, API e formulário persistido por equipamento.
+3. **Regras/registro de alertas:** avaliar temperatura, duração da porta e ausência de leituras; testar limiares, recuperação, relógio, reinício e origem.
+4. **Interface de alertas:** apresentar ocorrências/filtros/situação e resumo real na Visão geral.
+5. **API para dispositivo:** autenticar o emissor e autorizar somente a geladeira vinculada, com política de relógio/falha/repetição documentada.
+6. **Firmware e preparação do ensaio:** compilar para a placa escolhida, documentar montagem e testar o contrato; com as peças, executar e registrar a integração física na geladeira.
+
+Seguir `docs/plano-ate-hardware-2026-11-09.md`. UML, manual, texto/artigo e evidências são trabalho contínuo até a versão final de 24/11 e a apresentação em 01/12.
 
 ## 15. Referências internas indispensáveis
 
@@ -269,12 +284,22 @@ O usuário solicitou identidade premium preta/azul-gelo com flocos geométricos.
 
 Build 0 avisos/erros; base 13, painel 70 asserções/29 requisições, móvel 89/66 e Node 20 testes aprovados. HTTP dos assets e inspeção estática de 66 IDs/referências/contraste passaram; bordas de controle/perigo foram corrigidas após o primeiro cálculo. Evidências em `docs/evidencias/2026-10-30-visual`, relatório em `docs/etapa-visual-2026-10-30.md`. O navegador permaneceu desativado em Work nas consultas realizadas, apesar de o aluno informar que iria habilitar; a renderização responsiva em navegador e no iPhone físico segue pendente. Não tratar o estudo SVG como captura de execução.
 
-A leitura final do SQLite nesta etapa visual encontrou zero geladeiras e zero leituras, duas migrations e integridade ok. Esse é o estado observado mais recente; a seção 16 registra uma execução anterior, com uma geladeira. Uma comparação com o hash anterior divergiu; sem snapshot do começo desta etapa, não se atribui a divergência à mudança visual. O banco atual foi preservado sem reposição de registros.
+A leitura final do SQLite naquela etapa visual encontrou zero geladeiras e zero leituras, duas migrations e integridade ok. Esse era o estado observado em 30/10; a seção 16 registra uma execução anterior, com uma geladeira, e a seção 18 registra o cadastro/leituras posteriores. Uma comparação com o hash anterior divergiu; sem snapshot do começo daquela etapa, não se atribui a divergência à mudança visual. O banco foi preservado sem reposição de registros.
 
 ## 18. Teste parcial no iPhone — 09/11/2026
 
 O aluno mostrou foto da página HTTP de preparação aberta no iPhone e depois confirmou a sequência de acesso e o roteiro de saúde, cadastro, edição, histórico vazio, navegação e atualização de página. A confirmação "sim, tudo perfeito" foi relatada pelo usuário, sem inspeção automatizada das telas. A consulta real ao backend retornou healthy/connected e o cadastro ID 2, `TESTE IPHONE EDITADO`, salvo no banco.
 
-Na sequência foram enviados explicitamente pelo simulador três POSTs para esse cadastro de teste: todos receberam 201, com origem Simulacao, temperatura de teste 4,25 °C, porta fechada e IDs de leitura 1/2/3. GET do histórico confirmou três itens. A visualização desses pontos no iPhone ainda aguarda confirmação, assim como logout/reconexão, exclusão e persistência após reiniciar. Versão do iOS e modelo do aparelho não foram informados. Nenhuma medição física foi realizada.
+Na sequência foram enviados explicitamente pelo simulador três POSTs para esse cadastro de teste: todos receberam 201, com origem Simulacao, temperatura de teste 4,25 °C, porta fechada e IDs de leitura 1/2/3. GET do histórico confirmou três itens. No primeiro registro a visualização no iPhone ainda aguardava confirmação; uma segunda foto enviada depois na conversa mostrou tabela com as três leituras e gráfico de temperatura no aparelho, confirmando essa consulta. A foto não foi copiada para o repositório. Logout/reconexão, exclusão de cadastro sem leituras e persistência após reiniciar acompanhado no aparelho continuam sem confirmação. Versão do iOS e modelo do aparelho não foram informados. Nenhuma medição física foi realizada.
 
-Evidências em `docs/evidencias/2026-11-09-iphone/`. A reorganização em documentos HTML próprios está no diretório de trabalho, mas suas regressões/documentação e commit de código ainda não foram encerrados; não confundir este commit documental com publicação da reorganização inteira. O último código publicado antes deste registro é `21f9e4b`.
+Evidências em `docs/evidencias/2026-11-09-iphone/`. Na elaboração inicial desse registro, a reorganização em documentos HTML próprios ainda aguardava fechamento de regressões/documentação e commit de código; o último código publicado naquele momento era `21f9e4b`. A revisão de fechamento ocorre em etapa própria: consultar relatórios e `git log/status` para saber o que efetivamente foi validado/publicado, sem interpretar esta atualização documental como prova de push.
+
+## 19. Continuidade e fechamento de páginas — 09/11/2026
+
+O código de trabalho possui os sete documentos e o histórico descritos nas seções atuais. Alertas e Configurações são páginas navegáveis de indisponibilidade, sem backends ou regras fictícias. O tema Black & Ice Blue é compartilhado. O refinamento do gráfico e do indicador de acesso é posterior à foto do iPhone e requer conferência própria no aparelho; testes automatizados não substituem essa confirmação.
+
+O relatório `docs/etapa-paginas-2026-11-09.md` registra a execução de software desta revisão: build com zero avisos/erros, base 13 verificações, CRUD 807 asserções/177 requisições, leituras 339/75, histórico 145/68, painel 70/29, móvel 103/73, páginas 195/40 e 63 testes JavaScript aprovados. As evidências estão em `docs/evidencias/2026-11-09-fechamento-paginas/`. São asserções/testes de software, não percentuais de cobertura ou ensaios físicos.
+
+O reinício real do servidor no computador preservou o conteúdo lógico do banco de uso: uma geladeira ID 2, três leituras Simulacao e duas migrations, com integridade e chaves estrangeiras válidas. O arquivo `reinicio-banco-uso.json` compara os snapshots e registra as consultas HTTP/HTTPS. Isso confirma persistência no servidor, sem afirmar que o aluno já acompanhou reconexão/reinício no iPhone. A sessão móvel é invalidada ao reiniciar e exige novo acesso.
+
+O usuário aprovou retirar voz do MVP e informou anteriormente não possuir hardware; não há evidência posterior de aquisição, firmware ou ensaio com sensores reais. O plano `docs/plano-ate-hardware-2026-11-09.md` organiza seis entregas de software até a preparação da integração física. A primeira fecha páginas/testes/documentação/publicação; a próxima funcionalidade é a configuração persistida das regras por geladeira. A execução de software e os futuros resultados físicos devem permanecer registrados separadamente.

@@ -2,11 +2,11 @@
 
 Projeto de TCC de Ciência da Computação: sistema IoT para monitoramento de geladeiras comerciais. Base iniciada em **13/10/2026**, com cadastro de geladeiras desenvolvido em **15/10/2026**, revisado em **17/10/2026** e ingestão/simulador verificados em **19/10/2026**. Pelo cronograma do professor, a versão completa deve ser entregue em **24/11/2026** e apresentada em **01/12/2026**.
 
-Existem uma aplicação ASP.NET Core, SQLite com EF Core, cadastro completo de geladeiras, saúde real do banco, recebimento de leituras, simulador por linha de comando, painel responsivo de últimas leituras por origem e API de histórico paginado (30/10). A tela do histórico, configurações de limites, alertas e firmware continuam pendentes. Não há ensaio físico comprovado nem registros inseridos automaticamente ao iniciar. As leituras de teste são identificadas como simulação. A retomada e o plano até o hardware estão em [plano de continuidade](docs/plano-continuidade-2026-10-30.md).
+O estado de trabalho de **09/11/2026** inclui ASP.NET Core, SQLite com EF Core, cadastro completo de geladeiras, saúde real do banco, recebimento de leituras, simulador, painel de últimas leituras por origem e histórico na API e na interface. A interface tem documentos HTML independentes, com URLs próprias. Alertas e Configurações possuem páginas que informam claramente a ausência de seus backends; limites persistidos, regras, alertas e firmware continuam pendentes. Não há hardware disponível nem ensaio físico comprovado; iniciar a aplicação não insere registros automaticamente. As leituras de teste são identificadas como simulação. O [plano atualizado até o hardware](docs/plano-ate-hardware-2026-11-09.md) organiza seis entregas de software, começando pelo fechamento e publicação da versão de páginas. O [plano de 30/10](docs/plano-continuidade-2026-10-30.md) permanece como histórico.
 
 ## Executar neste computador
 
-A interface usa **Black & Ice Blue**, com tokens em `wwwroot/theme.css` e floco SVG local. Veja o [guia visual](docs/design/black-ice-blue.md) e o [relatório de verificação](docs/etapa-visual-2026-10-30.md). A tela do histórico e os módulos de alertas/configurações continuam pendentes e utilizarão os mesmos componentes.
+A interface usa **Black & Ice Blue**, com tokens em `wwwroot/theme.css` e floco SVG local nas páginas. Veja o [guia visual](docs/design/black-ice-blue.md) e o [relatório histórico do tema](docs/etapa-visual-2026-10-30.md). O menu lateral permanece fixo no desktop e recolhível pelo botão **Menu** no celular.
 
 Abra **PowerShell 7** (`pwsh`, versão testada: **7.6.5**; a verificação exige 7.5 ou posterior). Os comandos abaixo partem da pasta do projeto:
 
@@ -20,11 +20,25 @@ O SDK local já foi instalado nesta pasta durante a preparação. `setup.ps1` re
 
 Abra [http://localhost:5080](http://localhost:5080). Para encerrar, pressione **Ctrl+C** no terminal. Encerre a aplicação antes de recompilar arquivos alterados: o Windows pode bloquear o executável em uso.
 
+## Páginas e navegação
+
+| URL | Conteúdo |
+| --- | --- |
+| `/` ou `/dashboard` | Saúde real da API/SQLite, indicadores da consulta e últimas leituras por origem. |
+| `/geladeiras` | Cadastro, listagem, consulta, edição, exclusão protegida e última medição consultada. |
+| `/historico` | Filtros, gráfico, tabela de leituras e paginação. |
+| `/alertas` | Informa que geração, persistência e consulta de alertas ainda não existem. |
+| `/configuracoes` | Informa quais limites/tolerâncias ainda aguardam armazenamento e API. |
+| `/acesso` | Conexão e saída da sessão do navegador no modo móvel. |
+| `/sobre` | Base técnica e próximos passos do projeto. |
+
+Cada URL entrega um documento HTML próprio pelo mesmo backend, com links normais entre páginas. Acesso direto e atualização não dependem de ocultar/exibir seções de uma página única. Rotas inexistentes continuam retornando 404. Os antigos favoritos `/#geladeiras`, `/#acesso-movel`, `/#base-tecnica` e `/#proximas-etapas` são encaminhados pelo script de navegação aos documentos correspondentes.
+
 ## Usar no iPhone na mesma rede
 
-Foi acrescentado um modo móvel local com HTTPS e código de acesso, preservando a mesma aplicação, API e SQLite. A instalação do certificado, a liberação no firewall e o teste no iPhone ainda exigem ações no computador/aparelho; os testes de software não são apresentados como teste físico no Safari.
+Existe um modo móvel local com HTTPS e código de acesso, preservando a mesma aplicação, API e SQLite. Uma instalação nova exige preparar o certificado, a regra restrita de firewall e a confiança no aparelho. Essas ações pessoais e os testes no iPhone são diferentes dos testes de software automatizados.
 
-Em **09/11/2026**, o aluno confirmou a execução parcial no iPhone da versão de trabalho local: conexão, saúde, cadastro/edição, navegação, histórico vazio e atualização de página. A API confirmou o cadastro salvo. Foram então enviadas três leituras Simulacao para testar o histórico com dados; a conferência no aparelho e a persistência após reiniciar permanecem pendentes. Veja o [registro com limites da validação](docs/evidencias/2026-11-09-iphone/validacao-manual.md). O código da reorganização em páginas ainda não foi concluído/commitado; este registro não afirma que essa versão está disponível em um clone remoto.
+Em **09/11/2026**, o aluno confirmou no iPhone conexão, saúde, cadastro/edição, navegação, histórico vazio e atualização de página. A API confirmou o cadastro salvo. Após três envios explicitamente Simulacao, uma segunda foto mostrou a tabela com três leituras de 4,25 °C, porta fechada, e o gráfico correspondente no aparelho. Isso confirma a consulta móvel desses dados de teste. Logout/reconexão, exclusão de cadastro sem leituras e reinício acompanhado no iPhone permanecem pendentes. Os ajustes posteriores do gráfico/acesso precisam de nova conferência visual no aparelho; a foto não os valida antecipadamente. Veja o [registro com limites da validação](docs/evidencias/2026-11-09-iphone/validacao-manual.md). A disponibilidade da revisão no remoto deve ser conferida no Git; este relato não comprova commit/push do código.
 
 No computador desta execução, o IPv4 encontrado foi **192.168.1.123**, interface Ethernet, prefixo /24. Esse endereço pode mudar. Encerre a instância comum antes de iniciar a móvel. Em PowerShell 7:
 
@@ -43,7 +57,7 @@ Uma vez, em outro **PowerShell 7 como administrador**, na pasta do projeto:
 
 A regra libera somente TCP 5443 e 5081 no IP/interface configurados, para a sub-rede local. Não muda o perfil da rede nem desativa o firewall. Não foi aplicada automaticamente, pois a sessão de desenvolvimento não tem privilégios de administrador.
 
-No Safari do iPhone, conectado ao mesmo roteador, abra **http://192.168.1.123:5081** para baixar somente o certificado público e seguir as instruções. Instale o perfil, confira o certificado no computador e habilite a confiança em Ajustes → Geral → Sobre → Certificados Confiáveis. Depois abra **https://192.168.1.123:5443/#acesso-movel** e use o código de `.tools/mobile/codigo-acesso.txt`. Não ignore avisos de certificado. Consulte o [roteiro completo para iPhone](docs/acesso-iphone.md), incluindo verificação, encerramento e solução de problemas.
+No Safari do iPhone, conectado ao mesmo roteador, abra **http://192.168.1.123:5081** para baixar somente o certificado público e seguir as instruções. Instale o perfil, confira o certificado no computador e habilite a confiança em Ajustes → Geral → Sobre → Certificados Confiáveis. Depois abra **https://192.168.1.123:5443/acesso** e use o código de `.tools/mobile/codigo-acesso.txt`. Não ignore avisos de certificado. Consulte o [roteiro completo para iPhone](docs/acesso-iphone.md), incluindo verificação, encerramento e solução de problemas.
 
 O modo comum `run.ps1` continua restrito ao computador. No modo móvel, `localhost:5080` continua disponível ao operador local; o acesso pela rede exige sessão HTTPS. O código autoriza consultas e alterações, usa cookie Secure/HttpOnly/SameSite Strict, proteção CSRF e limite de tentativas. A sessão dura no máximo 8 horas e é invalidada ao reiniciar. Não é um cadastro multiusuário nem uma implantação pública.
 
@@ -81,7 +95,7 @@ $resposta.StatusCode
 $resposta.Content
 ```
 
-O sucesso é **HTTP 200**, `status` igual a `healthy`, `database` igual a `connected`, uma contagem real em `refrigeratorCount` e `checkedAtUtc` em UTC. O timestamp varia em cada requisição. A contagem começa em zero em um banco novo e muda conforme os cadastros salvos. A interface volta a consultar essa rota após as alterações.
+O sucesso é **HTTP 200**, `status` igual a `healthy`, `database` igual a `connected`, uma contagem real em `refrigeratorCount` e `checkedAtUtc` em UTC. O timestamp varia em cada requisição. A contagem começa em zero em um banco novo e muda conforme os cadastros salvos. A Visão geral consulta essa rota ao abrir e após as consultas do painel; volte a essa página ou selecione **Verificar conexão** para conferir o estado após gerenciar geladeiras.
 
 A rota executa `COUNT(*)` na tabela `Geladeiras`. Isso verifica a conexão **e a existência da tabela**, não apenas se o processo está aberto. Uma falha de consulta retorna **HTTP 503**, `unhealthy` e `unavailable`, sem detalhes internos na resposta; a causa é registrada no terminal.
 
@@ -91,7 +105,7 @@ As migrations automáticas são limitadas a **Development**, com uma instância 
 
 ## Usar o cadastro na interface
 
-Na página inicial, acesse **Geladeiras**. Informe nome e, opcionalmente, localização e selecione **Cadastrar geladeira**. A lista vem da API e é recarregada após a gravação. Cada registro permite consultar seus detalhes, editar ou iniciar uma exclusão com confirmação explícita na página. Cancelar uma edição ou exclusão não altera o banco.
+No menu, acesse **Geladeiras** (`/geladeiras`). Informe nome e, opcionalmente, localização e selecione **Cadastrar geladeira**. A lista vem da API e é recarregada após a gravação. Cada registro permite consultar seus detalhes, editar, abrir o histórico ou iniciar uma exclusão com confirmação explícita na página. Cancelar uma edição ou exclusão não altera o banco. O seletor de origem define a última medição consultada nos cartões e a origem do link para o histórico.
 
 A tela apresenta erros de validação, falhas de conexão e estado sem cadastros. Em timeout de gravação, o resultado pode ser incerto: recarregue a lista antes de tentar outra alteração, para evitar repetir um cadastro já salvo. O painel de saúde continua consultando o banco real; ele não calcula a contagem a partir dos cartões da tela.
 
@@ -142,7 +156,7 @@ Invoke-RestMethod 'http://localhost:5080/api/geladeiras/1'
 
 ## Usar o painel de últimas leituras
 
-Abra [Painel](http://localhost:5080/#monitoramento). Cada cartão apresenta identificação, última temperatura, porta na medição, horários de medição/recebimento e origem. Uma geladeira sem leitura mostra `—` e **Sem dados**; isso não significa temperatura zero ou condição normal.
+Abra [Visão geral](http://localhost:5080/dashboard). Cada cartão apresenta identificação, última temperatura, porta na medição, horários de medição/recebimento e origem. Uma geladeira sem leitura mostra `—` e **Sem dados**; isso não significa temperatura zero ou condição normal. Os indicadores resumem a consulta da origem selecionada; a área de alertas informa sua indisponibilidade, sem inventar uma contagem.
 
 A seleção de origem é explícita: **Simulação** ou **Hardware declarado**. O painel não mistura amostras de origens diferentes. A etiqueta Hardware é declarada pelo emissor e não comprova sensor autenticado ou medição física.
 
@@ -152,7 +166,7 @@ A referência visual padrão, escolhida para este protótipo, é **60 segundos**
 
 O horário da consulta no servidor ancora a idade apresentada; o painel acompanha o tempo transcorrido sem depender do relógio civil do navegador. Há atualização automática a cada 15 segundos com a página visível e botão manual. Falhas removem os valores anteriores e mostram erro; a saúde volta a consultar a API. Não há notificações em segundo plano ou com a página fechada.
 
-O layout foi verificado em telas pequenas e desktop. `localhost` aberto em outro celular aponta para o próprio celular. Para acessar o computador pela rede, use o modo móvel HTTPS descrito acima; a validação no iPhone físico permanece pendente.
+Existem verificações históricas de layout em telas pequenas e desktop. A versão de páginas teve validação parcial no iPhone relatada acima, sem certificar todos os tamanhos, orientações ou ajustes posteriores. `localhost` aberto no celular aponta para o próprio celular; para acessar o computador, use o modo móvel HTTPS descrito acima.
 
 Para demonstrar com dados de teste, cadastre uma geladeira, use seu ID no simulador descrito abaixo e mantenha a origem **Simulação** selecionada. Os dados são realmente enviados, persistidos e consultados, mas continuam sendo simulação.
 
@@ -192,6 +206,10 @@ O simulador não cria geladeiras nem acessa diretamente o SQLite. Retorna um obj
 
 ## Consultar o histórico pela API
 
+Para consultar pela interface, abra **Histórico** (`/historico`), escolha geladeira, origem, período opcional e quantidade de leituras por página e selecione **Buscar leituras**. As datas digitadas usam a hora local do navegador e são convertidas para UTC. A URL guarda os filtros aplicados e a página, permitindo atualizar ou compartilhar o endereço na mesma instalação. Alterar um filtro limpa os resultados até uma nova consulta.
+
+O gráfico apresenta somente as amostras da página recebida, em ordem de medição; conectar pontos não significa medir entre eles. Sua escala é visual, sem representar limites de alerta. A tabela preserva ID, equipamento, temperatura, estado da porta, medição, recebimento e origem; pode ser deslizada horizontalmente em telas estreitas. Os botões **Anterior** e **Próxima** consultam outras páginas. Estados sem equipamento, sem leituras, sem acesso e de falha são explícitos, sem dados fictícios. A confirmação visual no iPhone descrita acima corresponde à versão da foto, anterior aos novos refinamentos do gráfico.
+
 Com a aplicação em execução, substitua `1` por um ID existente:
 
 ```powershell
@@ -208,24 +226,28 @@ Exemplo de período (formato de URL, sem inserir dados):
 
 A resposta tem `geladeiraId`, `origem`, `inicioUtc`, `fimUtc`, `pagina`, `tamanhoPagina`, `totalItens`, `totalPaginas` e `itens` (array do contrato de leitura já existente, com origem e os dois timestamps). Ordena por `medidoEmUtc` decrescente e maior ID no empate. Um equipamento existente sem leituras retorna 200 com array vazio e totais zero; página além da última retorna array vazio e preserva os totais; equipamento inexistente retorna 404. Validação: 400; banco indisponível: 503 genérico.
 
-A contagem e os itens compartilham uma transação de leitura na mesma resposta. Novos envios entre requisições podem deslocar as páginas por posição; essa API não fornece um snapshot fixo durante toda a navegação. A proteção HTTPS/sessão móvel também se aplica ao histórico. A tela de histórico ainda será implementada no próximo incremento.
+A contagem e os itens compartilham uma transação de leitura na mesma resposta. Novos envios entre requisições podem deslocar as páginas por posição; essa API não fornece um snapshot fixo durante toda a navegação. A proteção HTTPS/sessão móvel também se aplica ao histórico e à sua interface.
 
 ## Reproduzir as verificações
+
+O [relatório de fechamento de 09/11](docs/etapa-paginas-2026-11-09.md) registra build com zero avisos/erros, 63 testes JavaScript aprovados, 195 asserções/40 requisições de páginas e as regressões de API/banco/móvel. O reinício real no computador preservou uma geladeira, três leituras Simulacao e duas migrations no banco de uso. Isso não substitui o roteiro de reconexão e conferência visual no iPhone nem comprova sensores físicos.
 
 Para o histórico (PowerShell 7.5+, Python disponível), use uma pasta nova de evidências:
 
 ```powershell
 .\scripts\verify-historico.ps1 -EvidenceDirectory docs/evidencias/nova-revisao/historico
+.\scripts\verify-pages.ps1 -EvidenceDirectory docs/evidencias/nova-revisao/paginas
+node --test scripts/historico-estado.test.mjs scripts/shell.test.mjs
 ```
 
-O teste cria somente fixtures em banco isolado e verifica filtros, UTC, paginação, 400/404/503, preservação dos dados pelo GET e reinício. A rodada de retomada da base está em `docs/evidencias/2026-10-30-retomada` e a do histórico em `docs/evidencias/2026-10-30-historico`.
+O verificador de histórico cria somente fixtures em banco isolado e verifica filtros, UTC, paginação, 400/404/503, preservação dos dados pelo GET e reinício. O de páginas verifica documentos distintos, links/assets, acesso direto, atualização, 404 sem fallback e persistência em reinício, por HTTP. Os testes JavaScript exercitam estado/cliente do histórico e menu com DOM/fetch controlados; não substituem renderização ou teste no iPhone. Use uma pasta nova em cada rodada para preservar evidências anteriores. A rodada de retomada da base está em `docs/evidencias/2026-10-30-retomada` e a da API do histórico em `docs/evidencias/2026-10-30-historico`.
 
 Encerre a aplicação antes de executar as verificações, pois os scripts compilam o projeto e iniciam suas próprias instâncias:
 
 ```powershell
-.\scripts\verify.ps1 -EvidenceDirectory docs/evidencias/2026-10-17-leituras/base
-.\scripts\verify-geladeiras.ps1 -EvidenceDirectory docs/evidencias/2026-10-17-leituras/cadastro
-.\scripts\verify-leituras.ps1 -EvidenceDirectory docs/evidencias/2026-10-17-leituras
+.\scripts\verify.ps1 -EvidenceDirectory docs/evidencias/nova-revisao/base
+.\scripts\verify-geladeiras.ps1 -EvidenceDirectory docs/evidencias/nova-revisao/cadastro
+.\scripts\verify-leituras.ps1 -EvidenceDirectory docs/evidencias/nova-revisao/leituras
 ```
 
 Para verificar especificamente o painel, com Python disponível para a inspeção do banco isolado e Node.js para os testes do módulo de estado:
@@ -242,13 +264,13 @@ Para testar o modo móvel por TCP/TLS/HTTP no IP local, em banco isolado, com Py
 node --test scripts/acesso.test.mjs
 ```
 
-A verificação TLS confia explicitamente na CA de teste e valida o hostname, sem ignorar erros de certificado. Os oito testes JavaScript de acesso usam DOM/fetch controlados, sem equivaler a uma execução no Safari. A rodada de 19/10 está em `docs/evidencias/2026-10-19-mobile`, com as tentativas que falharam preservadas e explicadas no relatório da etapa.
+A verificação TLS confia explicitamente na CA de teste e valida o hostname, sem ignorar erros de certificado. Os testes JavaScript de acesso usam DOM/fetch controlados, sem equivaler a uma execução no Safari. A rodada de 19/10 está em `docs/evidencias/2026-10-19-mobile`, com as tentativas que falharam preservadas e explicadas no relatório da etapa.
 
 O primeiro verifica última medição, desempate por ID, separação de origens, ausência de leituras, simulador, alteração de cadastro, reinício e falha controlada. O segundo verifica os estados e a idade, inclusive zero/false e medição antiga recebida recentemente, com `node:test` sem pacotes adicionais. Node não é necessário para executar a aplicação. Resultados desta etapa estão em `docs/evidencias/2026-10-19-painel`; use outra pasta para preservar essa rodada.
 
 O script `verify.ps1` preserva as verificações da base: HTTP 200/404/503, arquivos estáticos, migração e reinício. A opção `EvidenceDirectory`, disponível nos quatro verificadores HTTP, permite salvar os relatórios em uma pasta datada, mantendo as evidências anteriores. Escolha outra pasta para uma nova rodada se quiser preservar também esses relatórios. Sem a opção, o script da base mantém o caminho original `docs/evidencias/smoke-latest.json` e o script CRUD mantém `docs/evidencias/2026-10-15/crud-api.json` por compatibilidade.
 
-O segundo testa o cadastro pela API: operações completas, erros de entrada, IDs inexistentes, campos gerados pelo servidor, contagem real e persistência após encerrar e reiniciar a aplicação no mesmo banco. Com o comando acima, seu relatório fica em `docs/evidencias/2026-10-17-leituras/cadastro/crud-api.json`, acompanhado de logs. As verificações de migrations reconhecem agora todas as evoluções do projeto, mantendo os cenários anteriores.
+O segundo testa o cadastro pela API: operações completas, erros de entrada, IDs inexistentes, campos gerados pelo servidor, contagem real e persistência após encerrar e reiniciar a aplicação no mesmo banco. Com o comando acima, seu relatório fica em `docs/evidencias/nova-revisao/cadastro/crud-api.json`, acompanhado de logs. As verificações de migrations reconhecem agora todas as evoluções do projeto, mantendo os cenários anteriores.
 
 O terceiro verifica a atualização de um banco com cadastro já existente, a ingestão, entradas inválidas, origem, timestamps, reinício, proteção do histórico e execução real do simulador. Os scripts compilam, usam bancos isolados e portas livres, reportam falhas e encerram apenas os processos que criam. Não alteram o banco de uso. As fixtures de leituras permanecem identificadas somente no banco isolado dessa verificação, pois não foi criada uma rota de exclusão de leituras.
 
@@ -299,6 +321,8 @@ Há somente dois pacotes NuGet diretos: `Microsoft.EntityFrameworkCore.Sqlite` e
 - [Auditoria e verificação de leituras](docs/etapa-2026-10-19.md): situação comprovada, evolução do banco e testes da ingestão/simulador concluídos em 19/10.
 - [Etapa do painel](docs/etapa-painel-2026-10-19.md): diagnóstico, contrato, mudanças pequenas, verificação real e limitações do painel de últimas leituras.
 - [Acesso pelo iPhone](docs/acesso-iphone.md): preparação, certificado, firewall, sessão e roteiro de validação no aparelho.
+- [Plano vigente até o hardware](docs/plano-ate-hardware-2026-11-09.md): seis entregas de software, critérios de aceite e ensaio físico posterior.
+- [Fechamento das páginas](docs/etapa-paginas-2026-11-09.md): alterações, comandos, resultados de 09/11 e limites da validação.
 - [Etapa móvel](docs/etapa-mobile-2026-10-19.md): mudanças, testes reais, correções e limites desta evolução.
 - [SQL de criação](docs/sql/iceplay-criacao.sql): gerado das migrations e verificado em banco novo isolado; não executar em banco com dados/tabelas existentes. Na execução normal, use o fluxo de migrations descrito acima.
 - [Uso de IA](docs/uso-de-ia.md): assistência utilizada e responsabilidade de revisão e reprodução pelo aluno.
@@ -306,6 +330,6 @@ Há somente dois pacotes NuGet diretos: `Microsoft.EntityFrameworkCore.Sqlite` e
 
 Sem hardware, as verificações comprovam software, esquema e persistência local. Não comprovam leitura DS18B20, detecção física da porta, comunicação ESP32, precisão térmica ou eficácia de alertas. Limites de temperatura e tolerâncias ainda precisam ser definidos com o orientador.
 
-A base usa uma instância, com modo comum HTTP em loopback e modo móvel HTTPS opcional na sub-rede local, protegido por código/sessão. Acesso pela internet, autenticação de sensores e implantação pública continuam pendentes. Ainda faltam tela do histórico, configurações de limites, alertas, firmware, texto final do TCC e artigo. O painel consulta todas as geladeiras, sem paginação de equipamentos. Próximo incremento: **apresentar o histórico na interface**, preservando a identificação de simulação. A validação no iPhone físico e a aquisição do hardware precisam ocorrer em paralelo. Notificações externas ficam após o núcleo funcional.
+A base usa uma instância, com modo comum HTTP em loopback e modo móvel HTTPS opcional na sub-rede local, protegido por código/sessão. Acesso pela internet, autenticação de sensores e implantação pública continuam pendentes. Após fechar a revisão das páginas, o próximo incremento é **configuração persistida das regras por geladeira**, seguida de regras/registro e interface de alertas, autenticação da ingestão e firmware. O painel consulta todas as geladeiras, sem paginação de equipamentos. Texto final do TCC, artigo, UML e evidências continuam necessários. A aquisição do hardware e a validação móvel restante devem ocorrer em paralelo. Em 09/11, o usuário aprovou excluir **notificação por voz** do MVP e deixá-la como trabalho futuro; notificações externas também ficam após o núcleo funcional.
 
 Em 30/10, o usuário autorizou commits/pushes rotineiros. A base revalidada foi commitada e enviada ao [GitHub ICEPLAY](https://github.com/otavioscaires-code/iceplay-tcc), na branch `codex/retomada-historico`. Bancos, SDK, caches e segredos móveis ficam fora do Git. Consulte `git log` e `git status` para o estado atual, sem atribuir commits a datas anteriores.

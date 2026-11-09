@@ -6,20 +6,46 @@
   const submit = document.getElementById("access-submit");
   const logout = document.getElementById("access-logout");
   const status = document.getElementById("access-status");
+  const summary = document.getElementById("access-summary");
   let session = null;
   let generation = 0;
   let pendingSession = null;
+  let signingIn = false;
+
+  function updateLoginControls() {
+    const locked = signingIn || !session?.autenticacaoNecessaria || session?.autenticado === true;
+    if (code) code.disabled = locked;
+    if (submit) submit.disabled = locked;
+  }
+
+  function showStatus(message) {
+    if (status) status.textContent = message;
+    if (summary) summary.textContent = message;
+  }
+
+  function returnPath() {
+    // O retorno só aceita páginas próprias conhecidas; nunca uma URL externa.
+    const allowed = ["/dashboard", "/geladeiras", "/historico", "/alertas", "/configuracoes", "/sobre"];
+    const target = new URLSearchParams(window.location?.search ?? "").get("retorno");
+    return allowed.includes(target) ? target : "/dashboard";
+  }
 
   function renderSession(value) {
     const changed = session?.autenticado !== value.autenticado;
     session = value;
-    section.hidden = !value.autenticacaoNecessaria;
-    shortcut.hidden = !value.autenticacaoNecessaria;
-    form.hidden = value.autenticado;
-    logout.hidden = !value.autenticado;
-    status.textContent = value.autenticado
+    updateLoginControls();
+    if (section) section.hidden = false;
+    if (shortcut) {
+      shortcut.hidden = !value.autenticacaoNecessaria;
+      shortcut.textContent = value.autenticado ? "Acesso do dispositivo" : "Conectar dispositivo";
+    }
+    if (form) form.hidden = !value.autenticacaoNecessaria || value.autenticado;
+    if (logout) logout.hidden = !value.autenticacaoNecessaria || !value.autenticado;
+    showStatus(!value.autenticacaoNecessaria
+      ? "Acesso local neste computador. Não é necessário informar um código."
+      : value.autenticado
       ? "Dispositivo conectado. Sessão válida por até 8 horas; reiniciar o servidor exige conectar novamente."
-      : "Conecte este dispositivo para consultar os dados e gerenciar geladeiras.";
+      : "Conecte este dispositivo na página Acesso para consultar os dados e gerenciar geladeiras.");
     if (changed) {
       generation++;
       window.dispatchEvent(new Event("iceplay:acesso-changed"));
@@ -66,14 +92,17 @@
     return response;
   };
 
-  form.addEventListener("submit", async event => {
+  form?.addEventListener("submit", async event => {
     event.preventDefault();
-    submit.disabled = true;
-    status.textContent = "Conectando dispositivo…";
+    if (signingIn) return;
+    const submittedCode = code.value;
+    signingIn = true;
+    updateLoginControls();
+    showStatus("Conectando dispositivo…");
     try {
       await refreshSession();
       const response = await window.iceplayFetch("/api/acesso/entrar", {
-        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ codigo: code.value })
+        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ codigo: submittedCode })
       });
       if (response.status !== 204) {
         throw new Error(response.status === 429 ? "Muitas tentativas. Aguarde um minuto antes de tentar novamente."
@@ -82,28 +111,34 @@
       }
       code.value = "";
       await refreshSession();
-      document.getElementById("monitoramento").scrollIntoView({ behavior: "auto" });
+      const monitoramento = document.getElementById("monitoramento");
+      if (monitoramento) monitoramento.scrollIntoView({ behavior: "auto" });
+      else window.location.assign(returnPath());
     } catch (error) {
-      status.textContent = error.name === "AbortError" || error instanceof TypeError
+      showStatus(error.name === "AbortError" || error instanceof TypeError
         ? "Não foi possível confirmar a conexão. Verifique a rede e atualize a página antes de tentar novamente."
-        : error.message;
+        : error.message);
     }
-    finally { submit.disabled = false; }
+    finally { signingIn = false; updateLoginControls(); }
   });
-  logout.addEventListener("click", async () => {
+  logout?.addEventListener("click", async () => {
     logout.disabled = true;
     try {
       const response = await window.iceplayFetch("/api/acesso/sair", { method: "POST" });
       if (response.status !== 204 && response.status !== 401) throw new Error("Não foi possível confirmar a saída. Tente novamente.");
       renderSession({ ...session, autenticado: false });
       await refreshSession();
-      code.focus();
+      code?.focus();
     } catch (error) {
-      status.textContent = error.name === "AbortError" || error instanceof TypeError
+      showStatus(error.name === "AbortError" || error instanceof TypeError
         ? "Não foi possível confirmar a saída. Verifique a rede e tente novamente."
-        : error.message;
+        : error.message);
     }
     finally { logout.disabled = false; }
   });
-  ready.catch(() => { status.textContent = "Não foi possível verificar o acesso. Atualize a página quando a API estiver disponível."; });
+  ready.catch(() => {
+    if (section) section.hidden = false;
+    if (shortcut) shortcut.hidden = false;
+    showStatus("Não foi possível verificar o acesso. Atualize a página quando a API estiver disponível ou abra a página Acesso.");
+  });
 })();

@@ -92,7 +92,7 @@ async function checkHealth() {
       setBadge("unknown", "Acesso necessário");
       apiStatus.textContent = "Aguardando acesso";
       databaseStatus.textContent = "Não consultado";
-      healthMessage.textContent = "Conecte este dispositivo na seção Acesso para consultar o estado real do banco.";
+      healthMessage.textContent = "Conecte este dispositivo na página Acesso para consultar o estado real do banco.";
     } else if (response.status === 503 && isObject && data.status === "unhealthy" && data.database === "unavailable") {
       showFailure("Respondeu com erro", "Indisponível", "A API respondeu, mas não conseguiu consultar o banco. Verifique o backend e tente novamente.");
       showCheckedAt(data.checkedAtUtc);

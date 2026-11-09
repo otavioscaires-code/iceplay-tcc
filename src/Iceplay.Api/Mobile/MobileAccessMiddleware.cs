@@ -31,7 +31,7 @@ public sealed class MobileAccessMiddleware(RequestDelegate next)
                     <p><a href="/certificado.cer">1. Baixar certificado ICEPLAY</a></p>
                     <p>2. No iPhone: Ajustes → Geral → VPN e Gerenciamento de Dispositivo. Instale o perfil baixado.</p>
                     <p>3. Ajustes → Geral → Sobre → Certificados Confiáveis. Ative confiança total somente para ICEPLAY Local.</p>
-                    <p><a href="{settings.HttpsUrl}/#acesso-movel">4. Abrir ICEPLAY por HTTPS</a></p>
+                    <p><a href="{settings.HttpsUrl}/acesso">4. Abrir ICEPLAY por HTTPS</a></p>
                     <p>Use o código de acesso guardado no computador. Caso apareça um aviso de certificado, confira a instalação; não ignore o aviso.</p>
                     <p>SHA-256 do certificado: <code style="overflow-wrap:anywhere">{fingerprint}</code></p>
                     <p>Certificado exclusivo de desenvolvimento local. Ao encerrar os testes, remova o perfil do iPhone.</p></html>

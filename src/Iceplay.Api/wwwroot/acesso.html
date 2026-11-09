@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b10">
+  <meta name="description" content="ICEPLAY — monitoramento de geladeiras comerciais.">
+  <title>ICEPLAY | Acesso ao dispositivo</title>
+  <link rel="icon" href="/assets/iceplay-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/theme.css?v=20261109-pages">
+  <link rel="stylesheet" href="/styles.css?v=20261109-pages">
+  <script src="/shell.js?v=20261109-pages" defer></script>
+  <script src="/acesso.js?v=20261109-pages" defer></script>
+
+</head>
+<body class="app-layout" data-page="acesso">
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <aside class="sidebar" id="menu-lateral" aria-label="Menu do ICEPLAY">
+    <a class="brand" href="/dashboard" aria-label="ICEPLAY, visão geral"><span class="brand-symbol" aria-hidden="true"><img src="/assets/iceplay-mark.svg" width="32" height="32" alt=""></span><span>ICE<span class="brand-accent">PLAY</span></span></a>
+    <p class="sidebar-caption">Monitoramento inteligente</p>
+    <nav class="sidebar-nav" aria-label="Navegação principal">
+        <a href="/dashboard"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Visão geral</span></a>
+        <a href="/geladeiras"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M5 9h14M9 5v1M9 12v4"/></svg><span>Geladeiras</span></a>
+        <a href="/historico"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M6 15l4-5 4 3 6-8"/></svg><span>Histórico</span></a>
+        <a href="/alertas"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><span>Alertas</span></a>
+        <a href="/configuracoes"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="8" cy="6" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="10" cy="18" r="2"/></svg><span>Configurações</span></a>
+    </nav>
+    <div class="sidebar-footer"><a href="/sobre">Sobre o projeto</a><span>ICEPLAY · TCC</span></div>
+  </aside>
+  <div class="app-main">
+    <header class="app-topbar">
+      <button class="button button-secondary menu-toggle" id="menu-toggle" type="button" aria-controls="menu-lateral" aria-expanded="false" hidden>Menu</button>
+      <span class="topbar-label">ICEPLAY <span aria-hidden="true">/</span> Acesso ao dispositivo</span>
+      <div class="access-indicator"><span id="access-summary" role="status">Consultando acesso…</span><a id="access-shortcut" href="/acesso" hidden>Conectar dispositivo</a></div>
+    </header>
+    <main id="conteudo" class="page-content">
+      <header class="page-heading"><p class="eyebrow">ICEPLAY / Acesso ao dispositivo</p><h1>Acesso ao dispositivo</h1><p>Conecte este navegador à aplicação na rede local.</p></header>
+<section class="container mobile-access" id="acesso-movel" aria-labelledby="access-title">
+      <p class="eyebrow">Acesso neste dispositivo</p>
+      <h2 id="access-title">Conectar ao ICEPLAY</h2>
+      <p>Use o código de acesso disponível no computador que está executando o projeto.</p>
+      <p id="access-status" role="status" aria-live="polite">Consultando a sessão…</p>
+      <noscript><p>Ative o JavaScript para conectar este navegador com segurança.</p></noscript>
+      <form id="access-form" method="post" action="/acesso">
+        <label for="access-code">Código de acesso</label>
+        <input id="access-code" name="codigo" type="password" required maxlength="128" autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="access-help" disabled>
+        <p id="access-help" class="field-help">O código autoriza consultas e alterações neste navegador. Ele não será salvo no armazenamento do navegador.</p>
+        <button class="button button-primary" id="access-submit" type="submit" disabled>Conectar dispositivo</button>
+      </form>
+      <button class="button button-secondary" id="access-logout" type="button" hidden>Sair deste dispositivo</button>
+    </section>
+    </main>
+    <footer class="app-footer"><span>ICEPLAY · Monitoramento de geladeiras</span><a href="/sobre">Base técnica e próximas etapas</a></footer>
+  </div>
+</body>
+</html>

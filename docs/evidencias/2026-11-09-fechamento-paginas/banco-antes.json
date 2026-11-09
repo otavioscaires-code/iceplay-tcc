@@ -1,0 +1,10 @@
+{
+  "result": "passed",
+  "scope": "Banco de uso antes do reinicio; leitura apenas",
+  "logicalSha256": "74349c74bf8cfef9b543e037c30f96aa45b09c6fc06176782e7e36b978c4d65b",
+  "counts": {
+    "Geladeiras": 1,
+    "Leituras": 3,
+    "__EFMigrationsHistory": 2
+  }
+}

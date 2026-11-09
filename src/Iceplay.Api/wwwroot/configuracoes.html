@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b10">
+  <meta name="description" content="ICEPLAY — monitoramento de geladeiras comerciais.">
+  <title>ICEPLAY | Configurações</title>
+  <link rel="icon" href="/assets/iceplay-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/theme.css?v=20261109-pages">
+  <link rel="stylesheet" href="/styles.css?v=20261109-pages">
+  <script src="/shell.js?v=20261109-pages" defer></script>
+  <script src="/acesso.js?v=20261109-pages" defer></script>
+
+</head>
+<body class="app-layout" data-page="configuracoes">
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <aside class="sidebar" id="menu-lateral" aria-label="Menu do ICEPLAY">
+    <a class="brand" href="/dashboard" aria-label="ICEPLAY, visão geral"><span class="brand-symbol" aria-hidden="true"><img src="/assets/iceplay-mark.svg" width="32" height="32" alt=""></span><span>ICE<span class="brand-accent">PLAY</span></span></a>
+    <p class="sidebar-caption">Monitoramento inteligente</p>
+    <nav class="sidebar-nav" aria-label="Navegação principal">
+        <a href="/dashboard"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Visão geral</span></a>
+        <a href="/geladeiras"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M5 9h14M9 5v1M9 12v4"/></svg><span>Geladeiras</span></a>
+        <a href="/historico"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M6 15l4-5 4 3 6-8"/></svg><span>Histórico</span></a>
+        <a href="/alertas"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><span>Alertas</span></a>
+        <a href="/configuracoes" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="8" cy="6" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="10" cy="18" r="2"/></svg><span>Configurações</span></a>
+    </nav>
+    <div class="sidebar-footer"><a href="/sobre">Sobre o projeto</a><span>ICEPLAY · TCC</span></div>
+  </aside>
+  <div class="app-main">
+    <header class="app-topbar">
+      <button class="button button-secondary menu-toggle" id="menu-toggle" type="button" aria-controls="menu-lateral" aria-expanded="false" hidden>Menu</button>
+      <span class="topbar-label">ICEPLAY <span aria-hidden="true">/</span> Configurações</span>
+      <div class="access-indicator"><span id="access-summary" role="status">Consultando acesso…</span><a id="access-shortcut" href="/acesso" hidden>Conectar dispositivo</a></div>
+    </header>
+    <main id="conteudo" class="page-content">
+      <header class="page-heading"><p class="eyebrow">ICEPLAY / Configurações</p><h1>Configurações</h1><p>Parâmetros e regras de monitoramento por equipamento.</p></header>
+      <section class="unavailable-panel" aria-labelledby="configuracoes-title"><span class="scope-tag">Persistência pendente</span><h2 id="configuracoes-title">Regras por equipamento.</h2><p>Limites e tolerâncias ainda não possuem armazenamento ou endpoints. Não há alterações de regras disponíveis nesta versão.</p><dl class="planned-settings"><div><dt>Temperatura mínima e máxima</dt><dd>Faixa a definir conforme o uso da geladeira.</dd></div><div><dt>Tolerância de porta aberta</dt><dd>Duração antes de registrar uma ocorrência.</dd></div><div><dt>Ausência de leituras</dt><dd>Prazo sem receber medições e início do monitoramento.</dd></div></dl><p class="monitor-note">A referência visual de 60 segundos no painel não é uma regra de alerta persistida.</p><a class="button button-secondary" href="/geladeiras">Gerenciar equipamentos</a></section>
+    </main>
+    <footer class="app-footer"><span>ICEPLAY · Monitoramento de geladeiras</span><a href="/sobre">Base técnica e próximas etapas</a></footer>
+  </div>
+</body>
+</html>
