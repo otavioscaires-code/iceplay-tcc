@@ -24,6 +24,8 @@ Abra [http://localhost:5080](http://localhost:5080). Para encerrar, pressione **
 
 Foi acrescentado um modo móvel local com HTTPS e código de acesso, preservando a mesma aplicação, API e SQLite. A instalação do certificado, a liberação no firewall e o teste no iPhone ainda exigem ações no computador/aparelho; os testes de software não são apresentados como teste físico no Safari.
 
+Em **09/11/2026**, o aluno confirmou a execução parcial no iPhone da versão de trabalho local: conexão, saúde, cadastro/edição, navegação, histórico vazio e atualização de página. A API confirmou o cadastro salvo. Foram então enviadas três leituras Simulacao para testar o histórico com dados; a conferência no aparelho e a persistência após reiniciar permanecem pendentes. Veja o [registro com limites da validação](docs/evidencias/2026-11-09-iphone/validacao-manual.md). O código da reorganização em páginas ainda não foi concluído/commitado; este registro não afirma que essa versão está disponível em um clone remoto.
+
 No computador desta execução, o IPv4 encontrado foi **192.168.1.123**, interface Ethernet, prefixo /24. Esse endereço pode mudar. Encerre a instância comum antes de iniciar a móvel. Em PowerShell 7:
 
 ```powershell

@@ -222,7 +222,7 @@ O hardware planejado é ESP32 + sensor de temperatura DS18B20 + sensor magnétic
 
 ## 12. Problemas conhecidos e limitações
 
-- Não há validação física no iPhone/Safari, regra de firewall aplicada, certificado confiado no aparelho, ESP32, DS18B20 ou sensor magnético.
+- Há validação parcial do iPhone relatada pelo usuário em 09/11 (ver seção 18). O roteiro completo e o hardware ESP32/DS18B20/sensor magnético continuam sem validação integral registrada.
 - Não há autenticação de ESP32, usuário individual, controle de perfis, implantação pública, HTTPS público ou acesso externo.
 - Não há tela de histórico, alertas, regras persistidas, notificações, dashboard agregado de alertas ou exclusão de leituras. A API do histórico já existe.
 - Não há faixa física aceita de temperatura; apenas rejeição de números não finitos. Limites devem ser definidos com o orientador.
@@ -270,3 +270,11 @@ O usuário solicitou identidade premium preta/azul-gelo com flocos geométricos.
 Build 0 avisos/erros; base 13, painel 70 asserções/29 requisições, móvel 89/66 e Node 20 testes aprovados. HTTP dos assets e inspeção estática de 66 IDs/referências/contraste passaram; bordas de controle/perigo foram corrigidas após o primeiro cálculo. Evidências em `docs/evidencias/2026-10-30-visual`, relatório em `docs/etapa-visual-2026-10-30.md`. O navegador permaneceu desativado em Work nas consultas realizadas, apesar de o aluno informar que iria habilitar; a renderização responsiva em navegador e no iPhone físico segue pendente. Não tratar o estudo SVG como captura de execução.
 
 A leitura final do SQLite nesta etapa visual encontrou zero geladeiras e zero leituras, duas migrations e integridade ok. Esse é o estado observado mais recente; a seção 16 registra uma execução anterior, com uma geladeira. Uma comparação com o hash anterior divergiu; sem snapshot do começo desta etapa, não se atribui a divergência à mudança visual. O banco atual foi preservado sem reposição de registros.
+
+## 18. Teste parcial no iPhone — 09/11/2026
+
+O aluno mostrou foto da página HTTP de preparação aberta no iPhone e depois confirmou a sequência de acesso e o roteiro de saúde, cadastro, edição, histórico vazio, navegação e atualização de página. A confirmação "sim, tudo perfeito" foi relatada pelo usuário, sem inspeção automatizada das telas. A consulta real ao backend retornou healthy/connected e o cadastro ID 2, `TESTE IPHONE EDITADO`, salvo no banco.
+
+Na sequência foram enviados explicitamente pelo simulador três POSTs para esse cadastro de teste: todos receberam 201, com origem Simulacao, temperatura de teste 4,25 °C, porta fechada e IDs de leitura 1/2/3. GET do histórico confirmou três itens. A visualização desses pontos no iPhone ainda aguarda confirmação, assim como logout/reconexão, exclusão e persistência após reiniciar. Versão do iOS e modelo do aparelho não foram informados. Nenhuma medição física foi realizada.
+
+Evidências em `docs/evidencias/2026-11-09-iphone/`. A reorganização em documentos HTML próprios está no diretório de trabalho, mas suas regressões/documentação e commit de código ainda não foram encerrados; não confundir este commit documental com publicação da reorganização inteira. O último código publicado antes deste registro é `21f9e4b`.

@@ -24,3 +24,5 @@ Após alterar backend, execute o build e os verificadores afetados, usando uma n
 ## Autorização vigente e plano
 
 Em 30/10/2026, o usuário autorizou commits e pushes rotineiros de alterações concluídas e validadas. Essa autorização atende à regra acima; não é necessário solicitá-la novamente a cada etapa. Preserve bancos, segredos e evidências e não use operações destrutivas. O plano atualizado está em `docs/plano-continuidade-2026-10-30.md`. O usuário confirmou que ainda não possui hardware e ainda não validou o iPhone.
+
+Atualização de 09/11/2026: o usuário confirmou teste parcial no iPhone (acesso, saúde, cadastro/edição, navegação, histórico vazio e atualização de página). Foram enviadas depois três leituras explicitamente Simulacao para o cadastro de teste ID 2; a visualização dessas leituras no aparelho e o reinício ainda aguardam confirmação. Consulte `docs/evidencias/2026-11-09-iphone/validacao-manual.md`. Isso não comprova hardware físico nem encerra a reorganização de páginas ainda local e sem commit de código.

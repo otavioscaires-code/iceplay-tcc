@@ -1,0 +1,39 @@
+{
+  "geladeiraId": 2,
+  "origem": "Simulacao",
+  "inicioUtc": null,
+  "fimUtc": null,
+  "pagina": 1,
+  "tamanhoPagina": 50,
+  "totalItens": 3,
+  "totalPaginas": 1,
+  "itens": [
+    {
+      "id": 3,
+      "geladeiraId": 2,
+      "temperaturaC": 4.25,
+      "portaAberta": false,
+      "medidoEmUtc": "2026-11-09T20:16:17.3631585Z",
+      "recebidoEmUtc": "2026-11-09T20:16:17.3655424Z",
+      "origem": "Simulacao"
+    },
+    {
+      "id": 2,
+      "geladeiraId": 2,
+      "temperaturaC": 4.25,
+      "portaAberta": false,
+      "medidoEmUtc": "2026-11-09T20:16:16.3167922Z",
+      "recebidoEmUtc": "2026-11-09T20:16:16.3375442Z",
+      "origem": "Simulacao"
+    },
+    {
+      "id": 1,
+      "geladeiraId": 2,
+      "temperaturaC": 4.25,
+      "portaAberta": false,
+      "medidoEmUtc": "2026-11-09T20:16:15.1317007Z",
+      "recebidoEmUtc": "2026-11-09T20:16:15.1795699Z",
+      "origem": "Simulacao"
+    }
+  ]
+}

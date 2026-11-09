@@ -1,6 +1,6 @@
 # ICEPLAY no iPhone — rede local
 
-Este modo usa a aplicação existente no computador, o mesmo SQLite e a interface responsiva. O computador pode estar conectado por cabo e o iPhone por Wi-Fi ao mesmo roteador. O modo foi testado em software por HTTPS no IPv4 local; **a instalação do certificado, firewall e execução no iPhone físico estão pendentes**.
+Este modo usa a aplicação existente no computador, o mesmo SQLite e a interface responsiva. O computador pode estar conectado por cabo e o iPhone por Wi-Fi ao mesmo roteador. Em **09/11/2026**, o aluno confirmou parcialmente o fluxo no iPhone: acesso, saúde da base, cadastro/edição, navegação e atualização de página. A abertura da página de preparação também foi mostrada em foto enviada na conversa. Isso não encerra todos os testes abaixo; consulte o [registro da validação](evidencias/2026-11-09-iphone/validacao-manual.md).
 
 ## Preparar no computador
 
@@ -56,11 +56,13 @@ Não inicie `run.ps1` e `run-mobile.ps1` juntos: compartilham a porta local e o 
 3. Baixe o certificado **ICEPLAY Local**. Em Ajustes, abra **Perfil Baixado**, confira e instale o perfil. Também pode aparecer em Geral → VPN e Gerenciamento de Dispositivo. Você realiza pessoalmente essa alteração de confiança.
 4. Acesse Ajustes → Geral → Sobre → Certificados Confiáveis e ative a confiança total somente para a CA **ICEPLAY Local** que acabou de conferir.
 5. Abra `https://192.168.1.123:5443/#acesso-movel`. Caso apareça aviso de certificado, pare e confira IP, validade e instalação; não prossiga ignorando o aviso.
-6. Informe o código guardado no computador e toque em **Conectar dispositivo**. Depois use os atalhos inferiores Painel, Geladeiras e Acesso.
+6. Informe o código guardado no computador e toque em **Conectar dispositivo**. Na versão local reorganizada em páginas, use o botão **Menu**; o acesso também está em `/acesso`. O endereço antigo com `#acesso-movel` tem compatibilidade na interface.
 
 A Apple documenta separadamente a [instalação do perfil](https://support.apple.com/pt-br/102400) e a [ativação de confiança SSL/TLS](https://support.apple.com/pt-br/102390). Certificados instalados manualmente exigem essa ativação. Menus podem variar conforme a versão do iOS. Ao encerrar os testes, remova o perfil específico do ICEPLAY do iPhone.
 
-## Verificar no aparelho — pendente
+## Verificar no aparelho — execução parcial registrada
+
+Em 09/11, o usuário respondeu "sim, tudo perfeito" após o roteiro de saúde, cadastro `TESTE IPHONE`, edição para `TESTE IPHONE EDITADO`, consulta de histórico vazio e retorno/atualização da página de geladeiras. A API confirmou o registro de ID 2. Isso é relato do usuário acompanhado de consulta real à API; não é observação automatizada de todas as ações do Safari. Exclusão, logout/reconexão, orientação/zoom, medições no histórico e reinício ainda precisam ser testados individualmente. Modelo do iPhone e versão do iOS não foram informados.
 
 Registrar versão do iOS, data e resultados reais quando o teste ocorrer:
 
