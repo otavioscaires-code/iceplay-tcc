@@ -67,7 +67,7 @@ from pathlib import Path
 c=sqlite3.connect(Path(sys.argv[1]).resolve().as_uri()+'?mode=ro',uri=True)
 assert c.execute('PRAGMA integrity_check').fetchall()==[('ok',)]
 assert not c.execute('PRAGMA foreign_key_check').fetchall()
-rows={t:c.execute('SELECT * FROM "'+t+'" ORDER BY 1').fetchall() for t in ['Geladeiras','Leituras','__EFMigrationsHistory']}
+rows={t:c.execute('SELECT * FROM "'+t+'" ORDER BY 1').fetchall() for t in ['Geladeiras','Leituras','ConfiguracoesGeladeiras','__EFMigrationsHistory']}
 print(json.dumps({'integrity':'ok','counts':{t:len(r) for t,r in rows.items()},'sha256':hashlib.sha256(json.dumps(rows,sort_keys=True).encode()).hexdigest()}))
 c.close()
 '@
@@ -89,7 +89,7 @@ try {
     $parent=(Invoke-PagesRequest $api 'POST' '/api/geladeiras' 201 @{nome='FIXTURE PAGINAS - BANCO ISOLADO'}).Text | ConvertFrom-Json -DateKind String
     $reading=(Invoke-PagesRequest $api 'POST' '/api/leituras' 201 @{geladeiraId=$parent.id;temperaturaC=0;portaAberta=$false;medidoEmUtc=[DateTime]::UtcNow.AddSeconds(-5).ToString('o');origem='Simulacao'}).Text | ConvertFrom-Json -DateKind String
     $before=Get-PagesSnapshot
-    $expected=[ordered]@{'/dashboard'='monitoramento-lista';'/geladeiras'='geladeira-form';'/historico'='historico-form';'/alertas'='';'/configuracoes'='';'/acesso'='acesso-movel';'/sobre'='base-tecnica'}
+    $expected=[ordered]@{'/dashboard'='monitoramento-lista';'/geladeiras'='geladeira-form';'/historico'='historico-form';'/alertas'='';'/configuracoes'='configuracao-form';'/acesso'='acesso-movel';'/sobre'='base-tecnica'}
     $documents=@{}
     $titles=[Collections.Generic.HashSet[string]]::new()
     $mainContents=[Collections.Generic.HashSet[string]]::new()
@@ -122,7 +122,7 @@ try {
     Assert-Pages ($documents['/sobre'] -match 'id="proximas-etapas"') 'Conteudo tecnico e proximas etapas foram preservados em Sobre'
     $null=Invoke-PagesRequest $api 'POST' '/acesso' 405
     Assert-Pages ($documents['/acesso'] -match '<form\b[^>]*method="post"[^>]*action="/acesso"') 'Formulario de acesso nao envia codigo na URL se JavaScript falhar'
-    foreach ($pending in @('/alertas','/configuracoes')) {
+    foreach ($pending in @('/alertas')) {
         Assert-Pages ($documents[$pending] -notmatch '<(?:input|select|textarea)\b') "$pending nao oferece formulario de backend ainda inexistente"
     }
     $assetPaths=[Collections.Generic.HashSet[string]]::new()

@@ -1,0 +1,31 @@
+{
+  "result": "passed",
+  "executedAtUtc": "2026-11-11T19:14:37.351254+00:00",
+  "scope": "Migration aditiva e leitura do banco de uso; HTTP local e HTTPS com CA verificada, sem Safari ou escrita de parametros",
+  "counts": {
+    "Geladeiras": 1,
+    "Leituras": 3
+  },
+  "configurationCount": 0,
+  "recordsSha256": "82f5d65eb54d9b466a6f7c4a0ea803d4b6d2647abcc03b23c9e719083c52bfb5",
+  "oldRecordsUnchanged": true,
+  "migrations": [
+    "20261013172101_InitialCreate",
+    "20261018023456_AddLeituras",
+    "20261109233935_AddConfiguracoesGeladeiras"
+  ],
+  "integrity": "ok",
+  "foreignKeyViolations": 0,
+  "health": {
+    "status": "healthy",
+    "database": "connected",
+    "refrigeratorCount": 1,
+    "checkedAtUtc": "2026-11-11T19:14:36.7954695Z"
+  },
+  "configurationGet": {
+    "geladeiraId": 2,
+    "configuracao": null
+  },
+  "httpsPageStatus": 200,
+  "httpsAnonymousApiStatus": 401
+}

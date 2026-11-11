@@ -1,0 +1,11 @@
+{
+  "result": "passed",
+  "scope": "Busca limitada em textos modificados/novos publicaveis, incluindo logs com decodificacao tolerante; nao garante ausencia universal de segredos",
+  "textCount": 130,
+  "localSettingsCompared": 10,
+  "distinctSecretValuesCompared": 20,
+  "secretOccurrences": 0,
+  "privateKeyMarkers": 0,
+  "sourcesWithNul": [],
+  "missingMarkdownLinks": []
+}

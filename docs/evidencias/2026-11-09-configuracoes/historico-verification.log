@@ -1,0 +1,146 @@
+PASSOU: Build sem restauracao termina com codigo zero
+PASSOU: POST /api/geladeiras retorna 201
+PASSOU: POST /api/geladeiras retorna 201
+PASSOU: POST /api/geladeiras retorna 201
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao retorna 200
+PASSOU: Pagina possui exatamente os IDs esperados na ordem de medicao e desempate
+PASSOU: Contagem e total de paginas correspondem ao filtro
+PASSOU: Resposta vazia possui defaults e filtros explicitos
+PASSOU: POST /api/leituras retorna 201
+PASSOU: POST /api/leituras retorna 201
+PASSOU: POST /api/leituras retorna 201
+PASSOU: POST /api/leituras retorna 201
+PASSOU: POST /api/leituras retorna 201
+PASSOU: POST /api/leituras retorna 201
+PASSOU: POST /api/leituras retorna 201
+PASSOU: SQLite isolado possui integridade e chaves estrangeiras validas
+PASSOU: Somente as tres geladeiras e sete leituras fixture foram gravadas
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao retorna 200
+PASSOU: Pagina possui exatamente os IDs esperados na ordem de medicao e desempate
+PASSOU: Contagem e total de paginas correspondem ao filtro
+PASSOU: Historico preserva zero, false e dois timestamps UTC
+PASSOU: Medicao atrasada recebida depois permanece no final temporal
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&tamanhoPagina=2 retorna 200
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&tamanhoPagina=2&pagina=2 retorna 200
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&tamanhoPagina=2&pagina=3 retorna 200
+PASSOU: Pagina possui exatamente os IDs esperados na ordem de medicao e desempate
+PASSOU: Contagem e total de paginas correspondem ao filtro
+PASSOU: Pagina possui exatamente os IDs esperados na ordem de medicao e desempate
+PASSOU: Contagem e total de paginas correspondem ao filtro
+PASSOU: Pagina possui exatamente os IDs esperados na ordem de medicao e desempate
+PASSOU: Contagem e total de paginas correspondem ao filtro
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&tamanhoPagina=2&pagina=4 retorna 200
+PASSOU: Pagina possui exatamente os IDs esperados na ordem de medicao e desempate
+PASSOU: Contagem e total de paginas correspondem ao filtro
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&tamanhoPagina=100 retorna 200
+PASSOU: Pagina possui exatamente os IDs esperados na ordem de medicao e desempate
+PASSOU: Contagem e total de paginas correspondem ao filtro
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&tamanhoPagina=1&pagina=2147483647 retorna 200
+PASSOU: Pagina possui exatamente os IDs esperados na ordem de medicao e desempate
+PASSOU: Contagem e total de paginas correspondem ao filtro
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Hardware retorna 200
+PASSOU: Pagina possui exatamente os IDs esperados na ordem de medicao e desempate
+PASSOU: Contagem e total de paginas correspondem ao filtro
+PASSOU: Origem Hardware declarada da fixture nao mistura simulacao
+PASSOU: GET /api/leituras?geladeiraId=2&origem=Simulacao retorna 200
+PASSOU: Pagina possui exatamente os IDs esperados na ordem de medicao e desempate
+PASSOU: Contagem e total de paginas correspondem ao filtro
+PASSOU: GET /api/leituras?geladeiraId=3&origem=Hardware retorna 200
+PASSOU: Pagina possui exatamente os IDs esperados na ordem de medicao e desempate
+PASSOU: Contagem e total de paginas correspondem ao filtro
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-01T11%3A00%3A00.1234567Z&fimUtc=2026-10-01T11%3A00%3A00.1234567Z retorna 200
+PASSOU: Pagina possui exatamente os IDs esperados na ordem de medicao e desempate
+PASSOU: Contagem e total de paginas correspondem ao filtro
+PASSOU: Filtros inclusivos retornam os instantes efetivamente usados
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-01T12%3A00%3A00Z retorna 200
+PASSOU: Pagina possui exatamente os IDs esperados na ordem de medicao e desempate
+PASSOU: Contagem e total de paginas correspondem ao filtro
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&fimUtc=2026-10-01T10%3A00%3A00Z retorna 200
+PASSOU: Pagina possui exatamente os IDs esperados na ordem de medicao e desempate
+PASSOU: Contagem e total de paginas correspondem ao filtro
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-02T00%3A00%3A00Z retorna 200
+PASSOU: Pagina possui exatamente os IDs esperados na ordem de medicao e desempate
+PASSOU: Contagem e total de paginas correspondem ao filtro
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-01T11%3A00%3A00Z retorna 200
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-01T11%3A00%3A00.1Z retorna 200
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-01T11%3A00%3A00.12Z retorna 200
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-01T11%3A00%3A00.123Z retorna 200
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-01T11%3A00%3A00.1234Z retorna 200
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-01T11%3A00%3A00.12345Z retorna 200
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-01T11%3A00%3A00.123456Z retorna 200
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-01T11%3A00%3A00.1234567Z retorna 200
+PASSOU: GET /api/leituras/2 retorna 200
+PASSOU: Consulta por ID existente permanece disponivel
+PASSOU: GET /api/leituras retorna 400
+PASSOU: Filtros obrigatorios invalidos retornam ValidationProblemDetails
+PASSOU: GET /api/leituras?origem=Simulacao retorna 400
+PASSOU: Filtros obrigatorios invalidos retornam ValidationProblemDetails
+PASSOU: GET /api/leituras?geladeiraId=1 retorna 400
+PASSOU: Filtros obrigatorios invalidos retornam ValidationProblemDetails
+PASSOU: GET /api/leituras?geladeiraId=0&origem=Simulacao retorna 400
+PASSOU: Filtros obrigatorios invalidos retornam ValidationProblemDetails
+PASSOU: GET /api/leituras?geladeiraId=-1&origem=Simulacao retorna 400
+PASSOU: Filtros obrigatorios invalidos retornam ValidationProblemDetails
+PASSOU: GET /api/leituras?geladeiraId=abc&origem=Simulacao retorna 400
+PASSOU: Filtros obrigatorios invalidos retornam ValidationProblemDetails
+PASSOU: GET /api/leituras?geladeiraId=2147483648&origem=Simulacao retorna 400
+PASSOU: Filtros obrigatorios invalidos retornam ValidationProblemDetails
+PASSOU: GET /api/leituras?geladeiraId=1&origem=hardware retorna 400
+PASSOU: Filtros obrigatorios invalidos retornam ValidationProblemDetails
+PASSOU: GET /api/leituras?geladeiraId=1&origem=0 retorna 400
+PASSOU: Filtros obrigatorios invalidos retornam ValidationProblemDetails
+PASSOU: GET /api/leituras?geladeiraId=1&origem= retorna 400
+PASSOU: Filtros obrigatorios invalidos retornam ValidationProblemDetails
+PASSOU: GET /api/leituras?geladeiraId=1&origem=%20 retorna 400
+PASSOU: Filtros obrigatorios invalidos retornam ValidationProblemDetails
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&pagina=0 retorna 400
+PASSOU: Periodo ou paginacao invalida retorna 400 sem consulta ampla
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&pagina=-1 retorna 400
+PASSOU: Periodo ou paginacao invalida retorna 400 sem consulta ampla
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&pagina=abc retorna 400
+PASSOU: Periodo ou paginacao invalida retorna 400 sem consulta ampla
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&pagina=2147483648 retorna 400
+PASSOU: Periodo ou paginacao invalida retorna 400 sem consulta ampla
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&tamanhoPagina=0 retorna 400
+PASSOU: Periodo ou paginacao invalida retorna 400 sem consulta ampla
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&tamanhoPagina=-1 retorna 400
+PASSOU: Periodo ou paginacao invalida retorna 400 sem consulta ampla
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&tamanhoPagina=101 retorna 400
+PASSOU: Periodo ou paginacao invalida retorna 400 sem consulta ampla
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&tamanhoPagina=abc retorna 400
+PASSOU: Periodo ou paginacao invalida retorna 400 sem consulta ampla
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&pagina=2147483647&tamanhoPagina=100 retorna 400
+PASSOU: Periodo ou paginacao invalida retorna 400 sem consulta ampla
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-01 retorna 400
+PASSOU: Periodo ou paginacao invalida retorna 400 sem consulta ampla
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-01T11%3A00%3A00 retorna 400
+PASSOU: Periodo ou paginacao invalida retorna 400 sem consulta ampla
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-01T11%3A00%3A00%2B00%3A00 retorna 400
+PASSOU: Periodo ou paginacao invalida retorna 400 sem consulta ampla
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-01T11%3A00%3A00.12345678Z retorna 400
+PASSOU: Periodo ou paginacao invalida retorna 400 sem consulta ampla
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-02-30T11%3A00%3A00Z retorna 400
+PASSOU: Periodo ou paginacao invalida retorna 400 sem consulta ampla
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&fimUtc=errado retorna 400
+PASSOU: Periodo ou paginacao invalida retorna 400 sem consulta ampla
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc=2026-10-02T00%3A00%3A00Z&fimUtc=2026-10-01T00%3A00%3A00Z retorna 400
+PASSOU: Periodo ou paginacao invalida retorna 400 sem consulta ampla
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&inicioUtc= retorna 400
+PASSOU: Parametro presente mas vazio nao equivale a filtro omitido
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&fimUtc= retorna 400
+PASSOU: Parametro presente mas vazio nao equivale a filtro omitido
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&pagina= retorna 400
+PASSOU: Parametro presente mas vazio nao equivale a filtro omitido
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao&tamanhoPagina= retorna 400
+PASSOU: Parametro presente mas vazio nao equivale a filtro omitido
+PASSOU: GET /api/leituras?geladeiraId=2147483647&origem=Simulacao retorna 404
+PASSOU: Equipamento inexistente recebe 404, distinto de historico vazio
+PASSOU: SQLite isolado possui integridade e chaves estrangeiras validas
+PASSOU: Consultas validas e invalidas nao modificam dados nem migrations
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao retorna 200
+PASSOU: Reinicio real preserva exatamente contrato, filtros e leituras do historico
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao retorna 503
+PASSOU: Falha real de esquema retorna 503 generico sem caminhos ou SQL
+PASSOU: SQLite isolado possui integridade e chaves estrangeiras validas
+PASSOU: Reinicio preserva conteudo logico do SQLite isolado
+Historico verificado: 145 assercoes; 68 requisicoes HTTP registradas.

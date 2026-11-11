@@ -32,7 +32,7 @@ O tema mantém brilhos discretos e sombra azul no símbolo. A decoração é est
 | Acesso móvel (`/acesso`) | Página própria com os campos e ações de conectar/sair. |
 | Histórico (`/historico`) | Interface implementada: filtros de equipamento/origem/período, gráfico das amostras da página, tabela com origem e dois timestamps, paginação e estados vazio/erro. |
 | Alertas (`/alertas`) | Página própria com mensagem de backend pendente; ainda não gera nem consulta ocorrências. |
-| Configurações (`/configuracoes`) | Página própria informa limites/tolerâncias planejados e ausência de persistência/API. Não oferece gravação fictícia. |
+| Configurações (`/configuracoes`) | Formulário por equipamento integrado ao SQLite pela API; limites, tempos, origem e habilitação planejada. Apresenta estado consultado, bloqueio durante operações e erros reais. Ainda não gera alertas. |
 | Sobre (`/sobre`) | Base técnica e próximos passos preservados em documento próprio. |
 
 Cada área é um documento HTML independente servido pelo ASP.NET Core, com URL e links normais. A barra lateral fixa no desktop indica a página principal selecionada; no celular, o botão **Menu** abre/fecha a navegação. Isso não utiliza JavaScript para substituir páginas por blocos ocultos. Links antigos de seções são encaminhados aos documentos correspondentes. Backend, endpoints e identidade visual foram reaproveitados.

@@ -1,0 +1,16 @@
+{
+  "result": "passed",
+  "scope": "SQL gerado das tres migrations executado em banco novo isolado, sem seed",
+  "counts": {
+    "Geladeiras": 0,
+    "Leituras": 0,
+    "ConfiguracoesGeladeiras": 0
+  },
+  "migrations": [
+    "20261013172101_InitialCreate",
+    "20261018023456_AddLeituras",
+    "20261109233935_AddConfiguracoesGeladeiras"
+  ],
+  "integrity": "ok",
+  "foreignKeyViolations": 0
+}

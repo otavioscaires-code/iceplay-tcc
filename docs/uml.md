@@ -4,6 +4,8 @@
 
 **Acesso móvel de 19/10:** a sequência da sessão HTTPS está em [Etapa móvel](etapa-mobile-2026-10-19.md). Essa autenticação temporária não acrescenta tabelas ao modelo de dados e não representa autenticação do ESP32.
 
+**Configurações implementadas em 09–11/11:** o [contrato e diagrama atual](contrato-configuracoes.md) registram a entidade dependente 1:0..1, os parâmetros persistidos e os instantes UTC. Ainda não existe avaliação/registro de alertas. As propostas históricas abaixo não substituem esse modelo implementado.
+
 Data de referência: **13/10/2026**.
 
 Os diagramas distinguem a base da entrega inicial da evolução planejada. Somente saúde da API, modelo inicial `Geladeira`, SQLite e página inicial pertencem à primeira etapa. Os demais elementos descrevem o objetivo futuro e devem ser atualizados conforme forem implementados e testados. Estes diagramas não afirmam que houve ensaio com sensores físicos.

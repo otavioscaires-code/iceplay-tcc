@@ -7,6 +7,7 @@ public sealed class IceplayDbContext(DbContextOptions<IceplayDbContext> options)
 {
     public DbSet<Geladeira> Geladeiras => Set<Geladeira>();
     public DbSet<Leitura> Leituras => Set<Leitura>();
+    public DbSet<ConfiguracaoGeladeira> ConfiguracoesGeladeiras => Set<ConfiguracaoGeladeira>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -65,5 +66,37 @@ public sealed class IceplayDbContext(DbContextOptions<IceplayDbContext> options)
             .HasForeignKey(item => item.GeladeiraId)
             .OnDelete(DeleteBehavior.Restrict);
         leitura.HasIndex(item => new { item.GeladeiraId, item.MedidoEmUtc, item.Id });
+
+        var configuracao = modelBuilder.Entity<ConfiguracaoGeladeira>();
+        configuracao.ToTable("ConfiguracoesGeladeiras", table =>
+        {
+            table.HasCheckConstraint("CK_Configuracoes_GeladeiraId", "\"GeladeiraId\" > 0");
+            table.HasCheckConstraint("CK_Configuracoes_Temperaturas",
+                "\"TemperaturaMinimaC\" BETWEEN -1.7976931348623157e308 AND 1.7976931348623157e308 " +
+                "AND \"TemperaturaMaximaC\" BETWEEN -1.7976931348623157e308 AND 1.7976931348623157e308 " +
+                "AND \"TemperaturaMinimaC\" < \"TemperaturaMaximaC\"");
+            table.HasCheckConstraint("CK_Configuracoes_ToleranciaPorta",
+                "typeof(\"ToleranciaPortaAbertaSegundos\") = 'integer' AND \"ToleranciaPortaAbertaSegundos\" BETWEEN 1 AND 2147483647");
+            table.HasCheckConstraint("CK_Configuracoes_AusenciaLeituras",
+                "typeof(\"AusenciaLeiturasSegundos\") = 'integer' AND \"AusenciaLeiturasSegundos\" BETWEEN 1 AND 2147483647");
+            table.HasCheckConstraint("CK_Configuracoes_Origem", "\"OrigemMonitorada\" IN ('Simulacao', 'Hardware')");
+            table.HasCheckConstraint("CK_Configuracoes_MonitoramentoAtivo", "\"MonitoramentoAtivo\" IN (0, 1)");
+            table.HasCheckConstraint("CK_Configuracoes_Instantes",
+                "julianday(\"AtualizadoEmUtc\") IS NOT NULL AND " +
+                "((\"MonitoramentoAtivo\" = 0 AND \"InicioMonitoramentoEmUtc\" IS NULL) OR " +
+                "(\"MonitoramentoAtivo\" = 1 AND \"InicioMonitoramentoEmUtc\" IS NOT NULL " +
+                "AND julianday(\"InicioMonitoramentoEmUtc\") IS NOT NULL " +
+                "AND \"InicioMonitoramentoEmUtc\" <= \"AtualizadoEmUtc\"))");
+        });
+        configuracao.HasKey(item => item.GeladeiraId);
+        configuracao.Property(item => item.GeladeiraId).ValueGeneratedNever();
+        configuracao.Property(item => item.OrigemMonitorada).HasConversion<string>().IsRequired();
+        configuracao.Property(item => item.InicioMonitoramentoEmUtc)
+            .HasConversion(value => value, value => value.HasValue ? DateTime.SpecifyKind(value.Value, DateTimeKind.Utc) : (DateTime?)null);
+        configuracao.Property(item => item.AtualizadoEmUtc)
+            .HasConversion(value => value, value => DateTime.SpecifyKind(value, DateTimeKind.Utc));
+        configuracao.HasOne<Geladeira>().WithOne()
+            .HasForeignKey<ConfiguracaoGeladeira>(item => item.GeladeiraId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

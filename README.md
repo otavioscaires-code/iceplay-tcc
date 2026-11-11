@@ -2,7 +2,7 @@
 
 Projeto de TCC de Ciência da Computação: sistema IoT para monitoramento de geladeiras comerciais. Base iniciada em **13/10/2026**, com cadastro de geladeiras desenvolvido em **15/10/2026**, revisado em **17/10/2026** e ingestão/simulador verificados em **19/10/2026**. Pelo cronograma do professor, a versão completa deve ser entregue em **24/11/2026** e apresentada em **01/12/2026**.
 
-O estado de trabalho de **09/11/2026** inclui ASP.NET Core, SQLite com EF Core, cadastro completo de geladeiras, saúde real do banco, recebimento de leituras, simulador, painel de últimas leituras por origem e histórico na API e na interface. A interface tem documentos HTML independentes, com URLs próprias. Alertas e Configurações possuem páginas que informam claramente a ausência de seus backends; limites persistidos, regras, alertas e firmware continuam pendentes. Não há hardware disponível nem ensaio físico comprovado; iniciar a aplicação não insere registros automaticamente. As leituras de teste são identificadas como simulação. O [plano atualizado até o hardware](docs/plano-ate-hardware-2026-11-09.md) organiza seis entregas de software, começando pelo fechamento e publicação da versão de páginas. O [plano de 30/10](docs/plano-continuidade-2026-10-30.md) permanece como histórico.
+O estado de trabalho de **11/11/2026** inclui ASP.NET Core, SQLite com EF Core, cadastro de geladeiras, saúde real do banco, recebimento de leituras, simulador, painel, histórico e configurações persistidas por geladeira na API e na interface. As páginas possuem URLs próprias. Configurações salva limites, tempos, origem e habilitação planejada; a avaliação das regras e a geração de alertas ainda não existem. Alertas informa essa indisponibilidade. Autenticação do ESP32, firmware e ensaio físico continuam pendentes; iniciar a aplicação não insere registros ou parâmetros automaticamente. Leituras de teste são identificadas como simulação. Consulte o [plano vigente](docs/plano-ate-hardware-2026-11-09.md); o [plano de 30/10](docs/plano-continuidade-2026-10-30.md) permanece como histórico.
 
 ## Executar neste computador
 
@@ -28,7 +28,7 @@ Abra [http://localhost:5080](http://localhost:5080). Para encerrar, pressione **
 | `/geladeiras` | Cadastro, listagem, consulta, edição, exclusão protegida e última medição consultada. |
 | `/historico` | Filtros, gráfico, tabela de leituras e paginação. |
 | `/alertas` | Informa que geração, persistência e consulta de alertas ainda não existem. |
-| `/configuracoes` | Informa quais limites/tolerâncias ainda aguardam armazenamento e API. |
+| `/configuracoes` | Consulta e grava limites, tempos, origem e habilitação planejada por equipamento. Ainda não gera alertas. |
 | `/acesso` | Conexão e saída da sessão do navegador no modo móvel. |
 | `/sobre` | Base técnica e próximos passos do projeto. |
 
@@ -101,7 +101,7 @@ A rota executa `COUNT(*)` na tabela `Geladeiras`. Isso verifica a conexão **e a
 
 O arquivo de uso é `src/Iceplay.Api/data/iceplay.db`. O caminho relativo configurado em `appsettings.json` é resolvido a partir da pasta da aplicação, independentemente da pasta de onde o script foi chamado. A configuração atual espera um **caminho de arquivo**, não `:memory:` ou URI SQLite. Banco, WAL e arquivos gerados ficam fora do Git.
 
-As migrations automáticas são limitadas a **Development**, com uma instância local. Em outro ambiente, o esquema deve ser aplicado explicitamente antes de iniciar. Não remova o banco para atualizar o modelo. Ao copiar um banco com dados relevantes, encerre a aplicação e preserve os arquivos auxiliares SQLite ou use um procedimento de backup consistente. O [SQL de criação](docs/sql/iceplay-criacao.sql) serve para banco novo; em conexões SQLite manuais, habilite `PRAGMA foreign_keys=ON` para aplicar as restrições de relacionamento.
+As migrations automáticas são limitadas a **Development**, com uma instância local. Em outro ambiente, aplique o esquema explicitamente antes de iniciar. Não remova o banco para atualizar o modelo. Use backup consistente para dados relevantes. O [SQL atualizado de criação](docs/sql/iceplay-criacao-2026-11-09.sql) contém as três migrations e serve somente para banco novo; o SQL anterior foi preservado como histórico. Em conexões SQLite manuais, habilite `PRAGMA foreign_keys=ON`.
 
 ## Usar o cadastro na interface
 
@@ -153,6 +153,21 @@ Invoke-RestMethod 'http://localhost:5080/api/geladeiras'
 # Substitua 1 por um ID existente:
 Invoke-RestMethod 'http://localhost:5080/api/geladeiras/1'
 ```
+
+## Configurar limites e tempos
+
+Abra **Configurações**, escolha uma geladeira e preencha temperatura mínima/máxima em °C, tolerância de porta aberta e prazo sem leituras em segundos, origem e habilitação planejada. Equipamento sem configuração abre os campos vazios; nenhum limite foi presumido. **Salvar configurações** grava pela API; **Recarregar dados** confirma o que está persistido.
+
+`GET /api/geladeiras/{id}/configuracao` retorna 200 com `{geladeiraId, configuracao}`; `configuracao: null` indica equipamento existente ainda sem parâmetros. `PUT` na mesma rota exige todos os campos: `temperaturaMinimaC`, `temperaturaMaximaC`, `toleranciaPortaAbertaSegundos`, `ausenciaLeiturasSegundos`, `origemMonitorada` e `monitoramentoAtivo`. Temperaturas devem ser números JSON finitos com mínima menor que máxima; tempos inteiros de 1 a `2147483647`; origem exatamente `Simulacao`/`Hardware`; habilitação booleana. Números em texto são recusados. Primeira gravação: 201 com Location; atualização: 200; geladeira inexistente: 404; inválidos: 400; falha de banco: 503.
+
+O servidor retorna também início e atualização UTC. Ativar ou trocar origem enquanto ativo inicia novo acompanhamento; editar apenas limites/tempos preserva o início; inativo tem início nulo. A referência visual de 60 segundos do painel continua independente. **Esta etapa salva parâmetros e não gera alertas**, mesmo com habilitação marcada. O [contrato completo](docs/contrato-configuracoes.md) explica corpo, timestamps, tabela, exclusão e testes. Os valores reais de operação devem ser definidos conforme o uso com o orientador.
+
+```powershell
+.\scripts\verify-configuracoes.ps1 -EvidenceDirectory docs/evidencias/nova-revisao/configuracoes
+node --test scripts/configuracoes.test.mjs
+```
+
+O verificador cria apenas fixtures em banco isolado, testa upgrade a partir das duas migrations anteriores, inválidos, concorrência, origem/ativação, reinício e exclusão. O formulário exige nova consulta se uma gravação ficar sem confirmação, sem repetir o PUT automaticamente. A nova tela ainda precisa de conferência manual no iPhone.
 
 ## Usar o painel de últimas leituras
 
@@ -324,12 +339,14 @@ Há somente dois pacotes NuGet diretos: `Microsoft.EntityFrameworkCore.Sqlite` e
 - [Plano vigente até o hardware](docs/plano-ate-hardware-2026-11-09.md): seis entregas de software, critérios de aceite e ensaio físico posterior.
 - [Fechamento das páginas](docs/etapa-paginas-2026-11-09.md): alterações, comandos, resultados de 09/11 e limites da validação.
 - [Etapa móvel](docs/etapa-mobile-2026-10-19.md): mudanças, testes reais, correções e limites desta evolução.
-- [SQL de criação](docs/sql/iceplay-criacao.sql): gerado das migrations e verificado em banco novo isolado; não executar em banco com dados/tabelas existentes. Na execução normal, use o fluxo de migrations descrito acima.
+- [Contrato de configurações](docs/contrato-configuracoes.md): parâmetros persistidos, validação, UTC, relacionamento e testes.
+- [Etapa de configurações](docs/etapa-configuracoes-2026-11-11.md): execução, resultados reais, arquivos e limitações.
+- [SQL de criação atualizado](docs/sql/iceplay-criacao-2026-11-09.sql): gerado das três migrations e executado em banco novo isolado; não executar sobre banco existente. O SQL anterior foi preservado como histórico.
 - [Uso de IA](docs/uso-de-ia.md): assistência utilizada e responsabilidade de revisão e reprodução pelo aluno.
 - [Evidências](docs/evidencias/): build, respostas HTTP, SQLite e capturas reais da interface. Os arquivos se referem à execução identificada por seus timestamps.
 
 Sem hardware, as verificações comprovam software, esquema e persistência local. Não comprovam leitura DS18B20, detecção física da porta, comunicação ESP32, precisão térmica ou eficácia de alertas. Limites de temperatura e tolerâncias ainda precisam ser definidos com o orientador.
 
-A base usa uma instância, com modo comum HTTP em loopback e modo móvel HTTPS opcional na sub-rede local, protegido por código/sessão. Acesso pela internet, autenticação de sensores e implantação pública continuam pendentes. Após fechar a revisão das páginas, o próximo incremento é **configuração persistida das regras por geladeira**, seguida de regras/registro e interface de alertas, autenticação da ingestão e firmware. O painel consulta todas as geladeiras, sem paginação de equipamentos. Texto final do TCC, artigo, UML e evidências continuam necessários. A aquisição do hardware e a validação móvel restante devem ocorrer em paralelo. Em 09/11, o usuário aprovou excluir **notificação por voz** do MVP e deixá-la como trabalho futuro; notificações externas também ficam após o núcleo funcional.
+A base usa uma instância local, com modo móvel HTTPS opcional protegido por sessão. Acesso externo, autenticação de sensores e implantação pública continuam pendentes. O próximo incremento é **avaliar regras e registrar alertas**, usando as configurações já persistidas; depois vêm interface de alertas, autenticação da ingestão e firmware. O painel consulta todas as geladeiras, sem paginação de equipamentos. Texto/artigo, UML, evidências, aquisição das peças e validação móvel restante continuam necessários. Voz foi excluída do MVP por decisão do usuário em 09/11; notificações externas também ficam após o núcleo.
 
 Em 30/10, o usuário autorizou commits/pushes rotineiros. A base revalidada foi commitada e enviada ao [GitHub ICEPLAY](https://github.com/otavioscaires-code/iceplay-tcc), na branch `codex/retomada-historico`. Bancos, SDK, caches e segredos móveis ficam fora do Git. Consulte `git log` e `git status` para o estado atual, sem atribuir commits a datas anteriores.

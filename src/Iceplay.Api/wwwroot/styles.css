@@ -360,3 +360,36 @@ input::placeholder { color: var(--muted); opacity: 1; }
   .history-pagination .button { padding-inline: 12px; }
 }
 @media (forced-colors: active) { .page-heading::after { display: none; } .sidebar-nav a[aria-current="page"] { border: 2px solid Highlight; } }
+
+/* Configurações reutilizam os controles do tema sem alterar as outras páginas. */
+.settings-workspace { max-width: 980px; padding: 26px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.settings-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+.settings-heading h2 { font-size: 22px; }
+.settings-heading p, .settings-saved p { color: var(--muted); font-size: 14px; }
+.settings-heading .button { flex-shrink: 0; }
+.settings-notice { padding: 14px 16px; border-left: 2px solid var(--accent); background: var(--surface-raised); color: var(--ice); font-size: 13px; }
+.settings-selector { display: flex; align-items: flex-end; gap: 16px; margin: 24px 0 12px; }
+.settings-selector > div { flex: 1; min-width: 0; }
+.settings-workspace fieldset { min-width: 0; margin: 24px 0; padding: 0; border: 0; }
+.settings-workspace legend { margin-bottom: 18px; font-size: 16px; font-weight: 650; }
+.settings-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
+.settings-fields .form-field { margin: 0; min-width: 0; }
+.settings-fields input { min-width: 0; }
+.settings-fields .field-help { margin: 6px 0 0; }
+.settings-wide { grid-column: 1 / -1; }
+.settings-activation label { display: flex; align-items: center; gap: 12px; min-height: 44px; font-size: 13px; font-weight: 650; }
+.settings-activation input[type="checkbox"] { flex: 0 0 20px; width: 20px; height: 20px; accent-color: var(--accent); }
+.settings-workspace [data-state="error"] { color: var(--danger); }
+.settings-workspace [data-state="success"] { color: var(--success); }
+.settings-saved { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--border); }
+.settings-saved h3 { font-size: 16px; }
+.settings-saved dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.settings-saved dt { color: var(--muted); font-size: 12px; }
+.settings-saved dd { margin: 5px 0 0; font-size: 13px; overflow-wrap: anywhere; }
+@media (max-width: 700px) {
+  .settings-workspace { padding: 18px; }
+  .settings-heading, .settings-selector { flex-direction: column; align-items: stretch; }
+  .settings-fields, .settings-saved dl { grid-template-columns: minmax(0, 1fr); }
+  .settings-fields .form-field input { font-size: 16px; }
+  .settings-wide { grid-column: auto; }
+}

@@ -139,12 +139,13 @@ assert connection.execute('PRAGMA foreign_key_check').fetchall()==[]
 counts=[connection.execute('SELECT COUNT(*) FROM Geladeiras').fetchone()[0],connection.execute('SELECT COUNT(*) FROM Leituras').fetchone()[0]]
 assert counts==[2,7],counts
 migrations=[r[0] for r in connection.execute('SELECT MigrationId FROM __EFMigrationsHistory ORDER BY MigrationId')]
-assert migrations==['20261013172101_InitialCreate','20261018023456_AddLeituras']
+assert len(migrations)==3 and migrations[:2]==['20261013172101_InitialCreate','20261018023456_AddLeituras'] and migrations[2].endswith('_AddConfiguracoesGeladeiras')
+assert connection.execute('SELECT COUNT(*) FROM ConfiguracoesGeladeiras').fetchone()[0]==0
 print(json.dumps({'integrity':'ok','geladeiras':counts[0],'leituras':counts[1],'migrations':migrations}))
 connection.close()
 '@
     $inspection=@(& python -c $databaseInspection $panelDatabase)
-    Assert-Panel ($LASTEXITCODE -eq 0) 'SQLite confirma integridade, duas migrations e nenhuma insercao pelo GET'
+    Assert-Panel ($LASTEXITCODE -eq 0) 'SQLite confirma integridade, tres migrations e nenhuma insercao pelo GET'
     $panelReport.finalDatabase=($inspection -join [Environment]::NewLine) | ConvertFrom-Json
     $panelReport.result='passed'
 } catch {

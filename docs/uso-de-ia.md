@@ -76,6 +76,8 @@ Foi implementado o contrato GET do histórico em etapa pequena, preservando arqu
 
 ## Continuidade e páginas independentes — 09/11/2026
 
+Este registro é histórico; a configuração persistida posterior está registrada abaixo, sem atribuir seus resultados à etapa de páginas.
+
 Codex foi utilizado para continuar a reorganização existente em documentos HTML independentes, reaproveitando ASP.NET Core, EF Core, SQLite, endpoints e interface Black & Ice Blue. O código de trabalho inclui navegação real, histórico com filtros/paginação/tabela/gráfico e páginas de Alertas/Configurações que informam honestamente a ausência de backend. Agentes auxiliares participaram da auditoria estática, refinamento do gráfico e consolidação da documentação; não se atribui ao aluno autoria manual fictícia.
 
 O aluno relatou uso parcial no próprio iPhone e enviou fotos da preparação e, depois, da tabela/gráfico com três leituras de origem Simulacao. Os dados foram enviados explicitamente pelo simulador e persistidos pela API. Não são medições de sensores físicos. A foto é anterior aos refinamentos posteriores do gráfico/acesso, cuja conferência visual no aparelho permanece separada dos testes de software. As imagens da conversa não foram copiadas para o repositório.
@@ -83,3 +85,9 @@ O aluno relatou uso parcial no próprio iPhone e enviou fotos da preparação e,
 O [relatório de fechamento de páginas](etapa-paginas-2026-11-09.md) registra comandos, resultados reais e limites das verificações automatizadas e do reinício. A atualização documental não substitui execução de teste nem comprova commit/push. A autorização vigente de 30/10 permite commits e pushes rotineiros de alterações concluídas e validadas, preservando bancos, segredos e evidências. O plano atual está em `plano-ate-hardware-2026-11-09.md`; voz foi retirada do MVP por decisão do usuário em 09/11, e a integração física permanece pendente de hardware e ensaio real.
 
 O aluno deve estudar, reproduzir, revisar e declarar essa assistência conforme as normas da instituição. Registrar data, ferramenta/modelo quando conhecido, objetivo da assistência, arquivos afetados, decisões revisadas pelo aluno, comandos/testes reproduzidos e limitações. Não preencher retroativamente atividades que não tenham ocorrido.
+
+## Configurações — 09 a 11/11/2026
+
+Codex assistiu na leitura do projeto, definição do contrato, implementação incremental de configuração por equipamento, migration aditiva, formulário, testes e documentação. Agentes auxiliares participaram de revisão e cliente; os resultados foram conferidos na integração. O registro `etapa-configuracoes-2026-11-11.md` detalha comandos, arquivos, datas, correções e limitações. Houve recuperação de cinco arquivos encontrados com bytes NUL, sem causa determinada, antes das verificações finais; não houve reposição de banco ou fabricação de testes.
+
+Foram executados build, upgrade/reinício em banco isolado, testes HTTP/SQLite, Node e regressões, sem sensores físicos. O banco de uso foi preservado com backup e comparação de registros. Não foram criados limites sanitários, alertas ou dados automáticos. A ferramenta de navegador permaneceu desativada; não se atribui validação visual/Safari aos testes DOM/HTTP. As fotos de anúncios usadas na escolha das peças não são evidência de aquisição, montagem ou precisão térmica. O aluno deve reproduzir e compreender a implementação e declarar a assistência conforme as regras institucionais.

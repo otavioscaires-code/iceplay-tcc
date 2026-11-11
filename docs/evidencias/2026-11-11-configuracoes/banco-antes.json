@@ -1,0 +1,14 @@
+{
+  "executedAtUtc": "20261111T191341Z",
+  "scope": "Backup consistente e snapshot somente leitura antes de iniciar a versao atualizada",
+  "counts": {
+    "Geladeiras": 1,
+    "Leituras": 3
+  },
+  "recordsSha256": "82f5d65eb54d9b466a6f7c4a0ea803d4b6d2647abcc03b23c9e719083c52bfb5",
+  "migrations": [
+    "20261013172101_InitialCreate",
+    "20261018023456_AddLeituras"
+  ],
+  "backup": ".tools\\backups\\antes-configuracoes-final-20261111T191341Z.db"
+}

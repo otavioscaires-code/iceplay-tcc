@@ -1,0 +1,153 @@
+PASSOU: POST /api/geladeiras retorna 201
+PASSOU: POST /api/leituras retorna 201
+PASSOU: GET /api/geladeiras/1/configuracao retorna 503
+PASSOU: Schema antigo retorna 503 generico sem detalhes internos
+PASSOU: SQLite isolado integro
+PASSOU: SQLite sem violacoes de chave estrangeira
+PASSOU: Fixture anterior ao upgrade possui exatamente as duas migrations historicas
+PASSOU: SQLite isolado integro
+PASSOU: SQLite sem violacoes de chave estrangeira
+PASSOU: Upgrade preserva todos os campos de geladeira e leitura anteriores
+PASSOU: Upgrade aplica somente a migration aditiva esperada
+PASSOU: GET /api/geladeiras/1/configuracao retorna 200
+PASSOU: Equipamento existente permanece explicitamente sem configuracao; nenhum seed
+PASSOU: SQLite isolado integro
+PASSOU: SQLite sem violacoes de chave estrangeira
+PASSOU: Upgrade nao cria parametros automaticamente
+PASSOU: GET /api/geladeiras/0/configuracao retorna 404
+PASSOU: PUT /api/geladeiras/0/configuracao retorna 404
+PASSOU: GET /api/geladeiras/-1/configuracao retorna 404
+PASSOU: PUT /api/geladeiras/-1/configuracao retorna 404
+PASSOU: GET /api/geladeiras/2147483647/configuracao retorna 404
+PASSOU: PUT /api/geladeiras/2147483647/configuracao retorna 404
+PASSOU: POST /api/geladeiras/1/configuracao retorna 405
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 201
+PASSOU: Criacao informa Location consultavel
+PASSOU: Resposta preserva exatamente os parametros solicitados
+PASSOU: Instante retornado possui sufixo UTC Z
+PASSOU: Inativo nao possui inicio e cliente nao determina timestamps
+PASSOU: GET /api/geladeiras/1/configuracao retorna 200
+PASSOU: GET consulta configuracao gravada no SQLite
+PASSOU: SQLite isolado integro
+PASSOU: SQLite sem violacoes de chave estrangeira
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: Entrada invalida retorna erros de validacao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 400
+PASSOU: SQLite isolado integro
+PASSOU: SQLite sem violacoes de chave estrangeira
+PASSOU: Entradas invalidas nao alteram registros nem configuracao
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 200
+PASSOU: Instante retornado possui sufixo UTC Z
+PASSOU: Instante retornado possui sufixo UTC Z
+PASSOU: Ativar inicia acompanhamento no instante do servidor
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 200
+PASSOU: Editar limites ativos nao reinicia acompanhamento
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 200
+PASSOU: Repetir PUT com mesma origem nao reinicia acompanhamento
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 200
+PASSOU: Instante retornado possui sufixo UTC Z
+PASSOU: Instante retornado possui sufixo UTC Z
+PASSOU: Trocar origem ativa inicia novo acompanhamento sem misturar historicos
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 200
+PASSOU: Desabilitar remove inicio de acompanhamento
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 200
+PASSOU: Instante retornado possui sufixo UTC Z
+PASSOU: Instante retornado possui sufixo UTC Z
+PASSOU: Reativacao define novo inicio
+PASSOU: POST /api/geladeiras retorna 201
+PASSOU: PUTs concorrentes criam uma unica configuracao e atualizam sem erro de chave
+PASSOU: GET /api/geladeiras/2/configuracao retorna 200
+PASSOU: Configuracoes de equipamentos permanecem independentes
+PASSOU: SQLite rejeita violacao de configuracao: TemperaturaMinimaC
+PASSOU: SQLite rejeita violacao de configuracao: ToleranciaPortaAbertaSegundos
+PASSOU: SQLite rejeita violacao de configuracao: AusenciaLeiturasSegundos
+PASSOU: SQLite rejeita violacao de configuracao: OrigemMonitorada
+PASSOU: SQLite rejeita violacao de configuracao: MonitoramentoAtivo
+PASSOU: SQLite rejeita violacao de configuracao: InicioMonitoramentoEmUtc
+PASSOU: SQLite isolado integro
+PASSOU: SQLite sem violacoes de chave estrangeira
+PASSOU: GET /api/geladeiras/1/configuracao retorna 200
+PASSOU: GET /configuracoes retorna 200
+PASSOU: GET /api/leituras?geladeiraId=1&origem=Simulacao retorna 200
+PASSOU: GET /api/monitoramento?origem=Simulacao retorna 200
+PASSOU: SQLite isolado integro
+PASSOU: SQLite sem violacoes de chave estrangeira
+PASSOU: Consultas e pagina nao modificam configuracoes ou medicoes
+PASSOU: GET /api/geladeiras/1/configuracao retorna 200
+PASSOU: SQLite isolado integro
+PASSOU: SQLite sem violacoes de chave estrangeira
+PASSOU: Reinicio real preserva parametros, origem e instantes
+PASSOU: GET /api/leituras/1 retorna 200
+PASSOU: Leitura anterior permanece intacta apos upgrade e reinicio
+PASSOU: DELETE /api/geladeiras/1 retorna 409
+PASSOU: DELETE /api/geladeiras/2 retorna 204
+PASSOU: GET /api/geladeiras/2/configuracao retorna 404
+PASSOU: SQLite isolado integro
+PASSOU: SQLite sem violacoes de chave estrangeira
+PASSOU: Exclusao remove so configuracao dependente do equipamento vazio

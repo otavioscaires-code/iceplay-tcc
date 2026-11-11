@@ -1,0 +1,1045 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-11T19:12:07.437903+00:00",
+  "scope": "Software HTTP/SQLite em banco isolado; sem hardware ou renderizacao de navegador",
+  "isolatedDatabase": "C:\\Users\\otavi\\Downloads\\iceplay\\.tools\\verification\\configuracoes-20261111T191200Z-46d4e2e7\\iceplay.db",
+  "checks": [
+    "POST /api/geladeiras retorna 201",
+    "POST /api/leituras retorna 201",
+    "GET /api/geladeiras/1/configuracao retorna 503",
+    "Schema antigo retorna 503 generico sem detalhes internos",
+    "SQLite isolado integro",
+    "SQLite sem violacoes de chave estrangeira",
+    "Fixture anterior ao upgrade possui exatamente as duas migrations historicas",
+    "SQLite isolado integro",
+    "SQLite sem violacoes de chave estrangeira",
+    "Upgrade preserva todos os campos de geladeira e leitura anteriores",
+    "Upgrade aplica somente a migration aditiva esperada",
+    "GET /api/geladeiras/1/configuracao retorna 200",
+    "Equipamento existente permanece explicitamente sem configuracao; nenhum seed",
+    "SQLite isolado integro",
+    "SQLite sem violacoes de chave estrangeira",
+    "Upgrade nao cria parametros automaticamente",
+    "GET /api/geladeiras/0/configuracao retorna 404",
+    "PUT /api/geladeiras/0/configuracao retorna 404",
+    "GET /api/geladeiras/-1/configuracao retorna 404",
+    "PUT /api/geladeiras/-1/configuracao retorna 404",
+    "GET /api/geladeiras/2147483647/configuracao retorna 404",
+    "PUT /api/geladeiras/2147483647/configuracao retorna 404",
+    "POST /api/geladeiras/1/configuracao retorna 405",
+    "PUT /api/geladeiras/1/configuracao retorna 201",
+    "Criacao informa Location consultavel",
+    "Resposta preserva exatamente os parametros solicitados",
+    "Instante retornado possui sufixo UTC Z",
+    "Inativo nao possui inicio e cliente nao determina timestamps",
+    "GET /api/geladeiras/1/configuracao retorna 200",
+    "GET consulta configuracao gravada no SQLite",
+    "SQLite isolado integro",
+    "SQLite sem violacoes de chave estrangeira",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "Entrada invalida retorna erros de validacao",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "PUT /api/geladeiras/1/configuracao retorna 400",
+    "SQLite isolado integro",
+    "SQLite sem violacoes de chave estrangeira",
+    "Entradas invalidas nao alteram registros nem configuracao",
+    "PUT /api/geladeiras/1/configuracao retorna 200",
+    "Instante retornado possui sufixo UTC Z",
+    "Instante retornado possui sufixo UTC Z",
+    "Ativar inicia acompanhamento no instante do servidor",
+    "PUT /api/geladeiras/1/configuracao retorna 200",
+    "Editar limites ativos nao reinicia acompanhamento",
+    "PUT /api/geladeiras/1/configuracao retorna 200",
+    "Repetir PUT com mesma origem nao reinicia acompanhamento",
+    "PUT /api/geladeiras/1/configuracao retorna 200",
+    "Instante retornado possui sufixo UTC Z",
+    "Instante retornado possui sufixo UTC Z",
+    "Trocar origem ativa inicia novo acompanhamento sem misturar historicos",
+    "PUT /api/geladeiras/1/configuracao retorna 200",
+    "Desabilitar remove inicio de acompanhamento",
+    "PUT /api/geladeiras/1/configuracao retorna 200",
+    "Instante retornado possui sufixo UTC Z",
+    "Instante retornado possui sufixo UTC Z",
+    "Reativacao define novo inicio",
+    "POST /api/geladeiras retorna 201",
+    "PUTs concorrentes criam uma unica configuracao e atualizam sem erro de chave",
+    "GET /api/geladeiras/2/configuracao retorna 200",
+    "Configuracoes de equipamentos permanecem independentes",
+    "SQLite rejeita violacao de configuracao: TemperaturaMinimaC",
+    "SQLite rejeita violacao de configuracao: ToleranciaPortaAbertaSegundos",
+    "SQLite rejeita violacao de configuracao: AusenciaLeiturasSegundos",
+    "SQLite rejeita violacao de configuracao: OrigemMonitorada",
+    "SQLite rejeita violacao de configuracao: MonitoramentoAtivo",
+    "SQLite rejeita violacao de configuracao: InicioMonitoramentoEmUtc",
+    "SQLite isolado integro",
+    "SQLite sem violacoes de chave estrangeira",
+    "GET /api/geladeiras/1/configuracao retorna 200",
+    "GET /configuracoes retorna 200",
+    "GET /api/leituras?geladeiraId=1&origem=Simulacao retorna 200",
+    "GET /api/monitoramento?origem=Simulacao retorna 200",
+    "SQLite isolado integro",
+    "SQLite sem violacoes de chave estrangeira",
+    "Consultas e pagina nao modificam configuracoes ou medicoes",
+    "GET /api/geladeiras/1/configuracao retorna 200",
+    "SQLite isolado integro",
+    "SQLite sem violacoes de chave estrangeira",
+    "Reinicio real preserva parametros, origem e instantes",
+    "GET /api/leituras/1 retorna 200",
+    "Leitura anterior permanece intacta apos upgrade e reinicio",
+    "DELETE /api/geladeiras/1 retorna 409",
+    "DELETE /api/geladeiras/2 retorna 204",
+    "GET /api/geladeiras/2/configuracao retorna 404",
+    "SQLite isolado integro",
+    "SQLite sem violacoes de chave estrangeira",
+    "Exclusao remove so configuracao dependente do equipamento vazio"
+  ],
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "nome": "FIXTURE CONFIG - UPGRADE",
+        "localizacao": "BANCO ISOLADO"
+      },
+      "responseBody": "{\"id\":1,\"nome\":\"FIXTURE CONFIG - UPGRADE\",\"localizacao\":\"BANCO ISOLADO\",\"criadoEmUtc\":\"2026-11-11T19:12:10.7709098Z\"}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "geladeiraId": 1,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-11T19:12:06.062634Z",
+        "origem": "Simulacao"
+      },
+      "responseBody": "{\"id\":1,\"geladeiraId\":1,\"temperaturaC\":0,\"portaAberta\":false,\"medidoEmUtc\":\"2026-11-11T19:12:06.062634Z\",\"recebidoEmUtc\":\"2026-11-11T19:12:11.0995841Z\",\"origem\":\"Simulacao\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 503,
+      "actualStatus": 503,
+      "requestBody": null,
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.6.4\",\"title\":\"Banco de dados indisponível.\",\"status\":503,\"detail\":\"Não foi possível concluir a operação. Tente novamente em instantes.\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"geladeiraId\":1,\"configuracao\":null}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/0/configuracao",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "requestBody": null,
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\"title\":\"Geladeira não encontrada.\",\"status\":404,\"detail\":\"Não existe uma geladeira com o identificador informado.\",\"traceId\":\"00-9a091386e51a6a3f58294917df05ceaa-8841f3c9011196ec-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/0/configuracao",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\"title\":\"Geladeira não encontrada.\",\"status\":404,\"detail\":\"Não existe uma geladeira com o identificador informado.\",\"traceId\":\"00-f17902d524e3375bceec5446c9188b10-c846202f0e134448-00\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/-1/configuracao",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "requestBody": null,
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\"title\":\"Geladeira não encontrada.\",\"status\":404,\"detail\":\"Não existe uma geladeira com o identificador informado.\",\"traceId\":\"00-8064d4b04a3c582436321e6cc5172576-0c622159f55b1ebc-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/-1/configuracao",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\"title\":\"Geladeira não encontrada.\",\"status\":404,\"detail\":\"Não existe uma geladeira com o identificador informado.\",\"traceId\":\"00-c71e339654717a35f10b698156d59796-08ef751bc2736755-00\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/2147483647/configuracao",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "requestBody": null,
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\"title\":\"Geladeira não encontrada.\",\"status\":404,\"detail\":\"Não existe uma geladeira com o identificador informado.\",\"traceId\":\"00-0fc46e72a2f397df45b2b73b90c61384-bdc74ddfb0281ae8-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/2147483647/configuracao",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\"title\":\"Geladeira não encontrada.\",\"status\":404,\"detail\":\"Não existe uma geladeira com o identificador informado.\",\"traceId\":\"00-a2eaa40c6fdfed73f82d68a9555a0a12-51adc15708716a4d-00\"}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 405,
+      "actualStatus": 405,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": ""
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false,
+        "geladeiraId": 999,
+        "inicioMonitoramentoEmUtc": "2000-01-01T00:00:00Z",
+        "atualizadoEmUtc": "2000-01-01T00:00:00Z"
+      },
+      "responseBody": "{\"geladeiraId\":1,\"configuracao\":{\"temperaturaMinimaC\":-2.5,\"temperaturaMaximaC\":5.25,\"toleranciaPortaAbertaSegundos\":90,\"ausenciaLeiturasSegundos\":60,\"origemMonitorada\":\"Simulacao\",\"monitoramentoAtivo\":false,\"inicioMonitoramentoEmUtc\":null,\"atualizadoEmUtc\":\"2026-11-11T19:12:13.785031Z\"}}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"geladeiraId\":1,\"configuracao\":{\"temperaturaMinimaC\":-2.5,\"temperaturaMaximaC\":5.25,\"toleranciaPortaAbertaSegundos\":90,\"ausenciaLeiturasSegundos\":60,\"origemMonitorada\":\"Simulacao\",\"monitoramentoAtivo\":false,\"inicioMonitoramentoEmUtc\":null,\"atualizadoEmUtc\":\"2026-11-11T19:12:13.785031Z\"}}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {},
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"OrigemMonitorada\":[\"A origem monitorada é obrigatória.\"],\"MonitoramentoAtivo\":[\"Informe se o monitoramento deve ficar habilitado.\"],\"TemperaturaMaximaC\":[\"A temperatura máxima é obrigatória.\"],\"TemperaturaMinimaC\":[\"A temperatura mínima é obrigatória.\"],\"AusenciaLeiturasSegundos\":[\"O prazo de ausência de leituras é obrigatório.\"],\"ToleranciaPortaAbertaSegundos\":[\"A tolerância de porta aberta é obrigatória.\"]},\"traceId\":\"00-5958c2b23ecc593ae2d25fe77c086985-a413a40d7ef19d91-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"TemperaturaMinimaC\":[\"A temperatura mínima é obrigatória.\"]},\"traceId\":\"00-92a16eb0eab2068c097e3688202ed308-d844e5bec43ac5eb-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": null,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"TemperaturaMinimaC\":[\"A temperatura mínima é obrigatória.\"]},\"traceId\":\"00-1fa3a8006a0fb712c18b9e3daa3e1e0f-ff4fde36240d6e58-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"TemperaturaMaximaC\":[\"A temperatura máxima é obrigatória.\"]},\"traceId\":\"00-5d233e3f74afe23bdfbde6233792bb16-347f5f7154a501af-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": null,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"TemperaturaMaximaC\":[\"A temperatura máxima é obrigatória.\"]},\"traceId\":\"00-040fa03228d751f231d6b069fc4ab34f-c250f72a07e13b47-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"ToleranciaPortaAbertaSegundos\":[\"A tolerância de porta aberta é obrigatória.\"]},\"traceId\":\"00-2717ef50828cd9705254026e6de8693a-587f5982085188c6-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": null,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"ToleranciaPortaAbertaSegundos\":[\"A tolerância de porta aberta é obrigatória.\"]},\"traceId\":\"00-4c42c404c5941c49a13b180e29c2a5df-21fee945c04d43ba-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"AusenciaLeiturasSegundos\":[\"O prazo de ausência de leituras é obrigatório.\"]},\"traceId\":\"00-d498a4d66af01e3d2cfffac1ecfee8e6-0250d6197795c2a6-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": null,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"AusenciaLeiturasSegundos\":[\"O prazo de ausência de leituras é obrigatório.\"]},\"traceId\":\"00-ac8ff825c528c7c09381ece5c56e9dd8-ca70790e230ff800-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"OrigemMonitorada\":[\"A origem monitorada é obrigatória.\"]},\"traceId\":\"00-4300a15316d861379af94740d1b528ed-93fe52d2646cd9f1-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": null,
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"OrigemMonitorada\":[\"A origem monitorada é obrigatória.\"]},\"traceId\":\"00-7183e3c764da2641925d69a601c09f50-2f6454ab93b38526-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao"
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"MonitoramentoAtivo\":[\"Informe se o monitoramento deve ficar habilitado.\"]},\"traceId\":\"00-ee8488983e7072a1cf18e628b29ff315-3da6714d1439cc24-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": null
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"MonitoramentoAtivo\":[\"Informe se o monitoramento deve ficar habilitado.\"]},\"traceId\":\"00-334726de70ad90d42a478f61970cd0ad-2b37089934cbaa57-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": 5.25,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"TemperaturaMaximaC\":[\"A temperatura mínima deve ser menor que a máxima.\"],\"TemperaturaMinimaC\":[\"A temperatura mínima deve ser menor que a máxima.\"]},\"traceId\":\"00-588eee55e1347845f5fff011025b3c5e-66f0099f7901b6b2-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": 6,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"TemperaturaMaximaC\":[\"A temperatura mínima deve ser menor que a máxima.\"],\"TemperaturaMinimaC\":[\"A temperatura mínima deve ser menor que a máxima.\"]},\"traceId\":\"00-d0e35bdd52b0aeca5991dec6f523eab4-230a1f9424d7238f-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": "-2.5",
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"request\":[\"The request field is required.\"],\"$.temperaturaMinimaC\":[\"The JSON value could not be converted to System.Nullable`1[System.Double]. Path: $.temperaturaMinimaC | LineNumber: 0 | BytePositionInLine: 29.\"]},\"traceId\":\"00-049572a57b8c6f8f8ba9f74e6758b456-a6a93f86003fa44a-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": "5.25",
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"request\":[\"The request field is required.\"],\"$.temperaturaMaximaC\":[\"The JSON value could not be converted to System.Nullable`1[System.Double]. Path: $.temperaturaMaximaC | LineNumber: 0 | BytePositionInLine: 57.\"]},\"traceId\":\"00-107b75462020cfe4d35543bf6117c564-7680e8a0afadbaa7-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": true,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"request\":[\"The request field is required.\"],\"$.temperaturaMaximaC\":[\"The JSON value could not be converted to System.Nullable`1[System.Double]. Path: $.temperaturaMaximaC | LineNumber: 0 | BytePositionInLine: 55.\"]},\"traceId\":\"00-9a47dd9357362b46f181812c86dbbd7e-152cb2d40169d6e3-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": 1e+308,
+        "temperaturaMaximaC": 1e+307,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"TemperaturaMaximaC\":[\"A temperatura mínima deve ser menor que a máxima.\"],\"TemperaturaMinimaC\":[\"A temperatura mínima deve ser menor que a máxima.\"]},\"traceId\":\"00-17e01e1ee2344556371f4b8e53d492f2-7c835f21be55d1a9-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 0,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"ToleranciaPortaAbertaSegundos\":[\"A tolerância de porta aberta deve ser um inteiro positivo em segundos.\"]},\"traceId\":\"00-7b25e720e7c1fca655d1d42c973b3cd9-9ef4bbc889583a2e-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": -1,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"ToleranciaPortaAbertaSegundos\":[\"A tolerância de porta aberta deve ser um inteiro positivo em segundos.\"]},\"traceId\":\"00-be5e1fdb413e79c372bdf301d1c3fb68-afd5b3ef7ce0f004-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 1.5,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"request\":[\"The request field is required.\"],\"$.toleranciaPortaAbertaSegundos\":[\"The JSON value could not be converted to System.Nullable`1[System.Int32]. Path: $.toleranciaPortaAbertaSegundos | LineNumber: 0 | BytePositionInLine: 93.\"]},\"traceId\":\"00-4f73f00df68f6b31ce556337d9010ae6-0cde7b32ec296235-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": "90",
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"request\":[\"The request field is required.\"],\"$.toleranciaPortaAbertaSegundos\":[\"The JSON value could not be converted to System.Nullable`1[System.Int32]. Path: $.toleranciaPortaAbertaSegundos | LineNumber: 0 | BytePositionInLine: 94.\"]},\"traceId\":\"00-1ef0235b422e309e660bd6a38c3b020f-fe188c6ade6bdf04-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 0,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"AusenciaLeiturasSegundos\":[\"O prazo de ausência de leituras deve ser um inteiro positivo em segundos.\"]},\"traceId\":\"00-c938660dc9b01ad1de6fa4fb171b4280-e705a662a7b89413-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 2147483648,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"request\":[\"The request field is required.\"],\"$.ausenciaLeiturasSegundos\":[\"The JSON value could not be converted to System.Nullable`1[System.Int32]. Path: $.ausenciaLeiturasSegundos | LineNumber: 0 | BytePositionInLine: 132.\"]},\"traceId\":\"00-f782dcb098aefc5dfb360b42207c3d98-8a72bde01999c000-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": false,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"request\":[\"The request field is required.\"],\"$.ausenciaLeiturasSegundos\":[\"The JSON value could not be converted to System.Nullable`1[System.Int32]. Path: $.ausenciaLeiturasSegundos | LineNumber: 0 | BytePositionInLine: 127.\"]},\"traceId\":\"00-cc360b7f3f7462eb66bdf1605904e2a3-e7084f83dd3ebd10-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "hardware",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"OrigemMonitorada\":[\"A origem monitorada deve ser exatamente Simulacao ou Hardware.\"]},\"traceId\":\"00-c3f8df4e09e7ebbaf86309cce5badc25-a9824f7cc514e22b-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": 0,
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"request\":[\"The request field is required.\"],\"$.origemMonitorada\":[\"The JSON value could not be converted to System.String. Path: $.origemMonitorada | LineNumber: 0 | BytePositionInLine: 147.\"]},\"traceId\":\"00-5374705b2baa34b7b7d4017a1e1c11ee-01a621a65fe39f70-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"OrigemMonitorada\":[\"A origem monitorada é obrigatória.\"]},\"traceId\":\"00-2a5c5484e3d87851b2c92e4e7df6b321-a0870a706cf8b6ab-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": " Hardware ",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"OrigemMonitorada\":[\"A origem monitorada deve ser exatamente Simulacao ou Hardware.\"]},\"traceId\":\"00-3ad0ee7f2512fd58a38e9cb2b27afb7a-b4ccab75c14baeef-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": "false"
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"request\":[\"The request field is required.\"],\"$.monitoramentoAtivo\":[\"The JSON value could not be converted to System.Nullable`1[System.Boolean]. Path: $.monitoramentoAtivo | LineNumber: 0 | BytePositionInLine: 188.\"]},\"traceId\":\"00-a858d23f5dbdcfc4622ab7143fb86241-93a88cccbe5bbfb9-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": 0
+      },
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"request\":[\"The request field is required.\"],\"$.monitoramentoAtivo\":[\"The JSON value could not be converted to System.Nullable`1[System.Boolean]. Path: $.monitoramentoAtivo | LineNumber: 0 | BytePositionInLine: 182.\"]},\"traceId\":\"00-1b490adac6ab27b334fc4cf8b7428d01-befd0616a5c31a69-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": "{",
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"$\":[\"Expected depth to be zero at the end of the JSON payload. There is an open JSON object or array that should be closed. Path: $ | LineNumber: 0 | BytePositionInLine: 1.\"],\"request\":[\"The request field is required.\"]},\"traceId\":\"00-4cf73db1b618804b4e4728948bdcc5ca-5f490f674e916ebb-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": "null",
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"\":[\"A non-empty request body is required.\"],\"request\":[\"The request field is required.\"]},\"traceId\":\"00-899dc149244d44da5c27861124d0c5b4-c14c9575f2232cd0-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": "[]",
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"$\":[\"The JSON value could not be converted to Iceplay.Api.Contracts.SalvarConfiguracaoRequest. Path: $ | LineNumber: 0 | BytePositionInLine: 1.\"],\"request\":[\"The request field is required.\"]},\"traceId\":\"00-001fcdffd403cc147a1291aff62aba31-0a793b59ed3b8f9b-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": "{\"temperaturaMinimaC\":-1e400}",
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"OrigemMonitorada\":[\"A origem monitorada é obrigatória.\"],\"MonitoramentoAtivo\":[\"Informe se o monitoramento deve ficar habilitado.\"],\"TemperaturaMaximaC\":[\"A temperatura máxima é obrigatória.\"],\"AusenciaLeiturasSegundos\":[\"O prazo de ausência de leituras é obrigatório.\"],\"ToleranciaPortaAbertaSegundos\":[\"A tolerância de porta aberta é obrigatória.\"]},\"traceId\":\"00-1711ffc0cf173e3948c9215a75e16f4a-58ae81c6c0f9197c-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": "{\"temperaturaMaximaC\":1e400}",
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"OrigemMonitorada\":[\"A origem monitorada é obrigatória.\"],\"MonitoramentoAtivo\":[\"Informe se o monitoramento deve ficar habilitado.\"],\"TemperaturaMinimaC\":[\"A temperatura mínima é obrigatória.\"],\"AusenciaLeiturasSegundos\":[\"O prazo de ausência de leituras é obrigatório.\"],\"ToleranciaPortaAbertaSegundos\":[\"A tolerância de porta aberta é obrigatória.\"]},\"traceId\":\"00-3f3fbb0082aa1f762c386eeb4ebf5018-9cc1bdb32519b616-00\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 5.25,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": true
+      },
+      "responseBody": "{\"geladeiraId\":1,\"configuracao\":{\"temperaturaMinimaC\":-2.5,\"temperaturaMaximaC\":5.25,\"toleranciaPortaAbertaSegundos\":90,\"ausenciaLeiturasSegundos\":60,\"origemMonitorada\":\"Simulacao\",\"monitoramentoAtivo\":true,\"inicioMonitoramentoEmUtc\":\"2026-11-11T19:12:14.1788441Z\",\"atualizadoEmUtc\":\"2026-11-11T19:12:14.1788441Z\"}}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 6,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": true
+      },
+      "responseBody": "{\"geladeiraId\":1,\"configuracao\":{\"temperaturaMinimaC\":-2.5,\"temperaturaMaximaC\":6,\"toleranciaPortaAbertaSegundos\":90,\"ausenciaLeiturasSegundos\":60,\"origemMonitorada\":\"Simulacao\",\"monitoramentoAtivo\":true,\"inicioMonitoramentoEmUtc\":\"2026-11-11T19:12:14.1788441Z\",\"atualizadoEmUtc\":\"2026-11-11T19:12:14.2539117Z\"}}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 6,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": true
+      },
+      "responseBody": "{\"geladeiraId\":1,\"configuracao\":{\"temperaturaMinimaC\":-2.5,\"temperaturaMaximaC\":6,\"toleranciaPortaAbertaSegundos\":90,\"ausenciaLeiturasSegundos\":60,\"origemMonitorada\":\"Simulacao\",\"monitoramentoAtivo\":true,\"inicioMonitoramentoEmUtc\":\"2026-11-11T19:12:14.1788441Z\",\"atualizadoEmUtc\":\"2026-11-11T19:12:14.3801817Z\"}}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 6,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Hardware",
+        "monitoramentoAtivo": true
+      },
+      "responseBody": "{\"geladeiraId\":1,\"configuracao\":{\"temperaturaMinimaC\":-2.5,\"temperaturaMaximaC\":6,\"toleranciaPortaAbertaSegundos\":90,\"ausenciaLeiturasSegundos\":60,\"origemMonitorada\":\"Hardware\",\"monitoramentoAtivo\":true,\"inicioMonitoramentoEmUtc\":\"2026-11-11T19:12:14.4868962Z\",\"atualizadoEmUtc\":\"2026-11-11T19:12:14.4868962Z\"}}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 6,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Hardware",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": "{\"geladeiraId\":1,\"configuracao\":{\"temperaturaMinimaC\":-2.5,\"temperaturaMaximaC\":6,\"toleranciaPortaAbertaSegundos\":90,\"ausenciaLeiturasSegundos\":60,\"origemMonitorada\":\"Hardware\",\"monitoramentoAtivo\":false,\"inicioMonitoramentoEmUtc\":null,\"atualizadoEmUtc\":\"2026-11-11T19:12:14.589841Z\"}}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": {
+        "temperaturaMinimaC": -2.5,
+        "temperaturaMaximaC": 6,
+        "toleranciaPortaAbertaSegundos": 90,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Hardware",
+        "monitoramentoAtivo": true
+      },
+      "responseBody": "{\"geladeiraId\":1,\"configuracao\":{\"temperaturaMinimaC\":-2.5,\"temperaturaMaximaC\":6,\"toleranciaPortaAbertaSegundos\":90,\"ausenciaLeiturasSegundos\":60,\"origemMonitorada\":\"Hardware\",\"monitoramentoAtivo\":true,\"inicioMonitoramentoEmUtc\":\"2026-11-11T19:12:14.6618678Z\",\"atualizadoEmUtc\":\"2026-11-11T19:12:14.6618678Z\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "nome": "FIXTURE CONFIG - SEM LEITURAS"
+      },
+      "responseBody": "{\"id\":2,\"nome\":\"FIXTURE CONFIG - SEM LEITURAS\",\"localizacao\":null,\"criadoEmUtc\":\"2026-11-11T19:12:14.7872035Z\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/2/configuracao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"geladeiraId\":2,\"configuracao\":{\"temperaturaMinimaC\":-2.5,\"temperaturaMaximaC\":5.25,\"toleranciaPortaAbertaSegundos\":90,\"ausenciaLeiturasSegundos\":60,\"origemMonitorada\":\"Simulacao\",\"monitoramentoAtivo\":false,\"inicioMonitoramentoEmUtc\":null,\"atualizadoEmUtc\":\"2026-11-11T19:12:15.121595Z\"}}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"geladeiraId\":1,\"configuracao\":{\"temperaturaMinimaC\":-2.5,\"temperaturaMaximaC\":6,\"toleranciaPortaAbertaSegundos\":90,\"ausenciaLeiturasSegundos\":60,\"origemMonitorada\":\"Hardware\",\"monitoramentoAtivo\":true,\"inicioMonitoramentoEmUtc\":\"2026-11-11T19:12:14.6618678Z\",\"atualizadoEmUtc\":\"2026-11-11T19:12:14.6618678Z\"}}"
+    },
+    {
+      "method": "GET",
+      "path": "/configuracoes",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "<!doctype html>\n<html lang=\"pt-BR\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <meta name=\"theme-color\" content=\"#070b10\">\n  <meta name=\"description\" content=\"ICEPLAY — monitoramento de geladeiras comerciais.\">\n  <title>ICEPLAY | Configurações</title>\n  <link rel=\"icon\" href=\"/assets/iceplay-mark.svg\" type=\"image/svg+xml\">\n  <link rel=\"stylesheet\" href=\"/theme.css?v=20261109-pages\">\n  <link rel=\"stylesheet\" href=\"/styles.css?v=20261109-config\">\n  <script src=\"/shell.js?v=20261109-pages\" defer></script>\n  <script src=\"/acesso.js?v=20261109-pages\" defer></script>\n  <script type=\"module\" src=\"/configuracoes.js?v=20261109-config\"></script>\n\n</head>\n<body class=\"app-layout\" data-page=\"configuracoes\">\n  <a class=\"skip-link\" href=\"#conteudo\">Ir para o conteúdo</a>\n  <aside class=\"sidebar\" id=\"menu-lateral\" aria-label=\"Menu do ICEPLAY\">\n    <a class=\"brand\" href=\"/dashboard\" aria-label=\"ICEPLAY, visão geral\"><span class=\"brand-symbol\" aria-hidden=\"true\"><img src=\"/assets/iceplay-mark.svg\" width=\"32\" height=\"32\" alt=\"\"></span><span>ICE<span class=\"brand-accent\">PLAY</span></span></a>\n    <p class=\"sidebar-caption\">Monitoramento inteligente</p>\n    <nav class=\"sidebar-nav\" aria-label=\"Navegação principal\">\n        <a href=\"/dashboard\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\"/></svg><span>Visão geral</span></a>\n        <a href=\"/geladeiras\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"5\" y=\"2\" width=\"14\" height=\"20\" rx=\"2\"/><path d=\"M5 9h14M9 5v1M9 12v4\"/></svg><span>Geladeiras</span></a>\n        <a href=\"/historico\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3v18h18M6 15l4-5 4 3 6-8\"/></svg><span>Histórico</span></a>\n        <a href=\"/alertas\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4\"/></svg><span>Alertas</span></a>\n        <a href=\"/configuracoes\" aria-current=\"page\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 6h18M3 12h18M3 18h18\"/><circle cx=\"8\" cy=\"6\" r=\"2\"/><circle cx=\"16\" cy=\"12\" r=\"2\"/><circle cx=\"10\" cy=\"18\" r=\"2\"/></svg><span>Configurações</span></a>\n    </nav>\n    <div class=\"sidebar-footer\"><a href=\"/sobre\">Sobre o projeto</a><span>ICEPLAY · TCC</span></div>\n  </aside>\n  <div class=\"app-main\">\n    <header class=\"app-topbar\">\n      <button class=\"button button-secondary menu-toggle\" id=\"menu-toggle\" type=\"button\" aria-controls=\"menu-lateral\" aria-expanded=\"false\" hidden>Menu</button>\n      <span class=\"topbar-label\">ICEPLAY <span aria-hidden=\"true\">/</span> Configurações</span>\n      <div class=\"access-indicator\"><span id=\"access-summary\" role=\"status\">Consultando acesso…</span><a id=\"access-shortcut\" href=\"/acesso\" hidden>Conectar dispositivo</a></div>\n    </header>\n    <main id=\"conteudo\" class=\"page-content\">\n      <header class=\"page-heading\"><p class=\"eyebrow\">ICEPLAY / Configurações</p><h1>Configurações</h1><p>Parâmetros e regras de monitoramento por equipamento.</p></header>\n      <section class=\"settings-workspace\" aria-labelledby=\"configuracoes-title\">\n        <div class=\"settings-heading\"><div><h2 id=\"configuracoes-title\">Parâmetros por geladeira</h2><p>Escolha os valores conforme o uso do equipamento. Nenhum limite de conservação foi presumido.</p></div><a class=\"button button-secondary\" href=\"/geladeiras\">Gerenciar geladeiras</a></div>\n        <p class=\"settings-notice\">Esta etapa salva os parâmetros no banco. A geração de alertas ainda não está implementada, mesmo com a habilitação planejada marcada.</p>\n        <div class=\"settings-selector monitor-control\"><div><label for=\"configuracao-geladeira\">Geladeira</label><select id=\"configuracao-geladeira\" disabled><option value=\"\">Consultando equipamentos…</option></select></div><button class=\"button button-secondary\" id=\"configuracao-recarregar\" type=\"button\">Recarregar dados</button></div>\n        <p class=\"equipment-feedback\" id=\"configuracao-status\" role=\"status\" aria-live=\"polite\">Consultando as geladeiras disponíveis…</p>\n        <noscript><p>Ative o JavaScript para consultar e salvar configurações pela API.</p></noscript>\n        <form id=\"configuracao-form\" method=\"post\" action=\"/configuracoes\" aria-describedby=\"configuracao-status\">\n          <fieldset id=\"configuracao-campos\" disabled>\n            <legend>Limites e tempos</legend>\n            <div class=\"settings-fields\">\n              <div class=\"form-field\"><label for=\"configuracao-minima\">Temperatura mínima (°C)</label><input id=\"configuracao-minima\" name=\"temperaturaMinimaC\" type=\"number\" step=\"any\" inputmode=\"decimal\" required aria-describedby=\"configuracao-temperatura-ajuda\" disabled></div>\n              <div class=\"form-field\"><label for=\"configuracao-maxima\">Temperatura máxima (°C)</label><input id=\"configuracao-maxima\" name=\"temperaturaMaximaC\" type=\"number\" step=\"any\" inputmode=\"decimal\" required aria-describedby=\"configuracao-temperatura-ajuda\" disabled></div>\n              <p class=\"field-help settings-wide\" id=\"configuracao-temperatura-ajuda\">A mínima precisa ser menor que a máxima. Estes valores serão usados pelas futuras regras; não certificam segurança de alimentos.</p>\n              <div class=\"form-field\"><label for=\"configuracao-porta\">Tolerância de porta aberta (segundos)</label><input id=\"configuracao-porta\" name=\"toleranciaPortaAbertaSegundos\" type=\"number\" step=\"1\" min=\"1\" max=\"2147483647\" inputmode=\"numeric\" required disabled></div>\n              <div class=\"form-field\"><label for=\"configuracao-ausencia\">Prazo sem leituras (segundos)</label><input id=\"configuracao-ausencia\" name=\"ausenciaLeiturasSegundos\" type=\"number\" step=\"1\" min=\"1\" max=\"2147483647\" inputmode=\"numeric\" required aria-describedby=\"configuracao-ausencia-ajuda\" disabled></div>\n              <p class=\"field-help settings-wide\" id=\"configuracao-ausencia-ajuda\">O prazo persistido prepara a futura regra de ausência. A referência visual de 60 segundos da Visão geral continua independente e não é alterada aqui.</p>\n              <div class=\"form-field monitor-control\"><label for=\"configuracao-origem\">Origem monitorada</label><select id=\"configuracao-origem\" name=\"origemMonitorada\" required disabled><option value=\"\">Selecione a origem</option><option value=\"Simulacao\">Simulação</option><option value=\"Hardware\">Hardware declarado</option></select><p class=\"field-help\">Hardware é uma declaração do emissor; não comprova sensor físico ou autenticado.</p></div>\n              <div class=\"settings-activation\"><label for=\"configuracao-ativo\"><input id=\"configuracao-ativo\" name=\"monitoramentoAtivo\" type=\"checkbox\" disabled><span>Preparar habilitação do monitoramento</span></label><p class=\"field-help\">O servidor registra o início ao habilitar ou trocar a origem enquanto habilitado. Alterar apenas limites ou tempos mantém esse início. Ainda não há avaliação de alertas.</p></div>\n            </div>\n          </fieldset>\n          <button class=\"button button-primary\" id=\"configuracao-salvar\" type=\"submit\" disabled>Salvar configurações</button>\n        </form>\n        <section class=\"settings-saved\" aria-labelledby=\"configuracao-salva-title\"><h3 id=\"configuracao-salva-title\">Estado confirmado pela API</h3><p id=\"configuracao-resumo\">Nenhuma configuração confirmada nesta consulta.</p><dl><div><dt>Início da habilitação planejada</dt><dd><time id=\"configuracao-inicio\">Não definido</time></dd></div><div><dt>Última atualização salva</dt><dd><time id=\"configuracao-atualizacao\">Não definido</time></dd></div></dl></section>\n      </section>\n    </main>\n    <footer class=\"app-footer\"><span>ICEPLAY · Monitoramento de geladeiras</span><a href=\"/sobre\">Base técnica e próximas etapas</a></footer>\n  </div>\n</body>\n</html>\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/leituras?geladeiraId=1&origem=Simulacao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"geladeiraId\":1,\"origem\":\"Simulacao\",\"inicioUtc\":null,\"fimUtc\":null,\"pagina\":1,\"tamanhoPagina\":50,\"totalItens\":1,\"totalPaginas\":1,\"itens\":[{\"id\":1,\"geladeiraId\":1,\"temperaturaC\":0,\"portaAberta\":false,\"medidoEmUtc\":\"2026-11-11T19:12:06.062634Z\",\"recebidoEmUtc\":\"2026-11-11T19:12:11.0995841Z\",\"origem\":\"Simulacao\"}]}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Simulacao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"consultadoEmUtc\":\"2026-11-11T19:12:15.3921068Z\",\"origem\":\"Simulacao\",\"geladeiras\":[{\"id\":1,\"nome\":\"FIXTURE CONFIG - UPGRADE\",\"localizacao\":\"BANCO ISOLADO\",\"ultimaLeitura\":{\"id\":1,\"geladeiraId\":1,\"temperaturaC\":0,\"portaAberta\":false,\"medidoEmUtc\":\"2026-11-11T19:12:06.062634Z\",\"recebidoEmUtc\":\"2026-11-11T19:12:11.0995841Z\",\"origem\":\"Simulacao\"}},{\"id\":2,\"nome\":\"FIXTURE CONFIG - SEM LEITURAS\",\"localizacao\":null,\"ultimaLeitura\":null}]}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"geladeiraId\":1,\"configuracao\":{\"temperaturaMinimaC\":-2.5,\"temperaturaMaximaC\":6,\"toleranciaPortaAbertaSegundos\":90,\"ausenciaLeiturasSegundos\":60,\"origemMonitorada\":\"Hardware\",\"monitoramentoAtivo\":true,\"inicioMonitoramentoEmUtc\":\"2026-11-11T19:12:14.6618678Z\",\"atualizadoEmUtc\":\"2026-11-11T19:12:14.6618678Z\"}}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/leituras/1",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": "{\"id\":1,\"geladeiraId\":1,\"temperaturaC\":0,\"portaAberta\":false,\"medidoEmUtc\":\"2026-11-11T19:12:06.062634Z\",\"recebidoEmUtc\":\"2026-11-11T19:12:11.0995841Z\",\"origem\":\"Simulacao\"}"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/geladeiras/1",
+      "expectedStatus": 409,
+      "actualStatus": 409,
+      "requestBody": null,
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.10\",\"title\":\"Geladeira possui leituras.\",\"status\":409,\"detail\":\"O cadastro não pode ser excluído porque possui leituras armazenadas.\",\"traceId\":\"00-a32c59ab657bd78fbd883f8636a91de6-d969831a57b8f100-00\"}"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/geladeiras/2",
+      "expectedStatus": 204,
+      "actualStatus": 204,
+      "requestBody": null,
+      "responseBody": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/2/configuracao",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "requestBody": null,
+      "responseBody": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\"title\":\"Geladeira não encontrada.\",\"status\":404,\"detail\":\"Não existe uma geladeira com o identificador informado.\",\"traceId\":\"00-1b39736e8e0a4363b639280485b743d8-353503a9ba68bbcf-00\"}"
+    }
+  ],
+  "errors": [],
+  "concurrentPutStatuses": [
+    200,
+    201
+  ],
+  "beforeUpgrade": {
+    "counts": {
+      "Geladeiras": 1,
+      "Leituras": 1
+    },
+    "sha256": "41dc55f4dc455e06141e3df7077006f03505c15a7fb293387db947e5c92bb6ee",
+    "migrations": [
+      "20261013172101_InitialCreate",
+      "20261018023456_AddLeituras"
+    ]
+  },
+  "afterUpgrade": {
+    "counts": {
+      "Geladeiras": 1,
+      "Leituras": 1
+    },
+    "sha256": "41dc55f4dc455e06141e3df7077006f03505c15a7fb293387db947e5c92bb6ee",
+    "migrations": [
+      "20261013172101_InitialCreate",
+      "20261018023456_AddLeituras",
+      "20261109233935_AddConfiguracoesGeladeiras"
+    ]
+  },
+  "finalDatabase": {
+    "counts": {
+      "Geladeiras": 1,
+      "Leituras": 1,
+      "ConfiguracoesGeladeiras": 1
+    },
+    "sha256": "e2517a5c05fe3c3c44b1fcf8a174be031b9f43c2e33ff6d6d92555fd9fe776af",
+    "migrations": [
+      "20261013172101_InitialCreate",
+      "20261018023456_AddLeituras",
+      "20261109233935_AddConfiguracoesGeladeiras"
+    ]
+  },
+  "finishedAtUtc": "2026-11-11T19:12:17.869692+00:00",
+  "checkCount": 153,
+  "requestCount": 67
+}

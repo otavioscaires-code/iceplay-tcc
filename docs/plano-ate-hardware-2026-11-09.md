@@ -8,6 +8,8 @@ Existem ASP.NET Core/EF Core/SQLite, CRUD, ingestão, simulador, API e interface
 
 ## Entregas e critérios objetivos
 
+Progresso em 11/11: páginas publicadas em `7bd4541`; configurações persistidas implementadas e verificadas em etapa própria (`etapa-configuracoes-2026-11-11.md`). Após a validação/publicação desse incremento, restam quatro entregas de software: regras/registro, interface de alertas, autenticação do dispositivo e firmware. Os ajustes visuais novos ainda exigem conferência no aparelho; o ensaio físico continua separado.
+
 | Etapa | Trabalho | Aceite antes de seguir |
 | --- | --- | --- |
 | 1. Encerrar a versão de páginas | Concluir regressões, ajustar gráfico móvel/acesso, verificar reinício/persistência, atualizar documentação e publicar o código | Rotas diretas/reload/404 e menu corretos; CRUD/leituras/histórico/painel/móvel aprovados; dados de uso preservados; commit/push confirmado. Conferência visual dos ajustes no aparelho permanece separada dos testes DOM/HTTP. |

@@ -17,6 +17,56 @@ namespace Iceplay.Api.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.12");
 
+            modelBuilder.Entity("Iceplay.Api.Models.ConfiguracaoGeladeira", b =>
+                {
+                    b.Property<int>("GeladeiraId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("AtualizadoEmUtc")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("AusenciaLeiturasSegundos")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("InicioMonitoramentoEmUtc")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("MonitoramentoAtivo")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("OrigemMonitorada")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("TemperaturaMaximaC")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("TemperaturaMinimaC")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("ToleranciaPortaAbertaSegundos")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("GeladeiraId");
+
+                    b.ToTable("ConfiguracoesGeladeiras", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_Configuracoes_AusenciaLeituras", "typeof(\"AusenciaLeiturasSegundos\") = 'integer' AND \"AusenciaLeiturasSegundos\" BETWEEN 1 AND 2147483647");
+
+                            t.HasCheckConstraint("CK_Configuracoes_GeladeiraId", "\"GeladeiraId\" > 0");
+
+                            t.HasCheckConstraint("CK_Configuracoes_Instantes", "julianday(\"AtualizadoEmUtc\") IS NOT NULL AND ((\"MonitoramentoAtivo\" = 0 AND \"InicioMonitoramentoEmUtc\" IS NULL) OR (\"MonitoramentoAtivo\" = 1 AND \"InicioMonitoramentoEmUtc\" IS NOT NULL AND julianday(\"InicioMonitoramentoEmUtc\") IS NOT NULL AND \"InicioMonitoramentoEmUtc\" <= \"AtualizadoEmUtc\"))");
+
+                            t.HasCheckConstraint("CK_Configuracoes_MonitoramentoAtivo", "\"MonitoramentoAtivo\" IN (0, 1)");
+
+                            t.HasCheckConstraint("CK_Configuracoes_Origem", "\"OrigemMonitorada\" IN ('Simulacao', 'Hardware')");
+
+                            t.HasCheckConstraint("CK_Configuracoes_Temperaturas", "\"TemperaturaMinimaC\" BETWEEN -1.7976931348623157e308 AND 1.7976931348623157e308 AND \"TemperaturaMaximaC\" BETWEEN -1.7976931348623157e308 AND 1.7976931348623157e308 AND \"TemperaturaMinimaC\" < \"TemperaturaMaximaC\"");
+
+                            t.HasCheckConstraint("CK_Configuracoes_ToleranciaPorta", "typeof(\"ToleranciaPortaAbertaSegundos\") = 'integer' AND \"ToleranciaPortaAbertaSegundos\" BETWEEN 1 AND 2147483647");
+                        });
+                });
+
             modelBuilder.Entity("Iceplay.Api.Models.Geladeira", b =>
                 {
                     b.Property<int>("Id")
@@ -86,6 +136,15 @@ namespace Iceplay.Api.Migrations
 
                             t.HasCheckConstraint("CK_Leituras_TemperaturaFinita", "\"TemperaturaC\" BETWEEN -1.7976931348623157e308 AND 1.7976931348623157e308");
                         });
+                });
+
+            modelBuilder.Entity("Iceplay.Api.Models.ConfiguracaoGeladeira", b =>
+                {
+                    b.HasOne("Iceplay.Api.Models.Geladeira", null)
+                        .WithOne()
+                        .HasForeignKey("Iceplay.Api.Models.ConfiguracaoGeladeira", "GeladeiraId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Iceplay.Api.Models.Leitura", b =>

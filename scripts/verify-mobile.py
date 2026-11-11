@@ -119,7 +119,8 @@ def main():
         for path, method in (("/api/health", "GET"), ("/api/geladeiras", "GET"), ("/api/geladeiras/1", "GET"),
                              ("/api/geladeiras", "POST"), ("/api/geladeiras/1", "PUT"), ("/api/geladeiras/1", "DELETE"),
                              ("/api/leituras", "POST"), ("/api/leituras?geladeiraId=1&origem=Simulacao", "GET"),
-                             ("/api/monitoramento?origem=Simulacao", "GET")):
+                             ("/api/monitoramento?origem=Simulacao", "GET"),
+                             ("/api/geladeiras/1/configuracao", "GET"), ("/api/geladeiras/1/configuracao", "PUT")):
             request(secure, path, 401, method)
         public_cert, _ = request(bootstrap, "/certificado.cer", 200, opener=plain)
         check(hashlib.sha256(public_cert).digest() == hashlib.sha256(Path(settings["PublicCertificatePath"]).read_bytes()).digest(), "Porta HTTP entrega somente o certificado público esperado")
@@ -158,6 +159,15 @@ def main():
         request(secure, "/api/geladeiras", 400, "POST", {"nome": " "}, csrf)
         refrigerator, _ = request(secure, "/api/geladeiras", 201, "POST", {"nome": "FIXTURE MOBILE PERSISTENCIA", "localizacao": "BANCO ISOLADO"}, csrf)
         parent = refrigerator["id"]
+        config_route = f"/api/geladeiras/{parent}/configuracao"
+        initial_config, _ = request(secure, config_route, 200)
+        check(initial_config == {"geladeiraId": parent, "configuracao": None}, "Consulta HTTPS distingue equipamento ainda sem configuracao")
+        parameters = {"temperaturaMinimaC": -1, "temperaturaMaximaC": 6, "toleranciaPortaAbertaSegundos": 90,
+                      "ausenciaLeiturasSegundos": 60, "origemMonitorada": "Simulacao", "monitoramentoAtivo": False}
+        request(secure, config_route, 400, "PUT", parameters)
+        request(secure, config_route, 403, "PUT", parameters, {**csrf, "Origin": "https://outro-host.invalid"})
+        saved_config, _ = request(secure, config_route, 201, "PUT", parameters, csrf)
+        check(saved_config["configuracao"]["inicioMonitoramentoEmUtc"] is None, "Configuracao de teste e salva inativa pela API protegida")
         request(secure, f"/api/geladeiras/{parent}", 200)
         request(secure, f"/api/geladeiras/{parent}", 200, "PUT", {"nome": "FIXTURE MOBILE EDITADA", "localizacao": "BANCO ISOLADO"}, csrf)
         reading = {"geladeiraId": parent, "temperaturaC": 0, "portaAberta": False,
@@ -201,6 +211,8 @@ def main():
         request(secure, "/api/acesso/entrar", 204, "POST", {"codigo": settings["AccessCode"]}, csrf)
         persisted, _ = request(secure, f"/api/geladeiras/{parent}", 200)
         check(persisted["nome"] == "FIXTURE MOBILE EDITADA", "Cadastro editado permanece após reiniciar")
+        persisted_config, _ = request(secure, config_route, 200)
+        check(persisted_config == saved_config, "Configuracao HTTPS persiste apos reinicio e nova autenticacao")
         snapshot, _ = request(secure, "/api/monitoramento?origem=Simulacao", 200)
         check(snapshot["geladeiras"][0]["ultimaLeitura"]["id"] == last["id"], "Última leitura permanece após reiniciar")
         persisted_history, _ = request(secure, history_path, 200)
@@ -227,7 +239,10 @@ def main():
             check(connection.execute("PRAGMA integrity_check").fetchone()[0] == "ok", "SQLite mantém integridade")
             check(not connection.execute("PRAGMA foreign_key_check").fetchall(), "SQLite mantém vínculos válidos")
             check(connection.execute("SELECT COUNT(*) FROM Geladeiras").fetchone()[0] == 1 and connection.execute("SELECT COUNT(*) FROM Leituras").fetchone()[0] == 2, "Somente uma geladeira e duas leituras fixture permanecem no banco isolado")
-            check(connection.execute('SELECT COUNT(*) FROM "__EFMigrationsHistory"').fetchone()[0] == 2, "Duas migrations existentes, sem nova migration de autenticação")
+            migrations = [r[0] for r in connection.execute('SELECT MigrationId FROM "__EFMigrationsHistory" ORDER BY MigrationId')]
+            check(len(migrations) == 3 and migrations[:2] == ["20261013172101_InitialCreate", "20261018023456_AddLeituras"]
+                  and migrations[2].endswith("_AddConfiguracoesGeladeiras"), "Migrations anteriores preservadas com nova tabela de configuracoes")
+            check(connection.execute('SELECT COUNT(*) FROM ConfiguracoesGeladeiras').fetchone()[0] == 1, "Somente configuracao fixture permanece no banco isolado")
         report["result"] = "passed"
     except Exception as error:
         report["errors"].append(type(error).__name__ + ": " + str(error))

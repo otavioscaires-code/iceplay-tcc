@@ -8,9 +8,10 @@
   <title>ICEPLAY | Configurações</title>
   <link rel="icon" href="/assets/iceplay-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/theme.css?v=20261109-pages">
-  <link rel="stylesheet" href="/styles.css?v=20261109-pages">
+  <link rel="stylesheet" href="/styles.css?v=20261109-config">
   <script src="/shell.js?v=20261109-pages" defer></script>
   <script src="/acesso.js?v=20261109-pages" defer></script>
+  <script type="module" src="/configuracoes.js?v=20261109-config"></script>
 
 </head>
 <body class="app-layout" data-page="configuracoes">
@@ -35,7 +36,30 @@
     </header>
     <main id="conteudo" class="page-content">
       <header class="page-heading"><p class="eyebrow">ICEPLAY / Configurações</p><h1>Configurações</h1><p>Parâmetros e regras de monitoramento por equipamento.</p></header>
-      <section class="unavailable-panel" aria-labelledby="configuracoes-title"><span class="scope-tag">Persistência pendente</span><h2 id="configuracoes-title">Regras por equipamento.</h2><p>Limites e tolerâncias ainda não possuem armazenamento ou endpoints. Não há alterações de regras disponíveis nesta versão.</p><dl class="planned-settings"><div><dt>Temperatura mínima e máxima</dt><dd>Faixa a definir conforme o uso da geladeira.</dd></div><div><dt>Tolerância de porta aberta</dt><dd>Duração antes de registrar uma ocorrência.</dd></div><div><dt>Ausência de leituras</dt><dd>Prazo sem receber medições e início do monitoramento.</dd></div></dl><p class="monitor-note">A referência visual de 60 segundos no painel não é uma regra de alerta persistida.</p><a class="button button-secondary" href="/geladeiras">Gerenciar equipamentos</a></section>
+      <section class="settings-workspace" aria-labelledby="configuracoes-title">
+        <div class="settings-heading"><div><h2 id="configuracoes-title">Parâmetros por geladeira</h2><p>Escolha os valores conforme o uso do equipamento. Nenhum limite de conservação foi presumido.</p></div><a class="button button-secondary" href="/geladeiras">Gerenciar geladeiras</a></div>
+        <p class="settings-notice">Esta etapa salva os parâmetros no banco. A geração de alertas ainda não está implementada, mesmo com a habilitação planejada marcada.</p>
+        <div class="settings-selector monitor-control"><div><label for="configuracao-geladeira">Geladeira</label><select id="configuracao-geladeira" disabled><option value="">Consultando equipamentos…</option></select></div><button class="button button-secondary" id="configuracao-recarregar" type="button">Recarregar dados</button></div>
+        <p class="equipment-feedback" id="configuracao-status" role="status" aria-live="polite">Consultando as geladeiras disponíveis…</p>
+        <noscript><p>Ative o JavaScript para consultar e salvar configurações pela API.</p></noscript>
+        <form id="configuracao-form" method="post" action="/configuracoes" aria-describedby="configuracao-status">
+          <fieldset id="configuracao-campos" disabled>
+            <legend>Limites e tempos</legend>
+            <div class="settings-fields">
+              <div class="form-field"><label for="configuracao-minima">Temperatura mínima (°C)</label><input id="configuracao-minima" name="temperaturaMinimaC" type="number" step="any" inputmode="decimal" required aria-describedby="configuracao-temperatura-ajuda" disabled></div>
+              <div class="form-field"><label for="configuracao-maxima">Temperatura máxima (°C)</label><input id="configuracao-maxima" name="temperaturaMaximaC" type="number" step="any" inputmode="decimal" required aria-describedby="configuracao-temperatura-ajuda" disabled></div>
+              <p class="field-help settings-wide" id="configuracao-temperatura-ajuda">A mínima precisa ser menor que a máxima. Estes valores serão usados pelas futuras regras; não certificam segurança de alimentos.</p>
+              <div class="form-field"><label for="configuracao-porta">Tolerância de porta aberta (segundos)</label><input id="configuracao-porta" name="toleranciaPortaAbertaSegundos" type="number" step="1" min="1" max="2147483647" inputmode="numeric" required disabled></div>
+              <div class="form-field"><label for="configuracao-ausencia">Prazo sem leituras (segundos)</label><input id="configuracao-ausencia" name="ausenciaLeiturasSegundos" type="number" step="1" min="1" max="2147483647" inputmode="numeric" required aria-describedby="configuracao-ausencia-ajuda" disabled></div>
+              <p class="field-help settings-wide" id="configuracao-ausencia-ajuda">O prazo persistido prepara a futura regra de ausência. A referência visual de 60 segundos da Visão geral continua independente e não é alterada aqui.</p>
+              <div class="form-field monitor-control"><label for="configuracao-origem">Origem monitorada</label><select id="configuracao-origem" name="origemMonitorada" required disabled><option value="">Selecione a origem</option><option value="Simulacao">Simulação</option><option value="Hardware">Hardware declarado</option></select><p class="field-help">Hardware é uma declaração do emissor; não comprova sensor físico ou autenticado.</p></div>
+              <div class="settings-activation"><label for="configuracao-ativo"><input id="configuracao-ativo" name="monitoramentoAtivo" type="checkbox" disabled><span>Preparar habilitação do monitoramento</span></label><p class="field-help">O servidor registra o início ao habilitar ou trocar a origem enquanto habilitado. Alterar apenas limites ou tempos mantém esse início. Ainda não há avaliação de alertas.</p></div>
+            </div>
+          </fieldset>
+          <button class="button button-primary" id="configuracao-salvar" type="submit" disabled>Salvar configurações</button>
+        </form>
+        <section class="settings-saved" aria-labelledby="configuracao-salva-title"><h3 id="configuracao-salva-title">Estado confirmado pela API</h3><p id="configuracao-resumo">Nenhuma configuração confirmada nesta consulta.</p><dl><div><dt>Início da habilitação planejada</dt><dd><time id="configuracao-inicio">Não definido</time></dd></div><div><dt>Última atualização salva</dt><dd><time id="configuracao-atualizacao">Não definido</time></dd></div></dl></section>
+      </section>
     </main>
     <footer class="app-footer"><span>ICEPLAY · Monitoramento de geladeiras</span><a href="/sobre">Base técnica e próximas etapas</a></footer>
   </div>

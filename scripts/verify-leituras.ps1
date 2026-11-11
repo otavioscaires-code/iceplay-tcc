@@ -281,7 +281,8 @@ try:
     parent_count = connection.execute('SELECT count(*) FROM "Geladeiras" WHERE "Id"=?', (parent_id,)).fetchone()[0]
     assert parent_count == 1
     migrations = [row[0] for row in connection.execute('SELECT "MigrationId" FROM "__EFMigrationsHistory" ORDER BY "MigrationId"')]
-    assert len(migrations) == 2 and migrations[0] == "20261013172101_InitialCreate", migrations
+    assert len(migrations) == 3 and migrations[:2] == ["20261013172101_InitialCreate", "20261018023456_AddLeituras"] and migrations[2].endswith("_AddConfiguracoesGeladeiras"), migrations
+    assert connection.execute('SELECT COUNT(*) FROM ConfiguracoesGeladeiras').fetchone()[0] == 0
     print(json.dumps({"result":"passed","integrity":"ok","columns":columns,"foreignKeys":foreign_keys,"foreignKeyCheck":[],"directParentDeleteBlocked":blocked,"leituraCount":count,"parentFixtureCount":parent_count,"migrations":migrations}, ensure_ascii=False))
 finally:
     connection.close()
@@ -303,7 +304,7 @@ try {
     $taskMigrationNames = @(Get-ChildItem -LiteralPath (Join-Path $taskRoot 'src/Iceplay.Api/Migrations') -File -Filter '*.cs' |
         Where-Object { $_.BaseName -match '^\d{14}_' -and $_.Name -notlike '*.Designer.cs' } |
         Sort-Object Name | ForEach-Object { $_.BaseName })
-    Assert-Leituras ($taskMigrationNames.Count -eq 2 -and $taskMigrationNames[0] -ceq $taskInitialMigration -and $taskMigrationNames[1] -ceq $taskLeiturasMigration) 'Fontes contem exatamente InitialCreate e AddLeituras previstas'
+    Assert-Leituras ($taskMigrationNames.Count -eq 3 -and $taskMigrationNames[0] -ceq $taskInitialMigration -and $taskMigrationNames[1] -ceq $taskLeiturasMigration -and $taskMigrationNames[2] -like '*_AddConfiguracoesGeladeiras') 'Fontes preservam as duas migrations anteriores e acrescentam somente configuracoes'
     $taskReport.migrations = $taskMigrationNames
 
     $taskReport.phase = 'migration inicial e fixture antes do upgrade'
@@ -318,7 +319,7 @@ try {
     Wait-LeiturasApi $taskCurrent
     Assert-LeiturasParent $taskCurrent $taskParent
     $taskReport.afterUpgrade = Invoke-LeiturasPython $taskSchemaPython @($taskDatabase, [string] $taskParent.id) 'after-upgrade'
-    Assert-Leituras ($taskReport.afterUpgrade.leituraCount -eq 0 -and (@($taskReport.afterUpgrade.migrations) -join ',') -ceq ($taskMigrationNames -join ',')) 'Upgrade preserva cadastro, cria Leituras vazia e aplica somente as duas migrations previstas'
+    Assert-Leituras ($taskReport.afterUpgrade.leituraCount -eq 0 -and (@($taskReport.afterUpgrade.migrations) -join ',') -ceq ($taskMigrationNames -join ',')) 'Upgrade preserva cadastro, cria Leituras vazia e aplica somente as migrations previstas'
 
     $taskReport.phase = 'POST Simulacao com zero e porta false'
     $taskMeasured = [DateTime]::UtcNow.AddHours(-2).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ')

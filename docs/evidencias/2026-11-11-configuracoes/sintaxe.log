@@ -1,0 +1,17 @@
+Sintaxe OK: acesso.js
+Sintaxe OK: app.js
+Sintaxe OK: configuracoes-estado.mjs
+Sintaxe OK: configuracoes.js
+Sintaxe OK: geladeiras.js
+Sintaxe OK: historico-estado.mjs
+Sintaxe OK: historico.js
+Sintaxe OK: monitoramento-estado.mjs
+Sintaxe OK: monitoramento.js
+Sintaxe OK: shell.js
+Sintaxe OK: acesso.test.mjs
+Sintaxe OK: configuracoes.test.mjs
+Sintaxe OK: historico-estado.test.mjs
+Sintaxe OK: monitoramento-estado.test.mjs
+Sintaxe OK: shell.test.mjs
+Sintaxe PowerShell aprovada para todos os scripts.
+Sintaxe Python aprovada: 3 scripts
