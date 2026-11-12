@@ -1,0 +1,156 @@
+{
+  "result": "failed",
+  "scope": "Software e fixtures isoladas, inclusive origem Hardware declarada para teste; sem medicoes fisicas",
+  "startedAtUtc": "2026-11-12T19:54:44.8328367Z",
+  "lastActionAtUtc": "2026-11-12T19:54:53.4938646Z",
+  "finishedAtUtc": "2026-11-12T19:54:53.4938784Z",
+  "phase": "POST Simulacao com zero e porta false",
+  "runId": "20261112T195444Z-c0992f05",
+  "isolatedDatabase": "C:\\Users\\otavi\\Downloads\\iceplay\\.tools\\verification\\20261112T195444Z-c0992f05\\iceplay.db",
+  "logDirectory": "C:\\Users\\otavi\\Downloads\\iceplay\\docs\\evidencias\\2026-11-12-pre-hardware\\dispositivos-regressoes\\verify-leituras",
+  "sdk": "10.0.401",
+  "checkCount": 15,
+  "recordedRequestCount": 3,
+  "checksPassed": [
+    "Build sem restauracao conclui com codigo zero",
+    "Fontes preservam a ordem das tres migrations anteriores; esquema final sera comparado integralmente",
+    "Ferramenta EF initial-migration retorna codigo zero",
+    "Python SQLite before-upgrade retorna codigo zero",
+    "Fixture geladeira existe antes de criar tabela Leituras",
+    "upgrade aditivo pela aplicacao: GET /api/geladeiras/1 retorna HTTP 200",
+    "upgrade aditivo pela aplicacao: corpo possui tipo JSON",
+    "Geladeira anterior a migration preserva ID, nome, localizacao e criacao",
+    "upgrade aditivo pela aplicacao: GET /api/health retorna HTTP 200",
+    "upgrade aditivo pela aplicacao: corpo possui tipo JSON",
+    "Saude real confirma exatamente uma geladeira fixture preservada",
+    "Python SQLite after-upgrade retorna codigo zero",
+    "Upgrade preserva cadastro, cria Leituras vazia e aplica somente as migrations previstas",
+    "POST Simulacao com zero e porta false: POST /api/leituras retorna HTTP 201",
+    "POST Simulacao com zero e porta false: corpo possui tipo JSON"
+  ],
+  "requests": [
+    {
+      "atUtc": "2026-11-12T19:54:52.8068927Z",
+      "phase": "upgrade aditivo pela aplicacao",
+      "instance": "startup",
+      "source": "verificador HTTP",
+      "method": "GET",
+      "path": "/api/geladeiras/1",
+      "requestBody": "",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "location": "",
+      "responseBody": "{\"id\":1,\"nome\":\"FIXTURE LEITURAS UPGRADE - NAO E CADASTRO REAL\",\"localizacao\":\"BANCO ISOLADO - cadastro anterior a migration de leituras\",\"criadoEmUtc\":\"2026-11-12T19:54:49.793623Z\"}"
+    },
+    {
+      "atUtc": "2026-11-12T19:54:52.9051752Z",
+      "phase": "upgrade aditivo pela aplicacao",
+      "instance": "startup",
+      "source": "verificador HTTP",
+      "method": "GET",
+      "path": "/api/health",
+      "requestBody": "",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "location": "",
+      "responseBody": "{\"status\":\"healthy\",\"database\":\"connected\",\"refrigeratorCount\":1,\"checkedAtUtc\":\"2026-11-12T19:54:52.9109082Z\"}"
+    },
+    {
+      "atUtc": "2026-11-12T19:54:53.1383817Z",
+      "phase": "POST Simulacao com zero e porta false",
+      "instance": "startup",
+      "source": "verificador HTTP",
+      "method": "POST",
+      "path": "/api/leituras",
+      "requestBody": "{\"geladeiraId\":1,\"temperaturaC\":0.0,\"portaAberta\":false,\"medidoEmUtc\":\"2026-11-12T17:54:53.1256749Z\",\"origem\":\"Simulacao\",\"id\":2147483000,\"recebidoEmUtc\":\"2000-01-01T00:00:00Z\"}",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "contentType": "application/json; charset=utf-8",
+      "location": "http://127.0.0.1:58024/api/leituras/1",
+      "responseBody": "{\"id\":1,\"geladeiraId\":1,\"temperaturaC\":0,\"portaAberta\":false,\"medidoEmUtc\":\"2026-11-12T17:54:53.1256749Z\",\"recebidoEmUtc\":\"2026-11-12T19:54:53.1814928Z\",\"origem\":\"Simulacao\",\"dispositivoId\":null,\"medicaoId\":null}"
+    }
+  ],
+  "errors": [
+    "FALHOU: POST simulacao: sete campos, tipos, identidade, temperatura, porta e origem correspondem a fixture"
+  ],
+  "migrations": [
+    "20261013172101_InitialCreate",
+    "20261018023456_AddLeituras",
+    "20261109233935_AddConfiguracoesGeladeiras",
+    "20261112192436_AddAlertas",
+    "20261112194714_AddDispositivos"
+  ],
+  "beforeUpgrade": {
+    "result": "passed",
+    "migrations": [
+      "20261013172101_InitialCreate"
+    ],
+    "leituraTableExists": false,
+    "fixture": {
+      "id": 1,
+      "nome": "FIXTURE LEITURAS UPGRADE - NAO E CADASTRO REAL",
+      "localizacao": "BANCO ISOLADO - cadastro anterior a migration de leituras",
+      "criadoEmUtc": "2026-11-12T19:54:49.793623Z"
+    }
+  },
+  "afterUpgrade": {
+    "result": "passed",
+    "integrity": "ok",
+    "columns": [
+      "Id",
+      "DispositivoId",
+      "GeladeiraId",
+      "MedicaoId",
+      "MedidoEmUtc",
+      "Origem",
+      "PortaAberta",
+      "RecebidoEmUtc",
+      "TemperaturaC"
+    ],
+    "foreignKeys": [
+      [
+        0,
+        0,
+        "Geladeiras",
+        "GeladeiraId",
+        "Id",
+        "NO ACTION",
+        "RESTRICT",
+        "NONE"
+      ],
+      [
+        1,
+        0,
+        "Dispositivos",
+        "DispositivoId",
+        "Id",
+        "NO ACTION",
+        "RESTRICT",
+        "NONE"
+      ]
+    ],
+    "foreignKeyCheck": [],
+    "directParentDeleteBlocked": null,
+    "leituraCount": 0,
+    "parentFixtureCount": 1,
+    "migrations": [
+      "20261013172101_InitialCreate",
+      "20261018023456_AddLeituras",
+      "20261109233935_AddConfiguracoesGeladeiras",
+      "20261112192436_AddAlertas",
+      "20261112194714_AddDispositivos"
+    ]
+  },
+  "fixtureGeladeira": {
+    "id": 1,
+    "nome": "FIXTURE LEITURAS UPGRADE - NAO E CADASTRO REAL",
+    "localizacao": "BANCO ISOLADO - cadastro anterior a migration de leituras",
+    "criadoEmUtc": "2026-11-12T19:54:49.793623Z"
+  },
+  "fixtureLeituras": [],
+  "simulatorResults": [],
+  "finalDatabase": null,
+  "cleanup": "Somente processos criados sao encerrados; fixtures permanecem no banco isolado"
+}

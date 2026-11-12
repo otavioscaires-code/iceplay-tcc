@@ -1,5 +1,6 @@
 using Iceplay.Api.Contracts;
 using Iceplay.Api.Data;
+using Iceplay.Api.Devices;
 using Iceplay.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.Sqlite;
@@ -68,6 +69,38 @@ public sealed class LeiturasController(IceplayDbContext database) : ControllerBa
         }
 
         var geladeiraId = request.GeladeiraId!.Value;
+        var emissor = DispositivoCredentials.Obter(HttpContext);
+        var medicaoId = request.MedicaoId?.ToLowerInvariant();
+        if (emissor is not null)
+        {
+            if (emissor.GeladeiraId != geladeiraId || request.Origem != nameof(OrigemLeitura.Hardware))
+                return Problem(statusCode: 403, title: "A credencial só permite leituras Hardware da geladeira vinculada.");
+            if (medicaoId is null)
+            {
+                ModelState.AddModelError(nameof(request.MedicaoId), "O dispositivo deve identificar cada medição com um UUID.");
+                return ValidationProblem(ModelState);
+            }
+        }
+
+        // A mesma transação serializa revogação, repetição e criação. Um reenvio
+        // confirmado nunca renova RecebidoEmUtc nem duplica uma amostra.
+        await using var transaction = await database.Database.BeginTransactionAsync(cancellationToken);
+        if (emissor is not null)
+        {
+            if (!await database.Dispositivos.AnyAsync(d => d.Id == emissor.DispositivoId && d.RevogadoEmUtc == null, cancellationToken))
+                return Problem(statusCode: 401, title: "Credencial revogada.");
+            var anterior = await database.Leituras.AsNoTracking().SingleOrDefaultAsync(l =>
+                l.DispositivoId == emissor.DispositivoId && l.MedicaoId == medicaoId, cancellationToken);
+            if (anterior is not null)
+            {
+                if (anterior.GeladeiraId != geladeiraId || anterior.TemperaturaC != request.TemperaturaC
+                    || anterior.PortaAberta != request.PortaAberta || anterior.MedidoEmUtc != medidoEmUtc)
+                    return Problem(statusCode: 409, title: "Identificador de medição já usado com conteúdo diferente.");
+                await transaction.CommitAsync(cancellationToken);
+                Response.Headers.Location = Url.Action(nameof(ObterPorId), new { id = anterior.Id });
+                return Ok(ParaResposta(anterior));
+            }
+        }
         if (!await database.Geladeiras.AsNoTracking().AnyAsync(item => item.Id == geladeiraId, cancellationToken))
         {
             return GeladeiraNaoEncontrada();
@@ -80,6 +113,8 @@ public sealed class LeiturasController(IceplayDbContext database) : ControllerBa
             PortaAberta = request.PortaAberta!.Value,
             MedidoEmUtc = medidoEmUtc,
             RecebidoEmUtc = recebidoEmUtc,
+            DispositivoId = emissor?.DispositivoId,
+            MedicaoId = medicaoId,
             Origem = request.Origem == nameof(OrigemLeitura.Simulacao)
                 ? OrigemLeitura.Simulacao
                 : OrigemLeitura.Hardware
@@ -102,6 +137,7 @@ public sealed class LeiturasController(IceplayDbContext database) : ControllerBa
             throw;
         }
 
+        await transaction.CommitAsync(cancellationToken);
         return CreatedAtAction(nameof(ObterPorId), new { id = leitura.Id }, ParaResposta(leitura));
     }
 
@@ -130,5 +166,5 @@ public sealed class LeiturasController(IceplayDbContext database) : ControllerBa
         leitura.PortaAberta,
         leitura.MedidoEmUtc,
         leitura.RecebidoEmUtc,
-        leitura.Origem.ToString());
+        leitura.Origem.ToString(), leitura.DispositivoId, leitura.MedicaoId);
 }

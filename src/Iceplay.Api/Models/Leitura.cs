@@ -9,4 +9,6 @@ public sealed class Leitura
     public DateTime MedidoEmUtc { get; set; }
     public DateTime RecebidoEmUtc { get; set; }
     public OrigemLeitura Origem { get; set; }
+    public int? DispositivoId { get; set; }
+    public string? MedicaoId { get; set; }
 }

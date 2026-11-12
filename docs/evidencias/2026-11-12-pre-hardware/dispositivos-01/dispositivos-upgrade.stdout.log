@@ -1,0 +1,126 @@
+info: Microsoft.EntityFrameworkCore.Migrations[20411]
+      Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (65ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE IF NOT EXISTS "__EFMigrationsLock" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK___EFMigrationsLock" PRIMARY KEY,
+          "Timestamp" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (80ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2026-11-12 19:50:22.406454+00:00');
+      SELECT changes();
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+          "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+          "ProductVersion" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20261112194714_AddDispositivos'.
+warn: Microsoft.EntityFrameworkCore.Migrations[20410]
+      The migration operation 'PRAGMA foreign_keys = 0;
+      ' from migration 'AddDispositivos' cannot be executed in a transaction. If the app is terminated or an unrecoverable error occurs while this operation is being executed then the migration will be left in a partially applied state and would need to be reverted manually before it can be applied again. Create a separate migration that contains just this operation.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Leituras" ADD "DispositivoId" INTEGER NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Leituras" ADD "MedicaoId" TEXT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Dispositivos" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Dispositivos" PRIMARY KEY AUTOINCREMENT,
+          "GeladeiraId" INTEGER NOT NULL,
+          "Nome" TEXT NOT NULL,
+          "CredencialHash" BLOB NOT NULL,
+          "CriadoEmUtc" TEXT NOT NULL,
+          "RevogadoEmUtc" TEXT NULL,
+          CONSTRAINT "CK_Dispositivos_Hash" CHECK (typeof("CredencialHash") = 'blob' AND length("CredencialHash") = 32),
+          CONSTRAINT "CK_Dispositivos_Instantes" CHECK (julianday("CriadoEmUtc") IS NOT NULL AND ("RevogadoEmUtc" IS NULL OR (julianday("RevogadoEmUtc") IS NOT NULL AND "RevogadoEmUtc" >= "CriadoEmUtc"))),
+          CONSTRAINT "CK_Dispositivos_Nome" CHECK (length(trim("Nome")) BETWEEN 1 AND 100),
+          CONSTRAINT "FK_Dispositivos_Geladeiras_GeladeiraId" FOREIGN KEY ("GeladeiraId") REFERENCES "Geladeiras" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_Leituras_DispositivoId_MedicaoId" ON "Leituras" ("DispositivoId", "MedicaoId") WHERE "DispositivoId" IS NOT NULL AND "MedicaoId" IS NOT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_Dispositivos_GeladeiraId" ON "Dispositivos" ("GeladeiraId") WHERE "RevogadoEmUtc" IS NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "ef_temp_Leituras" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Leituras" PRIMARY KEY AUTOINCREMENT,
+          "DispositivoId" INTEGER NULL,
+          "GeladeiraId" INTEGER NOT NULL,
+          "MedicaoId" TEXT NULL,
+          "MedidoEmUtc" TEXT NOT NULL,
+          "Origem" TEXT NOT NULL,
+          "PortaAberta" INTEGER NOT NULL,
+          "RecebidoEmUtc" TEXT NOT NULL,
+          "TemperaturaC" REAL NOT NULL,
+          CONSTRAINT "CK_Leituras_GeladeiraId" CHECK ("GeladeiraId" > 0),
+          CONSTRAINT "CK_Leituras_Instantes" CHECK (julianday("MedidoEmUtc") IS NOT NULL AND julianday("RecebidoEmUtc") IS NOT NULL AND "MedidoEmUtc" <= "RecebidoEmUtc"),
+          CONSTRAINT "CK_Leituras_Origem" CHECK ("Origem" IN ('Simulacao', 'Hardware')),
+          CONSTRAINT "CK_Leituras_PortaAberta" CHECK ("PortaAberta" IN (0, 1)),
+          CONSTRAINT "CK_Leituras_TemperaturaFinita" CHECK ("TemperaturaC" BETWEEN -1.7976931348623157e308 AND 1.7976931348623157e308),
+          CONSTRAINT "FK_Leituras_Dispositivos_DispositivoId" FOREIGN KEY ("DispositivoId") REFERENCES "Dispositivos" ("Id") ON DELETE RESTRICT,
+          CONSTRAINT "FK_Leituras_Geladeiras_GeladeiraId" FOREIGN KEY ("GeladeiraId") REFERENCES "Geladeiras" ("Id") ON DELETE RESTRICT
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "ef_temp_Leituras" ("Id", "DispositivoId", "GeladeiraId", "MedicaoId", "MedidoEmUtc", "Origem", "PortaAberta", "RecebidoEmUtc", "TemperaturaC")
+      SELECT "Id", "DispositivoId", "GeladeiraId", "MedicaoId", "MedidoEmUtc", "Origem", "PortaAberta", "RecebidoEmUtc", "TemperaturaC"
+      FROM "Leituras";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA foreign_keys = 0;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      DROP TABLE "Leituras";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "ef_temp_Leituras" RENAME TO "Leituras";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA foreign_keys = 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_Leituras_DispositivoId_MedicaoId" ON "Leituras" ("DispositivoId", "MedicaoId") WHERE "DispositivoId" IS NOT NULL AND "MedicaoId" IS NOT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Leituras_GeladeiraId_MedidoEmUtc_Id" ON "Leituras" ("GeladeiraId", "MedidoEmUtc", "Id");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (61ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+      VALUES ('20261112194714_AddDispositivos', '10.0.12');
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (104ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "__EFMigrationsLock";
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://127.0.0.1:57720
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\otavi\Downloads\iceplay\src\Iceplay.Api
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."GeladeiraId"
+      FROM "ConfiguracoesGeladeiras" AS "c"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"

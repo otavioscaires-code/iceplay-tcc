@@ -1,0 +1,15 @@
+PASSOU: SQLite integro
+PASSOU: Chaves estrangeiras integras
+PASSOU: SQLite integro
+PASSOU: Chaves estrangeiras integras
+PASSOU: Upgrade preserva geladeira e episodio historicos com vinculo de leitura
+failed: 5 verificacoes; 0 requisicoes
+Traceback (most recent call last):
+  File "C:\Users\otavi\Downloads\iceplay\scripts/verify-dispositivos.py", line 106, in <module>
+    raise error
+  File "C:\Users\otavi\Downloads\iceplay\scripts/verify-dispositivos.py", line 29, in <module>
+    test.check(after["Leituras"][0][:7] == before["Leituras"][0] and after["Leituras"][0][7:] == (None, None), "Upgrade preserva os sete campos antigos e acrescenta metadados nulos")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\otavi\Downloads\iceplay\scripts\verification_http.py", line 30, in check
+    raise AssertionError(description)
+AssertionError: Upgrade preserva os sete campos antigos e acrescenta metadados nulos

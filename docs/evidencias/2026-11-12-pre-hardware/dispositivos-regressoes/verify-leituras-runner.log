@@ -1,0 +1,22 @@
+  Iceplay.Api -> C:\Users\otavi\Downloads\iceplay\src\Iceplay.Api\bin\Debug\net10.0\Iceplay.Api.dll
+
+Compilação com êxito.
+    0 Aviso(s)
+    0 Erro(s)
+
+Tempo Decorrido 00:00:01.11
+PASSOU: Build sem restauracao conclui com codigo zero
+PASSOU: Fontes preservam a ordem das tres migrations anteriores; esquema final sera comparado integralmente
+PASSOU: Ferramenta EF initial-migration retorna codigo zero
+PASSOU: Python SQLite before-upgrade retorna codigo zero
+PASSOU: Fixture geladeira existe antes de criar tabela Leituras
+PASSOU: upgrade aditivo pela aplicacao: GET /api/geladeiras/1 retorna HTTP 200
+PASSOU: upgrade aditivo pela aplicacao: corpo possui tipo JSON
+PASSOU: Geladeira anterior a migration preserva ID, nome, localizacao e criacao
+PASSOU: upgrade aditivo pela aplicacao: GET /api/health retorna HTTP 200
+PASSOU: upgrade aditivo pela aplicacao: corpo possui tipo JSON
+PASSOU: Saude real confirma exatamente uma geladeira fixture preservada
+PASSOU: Python SQLite after-upgrade retorna codigo zero
+PASSOU: Upgrade preserva cadastro, cria Leituras vazia e aplica somente as migrations previstas
+PASSOU: POST Simulacao com zero e porta false: POST /api/leituras retorna HTTP 201
+PASSOU: POST Simulacao com zero e porta false: corpo possui tipo JSON

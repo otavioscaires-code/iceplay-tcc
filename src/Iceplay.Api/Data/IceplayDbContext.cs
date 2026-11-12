@@ -10,6 +10,7 @@ public sealed class IceplayDbContext(DbContextOptions<IceplayDbContext> options)
     public DbSet<ConfiguracaoGeladeira> ConfiguracoesGeladeiras => Set<ConfiguracaoGeladeira>();
     public DbSet<Alerta> Alertas => Set<Alerta>();
     public DbSet<EstadoMonitoramento> EstadosMonitoramento => Set<EstadoMonitoramento>();
+    public DbSet<Dispositivo> Dispositivos => Set<Dispositivo>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -68,6 +69,24 @@ public sealed class IceplayDbContext(DbContextOptions<IceplayDbContext> options)
             .HasForeignKey(item => item.GeladeiraId)
             .OnDelete(DeleteBehavior.Restrict);
         leitura.HasIndex(item => new { item.GeladeiraId, item.MedidoEmUtc, item.Id });
+        leitura.HasOne<Dispositivo>().WithMany().HasForeignKey(l => l.DispositivoId).OnDelete(DeleteBehavior.Restrict);
+        leitura.Property(l => l.MedicaoId).HasMaxLength(36);
+        leitura.HasIndex(l => new { l.DispositivoId, l.MedicaoId }).IsUnique().HasFilter("\"DispositivoId\" IS NOT NULL AND \"MedicaoId\" IS NOT NULL");
+
+        var dispositivo = modelBuilder.Entity<Dispositivo>();
+        dispositivo.ToTable("Dispositivos", table =>
+        {
+            table.HasCheckConstraint("CK_Dispositivos_Nome", "length(trim(\"Nome\")) BETWEEN 1 AND 100");
+            table.HasCheckConstraint("CK_Dispositivos_Hash", "typeof(\"CredencialHash\") = 'blob' AND length(\"CredencialHash\") = 32");
+            table.HasCheckConstraint("CK_Dispositivos_Instantes", "julianday(\"CriadoEmUtc\") IS NOT NULL AND (\"RevogadoEmUtc\" IS NULL OR (julianday(\"RevogadoEmUtc\") IS NOT NULL AND \"RevogadoEmUtc\" >= \"CriadoEmUtc\"))");
+        });
+        dispositivo.HasKey(d => d.Id);
+        dispositivo.Property(d => d.Nome).IsRequired().HasMaxLength(100);
+        dispositivo.Property(d => d.CredencialHash).IsRequired();
+        dispositivo.Property(d => d.CriadoEmUtc).HasConversion(v => v, v => DateTime.SpecifyKind(v, DateTimeKind.Utc));
+        dispositivo.Property(d => d.RevogadoEmUtc).HasConversion(v => v, v => v.HasValue ? DateTime.SpecifyKind(v.Value, DateTimeKind.Utc) : (DateTime?)null);
+        dispositivo.HasOne<Geladeira>().WithMany().HasForeignKey(d => d.GeladeiraId).OnDelete(DeleteBehavior.Cascade);
+        dispositivo.HasIndex(d => d.GeladeiraId).IsUnique().HasFilter("\"RevogadoEmUtc\" IS NULL");
 
         var configuracao = modelBuilder.Entity<ConfiguracaoGeladeira>();
         configuracao.ToTable("ConfiguracoesGeladeiras", table =>

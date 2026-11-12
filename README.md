@@ -1,12 +1,12 @@
 # ICEPLAY
 
-Atualização de **12/11/2026**: avaliação periódica e episódios de alertas integrados à API, página própria e resumo do painel, com quatro migrations aditivas. Configuração explicitamente ativa passa a gerar ocorrências; não há seed. O [contrato de alertas](docs/contrato-alertas.md) e os relatórios de backend/interface registram decisões e testes.
+Atualização de **12/11/2026**: alertas integrados à API/páginas e credenciais por dispositivo com ingestão idempotente, com cinco migrations. Configuração explicitamente ativa gera ocorrências; não há seed. Os contratos de [alertas](docs/contrato-alertas.md) e [dispositivos](docs/contrato-dispositivos.md) e os relatórios datados registram decisões e testes.
 
 Para verificar: `./scripts/verify-alertas.ps1 -EvidenceDirectory docs/evidencias/sua-nova-revisao/alertas`. Usa um programa C# de verificação com relógio controlado, reaproveitando as dependências existentes, e a API real com SQLite isolado. Não representa ensaio físico.
 
 Projeto de TCC de Ciência da Computação: sistema IoT para monitoramento de geladeiras comerciais. Base iniciada em **13/10/2026**, com cadastro de geladeiras desenvolvido em **15/10/2026**, revisado em **17/10/2026** e ingestão/simulador verificados em **19/10/2026**. Pelo cronograma do professor, a versão completa deve ser entregue em **24/11/2026** e apresentada em **01/12/2026**.
 
-O sistema inclui ASP.NET Core, SQLite com EF Core, cadastro de geladeiras, saúde real do banco, recebimento de leituras, simulador, painel, histórico, configurações persistidas e alertas. As páginas possuem URLs próprias. Autenticação do ESP32, firmware e ensaio físico são os próximos incrementos. Iniciar não insere cadastros, parâmetros ou leituras; equipamentos configurados e explicitamente ativos geram ocorrências conforme as regras. Leituras de teste são identificadas como simulação. Consulte o [plano vigente](docs/plano-ate-hardware-2026-11-09.md).
+O sistema inclui ASP.NET Core, SQLite com EF Core, cadastro, saúde real do banco, ingestão/simulador, painel, histórico, configurações, alertas e credenciais de emissor. As páginas possuem URLs próprias. Firmware e ensaio físico são os próximos incrementos. Iniciar não insere cadastros, parâmetros ou leituras; equipamentos configurados e explicitamente ativos geram ocorrências conforme as regras. Leituras de teste são identificadas como simulação. Consulte o [plano vigente](docs/plano-ate-hardware-2026-11-09.md).
 
 ## Executar neste computador
 
@@ -105,7 +105,7 @@ A rota executa `COUNT(*)` na tabela `Geladeiras`. Isso verifica a conexão **e a
 
 O arquivo de uso é `src/Iceplay.Api/data/iceplay.db`. O caminho relativo configurado em `appsettings.json` é resolvido a partir da pasta da aplicação, independentemente da pasta de onde o script foi chamado. A configuração atual espera um **caminho de arquivo**, não `:memory:` ou URI SQLite. Banco, WAL e arquivos gerados ficam fora do Git.
 
-As migrations automáticas são limitadas a **Development**, com uma instância local. Em outro ambiente, aplique o esquema explicitamente antes de iniciar. Não remova o banco para atualizar o modelo. Use backup consistente para dados relevantes. O [SQL atualizado de criação](docs/sql/iceplay-criacao-2026-11-09.sql) contém as três migrations e serve somente para banco novo; o SQL anterior foi preservado como histórico. Em conexões SQLite manuais, habilite `PRAGMA foreign_keys=ON`.
+As migrations automáticas são limitadas a **Development**, com uma instância local. Em outro ambiente, aplique o esquema explicitamente antes de iniciar. Não remova o banco para atualizar o modelo. Use backup consistente para dados relevantes. O [SQL atualizado de criação](docs/sql/iceplay-criacao-2026-11-12.sql) contém as cinco migrations e serve somente para banco novo; os SQLs anteriores foram preservados. A inclusão do vínculo de dispositivo exige reconstrução interna da tabela Leituras pelo EF/SQLite, testada com registros e alertas preexistentes, sem perda de campos/IDs. Em conexões manuais, habilite `PRAGMA foreign_keys=ON`.
 
 ## Usar o cadastro na interface
 
@@ -130,6 +130,9 @@ A tela apresenta erros de validação, falhas de conexão e estado sem cadastros
 | `GET /api/alertas` | `200` | Ocorrências com filtros opcionais e paginação; veja contrato |
 | `GET /api/alertas/{id}` | `200` | Um episódio com evidências, parâmetros e motivo de encerramento; ausente: 404 |
 | `GET /api/alertas/resumo?origem=Simulacao` | `200` | Contagens reais, equipamentos ativos, estado do avaliador e cinco ocorrências recentes |
+| `GET/POST /api/geladeiras/{id}/dispositivos` | `200/201` | Consulta metadados ou emite uma credencial com nome; somente uma ativa; conflito 409 |
+| `GET /api/geladeiras/{id}/dispositivos/{dispositivoId}` | `200` | Metadados sem segredo; vínculo ausente: 404 |
+| `POST /api/geladeiras/{id}/dispositivos/{dispositivoId}/revogar` | `200` | Revoga explicitamente; ausência: 404 |
 | `GET /api/acesso` | `200` | Estado de acesso deste dispositivo e token de formulário quando necessário |
 | `POST /api/acesso/entrar` | `204` | No modo móvel HTTPS, recebe `{"codigo":"seu código local"}` e inicia sessão |
 | `POST /api/acesso/sair` | `204` | Encerra a sessão deste navegador no modo móvel HTTPS |

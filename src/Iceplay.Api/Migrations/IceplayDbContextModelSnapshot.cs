@@ -145,6 +145,46 @@ namespace Iceplay.Api.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Iceplay.Api.Models.Dispositivo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<byte[]>("CredencialHash")
+                        .IsRequired()
+                        .HasColumnType("BLOB");
+
+                    b.Property<DateTime>("CriadoEmUtc")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("GeladeiraId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("RevogadoEmUtc")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GeladeiraId")
+                        .IsUnique()
+                        .HasFilter("\"RevogadoEmUtc\" IS NULL");
+
+                    b.ToTable("Dispositivos", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_Dispositivos_Hash", "typeof(\"CredencialHash\") = 'blob' AND length(\"CredencialHash\") = 32");
+
+                            t.HasCheckConstraint("CK_Dispositivos_Instantes", "julianday(\"CriadoEmUtc\") IS NOT NULL AND (\"RevogadoEmUtc\" IS NULL OR (julianday(\"RevogadoEmUtc\") IS NOT NULL AND \"RevogadoEmUtc\" >= \"CriadoEmUtc\"))");
+
+                            t.HasCheckConstraint("CK_Dispositivos_Nome", "length(trim(\"Nome\")) BETWEEN 1 AND 100");
+                        });
+                });
+
             modelBuilder.Entity("Iceplay.Api.Models.EstadoMonitoramento", b =>
                 {
                     b.Property<int>("GeladeiraId")
@@ -201,8 +241,15 @@ namespace Iceplay.Api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("DispositivoId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("GeladeiraId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("MedicaoId")
+                        .HasMaxLength(36)
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("MedidoEmUtc")
                         .HasColumnType("TEXT");
@@ -221,6 +268,10 @@ namespace Iceplay.Api.Migrations
                         .HasColumnType("REAL");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DispositivoId", "MedicaoId")
+                        .IsUnique()
+                        .HasFilter("\"DispositivoId\" IS NOT NULL AND \"MedicaoId\" IS NOT NULL");
 
                     b.HasIndex("GeladeiraId", "MedidoEmUtc", "Id");
 
@@ -261,6 +312,15 @@ namespace Iceplay.Api.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Iceplay.Api.Models.Dispositivo", b =>
+                {
+                    b.HasOne("Iceplay.Api.Models.Geladeira", null)
+                        .WithMany()
+                        .HasForeignKey("GeladeiraId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Iceplay.Api.Models.EstadoMonitoramento", b =>
                 {
                     b.HasOne("Iceplay.Api.Models.ConfiguracaoGeladeira", null)
@@ -272,6 +332,11 @@ namespace Iceplay.Api.Migrations
 
             modelBuilder.Entity("Iceplay.Api.Models.Leitura", b =>
                 {
+                    b.HasOne("Iceplay.Api.Models.Dispositivo", null)
+                        .WithMany()
+                        .HasForeignKey("DispositivoId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("Iceplay.Api.Models.Geladeira", null)
                         .WithMany()
                         .HasForeignKey("GeladeiraId")

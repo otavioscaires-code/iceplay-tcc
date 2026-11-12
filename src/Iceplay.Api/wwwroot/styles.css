@@ -387,6 +387,11 @@ input::placeholder { color: var(--muted); opacity: 1; }
   .alert-filters input, .alert-filters select { font-size: 16px; min-width: 0; }
 }
 .settings-workspace { max-width: 980px; padding: 26px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.device-workspace { margin-top: 26px; }
+.device-item { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border); margin-bottom: 18px; }
+.device-item p { margin: 0; overflow-wrap: anywhere; }
+.device-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.device-workspace textarea { display: block; width: 100%; min-width: 0; margin-top: 12px; padding: 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--background); color: var(--text); font-size: 16px; resize: vertical; }
 .settings-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
 .settings-heading h2 { font-size: 22px; }
 .settings-heading p, .settings-saved p { color: var(--muted); font-size: 14px; }

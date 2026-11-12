@@ -1,0 +1,16 @@
+{
+  "result": "failed",
+  "startedAtUtc": "2026-11-12T19:50:20.648857+00:00",
+  "scope": "Software HTTP/SQLite isolado; nao comprova hardware nem Safari",
+  "checks": [
+    "SQLite integro",
+    "Chaves estrangeiras integras",
+    "SQLite integro",
+    "Chaves estrangeiras integras",
+    "Upgrade preserva geladeira e episodio historicos com vinculo de leitura"
+  ],
+  "requests": [],
+  "assertions": 5,
+  "finishedAtUtc": "2026-11-12T19:50:23.674260+00:00",
+  "error": "Upgrade preserva os sete campos antigos e acrescenta metadados nulos"
+}

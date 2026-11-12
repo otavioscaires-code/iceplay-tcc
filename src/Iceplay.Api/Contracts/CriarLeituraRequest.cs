@@ -37,8 +37,13 @@ public sealed class CriarLeituraRequest : IValidatableObject
     [Required(ErrorMessage = "A origem da leitura é obrigatória.")]
     public string? Origem { get; init; }
 
+    [StringLength(36)]
+    public string? MedicaoId { get; init; }
+
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
+        if (MedicaoId is not null && (!Guid.TryParseExact(MedicaoId, "D", out _) || MedicaoId.Length != 36))
+            yield return new ValidationResult("Use um UUID no formato D para identificar a medição.", [nameof(MedicaoId)]);
         if (TemperaturaC.HasValue && !double.IsFinite(TemperaturaC.Value))
         {
             yield return new ValidationResult(

@@ -1,0 +1,89 @@
+PASSOU: POST /api/geladeiras retorna 201 (real: 201)
+PASSOU: GET /api/alertas retorna 503 (real: 503)
+PASSOU: SQLite integro
+PASSOU: Chaves estrangeiras integras
+PASSOU: SQLite integro
+PASSOU: Chaves estrangeiras integras
+PASSOU: Upgrade preserva os dados anteriores
+PASSOU: Migration nao cria ocorrencias nem estados sem configuracao
+PASSOU: Todas as migrations reais estao aplicadas em ordem
+PASSOU: GET /api/alertas?geladeiraId=0 retorna 400 (real: 400)
+PASSOU: GET /api/alertas?origem= retorna 400 (real: 400)
+PASSOU: GET /api/alertas?origem=hardware retorna 400 (real: 400)
+PASSOU: GET /api/alertas?tipo=Invalido retorna 400 (real: 400)
+PASSOU: GET /api/alertas?gravidade=Alto retorna 400 (real: 400)
+PASSOU: GET /api/alertas?situacao=Resolvido retorna 400 (real: 400)
+PASSOU: GET /api/alertas?inicioUtc=2026-11-12 retorna 400 (real: 400)
+PASSOU: GET /api/alertas?fimUtc=2026-11-12T12:00:00%2B00:00 retorna 400 (real: 400)
+PASSOU: GET /api/alertas?pagina=0 retorna 400 (real: 400)
+PASSOU: GET /api/alertas?tamanhoPagina=101 retorna 400 (real: 400)
+PASSOU: GET /api/alertas?pagina=2147483647&tamanhoPagina=100 retorna 400 (real: 400)
+PASSOU: GET /api/alertas?inicioUtc=2026-12-01T00:00:00Z&fimUtc=2026-11-01T00:00:00Z retorna 400 (real: 400)
+PASSOU: GET /api/alertas?geladeiraId=2147483647 retorna 404 (real: 404)
+PASSOU: GET /api/alertas/2147483647 retorna 404 (real: 404)
+PASSOU: GET /api/alertas/resumo retorna 400 (real: 400)
+PASSOU: GET /api/alertas/resumo?origem=hardware retorna 400 (real: 400)
+PASSOU: GET /api/alertas retorna 200 (real: 200)
+PASSOU: Consulta vazia e real, sem seed
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 201 (real: 201)
+PASSOU: POST /api/leituras retorna 201 (real: 201)
+PASSOU: GET /api/alertas?tipo=TemperaturaForaFaixa&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=TemperaturaForaFaixa&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=TemperaturaForaFaixa&situacao=Aberto retorna 200 (real: 200)
+PASSOU: Worker registra temperatura sem chamada de avaliacao pelo teste
+PASSOU: POST /api/leituras retorna 201 (real: 201)
+PASSOU: GET /api/alertas?tipo=PortaAberta&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=PortaAberta&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=PortaAberta&situacao=Aberto retorna 200 (real: 200)
+PASSOU: Amostras recentes confirmam porta aberta
+PASSOU: GET /api/alertas?tipo=TemperaturaForaFaixa&situacao=Aberto retorna 200 (real: 200)
+PASSOU: HTTP confirma deduplicacao de temperatura
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: Ausencia detectada com servidor sem novos POSTs
+PASSOU: GET /api/alertas?tipo=PortaAberta&situacao=Encerrado retorna 200 (real: 200)
+PASSOU: HTTP distingue interrupcao de normalizacao
+PASSOU: POST /api/leituras retorna 201 (real: 201)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)
+PASSOU: Nova leitura recente encerra ausencia
+PASSOU: GET /api/alertas/resumo?origem=Simulacao retorna 200 (real: 200)
+PASSOU: Resumo apresenta contagens reais e estado do avaliador
+PASSOU: GET /api/alertas/1 retorna 200 (real: 200)
+PASSOU: Detalhe inclui equipamento, parametros e evidencia real da fixture
+PASSOU: GET /api/alertas?origem=Simulacao retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tamanhoPagina=1 retorna 200 (real: 200)
+PASSOU: GET /api/alertas?tamanhoPagina=1&pagina=2 retorna 200 (real: 200)
+PASSOU: Paginacao preserva ordem por abertura e ID
+PASSOU: DELETE /api/geladeiras/1 retorna 409 (real: 409)
+PASSOU: PUT /api/geladeiras/1/configuracao retorna 200 (real: 200)
+PASSOU: GET /api/alertas/resumo?origem=Simulacao retorna 200 (real: 200)
+PASSOU: Configuracao desativada refletida no resumo
+PASSOU: SQLite integro
+PASSOU: Chaves estrangeiras integras
+PASSOU: GET /api/alertas retorna 200 (real: 200)
+PASSOU: Reinicio preserva episodios no arquivo SQLite
+PASSOU: SQLite integro
+PASSOU: Chaves estrangeiras integras
+PASSOU: Reinicio sem monitoramento ativo nao reabre nem modifica ocorrencias
+passed: 88 verificacoes; 64 requisicoes

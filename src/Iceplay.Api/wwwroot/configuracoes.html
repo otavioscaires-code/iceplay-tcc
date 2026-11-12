@@ -8,10 +8,11 @@
   <title>ICEPLAY | Configurações</title>
   <link rel="icon" href="/assets/iceplay-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/theme.css?v=20261109-pages">
-  <link rel="stylesheet" href="/styles.css?v=20261109-config">
+  <link rel="stylesheet" href="/styles.css?v=20261112-dispositivos">
   <script src="/shell.js?v=20261109-pages" defer></script>
   <script src="/acesso.js?v=20261109-pages" defer></script>
   <script type="module" src="/configuracoes.js?v=20261112-alertas"></script>
+  <script type="module" src="/dispositivos.js?v=20261112-dispositivos"></script>
 
 </head>
 <body class="app-layout" data-page="configuracoes">
@@ -59,6 +60,16 @@
           <button class="button button-primary" id="configuracao-salvar" type="submit" disabled>Salvar configurações</button>
         </form>
         <section class="settings-saved" aria-labelledby="configuracao-salva-title"><h3 id="configuracao-salva-title">Estado confirmado pela API</h3><p id="configuracao-resumo">Nenhuma configuração confirmada nesta consulta.</p><dl><div><dt>Início do monitoramento</dt><dd><time id="configuracao-inicio">Não definido</time></dd></div><div><dt>Última atualização salva</dt><dd><time id="configuracao-atualizacao">Não definido</time></dd></div></dl></section>
+      </section>
+      <section class="settings-workspace device-workspace" aria-labelledby="dispositivos-title">
+        <div class="settings-heading"><div><h2 id="dispositivos-title">Conectar ESP32</h2><p>Uma credencial ativa por geladeira, exclusiva para envio de leituras. Prepare e grave a placa quando o hardware estiver disponível.</p></div><button class="button button-secondary" id="dispositivo-recarregar" type="button">Recarregar dispositivos</button></div>
+        <div class="settings-selector monitor-control"><div><label for="dispositivo-geladeira">Equipamento do dispositivo</label><select id="dispositivo-geladeira" disabled><option value="">Consultando equipamentos…</option></select></div></div>
+        <p class="equipment-feedback" id="dispositivo-status" role="status" aria-live="polite">Consultando dispositivos…</p>
+        <div id="dispositivo-lista" aria-busy="true"></div>
+        <form id="dispositivo-form" method="post" action="/configuracoes"><div class="form-field"><label for="dispositivo-nome">Nome do dispositivo</label><input id="dispositivo-nome" type="text" maxlength="100" required autocomplete="off" disabled></div><button class="button button-primary" id="dispositivo-emitir" type="submit" disabled>Preparar emissão de credencial</button></form>
+        <div id="dispositivo-confirmacao" class="settings-notice" hidden><p id="dispositivo-aviso"></p><div class="device-actions"><button class="button button-primary" id="dispositivo-confirmar" type="button">Confirmar</button><button class="button button-secondary" id="dispositivo-cancelar" type="button">Cancelar</button></div></div>
+        <div id="dispositivo-segredo" class="settings-notice" hidden><label for="dispositivo-credencial">Credencial mostrada somente nesta emissão</label><textarea id="dispositivo-credencial" rows="3" readonly autocomplete="off" spellcheck="false" aria-describedby="dispositivo-segredo-ajuda"></textarea><p id="dispositivo-segredo-ajuda" class="field-help">Guarde em local privado para configurar a placa. Não envie em mensagens ou capturas. Ao recarregar/sair, esta cópia será apagada da tela. Se perder, revogue e emita outra.</p><button class="button button-secondary" id="dispositivo-ocultar" type="button">Ocultar e limpar da tela</button></div>
+        <p class="field-help">Credencial confirma o emissor autorizado. A validação dos sensores físicos continua dependendo do ensaio com ESP32 e geladeira reais.</p>
       </section>
     </main>
     <footer class="app-footer"><span>ICEPLAY · Monitoramento de geladeiras</span><a href="/sobre">Base técnica e próximas etapas</a></footer>

@@ -54,7 +54,7 @@ public sealed class MonitoramentoController(IceplayDbContext database) : Control
                 linha.Leitura.PortaAberta,
                 linha.Leitura.MedidoEmUtc,
                 linha.Leitura.RecebidoEmUtc,
-                linha.Leitura.Origem.ToString())
+                linha.Leitura.Origem.ToString(), linha.Leitura.DispositivoId, linha.Leitura.MedicaoId)
         )).ToList();
 
         return Ok(new MonitoramentoResponse(DateTime.UtcNow, origem, geladeiras));

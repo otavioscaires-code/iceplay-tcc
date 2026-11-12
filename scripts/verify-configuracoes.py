@@ -101,7 +101,7 @@ def main():
             check(connection.execute("PRAGMA integrity_check").fetchall() == [("ok",)], "SQLite isolado integro")
             check(not connection.execute("PRAGMA foreign_key_check").fetchall(), "SQLite sem violacoes de chave estrangeira")
             names = ["Geladeiras", "Leituras"] + (["ConfiguracoesGeladeiras"] if include_config else [])
-            rows = {name: connection.execute('SELECT * FROM "' + name + '" ORDER BY 1').fetchall() for name in names}
+            rows = {name: connection.execute(('SELECT Id,GeladeiraId,TemperaturaC,PortaAberta,MedidoEmUtc,RecebidoEmUtc,Origem FROM Leituras' if name == "Leituras" else 'SELECT * FROM "' + name + '"') + ' ORDER BY 1').fetchall() for name in names}
             digest = hashlib.sha256(json.dumps(rows, sort_keys=True).encode()).hexdigest()
             return {"counts": {name: len(values) for name, values in rows.items()}, "sha256": digest,
                     "migrations": [r[0] for r in connection.execute('SELECT MigrationId FROM __EFMigrationsHistory ORDER BY MigrationId')]}
@@ -119,8 +119,15 @@ def main():
         start("antes-upgrade", "Production")
         parent, _ = request("/api/geladeiras", 201, "POST", {"nome": "FIXTURE CONFIG - UPGRADE", "localizacao": "BANCO ISOLADO"})
         stamp = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(seconds=5)).isoformat().replace("+00:00", "Z")
-        reading, _ = request("/api/leituras", 201, "POST", {"geladeiraId": parent["id"], "temperaturaC": 0,
-                                                              "portaAberta": False, "medidoEmUtc": stamp, "origem": "Simulacao"})
+        # Com novas colunas opcionais no modelo atual, a API exige migrations
+        # antes de gravar. A fixture representa uma leitura realmente preexistente
+        # no schema histórico, inserida somente no banco isolado do verificador.
+        with sqlite3.connect(database) as connection:
+            cursor = connection.execute('INSERT INTO Leituras (GeladeiraId,TemperaturaC,PortaAberta,MedidoEmUtc,RecebidoEmUtc,Origem) VALUES (?,?,?,?,?,?)',
+                                        (parent["id"], 0, 0, stamp, stamp, "Simulacao"))
+            reading = {"id": cursor.lastrowid}
+        request("/api/leituras", 503, "POST", {"geladeiraId": parent["id"], "temperaturaC": 0,
+                                               "portaAberta": False, "medidoEmUtc": stamp, "origem": "Simulacao"})
         path = f'/api/geladeiras/{parent["id"]}/configuracao'
         missing_schema, _ = request(path, 503)
         check(missing_schema["status"] == 503 and "sqlite" not in json.dumps(missing_schema).lower(), "Schema antigo retorna 503 generico sem detalhes internos")

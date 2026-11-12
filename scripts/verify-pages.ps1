@@ -67,7 +67,7 @@ from pathlib import Path
 c=sqlite3.connect(Path(sys.argv[1]).resolve().as_uri()+'?mode=ro',uri=True)
 assert c.execute('PRAGMA integrity_check').fetchall()==[('ok',)]
 assert not c.execute('PRAGMA foreign_key_check').fetchall()
-rows={t:c.execute('SELECT * FROM "'+t+'" ORDER BY 1').fetchall() for t in ['Geladeiras','Leituras','ConfiguracoesGeladeiras','Alertas','EstadosMonitoramento','__EFMigrationsHistory']}
+rows={t:c.execute('SELECT * FROM "'+t+'" ORDER BY 1').fetchall() for t in ['Geladeiras','Leituras','ConfiguracoesGeladeiras','Alertas','EstadosMonitoramento','Dispositivos','__EFMigrationsHistory']}
 print(json.dumps({'integrity':'ok','counts':{t:len(r) for t,r in rows.items()},'sha256':hashlib.sha256(json.dumps(rows,sort_keys=True).encode()).hexdigest()}))
 c.close()
 '@

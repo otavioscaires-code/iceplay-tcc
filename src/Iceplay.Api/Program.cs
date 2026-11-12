@@ -1,4 +1,5 @@
 using Iceplay.Api.Data;
+using Iceplay.Api.Devices;
 using Iceplay.Api.Mobile;
 using Iceplay.Api.Monitoring;
 using Microsoft.Data.Sqlite;
@@ -44,6 +45,7 @@ builder.Services.AddDbContext<IceplayDbContext>(options =>
 builder.Services.AddSingleton(TimeProvider.System);
 builder.Services.AddSingleton<AvaliacaoStatus>();
 builder.Services.AddScoped<AvaliadorAlertas>();
+builder.Services.AddScoped<DispositivoCredentials>();
 builder.Services.AddHostedService<AlertasWorker>();
 
 var app = builder.Build();

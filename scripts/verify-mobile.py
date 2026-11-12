@@ -91,7 +91,7 @@ def main():
                 with plain.open(local + "/api/health", timeout=1) as response:
                     if response.status == 200:
                         return
-            except (urllib.error.URLError, TimeoutError):
+            except (urllib.error.URLError, TimeoutError, ConnectionError):
                 time.sleep(0.1)
         raise TimeoutError("Aplicação não respondeu: " + label)
 
@@ -121,7 +121,9 @@ def main():
                              ("/api/leituras", "POST"), ("/api/leituras?geladeiraId=1&origem=Simulacao", "GET"),
                              ("/api/monitoramento?origem=Simulacao", "GET"),
                              ("/api/geladeiras/1/configuracao", "GET"), ("/api/geladeiras/1/configuracao", "PUT"),
-                             ("/api/alertas", "GET"), ("/api/alertas/1", "GET"), ("/api/alertas/resumo?origem=Simulacao", "GET")):
+                             ("/api/alertas", "GET"), ("/api/alertas/1", "GET"), ("/api/alertas/resumo?origem=Simulacao", "GET"),
+                             ("/api/geladeiras/1/dispositivos", "GET"), ("/api/geladeiras/1/dispositivos", "POST"),
+                             ("/api/geladeiras/1/dispositivos/1/revogar", "POST")):
             request(secure, path, 401, method)
         public_cert, _ = request(bootstrap, "/certificado.cer", 200, opener=plain)
         check(hashlib.sha256(public_cert).digest() == hashlib.sha256(Path(settings["PublicCertificatePath"]).read_bytes()).digest(), "Porta HTTP entrega somente o certificado público esperado")
@@ -194,6 +196,20 @@ def main():
         history_path = f"/api/leituras?geladeiraId={parent}&origem=Simulacao"
         history, _ = request(secure, history_path, 200)
         check(history["totalItens"] == 2 and history["itens"][0]["id"] == last["id"], "Historico autenticado HTTPS consulta as duas leituras da mesma API")
+        device_route = f"/api/geladeiras/{parent}/dispositivos"
+        request(secure, device_route, 400, "POST", {"nome": "FIXTURE DEVICE SEM CSRF"})
+        request(secure, device_route, 403, "POST", {"nome": "FIXTURE DEVICE ORIGEM"}, {**csrf, "Origin": "https://outro-host.invalid"})
+        issued, _ = request(secure, device_route, 201, "POST", {"nome": "FIXTURE EMISSOR TLS - NAO E SENSOR"}, csrf)
+        device_client = urllib.request.build_opener(urllib.request.ProxyHandler({}), urllib.request.HTTPSHandler(context=context))
+        device_headers = {"Authorization": "Bearer " + issued["credencial"]}
+        hardware_fixture = {**reading, "origem": "Hardware", "medicaoId": "00000000-0000-4000-8000-000000000001"}
+        request(secure, "/api/health", 401, opener=device_client)
+        request(secure, "/api/health", 403, headers=device_headers, opener=device_client)
+        request(secure, "/api/leituras", 401, "POST", hardware_fixture, {"Authorization": "Bearer invalido"}, opener=device_client)
+        authenticated_reading, _ = request(secure, "/api/leituras", 201, "POST", hardware_fixture, device_headers, opener=device_client)
+        repeated_reading, _ = request(secure, "/api/leituras", 200, "POST", hardware_fixture, device_headers, opener=device_client)
+        check(authenticated_reading == repeated_reading and authenticated_reading["dispositivoId"] == issued["dispositivo"]["id"], "Emissor HTTPS sem cookie/CSRF autentica e repete sem duplicar fixture Hardware")
+        request(bootstrap, "/api/leituras", 404, "POST", hardware_fixture, device_headers, opener=plain)
         request(secure, f"/api/geladeiras/{parent}", 409, "DELETE", headers=csrf)
         empty, _ = request(secure, "/api/geladeiras", 201, "POST", {"nome": "FIXTURE MOBILE EXCLUIR"}, csrf)
         request(secure, f'/api/geladeiras/{empty["id"]}', 204, "DELETE", headers=csrf)
@@ -221,6 +237,14 @@ def main():
         check(snapshot["geladeiras"][0]["ultimaLeitura"]["id"] == last["id"], "Última leitura permanece após reiniciar")
         persisted_history, _ = request(secure, history_path, 200)
         check(persisted_history == history, "Historico HTTPS permanece apos reinicio e nova autenticacao")
+        restored_device_reading, _ = request(secure, "/api/leituras", 200, "POST", hardware_fixture, device_headers, opener=device_client)
+        check(restored_device_reading == authenticated_reading, "Credencial e idempotencia persistem apos reinicio sem sessao de navegador")
+        session, _ = request(secure, "/api/acesso", 200)
+        current_csrf = {"X-ICEPLAY-CSRF": session["csrfToken"]}
+        revoke_route = device_route + f'/{issued["dispositivo"]["id"]}/revogar'
+        request(secure, revoke_route, 400, "POST")
+        request(secure, revoke_route, 200, "POST", headers=current_csrf)
+        request(secure, "/api/leituras", 401, "POST", hardware_fixture, device_headers, opener=device_client)
         request(secure, "/api/acesso/sair", 400, "POST", headers=csrf)
         session, _ = request(secure, "/api/acesso", 200)
         csrf = {"X-ICEPLAY-CSRF": session["csrfToken"]}
@@ -242,7 +266,7 @@ def main():
         with sqlite3.connect(database.as_uri() + "?mode=ro", uri=True) as connection:
             check(connection.execute("PRAGMA integrity_check").fetchone()[0] == "ok", "SQLite mantém integridade")
             check(not connection.execute("PRAGMA foreign_key_check").fetchall(), "SQLite mantém vínculos válidos")
-            check(connection.execute("SELECT COUNT(*) FROM Geladeiras").fetchone()[0] == 1 and connection.execute("SELECT COUNT(*) FROM Leituras").fetchone()[0] == 2, "Somente uma geladeira e duas leituras fixture permanecem no banco isolado")
+            check(connection.execute("SELECT COUNT(*) FROM Geladeiras").fetchone()[0] == 1 and connection.execute("SELECT COUNT(*) FROM Leituras").fetchone()[0] == 3, "Somente uma geladeira e tres leituras fixture permanecem no banco isolado (duas Simulacao, uma Hardware de software)")
             migrations = [r[0] for r in connection.execute('SELECT MigrationId FROM "__EFMigrationsHistory" ORDER BY MigrationId')]
             expected_migrations = sorted(p.stem for p in (root / "src/Iceplay.Api/Migrations").glob("[0-9]*.cs") if not p.name.endswith(".Designer.cs"))
             check(migrations == expected_migrations and migrations[:2] == ["20261013172101_InitialCreate", "20261018023456_AddLeituras"]

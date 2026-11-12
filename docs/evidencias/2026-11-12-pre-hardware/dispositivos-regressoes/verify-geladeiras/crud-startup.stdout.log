@@ -1,0 +1,771 @@
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (105ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Migrations[20411]
+      Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (77ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE IF NOT EXISTS "__EFMigrationsLock" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK___EFMigrationsLock" PRIMARY KEY,
+          "Timestamp" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2026-11-12 19:54:33.9552291+00:00');
+      SELECT changes();
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+          "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+          "ProductVersion" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20261013172101_InitialCreate'.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Geladeiras" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Geladeiras" PRIMARY KEY AUTOINCREMENT,
+          "Nome" TEXT NOT NULL,
+          "Localizacao" TEXT NULL,
+          "CriadoEmUtc" TEXT NOT NULL,
+          CONSTRAINT "CK_Geladeiras_Localizacao" CHECK ("Localizacao" IS NULL OR length("Localizacao") <= 200),
+          CONSTRAINT "CK_Geladeiras_Nome" CHECK (length(trim("Nome")) >= 1 AND length("Nome") <= 100)
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+      VALUES ('20261013172101_InitialCreate', '10.0.12');
+info: Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20261018023456_AddLeituras'.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Leituras" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Leituras" PRIMARY KEY AUTOINCREMENT,
+          "GeladeiraId" INTEGER NOT NULL,
+          "TemperaturaC" REAL NOT NULL,
+          "PortaAberta" INTEGER NOT NULL,
+          "MedidoEmUtc" TEXT NOT NULL,
+          "RecebidoEmUtc" TEXT NOT NULL,
+          "Origem" TEXT NOT NULL,
+          CONSTRAINT "CK_Leituras_GeladeiraId" CHECK ("GeladeiraId" > 0),
+          CONSTRAINT "CK_Leituras_Instantes" CHECK (julianday("MedidoEmUtc") IS NOT NULL AND julianday("RecebidoEmUtc") IS NOT NULL AND "MedidoEmUtc" <= "RecebidoEmUtc"),
+          CONSTRAINT "CK_Leituras_Origem" CHECK ("Origem" IN ('Simulacao', 'Hardware')),
+          CONSTRAINT "CK_Leituras_PortaAberta" CHECK ("PortaAberta" IN (0, 1)),
+          CONSTRAINT "CK_Leituras_TemperaturaFinita" CHECK ("TemperaturaC" BETWEEN -1.7976931348623157e308 AND 1.7976931348623157e308),
+          CONSTRAINT "FK_Leituras_Geladeiras_GeladeiraId" FOREIGN KEY ("GeladeiraId") REFERENCES "Geladeiras" ("Id") ON DELETE RESTRICT
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Leituras_GeladeiraId_MedidoEmUtc_Id" ON "Leituras" ("GeladeiraId", "MedidoEmUtc", "Id");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+      VALUES ('20261018023456_AddLeituras', '10.0.12');
+info: Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20261109233935_AddConfiguracoesGeladeiras'.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "ConfiguracoesGeladeiras" (
+          "GeladeiraId" INTEGER NOT NULL CONSTRAINT "PK_ConfiguracoesGeladeiras" PRIMARY KEY,
+          "TemperaturaMinimaC" REAL NOT NULL,
+          "TemperaturaMaximaC" REAL NOT NULL,
+          "ToleranciaPortaAbertaSegundos" INTEGER NOT NULL,
+          "AusenciaLeiturasSegundos" INTEGER NOT NULL,
+          "OrigemMonitorada" TEXT NOT NULL,
+          "MonitoramentoAtivo" INTEGER NOT NULL,
+          "InicioMonitoramentoEmUtc" TEXT NULL,
+          "AtualizadoEmUtc" TEXT NOT NULL,
+          CONSTRAINT "CK_Configuracoes_AusenciaLeituras" CHECK (typeof("AusenciaLeiturasSegundos") = 'integer' AND "AusenciaLeiturasSegundos" BETWEEN 1 AND 2147483647),
+          CONSTRAINT "CK_Configuracoes_GeladeiraId" CHECK ("GeladeiraId" > 0),
+          CONSTRAINT "CK_Configuracoes_Instantes" CHECK (julianday("AtualizadoEmUtc") IS NOT NULL AND (("MonitoramentoAtivo" = 0 AND "InicioMonitoramentoEmUtc" IS NULL) OR ("MonitoramentoAtivo" = 1 AND "InicioMonitoramentoEmUtc" IS NOT NULL AND julianday("InicioMonitoramentoEmUtc") IS NOT NULL AND "InicioMonitoramentoEmUtc" <= "AtualizadoEmUtc"))),
+          CONSTRAINT "CK_Configuracoes_MonitoramentoAtivo" CHECK ("MonitoramentoAtivo" IN (0, 1)),
+          CONSTRAINT "CK_Configuracoes_Origem" CHECK ("OrigemMonitorada" IN ('Simulacao', 'Hardware')),
+          CONSTRAINT "CK_Configuracoes_Temperaturas" CHECK ("TemperaturaMinimaC" BETWEEN -1.7976931348623157e308 AND 1.7976931348623157e308 AND "TemperaturaMaximaC" BETWEEN -1.7976931348623157e308 AND 1.7976931348623157e308 AND "TemperaturaMinimaC" < "TemperaturaMaximaC"),
+          CONSTRAINT "CK_Configuracoes_ToleranciaPorta" CHECK (typeof("ToleranciaPortaAbertaSegundos") = 'integer' AND "ToleranciaPortaAbertaSegundos" BETWEEN 1 AND 2147483647),
+          CONSTRAINT "FK_ConfiguracoesGeladeiras_Geladeiras_GeladeiraId" FOREIGN KEY ("GeladeiraId") REFERENCES "Geladeiras" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+      VALUES ('20261109233935_AddConfiguracoesGeladeiras', '10.0.12');
+info: Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20261112192436_AddAlertas'.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Alertas" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Alertas" PRIMARY KEY AUTOINCREMENT,
+          "GeladeiraId" INTEGER NOT NULL,
+          "Origem" TEXT NOT NULL,
+          "Tipo" TEXT NOT NULL,
+          "Gravidade" TEXT NOT NULL,
+          "InicioCondicaoEmUtc" TEXT NOT NULL,
+          "AbertoEmUtc" TEXT NOT NULL,
+          "UltimaEvidenciaEmUtc" TEXT NOT NULL,
+          "EncerradoEmUtc" TEXT NULL,
+          "MotivoEncerramento" TEXT NULL,
+          "LeituraAberturaId" INTEGER NULL,
+          "TemperaturaAberturaC" REAL NULL,
+          "TemperaturaMinimaC" REAL NOT NULL,
+          "TemperaturaMaximaC" REAL NOT NULL,
+          "ToleranciaPortaAbertaSegundos" INTEGER NOT NULL,
+          "AusenciaLeiturasSegundos" INTEGER NOT NULL,
+          CONSTRAINT "CK_Alertas_Encerramento" CHECK (("EncerradoEmUtc" IS NULL AND "MotivoEncerramento" IS NULL) OR ("EncerradoEmUtc" IS NOT NULL AND julianday("EncerradoEmUtc") IS NOT NULL AND "EncerradoEmUtc" >= "AbertoEmUtc" AND "MotivoEncerramento" IS NOT NULL AND "MotivoEncerramento" IN ('CondicaoNormalizada', 'SemDadosRecentes', 'ConfiguracaoAlterada', 'MonitoramentoDesativado'))),
+          CONSTRAINT "CK_Alertas_Gravidade" CHECK ("Gravidade" IN ('Atencao', 'Critico')),
+          CONSTRAINT "CK_Alertas_Instantes" CHECK (julianday("InicioCondicaoEmUtc") IS NOT NULL AND julianday("AbertoEmUtc") IS NOT NULL AND julianday("UltimaEvidenciaEmUtc") IS NOT NULL AND "InicioCondicaoEmUtc" <= "AbertoEmUtc" AND ("EncerradoEmUtc" IS NULL OR "UltimaEvidenciaEmUtc" <= "EncerradoEmUtc")),
+          CONSTRAINT "CK_Alertas_Origem" CHECK ("Origem" IN ('Simulacao', 'Hardware')),
+          CONSTRAINT "CK_Alertas_Tipo" CHECK ("Tipo" IN ('TemperaturaForaFaixa', 'PortaAberta', 'AusenciaLeituras')),
+          CONSTRAINT "FK_Alertas_Geladeiras_GeladeiraId" FOREIGN KEY ("GeladeiraId") REFERENCES "Geladeiras" ("Id") ON DELETE RESTRICT,
+          CONSTRAINT "FK_Alertas_Leituras_LeituraAberturaId" FOREIGN KEY ("LeituraAberturaId") REFERENCES "Leituras" ("Id") ON DELETE RESTRICT
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "EstadosMonitoramento" (
+          "GeladeiraId" INTEGER NOT NULL CONSTRAINT "PK_EstadosMonitoramento" PRIMARY KEY,
+          "ConfiguracaoEmUtc" TEXT NOT NULL,
+          "UltimaMedicaoEmUtc" TEXT NULL,
+          "UltimaLeituraId" INTEGER NOT NULL,
+          "InicioPortaAbertaEmUtc" TEXT NULL,
+          CONSTRAINT "FK_EstadosMonitoramento_ConfiguracoesGeladeiras_GeladeiraId" FOREIGN KEY ("GeladeiraId") REFERENCES "ConfiguracoesGeladeiras" ("GeladeiraId") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Alertas_AbertoEmUtc_Id" ON "Alertas" ("AbertoEmUtc", "Id");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_Alertas_GeladeiraId_Origem_Tipo" ON "Alertas" ("GeladeiraId", "Origem", "Tipo") WHERE "EncerradoEmUtc" IS NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Alertas_LeituraAberturaId" ON "Alertas" ("LeituraAberturaId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+      VALUES ('20261112192436_AddAlertas', '10.0.12');
+info: Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20261112194714_AddDispositivos'.
+warn: Microsoft.EntityFrameworkCore.Migrations[20410]
+      The migration operation 'PRAGMA foreign_keys = 0;
+      ' from migration 'AddDispositivos' cannot be executed in a transaction. If the app is terminated or an unrecoverable error occurs while this operation is being executed then the migration will be left in a partially applied state and would need to be reverted manually before it can be applied again. Create a separate migration that contains just this operation.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Leituras" ADD "DispositivoId" INTEGER NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "Leituras" ADD "MedicaoId" TEXT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Dispositivos" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Dispositivos" PRIMARY KEY AUTOINCREMENT,
+          "GeladeiraId" INTEGER NOT NULL,
+          "Nome" TEXT NOT NULL,
+          "CredencialHash" BLOB NOT NULL,
+          "CriadoEmUtc" TEXT NOT NULL,
+          "RevogadoEmUtc" TEXT NULL,
+          CONSTRAINT "CK_Dispositivos_Hash" CHECK (typeof("CredencialHash") = 'blob' AND length("CredencialHash") = 32),
+          CONSTRAINT "CK_Dispositivos_Instantes" CHECK (julianday("CriadoEmUtc") IS NOT NULL AND ("RevogadoEmUtc" IS NULL OR (julianday("RevogadoEmUtc") IS NOT NULL AND "RevogadoEmUtc" >= "CriadoEmUtc"))),
+          CONSTRAINT "CK_Dispositivos_Nome" CHECK (length(trim("Nome")) BETWEEN 1 AND 100),
+          CONSTRAINT "FK_Dispositivos_Geladeiras_GeladeiraId" FOREIGN KEY ("GeladeiraId") REFERENCES "Geladeiras" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_Leituras_DispositivoId_MedicaoId" ON "Leituras" ("DispositivoId", "MedicaoId") WHERE "DispositivoId" IS NOT NULL AND "MedicaoId" IS NOT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_Dispositivos_GeladeiraId" ON "Dispositivos" ("GeladeiraId") WHERE "RevogadoEmUtc" IS NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "ef_temp_Leituras" (
+          "Id" INTEGER NOT NULL CONSTRAINT "PK_Leituras" PRIMARY KEY AUTOINCREMENT,
+          "DispositivoId" INTEGER NULL,
+          "GeladeiraId" INTEGER NOT NULL,
+          "MedicaoId" TEXT NULL,
+          "MedidoEmUtc" TEXT NOT NULL,
+          "Origem" TEXT NOT NULL,
+          "PortaAberta" INTEGER NOT NULL,
+          "RecebidoEmUtc" TEXT NOT NULL,
+          "TemperaturaC" REAL NOT NULL,
+          CONSTRAINT "CK_Leituras_GeladeiraId" CHECK ("GeladeiraId" > 0),
+          CONSTRAINT "CK_Leituras_Instantes" CHECK (julianday("MedidoEmUtc") IS NOT NULL AND julianday("RecebidoEmUtc") IS NOT NULL AND "MedidoEmUtc" <= "RecebidoEmUtc"),
+          CONSTRAINT "CK_Leituras_Origem" CHECK ("Origem" IN ('Simulacao', 'Hardware')),
+          CONSTRAINT "CK_Leituras_PortaAberta" CHECK ("PortaAberta" IN (0, 1)),
+          CONSTRAINT "CK_Leituras_TemperaturaFinita" CHECK ("TemperaturaC" BETWEEN -1.7976931348623157e308 AND 1.7976931348623157e308),
+          CONSTRAINT "FK_Leituras_Dispositivos_DispositivoId" FOREIGN KEY ("DispositivoId") REFERENCES "Dispositivos" ("Id") ON DELETE RESTRICT,
+          CONSTRAINT "FK_Leituras_Geladeiras_GeladeiraId" FOREIGN KEY ("GeladeiraId") REFERENCES "Geladeiras" ("Id") ON DELETE RESTRICT
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "ef_temp_Leituras" ("Id", "DispositivoId", "GeladeiraId", "MedicaoId", "MedidoEmUtc", "Origem", "PortaAberta", "RecebidoEmUtc", "TemperaturaC")
+      SELECT "Id", "DispositivoId", "GeladeiraId", "MedicaoId", "MedidoEmUtc", "Origem", "PortaAberta", "RecebidoEmUtc", "TemperaturaC"
+      FROM "Leituras";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA foreign_keys = 0;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      DROP TABLE "Leituras";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE "ef_temp_Leituras" RENAME TO "Leituras";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA foreign_keys = 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_Leituras_DispositivoId_MedicaoId" ON "Leituras" ("DispositivoId", "MedicaoId") WHERE "DispositivoId" IS NOT NULL AND "MedicaoId" IS NOT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Leituras_GeladeiraId_MedidoEmUtc_Id" ON "Leituras" ("GeladeiraId", "MedidoEmUtc", "Id");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+      VALUES ('20261112194714_AddDispositivos', '10.0.12');
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "__EFMigrationsLock";
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://127.0.0.1:57834
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\otavi\Downloads\iceplay\src\Iceplay.Api
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."GeladeiraId"
+      FROM "ConfiguracoesGeladeiras" AS "c"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 24), @p2='?' (Size = 28)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Geladeiras" ("CriadoEmUtc", "Localizacao", "Nome")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."CriadoEmUtc", "g"."Localizacao", "g"."Nome"
+      FROM "Geladeiras" AS "g"
+      WHERE "g"."Id" = @id
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?', @p2='?' (Size = 24)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Geladeiras" ("CriadoEmUtc", "Localizacao", "Nome")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."CriadoEmUtc", "g"."Localizacao", "g"."Nome"
+      FROM "Geladeiras" AS "g"
+      WHERE "g"."Id" = @id
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (Size = 24), @p1='?' (Size = 28)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Geladeiras" SET "Localizacao" = @p0, "Nome" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."CriadoEmUtc", "g"."Localizacao", "g"."Nome"
+      FROM "Geladeiras" AS "g"
+      WHERE "g"."Id" = @id
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."CriadoEmUtc", "g"."Localizacao", "g"."Nome"
+      FROM "Geladeiras" AS "g"
+      WHERE "g"."Id" = @id
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."GeladeiraId"
+      FROM "ConfiguracoesGeladeiras" AS "c"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."CriadoEmUtc", "g"."Localizacao", "g"."Nome"
+      FROM "Geladeiras" AS "g"
+      WHERE "g"."Id" = @id
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."CriadoEmUtc", "g"."Localizacao", "g"."Nome"
+      FROM "Geladeiras" AS "g"
+      WHERE "g"."Id" = @id
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."CriadoEmUtc", "g"."Localizacao", "g"."Nome"
+      FROM "Geladeiras" AS "g"
+      WHERE "g"."Id" = @id
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."CriadoEmUtc", "g"."Localizacao", "g"."Nome"
+      FROM "Geladeiras" AS "g"
+      WHERE "g"."Id" = @id
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."CriadoEmUtc", "g"."Localizacao", "g"."Nome"
+      FROM "Geladeiras" AS "g"
+      WHERE "g"."Id" = @id
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."CriadoEmUtc", "g"."Localizacao", "g"."Nome"
+      FROM "Geladeiras" AS "g"
+      WHERE "g"."Id" = @id
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."CriadoEmUtc", "g"."Localizacao", "g"."Nome"
+      FROM "Geladeiras" AS "g"
+      WHERE "g"."Id" = @id
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."CriadoEmUtc", "g"."Localizacao", "g"."Nome"
+      FROM "Geladeiras" AS "g"
+      WHERE "g"."Id" = @id
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."CriadoEmUtc", "g"."Localizacao", "g"."Nome"
+      FROM "Geladeiras" AS "g"
+      WHERE "g"."Id" = @id
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "g"."Id", "g"."Nome", "g"."Localizacao", "g"."CriadoEmUtc"
+      FROM "Geladeiras" AS "g"
+      ORDER BY "g"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Geladeiras" AS "g"
+

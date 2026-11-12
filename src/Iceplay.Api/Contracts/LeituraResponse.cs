@@ -7,4 +7,6 @@ public sealed record LeituraResponse(
     bool PortaAberta,
     DateTime MedidoEmUtc,
     DateTime RecebidoEmUtc,
-    string Origem);
+    string Origem,
+    int? DispositivoId = null,
+    string? MedicaoId = null);

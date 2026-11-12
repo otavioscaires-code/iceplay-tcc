@@ -1,0 +1,1833 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-12T19:57:48.983018+00:00",
+  "scope": "Software HTTP/SQLite isolado; nao comprova hardware nem Safari",
+  "checks": [
+    "POST /api/geladeiras retorna 201 (real: 201)",
+    "GET /api/alertas retorna 503 (real: 503)",
+    "SQLite integro",
+    "Chaves estrangeiras integras",
+    "SQLite integro",
+    "Chaves estrangeiras integras",
+    "Upgrade preserva os dados anteriores",
+    "Migration nao cria ocorrencias nem estados sem configuracao",
+    "Todas as migrations reais estao aplicadas em ordem",
+    "GET /api/alertas?geladeiraId=0 retorna 400 (real: 400)",
+    "GET /api/alertas?origem= retorna 400 (real: 400)",
+    "GET /api/alertas?origem=hardware retorna 400 (real: 400)",
+    "GET /api/alertas?tipo=Invalido retorna 400 (real: 400)",
+    "GET /api/alertas?gravidade=Alto retorna 400 (real: 400)",
+    "GET /api/alertas?situacao=Resolvido retorna 400 (real: 400)",
+    "GET /api/alertas?inicioUtc=2026-11-12 retorna 400 (real: 400)",
+    "GET /api/alertas?fimUtc=2026-11-12T12:00:00%2B00:00 retorna 400 (real: 400)",
+    "GET /api/alertas?pagina=0 retorna 400 (real: 400)",
+    "GET /api/alertas?tamanhoPagina=101 retorna 400 (real: 400)",
+    "GET /api/alertas?pagina=2147483647&tamanhoPagina=100 retorna 400 (real: 400)",
+    "GET /api/alertas?inicioUtc=2026-12-01T00:00:00Z&fimUtc=2026-11-01T00:00:00Z retorna 400 (real: 400)",
+    "GET /api/alertas?geladeiraId=2147483647 retorna 404 (real: 404)",
+    "GET /api/alertas/2147483647 retorna 404 (real: 404)",
+    "GET /api/alertas/resumo retorna 400 (real: 400)",
+    "GET /api/alertas/resumo?origem=hardware retorna 400 (real: 400)",
+    "GET /api/alertas retorna 200 (real: 200)",
+    "Consulta vazia e real, sem seed",
+    "PUT /api/geladeiras/1/configuracao retorna 201 (real: 201)",
+    "POST /api/leituras retorna 201 (real: 201)",
+    "GET /api/alertas?tipo=TemperaturaForaFaixa&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=TemperaturaForaFaixa&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=TemperaturaForaFaixa&situacao=Aberto retorna 200 (real: 200)",
+    "Worker registra temperatura sem chamada de avaliacao pelo teste",
+    "POST /api/leituras retorna 201 (real: 201)",
+    "GET /api/alertas?tipo=PortaAberta&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=PortaAberta&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=PortaAberta&situacao=Aberto retorna 200 (real: 200)",
+    "Amostras recentes confirmam porta aberta",
+    "GET /api/alertas?tipo=TemperaturaForaFaixa&situacao=Aberto retorna 200 (real: 200)",
+    "HTTP confirma deduplicacao de temperatura",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "Ausencia detectada com servidor sem novos POSTs",
+    "GET /api/alertas?tipo=PortaAberta&situacao=Encerrado retorna 200 (real: 200)",
+    "HTTP distingue interrupcao de normalizacao",
+    "POST /api/leituras retorna 201 (real: 201)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?tipo=AusenciaLeituras&situacao=Aberto retorna 200 (real: 200)",
+    "Nova leitura recente encerra ausencia",
+    "GET /api/alertas/resumo?origem=Simulacao retorna 200 (real: 200)",
+    "Resumo apresenta contagens reais e estado do avaliador",
+    "GET /api/alertas/1 retorna 200 (real: 200)",
+    "Detalhe inclui equipamento, parametros e evidencia real da fixture",
+    "GET /api/alertas?origem=Simulacao retorna 200 (real: 200)",
+    "GET /api/alertas?tamanhoPagina=1 retorna 200 (real: 200)",
+    "GET /api/alertas?tamanhoPagina=1&pagina=2 retorna 200 (real: 200)",
+    "Paginacao preserva ordem por abertura e ID",
+    "DELETE /api/geladeiras/1 retorna 409 (real: 409)",
+    "PUT /api/geladeiras/1/configuracao retorna 200 (real: 200)",
+    "GET /api/alertas/resumo?origem=Simulacao retorna 200 (real: 200)",
+    "Configuracao desativada refletida no resumo",
+    "SQLite integro",
+    "Chaves estrangeiras integras",
+    "GET /api/alertas retorna 200 (real: 200)",
+    "Reinicio preserva episodios no arquivo SQLite",
+    "SQLite integro",
+    "Chaves estrangeiras integras",
+    "Reinicio sem monitoramento ativo nao reabre nem modifica ocorrencias"
+  ],
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "nome": "FIXTURE ALERTAS - BANCO ISOLADO"
+      },
+      "responseBody": {
+        "id": 1,
+        "nome": "FIXTURE ALERTAS - BANCO ISOLADO",
+        "localizacao": null,
+        "criadoEmUtc": "2026-11-12T19:57:51.171806Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas",
+      "expectedStatus": 503,
+      "actualStatus": 503,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.6.4",
+        "title": "Banco de dados indisponível.",
+        "status": 503,
+        "detail": "Não foi possível concluir a operação. Tente novamente em instantes."
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?geladeiraId=0",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "GeladeiraId": [
+            "The field GeladeiraId must be between 1 and 2147483647."
+          ]
+        },
+        "traceId": "00-2c4e9fd5f38f2873059657613aab5ebd-a5a4cf02c0bd1387-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?origem=",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "Origem": [
+            "Origem inválida."
+          ]
+        },
+        "traceId": "00-7fd07a77dbebfb3d99026cd32780ee97-14c054f77e47831e-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?origem=hardware",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "Origem": [
+            "Origem inválida."
+          ]
+        },
+        "traceId": "00-32538dea85017a5b826da48d7539cfbe-7b8465fd8bf3cb44-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=Invalido",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "Tipo": [
+            "Tipo inválido."
+          ]
+        },
+        "traceId": "00-aaf7e92c3656094283be07febca6d077-24dca1ec209faaf4-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?gravidade=Alto",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "Gravidade": [
+            "Gravidade inválida."
+          ]
+        },
+        "traceId": "00-bc7cb18391a414b76d270cd21b30d5e2-2128c1463a53956f-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?situacao=Resolvido",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "Situacao": [
+            "Situação inválida."
+          ]
+        },
+        "traceId": "00-f25d8d38fe2ad60e00a90a1f0f514218-7bed8e2f519a4eae-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?inicioUtc=2026-11-12",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "InicioUtc": [
+            "Informe início UTC ISO 8601 com segundos e Z."
+          ]
+        },
+        "traceId": "00-33178ced5ac445da71ff634913f4dabb-dd812f321922a2db-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?fimUtc=2026-11-12T12:00:00%2B00:00",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "FimUtc": [
+            "Informe fim UTC ISO 8601 com segundos e Z."
+          ]
+        },
+        "traceId": "00-373b69f563656c90eb1152230b7ab5ff-f84722e939364174-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?pagina=0",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "Pagina": [
+            "The field Pagina must be between 1 and 2147483647."
+          ]
+        },
+        "traceId": "00-4e67eea18796ed785b92542672829cad-546171005a80c6c9-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tamanhoPagina=101",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "TamanhoPagina": [
+            "The field TamanhoPagina must be between 1 and 100."
+          ]
+        },
+        "traceId": "00-d9f136a20c8d237c977728d48921b5f9-c3779517684848bd-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?pagina=2147483647&tamanhoPagina=100",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "Pagina": [
+            "Página excede o deslocamento suportado."
+          ]
+        },
+        "traceId": "00-48365e455b70be6b1bf1850036ad835d-7f439eb32155978a-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?inicioUtc=2026-12-01T00:00:00Z&fimUtc=2026-11-01T00:00:00Z",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "InicioUtc": [
+            "Início posterior ao fim."
+          ]
+        },
+        "traceId": "00-c70ab1521c58f51ba4dcd3a9ed8e5f9f-9ffeb7c08624d2cc-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?geladeiraId=2147483647",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+        "title": "Geladeira não encontrada.",
+        "status": 404,
+        "traceId": "00-9ca7b0c12dbb245943b8936385c6b1c7-4b5159d19b294b41-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas/2147483647",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+        "title": "Alerta não encontrado.",
+        "status": 404,
+        "traceId": "00-a1b2ed2cf753f041bb9cbb5a2e8e45ac-7e2f8b7d4ca1c3e0-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas/resumo",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "Informe exatamente Simulacao ou Hardware.",
+        "status": 400,
+        "traceId": "00-9a85c390fc77b5ccd74ca897e9b63ec8-248481b54cd44027-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas/resumo?origem=hardware",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "Informe exatamente Simulacao ou Hardware.",
+        "status": 400,
+        "traceId": "00-02f5a45a8064129bb1a783275bea3b39-6128369758b7c58d-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": null,
+        "gravidade": null,
+        "situacao": null,
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "temperaturaMinimaC": 0,
+        "temperaturaMaximaC": 5,
+        "toleranciaPortaAbertaSegundos": 1,
+        "ausenciaLeiturasSegundos": 4,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": true
+      },
+      "responseBody": {
+        "geladeiraId": 1,
+        "configuracao": {
+          "temperaturaMinimaC": 0,
+          "temperaturaMaximaC": 5,
+          "toleranciaPortaAbertaSegundos": 1,
+          "ausenciaLeiturasSegundos": 4,
+          "origemMonitorada": "Simulacao",
+          "monitoramentoAtivo": true,
+          "inicioMonitoramentoEmUtc": "2026-11-12T19:57:55.1170715Z",
+          "atualizadoEmUtc": "2026-11-12T19:57:55.1170715Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "geladeiraId": 1,
+        "temperaturaC": 9,
+        "portaAberta": true,
+        "origem": "Simulacao",
+        "medidoEmUtc": "2026-11-12T19:57:55.484102Z"
+      },
+      "responseBody": {
+        "id": 1,
+        "geladeiraId": 1,
+        "temperaturaC": 9,
+        "portaAberta": true,
+        "medidoEmUtc": "2026-11-12T19:57:55.484102Z",
+        "recebidoEmUtc": "2026-11-12T19:57:55.5646702Z",
+        "origem": "Simulacao",
+        "dispositivoId": null,
+        "medicaoId": null
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=TemperaturaForaFaixa&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "TemperaturaForaFaixa",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=TemperaturaForaFaixa&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "TemperaturaForaFaixa",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=TemperaturaForaFaixa&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "TemperaturaForaFaixa",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 1,
+        "totalPaginas": 1,
+        "itens": [
+          {
+            "id": 1,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "TemperaturaForaFaixa",
+            "gravidade": "Critico",
+            "situacao": "Aberto",
+            "inicioCondicaoEmUtc": "2026-11-12T19:57:55.484102Z",
+            "abertoEmUtc": "2026-11-12T19:57:55.954963Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:55.484102Z",
+            "encerradoEmUtc": null,
+            "motivoEncerramento": null,
+            "leituraAberturaId": 1,
+            "temperaturaAberturaC": 9,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "geladeiraId": 1,
+        "temperaturaC": 9,
+        "portaAberta": true,
+        "origem": "Simulacao",
+        "medidoEmUtc": "2026-11-12T19:57:57.425678Z"
+      },
+      "responseBody": {
+        "id": 2,
+        "geladeiraId": 1,
+        "temperaturaC": 9,
+        "portaAberta": true,
+        "medidoEmUtc": "2026-11-12T19:57:57.425678Z",
+        "recebidoEmUtc": "2026-11-12T19:57:57.4775552Z",
+        "origem": "Simulacao",
+        "dispositivoId": null,
+        "medicaoId": null
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=PortaAberta&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "PortaAberta",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=PortaAberta&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "PortaAberta",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=PortaAberta&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "PortaAberta",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 1,
+        "totalPaginas": 1,
+        "itens": [
+          {
+            "id": 2,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "PortaAberta",
+            "gravidade": "Atencao",
+            "situacao": "Aberto",
+            "inicioCondicaoEmUtc": "2026-11-12T19:57:55.484102Z",
+            "abertoEmUtc": "2026-11-12T19:57:57.9220887Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": null,
+            "motivoEncerramento": null,
+            "leituraAberturaId": 2,
+            "temperaturaAberturaC": 9,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=TemperaturaForaFaixa&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "TemperaturaForaFaixa",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 1,
+        "totalPaginas": 1,
+        "itens": [
+          {
+            "id": 1,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "TemperaturaForaFaixa",
+            "gravidade": "Critico",
+            "situacao": "Aberto",
+            "inicioCondicaoEmUtc": "2026-11-12T19:57:55.484102Z",
+            "abertoEmUtc": "2026-11-12T19:57:55.954963Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": null,
+            "motivoEncerramento": null,
+            "leituraAberturaId": 1,
+            "temperaturaAberturaC": 9,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 1,
+        "totalPaginas": 1,
+        "itens": [
+          {
+            "id": 3,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "AusenciaLeituras",
+            "gravidade": "Atencao",
+            "situacao": "Aberto",
+            "inicioCondicaoEmUtc": "2026-11-12T19:58:01.425678Z",
+            "abertoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": null,
+            "motivoEncerramento": null,
+            "leituraAberturaId": null,
+            "temperaturaAberturaC": null,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=PortaAberta&situacao=Encerrado",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "PortaAberta",
+        "gravidade": null,
+        "situacao": "Encerrado",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 1,
+        "totalPaginas": 1,
+        "itens": [
+          {
+            "id": 2,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "PortaAberta",
+            "gravidade": "Atencao",
+            "situacao": "Encerrado",
+            "inicioCondicaoEmUtc": "2026-11-12T19:57:55.484102Z",
+            "abertoEmUtc": "2026-11-12T19:57:57.9220887Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "motivoEncerramento": "SemDadosRecentes",
+            "leituraAberturaId": 2,
+            "temperaturaAberturaC": 9,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "geladeiraId": 1,
+        "temperaturaC": 4,
+        "portaAberta": false,
+        "origem": "Simulacao",
+        "medidoEmUtc": "2026-11-12T19:58:02.151504Z"
+      },
+      "responseBody": {
+        "id": 3,
+        "geladeiraId": 1,
+        "temperaturaC": 4,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-12T19:58:02.151504Z",
+        "recebidoEmUtc": "2026-11-12T19:58:02.2027652Z",
+        "origem": "Simulacao",
+        "dispositivoId": null,
+        "medicaoId": null
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 1,
+        "totalPaginas": 1,
+        "itens": [
+          {
+            "id": 3,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "AusenciaLeituras",
+            "gravidade": "Atencao",
+            "situacao": "Aberto",
+            "inicioCondicaoEmUtc": "2026-11-12T19:58:01.425678Z",
+            "abertoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": null,
+            "motivoEncerramento": null,
+            "leituraAberturaId": null,
+            "temperaturaAberturaC": null,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 1,
+        "totalPaginas": 1,
+        "itens": [
+          {
+            "id": 3,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "AusenciaLeituras",
+            "gravidade": "Atencao",
+            "situacao": "Aberto",
+            "inicioCondicaoEmUtc": "2026-11-12T19:58:01.425678Z",
+            "abertoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": null,
+            "motivoEncerramento": null,
+            "leituraAberturaId": null,
+            "temperaturaAberturaC": null,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 1,
+        "totalPaginas": 1,
+        "itens": [
+          {
+            "id": 3,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "AusenciaLeituras",
+            "gravidade": "Atencao",
+            "situacao": "Aberto",
+            "inicioCondicaoEmUtc": "2026-11-12T19:58:01.425678Z",
+            "abertoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": null,
+            "motivoEncerramento": null,
+            "leituraAberturaId": null,
+            "temperaturaAberturaC": null,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tipo=AusenciaLeituras&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": "AusenciaLeituras",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas/resumo?origem=Simulacao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "origem": "Simulacao",
+        "consultadoEmUtc": "2026-11-12T19:58:03.1384249Z",
+        "abertos": 0,
+        "criticos": 0,
+        "equipamentosMonitorados": 1,
+        "equipamentosSemMonitoramentoNestaOrigem": 0,
+        "avaliador": {
+          "ultimoSucessoEmUtc": "2026-11-12T19:58:03.0380075Z",
+          "saudavel": true
+        },
+        "recentes": [
+          {
+            "id": 3,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "AusenciaLeituras",
+            "gravidade": "Atencao",
+            "situacao": "Encerrado",
+            "inicioCondicaoEmUtc": "2026-11-12T19:58:01.425678Z",
+            "abertoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": "2026-11-12T19:58:02.9230483Z",
+            "motivoEncerramento": "CondicaoNormalizada",
+            "leituraAberturaId": null,
+            "temperaturaAberturaC": null,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          },
+          {
+            "id": 2,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "PortaAberta",
+            "gravidade": "Atencao",
+            "situacao": "Encerrado",
+            "inicioCondicaoEmUtc": "2026-11-12T19:57:55.484102Z",
+            "abertoEmUtc": "2026-11-12T19:57:57.9220887Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "motivoEncerramento": "SemDadosRecentes",
+            "leituraAberturaId": 2,
+            "temperaturaAberturaC": 9,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          },
+          {
+            "id": 1,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "TemperaturaForaFaixa",
+            "gravidade": "Critico",
+            "situacao": "Encerrado",
+            "inicioCondicaoEmUtc": "2026-11-12T19:57:55.484102Z",
+            "abertoEmUtc": "2026-11-12T19:57:55.954963Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "motivoEncerramento": "SemDadosRecentes",
+            "leituraAberturaId": 1,
+            "temperaturaAberturaC": 9,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas/1",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "id": 1,
+        "geladeiraId": 1,
+        "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+        "origem": "Simulacao",
+        "tipo": "TemperaturaForaFaixa",
+        "gravidade": "Critico",
+        "situacao": "Encerrado",
+        "inicioCondicaoEmUtc": "2026-11-12T19:57:55.484102Z",
+        "abertoEmUtc": "2026-11-12T19:57:55.954963Z",
+        "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+        "encerradoEmUtc": "2026-11-12T19:58:01.9409662Z",
+        "motivoEncerramento": "SemDadosRecentes",
+        "leituraAberturaId": 1,
+        "temperaturaAberturaC": 9,
+        "temperaturaMinimaC": 0,
+        "temperaturaMaximaC": 5,
+        "toleranciaPortaAbertaSegundos": 1,
+        "ausenciaLeiturasSegundos": 4
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?origem=Simulacao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": "Simulacao",
+        "tipo": null,
+        "gravidade": null,
+        "situacao": null,
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 3,
+        "totalPaginas": 1,
+        "itens": [
+          {
+            "id": 3,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "AusenciaLeituras",
+            "gravidade": "Atencao",
+            "situacao": "Encerrado",
+            "inicioCondicaoEmUtc": "2026-11-12T19:58:01.425678Z",
+            "abertoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": "2026-11-12T19:58:02.9230483Z",
+            "motivoEncerramento": "CondicaoNormalizada",
+            "leituraAberturaId": null,
+            "temperaturaAberturaC": null,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          },
+          {
+            "id": 2,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "PortaAberta",
+            "gravidade": "Atencao",
+            "situacao": "Encerrado",
+            "inicioCondicaoEmUtc": "2026-11-12T19:57:55.484102Z",
+            "abertoEmUtc": "2026-11-12T19:57:57.9220887Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "motivoEncerramento": "SemDadosRecentes",
+            "leituraAberturaId": 2,
+            "temperaturaAberturaC": 9,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          },
+          {
+            "id": 1,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "TemperaturaForaFaixa",
+            "gravidade": "Critico",
+            "situacao": "Encerrado",
+            "inicioCondicaoEmUtc": "2026-11-12T19:57:55.484102Z",
+            "abertoEmUtc": "2026-11-12T19:57:55.954963Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "motivoEncerramento": "SemDadosRecentes",
+            "leituraAberturaId": 1,
+            "temperaturaAberturaC": 9,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tamanhoPagina=1",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": null,
+        "gravidade": null,
+        "situacao": null,
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 1,
+        "totalItens": 3,
+        "totalPaginas": 3,
+        "itens": [
+          {
+            "id": 3,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "AusenciaLeituras",
+            "gravidade": "Atencao",
+            "situacao": "Encerrado",
+            "inicioCondicaoEmUtc": "2026-11-12T19:58:01.425678Z",
+            "abertoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": "2026-11-12T19:58:02.9230483Z",
+            "motivoEncerramento": "CondicaoNormalizada",
+            "leituraAberturaId": null,
+            "temperaturaAberturaC": null,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?tamanhoPagina=1&pagina=2",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": null,
+        "gravidade": null,
+        "situacao": null,
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 2,
+        "tamanhoPagina": 1,
+        "totalItens": 3,
+        "totalPaginas": 3,
+        "itens": [
+          {
+            "id": 2,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "PortaAberta",
+            "gravidade": "Atencao",
+            "situacao": "Encerrado",
+            "inicioCondicaoEmUtc": "2026-11-12T19:57:55.484102Z",
+            "abertoEmUtc": "2026-11-12T19:57:57.9220887Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "motivoEncerramento": "SemDadosRecentes",
+            "leituraAberturaId": 2,
+            "temperaturaAberturaC": 9,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          }
+        ]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/geladeiras/1",
+      "expectedStatus": 409,
+      "actualStatus": 409,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.10",
+        "title": "Geladeira possui leituras.",
+        "status": 409,
+        "detail": "O cadastro não pode ser excluído porque possui leituras armazenadas.",
+        "traceId": "00-12bb60c8ec4e6cbe6a16b79a88bb2206-4f443bb10b08a111-00"
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": {
+        "temperaturaMinimaC": 0,
+        "temperaturaMaximaC": 5,
+        "toleranciaPortaAbertaSegundos": 1,
+        "ausenciaLeiturasSegundos": 4,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": {
+        "geladeiraId": 1,
+        "configuracao": {
+          "temperaturaMinimaC": 0,
+          "temperaturaMaximaC": 5,
+          "toleranciaPortaAbertaSegundos": 1,
+          "ausenciaLeiturasSegundos": 4,
+          "origemMonitorada": "Simulacao",
+          "monitoramentoAtivo": false,
+          "inicioMonitoramentoEmUtc": null,
+          "atualizadoEmUtc": "2026-11-12T19:58:03.1992152Z"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas/resumo?origem=Simulacao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "origem": "Simulacao",
+        "consultadoEmUtc": "2026-11-12T19:58:03.4466053Z",
+        "abertos": 0,
+        "criticos": 0,
+        "equipamentosMonitorados": 0,
+        "equipamentosSemMonitoramentoNestaOrigem": 1,
+        "avaliador": {
+          "ultimoSucessoEmUtc": "2026-11-12T19:58:03.0380075Z",
+          "saudavel": true
+        },
+        "recentes": [
+          {
+            "id": 3,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "AusenciaLeituras",
+            "gravidade": "Atencao",
+            "situacao": "Encerrado",
+            "inicioCondicaoEmUtc": "2026-11-12T19:58:01.425678Z",
+            "abertoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": "2026-11-12T19:58:02.9230483Z",
+            "motivoEncerramento": "CondicaoNormalizada",
+            "leituraAberturaId": null,
+            "temperaturaAberturaC": null,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          },
+          {
+            "id": 2,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "PortaAberta",
+            "gravidade": "Atencao",
+            "situacao": "Encerrado",
+            "inicioCondicaoEmUtc": "2026-11-12T19:57:55.484102Z",
+            "abertoEmUtc": "2026-11-12T19:57:57.9220887Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "motivoEncerramento": "SemDadosRecentes",
+            "leituraAberturaId": 2,
+            "temperaturaAberturaC": 9,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          },
+          {
+            "id": 1,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "TemperaturaForaFaixa",
+            "gravidade": "Critico",
+            "situacao": "Encerrado",
+            "inicioCondicaoEmUtc": "2026-11-12T19:57:55.484102Z",
+            "abertoEmUtc": "2026-11-12T19:57:55.954963Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "motivoEncerramento": "SemDadosRecentes",
+            "leituraAberturaId": 1,
+            "temperaturaAberturaC": 9,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": null,
+        "origem": null,
+        "tipo": null,
+        "gravidade": null,
+        "situacao": null,
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 3,
+        "totalPaginas": 1,
+        "itens": [
+          {
+            "id": 3,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "AusenciaLeituras",
+            "gravidade": "Atencao",
+            "situacao": "Encerrado",
+            "inicioCondicaoEmUtc": "2026-11-12T19:58:01.425678Z",
+            "abertoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": "2026-11-12T19:58:02.9230483Z",
+            "motivoEncerramento": "CondicaoNormalizada",
+            "leituraAberturaId": null,
+            "temperaturaAberturaC": null,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          },
+          {
+            "id": 2,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "PortaAberta",
+            "gravidade": "Atencao",
+            "situacao": "Encerrado",
+            "inicioCondicaoEmUtc": "2026-11-12T19:57:55.484102Z",
+            "abertoEmUtc": "2026-11-12T19:57:57.9220887Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "motivoEncerramento": "SemDadosRecentes",
+            "leituraAberturaId": 2,
+            "temperaturaAberturaC": 9,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          },
+          {
+            "id": 1,
+            "geladeiraId": 1,
+            "geladeiraNome": "FIXTURE ALERTAS - BANCO ISOLADO",
+            "origem": "Simulacao",
+            "tipo": "TemperaturaForaFaixa",
+            "gravidade": "Critico",
+            "situacao": "Encerrado",
+            "inicioCondicaoEmUtc": "2026-11-12T19:57:55.484102Z",
+            "abertoEmUtc": "2026-11-12T19:57:55.954963Z",
+            "ultimaEvidenciaEmUtc": "2026-11-12T19:57:57.425678Z",
+            "encerradoEmUtc": "2026-11-12T19:58:01.9409662Z",
+            "motivoEncerramento": "SemDadosRecentes",
+            "leituraAberturaId": 1,
+            "temperaturaAberturaC": 9,
+            "temperaturaMinimaC": 0,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 1,
+            "ausenciaLeiturasSegundos": 4
+          }
+        ]
+      }
+    }
+  ],
+  "assertions": 88,
+  "finishedAtUtc": "2026-11-12T19:58:06.163203+00:00"
+}

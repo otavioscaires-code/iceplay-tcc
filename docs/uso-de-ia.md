@@ -2,6 +2,8 @@
 
 ## Continuidade antes do hardware — 12/11/2026
 
+Os incrementos seguintes integraram a página/resumo de alertas e credenciais de dispositivo/UUID para reenvio. Os testes reais e correções do coletor estão em `etapa-interface-alertas-2026-11-12.md` e `etapa-dispositivos-2026-11-12.md`. Metadados Hardware das fixtures são apenas teste de software. Nenhum token de dispositivo de uso foi gerado ou publicado. Os novos formulários ainda exigem conferência visual manual.
+
 Codex assistiu na inspeção, backup, decisões de regras, implementação de episódios e avaliação periódica, testes com relógio controlado e integração HTTP/SQLite, regressões e documentação. Não foram usados agentes auxiliares nesta etapa. O aluno autorizou a continuidade incremental e mantém autorização para commits/pushes de entregas validadas. Os detalhes reais estão em `etapa-alertas-2026-11-12.md`; simulação e software não comprovam sensores físicos. A ferramenta de navegador informou indisponibilidade local nesta conversa. O aluno deve compreender, reproduzir e declarar a assistência conforme as normas da instituição.
 
 ## Sessão de 13/10/2026

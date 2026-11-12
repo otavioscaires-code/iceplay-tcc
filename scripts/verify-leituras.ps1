@@ -175,7 +175,8 @@ function Convert-LeiturasUtc([string] $value) {
 function Assert-LeituraEntity($actual, $expected, [string] $label) {
     $valid = $actual -is [Collections.IDictionary]
     if ($valid) {
-        $valid = ((@($actual.Keys | Sort-Object) -join ',') -ceq 'geladeiraId,id,medidoEmUtc,origem,portaAberta,recebidoEmUtc,temperaturaC') -and
+        $valid = ((@($actual.Keys | Sort-Object) -join ',') -ceq 'dispositivoId,geladeiraId,id,medicaoId,medidoEmUtc,origem,portaAberta,recebidoEmUtc,temperaturaC') -and
+            $null -eq $actual.dispositivoId -and $null -eq $actual.medicaoId -and
             ($actual.id -is [int] -or $actual.id -is [long]) -and $actual.id -gt 0 -and
             ($actual.geladeiraId -is [int] -or $actual.geladeiraId -is [long]) -and $actual.geladeiraId -eq $expected.geladeiraId -and
             ($actual.temperaturaC -is [double] -or $actual.temperaturaC -is [decimal] -or $actual.temperaturaC -is [int] -or $actual.temperaturaC -is [long]) -and
@@ -187,7 +188,7 @@ function Assert-LeituraEntity($actual, $expected, [string] $label) {
             if ($expected.Contains($key)) { $valid = $valid -and $actual[$key] -ceq $expected[$key] }
         }
     }
-    Assert-Leituras $valid "${label}: sete campos, tipos, identidade, temperatura, porta e origem correspondem a fixture"
+    Assert-Leituras $valid "${label}: sete campos anteriores e dois metadados nulos, tipos, identidade, temperatura, porta e origem correspondem a fixture"
     $measured = Convert-LeiturasUtc $actual.medidoEmUtc
     $received = Convert-LeiturasUtc $actual.recebidoEmUtc
     $expectedMeasured = Convert-LeiturasUtc $expected.medidoEmUtc
@@ -261,7 +262,8 @@ try:
     assert connection.execute("PRAGMA foreign_keys").fetchone()[0] == 1
     assert connection.execute("PRAGMA integrity_check").fetchall() == [("ok",)]
     columns = [row[1] for row in connection.execute('PRAGMA table_info("Leituras")')]
-    assert set(columns) == {"Id","GeladeiraId","TemperaturaC","PortaAberta","MedidoEmUtc","RecebidoEmUtc","Origem"}, columns
+    assert set(columns) == {"Id","GeladeiraId","TemperaturaC","PortaAberta","MedidoEmUtc","RecebidoEmUtc","Origem","DispositivoId","MedicaoId"}, columns
+    assert connection.execute('SELECT COUNT(*) FROM Leituras WHERE DispositivoId IS NOT NULL OR MedicaoId IS NOT NULL').fetchone()[0] == 0
     foreign_keys = connection.execute('PRAGMA foreign_key_list("Leituras")').fetchall()
     assert any(row[2] == "Geladeiras" and row[3] == "GeladeiraId" and row[4] == "Id" and row[6].upper() in ("RESTRICT","NO ACTION") for row in foreign_keys), foreign_keys
     assert connection.execute("PRAGMA foreign_key_check").fetchall() == []

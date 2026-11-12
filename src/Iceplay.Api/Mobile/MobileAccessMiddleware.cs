@@ -1,11 +1,12 @@
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Antiforgery;
+using Iceplay.Api.Devices;
 
 namespace Iceplay.Api.Mobile;
 
 public sealed class MobileAccessMiddleware(RequestDelegate next)
 {
-    public async Task InvokeAsync(HttpContext context, MobileAccessSettings settings, IAntiforgery antiforgery)
+    public async Task InvokeAsync(HttpContext context, MobileAccessSettings settings, IAntiforgery antiforgery, DispositivoCredentials credentials)
     {
         context.Response.Headers["X-Content-Type-Options"] = "nosniff";
         context.Response.Headers["Referrer-Policy"] = "same-origin";
@@ -53,12 +54,28 @@ public sealed class MobileAccessMiddleware(RequestDelegate next)
             var path = context.Request.Path.Value ?? "";
             var accessEndpoint = path.Equals("/api/acesso", StringComparison.OrdinalIgnoreCase)
                 || path.Equals("/api/acesso/entrar", StringComparison.OrdinalIgnoreCase);
-            if (!local && !accessEndpoint && context.User.Identity?.IsAuthenticated != true)
+            var dispositivo = false;
+            if (context.Request.Headers.Authorization.Count > 0)
+            {
+                if (!HttpMethods.IsPost(context.Request.Method) || !path.TrimEnd('/').Equals("/api/leituras", StringComparison.OrdinalIgnoreCase))
+                {
+                    await Reject(context, 403, "A credencial de dispositivo autoriza somente POST /api/leituras.");
+                    return;
+                }
+                dispositivo = await credentials.AutenticarAsync(context);
+                if (!dispositivo)
+                {
+                    context.Response.Headers.WWWAuthenticate = "Bearer";
+                    await Reject(context, 401, "Credencial de dispositivo inválida ou revogada.");
+                    return;
+                }
+            }
+            if (!local && !accessEndpoint && !dispositivo && context.User.Identity?.IsAuthenticated != true)
             {
                 await Reject(context, 401, "Conecte este dispositivo com o código de acesso.");
                 return;
             }
-            if (!local && !HttpMethods.IsGet(context.Request.Method) && !HttpMethods.IsHead(context.Request.Method))
+            if (!local && !dispositivo && !HttpMethods.IsGet(context.Request.Method) && !HttpMethods.IsHead(context.Request.Method))
             {
                 if (context.Request.Headers.Origin.Count > 0
                     && context.Request.Headers.Origin.ToString() != $"{context.Request.Scheme}://{context.Request.Host}")

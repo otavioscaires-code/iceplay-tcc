@@ -48,7 +48,8 @@ class ApiVerification:
         safe_value = {k: ("[REDACTED]" if k.lower() in ("credencial", "codigo", "token") else v) for k, v in value.items()} if isinstance(value, dict) else value
         self.report["requests"].append({"method": method, "path": path, "expectedStatus": expected,
                                         "actualStatus": actual, "requestBody": safe_body, "responseBody": safe_value})
-        self.check(actual == expected, f"{method} {path} retorna {expected} (real: {actual})")
+        self.check(actual in expected if isinstance(expected, tuple) else actual == expected,
+                   f"{method} {path} retorna {expected} (real: {actual})")
         return value, response_headers
 
     def start(self, label, environment="Development"):
@@ -71,7 +72,7 @@ class ApiVerification:
                 with self.client.open(self.base + "/api/health", timeout=1) as response:
                     if response.status == 200:
                         return
-            except (urllib.error.URLError, TimeoutError):
+            except (urllib.error.URLError, TimeoutError, ConnectionError):
                 time.sleep(.1)
         raise TimeoutError("A API nao iniciou: " + label)
 
