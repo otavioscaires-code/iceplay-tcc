@@ -1,5 +1,6 @@
 using Iceplay.Api.Data;
 using Iceplay.Api.Mobile;
+using Iceplay.Api.Monitoring;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
@@ -40,6 +41,10 @@ builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<DatabaseExceptionHandler>();
 builder.Services.AddDbContext<IceplayDbContext>(options =>
     options.UseSqlite(connectionBuilder.ToString()));
+builder.Services.AddSingleton(TimeProvider.System);
+builder.Services.AddSingleton<AvaliacaoStatus>();
+builder.Services.AddScoped<AvaliadorAlertas>();
+builder.Services.AddHostedService<AlertasWorker>();
 
 var app = builder.Build();
 

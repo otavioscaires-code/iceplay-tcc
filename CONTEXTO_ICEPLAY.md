@@ -1,5 +1,9 @@
 # CONTEXTO_ICEPLAY
 
+## Atualização incremental de 12/11/2026 — backend de alertas
+
+O usuário autorizou concluir progressivamente as pendências de software/documentação antes da chegada das peças. O primeiro incremento adiciona `Alertas`, `EstadosMonitoramento`, migration `20261112192436_AddAlertas`, `AvaliadorAlertas`/worker periódico e consultas GET de lista/detalhe/resumo. Ver `docs/contrato-alertas.md`. Configurações ativas já têm efeito no backend; a interface será integrada no incremento seguinte. Os textos abaixo datados de 11/11 descrevem a situação anterior. Nenhum equipamento de uso foi ativado ou recebeu parâmetros automaticamente. Compilação e testes de regras/HTTP/regressão foram executados em bancos isolados; consultar o relatório desta etapa. Autenticação de dispositivo, firmware e ensaios continuam pendentes neste ponto.
+
 Documento de transferência de contexto do projeto, inicialmente elaborado em 30/10/2026 e atualizado em **11/11/2026**. As seções de situação atual descrevem o código de trabalho; as seções datadas preservam resultados e decisões anteriores. Este documento não substitui a leitura do código nem a consulta aos relatórios reais em `docs/evidencias/` e não declara uma nova execução de testes somente por atualizar a documentação.
 
 Em 30/10, a base foi novamente executada e validada, Git/GitHub regularizados com autorização do usuário e a API do histórico implementada em incremento separado. O estado de 09/11 sucede esse diagnóstico: existem páginas HTML independentes e interface de histórico; o usuário confirmou parte do uso no iPhone e enviou foto da consulta das três leituras simuladas. O plano vigente é `docs/plano-ate-hardware-2026-11-09.md`; `docs/retomada-2026-10-30.md` e `docs/plano-continuidade-2026-10-30.md` permanecem como histórico. A conclusão das regressões/publicação deve ser verificada nos relatórios e no Git, sem inferir push a partir deste texto.

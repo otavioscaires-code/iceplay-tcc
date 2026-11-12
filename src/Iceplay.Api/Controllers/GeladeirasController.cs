@@ -103,6 +103,8 @@ public sealed class GeladeirasController(IceplayDbContext database) : Controller
         {
             return GeladeiraComLeituras();
         }
+        if (await database.Alertas.AsNoTracking().AnyAsync(item => item.GeladeiraId == id, cancellationToken))
+            return GeladeiraComAlertas();
 
         database.Geladeiras.Remove(geladeira);
 
@@ -128,6 +130,8 @@ public sealed class GeladeirasController(IceplayDbContext database) : Controller
             {
                 return GeladeiraComLeituras();
             }
+            if (await database.Alertas.AsNoTracking().AnyAsync(item => item.GeladeiraId == id, cancellationToken))
+                return GeladeiraComAlertas();
 
             throw;
         }
@@ -147,6 +151,11 @@ public sealed class GeladeirasController(IceplayDbContext database) : Controller
         statusCode: StatusCodes.Status409Conflict,
         title: "Geladeira possui leituras.",
         detail: "O cadastro não pode ser excluído porque possui leituras armazenadas.");
+
+    private ObjectResult GeladeiraComAlertas() => Problem(
+        statusCode: StatusCodes.Status409Conflict,
+        title: "Geladeira possui alertas.",
+        detail: "O cadastro não pode ser excluído porque possui ocorrências armazenadas. Desative o monitoramento em Configurações.");
 
     private static GeladeiraResponse ParaResposta(Geladeira geladeira) =>
         new(geladeira.Id, geladeira.Nome, geladeira.Localizacao, geladeira.CriadoEmUtc);

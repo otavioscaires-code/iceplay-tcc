@@ -17,6 +17,84 @@ namespace Iceplay.Api.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.12");
 
+            modelBuilder.Entity("Iceplay.Api.Models.Alerta", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("AbertoEmUtc")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("AusenciaLeiturasSegundos")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("EncerradoEmUtc")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("GeladeiraId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Gravidade")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("InicioCondicaoEmUtc")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("LeituraAberturaId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("MotivoEncerramento")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Origem")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<double?>("TemperaturaAberturaC")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("TemperaturaMaximaC")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("TemperaturaMinimaC")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ToleranciaPortaAbertaSegundos")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("UltimaEvidenciaEmUtc")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LeituraAberturaId");
+
+                    b.HasIndex("AbertoEmUtc", "Id");
+
+                    b.HasIndex("GeladeiraId", "Origem", "Tipo")
+                        .IsUnique()
+                        .HasFilter("\"EncerradoEmUtc\" IS NULL");
+
+                    b.ToTable("Alertas", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_Alertas_Encerramento", "(\"EncerradoEmUtc\" IS NULL AND \"MotivoEncerramento\" IS NULL) OR (\"EncerradoEmUtc\" IS NOT NULL AND julianday(\"EncerradoEmUtc\") IS NOT NULL AND \"EncerradoEmUtc\" >= \"AbertoEmUtc\" AND \"MotivoEncerramento\" IS NOT NULL AND \"MotivoEncerramento\" IN ('CondicaoNormalizada', 'SemDadosRecentes', 'ConfiguracaoAlterada', 'MonitoramentoDesativado'))");
+
+                            t.HasCheckConstraint("CK_Alertas_Gravidade", "\"Gravidade\" IN ('Atencao', 'Critico')");
+
+                            t.HasCheckConstraint("CK_Alertas_Instantes", "julianday(\"InicioCondicaoEmUtc\") IS NOT NULL AND julianday(\"AbertoEmUtc\") IS NOT NULL AND julianday(\"UltimaEvidenciaEmUtc\") IS NOT NULL AND \"InicioCondicaoEmUtc\" <= \"AbertoEmUtc\" AND (\"EncerradoEmUtc\" IS NULL OR \"UltimaEvidenciaEmUtc\" <= \"EncerradoEmUtc\")");
+
+                            t.HasCheckConstraint("CK_Alertas_Origem", "\"Origem\" IN ('Simulacao', 'Hardware')");
+
+                            t.HasCheckConstraint("CK_Alertas_Tipo", "\"Tipo\" IN ('TemperaturaForaFaixa', 'PortaAberta', 'AusenciaLeituras')");
+                        });
+                });
+
             modelBuilder.Entity("Iceplay.Api.Models.ConfiguracaoGeladeira", b =>
                 {
                     b.Property<int>("GeladeiraId")
@@ -65,6 +143,28 @@ namespace Iceplay.Api.Migrations
 
                             t.HasCheckConstraint("CK_Configuracoes_ToleranciaPorta", "typeof(\"ToleranciaPortaAbertaSegundos\") = 'integer' AND \"ToleranciaPortaAbertaSegundos\" BETWEEN 1 AND 2147483647");
                         });
+                });
+
+            modelBuilder.Entity("Iceplay.Api.Models.EstadoMonitoramento", b =>
+                {
+                    b.Property<int>("GeladeiraId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("ConfiguracaoEmUtc")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("InicioPortaAbertaEmUtc")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("UltimaLeituraId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("UltimaMedicaoEmUtc")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("GeladeiraId");
+
+                    b.ToTable("EstadosMonitoramento", (string)null);
                 });
 
             modelBuilder.Entity("Iceplay.Api.Models.Geladeira", b =>
@@ -138,11 +238,34 @@ namespace Iceplay.Api.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Iceplay.Api.Models.Alerta", b =>
+                {
+                    b.HasOne("Iceplay.Api.Models.Geladeira", null)
+                        .WithMany()
+                        .HasForeignKey("GeladeiraId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Iceplay.Api.Models.Leitura", null)
+                        .WithMany()
+                        .HasForeignKey("LeituraAberturaId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
             modelBuilder.Entity("Iceplay.Api.Models.ConfiguracaoGeladeira", b =>
                 {
                     b.HasOne("Iceplay.Api.Models.Geladeira", null)
                         .WithOne()
                         .HasForeignKey("Iceplay.Api.Models.ConfiguracaoGeladeira", "GeladeiraId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Iceplay.Api.Models.EstadoMonitoramento", b =>
+                {
+                    b.HasOne("Iceplay.Api.Models.ConfiguracaoGeladeira", null)
+                        .WithOne()
+                        .HasForeignKey("Iceplay.Api.Models.EstadoMonitoramento", "GeladeiraId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

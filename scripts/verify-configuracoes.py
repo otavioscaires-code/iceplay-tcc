@@ -130,8 +130,9 @@ def main():
         start("upgrade", "Development")
         after = snapshot(False)
         check(before["sha256"] == after["sha256"], "Upgrade preserva todos os campos de geladeira e leitura anteriores")
-        check(len(after["migrations"]) == 3 and after["migrations"][:2] == before["migrations"]
-              and after["migrations"][-1].endswith("_AddConfiguracoesGeladeiras"), "Upgrade aplica somente a migration aditiva esperada")
+        expected_migrations = sorted(p.stem for p in (root / "src/Iceplay.Api/Migrations").glob("[0-9]*.cs") if not p.name.endswith(".Designer.cs"))
+        check(after["migrations"] == expected_migrations and after["migrations"][:2] == before["migrations"]
+              and after["migrations"][2].endswith("_AddConfiguracoesGeladeiras"), "Upgrade preserva as migrations anteriores e aplica exatamente as fontes atuais")
         empty, _ = request(path, 200)
         check(empty == {"geladeiraId": parent["id"], "configuracao": None}, "Equipamento existente permanece explicitamente sem configuracao; nenhum seed")
         check(snapshot()["counts"]["ConfiguracoesGeladeiras"] == 0, "Upgrade nao cria parametros automaticamente")

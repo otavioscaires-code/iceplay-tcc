@@ -1,5 +1,9 @@
 # ICEPLAY
 
+Atualização incremental de **12/11/2026**: avaliação periódica e episódios de alertas implementados no backend, com quatro migrations aditivas. `GET /api/alertas`, `GET /api/alertas/{id}` e `GET /api/alertas/resumo?origem=Simulacao` estão disponíveis. Configuração explicitamente ativa passa a gerar ocorrências; não há seed. A integração visual é o próximo incremento. O [contrato de alertas](docs/contrato-alertas.md) atualiza a semântica da entrega de 11/11 descrita abaixo.
+
+Para verificar: `./scripts/verify-alertas.ps1 -EvidenceDirectory docs/evidencias/sua-nova-revisao/alertas`. Usa um programa C# de verificação com relógio controlado, reaproveitando as dependências existentes, e a API real com SQLite isolado. Não representa ensaio físico.
+
 Projeto de TCC de Ciência da Computação: sistema IoT para monitoramento de geladeiras comerciais. Base iniciada em **13/10/2026**, com cadastro de geladeiras desenvolvido em **15/10/2026**, revisado em **17/10/2026** e ingestão/simulador verificados em **19/10/2026**. Pelo cronograma do professor, a versão completa deve ser entregue em **24/11/2026** e apresentada em **01/12/2026**.
 
 O estado de trabalho de **11/11/2026** inclui ASP.NET Core, SQLite com EF Core, cadastro de geladeiras, saúde real do banco, recebimento de leituras, simulador, painel, histórico e configurações persistidas por geladeira na API e na interface. As páginas possuem URLs próprias. Configurações salva limites, tempos, origem e habilitação planejada; a avaliação das regras e a geração de alertas ainda não existem. Alertas informa essa indisponibilidade. Autenticação do ESP32, firmware e ensaio físico continuam pendentes; iniciar a aplicação não insere registros ou parâmetros automaticamente. Leituras de teste são identificadas como simulação. Consulte o [plano vigente](docs/plano-ate-hardware-2026-11-09.md); o [plano de 30/10](docs/plano-continuidade-2026-10-30.md) permanece como histórico.

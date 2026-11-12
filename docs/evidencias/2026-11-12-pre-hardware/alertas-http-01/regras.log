@@ -1,0 +1,32 @@
+PASSOU: Ativacao nao cria alertas antes do prazo nem para equipamento sem configuracao
+PASSOU: Temperaturas exatamente nos limites inclusivos, zero e porta fechada sao normais
+PASSOU: Excesso abre episodio com parametros e leitura de evidencia
+PASSOU: Anormalidade repetida e troca alto/baixo nao duplicam episodio
+PASSOU: Novo contexto e novo ciclo preservam deduplicacao no SQLite
+PASSOU: Leitura normal encerra com motivo de normalizacao
+PASSOU: Nova anormalidade depois de recuperacao abre novo episodio
+PASSOU: Primeiro estado aberto nao inventa duracao anterior
+PASSOU: Tempo sem nova medicao nao comprova porta continuamente aberta
+PASSOU: Segunda medicao confirma porta no limiar exato de tolerancia
+PASSOU: Amostra atrasada fica no banco mas nao retrocede o estado da porta
+PASSOU: Origem Hardware nao encerra episodio de Simulacao
+PASSOU: Ausencia abre sem POST no limiar exato, sem inventar leitura
+PASSOU: Falta de dados encerra temperatura e porta em vez de indicar estado atual conhecido
+PASSOU: Interrupcao e distinta de normalizacao
+PASSOU: Reiniciar contexto nao duplica ausencia
+PASSOU: Upload de medicao antiga nao renova prazo de ausencia
+PASSOU: Recuperacao recente encerra ausencia e comeca nova sequencia de porta
+PASSOU: Lacuna entre amostras abertas quebra continuidade mesmo sem ciclo intermediario
+PASSOU: Depois da lacuna nova sequencia pode confirmar duracao
+PASSOU: Editar parametros encerra episodio com motivo e nao reaplica porta anterior
+PASSOU: Desativar encerra todos os episodios
+PASSOU: Desativacao possui motivo proprio
+PASSOU: Equipamento inativo nao gera ausencia
+PASSOU: Troca de origem nao herda leituras da outra origem
+PASSOU: Sem leitura da nova origem usa inicio do acompanhamento
+PASSOU: Nova origem avalia somente sua propria medicao
+PASSOU: Empate de timestamp usa maior ID e permite recuperacao
+PASSOU: Avaliador nao cria configuracoes para outros equipamentos
+PASSOU: Regras nunca fabricam medicoes
+PASSOU: Banco de testes usa migrations reais incluindo alertas
+{"result":"passed","assertions":31,"checks":["Ativacao nao cria alertas antes do prazo nem para equipamento sem configuracao","Temperaturas exatamente nos limites inclusivos, zero e porta fechada sao normais","Excesso abre episodio com parametros e leitura de evidencia","Anormalidade repetida e troca alto/baixo nao duplicam episodio","Novo contexto e novo ciclo preservam deduplicacao no SQLite","Leitura normal encerra com motivo de normalizacao","Nova anormalidade depois de recuperacao abre novo episodio","Primeiro estado aberto nao inventa duracao anterior","Tempo sem nova medicao nao comprova porta continuamente aberta","Segunda medicao confirma porta no limiar exato de tolerancia","Amostra atrasada fica no banco mas nao retrocede o estado da porta","Origem Hardware nao encerra episodio de Simulacao","Ausencia abre sem POST no limiar exato, sem inventar leitura","Falta de dados encerra temperatura e porta em vez de indicar estado atual conhecido","Interrupcao e distinta de normalizacao","Reiniciar contexto nao duplica ausencia","Upload de medicao antiga nao renova prazo de ausencia","Recuperacao recente encerra ausencia e comeca nova sequencia de porta","Lacuna entre amostras abertas quebra continuidade mesmo sem ciclo intermediario","Depois da lacuna nova sequencia pode confirmar duracao","Editar parametros encerra episodio com motivo e nao reaplica porta anterior","Desativar encerra todos os episodios","Desativacao possui motivo proprio","Equipamento inativo nao gera ausencia","Troca de origem nao herda leituras da outra origem","Sem leitura da nova origem usa inicio do acompanhamento","Nova origem avalia somente sua propria medicao","Empate de timestamp usa maior ID e permite recuperacao","Avaliador nao cria configuracoes para outros equipamentos","Regras nunca fabricam medicoes","Banco de testes usa migrations reais incluindo alertas"],"scope":"Software com relogio controlado e SQLite isolado; nao comprova hardware","database":"C:\\Users\\otavi\\Downloads\\iceplay\\.tools\\verification\\alertas-20261112T192803Z-85d4213f\\iceplay.db"}

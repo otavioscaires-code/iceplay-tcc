@@ -8,6 +8,8 @@ public sealed class IceplayDbContext(DbContextOptions<IceplayDbContext> options)
     public DbSet<Geladeira> Geladeiras => Set<Geladeira>();
     public DbSet<Leitura> Leituras => Set<Leitura>();
     public DbSet<ConfiguracaoGeladeira> ConfiguracoesGeladeiras => Set<ConfiguracaoGeladeira>();
+    public DbSet<Alerta> Alertas => Set<Alerta>();
+    public DbSet<EstadoMonitoramento> EstadosMonitoramento => Set<EstadoMonitoramento>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -98,5 +100,42 @@ public sealed class IceplayDbContext(DbContextOptions<IceplayDbContext> options)
         configuracao.HasOne<Geladeira>().WithOne()
             .HasForeignKey<ConfiguracaoGeladeira>(item => item.GeladeiraId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        var alerta = modelBuilder.Entity<Alerta>();
+        alerta.ToTable("Alertas", table =>
+        {
+            table.HasCheckConstraint("CK_Alertas_Origem", "\"Origem\" IN ('Simulacao', 'Hardware')");
+            table.HasCheckConstraint("CK_Alertas_Tipo", "\"Tipo\" IN ('TemperaturaForaFaixa', 'PortaAberta', 'AusenciaLeituras')");
+            table.HasCheckConstraint("CK_Alertas_Gravidade", "\"Gravidade\" IN ('Atencao', 'Critico')");
+            table.HasCheckConstraint("CK_Alertas_Encerramento",
+                "(\"EncerradoEmUtc\" IS NULL AND \"MotivoEncerramento\" IS NULL) OR " +
+                "(\"EncerradoEmUtc\" IS NOT NULL AND julianday(\"EncerradoEmUtc\") IS NOT NULL " +
+                "AND \"EncerradoEmUtc\" >= \"AbertoEmUtc\" AND \"MotivoEncerramento\" IS NOT NULL " +
+                "AND \"MotivoEncerramento\" IN ('CondicaoNormalizada', 'SemDadosRecentes', 'ConfiguracaoAlterada', 'MonitoramentoDesativado'))");
+            table.HasCheckConstraint("CK_Alertas_Instantes", "julianday(\"InicioCondicaoEmUtc\") IS NOT NULL " +
+                "AND julianday(\"AbertoEmUtc\") IS NOT NULL AND julianday(\"UltimaEvidenciaEmUtc\") IS NOT NULL " +
+                "AND \"InicioCondicaoEmUtc\" <= \"AbertoEmUtc\" AND (\"EncerradoEmUtc\" IS NULL OR \"UltimaEvidenciaEmUtc\" <= \"EncerradoEmUtc\")");
+        });
+        alerta.HasKey(a => a.Id);
+        alerta.Property(a => a.Origem).HasConversion<string>();
+        alerta.Property(a => a.Tipo).HasConversion<string>();
+        alerta.Property(a => a.Gravidade).HasConversion<string>();
+        alerta.Property(a => a.MotivoEncerramento).HasConversion<string>();
+        foreach (var name in new[] { nameof(Alerta.InicioCondicaoEmUtc), nameof(Alerta.AbertoEmUtc), nameof(Alerta.UltimaEvidenciaEmUtc) })
+            alerta.Property<DateTime>(name).HasConversion(v => v, v => DateTime.SpecifyKind(v, DateTimeKind.Utc));
+        alerta.Property(a => a.EncerradoEmUtc).HasConversion(v => v, v => v.HasValue ? DateTime.SpecifyKind(v.Value, DateTimeKind.Utc) : (DateTime?)null);
+        alerta.HasOne<Geladeira>().WithMany().HasForeignKey(a => a.GeladeiraId).OnDelete(DeleteBehavior.Restrict);
+        alerta.HasOne<Leitura>().WithMany().HasForeignKey(a => a.LeituraAberturaId).OnDelete(DeleteBehavior.Restrict);
+        alerta.HasIndex(a => new { a.GeladeiraId, a.Origem, a.Tipo }).IsUnique().HasFilter("\"EncerradoEmUtc\" IS NULL");
+        alerta.HasIndex(a => new { a.AbertoEmUtc, a.Id });
+
+        var estado = modelBuilder.Entity<EstadoMonitoramento>();
+        estado.ToTable("EstadosMonitoramento");
+        estado.HasKey(e => e.GeladeiraId);
+        estado.Property(e => e.GeladeiraId).ValueGeneratedNever();
+        estado.Property(e => e.ConfiguracaoEmUtc).HasConversion(v => v, v => DateTime.SpecifyKind(v, DateTimeKind.Utc));
+        estado.Property(e => e.UltimaMedicaoEmUtc).HasConversion(v => v, v => v.HasValue ? DateTime.SpecifyKind(v.Value, DateTimeKind.Utc) : (DateTime?)null);
+        estado.Property(e => e.InicioPortaAbertaEmUtc).HasConversion(v => v, v => v.HasValue ? DateTime.SpecifyKind(v.Value, DateTimeKind.Utc) : (DateTime?)null);
+        estado.HasOne<ConfiguracaoGeladeira>().WithOne().HasForeignKey<EstadoMonitoramento>(e => e.GeladeiraId).OnDelete(DeleteBehavior.Cascade);
     }
 }
