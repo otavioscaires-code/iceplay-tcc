@@ -2,7 +2,7 @@
 
 Etapa de referência: **17/10/2026**. Este registro descreve o código atual de ingestão, consulta individual e simulador. Os diagramas são fontes Mermaid; este documento não comprova execução, renderização ou ensaio com sensores físicos.
 
-O backend permanece uma única aplicação ASP.NET Core, com Entity Framework Core e SQLite. O simulador envia HTTP para a mesma API prevista para o hardware. A página web gerencia geladeiras, verifica a saúde e, desde a [etapa do painel de 19/10](etapa-painel-2026-10-19.md), apresenta a última leitura por geladeira/origem. Em 30/10 foi acrescentada a [API de histórico paginado](etapa-historico-2026-10-30.md); sua interface e os alertas permanecem pendentes. O contrato de ingestão descrito abaixo foi preservado.
+O backend permanece uma única aplicação ASP.NET Core, com Entity Framework Core e SQLite. O simulador envia HTTP para a mesma API prevista para o hardware. A página web gerencia geladeiras, verifica a saúde e, desde a [etapa do painel de 19/10](etapa-painel-2026-10-19.md), apresenta a última leitura por geladeira/origem. Em 30/10 foi acrescentada a [API de histórico paginado](etapa-historico-2026-10-30.md); a interface própria está implementada desde 09/11, com filtros, tabela, gráfico e paginação. Em 12/11, configurações ativas passaram a alimentar regras e episódios de alertas. O contrato básico de ingestão abaixo permanece válido.
 
 ## 1. Entrada da API
 
@@ -65,7 +65,7 @@ Exemplo didático de corpo, **não uma medição real nem evidência de envio**.
 | `GET /api/leituras/{id}` | `404 Not Found` | Não existe leitura com esse identificador. |
 | Ambas as operações | `503 Service Unavailable` | O tratamento central de falhas de banco retorna `ProblemDetails` genérico, sem expor SQL ou mensagem interna da exceção. |
 
-`Location` deve ser usado conforme recebido, sem presumir identificadores ou reconstruir uma resposta fictícia. A consulta individual permite verificar o registro após a criação. Não há endpoint de listagem de leituras, edição ou exclusão de leitura nesta etapa.
+`Location` deve ser usado conforme recebido, sem presumir identificadores ou reconstruir uma resposta fictícia. A consulta individual permite verificar o registro após a criação. Existe `GET /api/leituras` para histórico, com geladeira/origem, período e paginação; consulte o README. Não há edição ou exclusão de leituras.
 
 Um POST repetido pode gerar outra leitura: não há chave de idempotência ou deduplicação implementada. Perder a resposta não demonstra que o registro deixou de ser salvo; por isso o simulador não repete automaticamente a operação.
 

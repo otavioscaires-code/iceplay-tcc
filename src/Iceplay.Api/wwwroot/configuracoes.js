@@ -36,7 +36,7 @@ function renderizar(data) {
     ui.porta.value = String(value.toleranciaPortaAbertaSegundos); ui.ausencia.value = String(value.ausenciaLeiturasSegundos);
     ui.origem.value = value.origemMonitorada; ui.ativo.checked = value.monitoramentoAtivo;
     const origem = value.origemMonitorada === "Simulacao" ? "Simulação" : "Hardware declarado";
-    ui.resumo.textContent = `Configuração salva para a geladeira #${data.geladeiraId}. Origem: ${origem}. Habilitação planejada: ${value.monitoramentoAtivo ? "ativa" : "inativa"}. A geração de alertas ainda não está implementada.`;
+    ui.resumo.textContent = `Configuração salva para a geladeira #${data.geladeiraId}. Origem: ${origem}. Monitoramento: ${value.monitoramentoAtivo ? "ativo" : "inativo"}. ${value.monitoramentoAtivo ? "O servidor avalia as regras a cada segundo enquanto estiver em execução." : "As regras não geram novas ocorrências enquanto inativo."}`;
     horario(ui.inicio, value.inicioMonitoramentoEmUtc); horario(ui.atualizacao, value.atualizadoEmUtc);
   } else ui.resumo.textContent = `A geladeira #${data.geladeiraId} ainda não possui configuração. Preencha os parâmetros; nenhum limite foi presumido.`;
   equipamentoId = data.geladeiraId; pronta = true;

@@ -138,12 +138,12 @@ test("envios simultâneos geram um único PUT e mantêm controles bloqueados dur
   assert.equal(f.requests.filter(x => x.method === "PUT").length, 1);
   assert.equal(f.node("salvar").disabled, false);
 });
-test("habilitação planejada apresenta os instantes confirmados sem anunciar alertas ativos", async () => {
+test("monitoramento ativo apresenta os instantes confirmados e a avaliacao periodica", async () => {
   const inicio = "2026-11-09T19:59:00.1234567Z";
   const f = await interfaceFixture({ stored: new Map([[1, configuracao({ monitoramentoAtivo: true, inicioMonitoramentoEmUtc: inicio })]]) });
   assert.equal(f.node("ativo").checked, true); assert.equal(f.node("inicio").dateTime, inicio);
   assert.match(f.node("inicio").title, /UTC: 2026-11-09T19:59:00.1234567Z/);
-  assert.match(f.node("resumo").textContent, /Habilitação planejada: ativa.*alertas ainda não está implementada/);
+  assert.match(f.node("resumo").textContent, /Monitoramento: ativo.*avalia as regras a cada segundo/);
 });
 test("selecionar geladeira sem configuração limpa todos os parâmetros do equipamento anterior", async () => {
   const f = await interfaceFixture({ stored: new Map([[1, configuracao()]]) });
@@ -214,6 +214,6 @@ test("HTML inicia bloqueado sem JavaScript, tem unidades explícitas e não anun
   assert.match(html, /<fieldset id="configuracao-campos" disabled>/);
   assert.match(html, /id="configuracao-salvar"[^>]*disabled/);
   assert.match(html, /type="number" step="1" min="1" max="2147483647" inputmode="numeric"/);
-  assert.match(html, /geração de alertas ainda não está implementada/);
+  assert.match(html, /Ativar monitoramento e alertas/);
   assert.match(html, /referência visual de 60 segundos/);
 });

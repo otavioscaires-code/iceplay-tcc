@@ -8,11 +8,12 @@
   <title>ICEPLAY | Visão geral</title>
   <link rel="icon" href="/assets/iceplay-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/theme.css?v=20261109-pages">
-  <link rel="stylesheet" href="/styles.css?v=20261109-pages">
+  <link rel="stylesheet" href="/styles.css?v=20261112-alertas">
   <script src="/shell.js?v=20261109-pages" defer></script>
   <script src="/acesso.js?v=20261109-pages" defer></script>
   <script src="/app.js?v=20261109-pages" defer></script>
   <script type="module" src="/monitoramento.js?v=20261109-pages"></script>
+  <script type="module" src="/alertas-resumo.js?v=20261112-alertas"></script>
 </head>
 <body class="app-layout" data-page="dashboard">
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -61,7 +62,7 @@
         <article class="summary-card"><p>Com leitura</p><strong id="resumo-com-leitura">—</strong><span>Equipamentos na consulta</span></article>
         <article class="summary-card"><p>Sem leitura</p><strong id="resumo-sem-leitura">—</strong><span>Na origem selecionada</span></article>
         <article class="summary-card"><p>Portas abertas</p><strong id="resumo-portas-abertas">—</strong><span>Estado na última medição</span></article>
-        <article class="summary-card"><p>Alertas recentes</p><strong class="summary-unavailable">Indisponível</strong><a href="/alertas">Regras ainda não implementadas</a></article>
+        <article class="summary-card"><p>Alertas abertos</p><strong id="resumo-alertas">—</strong><a href="/alertas?situacao=Aberto">Consultar ocorrências</a></article>
       </section>
 <section class="section container monitoring-section" id="monitoramento" aria-labelledby="monitoramento-title">
       <div class="section-heading">
@@ -98,9 +99,10 @@
       <p class="equipment-status" id="monitoramento-status" role="status" aria-live="polite">Consultando as últimas leituras…</p>
       <p class="list-summary" id="monitoramento-resumo"></p>
       <div class="monitor-grid" id="monitoramento-lista" aria-busy="true"></div>
-      <p class="monitor-note">A recência não avalia se a temperatura é adequada. O estado da porta corresponde à medição exibida. O histórico está disponível em sua própria página; as regras de alerta ainda estão pendentes.</p>
+      <p class="monitor-note">A referência visual de recência é independente das regras de alerta. O estado da porta corresponde à medição exibida. Configure os parâmetros de cada equipamento para ativar a avaliação.</p>
       <noscript><p class="notice">Ative o JavaScript para consultar as leituras da API.</p></noscript>
     </section>
+      <section class="overview-alerts" aria-labelledby="alertas-visao-title"><div class="section-heading"><div><p class="eyebrow">Ocorrências</p><h2 id="alertas-visao-title">Alertas recentes</h2></div><a class="button button-secondary" href="/alertas">Ver todos</a></div><p id="alertas-visao-status" class="equipment-status" role="status" aria-live="polite">Consultando alertas…</p><div id="alertas-visao-lista" class="alerts-list alerts-compact"></div></section>
     </main>
     <footer class="app-footer"><span>ICEPLAY · Monitoramento de geladeiras</span><a href="/sobre">Base técnica e próximas etapas</a></footer>
   </div>

@@ -8,10 +8,10 @@
   <title>ICEPLAY | Alertas</title>
   <link rel="icon" href="/assets/iceplay-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/theme.css?v=20261109-pages">
-  <link rel="stylesheet" href="/styles.css?v=20261109-pages">
+  <link rel="stylesheet" href="/styles.css?v=20261112-alertas">
   <script src="/shell.js?v=20261109-pages" defer></script>
   <script src="/acesso.js?v=20261109-pages" defer></script>
-
+  <script type="module" src="/alertas.js?v=20261112-alertas"></script>
 </head>
 <body class="app-layout" data-page="alertas">
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -35,7 +35,24 @@
     </header>
     <main id="conteudo" class="page-content">
       <header class="page-heading"><p class="eyebrow">ICEPLAY / Alertas</p><h1>Alertas</h1><p>Ocorrências e situação dos alertas de monitoramento.</p></header>
-      <section class="unavailable-panel" aria-labelledby="alertas-title"><span class="scope-tag">Backend pendente</span><h2 id="alertas-title">As ocorrências serão registradas aqui.</h2><p>O sistema ainda não gera ou armazena alertas. Por isso, esta página não apresenta uma lista vazia como confirmação de que está tudo normal.</p><p>O próximo incremento incluirá tipo, gravidade, medição/horário da ocorrência e situação aberta ou resolvida, após definir e implementar as regras.</p><a class="button button-secondary" href="/dashboard">Consultar as últimas leituras</a></section>
+      <p class="monitor-note">Ocorrências geradas pelos parâmetros ativos de cada geladeira. Encerrado pode significar normalização, interrupção dos dados ou mudança de configuração; confira o motivo. <a href="/configuracoes">Configurar monitoramento</a>.</p>
+      <form id="alertas-form" class="history-filters alert-filters" method="get" action="/alertas">
+        <div class="form-field"><label for="alertas-geladeira">Geladeira</label><select id="alertas-geladeira" name="geladeiraId"><option value="">Todas as geladeiras</option></select></div>
+        <div class="form-field"><label for="alertas-origem">Origem</label><select id="alertas-origem" name="origem"><option value="">Todas</option><option value="Simulacao">Simulação</option><option value="Hardware">Hardware declarado</option></select></div>
+        <div class="form-field"><label for="alertas-tipo">Tipo</label><select id="alertas-tipo" name="tipo"><option value="">Todos</option><option value="TemperaturaForaFaixa">Temperatura fora da faixa</option><option value="PortaAberta">Porta aberta</option><option value="AusenciaLeituras">Ausência de leituras</option></select></div>
+        <div class="form-field"><label for="alertas-gravidade">Gravidade</label><select id="alertas-gravidade" name="gravidade"><option value="">Todas</option><option value="Atencao">Atenção</option><option value="Critico">Crítico</option></select></div>
+        <div class="form-field"><label for="alertas-situacao">Situação</label><select id="alertas-situacao" name="situacao"><option value="">Todas</option><option value="Aberto">Aberto</option><option value="Encerrado">Encerrado</option></select></div>
+        <div class="form-field"><label for="alertas-inicio">Abertura a partir de (hora local)</label><input id="alertas-inicio" type="datetime-local" step="1"></div>
+        <div class="form-field"><label for="alertas-fim">Abertura até (hora local)</label><input id="alertas-fim" type="datetime-local" step="1"></div>
+        <div class="form-field"><label for="alertas-tamanho">Ocorrências por página</label><select id="alertas-tamanho" name="tamanhoPagina"><option value="20">20</option><option value="50">50</option><option value="100">100</option></select></div>
+        <button class="button button-primary" id="alertas-buscar" type="submit">Buscar alertas</button>
+      </form>
+      <p id="alertas-status" class="equipment-status" role="status" aria-live="polite">Consultando as ocorrências…</p>
+      <p id="alertas-resumo" class="list-summary"></p>
+      <div id="alertas-lista" class="alerts-list" aria-busy="true"></div>
+      <nav class="history-pagination" aria-label="Paginação de alertas"><button class="button button-secondary" id="alertas-anterior" type="button" disabled>Anterior</button><span id="alertas-pagina">Nenhuma página consultada.</span><button class="button button-secondary" id="alertas-proxima" type="button" disabled>Próxima</button></nav>
+      <p class="field-help">Atualização a cada 15 segundos enquanto os filtros estiverem aplicados e a página visível. Ausência de ocorrências não confirma funcionamento de equipamentos sem configuração ativa. Simulação permanece identificada.</p>
+      <noscript><p class="notice">Ative o JavaScript para consultar ocorrências da API.</p></noscript>
     </main>
     <footer class="app-footer"><span>ICEPLAY · Monitoramento de geladeiras</span><a href="/sobre">Base técnica e próximas etapas</a></footer>
   </div>

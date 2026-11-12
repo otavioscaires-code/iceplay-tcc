@@ -1,12 +1,12 @@
 # ICEPLAY
 
-Atualização incremental de **12/11/2026**: avaliação periódica e episódios de alertas implementados no backend, com quatro migrations aditivas. `GET /api/alertas`, `GET /api/alertas/{id}` e `GET /api/alertas/resumo?origem=Simulacao` estão disponíveis. Configuração explicitamente ativa passa a gerar ocorrências; não há seed. A integração visual é o próximo incremento. O [contrato de alertas](docs/contrato-alertas.md) atualiza a semântica da entrega de 11/11 descrita abaixo.
+Atualização de **12/11/2026**: avaliação periódica e episódios de alertas integrados à API, página própria e resumo do painel, com quatro migrations aditivas. Configuração explicitamente ativa passa a gerar ocorrências; não há seed. O [contrato de alertas](docs/contrato-alertas.md) e os relatórios de backend/interface registram decisões e testes.
 
 Para verificar: `./scripts/verify-alertas.ps1 -EvidenceDirectory docs/evidencias/sua-nova-revisao/alertas`. Usa um programa C# de verificação com relógio controlado, reaproveitando as dependências existentes, e a API real com SQLite isolado. Não representa ensaio físico.
 
 Projeto de TCC de Ciência da Computação: sistema IoT para monitoramento de geladeiras comerciais. Base iniciada em **13/10/2026**, com cadastro de geladeiras desenvolvido em **15/10/2026**, revisado em **17/10/2026** e ingestão/simulador verificados em **19/10/2026**. Pelo cronograma do professor, a versão completa deve ser entregue em **24/11/2026** e apresentada em **01/12/2026**.
 
-O estado de trabalho de **11/11/2026** inclui ASP.NET Core, SQLite com EF Core, cadastro de geladeiras, saúde real do banco, recebimento de leituras, simulador, painel, histórico e configurações persistidas por geladeira na API e na interface. As páginas possuem URLs próprias. Configurações salva limites, tempos, origem e habilitação planejada; a avaliação das regras e a geração de alertas ainda não existem. Alertas informa essa indisponibilidade. Autenticação do ESP32, firmware e ensaio físico continuam pendentes; iniciar a aplicação não insere registros ou parâmetros automaticamente. Leituras de teste são identificadas como simulação. Consulte o [plano vigente](docs/plano-ate-hardware-2026-11-09.md); o [plano de 30/10](docs/plano-continuidade-2026-10-30.md) permanece como histórico.
+O sistema inclui ASP.NET Core, SQLite com EF Core, cadastro de geladeiras, saúde real do banco, recebimento de leituras, simulador, painel, histórico, configurações persistidas e alertas. As páginas possuem URLs próprias. Autenticação do ESP32, firmware e ensaio físico são os próximos incrementos. Iniciar não insere cadastros, parâmetros ou leituras; equipamentos configurados e explicitamente ativos geram ocorrências conforme as regras. Leituras de teste são identificadas como simulação. Consulte o [plano vigente](docs/plano-ate-hardware-2026-11-09.md).
 
 ## Executar neste computador
 
@@ -31,8 +31,8 @@ Abra [http://localhost:5080](http://localhost:5080). Para encerrar, pressione **
 | `/` ou `/dashboard` | Saúde real da API/SQLite, indicadores da consulta e últimas leituras por origem. |
 | `/geladeiras` | Cadastro, listagem, consulta, edição, exclusão protegida e última medição consultada. |
 | `/historico` | Filtros, gráfico, tabela de leituras e paginação. |
-| `/alertas` | Informa que geração, persistência e consulta de alertas ainda não existem. |
-| `/configuracoes` | Consulta e grava limites, tempos, origem e habilitação planejada por equipamento. Ainda não gera alertas. |
+| `/alertas` | Consulta episódios por equipamento, origem, tipo, gravidade, situação, período e página. |
+| `/configuracoes` | Consulta e grava limites, tempos, origem e ativação de monitoramento por equipamento. |
 | `/acesso` | Conexão e saída da sessão do navegador no modo móvel. |
 | `/sobre` | Base técnica e próximos passos do projeto. |
 
@@ -127,6 +127,9 @@ A tela apresenta erros de validação, falhas de conexão e estado sem cadastros
 | `GET /api/leituras?geladeiraId=1&origem=Simulacao` | `200` | Histórico filtrado por geladeira/origem, com período UTC opcional e paginação |
 | `GET /api/leituras/{id}` | `200` | Consulta a leitura, sua origem e os dois timestamps |
 | `GET /api/monitoramento?origem=Simulacao` | `200` | Todas as geladeiras e uma última leitura por equipamento na origem selecionada |
+| `GET /api/alertas` | `200` | Ocorrências com filtros opcionais e paginação; veja contrato |
+| `GET /api/alertas/{id}` | `200` | Um episódio com evidências, parâmetros e motivo de encerramento; ausente: 404 |
+| `GET /api/alertas/resumo?origem=Simulacao` | `200` | Contagens reais, equipamentos ativos, estado do avaliador e cinco ocorrências recentes |
 | `GET /api/acesso` | `200` | Estado de acesso deste dispositivo e token de formulário quando necessário |
 | `POST /api/acesso/entrar` | `204` | No modo móvel HTTPS, recebe `{"codigo":"seu código local"}` e inicia sessão |
 | `POST /api/acesso/sair` | `204` | Encerra a sessão deste navegador no modo móvel HTTPS |
@@ -160,11 +163,11 @@ Invoke-RestMethod 'http://localhost:5080/api/geladeiras/1'
 
 ## Configurar limites e tempos
 
-Abra **Configurações**, escolha uma geladeira e preencha temperatura mínima/máxima em °C, tolerância de porta aberta e prazo sem leituras em segundos, origem e habilitação planejada. Equipamento sem configuração abre os campos vazios; nenhum limite foi presumido. **Salvar configurações** grava pela API; **Recarregar dados** confirma o que está persistido.
+Abra **Configurações**, escolha uma geladeira e preencha temperatura mínima/máxima em °C, tolerância de porta aberta e prazo sem leituras em segundos, origem e ativação. Equipamento sem configuração abre os campos vazios; nenhum limite foi presumido. **Salvar configurações** grava pela API; **Recarregar dados** confirma o que está persistido. Com monitoramento ativo, a API avalia as regras a cada segundo enquanto estiver em execução.
 
 `GET /api/geladeiras/{id}/configuracao` retorna 200 com `{geladeiraId, configuracao}`; `configuracao: null` indica equipamento existente ainda sem parâmetros. `PUT` na mesma rota exige todos os campos: `temperaturaMinimaC`, `temperaturaMaximaC`, `toleranciaPortaAbertaSegundos`, `ausenciaLeiturasSegundos`, `origemMonitorada` e `monitoramentoAtivo`. Temperaturas devem ser números JSON finitos com mínima menor que máxima; tempos inteiros de 1 a `2147483647`; origem exatamente `Simulacao`/`Hardware`; habilitação booleana. Números em texto são recusados. Primeira gravação: 201 com Location; atualização: 200; geladeira inexistente: 404; inválidos: 400; falha de banco: 503.
 
-O servidor retorna também início e atualização UTC. Ativar ou trocar origem enquanto ativo inicia novo acompanhamento; editar apenas limites/tempos preserva o início; inativo tem início nulo. A referência visual de 60 segundos do painel continua independente. **Esta etapa salva parâmetros e não gera alertas**, mesmo com habilitação marcada. O [contrato completo](docs/contrato-configuracoes.md) explica corpo, timestamps, tabela, exclusão e testes. Os valores reais de operação devem ser definidos conforme o uso com o orientador.
+O servidor retorna também início e atualização UTC. Ativar ou trocar origem enquanto ativo inicia novo acompanhamento; editar apenas limites/tempos preserva o início de ausência; inativo tem início nulo. Alterar parâmetros encerra os episódios anteriores e exige medições novas para temperatura/porta. A referência visual de 60 segundos continua independente. O [contrato completo](docs/contrato-configuracoes.md) explica corpo, timestamps e testes. Os valores reais de operação devem ser definidos conforme o uso com o orientador.
 
 ```powershell
 .\scripts\verify-configuracoes.ps1 -EvidenceDirectory docs/evidencias/nova-revisao/configuracoes

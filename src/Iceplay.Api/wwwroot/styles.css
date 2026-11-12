@@ -362,6 +362,30 @@ input::placeholder { color: var(--muted); opacity: 1; }
 @media (forced-colors: active) { .page-heading::after { display: none; } .sidebar-nav a[aria-current="page"] { border: 2px solid Highlight; } }
 
 /* Configurações reutilizam os controles do tema sem alterar as outras páginas. */
+.alert-filters { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.alerts-list { display: grid; gap: 16px; min-width: 0; }
+.alert-card { padding: 22px; border: 1px solid var(--border); border-left: 3px solid var(--warning); border-radius: var(--radius); background: var(--surface); min-width: 0; overflow-wrap: anywhere; }
+.alert-card[data-gravidade="Critico"] { border-left-color: var(--danger); }
+.alert-heading { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+.alert-heading h3 { margin: 0; font-size: 18px; }
+.alert-badge { color: var(--ice); background: var(--surface-raised); border: 1px solid var(--border); border-radius: 20px; padding: 5px 10px; font-size: 12px; white-space: nowrap; }
+.alert-equipment { color: var(--muted); font-size: 14px; margin-block: 10px; }
+.alert-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 20px 0; }
+.alert-metrics dt { color: var(--muted); font-size: 12px; }
+.alert-metrics dd { margin: 5px 0 0; font-size: 14px; }
+.alert-history-link { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; }
+.overview-alerts { margin-top: 36px; }
+.alerts-compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.alerts-compact .alert-heading { display: block; }
+.alerts-compact .alert-badge { display: inline-block; margin-top: 10px; }
+.alerts-compact .alert-metrics { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 1000px) { .alert-filters, .alert-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 700px) {
+  .alert-filters, .alert-metrics, .alerts-compact { grid-template-columns: minmax(0, 1fr); }
+  .alert-card { padding: 18px; }
+  .alert-heading { flex-direction: column; gap: 10px; }
+  .alert-filters input, .alert-filters select { font-size: 16px; min-width: 0; }
+}
 .settings-workspace { max-width: 980px; padding: 26px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
 .settings-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
 .settings-heading h2 { font-size: 22px; }

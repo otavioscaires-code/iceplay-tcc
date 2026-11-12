@@ -1,6 +1,6 @@
 # Configurações de monitoramento por geladeira
 
-Implementação de 09/11/2026: persistência, API e formulário na página `/configuracoes`. Esta etapa **não avalia leituras nem gera alertas**. Os parâmetros não alteram o painel de recência visual nem os dados de medição.
+Implementação inicial de 09/11/2026, atualizada em 12/11: persistência, API e formulário na página `/configuracoes`. Configurações ativas agora alimentam o [avaliador de alertas](contrato-alertas.md). Os parâmetros não alteram a referência de recência visual nem os dados de medição.
 
 ## Contrato HTTP
 
@@ -46,7 +46,7 @@ O corpo de sucesso possui `geladeiraId` e `configuracao`. O objeto interno cont�
 - Editar parâmetros enquanto ativo, mantendo a origem: preserva o início; atualiza somente `atualizadoEmUtc`.
 - Trocar a origem enquanto ativo ou reativar após pausa: inicia um acompanhamento novo.
 
-Isso prepara uma referência explícita para a futura regra de ausência, sem adiar seu prazo ao editar um limite. Ainda não existe avaliação periódica, contagem contínua de porta aberta ou registro de ocorrências. `Hardware` segue como origem declarada; salvar esse campo não autentica um ESP32 nem comprova leitura física.
+Essa referência permite avaliar ausência sem adiar seu prazo ao editar um limite. O avaliador periódico encerra episódios ao desativar/trocar parâmetros e reinicia a confirmação de temperatura/porta pelas novas medições. Os motivos são explícitos, sem atribuir normalização a uma simples desativação. `Hardware` segue como origem declarada; salvar esse campo não autentica um ESP32 nem comprova leitura física.
 
 `ConfiguracoesGeladeiras` tem `GeladeiraId` como PK e FK: no máximo uma configuração por equipamento. A migration `20261109233935_AddConfiguracoesGeladeiras` cria somente essa tabela e suas restrições, sem modificar as duas migrations anteriores, Geladeiras ou Leituras. A configuração é metadado dependente: excluir um equipamento sem leituras remove sua configuração em cascata. A restrição das leituras permanece; excluir um equipamento com histórico retorna 409.
 
@@ -89,4 +89,4 @@ classDiagram
     Geladeira "1" --> "0..1" ConfiguracaoGeladeira : configura
 ```
 
-O diagrama simplifica a assinatura de `InicioMonitoramentoEmUtc`: o código usa `DateTime?`. Relacionamentos de leituras continuam documentados em `contrato-leituras.md`; alertas ainda são uma proposta de evolução.
+O diagrama simplifica a assinatura de `InicioMonitoramentoEmUtc`: o código usa `DateTime?`. Relacionamentos de leituras continuam documentados em `contrato-leituras.md`; episódios e checkpoints estão em `contrato-alertas.md`.
