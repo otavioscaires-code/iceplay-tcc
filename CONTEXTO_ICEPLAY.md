@@ -1,328 +1,139 @@
-# CONTEXTO_ICEPLAY
+# CONTEXTO ICEPLAY
 
-## Atualização incremental de 12/11/2026 — alertas e interface
+Referência consolidada em **13/11/2026**. Leia também `AGENTS.md`, `README.md`, os contratos e os arquivos da tarefa. As etapas anteriores permanecem nos relatórios datados e no Git; este resumo substitui suas listas antigas de pendências, sem atribuir testes novos a datas passadas.
 
-Terceiro incremento concluído: credenciais por geladeira, revogação, escopo de POST e UUID idempotente na mesma API; formulário de gerenciamento em Configurações. Quinta migration `20261112194714_AddDispositivos`; os registros antigos têm metadados de dispositivo nulos. Ver `docs/contrato-dispositivos.md` e `docs/etapa-dispositivos-2026-11-12.md`. Firmware e ensaio continuam pendentes neste ponto; as referências a autenticação pendente abaixo são o estado anterior.
+## 1 Objetivo e situação real
 
-O usuário autorizou concluir progressivamente as pendências de software/documentação antes da chegada das peças. O primeiro incremento adiciona `Alertas`, `EstadosMonitoramento`, migration `20261112192436_AddAlertas`, `AvaliadorAlertas`/worker periódico e consultas GET de lista/detalhe/resumo. O segundo integra página com filtros/paginação, ocorrências recentes no painel e ativação efetiva em Configurações. Ver `docs/contrato-alertas.md` e `docs/etapa-interface-alertas-2026-11-12.md`. Os textos abaixo datados de 11/11 descrevem a situação anterior. Nenhum equipamento de uso foi ativado ou recebeu parâmetros automaticamente. Foram executados testes de regras/HTTP/regressão em bancos isolados e 101 testes Node; isso não substitui conferência visual no iPhone. Autenticação de dispositivo, firmware e ensaios continuam pendentes neste ponto.
+ICEPLAY é o TCC de Ciência da Computação de Otávio Souza Caires, orientado por Sérgio Mazini, campus Araçatuba. Monitora geladeiras comerciais: temperatura, estado da porta, dois timestamps UTC, histórico e episódios de alertas. A interface é web responsiva, usada pelo Safari; não é aplicativo nativo. Controle significa gestão/consulta dos parâmetros, sem acionamento de compressor.
 
-Documento de transferência de contexto do projeto, inicialmente elaborado em 30/10/2026 e atualizado em **11/11/2026**. As seções de situação atual descrevem o código de trabalho; as seções datadas preservam resultados e decisões anteriores. Este documento não substitui a leitura do código nem a consulta aos relatórios reais em `docs/evidencias/` e não declara uma nova execução de testes somente por atualizar a documentação.
+Prazo do professor: versão completa em **24/11/2026**, apresentação em **01/12/2026**, com evidências de execução. O usuário pediu encerrar o trabalho de software antes da chegada do hardware, por incrementos validados. Voz foi excluída do MVP em 09/11; notificações externas são futuras.
 
-Em 30/10, a base foi novamente executada e validada, Git/GitHub regularizados com autorização do usuário e a API do histórico implementada em incremento separado. O estado de 09/11 sucede esse diagnóstico: existem páginas HTML independentes e interface de histórico; o usuário confirmou parte do uso no iPhone e enviou foto da consulta das três leituras simuladas. O plano vigente é `docs/plano-ate-hardware-2026-11-09.md`; `docs/retomada-2026-10-30.md` e `docs/plano-continuidade-2026-10-30.md` permanecem como histórico. A conclusão das regressões/publicação deve ser verificada nos relatórios e no Git, sem inferir push a partir deste texto.
+**Software implementado e verificado:** CRUD, ingestão/simulador, painel, histórico, páginas independentes, acesso móvel, configurações, regras/alertas, credenciais de dispositivo e reenvio idempotente. **Firmware escrito e compilado:** ESP32 clássico, DS18B20 e reed. **Não validado:** montagem, gravação, sensor físico, comunicação real da placa, precisão e ensaio na geladeira. A nova interface ainda precisa de conferência visual no iPhone.
 
-## 1. Objetivo e escopo do TCC
+## 2 Arquitetura e versões
 
-ICEPLAY é um TCC de Ciência da Computação para monitoramento IoT de geladeiras comerciais. O núcleo proposto é cadastrar equipamentos, receber temperatura e estado da porta, registrar tanto o instante informado pelo emissor quanto o instante de recebimento pela API, persistir os dados, apresentá-los no navegador e evoluir para alertas de condições anormais e ausência de leituras.
+Uma aplicação ASP.NET Core serve API e arquivos estáticos HTML/CSS/JavaScript. EF Core persiste em SQLite. `Monitoring/AlertasWorker` roda no mesmo processo e avalia a cada segundo, com escopo EF/transação por equipamento. Não há framework frontend, npm de aplicação, broker, microserviços ou banco remoto.
 
-O prazo informado para versão completa é 24/11/2026, com apresentação/validação em 01/12/2026. O professor exige demonstração funcional e evidências concretas, não somente código.
+- SDK local `.tools/dotnet/dotnet.exe`: .NET 10.0.401; EF Core SQLite/Design e dotnet-ef: 10.0.12, fixados.
+- PowerShell 7.5+; Python e Node são necessários para partes da verificação, não para iniciar a API.
+- Firmware: PlatformIO Core 6.1.18 em venv Python 3.12 local; plataforma espressif32 6.12.0, Arduino ESP32 2.0.17, OneWire 2.3.8, DallasTemperature 4.0.5.
+- Ferramentas, bancos, backups e segredos ficam em `.tools`/arquivos ignorados. Não instalar dependências extras ou substituir tecnologias sem necessidade.
 
-Atualização de 11/11: estão implementados cadastro, saúde real, ingestão/simulador, painel, histórico, páginas independentes, acesso móvel e configurações persistidas por geladeira. Configurações tem modelo/migration, GET/PUT e formulário para limites, tempos, origem e habilitação planejada, sem valores presumidos. Ainda faltam avaliação das regras, geração/consulta de alertas, autenticação do ESP32, firmware e ensaio físico. A página Alertas informa a ausência do backend. O usuário está escolhendo peças; fotos de anúncios não comprovam compra ou posse. Voz foi excluída do MVP em 09/11; notificações externas ficam após o núcleo.
+## 3 Arquivos e responsabilidades
 
-## 2. Arquitetura e tecnologias
-
-Uma única aplicação ASP.NET Core Web API em .NET 10 serve simultaneamente API e interface estática. A persistência usa Entity Framework Core 10.0.12 com SQLite. A interface está em HTML, CSS e JavaScript puro, sem framework ou dependência npm. O simulador também usa a API, por PowerShell, e identifica as leituras com origem `Simulacao`.
-
-```
-Navegador desktop / Safari do iPhone
-             │ HTTP local ou HTTPS local no modo móvel
-ASP.NET Core Web API + arquivos estáticos (src/Iceplay.Api)
-             │ Entity Framework Core
-           SQLite (data/iceplay.db)
-             ▲
-Simulador PowerShell hoje / ESP32 futuramente
-```
-
-Pacotes NuGet diretos: `Microsoft.EntityFrameworkCore.Sqlite` e `Microsoft.EntityFrameworkCore.Design`, ambos 10.0.12. A ferramenta local `dotnet-ef` também está fixada em 10.0.12. `global.json` fixa SDK .NET 10.0.401. O ambiente foi preparado para Windows x64 e PowerShell 7.5+, com SDK local em `.tools/dotnet` quando necessário.
-
-## 3. Estrutura de pastas e arquivos relevantes
-
-| Caminho | Papel |
+| Local | Responsabilidade |
 | --- | --- |
-| `src/Iceplay.Api/Program.cs` | Inicialização, configuração SQLite, migrations em Development, middlewares e arquivos estáticos. |
-| `src/Iceplay.Api/Controllers/` | Endpoints de saúde, geladeiras, leituras, monitoramento e acesso móvel. |
-| `src/Iceplay.Api/Contracts/` | DTOs de entrada validados e DTOs de resposta. |
-| `src/Iceplay.Api/Models/` | Entidades `Geladeira`, `Leitura`, `ConfiguracaoGeladeira` e enumeração `OrigemLeitura`. |
-| `src/Iceplay.Api/Data/` | `IceplayDbContext`, restrições/mapeamentos e tratamento de exceções do banco. |
-| `src/Iceplay.Api/Migrations/` | Migrations EF: criação inicial e inclusão de leituras. |
-| `src/Iceplay.Api/Mobile/` | Limitação de rede, HTTPS local, cookie, CSRF e login por código no modo móvel. |
-| `src/Iceplay.Api/wwwroot/` | Interface, navegação, saúde, CRUD, painel e scripts JavaScript. |
-| `src/Iceplay.Api/wwwroot/index.html`, `geladeiras.html`, `historico.html`, `alertas.html`, `configuracoes.html`, `acesso.html`, `sobre.html` | Sete documentos independentes servidos pelo mesmo backend. |
-| `src/Iceplay.Api/wwwroot/shell.js`, `acesso.js` | Menu responsivo compartilhado e estado/sessão de acesso. |
-| `src/Iceplay.Api/wwwroot/historico.js`, `historico-estado.mjs` | Cliente de consulta, filtros, validação, tabela, gráfico e paginação do histórico. |
-| `scripts/` | Instalação, execução, preparação móvel e verificações automatizadas. |
-| `tools/simulator/enviar-leituras.ps1` | Emissor de leituras simuladas para `POST /api/leituras`. |
-| `docs/` | Planejamento, cronograma, contrato, UML, instruções, uso de IA, SQL e relatórios de etapa. |
-| `docs/evidencias/` | Logs, respostas HTTP, capturas e relatórios históricos de verificações. |
-| `.tools/` | SDK, caches, bancos e segredos/artefatos móveis locais; ignorados pelo Git. |
-| `README.md` | Instruções de execução, API, simulador, verificações e limitações. |
+| `src/Iceplay.Api/Program.cs` | DI, SQLite, migrations em Development, middleware e rotas HTML próprias |
+| `Controllers/`, `Contracts/`, `Models/` | API, validação/DTOs e entidades |
+| `Data/IceplayDbContext.cs`, `Migrations/` | Restrições, índices e cinco evoluções de esquema |
+| `Monitoring/` | Avaliador periódico, checkpoints, deduplicação e situação do serviço |
+| `Devices/DispositivoCredentials.cs` | Hash de credencial e contexto do emissor autenticado |
+| `Mobile/` | Sub-rede, HTTPS, cookie de operador, CSRF e limitação de login |
+| `wwwroot/` | Sete HTMLs, shell responsivo, tema Black & Ice Blue e clientes das páginas |
+| `scripts/verify*.ps1`, `*.py`, `*.test.mjs` | Verificações em bancos isolados, HTTP/TLS e DOM/fetch controlados |
+| `tests/Iceplay.Verification/` | Regras executáveis em C# com SQLite real e relógio controlado, sem pacote de testes novo |
+| `tools/simulator/enviar-leituras.ps1` | Simulador explicitamente Simulacao pela API |
+| `firmware/esp32/`, `scripts/*firmware.ps1` | Programa, dependências, configuração privada e ferramentas de compilação/gravação |
+| `docs/contrato-*.md`, `docs/modelagem-atual.md`, `docs/operacao.md` | Contratos, modelagem consolidada e manual |
+| `docs/hardware/`, `docs/tcc/` | Montagem/protocolo pendentes de ensaio e fontes da escrita acadêmica |
+| `docs/evidencias/` | Logs e resultados reais, incluindo tentativas com falha preservadas |
 
-Na elaboração inicial deste contexto, não havia commits/remoto. Na retomada de 30/10 o usuário autorizou commits/pushes rotineiros e foi configurado `origin` para `https://github.com/otavioscaires-code/iceplay-tcc.git`. O primeiro commit real, `a788f2b`, registra a base revalidada; foi enviado na branch `codex/retomada-historico`. Não houve criação de histórico retroativo. Consultar `git log/status` para os commits posteriores.
+## 4 Páginas e acesso
 
-## 4. Funcionalidades implementadas
+`/` e `/dashboard`: Visão geral. `/geladeiras`: CRUD. `/historico`: filtros, gráfico da página, tabela e paginação. `/alertas`: filtros/episódios. `/configuracoes`: parâmetros e emissão/revogação de credenciais. `/acesso`: sessão móvel. `/sobre`: base técnica. Cada URL entrega HTML independente, funciona com recarga/acesso direto e tem menu lateral desktop/recolhível móvel. Não há fallback SPA; desconhecidas retornam 404.
 
-- Health check: consulta de verdade `Geladeiras` no SQLite e resposta `200` ou `503` sem expor exceções internas.
-- CRUD de geladeiras: listar, consultar por ID, criar, atualizar e excluir; exclusão retorna `409` se há leituras vinculadas.
-- Validação HTTP de entradas, JSON, campos e IDs inexistentes com respostas 400/404/409/503 adequadas.
-- Persistência SQLite por EF Core, com três migrations e aplicação automática apenas em Development.
-- Configurações por equipamento com validação, origem explícita, habilitação/início UTC e persistência, sem geração de alertas nesta etapa.
-- Ingestão de temperatura, porta, origem e timestamp de medição; timestamp de recebimento é produzido pelo servidor.
-- Consulta de uma leitura por geladeira para uma origem selecionada, usando maior `medidoEmUtc` e maior ID no empate.
-- API de histórico `GET /api/leituras`, filtrada por geladeira/origem/período UTC, com paginação de até 100 itens e ordenação por medição/ID decrescentes.
-- Interface de histórico com seleção de equipamento/origem/período, conversão de hora local para UTC, filtros/página na URL, tabela com os dois timestamps e gráfico somente das amostras da página consultada. Alterar filtros limpa a consulta anterior; falhas não mantêm dados como se estivessem confirmados.
-- Páginas próprias `/dashboard`, `/geladeiras`, `/historico`, `/alertas`, `/configuracoes`, `/acesso` e `/sobre`; a raiz também entrega a Visão geral. Menu lateral fixo no desktop e recolhível no celular. Não há fallback SPA nem alternância de blocos para substituir a navegação real.
-- Painel responsivo para desktop/celular, filtro de origem Simulação/Hardware declarado, atualização automática a cada 15 segundos quando visível e referência visual de leitura desatualizada após mais de 60 segundos.
-- Interface para cadastro, edição e exclusão de geladeiras integrada à API, e apresentação de saúde real da API/banco.
-- Simulador PowerShell que envia para a mesma API do hardware planejado e não acessa SQLite diretamente.
-- Modo móvel local opcional: HTTPS no IP privado configurado, certificado local, acesso com código, cookie Secure/HttpOnly/SameSite Strict, CSRF, limite de oito tentativas por minuto e restrição à sub-rede configurada.
+O tema usa `theme.css`, `styles.css` e `assets/iceplay-mark.svg`. Clientes usam `window.iceplayFetch` para sessão/CSRF/timeout. Conteúdo da API entra como texto; falhas limpam dados antigos em vez de confirmar zero. Painel/alertas atualizam a cada 15 s enquanto visíveis. O gráfico representa somente as amostras da página, sem inventar medições intermediárias.
 
-Evidências de 19/10 registram build sem avisos/erros, verificadores de API, persistência em reinício, simulador e testes JavaScript; são resultados históricos. O uso no iPhone teve confirmação parcial em 09/11 e foto posterior mostrando tabela/gráfico com três leituras de simulação. Essas evidências não provam funcionamento com sensores físicos nem validam antecipadamente os refinamentos posteriores do gráfico/acesso.
+## 5 API e contratos
 
-## 5. Funcionalidades parcialmente implementadas ou não validadas
+| Método e rota | Sucesso e regras |
+| --- | --- |
+| `GET /api/health` | 200/503, consulta real a Geladeiras; `{status,database,refrigeratorCount,checkedAtUtc}` |
+| `GET/POST /api/geladeiras` | Lista 200; cria 201/Location. Nome obrigatório 1..100 após validação, localização opcional até 200 |
+| `GET/PUT/DELETE /api/geladeiras/{id}` | 200/200/204; ausente 404; com leituras ou alertas, exclusão 409 |
+| `GET/PUT /api/geladeiras/{id}/configuracao` | GET 200 com configuração nula se ausente; PUT criação 201 ou atualização 200; equipamento ausente 404 |
+| `POST /api/leituras` | Cria 201/Location; com dispositivo+UUID, repetição idêntica 200, conteúdo conflitante 409 |
+| `GET /api/leituras/{id}` | 200 ou 404, leitura com origem, dois timestamps e metadados anuláveis do emissor |
+| `GET /api/leituras` | geladeiraId/origem obrigatórios, inicioUtc/fimUtc inclusivos opcionais, pagina=1/tamanhoPagina=50 até 100; resposta com contagem/páginas/itens |
+| `GET /api/monitoramento?origem=...` | Uma leitura por geladeira na origem escolhida, pela maior medição e ID no empate; null quando não há leitura |
+| `GET /api/alertas`, `/{id}` | Lista com filtros/paginação ou detalhe; tipos, gravidade, situação, parâmetros e motivos |
+| `GET /api/alertas/resumo?origem=...` | Contagens reais, equipamentos ativos/sem monitoramento, cinco recentes e situação do avaliador |
+| `GET/POST /api/geladeiras/{id}/dispositivos` | Metadados sem segredo ou emissão 201 `{dispositivo,credencial}`; só um ativo, conflito 409 |
+| `GET /api/geladeiras/{id}/dispositivos/{dispositivoId}` | Metadados ou 404 para ID/vínculo inexistente |
+| `POST /api/geladeiras/{id}/dispositivos/{dispositivoId}/revogar` | Revogação idempotente 200; ausente 404 |
+| `GET /api/acesso`, `POST /api/acesso/entrar`, `/sair` | Sessão móvel/código e CSRF; 204 para entrada/saída válida, login limitado |
 
-- Interface móvel: além dos testes históricos de viewport/TCP/TLS/HTTP, houve acesso, saúde, cadastro/edição, navegação, atualização e consulta das leituras simuladas no iPhone em 09/11. Permanecem sem confirmação integral no aparelho logout/reconexão, exclusão de fixture sem leituras, reinício, orientações/zoom/teclado e os ajustes posteriores do gráfico/acesso. Modelo/iOS não foram informados.
-- Origem `Hardware`: contrato e rótulo existem, mas não há ESP32, autenticação de dispositivo ou ensaio físico. Ela é somente uma declaração do emissor.
-- Monitoramento: mostra a última leitura por origem; o histórico fica em página separada. Não decide se a temperatura é adequada. A referência de 60 segundos é exclusivamente visual, ajustável na sessão, e não gera alerta.
-- Configurações persiste parâmetros; o motor que os avaliará ainda não existe. Alertas continua como página de indisponibilidade. A nova tela de Configurações precisa de conferência manual no iPhone.
-- Documentação UML existe em `docs/uml.md`, mas as fontes PlantUML ainda não foram renderizadas segundo o README.
+Entradas inválidas: 400; recursos inexistentes: 404; conflito: 409; falha reconhecida de persistência: 503 genérico. Contratos completos em `docs/contrato-leituras.md`, `contrato-configuracoes.md`, `contrato-alertas.md`, `contrato-dispositivos.md` e README.
 
-## 6. Funcionalidades pendentes
+Leitura exige `geladeiraId`, número finito `temperaturaC`, booleano `portaAberta`, `medidoEmUtc` e origem exata `Simulacao`/`Hardware`. UTC exige segundos, Z e até sete casas; futuro é recusado sem tolerância. Recebimento/ID são do servidor. Dispositivo Bearer exige UUID D `medicaoId`, origem Hardware e vínculo correto; servidor define `dispositivoId`. Credencial inválida/revogada 401; outra geladeira/rota 403. Emissão/revogação remota exige a sessão/CSRF do operador.
 
-1. Conferir no iPhone os refinamentos do gráfico e a nova tela de Configurações; manter a validação visual separada dos testes HTTP/DOM.
-2. Definir com o aluno/orientador os parâmetros adequados à geladeira real; o armazenamento/API/formulário já existem, sem defaults sanitários.
-3. Implementar regras e episódios de alertas abertos/resolvidos, evitando duplicação e tratando amostras atrasadas, lacunas e separação de origens.
-4. Integrar consulta de alertas e resumo real à interface, mantendo estados vazio/erro explícitos.
-5. Preparar autenticação/autorização da ingestão do ESP32 e definir políticas de relógio, falhas e repetição.
-6. Preparar e compilar firmware para a placa escolhida, instruções de montagem e testes do contrato; depois realizar integração e ensaios com ESP32, DS18B20 e sensor magnético reais.
-7. Completar a validação móvel restante, UML renderizado, trabalho escrito, artigo, manual e evidências, em paralelo às etapas apropriadas.
+Operador/simulador preserva o POST anterior; pode declarar Hardware sem credencial, com vínculo de dispositivo nulo. A etiqueta e mesmo a credencial não comprovam leitura física/precisão. No teste de credenciais, Hardware é fixture de software apenas no banco isolado.
 
-O detalhamento e os critérios das seis entregas de software estão em `docs/plano-ate-hardware-2026-11-09.md`. Notificação por voz está fora do MVP; notificações externas são futuras. Não há aprovação documentada do professor que substitua a exigência de validação física.
+## 6 Banco e migrations
 
-## 7. API e contratos
+Uso: `src/Iceplay.Api/data/iceplay.db` (`Data Source=data/iceplay.db`, relativo ao content root; Windows trata Data/data sem distinção). Não usar EnsureCreated nem apagar banco para atualizar. Instância única, migrations automáticas somente em Development; Production precisa de aplicação explícita e backup.
 
-Todas as rotas são relativas ao host local (`http://localhost:5080` no modo comum). Em modo móvel, rotas remotas exigem HTTPS, sessão e CSRF para alterações.
+| Entidade/tabela | Conteúdo e vínculos |
+| --- | --- |
+| Geladeira / Geladeiras | ID, nome, localização, criação UTC |
+| Leitura / Leituras | FK equipamento RESTRICT, temperatura/porta/origem, medição/recebimento UTC, dispositivo/UUID anuláveis |
+| ConfiguracaoGeladeira / ConfiguracoesGeladeiras | PK/FK equipamento 1:0..1, faixa, tempos, origem, ativação/início/atualização; CASCADE sem apagar leituras |
+| Alerta / Alertas | FK equipamento/leitura de abertura RESTRICT, episódio, origem/tipo/gravidade, evidências/instantes/motivo, cópia dos parâmetros |
+| EstadoMonitoramento / EstadosMonitoramento | PK/FK configuração, versão, checkpoint medição/ID e início da sequência de porta |
+| Dispositivo / Dispositivos | FK equipamento, nome, hash de segredo aleatório, criação/revogação; leituras preservam vínculo |
 
-| Método e rota | Sucesso | Contrato/resumo |
-| --- | --- | --- |
-| `GET /api/health` | 200 | `{ status, database, refrigeratorCount, checkedAtUtc }`; consulta real ao banco. Falha reconhecida: 503. |
-| `GET /api/geladeiras` | 200 | Array de `{ id, nome, localizacao, criadoEmUtc }`, ordenado por ID. |
-| `GET /api/geladeiras/{id}` | 200 | Uma geladeira. ID ausente: 404. |
-| `POST /api/geladeiras` | 201 + Location | Cria geladeira. Corpo abaixo. |
-| `PUT /api/geladeiras/{id}` | 200 | Substitui nome/localização editáveis. ID ausente: 404. |
-| `DELETE /api/geladeiras/{id}` | 204 | Exclui geladeira sem leituras; ID ausente: 404; com leituras: 409. |
-| `GET /api/geladeiras/{id}/configuracao` | 200 | `{geladeiraId, configuracao}`; configuração nula se ainda não cadastrada; geladeira inexistente: 404. |
-| `PUT /api/geladeiras/{id}/configuracao` | 201/200 | Cria/atualiza os seis parâmetros obrigatórios; primeira gravação tem Location; inválidos: 400; inexistente: 404; banco: 503. Ver `docs/contrato-configuracoes.md`. |
-| `POST /api/leituras` | 201 + Location | Cria leitura vinculada a geladeira existente. Geladeira ausente: 404. |
-| `GET /api/leituras?geladeiraId=1&origem=Simulacao` | 200 | Histórico; `inicioUtc`/`fimUtc` opcionais inclusivos UTC Z, `pagina=1`, `tamanhoPagina=50` (1..100). Resposta com filtros, totais e `itens`. Geladeira ausente: 404, entrada inválida: 400, banco indisponível: 503. |
-| `GET /api/leituras/{id}` | 200 | Uma leitura; ID ausente: 404. |
-| `GET /api/monitoramento?origem=Simulacao` | 200 | `{ consultadoEmUtc, origem, geladeiras }`; cada item inclui `ultimaLeitura` ou `null`. Também aceita `Hardware`. Origem inválida/ausente: 400. |
-| `GET /api/acesso` | 200 | Estado do acesso móvel e token CSRF quando necessário. |
-| `POST /api/acesso/entrar` | 204 | No modo móvel HTTPS, recebe código e inicia sessão. Código inválido: 401; modo desligado: 404. |
-| `POST /api/acesso/sair` | 204 | Encerra a sessão móvel HTTPS; modo desligado: 404. |
+Migrations preservadas: `20261013172101_InitialCreate`, `20261018023456_AddLeituras`, `20261109233935_AddConfiguracoesGeladeiras`, `20261112192436_AddAlertas`, `20261112194714_AddDispositivos`. A quinta exige reconstrução interna de Leituras pelo SQLite/EF, testada com campos/IDs e alerta preexistentes. Não presumir ordem física de colunas; selecionar por nome. SQL atual para banco novo: `docs/sql/iceplay-criacao-2026-11-12.sql`; anteriores mantidos.
 
-### Geladeira: entrada e saída
+Índice único parcial de episódio aberto por equipamento/origem/tipo; de dispositivo ativo por equipamento; de dispositivo/UUID para idempotência. Datas são UTC; enumerações são texto. Restrições de finitude, faixa/tempos, FK e coerência dos instantes são verificadas. A API não define faixa física/sanitária para todas as leituras; o firmware filtra erros do sensor previsto.
 
-`POST` e `PUT /api/geladeiras` recebem:
+## 7 Regras e decisões temporais
 
-```json
-{ "nome": "Geladeira principal", "localizacao": "Área de vendas" }
-```
+Somente configuração explicitamente ativa gera alertas. Temperatura fora dos limites inclusivos abre Critico; porta aberta confirmada em medições por duração e ausência abrem Atencao. Gravidades são decisão do protótipo, não classificação sanitária.
 
-`nome` é obrigatório, não pode ser apenas espaços e aceita até 100 caracteres. `localizacao` é opcional e aceita até 200; ausência/vazio/espaços resulta em `null`. O servidor ignora ID/data enviados pelo cliente, gera `id` e `criadoEmUtc` UTC, e permite nomes repetidos.
+Ausência usa idade da medição elegível ou início da ativação, e é avaliada sem POST. Isso evita renovar o prazo com upload antigo, ajustando o critério inicial de recebimento descrito no planejamento histórico. Lacuna maior/igual ao prazo de ausência quebra a sequência de porta. Medições atrasadas não retrocedem o checkpoint. Editar parâmetros encerra episódios anteriores e exige novas amostras para temperatura/porta; editar limites não adia o início da ausência. Desativar/trocar origem é explícito.
 
-### Leitura: entrada e saída
+Encerrado tem motivo: CondicaoNormalizada, SemDadosRecentes, ConfiguracaoAlterada ou MonitoramentoDesativado. Encerrar por falta de dados não confirma normalização. Reinício preserva episódios/checkpoint; não inventa verificações enquanto a API esteve desligada. O serviço sinaliza falta de sucesso recente e a tela não apresenta zero como situação confirmada nesse caso. Referência visual de 60 s continua independente.
 
-`POST /api/leituras` recebe todos os campos:
+## 8 Execução neste computador
 
-```json
-{
-  "geladeiraId": 1,
-  "temperaturaC": 4.25,
-  "portaAberta": false,
-  "medidoEmUtc": "2026-10-17T12:00:00Z",
-  "origem": "Simulacao"
-}
-```
-
-`geladeiraId` é inteiro positivo existente; `temperaturaC` precisa ser número JSON finito; `portaAberta` é booleano; `origem` é exatamente `Simulacao` ou `Hardware`. `medidoEmUtc` exige ISO 8601 UTC com sufixo `Z`, segundos e até sete casas decimais, e não pode ser posterior ao recebimento. Leituras atrasadas são aceitas. A resposta inclui `id`, os campos recebidos, `recebidoEmUtc` UTC gerado pela API e `origem`. Campos extras de ID/recebimento são ignorados.
-
-Entradas inválidas e JSON malformado retornam 400, normalmente `ValidationProblemDetails`; erros reconhecidos de persistência retornam 503 genérico. Existe `GET /api/leituras` de histórico, com `geladeiraId` e `origem` obrigatórios. A resposta é `{geladeiraId, origem, inicioUtc, fimUtc, pagina, tamanhoPagina, totalItens, totalPaginas, itens}`. A contagem e a página usam a mesma transação de leitura; novas inserções podem deslocar páginas entre requisições. Não existe `DELETE /api/leituras`.
-
-## 8. Banco SQLite e entidades
-
-Arquivo de uso: `src/Iceplay.Api/data/iceplay.db`, configurado em `src/Iceplay.Api/appsettings.json` com `Data Source=data/iceplay.db`. O diretório é resolvido a partir da raiz do conteúdo da aplicação.
-
-### `Geladeiras`
-
-| Coluna | Tipo lógico | Regras |
-| --- | --- | --- |
-| `Id` | inteiro | chave primária, gerada pelo banco. |
-| `Nome` | texto | obrigatório; `trim` entre 1 e 100 caracteres. |
-| `Localizacao` | texto/nulo | até 200 caracteres. |
-| `CriadoEmUtc` | data/hora UTC | obrigatório, gerado pelo servidor. |
-
-### `Leituras`
-
-| Coluna | Tipo lógico | Regras |
-| --- | --- | --- |
-| `Id` | inteiro | chave primária, gerada pelo banco. |
-| `GeladeiraId` | inteiro | FK para `Geladeiras.Id`, maior que zero, `RESTRICT` na exclusão. |
-| `TemperaturaC` | double | obrigatório e finito; não há faixa física definida. |
-| `PortaAberta` | booleano | obrigatório; SQLite restringe 0/1. |
-| `MedidoEmUtc` | data/hora UTC | obrigatório e menor/igual ao recebimento. |
-| `RecebidoEmUtc` | data/hora UTC | obrigatório, produzido pela API. |
-| `Origem` | enum como texto | somente `Simulacao` ou `Hardware`. |
-
-Há índice em `(GeladeiraId, MedidoEmUtc, Id)` para a busca da última leitura. As migrations são `20261013172101_InitialCreate`, `20261018023456_AddLeituras` e `20261109233935_AddConfiguracoesGeladeiras`. O SQL atualizado para banco novo está em `docs/sql/iceplay-criacao-2026-11-09.sql`; o SQL anterior foi preservado. Não execute scripts de criação sobre banco existente. Em conexões SQLite externas, ative `PRAGMA foreign_keys=ON`.
-
-### `ConfiguracoesGeladeiras`
-
-PK/FK `GeladeiraId`, relação 1:0..1 com Geladeiras e CASCADE da configuração ao excluir cadastro sem leituras. Armazena `TemperaturaMinimaC`, `TemperaturaMaximaC`, `ToleranciaPortaAbertaSegundos`, `AusenciaLeiturasSegundos`, `OrigemMonitorada`, `MonitoramentoAtivo`, `InicioMonitoramentoEmUtc` anulável e `AtualizadoEmUtc`. CHECKs impõem finitude/ordem das temperaturas, inteiros positivos, enum, booleano e coerência dos instantes. Leituras mantém RESTRICT e proteção 409. GET não cria parâmetros. PUT usa transação curta, gera timestamps e preserva o início ao editar limites; ativar/mudar origem ativa inicia outro acompanhamento. Contrato detalhado em `docs/contrato-configuracoes.md`.
-
-## 9. Configuração e execução
-
-Pré-requisitos da cópia nova: Windows x64, PowerShell 7.5+, internet durante instalação/restauração e permissão de escrita. Não são necessários Node, Python, servidor SQLite ou Visual Studio para executar a aplicação; Node/Python são opcionais para parte das verificações.
+PowerShell 7, raiz `C:/Users/otavi/Downloads/iceplay`:
 
 ```powershell
-Set-Location 'C:\Users\otavi\Downloads\iceplay'
-.\scripts\install-dotnet.ps1  # somente se SDK local ainda não existir
 .\scripts\setup.ps1
 .\scripts\run.ps1
 ```
 
-`setup.ps1` restaura pacotes/ferramentas e compila. `run.ps1` inicia em Development, aplica migrations pendentes e mantém o processo no terminal. Acesse `http://localhost:5080`; encerre com Ctrl+C. A API e a interface são entregues pelo mesmo processo.
+Local: `http://localhost:5080`. Encerrar antes de recompilar. Para rede já preparada, usar somente `scripts/run-mobile.ps1`, com IP atual **192.168.1.123**, HTTPS **5443**, bootstrap de certificado **5081**, loopback **5080**. iPhone usa `https://192.168.1.123:5443/acesso`, mesma rede, código em `.tools/mobile/codigo-acesso.txt`. Não publicar esse arquivo ou settings/PFX, alterar firewall/confiança ou ignorar TLS. Sessão Secure/HttpOnly/SameSite Strict dura até 8 h e reinício exige reconectar.
 
-A raiz e `/dashboard` abrem Visão geral; o menu leva a `/geladeiras`, `/historico`, `/alertas` e `/configuracoes`. `/acesso` contém a sessão móvel e `/sobre` preserva base técnica/próximos passos. O `Program.cs` mapeia cada URL para seu HTML próprio; acessar diretamente ou atualizar usa esse documento. Rotas desconhecidas permanecem 404. Antigas âncoras de geladeiras/acesso/base técnica/próximas etapas são encaminhadas pelo `shell.js` para as novas páginas.
+`scripts/backup-database.py` cria cópia consistente privada em `.tools/backups`, sem substituir origem. Ver `docs/operacao.md`. Na conclusão de 13/11, foram aplicadas as cinco migrations no banco de uso e comparados backups: uma geladeira, três leituras Simulacao, zero configurações/alertas/checkpoints/dispositivos; hash dos campos históricos igual antes/depois. Nenhum limite ou token foi criado automaticamente. Evidência: `docs/evidencias/2026-11-13-fechamento/`.
 
-Para verificar banco/API com a aplicação em execução:
+## 9 Testes e limites de verificação
 
-```powershell
-$resposta = Invoke-WebRequest 'http://localhost:5080/api/health'
-$resposta.StatusCode
-$resposta.Content
-```
+Scripts base/CRUD/leituras/histórico/painel/configurações/alertas/dispositivos/páginas/móvel usam bancos isolados; sempre passar nova pasta `-EvidenceDirectory`. Executar sequencialmente, sem servidor de uso em execução durante builds. Node: sete arquivos `scripts/*.test.mjs`, 112 testes na última rodada. Firmware: `scripts/verify-firmware.ps1` compila exemplo e cópia isolada configurada; não copia configuração privada nem grava placa.
 
-O esperado é HTTP 200, `status: healthy` e `database: connected`; a contagem varia conforme cadastros reais. Em banco novo ela pode ser zero. Iniciar não insere geladeiras nem leituras fictícias.
+Resultados executados em 12–13/11: build .NET zero avisos/erros; base 13; CRUD 807/177 requisições; leituras 339/75; histórico 145/68; painel 70/29; configurações 153/67; alertas 31 com relógio controlado e HTTP 91/67 na rodada final; dispositivos 84/55; móvel 139/102; páginas 207/47; Node 112. Não somar como funcionalidades independentes ou porcentagem de cobertura. Consultar relatórios para requisições extras/simulador/concorrência e tentativas falhas preservadas. O commit `c9c0a29` corrigiu a aceitação de fração UTC vazia no filtro; ver `docs/correcao-filtro-utc-2026-11-13.md`.
 
-## 10. Modo móvel local e integração planejada
+Firmware passou em ambos os perfis; configurado usou 47708 bytes de RAM estática e 929469 bytes de aplicação flash segundo compilador. Dois avisos OneWire 2.3.8 em #undef, sem erro. Não são medições de RAM dinâmica/TLS na placa. Relatórios em `docs/etapa-alertas-2026-11-12.md`, `etapa-interface-alertas-2026-11-12.md`, `etapa-dispositivos-2026-11-12.md`, `etapa-firmware-2026-11-13.md`.
 
-O modo móvel não é aplicativo nativo/PWA: o iPhone abre a interface web no Safari. Ele existe para uso na mesma rede Wi-Fi do computador, não para internet pública.
+## 10 iPhone e hardware
 
-1. Encerrar `run.ps1` se estiver aberto.
-2. Identificar IPv4 privado atual do computador e preparar uma vez:
+Em 09/11 o usuário confirmou acesso, saúde, cadastro/edição/navegação, histórico vazio e recarga; foto posterior mostrou três leituras Simulacao e gráfico. Registro em `docs/evidencias/2026-11-09-iphone/validacao-manual.md`. Novos formulários/alertas/refinamentos não foram conferidos visualmente no aparelho. Ferramenta de navegador respondeu indisponível nesta conversa em 12/11; testes DOM/HTTP não são renderização ou Safari.
 
-```powershell
-.\scripts\prepare-mobile.ps1 -EnderecoIp SEU_IP_PRIVADO
-.\scripts\run-mobile.ps1
-```
+Hardware previsto: uma placa ESP32 clássica, sonda DS18B20, um par reed/ímã, resistor 4k7 (não 47R), protoboard/jumpers e USB com dados. GPIO4 para DQ, pull-up a 3V3 e GPIO27/GND para contato; conferir fios/polaridade/modelo reais. Placa/alimentação fora da geladeira. Sem atuação na rede elétrica/compressor.
 
-3. Em outro PowerShell **como administrador**, somente mediante decisão do usuário, liberar as portas restritas à sub-rede:
+Firmware: amostragem nominal 10 s, conversão 800 ms, debounce 50 ms, UTC SNTP, CA HTTPS, UUID/retry; uma amostra pendente em RAM até 30 s, sem histórico offline completo. Operações HTTP podem atrasar polling; não promete capturar todo pulso curto. `firmware/README.md` e `docs/hardware/` têm comandos, montagem e 12 ensaios pendentes. Configurar WiFi/chave em `config.local.h`, ignorado; verificador nunca publica binário privado.
 
-```powershell
-.\scripts\mobile-firewall.ps1 -Acao Ativar
-```
+## 11 Git e documentação acadêmica
 
-4. No iPhone na mesma rede, abrir `http://SEU_IP_PRIVADO:5081`, baixar o certificado público, instalá-lo e habilitar confiança; depois abrir `https://SEU_IP_PRIVADO:5443/acesso` e informar o código de `.tools/mobile/codigo-acesso.txt`.
+Branch `codex/retomada-historico`, origin `https://github.com/otavioscaires-code/iceplay-tcc.git`. Autorização de 30/10 cobre commits/pushes rotineiros validados; sem ações destrutivas. Incrementos desta continuação: `db960eb` regras; `4a6199d` interface; `caccaf3` credenciais; `b9b3d97` firmware. Consultar log/status/ls-remote para fechamento posterior. Fetch anterior encontrou referência interna Codex inválida; não apagar refs/resetar. Push normal e consulta direta do remoto funcionaram.
 
-`docs/acesso-iphone.md` contém instruções e diagnóstico. Os arquivos privados/código ficam em `.tools/mobile` e não devem ser versionados ou copiados ao novo repositório. A instância comum atende somente loopback. No modo móvel, loopback continua em HTTP na porta 5080 e clientes remotos só podem usar HTTPS na porta 5443 após acesso.
+Escrita em `docs/tcc/`: minuta de monografia, artigo de trabalho, referências verificadas e instruções de uso do modelo UNIP. Conteúdo deve ser revisado/defendido pelo aluno e orientador. Resultados físicos/conclusão final/formatação Word não podem ser declarados prontos antes dos ensaios/revisão. RA e cópia pessoal ficam em `.tools/documentacao-iceplay`, fora do Git. Assistência está em `docs/uso-de-ia.md`; não inventar autoria manual, referências ou evidência.
 
-### Hardware previsto
+## 12 Próximas prioridades
 
-O hardware planejado é ESP32 + sensor de temperatura DS18B20 + sensor magnético para estado da porta. O firmware deverá medir, gerar `medidoEmUtc`, identificar o equipamento e enviar `POST /api/leituras` para o mesmo endpoint já usado pelo simulador. O painel consultará `GET /api/monitoramento?origem=Hardware` para não misturar dados físicos declarados e dados de simulação. Ainda não há firmware, ESP32, sensores, credenciais de dispositivo ou prova física de comunicação/precisão.
+1. Conferir fisicamente as peças recebidas, montagem/polaridade/cabo/COM; preparar configuração privada e gravar, conforme protocolo.
+2. Executar bancada e geladeira: temperatura/porta, HTTPS/UTC, erros, ausência/recuperação/reinício/revogação; guardar resultados reais.
+3. Conferir no iPhone os novos formulários, alertas e refinamentos em orientação/teclado/reconexão, sem confundir com os testes HTTP.
+4. Preencher parâmetros reais com o orientador, resultados físicos, discussão/limitações, capturas novas e concluir revisão/formatação do TCC/artigo/apresentação.
 
-## 11. Decisões técnicas consolidadas
-
-- Manter ASP.NET Core, EF Core, SQLite e frontend estático para reduzir complexidade e adequar o MVP acadêmico.
-- Separar contratos HTTP das entidades persistidas para impedir controle de ID/data pelo cliente.
-- Armazenar `medidoEmUtc` e `recebidoEmUtc` separadamente em UTC, pois medição e chegada podem ocorrer em instantes distintos.
-- Não inserir seed automático; o simulador só age por comando explícito e declara `Simulacao`.
-- Não excluir leituras em cascata; uma geladeira com histórico recebe 409 ao tentar exclusão.
-- Painel seleciona uma origem por vez, mantendo o significado de simulação versus hardware declarado.
-- Leitura mais recente é definida pelo instante de medição, não pelo instante de recebimento; empate usa maior ID.
-- Recência acima de 60 segundos é estado visual, não alerta, desconexão ou diagnóstico térmico.
-- Acesso móvel é limitado à rede privada com HTTPS/código/CSRF, sem expor a aplicação na internet ou afirmar identidade do dispositivo.
-- Migrations automáticas são restritas a Development e instância local única.
-- Separar a interface em documentos HTML reais, com navegação por URL e assets compartilhados; preservar API, arquitetura, funções anteriores e mensagens honestas para backends pendentes.
-- O gráfico é uma representação das amostras da página, sem interpolação medida nem limites de alerta. A tabela preserva o contexto completo da leitura.
-- Notificação por voz foi excluída do MVP por decisão do usuário em 09/11/2026 e permanece somente como possibilidade futura.
-
-## 12. Problemas conhecidos e limitações
-
-- Há validação parcial do iPhone relatada pelo usuário em 09/11 (ver seção 18). O roteiro completo e o hardware ESP32/DS18B20/sensor magnético continuam sem validação integral registrada.
-- Não há autenticação de ESP32, usuário individual, controle de perfis, implantação pública, HTTPS público ou acesso externo.
-- Histórico e Configurações têm API e interface; Alertas permanece informativa. Parâmetros estão persistidos, mas não há avaliação/geração/consulta de alertas, notificações, resumo de alertas reais ou exclusão de leituras.
-- Não há faixa física aceita de temperatura; apenas rejeição de números não finitos. Limites devem ser definidos com o orientador.
-- A lista do painel não é paginada e traz uma única última leitura por equipamento/origem.
-- Cookies/sessão móvel são deliberadamente efêmeros e expiram em até 8 horas; reiniciar a API invalida sessão.
-- O IP local pode mudar, exigindo nova preparação de modo móvel. Não se deve ignorar aviso de certificado.
-- Há autorização para commits/pushes rotineiros validados desde 30/10 e repositório remoto configurado. Preservar segredos e o banco local, e revisar o estado antes de cada commit.
-
-## 13. Testes e evidências existentes
-
-Os scripts principais são `verify.ps1`, `verify-geladeiras.ps1`, `verify-leituras.ps1`, `verify-monitoramento.ps1`, `verify-historico.ps1`, `verify-pages.ps1` e `verify-mobile.ps1`. Eles criam bancos/instâncias isoladas e têm opção `-EvidenceDirectory`; use diretório novo a cada rodada importante. Há testes Node sem dependências em `scripts/monitoramento-estado.test.mjs`, `scripts/acesso.test.mjs`, `scripts/historico-estado.test.mjs` e `scripts/shell.test.mjs`. O README contém os comandos. HTTP e DOM/fetch controlados não equivalem à renderização no navegador/aparelho.
-
-Os relatórios de 19/10 registram, entre outros, build sem avisos/erros, 807 asserções/177 requisições do CRUD, 339/75 para leituras, 70/29 para painel, 82/61 para acesso móvel e testes JavaScript aprovados. Esses números estão nos arquivos de evidência e representam verificações históricas, não uma nova execução nesta transferência. As evidências também registram persistência após reinício e que o banco de uso ficou com uma geladeira e nenhuma leitura naquela execução. O estado atual do banco não foi inferido nesta documentação.
-
-## 14. Próximas tarefas por prioridade
-
-1. **Validação móvel complementar:** conferir os ajustes visuais e a nova tela de Configurações. Páginas e histórico foram publicados no commit `7bd4541`.
-2. **Parâmetros reais:** acordar limites/tempos conforme o uso; modelo/migration, API e formulário já implementados. Ver seção 20.
-3. **Regras/registro de alertas:** avaliar temperatura, duração da porta e ausência de leituras; testar limiares, recuperação, relógio, reinício e origem.
-4. **Interface de alertas:** apresentar ocorrências/filtros/situação e resumo real na Visão geral.
-5. **API para dispositivo:** autenticar o emissor e autorizar somente a geladeira vinculada, com política de relógio/falha/repetição documentada.
-6. **Firmware e preparação do ensaio:** compilar para a placa escolhida, documentar montagem e testar o contrato; com as peças, executar e registrar a integração física na geladeira.
-
-Seguir `docs/plano-ate-hardware-2026-11-09.md`. UML, manual, texto/artigo e evidências são trabalho contínuo até a versão final de 24/11 e a apresentação em 01/12.
-
-## 15. Referências internas indispensáveis
-
-- `README.md`: instruções atualizadas de operação e contratos resumidos.
-- `docs/contrato-leituras.md`: regras detalhadas de timestamps, origem e simulador.
-- `docs/acesso-iphone.md`: roteiro do dispositivo real e solução de problemas.
-- `docs/cronograma-oficial.md`: marcos fornecidos pelo professor.
-- `docs/etapa-2026-10-19.md`, `docs/etapa-painel-2026-10-19.md` e `docs/etapa-mobile-2026-10-19.md`: decisões, comandos e resultados documentados das últimas etapas.
-- `docs/uso-de-ia.md`: registro de uso responsável de IA.
-- `AGENTS.md`: regras para a próxima sessão/agente.
-
-## 16. Resultado da retomada de desenvolvimento de 30/10
-
-A base foi revalidada de verdade: build 0 avisos/erros; base 13 verificações; cadastro 807 asserções/177 requisições; leituras 339/75; painel 70/29 e simulador; móvel 82/61; Node 20 testes; SQLite independente 12 verificações. Evidências em `docs/evidencias/2026-10-30-retomada`.
-
-O primeiro incremento foi somente a API do histórico, sem migration/dependência nova. O verificador final passou com 145 asserções/68 requisições (`docs/evidencias/2026-10-30-historico/final/historico-api.json`); a regressão de leituras passou com 339/75 na segunda tentativa, e a móvel ampliada com 89/66. A primeira regressão de leituras foi interrompida por bloqueio de escrita de um JSON de evidência, foi preservada e não é registrada como aprovação. Não foi possível determinar o processo que bloqueou o arquivo. O banco normal manteve o mesmo hash lógico e conteúdo, comprovado em `preservacao-banco-uso.json` dessa rodada.
-
-Arquivos novos: `Contracts/ConsultarHistoricoRequest.cs`, `Contracts/HistoricoLeiturasResponse.cs`, `scripts/verify-historico.ps1`; o GET foi adicionado a `LeiturasController`. O verificador móvel cobre também a proteção da nova rota. Ver `docs/etapa-historico-2026-10-30.md` para comandos e limitações. A próxima tarefa é a interface responsiva do histórico; depois configurações, regras e alertas. Hardware ainda não adquirido e iPhone ainda não validado conforme resposta do aluno nesta sessão.
-
-## 17. Identidade visual Black & Ice Blue — 30/10
-
-O usuário solicitou identidade premium preta/azul-gelo com flocos geométricos. Uma proposta SVG foi apresentada antes da implementação; o tema foi aplicado em index.html/styles.css, com tokens novos em `wwwroot/theme.css` e símbolo local `wwwroot/assets/iceplay-mark.svg`. O guia está em `docs/design/black-ice-blue.md`. Visão geral, Painel, Geladeiras e acesso móvel usam o tema; Histórico/Alertas/Configurações ainda aguardam implementação de tela e devem reutilizá-lo. Não houve mudança de JS funcional/API/banco/migrations.
-
-Build 0 avisos/erros; base 13, painel 70 asserções/29 requisições, móvel 89/66 e Node 20 testes aprovados. HTTP dos assets e inspeção estática de 66 IDs/referências/contraste passaram; bordas de controle/perigo foram corrigidas após o primeiro cálculo. Evidências em `docs/evidencias/2026-10-30-visual`, relatório em `docs/etapa-visual-2026-10-30.md`. O navegador permaneceu desativado em Work nas consultas realizadas, apesar de o aluno informar que iria habilitar; a renderização responsiva em navegador e no iPhone físico segue pendente. Não tratar o estudo SVG como captura de execução.
-
-A leitura final do SQLite naquela etapa visual encontrou zero geladeiras e zero leituras, duas migrations e integridade ok. Esse era o estado observado em 30/10; a seção 16 registra uma execução anterior, com uma geladeira, e a seção 18 registra o cadastro/leituras posteriores. Uma comparação com o hash anterior divergiu; sem snapshot do começo daquela etapa, não se atribui a divergência à mudança visual. O banco foi preservado sem reposição de registros.
-
-## 18. Teste parcial no iPhone — 09/11/2026
-
-O aluno mostrou foto da página HTTP de preparação aberta no iPhone e depois confirmou a sequência de acesso e o roteiro de saúde, cadastro, edição, histórico vazio, navegação e atualização de página. A confirmação "sim, tudo perfeito" foi relatada pelo usuário, sem inspeção automatizada das telas. A consulta real ao backend retornou healthy/connected e o cadastro ID 2, `TESTE IPHONE EDITADO`, salvo no banco.
-
-Na sequência foram enviados explicitamente pelo simulador três POSTs para esse cadastro de teste: todos receberam 201, com origem Simulacao, temperatura de teste 4,25 °C, porta fechada e IDs de leitura 1/2/3. GET do histórico confirmou três itens. No primeiro registro a visualização no iPhone ainda aguardava confirmação; uma segunda foto enviada depois na conversa mostrou tabela com as três leituras e gráfico de temperatura no aparelho, confirmando essa consulta. A foto não foi copiada para o repositório. Logout/reconexão, exclusão de cadastro sem leituras e persistência após reiniciar acompanhado no aparelho continuam sem confirmação. Versão do iOS e modelo do aparelho não foram informados. Nenhuma medição física foi realizada.
-
-Evidências em `docs/evidencias/2026-11-09-iphone/`. Na elaboração inicial desse registro, a reorganização em documentos HTML próprios ainda aguardava fechamento de regressões/documentação e commit de código; o último código publicado naquele momento era `21f9e4b`. A revisão de fechamento ocorre em etapa própria: consultar relatórios e `git log/status` para saber o que efetivamente foi validado/publicado, sem interpretar esta atualização documental como prova de push.
-
-## 19. Continuidade e fechamento de páginas — 09/11/2026
-
-O código de trabalho possui os sete documentos e o histórico descritos nas seções atuais. Alertas e Configurações são páginas navegáveis de indisponibilidade, sem backends ou regras fictícias. O tema Black & Ice Blue é compartilhado. O refinamento do gráfico e do indicador de acesso é posterior à foto do iPhone e requer conferência própria no aparelho; testes automatizados não substituem essa confirmação.
-
-O relatório `docs/etapa-paginas-2026-11-09.md` registra a execução de software desta revisão: build com zero avisos/erros, base 13 verificações, CRUD 807 asserções/177 requisições, leituras 339/75, histórico 145/68, painel 70/29, móvel 103/73, páginas 195/40 e 63 testes JavaScript aprovados. As evidências estão em `docs/evidencias/2026-11-09-fechamento-paginas/`. São asserções/testes de software, não percentuais de cobertura ou ensaios físicos.
-
-O reinício real do servidor no computador preservou o conteúdo lógico do banco de uso: uma geladeira ID 2, três leituras Simulacao e duas migrations, com integridade e chaves estrangeiras válidas. O arquivo `reinicio-banco-uso.json` compara os snapshots e registra as consultas HTTP/HTTPS. Isso confirma persistência no servidor, sem afirmar que o aluno já acompanhou reconexão/reinício no iPhone. A sessão móvel é invalidada ao reiniciar e exige novo acesso.
-
-O usuário aprovou retirar voz do MVP e informou anteriormente não possuir hardware; não há evidência posterior de aquisição, firmware ou ensaio com sensores reais. O plano `docs/plano-ate-hardware-2026-11-09.md` organiza seis entregas de software até a preparação da integração física. A primeira fecha páginas/testes/documentação/publicação; a próxima funcionalidade é a configuração persistida das regras por geladeira. A execução de software e os futuros resultados físicos devem permanecer registrados separadamente.
-
-## 20. Configurações por geladeira — 09 a 11/11/2026
-
-Foram acrescentados `ConfiguracaoGeladeira`, contratos, `ConfiguracoesController`, migration aditiva `20261109233935_AddConfiguracoesGeladeiras`, formulário e módulos/testes de Configurações. GET/PUT, validação e instantes estão no `docs/contrato-configuracoes.md`. A tabela nova não recebe seed; habilitação prepara regras futuras, sem avaliar/gerar alertas. O próximo incremento são episódios de alertas; parâmetros reais ainda devem ser acordados conforme o uso.
-
-O relatório `docs/etapa-configuracoes-2026-11-11.md` separa as execuções: API/configurações 153 asserções/67 requisições registradas mais dois PUTs concorrentes; móvel 114/80; páginas 198/42; 85 testes JavaScript (22 novos de configurações), build sem avisos/erros, modelo sem divergência das migrations e regressões anteriores aprovadas. Evidências nas pastas `docs/evidencias/2026-11-09-configuracoes` e `2026-11-11-configuracoes`, com datas reais. O verificador independente SQLite passou em 12 verificações; o SQL completo novo foi executado em banco isolado sem seed.
-
-Em 11/11 houve backup consistente antes de iniciar a versão atualizada. O banco de uso manteve uma geladeira e três leituras Simulacao com o mesmo hash lógico dos registros; recebeu apenas a terceira migration e a tabela vazia. Nenhuma configuração foi inserida no banco de uso. A ferramenta de navegador continuou bloqueada; testes HTTP/Node não validam Safari ou a nova tela no iPhone. O servidor foi iniciado novamente em modo móvel, exigindo nova sessão no aparelho.
-
-O usuário mostrou anúncios de ESP32 DevKit V1/WROOM-32, sonda DS18B20 e resistor 4,7 kΩ. Foi avaliada a compatibilidade do modelo, sem comprovar especificações do vendedor, compra, posse, firmware ou montagem. Após as configurações restam quatro entregas de software do plano vigente, mais os ensaios físicos e a documentação acadêmica.
+Não reconstruir módulos já concluídos, criar dados fictícios, trocar tecnologias ou considerar simulação equivalente ao ensaio físico.

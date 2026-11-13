@@ -1,0 +1,35 @@
+{
+  "scope": "Auditoria de fontes/documentacao/privacidade; nao e ensaio fisico",
+  "checkedAtUtc": "2026-11-13T06:24:37.619234+00:00",
+  "privateValuesFound": 0,
+  "nulSourcesFound": 0,
+  "publishableFilesInspected": 992,
+  "localLinksChecked": 144,
+  "missingLocalLinks": 0,
+  "svgDiagramsChecked": [
+    "casos-de-uso.svg",
+    "componentes.svg",
+    "entidades.svg",
+    "sequencia.svg"
+  ],
+  "previousMigrationFilesUnchanged": [
+    "20261013172101_InitialCreate.cs",
+    "20261013172101_InitialCreate.Designer.cs",
+    "20261018023456_AddLeituras.cs",
+    "20261018023456_AddLeituras.Designer.cs",
+    "20261109233935_AddConfiguracoesGeladeiras.cs",
+    "20261109233935_AddConfiguracoesGeladeiras.Designer.cs"
+  ],
+  "apiDependenciesUnchanged": true,
+  "historicalFieldsPreserved": true,
+  "usageDatabaseCounts": {
+    "Geladeiras": 1,
+    "Leituras": 3,
+    "ConfiguracoesGeladeiras": 0,
+    "Alertas": 0,
+    "EstadosMonitoramento": 0,
+    "Dispositivos": 0
+  },
+  "privateDraftsGenerated": true,
+  "result": "passed"
+}

@@ -1,0 +1,64 @@
+{
+  "scope": "Execucao local com banco de uso; nao comprova Safari ou sensores",
+  "checkedAtUtc": "2026-11-13T05:37:54.072984+00:00",
+  "checks": [
+    {
+      "route": "/dashboard",
+      "status": 200
+    },
+    {
+      "route": "/geladeiras",
+      "status": 200
+    },
+    {
+      "route": "/historico",
+      "status": 200
+    },
+    {
+      "route": "/alertas",
+      "status": 200
+    },
+    {
+      "route": "/configuracoes",
+      "status": 200
+    },
+    {
+      "route": "/acesso",
+      "status": 200
+    },
+    {
+      "route": "/sobre",
+      "status": 200
+    },
+    {
+      "route": "/api/health",
+      "status": 200
+    },
+    {
+      "route": "/api/geladeiras",
+      "status": 200
+    },
+    {
+      "route": "/api/monitoramento?origem=Simulacao",
+      "status": 200
+    },
+    {
+      "route": "/api/alertas",
+      "status": 200
+    },
+    {
+      "route": "/api/alertas/resumo?origem=Simulacao",
+      "status": 200
+    }
+  ],
+  "health": {
+    "status": "healthy",
+    "database": "connected",
+    "refrigeratorCount": 1,
+    "checkedAtUtc": "2026-11-13T05:37:54.3466348Z"
+  },
+  "result": "passed",
+  "httpsValidated": true,
+  "remoteUnauthenticatedStatus": 401,
+  "checksCount": 14
+}

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="800" viewBox="0 0 1000 800" role="img" aria-label="ICEPLAY sequência de ingestão e avaliação">
+<defs><marker id="arrow" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#273747" stroke-width="1.2"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#152332} .title{font-size:23px;font-weight:bold} .heading{font-size:17px;font-weight:bold} .body{font-size:15px} .note{font-size:13px;fill:#46566a} .edge{fill:none;stroke:#273747;stroke-width:1.7;marker-end:url(#arrow)} .node{fill:#f7fbff;stroke:#41566c;stroke-width:1.4}</style>
+<rect width="1000" height="800" fill="white"/>
+<text x="30" y="33" class="title">ICEPLAY sequência de ingestão e avaliação</text>
+<rect x="20" y="70" width="120" height="48" rx="6" class="node"/>
+<text x="80" y="99" class="heading" text-anchor="middle">Operador</text>
+<path d="M80 118V705" stroke="#8090a3" stroke-dasharray="5 5"/>
+<rect x="235" y="70" width="120" height="48" rx="6" class="node"/>
+<text x="295" y="99" class="heading" text-anchor="middle">API</text>
+<path d="M295 118V705" stroke="#8090a3" stroke-dasharray="5 5"/>
+<rect x="440" y="70" width="120" height="48" rx="6" class="node"/>
+<text x="500" y="99" class="heading" text-anchor="middle">SQLite</text>
+<path d="M500 118V705" stroke="#8090a3" stroke-dasharray="5 5"/>
+<rect x="640" y="70" width="120" height="48" rx="6" class="node"/>
+<text x="700" y="99" class="heading" text-anchor="middle">Worker</text>
+<path d="M700 118V705" stroke="#8090a3" stroke-dasharray="5 5"/>
+<rect x="840" y="70" width="120" height="48" rx="6" class="node"/>
+<text x="900" y="99" class="heading" text-anchor="middle">Emissor</text>
+<path d="M900 118V705" stroke="#8090a3" stroke-dasharray="5 5"/>
+<path class="edge" d="M80 160H295"/>
+<text x="187.5" y="151" class="note" text-anchor="middle">PUT configuração ativa</text>
+<path class="edge" d="M295 205H500"/>
+<text x="397.5" y="196" class="note" text-anchor="middle">Persistir parâmetros</text>
+<path class="edge" d="M900 260H295"/>
+<text x="597.5" y="251" class="note" text-anchor="middle">POST leitura • Bearer e UUID</text>
+<path class="edge" d="M295 315H500"/>
+<text x="397.5" y="306" class="note" text-anchor="middle">Validar vínculo e UUID</text>
+<path class="edge" d="M500 360H295"/>
+<text x="397.5" y="351" class="note" text-anchor="middle">ID persistido ou existente</text>
+<path class="edge" d="M295 405H900"/>
+<text x="597.5" y="396" class="note" text-anchor="middle">201 nova ou 200 repetida • conflito 409</text>
+<path class="edge" d="M700 465H500"/>
+<text x="600.0" y="456" class="note" text-anchor="middle">Avaliar a cada 1 s</text>
+<path class="edge" d="M700 510H500"/>
+<text x="600.0" y="501" class="note" text-anchor="middle">Episódio e checkpoint</text>
+<path class="edge" d="M80 565H295"/>
+<text x="187.5" y="556" class="note" text-anchor="middle">GET dados de consulta</text>
+<path class="edge" d="M295 610H500"/>
+<text x="397.5" y="601" class="note" text-anchor="middle">Consultar registros</text>
+<path class="edge" d="M295 655H80"/>
+<text x="187.5" y="646" class="note" text-anchor="middle">JSON da API</text>
+<text x="30" y="746" class="note" text-anchor="start">Worker e POST são transações distintas. O fluxo foi ensaiado por cliente de software, não por placa física.</text>
+</svg>

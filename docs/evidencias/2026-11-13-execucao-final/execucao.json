@@ -1,0 +1,104 @@
+{
+  "scope": "Leitura real do banco de uso e TLS; nao comprova Safari/sensor",
+  "checkedAtUtc": "2026-11-13T06:13:36.756984+00:00",
+  "checks": [
+    {
+      "route": "/",
+      "status": 200,
+      "https": false
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "https": false
+    },
+    {
+      "route": "/geladeiras",
+      "status": 200,
+      "https": false
+    },
+    {
+      "route": "/historico",
+      "status": 200,
+      "https": false
+    },
+    {
+      "route": "/alertas",
+      "status": 200,
+      "https": false
+    },
+    {
+      "route": "/configuracoes",
+      "status": 200,
+      "https": false
+    },
+    {
+      "route": "/acesso",
+      "status": 200,
+      "https": false
+    },
+    {
+      "route": "/sobre",
+      "status": 200,
+      "https": false
+    },
+    {
+      "route": "/api/health",
+      "status": 200,
+      "https": false
+    },
+    {
+      "route": "/api/geladeiras",
+      "status": 200,
+      "https": false
+    },
+    {
+      "route": "/api/monitoramento?origem=Simulacao",
+      "status": 200,
+      "https": false
+    },
+    {
+      "route": "/api/alertas",
+      "status": 200,
+      "https": false
+    },
+    {
+      "route": "/api/alertas/resumo?origem=Simulacao",
+      "status": 200,
+      "https": false
+    },
+    {
+      "route": "/api/geladeiras/2/configuracao",
+      "status": 200,
+      "https": false
+    },
+    {
+      "route": "/api/geladeiras/2/dispositivos",
+      "status": 200,
+      "https": false
+    },
+    {
+      "route": "/api/alertas?inicioUtc=2026-11-12T12:00:00.Z",
+      "status": 400,
+      "https": false
+    },
+    {
+      "route": "/acesso",
+      "status": 200,
+      "https": true
+    },
+    {
+      "route": "/api/health",
+      "status": 401,
+      "https": true
+    }
+  ],
+  "health": {
+    "status": "healthy",
+    "database": "connected",
+    "refrigeratorCount": 1,
+    "checkedAtUtc": "2026-11-13T06:13:36.9518301Z"
+  },
+  "result": "passed",
+  "checksCount": 18
+}

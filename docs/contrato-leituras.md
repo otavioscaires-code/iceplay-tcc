@@ -1,6 +1,6 @@
 # ICEPLAY — contrato de leituras e modelo atual
 
-Etapa de referência: **17/10/2026**. Este registro descreve o código atual de ingestão, consulta individual e simulador. Os diagramas são fontes Mermaid; este documento não comprova execução, renderização ou ensaio com sensores físicos.
+Contrato básico criado em **17/10/2026**, atualizado em **13/11** com metadados do emissor. Diagramas detalhados atuais em `modelagem-atual.md`; este documento não comprova ensaio com sensores físicos.
 
 O backend permanece uma única aplicação ASP.NET Core, com Entity Framework Core e SQLite. O simulador envia HTTP para a mesma API prevista para o hardware. A página web gerencia geladeiras, verifica a saúde e, desde a [etapa do painel de 19/10](etapa-painel-2026-10-19.md), apresenta a última leitura por geladeira/origem. Em 30/10 foi acrescentada a [API de histórico paginado](etapa-historico-2026-10-30.md); a interface própria está implementada desde 09/11, com filtros, tabela, gráfico e paginação. Em 12/11, configurações ativas passaram a alimentar regras e episódios de alertas. O contrato básico de ingestão abaixo permanece válido.
 
@@ -17,12 +17,13 @@ Todos os cinco campos abaixo são obrigatórios. Ausência e `null` não substit
 | `portaAberta` | Booleano JSON | `true` significa porta aberta; `false` significa porta fechada e é um valor válido. |
 | `medidoEmUtc` | String | Data e hora UTC, no formato estrito descrito abaixo. |
 | `origem` | String | Exatamente `Simulacao` ou `Hardware`, com essa capitalização. |
+| `medicaoId` | String opcional no contrato básico | UUID D; obrigatório para credencial de dispositivo. |
 
 Os números usam leitura JSON estrita: `"4"` não substitui `4`, e `"1"` não substitui o identificador numérico `1`. Temperatura com vírgula decimal não é um número JSON válido. `NaN`, infinitos e valores que excedam a representação finita são rejeitados. Para a porta, `"false"`, `0` e `1` não substituem os booleanos JSON. Os tipos anuláveis do DTO permitem distinguir campo ausente de temperatura zero ou porta fechada.
 
-A finitude da temperatura é uma regra de representação numérica. **Não há faixa física de temperatura, limiar de conservação ou regra de alerta implementados nesta etapa.** A aceitação de um número não o torna uma medição plausível, calibrada ou segura para armazenamento de produtos.
+A finitude é regra de representação numérica da API. Limites operacionais são os parâmetros explícitos da configuração e alimentam as regras de alerta; não há limite sanitário global presumido. Aceitar um número não o torna medição plausível, calibrada ou segura para armazenamento.
 
-`origem` é uma informação **declarada pelo emissor**. `Simulacao` identifica dados de teste. O valor `Hardware` é aceito pelo contrato, mas não comprova conexão com sensor, identidade de dispositivo ou realização de medição física. Não há ESP32 ou sensores físicos disponíveis nem autenticação de dispositivo implementada nesta etapa.
+`origem` é informação **declarada pelo emissor**. `Simulacao` identifica dados de teste. Credencial Bearer, vínculo e UUID são verificados segundo `contrato-dispositivos.md`; o servidor preenche `dispositivoId`. Operador pode declarar Hardware sem esse vínculo. A etiqueta/credencial não comprova medição física. Firmware está compilado; montagem/sensores ainda sem ensaio confirmado.
 
 ## 2. Instantes e responsabilidade do servidor
 
@@ -67,7 +68,7 @@ Exemplo didático de corpo, **não uma medição real nem evidência de envio**.
 
 `Location` deve ser usado conforme recebido, sem presumir identificadores ou reconstruir uma resposta fictícia. A consulta individual permite verificar o registro após a criação. Existe `GET /api/leituras` para histórico, com geladeira/origem, período e paginação; consulte o README. Não há edição ou exclusão de leituras.
 
-Um POST repetido pode gerar outra leitura: não há chave de idempotência ou deduplicação implementada. Perder a resposta não demonstra que o registro deixou de ser salvo; por isso o simulador não repete automaticamente a operação.
+POST básico do operador/simulador repetido pode gerar outra leitura; por isso o simulador não repete automaticamente. No emissor autenticado, mesmo dispositivo/UUID/conteúdo retorna 200 com o mesmo ID/recebimento/Location; conteúdo diferente retorna 409. A primeira entrega retorna 201. As respostas têm também `dispositivoId` e `medicaoId` anuláveis. Não tratar um timeout como prova de ausência de gravação.
 
 ## 4. Persistência e preservação de leituras
 
@@ -82,8 +83,10 @@ A migration `20261018023456_AddLeituras` cria apenas a tabela `Leituras`, com su
 | `MedidoEmUtc` | `TEXT` | Instante de medição informado pelo emissor. |
 | `RecebidoEmUtc` | `TEXT` | Instante fixado pelo servidor. |
 | `Origem` | `TEXT` | Enum convertido para `Simulacao` ou `Hardware`. |
+| `DispositivoId` | `INTEGER`/nulo | FK do emissor autenticado, definida pelo servidor; incluída pela quinta migration. |
+| `MedicaoId` | `TEXT`/nulo | UUID da medição; obrigatório na ingestão autenticada e único junto ao dispositivo. |
 
-Todas as colunas são obrigatórias. As restrições `CHECK` verificam identificador positivo, domínio da origem, porta em `0/1`, representação finita da temperatura e instantes reconhecidos pelo SQLite, com medição não posterior ao recebimento. Os extremos numéricos do `CHECK` de temperatura são limites de representação de `double`, sem significado de faixa física.
+As sete colunas originais são obrigatórias; os dois metadados novos são anuláveis e permanecem nulos nos registros antigos. As restrições `CHECK` verificam identificador positivo, domínio da origem, porta em `0/1`, representação finita da temperatura e instantes reconhecidos pelo SQLite, com medição não posterior ao recebimento. Os extremos numéricos do `CHECK` de temperatura são limites de representação de `double`, sem significado de faixa física.
 
 Uma geladeira possui zero ou muitas leituras; cada leitura pertence a exatamente uma geladeira. A chave estrangeira usa `DeleteBehavior.Restrict`, materializado como `ON DELETE RESTRICT`, sem exclusão em cascata.
 

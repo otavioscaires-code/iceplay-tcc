@@ -1,5 +1,7 @@
 # ICEPLAY
 
+[Fechamento de 13/11/2026](docs/fechamento-pre-hardware-2026-11-13.md): arquivos, comandos, resultados reais, banco preservado e pendências físicas/acadêmicas. O código das etapas de preparação está concluído; firmware compilado não significa hardware validado.
+
 Atualização de **12/11/2026**: alertas integrados à API/páginas e credenciais por dispositivo com ingestão idempotente, com cinco migrations. Configuração explicitamente ativa gera ocorrências; não há seed. Os contratos de [alertas](docs/contrato-alertas.md) e [dispositivos](docs/contrato-dispositivos.md) e os relatórios datados registram decisões e testes.
 
 Para verificar: `./scripts/verify-alertas.ps1 -EvidenceDirectory docs/evidencias/sua-nova-revisao/alertas`. Usa um programa C# de verificação com relógio controlado, reaproveitando as dependências existentes, e a API real com SQLite isolado. Não representa ensaio físico.
@@ -337,7 +339,7 @@ Há somente dois pacotes NuGet diretos: `Microsoft.EntityFrameworkCore.Sqlite` e
 
 - [Planejamento](docs/planejamento.md): registro da análise e proposta originais de 13/10.
 - [Cronograma oficial](docs/cronograma-oficial.md): datas recebidas do professor em 19/10, plano de entregas e pendências; versão completa em 24/11 e apresentação em 01/12.
-- [UML](docs/uml.md): fontes dos diagramas da base e do sistema planejado; PlantUML ainda não foi renderizado.
+- [Modelagem atual](docs/modelagem-atual.md): classes, casos de uso, componentes, sequência/estados e figuras SVG conferidas; [UML inicial](docs/uml.md) preservado como histórico.
 - [Ambiente](docs/ambiente.md): ferramentas realmente encontradas e decisões de versões.
 - [Entrega de 13/10](docs/entrega-2026-10-13.md): inventário, comandos, resultados, falhas resolvidas e pendências.
 - [Etapa de 15/10](docs/etapa-2026-10-15.md): alterações do cadastro, execução dos testes e limitações desta etapa.
@@ -353,6 +355,9 @@ Há somente dois pacotes NuGet diretos: `Microsoft.EntityFrameworkCore.Sqlite` e
 - [Etapa de configurações](docs/etapa-configuracoes-2026-11-11.md): execução, resultados reais, arquivos e limitações.
 - [SQL de criação atualizado](docs/sql/iceplay-criacao-2026-11-12.sql): cinco migrations, somente para banco novo; não executar sobre banco existente. Os SQLs anteriores foram preservados.
 - [Uso de IA](docs/uso-de-ia.md): assistência utilizada e responsabilidade de revisão e reprodução pelo aluno.
+- [Operação e backup](docs/operacao.md), [matriz de requisitos](docs/requisitos-rastreabilidade.md) e [roteiro de demonstração](docs/roteiro-demonstracao.md).
+- [Minutas acadêmicas](docs/tcc/README.md): monografia/artigo e referências, com revisão/formatação e resultados físicos pendentes; cópias pessoais fora do Git.
+- [Firmware](firmware/README.md) e [montagem/protocolo físico](docs/hardware/protocolo-ensaio.md): compilação concluída, ensaio real ainda necessário.
 - [Evidências](docs/evidencias/): build, respostas HTTP, SQLite e capturas reais da interface. Os arquivos se referem à execução identificada por seus timestamps.
 
 Sem hardware, as verificações comprovam software, esquema e persistência local. Não comprovam leitura DS18B20, detecção física da porta, comunicação ESP32, precisão térmica ou eficácia de alertas. Limites de temperatura e tolerâncias ainda precisam ser definidos com o orientador.

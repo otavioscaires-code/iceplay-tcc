@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="850" viewBox="0 0 1000 850" role="img" aria-label="ICEPLAY casos de uso">
+<defs><marker id="arrow" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#273747" stroke-width="1.2"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#152332} .title{font-size:23px;font-weight:bold} .heading{font-size:17px;font-weight:bold} .body{font-size:15px} .note{font-size:13px;fill:#46566a} .edge{fill:none;stroke:#273747;stroke-width:1.7;marker-end:url(#arrow)} .node{fill:#f7fbff;stroke:#41566c;stroke-width:1.4}</style>
+<rect width="1000" height="850" fill="white"/>
+<text x="30" y="33" class="title">ICEPLAY casos de uso</text>
+<rect x="230" y="65" width="540" height="700" rx="8" fill="#f9fcff" stroke="#41566c"/>
+<text x="500" y="94" class="heading" text-anchor="middle">Sistema ICEPLAY</text>
+<ellipse cx="500" cy="140" rx="185" ry="31" fill="white" stroke="#41566c" stroke-width="1.4"/>
+<text x="500" y="146" class="body" text-anchor="middle">Gerenciar geladeiras</text>
+<path class="edge" d="M110 330L315 140"/>
+<ellipse cx="500" cy="227" rx="185" ry="31" fill="white" stroke="#41566c" stroke-width="1.4"/>
+<text x="500" y="233" class="body" text-anchor="middle">Consultar painel e histórico</text>
+<path class="edge" d="M110 330L315 227"/>
+<ellipse cx="500" cy="314" rx="185" ry="31" fill="white" stroke="#41566c" stroke-width="1.4"/>
+<text x="500" y="320" class="body" text-anchor="middle">Configurar monitoramento</text>
+<path class="edge" d="M110 330L315 314"/>
+<ellipse cx="500" cy="401" rx="185" ry="31" fill="white" stroke="#41566c" stroke-width="1.4"/>
+<text x="500" y="407" class="body" text-anchor="middle">Consultar alertas</text>
+<path class="edge" d="M110 330L315 401"/>
+<ellipse cx="500" cy="488" rx="185" ry="31" fill="white" stroke="#41566c" stroke-width="1.4"/>
+<text x="500" y="494" class="body" text-anchor="middle">Emitir e revogar credencial</text>
+<path class="edge" d="M110 330L315 488"/>
+<ellipse cx="500" cy="575" rx="185" ry="31" fill="white" stroke="#41566c" stroke-width="1.4"/>
+<text x="500" y="581" class="body" text-anchor="middle">Enviar leitura validada</text>
+<ellipse cx="500" cy="662" rx="185" ry="31" fill="white" stroke="#41566c" stroke-width="1.4"/>
+<text x="500" y="668" class="body" text-anchor="middle">Avaliar regras e episódios</text>
+<circle cx="80" cy="280" r="14" fill="white" stroke="#273747" stroke-width="2"/>
+<path d="M80 294V337M55 312H105M80 337L56 365M80 337L104 365" fill="none" stroke="#273747" stroke-width="2"/>
+<text x="80" y="390" class="body" text-anchor="middle">Operador</text>
+<circle cx="905" cy="505" r="14" fill="white" stroke="#273747" stroke-width="2"/>
+<path d="M905 519V562M880 537H930M905 562L881 590M905 562L929 590" fill="none" stroke="#273747" stroke-width="2"/>
+<text x="905" y="615" class="body" text-anchor="middle">Emissor</text>
+<path class="edge" d="M880 550L685 575"/>
+<circle cx="905" cy="665" r="14" fill="white" stroke="#273747" stroke-width="2"/>
+<path d="M905 679V722M880 697H930M905 722L881 750M905 722L929 750" fill="none" stroke="#273747" stroke-width="2"/>
+<text x="905" y="775" class="body" text-anchor="middle">Relógio</text>
+<path class="edge" d="M880 695L685 662"/>
+<text x="30" y="807" class="note" text-anchor="start">Emissor: simulador executado; ESP32 apenas compilado. Relógio representa o disparo temporal do serviço.</text>
+</svg>

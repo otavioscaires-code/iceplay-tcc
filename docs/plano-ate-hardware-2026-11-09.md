@@ -1,5 +1,9 @@
 # ICEPLAY — seis etapas de software até a integração física
 
+**Fechamento em 13/11/2026:** o código das seis entregas de preparação está implementado, com verificações automatizadas nos escopos documentados. Páginas/configurações foram preservadas; regras, interface de alertas, credenciais/UUID e firmware compilado foram concluídos em incrementos separados. Os aceites de conferência visual complementar no iPhone e os 12 ensaios físicos continuam pendentes. Este fechamento não declara o TCC completo nem substitui montagem/ensaio. Ver `../CONTEXTO_ICEPLAY.md`, `etapa-firmware-2026-11-13.md`, `requisitos-rastreabilidade.md` e `roteiro-demonstracao.md`.
+
+As seções de partida/progresso de 09 e 11/11 abaixo são históricas. A implementação atual e seus limites estão no contexto consolidado, nos contratos e nas evidências de 12–13/11. A escrita acadêmica tem minutas em `tcc/`, com resultados físicos e revisão/formatação final ainda necessários.
+
 Atualizado em 09/11/2026, conforme o código e os testes do projeto. Esta contagem organiza entregas por dependência, não estima dias nem substitui os marcos do professor: versão final em 24/11 e apresentação em 01/12. Cada etapa pode conter incrementos menores.
 
 ## Situação de partida

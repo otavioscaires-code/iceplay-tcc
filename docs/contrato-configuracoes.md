@@ -54,7 +54,7 @@ O PUT usa uma transação de escrita curta para serializar consulta e gravação
 
 ## Uso e verificação
 
-Inicie normalmente com `scripts/run.ps1` ou, na rede local preparada, `scripts/run-mobile.ps1`. Em Development, a migration pendente é aplicada ao iniciar. Preserve/obtenha backup consistente antes de atualizar um banco relevante; não apague o banco. O SQL completo atualizado está em `sql/iceplay-criacao-2026-11-09.sql`, somente para banco novo; `sql/iceplay-criacao.sql` permanece como registro das duas migrations anteriores.
+Inicie normalmente com `scripts/run.ps1` ou, na rede local preparada, `scripts/run-mobile.ps1`. Em Development, migrations pendentes são aplicadas ao iniciar. Preserve backup consistente antes de atualizar; não apague o banco. O SQL atual é `sql/iceplay-criacao-2026-11-12.sql`, somente para banco novo; os SQLs anteriores permanecem históricos.
 
 Na página Configurações, escolha a geladeira, informe os parâmetros/origem/habilitação e salve. Recarregar lê o SQLite pela API. Uma falha de gravação com resultado incerto exige nova consulta antes de permitir outro envio; o cliente não repete o PUT automaticamente.
 

@@ -1,5 +1,11 @@
 # Registro de assistência por IA
 
+## Fechamento documental de 13/11/2026
+
+Codex consolidou contexto, contratos, rastreabilidade, manual, roteiro de demonstração, figuras SVG e minutas textuais de monografia/artigo. As figuras foram geradas como vetores, rasterizadas e conferidas; não são capturas de interface ou de hardware. O aluno forneceu autoria, RA, orientador e campus. O RA e as cópias preenchidas foram mantidos em pasta privada ignorada, sem publicação. Fontes bibliográficas foram verificadas com escopo de leitura declarado, sem atribuir leitura integral não realizada ao aluno. A escrita e sua normalização continuam sujeitas à revisão do autor/orientador e aos resultados físicos.
+
+A conferência incluiu execução com banco de uso após backup/migrations, preservação dos campos anteriores e correção verificada de filtro UTC. Os relatórios separam verificadores, dados de simulação, firmware compilado e ensaios físicos ainda pendentes. O registro final está em `fechamento-pre-hardware-2026-11-13.md`. Não houve alteração de firewall, instalação de confiança ou gravação de placa. A assistência não substitui compreensão, revisão e defesa pelo aluno.
+
 ## Continuidade antes do hardware — 12/11/2026
 
 Em 12/11, Codex preparou firmware e scripts locais PlatformIO, compilou os perfis de exemplo e configuração sintética e redigiu roteiro de montagem/ensaio. O relatório foi fechado em 13/11 (`etapa-firmware-2026-11-13.md`). Não houve gravação, sensor físico ou montagem. Os avisos da biblioteca e a correção sintática intermediária estão registrados. Dados de autoria/orientador/campus foram fornecidos pelo aluno; o RA pertence à cópia privada de entrega, fora do Git.

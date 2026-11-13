@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="630" viewBox="0 0 1000 630" role="img" aria-label="ICEPLAY componentes e implantação local">
+<defs><marker id="arrow" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#273747" stroke-width="1.2"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#152332} .title{font-size:23px;font-weight:bold} .heading{font-size:17px;font-weight:bold} .body{font-size:15px} .note{font-size:13px;fill:#46566a} .edge{fill:none;stroke:#273747;stroke-width:1.7;marker-end:url(#arrow)} .node{fill:#f7fbff;stroke:#41566c;stroke-width:1.4}</style>
+<rect width="1000" height="630" fill="white"/>
+<text x="30" y="33" class="title">ICEPLAY componentes e implantação local</text>
+<rect class="node" x="25" y="70" width="245" height="100" rx="9"/>
+<text x="39" y="98" class="heading" text-anchor="start">Navegador</text>
+<text x="39" y="125" class="body" text-anchor="start">Desktop ou Safari do iPhone</text>
+<rect class="node" x="25" y="235" width="245" height="100" rx="9"/>
+<text x="39" y="263" class="heading" text-anchor="start">Simulador PowerShell</text>
+<text x="39" y="290" class="body" text-anchor="start">Origem Simulacao</text>
+<rect class="node" x="25" y="445" width="290" height="110" rx="9" stroke-dasharray="7 5"/>
+<text x="39" y="473" class="heading" text-anchor="start">ESP32 e sensores</text>
+<text x="39" y="500" class="body" text-anchor="start">Firmware compilado</text>
+<text x="39" y="523" class="body" text-anchor="start">Ensaio físico pendente</text>
+<rect x="360" y="65" width="350" height="310" fill="#eef5fc" stroke="#41566c" rx="10"/>
+<text x="380" y="96" class="heading" text-anchor="start">Uma aplicação ASP.NET Core</text>
+<rect class="node" x="380" y="120" width="310" height="85" rx="9"/>
+<text x="394" y="148" class="heading" text-anchor="start">HTML estático e Controllers</text>
+<text x="394" y="175" class="body" text-anchor="start">Interface e contratos HTTP</text>
+<rect class="node" x="380" y="260" width="310" height="85" rx="9"/>
+<text x="394" y="288" class="heading" text-anchor="start">AlertasWorker</text>
+<text x="394" y="315" class="body" text-anchor="start">Avaliação periódica a cada 1 s</text>
+<rect class="node" x="800" y="120" width="175" height="160" rx="9"/>
+<text x="814" y="148" class="heading" text-anchor="start">SQLite</text>
+<text x="814" y="175" class="body" text-anchor="start">Arquivo local</text>
+<text x="814" y="198" class="body" text-anchor="start">6 entidades</text>
+<text x="814" y="221" class="body" text-anchor="start">Migrations EF</text>
+<path class="edge" d="M270 120H380"/>
+<text x="275" y="105" class="note" text-anchor="start">HTTPS local</text>
+<path class="edge" d="M270 285H330V175H380"/>
+<text x="275" y="315" class="note" text-anchor="start">POST leituras</text>
+<path class="edge" d="M315 495H345V220H400V205"/>
+<text x="35" y="412" class="note" text-anchor="start">HTTPS com credencial e UUID</text>
+<path class="edge" d="M690 155H800"/>
+<text x="722" y="143" class="note" text-anchor="start">EF Core</text>
+<path class="edge" d="M690 300H755V235H800"/>
+<text x="720" y="335" class="note" text-anchor="start">Ler regras e persistir episódios</text>
+<text x="30" y="598" class="note" text-anchor="start">Contorno tracejado identifica a integração física ainda não ensaiada. Banco acessado somente pela aplicação.</text>
+</svg>
