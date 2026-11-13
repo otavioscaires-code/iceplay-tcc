@@ -1,0 +1,2 @@
+# Ferramenta de compilacao, isolada em .tools; nao e dependencia da API.
+platformio==6.1.18

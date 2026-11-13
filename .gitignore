@@ -19,3 +19,7 @@ appsettings.Local.json
 # Cache dos verificadores Python
 __pycache__/
 *.pyc
+
+# Firmware: configuracao privada e artefatos de compilacao
+firmware/esp32/include/config.local.h
+**/.pio/

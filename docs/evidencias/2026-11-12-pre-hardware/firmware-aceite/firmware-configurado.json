@@ -1,0 +1,12 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-11-12T20:26:35.5124210Z",
+  "scope": "Compilacao com configuracao sintetica, certificado publico efemero e credencial nao registrada; nenhum envio/placa",
+  "board": "esp32dev",
+  "mainSha256": "B93526F8D1A5948E0678FB93C2E519E43E2A2C4829E119C8D5F0BCFA962AAB10",
+  "firmwareSha256": "2F2C306936340B97ADCEDFCED760D8A300EDB7E242A2095DD5B9DC9996099DF8",
+  "bytes": 936048,
+  "refusedOverwrite": true,
+  "refusedInvalidCredential": true,
+  "refusedUnignoredDestination": true
+}

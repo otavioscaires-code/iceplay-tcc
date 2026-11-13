@@ -1,0 +1,9 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-11-12T20:11:39.4448578Z",
+  "scope": "Compilacao para ESP32 classico com configuracao de exemplo; sem placa, rede ou sensores fisicos",
+  "board": "esp32dev",
+  "environment": "verificacao",
+  "firmwareSha256": "80BBB0BB80E5C83C7D2BA76DA632F597BB2354F24E6210117F48A9EAC1982B30",
+  "bytes": 680176
+}

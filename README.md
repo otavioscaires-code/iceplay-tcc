@@ -6,7 +6,7 @@ Para verificar: `./scripts/verify-alertas.ps1 -EvidenceDirectory docs/evidencias
 
 Projeto de TCC de Ciência da Computação: sistema IoT para monitoramento de geladeiras comerciais. Base iniciada em **13/10/2026**, com cadastro de geladeiras desenvolvido em **15/10/2026**, revisado em **17/10/2026** e ingestão/simulador verificados em **19/10/2026**. Pelo cronograma do professor, a versão completa deve ser entregue em **24/11/2026** e apresentada em **01/12/2026**.
 
-O sistema inclui ASP.NET Core, SQLite com EF Core, cadastro, saúde real do banco, ingestão/simulador, painel, histórico, configurações, alertas e credenciais de emissor. As páginas possuem URLs próprias. Firmware e ensaio físico são os próximos incrementos. Iniciar não insere cadastros, parâmetros ou leituras; equipamentos configurados e explicitamente ativos geram ocorrências conforme as regras. Leituras de teste são identificadas como simulação. Consulte o [plano vigente](docs/plano-ate-hardware-2026-11-09.md).
+O sistema inclui ASP.NET Core, SQLite com EF Core, cadastro, saúde real do banco, ingestão/simulador, painel, histórico, configurações, alertas e credenciais de emissor. O [firmware ESP32](firmware/README.md) está escrito e compilado, com montagem e ensaio físico ainda pendentes. As páginas possuem URLs próprias. Iniciar não insere cadastros, parâmetros ou leituras; equipamentos configurados e explicitamente ativos geram ocorrências conforme as regras. Leituras de teste são identificadas como simulação. Consulte o [plano vigente](docs/plano-ate-hardware-2026-11-09.md).
 
 ## Executar neste computador
 
@@ -215,7 +215,7 @@ Use o ID de uma geladeira existente. Temperatura deve ser um número JSON finito
 
 A API gera `id` e `recebidoEmUtc`. O horário de medição vem do emissor, enquanto o de recebimento registra quando a API processou a entrada; ambos são armazenados e retornados em UTC. Campos extras enviados para controlar ID ou recebimento são ignorados. O sucesso retorna 201, `Location` e os sete campos: `id`, `geladeiraId`, `temperaturaC`, `portaAberta`, `medidoEmUtc`, `recebidoEmUtc` e `origem`. Consulte o recurso com GET no endereço `Location`; leitura ou geladeira ausente recebe 404. Falhas reconhecidas de banco recebem 503 genérico.
 
-A origem deve ser exatamente `Simulacao` ou `Hardware`. O valor `Hardware` é uma declaração do emissor: a API local ainda não autentica dispositivos e essa etiqueta, isoladamente, não comprova um ensaio físico. O [contrato de leituras e seus diagramas](docs/contrato-leituras.md) detalha as decisões.
+A origem deve ser exatamente `Simulacao` ou `Hardware`. A etiqueta isolada não comprova ensaio físico. A ingestão com credencial Bearer vincula o dispositivo e exige `medicaoId` UUID; as respostas incluem `dispositivoId`/`medicaoId` anuláveis. O operador/simulador mantém o contrato anterior e não pode determinar o vínculo autenticado por campo extra. Veja os contratos de [leituras](docs/contrato-leituras.md) e [dispositivos](docs/contrato-dispositivos.md).
 
 ## Executar o simulador
 
@@ -227,7 +227,7 @@ Inicie a API e cadastre uma geladeira pela interface. Em outro PowerShell, subst
 
 Cada envio usa a mesma rota `POST /api/leituras`, com origem fixa `Simulacao` e horário UTC produzido no momento do envio. O valor padrão é 4 °C, porta fechada, uma leitura; os valores são constantes configuradas para o teste, sem representar coleta física. Use `-PortaAberta` para enviar `true` e `-ApiUrl http://localhost:5080` para selecionar a API. O script aceita de 1 a 1000 envios, intervalo de 0 a 3600 segundos e temperatura finita.
 
-O simulador não cria geladeiras nem acessa diretamente o SQLite. Retorna um objeto por confirmação com `indice`, `statusHttp`, `location` e `leitura`. Falha de rede ou timeout interrompe a execução sem repetição automática, pois uma resposta perdida pode corresponder a uma leitura já gravada. Existe consulta de histórico, mas ainda não há chave de idempotência nem reconciliação automática desse caso.
+O simulador não cria geladeiras nem acessa diretamente o SQLite. Retorna um objeto por confirmação com `indice`, `statusHttp`, `location` e `leitura`. Falha de rede/timeout interrompe sem repetição automática, pois uma resposta perdida pode corresponder a uma leitura gravada. A idempotência por dispositivo/UUID pertence ao emissor autenticado; o simulador preserva seu comportamento anterior sem reenvio automático.
 
 ## Consultar o histórico pela API
 
@@ -351,12 +351,12 @@ Há somente dois pacotes NuGet diretos: `Microsoft.EntityFrameworkCore.Sqlite` e
 - [Etapa móvel](docs/etapa-mobile-2026-10-19.md): mudanças, testes reais, correções e limites desta evolução.
 - [Contrato de configurações](docs/contrato-configuracoes.md): parâmetros persistidos, validação, UTC, relacionamento e testes.
 - [Etapa de configurações](docs/etapa-configuracoes-2026-11-11.md): execução, resultados reais, arquivos e limitações.
-- [SQL de criação atualizado](docs/sql/iceplay-criacao-2026-11-09.sql): gerado das três migrations e executado em banco novo isolado; não executar sobre banco existente. O SQL anterior foi preservado como histórico.
+- [SQL de criação atualizado](docs/sql/iceplay-criacao-2026-11-12.sql): cinco migrations, somente para banco novo; não executar sobre banco existente. Os SQLs anteriores foram preservados.
 - [Uso de IA](docs/uso-de-ia.md): assistência utilizada e responsabilidade de revisão e reprodução pelo aluno.
 - [Evidências](docs/evidencias/): build, respostas HTTP, SQLite e capturas reais da interface. Os arquivos se referem à execução identificada por seus timestamps.
 
 Sem hardware, as verificações comprovam software, esquema e persistência local. Não comprovam leitura DS18B20, detecção física da porta, comunicação ESP32, precisão térmica ou eficácia de alertas. Limites de temperatura e tolerâncias ainda precisam ser definidos com o orientador.
 
-A base usa uma instância local, com modo móvel HTTPS opcional protegido por sessão. Acesso externo, autenticação de sensores e implantação pública continuam pendentes. O próximo incremento é **avaliar regras e registrar alertas**, usando as configurações já persistidas; depois vêm interface de alertas, autenticação da ingestão e firmware. O painel consulta todas as geladeiras, sem paginação de equipamentos. Texto/artigo, UML, evidências, aquisição das peças e validação móvel restante continuam necessários. Voz foi excluída do MVP por decisão do usuário em 09/11; notificações externas também ficam após o núcleo.
+A base usa uma instância local, com modo móvel HTTPS protegido por sessão e ingestão de dispositivo com credencial de escopo restrito. Firmware está compilado e o [protocolo físico](docs/hardware/protocolo-ensaio.md) está preparado. Restam montagem/gravação/ensaios reais, conferência visual das novas telas no iPhone e conclusão acadêmica com os resultados. Implantação pública, múltiplas instâncias e notificações externas não compõem este MVP. O painel consulta todas as geladeiras, sem paginação de equipamentos. Voz foi excluída do MVP por decisão do usuário em 09/11.
 
 Em 30/10, o usuário autorizou commits/pushes rotineiros. A base revalidada foi commitada e enviada ao [GitHub ICEPLAY](https://github.com/otavioscaires-code/iceplay-tcc), na branch `codex/retomada-historico`. Bancos, SDK, caches e segredos móveis ficam fora do Git. Consulte `git log` e `git status` para o estado atual, sem atribuir commits a datas anteriores.
