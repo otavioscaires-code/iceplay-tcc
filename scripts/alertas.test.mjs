@@ -25,7 +25,7 @@ test("filtros vazios permitem consulta global e URL preserva escolha e paginacao
 });
 test("filtros invalidos nao viram consulta parcial silenciosa", () => {
   for (const query of ["geladeiraId=0", "origem=", "origem=hardware", "tipo=__proto__", "gravidade=Alta", "situacao=Resolvido",
-    "pagina=0", "pagina=1.5", "tamanhoPagina=101", "pagina=2147483647&tamanhoPagina=100", "inicioUtc=2026-02-30T00:00:00Z"])
+    "pagina=0", "pagina=1.5", "tamanhoPagina=101", "pagina=2147483647&tamanhoPagina=100", "inicioUtc=2026-02-30T00:00:00Z", "inicioUtc=2026-11-12T12:00:00.Z"])
     assert.throws(() => state.filtrosDaUrl(query), query);
 });
 test("periodo valida UTC Z, calendario e ordem e converte horario local", () => {

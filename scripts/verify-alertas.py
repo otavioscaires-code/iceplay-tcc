@@ -26,7 +26,7 @@ try:
     expected = sorted(p.stem for p in (test.root / "src/Iceplay.Api/Migrations").glob("[0-9]*.cs") if not p.name.endswith(".Designer.cs"))
     test.check([r[0] for r in after["__EFMigrationsHistory"]] == expected, "Todas as migrations reais estao aplicadas em ordem")
     for query in ("geladeiraId=0", "origem=", "origem=hardware", "tipo=Invalido", "gravidade=Alto", "situacao=Resolvido",
-                  "inicioUtc=2026-11-12", "fimUtc=2026-11-12T12:00:00%2B00:00", "pagina=0", "tamanhoPagina=101",
+                  "inicioUtc=2026-11-12", "inicioUtc=2026-11-12T12:00:00.Z", "fimUtc=2026-11-12T12:00:00%2B00:00", "pagina=0", "tamanhoPagina=101",
                   "pagina=2147483647&tamanhoPagina=100", "inicioUtc=2026-12-01T00:00:00Z&fimUtc=2026-11-01T00:00:00Z"):
         test.request("/api/alertas?" + query, 400)
     test.request("/api/alertas?geladeiraId=2147483647", 404)

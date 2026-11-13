@@ -36,7 +36,11 @@ public sealed class ConsultarAlertasRequest : IValidatableObject
     {
         result = null;
         if (value is null) return true;
-        var formats = new[] { "yyyy-MM-dd'T'HH:mm:ss'Z'", "yyyy-MM-dd'T'HH:mm:ss.FFFFFFF'Z'" };
+        // F maiúsculo aceita uma fração vazia após o ponto. Formatos explícitos
+        // preservam o mesmo contrato estrito das leituras e do histórico.
+        var formats = new[] { "yyyy-MM-dd'T'HH:mm:ss'Z'", "yyyy-MM-dd'T'HH:mm:ss.f'Z'",
+            "yyyy-MM-dd'T'HH:mm:ss.ff'Z'", "yyyy-MM-dd'T'HH:mm:ss.fff'Z'", "yyyy-MM-dd'T'HH:mm:ss.ffff'Z'",
+            "yyyy-MM-dd'T'HH:mm:ss.fffff'Z'", "yyyy-MM-dd'T'HH:mm:ss.ffffff'Z'", "yyyy-MM-dd'T'HH:mm:ss.fffffff'Z'" };
         if (!DateTime.TryParseExact(value, formats, CultureInfo.InvariantCulture,
                 DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal, out var parsed)) return false;
         result = parsed;
