@@ -7,7 +7,10 @@
 *.js text eol=lf
 # Preserva os bytes do artefato oficial para conferir seu SHA-256 em qualquer checkout.
 src/Iceplay.Api/wwwroot/vendor/qrcodegen-v1.8.0.js -text whitespace=-blank-at-eol
+src/Iceplay.Api/wwwroot/vendor/jsqr-v1.4.0.js -text whitespace=-blank-at-eol
+src/Iceplay.Api/wwwroot/vendor/jsqr-LICENSE.txt -text whitespace=-blank-at-eof
 *.ps1 text eol=lf
 docs/evidencias/*.log whitespace=-blank-at-eof
 # Conserva os espaços/finais de linha emitidos pelos verificadores nesta evidência.
 docs/evidencias/2026-11-14-pareamento/**/*.log whitespace=-blank-at-eof,-blank-at-eol
+docs/evidencias/2026-11-14-leitor-qr/**/*.log whitespace=-blank-at-eof,-blank-at-eol

@@ -8,11 +8,13 @@
   <title>ICEPLAY | Acesso ao dispositivo</title>
   <link rel="icon" href="/assets/iceplay-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/theme.css?v=20261109-pages">
-  <link rel="stylesheet" href="/styles.css?v=20261114-qr">
+  <link rel="stylesheet" href="/styles.css?v=20261114-leitor">
   <script src="/shell.js?v=20261109-pages" defer></script>
-  <script src="/acesso.js?v=20261109-pages" defer></script>
+  <script src="/acesso.js?v=20261114-leitor" defer></script>
   <script src="/vendor/qrcodegen-v1.8.0.js" defer></script>
-  <script src="/pareamento.js?v=20261114-qr" defer></script>
+  <script src="/vendor/jsqr-v1.4.0.js" defer></script>
+  <script src="/leitor-qr.js?v=20261114-leitor" defer></script>
+  <script src="/pareamento.js?v=20261114-leitor" defer></script>
 
 </head>
 <body class="app-layout" data-page="acesso">
@@ -40,19 +42,32 @@
 <section class="container mobile-access" id="acesso-movel" aria-labelledby="access-title">
       <p class="eyebrow">Acesso neste dispositivo</p>
       <h2 id="access-title">Conectar ao ICEPLAY</h2>
-      <p>No computador, gere um QR Code para conectar o celular pela câmera. O código de acesso continua disponível como alternativa.</p>
+      <p>No computador, gere o QR Code. No celular, use o botão Ler QR Code nesta página para conectar.</p>
       <p id="access-status" role="status" aria-live="polite">Consultando a sessão…</p>
       <noscript><p>Ative o JavaScript para conectar este navegador com segurança.</p></noscript>
       <section id="pairing-local" class="pairing-panel" aria-labelledby="pairing-title" hidden>
         <h3 id="pairing-title">Conectar celular por QR Code</h3>
-        <p>Conecte o iPhone ao mesmo Wi-Fi do computador. Gere o convite, aponte a câmera para o QR Code e abra o link no Safari.</p>
+        <p>Conecte o iPhone ao mesmo Wi-Fi do computador e abra este endereço no Safari:</p>
+        <p><a id="pairing-mobile-address" class="pairing-address"></a></p>
+        <p>No celular, toque em <strong>Ler QR Code</strong> e aponte para o convite gerado aqui.</p>
         <p class="field-help">O certificado local precisa estar instalado e confiável no iPhone. O convite autoriza consultas e alterações por até 8 horas neste navegador.</p>
         <div class="pairing-actions">
           <button type="button" class="button button-primary" id="pairing-issue">Gerar QR Code</button>
           <button type="button" class="button button-secondary" id="pairing-cancel" hidden>Cancelar convite</button>
         </div>
         <p id="pairing-status" role="status" aria-live="polite">Validade de 2 minutos, para uma única conexão. Gerar outro QR Code invalida o anterior.</p>
-        <div id="pairing-display" hidden><div id="pairing-qr" class="pairing-qr"></div><p class="field-help">Escaneie e confirme a conexão no iPhone. Para conectar outro navegador, gere um novo convite.</p></div>
+        <div id="pairing-display" hidden><div id="pairing-qr" class="pairing-qr"></div><p class="field-help">Na página do celular, use Ler QR Code e confirme a conexão. Para conectar outro navegador, gere um novo convite.</p></div>
+      </section>
+      <section id="pairing-reader" class="pairing-panel" aria-labelledby="reader-title" hidden>
+        <h3 id="reader-title">Entrar com QR Code</h3>
+        <p>Toque em Ler QR Code, permita a câmera e aponte para o código exibido no computador. Depois confirme em Conectar este dispositivo.</p>
+        <p class="field-help">A imagem é processada neste aparelho, sem envio de fotos ou vídeo ao servidor.</p>
+        <div class="pairing-actions">
+          <button type="button" class="button button-primary" id="reader-start">Ler QR Code</button>
+          <button type="button" class="button button-secondary" id="reader-stop" hidden>Parar câmera</button>
+        </div>
+        <video id="reader-video" class="reader-video" autoplay muted playsinline webkit-playsinline hidden aria-label="Câmera para ler o QR Code"></video>
+        <p id="reader-status" role="status" aria-live="polite"></p>
       </section>
       <section id="pairing-confirm" class="pairing-panel" aria-labelledby="pairing-confirm-title" hidden>
         <h3 id="pairing-confirm-title">Conectar por QR Code</h3>

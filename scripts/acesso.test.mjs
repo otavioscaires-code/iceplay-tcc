@@ -70,7 +70,7 @@ test("origem móvel exige conexão e mantém segredo fora da URL", async () => {
   const fixture = await browserFixture();
   assert.equal(fixture.node("acesso-movel").hidden, false);
   assert.equal(fixture.node("access-form").hidden, false);
-  assert.equal(fixture.node("access-shortcut").textContent, "Conectar dispositivo");
+  assert.equal(fixture.node("access-shortcut").textContent, "Ler QR Code / Entrar");
   await fixture.login();
   assert.equal(fixture.node("access-form").hidden, true);
   assert.equal(fixture.node("access-code").value, "");
@@ -110,7 +110,7 @@ test("saída usa CSRF, limpa acesso e informa a mudança aos módulos", async ()
   await fixture.logout();
   assert.equal(fixture.node("access-form").hidden, false);
   assert.equal(fixture.node("access-logout").hidden, true);
-  assert.equal(fixture.node("access-shortcut").textContent, "Conectar dispositivo");
+  assert.equal(fixture.node("access-shortcut").textContent, "Ler QR Code / Entrar");
   assert.ok(fixture.events.length > before);
   assert.equal((await fixture.window.iceplayFetch("/api/geladeiras")).status, 401);
 });

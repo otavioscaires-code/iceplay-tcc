@@ -1,0 +1,8 @@
+{
+  "result": "passed",
+  "filesChecked": 54,
+  "sensitiveMatches": 0,
+  "missingLocalLinks": [],
+  "migrationsChanged": false,
+  "backendDependenciesChanged": false
+}

@@ -18,7 +18,8 @@ public sealed class AcessoController(MobileAccessSettings settings, IAntiforgery
     {
         var required = !settings.IsLocal(HttpContext);
         var token = required ? antiforgery.GetAndStoreTokens(HttpContext).RequestToken : null;
-        return Ok(new { modoMovel = settings.Enabled, pareamentoDisponivel = settings.Enabled && !required, autenticacaoNecessaria = required,
+        return Ok(new { modoMovel = settings.Enabled, pareamentoDisponivel = settings.Enabled && !required,
+            enderecoMovel = settings.Enabled ? $"{settings.HttpsUrl}/acesso?modo=qr" : null, autenticacaoNecessaria = required,
             autenticado = !required || User.Identity?.IsAuthenticated == true, csrfToken = token });
     }
 
@@ -40,7 +41,7 @@ public sealed class AcessoController(MobileAccessSettings settings, IAntiforgery
         if (!settings.Enabled) return NotFound();
         if (!CanManagePairing()) return StatusCode(403);
         var invitation = pairing.Issue();
-        return Ok(new { url = $"{settings.HttpsUrl}/acesso#parear={invitation.Token}",
+        return Ok(new { url = $"{settings.HttpsUrl}/acesso?modo=qr#parear={invitation.Token}",
             expiraEmUtc = invitation.ExpiresAt, validadeSegundos = MobilePairing.LifetimeSeconds });
     }
 

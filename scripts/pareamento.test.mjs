@@ -18,6 +18,7 @@ async function fixture({ required = false, authenticated = false, hash = "", mis
   const navigations = [];
   const listeners = {};
   const intervals = new Map();
+  const availability = [];
   let now = 0;
   let release;
   let sequence = 0;
@@ -29,19 +30,20 @@ async function fixture({ required = false, authenticated = false, hash = "", mis
       replaceChildren(...children) { this.children = children; } };
   }
   const ids = ["pairing-local", "pairing-issue", "pairing-cancel", "pairing-display", "pairing-qr", "pairing-status",
-    "pairing-confirm", "pairing-connect", "pairing-message", "access-code-option"];
+    "pairing-confirm", "pairing-connect", "pairing-message", "access-code-option", "pairing-mobile-address"];
   for (const id of ids) nodes.set(id, element());
   const node = id => nodes.get(id);
   const window = {
-    location: { hash, pathname: "/acesso", search: "", assign(path) { navigations.push(path); } },
+    location: { hash, pathname: "/acesso", search: "", origin: "https://192.168.1.99:5443", assign(path) { navigations.push(path); } },
     history: { replaceState(state, title, path) { replaced.push(path); window.location.hash = ""; } },
     addEventListener(name, handler) { listeners[name] = handler; },
     setInterval(callback) { const id = ++sequence; intervals.set(id, callback); return id; },
     clearInterval(id) { intervals.delete(id); },
+    iceplayQrReader: { setAvailable(value) { availability.push(value); }, stop() {} },
     async iceplayFetch(path, options = {}) {
       requests.push({ path, ...options, hashAtRequest: window.location.hash });
       if (path === "/api/acesso") return Response.json({ autenticacaoNecessaria: required, autenticado: authenticated,
-        pareamentoDisponivel: !required });
+        pareamentoDisponivel: !required, enderecoMovel: 'https://192.168.1.99:5443/acesso?modo=qr' });
       if (path === "/api/acesso/pareamento" && options.method === "POST") {
         if (delayIssue) await new Promise(resolve => { release = resolve; });
         return issueResponse ?? Response.json(invitation);
@@ -62,7 +64,8 @@ async function fixture({ required = false, authenticated = false, hash = "", mis
   }
   vm.runInContext(source, context);
   await setImmediate();
-  return { node, requests, replaced, navigations, window, intervals, release: () => release(),
+  return { node, requests, replaced, navigations, window, intervals, availability, release: () => release(),
+    async hashChange(value) { window.location.hash = value; listeners.hashchange?.(); await setImmediate(); },
     click: id => node(id).handlers.click(), hide: () => listeners.pagehide(),
     advance(seconds) { now += seconds * 1000; for (const callback of [...intervals.values()]) callback(); } };
 }
@@ -196,4 +199,55 @@ test("sair da pagina limpa imagem sem alteracao automatica na API", async () => 
 test("biblioteca local preserva hash do artefato oficial e licenca MIT", () => {
   assert.equal(createHash("sha256").update(vendor).digest("hex"), "6a1116192ed1dd67fa1bf31e77f5817103d71c23bbac24c382e698b7668bdd01");
   assert.match(vendor, /MIT License/);
+});
+
+test("convite recebido em aba ja aberta e reconhecido sem recarregar", async () => {
+  const f = await fixture({ required: true });
+  assert.equal(f.node('pairing-confirm').hidden, true);
+  await f.hashChange('#parear=' + token);
+  assert.equal(f.node('pairing-confirm').hidden, false);
+  assert.equal(f.node('access-code-option').hidden, true);
+  assert.equal(f.window.location.hash, '');
+  await f.click('pairing-connect');
+  assert.deepEqual(f.navigations, ['/dashboard']);
+});
+
+test("leitura interna valida mostra confirmacao e oculta codigo manual", async () => {
+  const f = await fixture({ required: true });
+  assert.equal(f.availability.at(-1), true);
+  assert.equal(f.window.iceplayPairing.acceptQr(invitation.url), true);
+  assert.equal(f.node('pairing-confirm').hidden, false);
+  assert.equal(f.node('access-code-option').hidden, true);
+  assert.equal(f.availability.at(-1), false);
+  assert.ok(f.requests.every(r => !r.method));
+  await f.click('pairing-connect');
+  assert.equal(f.requests.filter(r => r.method === 'POST').length, 1);
+  assert.deepEqual(f.navigations, ['/dashboard']);
+});
+
+test("leitor rejeita outro servidor, esquema, rota, query ou credenciais", async () => {
+  const f = await fixture({ required: true });
+  for (const value of ['texto', invitation.url.replace('192.168.1.99', '192.168.1.77'),
+    invitation.url.replace('https:', 'http:'), invitation.url.replace('/acesso', '/geladeiras'),
+    invitation.url.replace('/acesso#', '/acesso?externo=1#'),
+    invitation.url.replace('https://', 'https://usuario:senha@')]) {
+    assert.equal(f.window.iceplayPairing.acceptQr(value), false);
+  }
+  assert.ok(f.requests.every(r => !r.method));
+  assert.equal(f.node('pairing-confirm').hidden, true);
+});
+
+test("convites modo qr sao aceitos e falha permite reler sem exigir codigo", async () => {
+  const f = await fixture({ required: true, enterStatus: 401 });
+  assert.equal(f.window.iceplayPairing.acceptQr(invitation.url.replace('/acesso#', '/acesso?modo=qr#')), true);
+  await f.click('pairing-connect');
+  assert.equal(f.availability.at(-1), true);
+  assert.equal(f.node('pairing-confirm').hidden, true);
+  assert.match(f.node('pairing-message').textContent, /expirado/);
+});
+
+test("computador mostra endereco do leitor no celular sem token", async () => {
+  const f = await fixture();
+  assert.equal(f.node('pairing-mobile-address').href, 'https://192.168.1.99:5443/acesso?modo=qr');
+  assert.ok(!f.node('pairing-mobile-address').href.includes(token));
 });

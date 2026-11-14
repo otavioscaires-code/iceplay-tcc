@@ -10,19 +10,61 @@
   const connect = document.getElementById("pairing-connect");
   const message = document.getElementById("pairing-message");
   const manual = document.getElementById("access-code-option");
+  const mobileAddress = document.getElementById("pairing-mobile-address");
   let incoming = null;
   let busy = false;
   let timer = null;
+  let session = null;
+  let pendingSession = null;
 
   // O fragmento não vai na requisição HTTP. Removê-lo antes de qualquer await
   // evita mantê-lo na barra/histórico; o segredo permanece só nesta página.
-  const fragment = new URLSearchParams(window.location.hash.slice(1));
-  if (fragment.has("parear")) {
+  function captureFragment() {
+    const fragment = new URLSearchParams(window.location.hash.slice(1));
+    if (!fragment.has("parear")) return;
     const value = fragment.get("parear");
     window.history.replaceState(null, "", window.location.pathname + window.location.search);
+    if (busy) return;
     if (/^[A-Za-z0-9_-]{43}$/.test(value ?? "")) incoming = value;
     else message.textContent = "QR Code inválido. Gere outro no computador.";
+    renderControls();
   }
+  captureFragment();
+
+  function renderControls() {
+    if (!session) return;
+    local.hidden = session.pareamentoDisponivel !== true;
+    const requiresLogin = session.autenticacaoNecessaria && !session.autenticado;
+    if (!requiresLogin) incoming = null;
+    manual.hidden = !requiresLogin || !!incoming;
+    confirm.hidden = !requiresLogin || !incoming;
+    connect.disabled = !requiresLogin || !incoming || busy;
+    window.iceplayQrReader?.setAvailable(requiresLogin && !incoming && !busy);
+    if (mobileAddress && session.pareamentoDisponivel && typeof session.enderecoMovel === "string") {
+      const address = new URL(session.enderecoMovel);
+      if (address.protocol === "https:" && address.pathname === "/acesso" && !address.hash) {
+        mobileAddress.href = address.href;
+        mobileAddress.textContent = address.href;
+      }
+    }
+  }
+
+  // A leitura interna aceita apenas convites deste servidor. Nunca navega para
+  // o endereço de um QR arbitrário nem envia seu conteúdo para outro site.
+  window.iceplayPairing = Object.freeze({ acceptQr(value) {
+    if (busy || !session?.autenticacaoNecessaria || session.autenticado) return false;
+    let url;
+    try { url = new URL(value); } catch { return false; }
+    if (url.origin !== window.location.origin || url.protocol !== "https:" || url.pathname !== "/acesso"
+        || url.username || url.password || !["", "?modo=qr"].includes(url.search)
+        || !/^#parear=[A-Za-z0-9_-]{43}$/.test(url.hash)) return false;
+    incoming = url.hash.slice("#parear=".length);
+    manual.open = false;
+    message.textContent = "QR Code reconhecido. Toque em Conectar este dispositivo para entrar.";
+    renderControls();
+    confirm.scrollIntoView?.({ block: "nearest", behavior: "smooth" });
+    return true;
+  } });
 
   function clearQr() {
     if (timer !== null) window.clearInterval(timer);
@@ -59,15 +101,17 @@
   }
 
   async function syncSession() {
-    const response = await window.iceplayFetch("/api/acesso", { cache: "no-store" });
-    if (!response.ok) throw new Error("Não foi possível verificar o acesso. Atualize a página.");
-    const session = await response.json();
-    local.hidden = session.pareamentoDisponivel !== true;
-    const requiresLogin = session.autenticacaoNecessaria === true && session.autenticado !== true;
-    manual.hidden = !requiresLogin;
-    confirm.hidden = !requiresLogin || !incoming;
-    connect.disabled = !requiresLogin || !incoming || busy;
-    if (!requiresLogin) incoming = null;
+    if (pendingSession) return pendingSession;
+    pendingSession = (async () => {
+      const response = await window.iceplayFetch("/api/acesso", { cache: "no-store" });
+      if (!response.ok) throw new Error("Não foi possível verificar o acesso. Atualize a página.");
+      const value = await response.json();
+      if (typeof value.autenticacaoNecessaria !== "boolean" || typeof value.autenticado !== "boolean")
+        throw new Error("Não foi possível verificar o acesso. Atualize a página.");
+      session = value;
+      renderControls();
+    })();
+    try { await pendingSession; } finally { pendingSession = null; }
   }
 
   issue.addEventListener("click", async () => {
@@ -83,7 +127,7 @@
       if (!response.ok) throw new Error("Gere o QR Code pelo endereço localhost no computador que executa o ICEPLAY.");
       const invitation = await response.json();
       const url = new URL(invitation.url);
-      if (url.protocol !== "https:" || url.pathname !== "/acesso" || url.search || url.username || url.password
+      if (url.protocol !== "https:" || url.pathname !== "/acesso" || !["", "?modo=qr"].includes(url.search) || url.username || url.password
           || !/^#parear=[A-Za-z0-9_-]{43}$/.test(url.hash) || invitation.validadeSegundos !== 120) {
         throw new Error("Convite inválido. Atualize a página e gere outro.");
       }
@@ -96,7 +140,7 @@
         if (!seconds) {
           clearQr();
           status.textContent = "QR Code expirado. Gere outro para conectar o celular.";
-        } else status.textContent = `Escaneie com a câmera do iPhone. Prazo restante: ${seconds} s; uso único.`;
+        } else status.textContent = `No celular, toque em Ler QR Code. Prazo restante: ${seconds} s; uso único.`;
       };
       tick();
       timer = window.setInterval(tick, 1000);
@@ -130,6 +174,7 @@
     connect.disabled = true;
     const token = incoming;
     incoming = null;
+    renderControls();
     message.textContent = "Conectando este dispositivo…";
     try {
       const response = await window.iceplayFetch("/api/acesso/pareamento/entrar", {
@@ -147,7 +192,7 @@
         : error.message;
     } finally {
       busy = false;
-      confirm.hidden = true;
+      renderControls();
     }
   });
 
@@ -159,6 +204,14 @@
     status.textContent = "Gere um novo QR Code para conectar outro dispositivo.";
   });
   window.addEventListener("iceplay:acesso-changed", () => {
+    syncSession().catch(error => { message.textContent = error.message; });
+  });
+  window.addEventListener("hashchange", captureFragment);
+  manual.addEventListener("toggle", () => {
+    if (manual.open) window.iceplayQrReader?.stop();
+  });
+  window.addEventListener("pageshow", () => {
+    captureFragment();
     syncSession().catch(error => { message.textContent = error.message; });
   });
   syncSession().catch(() => { message.textContent = "Não foi possível verificar o acesso. Atualize a página."; });

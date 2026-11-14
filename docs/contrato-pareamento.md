@@ -5,14 +5,15 @@ Incremento de 14/11/2026. Preserva HTTPS, cookies, CSRF, código manual, SQLite 
 ## Uso
 
 1. Iniciar `scripts/run-mobile.ps1` com a configuração local existente.
-2. No computador, abrir `http://localhost:5080/acesso` e clicar em **Gerar QR Code**.
-3. No iPhone da mesma rede, com certificado já instalado/confiável, ler o QR pela Câmera, abrir no Safari e tocar em **Conectar este dispositivo** em até 120 s.
+2. No computador, abrir `http://localhost:5080/acesso?modo=qr`. A página mostra o endereço HTTPS de entrada no celular, sem segredo.
+3. No iPhone da mesma rede, com certificado já instalado/confiável, abrir esse endereço no Safari e tocar em **Ler QR Code**, autorizando a câmera.
+4. No computador, gerar o QR. Ler com o vídeo dentro da página do iPhone e tocar em **Conectar este dispositivo** em até 120 s da emissão.
 
-O QR permite uma conexão com as mesmas permissões do código compartilhado. O operador pode gerar outro ou cancelar. A sessão dura até 8 h, sem renovação automática, e termina ao sair/reiniciar. A leitura da câmera não é feita por JavaScript no site. Nenhum usuário, limite de geladeira ou leitura é criado por este fluxo.
+O QR permite uma conexão com as mesmas permissões do código compartilhado. O operador pode gerar outro ou cancelar. A sessão dura até 8 h, sem renovação automática, e termina ao sair/reiniciar. A leitura é feita localmente em JavaScript, sem upload de frames. A alternativa de ler pelo aplicativo Câmera continua aceita, inclusive quando o Safari reutiliza uma aba. Nenhum usuário, limite de geladeira ou leitura é criado por este fluxo.
 
 ## Contratos
 
-`GET /api/acesso` mantém os campos existentes e acrescenta `pareamentoDisponivel`. É `true` somente no loopback HTTP/porta local, quando o modo móvel está habilitado.
+`GET /api/acesso` mantém os campos existentes e acrescenta `pareamentoDisponivel` e `enderecoMovel`. O primeiro é `true` somente no loopback HTTP/porta local, com modo móvel habilitado. O segundo é o endereço HTTPS `/acesso?modo=qr`, sem token, ou null no modo comum.
 
 | Método/rota | Requisição | Resposta |
 | --- | --- | --- |
@@ -20,7 +21,7 @@ O QR permite uma conexão com as mesmas permissões do código compartilhado. O 
 | `DELETE /api/acesso/pareamento` | Mesmas restrições | 204, cancelamento idempotente |
 | `POST /api/acesso/pareamento/entrar` | HTTPS, cookie/token CSRF válidos e JSON `{token}` | 204 e cookie de sessão; consumo único |
 
-`url` é gerada com IP/porta HTTPS já configurados, no formato `https://IP_LOCAL:PORTA_HTTPS/acesso#parear=TOKEN_TEMPORARIO`. O token tem 43 caracteres base64url, gerados com 32 bytes aleatórios criptográficos. O código permanente nunca é incluído. Não colocar um token real nos exemplos ou evidências.
+`url` é gerada com IP/porta HTTPS já configurados, no formato `https://IP_LOCAL:PORTA_HTTPS/acesso?modo=qr#parear=TOKEN_TEMPORARIO`. A query é somente um marcador de interface, sem segredo; cria uma entrada distinta para evitar HTML antigo em cache. O token tem 43 caracteres base64url, gerados com 32 bytes aleatórios criptográficos. O código permanente nunca é incluído. Não colocar um token real nos exemplos ou evidências.
 
 400: formato inválido, HTTP na entrada ou CSRF ausente/inválido. 401: token incorreto, consumido ou expirado; ou tentativa remota de emitir convite sem sessão. 403: origem externa, ausência de cabeçalho local na emissão/cancelamento ou tentativa de gerenciá-los por cliente HTTPS autenticado. 404: modo móvel desligado, respeitadas as restrições de rede. 429: mais de oito tentativas de entrada por QR por minuto no total da instância. O limitador é separado do código manual. O bootstrap HTTP de certificados nunca oferece estas APIs.
 
@@ -34,6 +35,16 @@ O QR permite uma conexão com as mesmas permissões do código compartilhado. O 
 - O SVG é gerado localmente pela biblioteca [Project Nayuki 1.8.0](https://www.nayuki.io/page/qr-code-generator-library), vendorizada com licença MIT/hash em `wwwroot/vendor/README.md`. Não há serviço de QR externo ou dependência adicional de backend. A imagem usa preto/branco e margem de quatro módulos.
 - Ao sair da página, a interface limpa imagem/segredo; isso não confirma cancelamento no servidor. O convite restante expira pelo prazo original. Falha de rede no cancelamento é apresentada como resultado não confirmado.
 - O QR não instala nem torna confiável o certificado; a preparação do iPhone continua necessária. Não torna o aplicativo público ou multiusuário.
+
+## Leitor interno e correção de navegação
+
+`leitor-qr.js` usa `getUserMedia` após clique explícito, vídeo com `playsinline`/muted e câmera traseira preferencial, sem áudio. A biblioteca local [jsQR 1.4.0](https://github.com/cozmo/jsQR), Apache-2.0, decodifica frames com maior dimensão de até 640 px, a cada 180 ms. Licença, origem e hashes estão em `wwwroot/vendor/README.md`; sem instalação npm ou pacote de backend novo.
+
+O leitor aceita somente URL HTTPS da **mesma origem**, caminho `/acesso`, query vazia/`modo=qr` e token no formato esperado. QR externo não é aberto nem transmitido. O reconhecimento fecha a câmera e mostra a confirmação; ainda não inicia sessão automaticamente. O campo de código manual fica oculto enquanto há convite reconhecido. Erro de autenticação devolve a opção de leitura, sem exigir código.
+
+Cancelar, ocultar/sair da página, autenticar ou passar 90 s encerra a captura e os tracks. Permissão que chegar após cancelamento tem o stream encerrado. Imagens são processadas em memória e não são enviadas, persistidas ou colocadas em logs. Permissão negada, câmera ausente e falha de vídeo possuem mensagens específicas. HTTPS confiável continua sendo necessário; não ignorar avisos de certificado.
+
+O código anterior só lia o fragmento no carregamento; agora trata também `hashchange` e `pageshow`. Isso cobre a chegada de um novo convite em aba existente, reproduzida nos testes de JavaScript. Sem inspeção do Safari do usuário, não se atribui a essa falha a causa única do relato. `/acesso` e `/acesso.html` respondem `no-store`; scripts/CSS são versionados para carregar o novo fluxo. O Safari/câmera real ainda precisa de validação do aluno, conforme [relatório do leitor](etapa-leitor-qr-2026-11-14.md).
 
 As propriedades de aleatoriedade, validade e uso único seguem as recomendações gerais para tokens temporários da [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html), aplicadas aqui ao pareamento; o ICEPLAY não implementou recuperação de senha.
 

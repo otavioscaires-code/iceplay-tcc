@@ -46,11 +46,14 @@ Existe um modo móvel local com HTTPS e código de acesso, preservando a mesma a
 
 Desde **14/11/2026**, a conexão também pode ser feita por **QR Code temporário**. Com `run-mobile.ps1` em execução e o certificado já confiável no iPhone:
 
-1. No computador, abra **http://localhost:5080/acesso** e clique em **Gerar QR Code**.
-2. No iPhone, na mesma rede, aponte a câmera para o QR e abra o link no Safari.
-3. Toque em **Conectar este dispositivo** antes de completar 2 minutos da emissão.
+1. No computador, abra **http://localhost:5080/acesso?modo=qr**. A tela mostra o endereço para abrir no celular.
+2. No iPhone, na mesma rede, abra esse endereço no **Safari** e toque em **Ler QR Code**. Permita a câmera do site.
+3. No computador, clique em **Gerar QR Code** e aponte o leitor do site no iPhone para a tela.
+4. No iPhone, toque em **Conectar este dispositivo** antes de completar 2 minutos da emissão. Não é preciso digitar o código longo.
 
 Cada convite aceita uma conexão. Gerar outro ou usar **Cancelar convite** invalida o anterior; reiniciar invalida convites e sessões. O QR contém um segredo temporário, não o código permanente. A sessão continua com até 8 horas e as mesmas permissões do operador local. O código do arquivo privado continua disponível em **Usar código de acesso manualmente**. O QR não substitui a preparação/confiança do certificado. [Contrato e limites](docs/contrato-pareamento.md), [testes desta etapa](docs/etapa-pareamento-2026-11-14.md). A leitura pela câmera do iPhone ainda precisa ser confirmada pelo usuário.
+
+Correção posterior de 14/11: leitor de câmera **dentro da página**, reconhecimento de convites em abas já abertas e proteção contra HTML antigo em cache. O usuário relatou que a abertura pelo QR anterior ainda mostrava o código; isso não foi registrado como login bem-sucedido. O novo fluxo usa decodificação local e exige confirmação, preservando HTTPS/CSRF. Ver [relatório do leitor](docs/etapa-leitor-qr-2026-11-14.md). No acesso a outras páginas sem sessão, o atalho **Ler QR Code / Entrar** leva à entrada atualizada. O ensaio da câmera no Safari do iPhone permanece pendente.
 
 Em **09/11/2026**, o aluno confirmou no iPhone conexão, saúde, cadastro/edição, navegação, histórico vazio e atualização de página. A API confirmou o cadastro salvo. Após três envios explicitamente Simulacao, uma segunda foto mostrou a tabela com três leituras de 4,25 °C, porta fechada, e o gráfico correspondente no aparelho. Isso confirma a consulta móvel desses dados de teste. Logout/reconexão, exclusão de cadastro sem leituras e reinício acompanhado no iPhone permanecem pendentes. Os ajustes posteriores do gráfico/acesso precisam de nova conferência visual no aparelho; a foto não os valida antecipadamente. Veja o [registro com limites da validação](docs/evidencias/2026-11-09-iphone/validacao-manual.md). A disponibilidade da revisão no remoto deve ser conferida no Git; este relato não comprova commit/push do código.
 
@@ -301,6 +304,7 @@ Para testar o modo móvel por TCP/TLS/HTTP no IP local, em banco isolado, com Py
 .\scripts\verify-mobile.ps1 -EnderecoIp 192.168.1.123 -EvidenceDirectory docs/evidencias/nova-revisao/mobile
 node --test scripts/acesso.test.mjs
 node --test scripts/pareamento.test.mjs
+node --test scripts/leitor-qr.test.mjs scripts/acesso-pareamento.test.mjs
 ```
 
 A verificação TLS confia explicitamente na CA de teste e valida o hostname, sem ignorar erros de certificado. Os testes JavaScript de acesso usam DOM/fetch controlados, sem equivaler a uma execução no Safari. A rodada de 19/10 está em `docs/evidencias/2026-10-19-mobile`, com as tentativas que falharam preservadas e explicadas no relatório da etapa.

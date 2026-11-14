@@ -37,7 +37,8 @@
     if (section) section.hidden = false;
     if (shortcut) {
       shortcut.hidden = !value.autenticacaoNecessaria;
-      shortcut.textContent = value.autenticado ? "Acesso do dispositivo" : "Conectar dispositivo";
+      shortcut.textContent = value.autenticado ? "Acesso do dispositivo" : "Ler QR Code / Entrar";
+      shortcut.href = "/acesso?modo=qr";
     }
     if (form) form.hidden = !value.autenticacaoNecessaria || value.autenticado;
     if (logout) logout.hidden = !value.autenticacaoNecessaria || !value.autenticado;

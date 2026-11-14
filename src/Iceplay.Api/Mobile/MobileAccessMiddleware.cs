@@ -47,7 +47,13 @@ public sealed class MobileAccessMiddleware(RequestDelegate next)
             await Reject(context, 400, "O acesso móvel exige HTTPS.");
             return;
         }
-        context.Response.Headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'";
+        context.Response.Headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self' blob:; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'";
+        if (context.Request.Path.Equals("/acesso", StringComparison.OrdinalIgnoreCase)
+            || context.Request.Path.Equals("/acesso.html", StringComparison.OrdinalIgnoreCase))
+        {
+            context.Response.Headers.CacheControl = "no-store";
+            context.Response.Headers["Permissions-Policy"] = "camera=(self)";
+        }
         if (context.Request.Path.StartsWithSegments("/api"))
         {
             context.Response.Headers.CacheControl = "no-store";

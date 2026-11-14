@@ -118,7 +118,7 @@ def main():
         parsed = urllib.parse.urlsplit(invitation["url"])
         token = parsed.fragment.removeprefix("parear=")
         check(parsed.scheme == "https" and parsed.netloc == urllib.parse.urlsplit(secure).netloc
-              and parsed.path == "/acesso" and not parsed.query and len(token) == 43,
+              and parsed.path == "/acesso" and parsed.query == "modo=qr" and len(token) == 43,
               "Convite usa HTTPS configurado e segredo no fragmento, sem credencial permanente na URL")
         check(settings["AccessCode"] not in invitation["url"] and invitation["validadeSegundos"] == 120
               and "no-store" in headers.get("Cache-Control", ""), "QR temporario nao expoe codigo permanente e nao e cacheado")
@@ -164,6 +164,14 @@ def main():
         check(health["refrigeratorCount"] == 0, "Banco isolado inicia vazio, sem seed")
         page, _ = request(secure, "/acesso", 200)
         check(b'id="acesso-movel"' in page and b'acesso.js?v=' in page, "HTML móvel oferece conexão e assets versionados")
+        reader, reader_headers = request(secure, "/acesso?modo=qr", 200)
+        check(b'id="reader-start"' in reader and b'playsinline' in reader and b'leitor-qr.js?v=' in reader,
+              "Pagina movel oferece leitor interno com video inline e script local")
+        check('no-store' in reader_headers.get('Cache-Control', '') and 'camera=(self)' in reader_headers.get('Permissions-Policy', '')
+              and "media-src 'self' blob:" in reader_headers.get('Content-Security-Policy', ''),
+              "Acesso nao e cacheado e permite camera somente na propria origem")
+        for reader_asset in ('/leitor-qr.js', '/vendor/jsqr-v1.4.0.js'):
+            request(secure, reader_asset, 200)
         for page_path in ("/", "/dashboard", "/geladeiras", "/historico", "/alertas", "/configuracoes", "/sobre"):
             _, page_headers = request(secure, page_path, 200)
             check("text/html" in page_headers.get("Content-Type", ""), "Página independente acessível por HTTPS antes do login: " + page_path)
