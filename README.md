@@ -42,7 +42,7 @@ Cada URL entrega um documento HTML próprio pelo mesmo backend, com links normai
 
 ## Usar no iPhone na mesma rede
 
-Novo requisito de 14/11: uso por 4G/5G e apresentação em desktop sem Wi-Fi, com solução gratuita. O [plano de acesso remoto e execução](docs/plano-acesso-remoto-apresentacao-2026-11-14.md) analisa internet por cabo/USB, computador-servidor, túnel HTTPS, autenticação e hardware. Esse acesso público ainda não foi implantado; os comandos abaixo continuam descrevendo a execução local já existente.
+Novo requisito de 14/11: uso por 4G/5G e apresentação em desktop sem Wi-Fi, com solução gratuita. A API e o SQLite deverão executar nesse desktop, com internet do iPhone pelo USB; o ESP32 usará o hotspot do telefone. O [plano de acesso remoto e execução](docs/plano-acesso-remoto-apresentacao-2026-11-14.md) analisa pacote de execução, USB, túnel HTTPS, autenticação e hardware. Esse pacote e o acesso público ainda não foram implantados; os comandos abaixo continuam descrevendo a execução local já existente.
 
 Existe um modo móvel local com HTTPS e código de acesso, preservando a mesma aplicação, API e SQLite. Uma instalação nova exige preparar o certificado, a regra restrita de firewall e a confiança no aparelho. Essas ações pessoais e os testes no iPhone são diferentes dos testes de software automatizados.
 

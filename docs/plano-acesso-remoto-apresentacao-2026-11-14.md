@@ -10,25 +10,26 @@ Análise em 14/11/2026. **Proposta, ainda sem acesso público implantado.** O ap
 - O desktop da apresentação não tem Wi-Fi.
 - O usuário pode compartilhar a internet do iPhone pelo Acesso Pessoal.
 - O usuário confirmou que o desktop não terá internet por rede, mas permite instalar o aplicativo/driver necessário para compartilhamento pelo USB. Esse será o caminho a ensaiar no computador de destino; a confirmação de permissão não comprova reconhecimento ou conexão funcionando.
-- Falta confirmar a disponibilidade do computador que ficará como servidor. Foi perguntado se o computador atual pode permanecer ligado, sem suspensão e com internet em casa durante a apresentação.
+- O usuário confirmou que o computador atual não ficará como servidor em casa. A API e o SQLite deverão executar no desktop da apresentação. Não depender de um servidor doméstico para a demonstração.
 - ESP32/sonda ainda não tiveram recebimento ou teste físico confirmados; não tratar firmware compilado como integração física.
 
-## 2. Recomendação condicionada às confirmações
+## 2. Execução no desktop da apresentação
 
-Para manter custo de hospedagem zero e preservar ASP.NET Core/EF Core/SQLite/HTML/CSS/JS, usar **um computador próprio como servidor**, com banco em seu disco, e publicar o acesso autenticado por um **túnel HTTPS**. A opção candidata é Tailscale Funnel no plano Personal, sujeito às condições de uso não comercial do fornecedor e à conferência da conta.
+Para manter custo de hospedagem zero e preservar ASP.NET Core/EF Core/SQLite/HTML/CSS/JS, usar **o desktop da apresentação como servidor**, com o banco em seu disco, e disponibilizar o acesso autenticado por um **túnel HTTPS**. A opção candidata é Tailscale Funnel no plano Personal, sujeito às condições de uso não comercial do fornecedor e à conferência da conta. O desktop receberá internet do iPhone pelo USB; não precisa ter adaptador Wi-Fi para esse caminho.
 
-Funnel encaminha conexões externas para um serviço local e oferece endereço HTTPS; o visitante não precisa instalar o cliente. O guia informa disponibilidade em todos os planos, estado beta e limites de banda não configuráveis. O plano Personal é apresentado como gratuito para uso pessoal não comercial. Isso é transporte de rede: a API continua sendo executada pelo nosso computador, não em uma hospedagem de aplicação gratuita. [Funnel](https://tailscale.com/docs/features/tailscale-funnel), [planos](https://tailscale.com/pricing).
+Funnel encaminha conexões externas para um serviço local e oferece endereço HTTPS; o visitante não precisa instalar o cliente. O guia informa disponibilidade em todos os planos, estado beta e limites de banda não configuráveis. O plano Personal é apresentado como gratuito para uso pessoal não comercial. Isso é transporte de rede: a API executa no desktop, não em uma hospedagem de aplicação gratuita. O conector precisará estar instalado e configurado no computador-servidor. [Funnel](https://tailscale.com/docs/features/tailscale-funnel), [planos](https://tailscale.com/pricing).
 
-A principal contrapartida é manter o computador-servidor ligado, acordado e com internet durante ensaios e apresentação. Também dependemos da disponibilidade do túnel e da rede móvel. Não prometer operação sem conexão ou disponibilidade comercial garantida.
+Será necessário preparar e ensaiar o desktop de destino antes da apresentação, incluindo aplicativo, banco, componente USB e conector HTTPS. Durante o uso, esse computador precisa estar ligado, sem suspensão e com internet. Dependemos do túnel e da rede móvel; não prometer operação sem conexão ou disponibilidade comercial garantida.
 
 ```mermaid
 flowchart LR
     S[DS18B20 e contato de porta previstos] --> E[ESP32]
     E -->|Wi-Fi 2,4 GHz| H[iPhone: Acesso Pessoal]
+    H -->|Internet compartilhada pelo USB| A[Desktop da apresentação: ASP.NET Core]
     H -->|Internet móvel e HTTPS| T[Túnel HTTPS]
     P[iPhone: Safari por 4G/5G] <-->|HTTPS e login| T
-    B[Desktop da apresentação com internet] <-->|HTTPS e login| T
-    T <--> A[Computador-servidor: ASP.NET Core]
+    B[Navegador no desktop] <-->|HTTPS e login| T
+    T <--> A
     A <--> D[(SQLite e chaves em armazenamento privado)]
     A --> R[Avaliador de regras e alertas]
 ```
@@ -69,13 +70,15 @@ Se o hardware ficar na geladeira em casa, poderá usar a rede daquele local; a a
 
 ## 5. Onde executar e o que transportar
 
-**Cenário recomendado:** computador A, próprio, permanece como servidor. O computador B da apresentação precisa de navegador e internet. O banco fica centralizado no A; trocar a tela de acesso não exige copiar o banco ou instalar SDK no B. Preservar fontes, configurações privadas e backups para a entrega acadêmica.
+**Decisão do usuário:** o computador de casa não será o servidor da apresentação. Preparar o desktop de destino para executar a aplicação e manter o SQLite localmente. O celular e o navegador do desktop acessarão a mesma instância. Depois de encerrada essa execução, o acesso remoto não continuará disponível por conta própria.
 
-**Se o backend precisar executar no B:** preparar antecipadamente um pacote compatível com o Windows/arquitetura reais, uma cópia privada consistente do banco e a configuração de acesso. Uma publicação .NET autocontida pode dispensar instalar o SDK, mas precisa ser testada no destino e pode ser bloqueada por políticas da instituição. Esse pacote ainda não foi gerado nesta análise. [Publicação .NET](https://learn.microsoft.com/dotnet/core/deploying/).
+**Pacote de execução a preparar:** publicação compatível com o Windows/arquitetura reais, arquivos estáticos, configuração por ambiente, iniciador e instruções. Uma publicação .NET autocontida inclui o runtime e dispensa instalar o SDK, mas precisa ser testada no destino e pode ser bloqueada por políticas da instituição. Levar separadamente uma cópia privada consistente do banco, os segredos necessários e o procedimento de backup/migrations. Não incluir essas informações no ZIP público de fontes. Esse pacote ainda não foi gerado nesta análise. [Publicação .NET](https://learn.microsoft.com/en-us/dotnet/core/deploying/).
 
-O endereço Funnel é associado ao dispositivo/configuração. Mudar de computador-servidor não garante automaticamente a mesma URL. Definir o servidor e o endereço antes de configurar o firmware; se houver troca, planejar a reconfiguração e repetir os testes. Não copiar identidades privadas de rede entre máquinas para improvisar essa mudança.
+O endereço Funnel é associado ao dispositivo/configuração. Mudar de computador-servidor não garante automaticamente a mesma URL. Configurar o conector no desktop de destino e definir o endereço antes de preparar o firmware para a apresentação; não deixar essa descoberta para o dia da banca. Não copiar identidades privadas de rede entre máquinas. Se não houver acesso antecipado ao destino, reavaliar o conector antes de implementá-lo: o domínio gratuito vinculado à conta do ngrok facilita a mudança de computador, mas tem as limitações da seção 7.
 
 O ZIP de código já fornecido não inclui banco, SDK, certificados ou segredos. Não considerá-lo um pacote de execução offline completo. Backup/restauração devem preservar o original e ser verificados em diretório novo; não substituir um banco em uso para preparar a apresentação.
+
+Verificar também o relógio do Windows, reconhecimento do iPhone, início/parada da aplicação e conector, preservação após reinício e restauração do backup. Se o desktop for compartilhado, combinar com o responsável a guarda dos dados e a retirada de credenciais após a apresentação, preservando antes uma cópia privada verificada.
 
 ## 6. Alterações de software necessárias antes de publicar
 
@@ -97,12 +100,12 @@ PWA pode ser um incremento posterior para ícone/abertura como aplicativo. O ace
 
 | Alternativa | Avaliação para as condições confirmadas |
 | --- | --- |
-| Computador próprio + Funnel Personal | Candidato principal gratuito, com banco preservado localmente; depende do computador/rede/serviço e de validar as condições do plano |
-| ngrok gratuito | Domínio de desenvolvimento estável por conta, mas 20.000 requisições/mês e página intermediária em acesso HTML; não escolher como base de monitoramento contínuo sem conferir consumo |
+| Desktop da apresentação + Funnel Personal | Candidato gratuito com banco local; requer preparar o computador e seu endereço antecipadamente, além de validar o plano e o acesso móvel |
+| Desktop + ngrok gratuito | Domínio de desenvolvimento estável por conta facilita transportar o servidor; alternativa para ensaios/demonstração curta, com 20.000 requisições/mês e página intermediária em acesso HTML |
 | Render gratuito com SQLite local | Descartado: arquivos efêmeros e suspensão por inatividade; o banco pode desaparecer ao reiniciar/reimplantar/suspender |
 | Render pago com disco persistente | Tecnicamente possível sem trocar SQLite, mas não atende ao orçamento gratuito informado |
 
-Pelo intervalo nominal de 10 s, uma estimativa teórica de um emissor contínuo é `86400 / 10 = 8640 POST/dia`, antes de reenvios, mudanças de porta e consultas do painel. Assim, 20.000 requisições não sustentariam sequer três dias ideais desse fluxo no ngrok gratuito. É cálculo de dimensionamento, não resultado experimental. [Limites ngrok](https://ngrok.com/docs/pricing-limits/free-plan-limits).
+Pelo intervalo nominal de 10 s, uma estimativa teórica de um emissor contínuo é `86400 / 10 = 8640 POST/dia`, antes de reenvios, mudanças de porta e consultas do painel. Assim, 20.000 requisições não sustentariam sequer três dias ideais desse fluxo no ngrok gratuito. Uma demonstração curta pode caber na cota, mas é necessário conferir o consumo real da conta. Não confundir viabilidade para a banca com monitoramento contínuo sem limites. É cálculo de dimensionamento, não resultado experimental. [Limites ngrok](https://ngrok.com/docs/pricing-limits/free-plan-limits).
 
 A documentação Render informa perda do filesystem local em serviços gratuitos ao reiniciar, reimplantar ou suspender e indisponibilidade de disco persistente no plano Free. Isso conflita com os critérios de persistência do ICEPLAY. [Plano gratuito](https://render.com/docs/free), [discos persistentes](https://render.com/docs/disks).
 
@@ -110,9 +113,9 @@ A documentação Render informa perda do filesystem local em serviços gratuitos
 
 | Ordem | Entrega | Critério verificável |
 | --- | --- | --- |
-| 1 | Confirmar servidor A/B e internet do desktop | Acesso à internet comprovado no desktop de destino; USB/driver se necessário; computador-servidor disponível |
+| 1 | Preparar desktop e pacote de execução | Windows/arquitetura conferidos; aplicativo publicado e banco privado preservado; internet USB comprovada no destino |
 | 2 | Login e perfil remoto protegido | Sem sessão retorna 401; não existe bypass por loopback/cabeçalho; CSRF/origem/rate limit testados; perfil local preservado |
-| 3 | Configurar e testar túnel | URL HTTPS válida, acesso no iPhone por rede móvel, login e mesmos dados no desktop, sem perfil de CA local no novo acesso público |
+| 3 | Configurar e testar túnel no desktop de destino | URL HTTPS definida antes do firmware, acesso no iPhone por rede móvel, login e mesmos dados no desktop, sem perfil de CA local no novo acesso público |
 | 4 | Operação e persistência | Reinício controlado mantém dados/migrations; backup consistente comparável; segredo ausente de logs/Git; procedimento de início/parada reproduzível |
 | 5 | Firmware/rede móvel | Com hardware em mãos: hotspot, UTC, TLS, credencial e leituras físicas confirmadas na API/SQLite/interface |
 | 6 | Ensaio da apresentação | Executar fluxo completo na rede e no computador de destino; registrar latências, falhas, recuperação e evidências reais |
