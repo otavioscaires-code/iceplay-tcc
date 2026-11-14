@@ -8,6 +8,8 @@ Referência consolidada em **13/11/2026**. Leia também `AGENTS.md`, `README.md`
 
 ## 1 Objetivo e situação real
 
+**Novo requisito de apresentação, confirmado em 14/11:** acesso por 4G/5G, sem Wi-Fi da faculdade, desktop de destino sem Wi-Fi, solução gratuita e possibilidade de compartilhar internet do iPhone. Usuário confirmou desktop sem internet por rede, com permissão para instalar o aplicativo/driver de compartilhamento pelo USB; reconhecimento e conexão no destino ainda não testados. Análise em `docs/plano-acesso-remoto-apresentacao-2026-11-14.md`: candidato computador próprio + túnel HTTPS gratuito, condicionado à disponibilidade do servidor e às regras do plano. Perfil remoto/login/ativação do túnel ainda não implementados; não expor a porta local com bypass de operador. Arquitetura e banco preservados; nenhuma hospedagem contratada.
+
 ICEPLAY é o TCC de Ciência da Computação de Otávio Souza Caires, orientado por Sérgio Mazini, campus Araçatuba. Monitora geladeiras comerciais: temperatura, estado da porta, dois timestamps UTC, histórico e episódios de alertas. A interface é web responsiva, usada pelo Safari; não é aplicativo nativo. Controle significa gestão/consulta dos parâmetros, sem acionamento de compressor.
 
 Prazo do professor: versão completa em **24/11/2026**, apresentação em **01/12/2026**, com evidências de execução. O usuário pediu encerrar o trabalho de software antes da chegada do hardware, por incrementos validados. Voz foi excluída do MVP em 09/11; notificações externas são futuras.
