@@ -79,6 +79,14 @@ O registro acima distingue as partes já confirmadas das pendências; não marca
 
 ## Sessão, manutenção e encerramento
 
+### Conectar com QR Code
+
+Com a confiança no certificado já configurada, abra `http://localhost:5080/acesso` **no computador** e clique em **Gerar QR Code**. Use a câmera do iPhone, na mesma rede, abra o link no Safari e toque em **Conectar este dispositivo**. Conclua em até 2 minutos da emissão. O QR aceita um único uso; gerar outro invalida o anterior. **Cancelar convite** também o invalida. A página tira o segredo temporário da barra de endereço antes de fazer consultas; atualizar antes de confirmar exige escanear novamente ou gerar outro convite.
+
+O QR concede as mesmas consultas/alterações do código compartilhado. Quem tiver o convite válido pode conectar um navegador; não publicar screenshots de QR ativo. As capturas desta implementação foram salvas sem QR ativo. O certificado HTTPS continua necessário e não deve ser ignorado. O código privado permanece como alternativa em **Usar código de acesso manualmente**. Não é preciso conceder acesso à câmera ao site: a leitura é feita pelo aplicativo Câmera do iPhone.
+
+Testes em software e conferência em navegador desktop/largura 390 px passaram em 14/11; a leitura deste novo QR com a câmera e o Safari do iPhone ainda está pendente. Ver [contrato](contrato-pareamento.md) e [resultados](etapa-pareamento-2026-11-14.md).
+
 O código compartilhado autoriza consulta e alteração para um operador local. Não há contas individuais, perfis de permissão ou auditoria por usuário. A sessão usa cookie HttpOnly/Secure/SameSite Strict, dura até 8 horas sem renovação automática e é invalidada ao reiniciar. Alterações exigem token CSRF; a entrada aceita no máximo oito tentativas por minuto no total da instância. O código não é colocado em URL nem salvo em localStorage/sessionStorage. Não há funcionamento offline ou notificações com a página fechada.
 
 Para encerrar, abra `/acesso` e use **Sair deste dispositivo**, pressione Ctrl+C no servidor e, em PowerShell administrador, remova a regra específica:

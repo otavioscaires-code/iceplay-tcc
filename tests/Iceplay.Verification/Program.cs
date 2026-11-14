@@ -7,6 +7,11 @@ using Microsoft.EntityFrameworkCore;
 
 // Verificação executável sem biblioteca adicional. O relógio controlado existe
 // apenas neste processo de testes; a API não oferece rota para alterar o tempo.
+if (args is ["pareamento"])
+{
+    PairingChecks.Run();
+    return;
+}
 var path = Path.GetFullPath(args.Single());
 var verificationRoot = Path.GetFullPath(".tools/verification") + Path.DirectorySeparatorChar;
 if (!path.StartsWith(verificationRoot, StringComparison.OrdinalIgnoreCase) || File.Exists(path))

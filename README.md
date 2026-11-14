@@ -44,6 +44,14 @@ Cada URL entrega um documento HTML próprio pelo mesmo backend, com links normai
 
 Existe um modo móvel local com HTTPS e código de acesso, preservando a mesma aplicação, API e SQLite. Uma instalação nova exige preparar o certificado, a regra restrita de firewall e a confiança no aparelho. Essas ações pessoais e os testes no iPhone são diferentes dos testes de software automatizados.
 
+Desde **14/11/2026**, a conexão também pode ser feita por **QR Code temporário**. Com `run-mobile.ps1` em execução e o certificado já confiável no iPhone:
+
+1. No computador, abra **http://localhost:5080/acesso** e clique em **Gerar QR Code**.
+2. No iPhone, na mesma rede, aponte a câmera para o QR e abra o link no Safari.
+3. Toque em **Conectar este dispositivo** antes de completar 2 minutos da emissão.
+
+Cada convite aceita uma conexão. Gerar outro ou usar **Cancelar convite** invalida o anterior; reiniciar invalida convites e sessões. O QR contém um segredo temporário, não o código permanente. A sessão continua com até 8 horas e as mesmas permissões do operador local. O código do arquivo privado continua disponível em **Usar código de acesso manualmente**. O QR não substitui a preparação/confiança do certificado. [Contrato e limites](docs/contrato-pareamento.md), [testes desta etapa](docs/etapa-pareamento-2026-11-14.md). A leitura pela câmera do iPhone ainda precisa ser confirmada pelo usuário.
+
 Em **09/11/2026**, o aluno confirmou no iPhone conexão, saúde, cadastro/edição, navegação, histórico vazio e atualização de página. A API confirmou o cadastro salvo. Após três envios explicitamente Simulacao, uma segunda foto mostrou a tabela com três leituras de 4,25 °C, porta fechada, e o gráfico correspondente no aparelho. Isso confirma a consulta móvel desses dados de teste. Logout/reconexão, exclusão de cadastro sem leituras e reinício acompanhado no iPhone permanecem pendentes. Os ajustes posteriores do gráfico/acesso precisam de nova conferência visual no aparelho; a foto não os valida antecipadamente. Veja o [registro com limites da validação](docs/evidencias/2026-11-09-iphone/validacao-manual.md). A disponibilidade da revisão no remoto deve ser conferida no Git; este relato não comprova commit/push do código.
 
 No computador desta execução, o IPv4 encontrado foi **192.168.1.123**, interface Ethernet, prefixo /24. Esse endereço pode mudar. Encerre a instância comum antes de iniciar a móvel. Em PowerShell 7:
@@ -137,6 +145,9 @@ A tela apresenta erros de validação, falhas de conexão e estado sem cadastros
 | `POST /api/geladeiras/{id}/dispositivos/{dispositivoId}/revogar` | `200` | Revoga explicitamente; ausência: 404 |
 | `GET /api/acesso` | `200` | Estado de acesso deste dispositivo e token de formulário quando necessário |
 | `POST /api/acesso/entrar` | `204` | No modo móvel HTTPS, recebe `{"codigo":"seu código local"}` e inicia sessão |
+| `POST /api/acesso/pareamento` | `200` | Somente no computador, com origem exata e `X-ICEPLAY-LOCAL: 1`; emite URL de convite válido por 120 s |
+| `DELETE /api/acesso/pareamento` | `204` | Mesmas restrições locais; cancela o convite pendente, de forma idempotente |
+| `POST /api/acesso/pareamento/entrar` | `204` | HTTPS com CSRF, recebe `{"token":"segredo temporário do convite"}`; consumo único e limite de tentativas |
 | `POST /api/acesso/sair` | `204` | Encerra a sessão deste navegador no modo móvel HTTPS |
 
 Nas rotas de geladeiras, `POST` e `PUT` recebem `Content-Type: application/json` e o mesmo formato:
@@ -289,9 +300,12 @@ Para testar o modo móvel por TCP/TLS/HTTP no IP local, em banco isolado, com Py
 ```powershell
 .\scripts\verify-mobile.ps1 -EnderecoIp 192.168.1.123 -EvidenceDirectory docs/evidencias/nova-revisao/mobile
 node --test scripts/acesso.test.mjs
+node --test scripts/pareamento.test.mjs
 ```
 
 A verificação TLS confia explicitamente na CA de teste e valida o hostname, sem ignorar erros de certificado. Os testes JavaScript de acesso usam DOM/fetch controlados, sem equivaler a uma execução no Safari. A rodada de 19/10 está em `docs/evidencias/2026-10-19-mobile`, com as tentativas que falharam preservadas e explicadas no relatório da etapa.
+
+O verificador móvel também compila `tests/Iceplay.Verification`, executa o modo `pareamento` com relógio controlado e verifica convites por HTTPS, consumo único, cancelamento, restrição ao computador, CSRF e invalidação no reinício. A biblioteca JavaScript do QR está versionada localmente em `wwwroot/vendor`, com licença MIT preservada; não é necessário instalar npm ou pacote NuGet adicional.
 
 O primeiro verifica última medição, desempate por ID, separação de origens, ausência de leituras, simulador, alteração de cadastro, reinício e falha controlada. O segundo verifica os estados e a idade, inclusive zero/false e medição antiga recebida recentemente, com `node:test` sem pacotes adicionais. Node não é necessário para executar a aplicação. Resultados desta etapa estão em `docs/evidencias/2026-10-19-painel`; use outra pasta para preservar essa rodada.
 

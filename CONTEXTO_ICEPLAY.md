@@ -2,6 +2,8 @@
 
 Referência consolidada em **13/11/2026**. Leia também `AGENTS.md`, `README.md`, os contratos e os arquivos da tarefa. As etapas anteriores permanecem nos relatórios datados e no Git; este resumo substitui suas listas antigas de pendências, sem atribuir testes novos a datas passadas.
 
+**Incremento de 14/11/2026:** acesso pelo iPhone também por QR Code temporário, gerado na página `/acesso` do computador. Convite em memória, válido por 120 s/uso único; confirmação no celular abre a mesma sessão de operador. Código manual e proteção HTTPS/CSRF preservados. Sem migration/pacote de backend novo. Ver `docs/contrato-pareamento.md` e `docs/etapa-pareamento-2026-11-14.md`. Testes: 127 Node, 13 asserções com relógio controlado, móvel 176/134 e páginas 212/50; navegador desktop/largura 390 px conferido. A câmera/Safari do iPhone ainda precisa validar este novo fluxo.
+
 ## 1 Objetivo e situação real
 
 ICEPLAY é o TCC de Ciência da Computação de Otávio Souza Caires, orientado por Sérgio Mazini, campus Araçatuba. Monitora geladeiras comerciais: temperatura, estado da porta, dois timestamps UTC, histórico e episódios de alertas. A interface é web responsiva, usada pelo Safari; não é aplicativo nativo. Controle significa gestão/consulta dos parâmetros, sem acionamento de compressor.
@@ -62,6 +64,8 @@ O tema usa `theme.css`, `styles.css` e `assets/iceplay-mark.svg`. Clientes usam 
 | `GET /api/geladeiras/{id}/dispositivos/{dispositivoId}` | Metadados ou 404 para ID/vínculo inexistente |
 | `POST /api/geladeiras/{id}/dispositivos/{dispositivoId}/revogar` | Revogação idempotente 200; ausente 404 |
 | `GET /api/acesso`, `POST /api/acesso/entrar`, `/sair` | Sessão móvel/código e CSRF; 204 para entrada/saída válida, login limitado |
+| `POST/DELETE /api/acesso/pareamento` | Emite/cancela convite somente pelo computador local; exige origem exata e `X-ICEPLAY-LOCAL: 1` |
+| `POST /api/acesso/pareamento/entrar` | HTTPS com CSRF, JSON `{token}`; 204/401/429, consumo único |
 
 Entradas inválidas: 400; recursos inexistentes: 404; conflito: 409; falha reconhecida de persistência: 503 genérico. Contratos completos em `docs/contrato-leituras.md`, `contrato-configuracoes.md`, `contrato-alertas.md`, `contrato-dispositivos.md` e README.
 
@@ -120,6 +124,8 @@ Firmware passou em ambos os perfis; configurado usou 47708 bytes de RAM estátic
 Em 09/11 o usuário confirmou acesso, saúde, cadastro/edição/navegação, histórico vazio e recarga; foto posterior mostrou três leituras Simulacao e gráfico. Registro em `docs/evidencias/2026-11-09-iphone/validacao-manual.md`. Novos formulários/alertas/refinamentos não foram conferidos visualmente no aparelho. Ferramenta de navegador respondeu indisponível nesta conversa em 12/11; testes DOM/HTTP não são renderização ou Safari.
 
 Hardware previsto: uma placa ESP32 clássica, sonda DS18B20, um par reed/ímã, resistor 4k7 (não 47R), protoboard/jumpers e USB com dados. GPIO4 para DQ, pull-up a 3V3 e GPIO27/GND para contato; conferir fios/polaridade/modelo reais. Placa/alimentação fora da geladeira. Sem atuação na rede elétrica/compressor.
+
+Em 14/11, o usuário confirmou recebimento somente do cabo, kit de contatos magnéticos e resistores comprados com valor errado; os corretos ainda serão entregues. ESP32, DS18B20, protoboard e jumpers ainda não recebidos. Não há montagem, gravação ou ensaio físico validado. Fotos/embalagens não comprovam transmissão USB nem contato seco.
 
 Firmware: amostragem nominal 10 s, conversão 800 ms, debounce 50 ms, UTC SNTP, CA HTTPS, UUID/retry; uma amostra pendente em RAM até 30 s, sem histórico offline completo. Operações HTTP podem atrasar polling; não promete capturar todo pulso curto. `firmware/README.md` e `docs/hardware/` têm comandos, montagem e 12 ensaios pendentes. Configurar WiFi/chave em `config.local.h`, ignorado; verificador nunca publica binário privado.
 

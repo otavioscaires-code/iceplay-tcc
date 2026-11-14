@@ -8,9 +8,11 @@
   <title>ICEPLAY | Acesso ao dispositivo</title>
   <link rel="icon" href="/assets/iceplay-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/theme.css?v=20261109-pages">
-  <link rel="stylesheet" href="/styles.css?v=20261109-pages">
+  <link rel="stylesheet" href="/styles.css?v=20261114-qr">
   <script src="/shell.js?v=20261109-pages" defer></script>
   <script src="/acesso.js?v=20261109-pages" defer></script>
+  <script src="/vendor/qrcodegen-v1.8.0.js" defer></script>
+  <script src="/pareamento.js?v=20261114-qr" defer></script>
 
 </head>
 <body class="app-layout" data-page="acesso">
@@ -38,15 +40,35 @@
 <section class="container mobile-access" id="acesso-movel" aria-labelledby="access-title">
       <p class="eyebrow">Acesso neste dispositivo</p>
       <h2 id="access-title">Conectar ao ICEPLAY</h2>
-      <p>Use o código de acesso disponível no computador que está executando o projeto.</p>
+      <p>No computador, gere um QR Code para conectar o celular pela câmera. O código de acesso continua disponível como alternativa.</p>
       <p id="access-status" role="status" aria-live="polite">Consultando a sessão…</p>
       <noscript><p>Ative o JavaScript para conectar este navegador com segurança.</p></noscript>
+      <section id="pairing-local" class="pairing-panel" aria-labelledby="pairing-title" hidden>
+        <h3 id="pairing-title">Conectar celular por QR Code</h3>
+        <p>Conecte o iPhone ao mesmo Wi-Fi do computador. Gere o convite, aponte a câmera para o QR Code e abra o link no Safari.</p>
+        <p class="field-help">O certificado local precisa estar instalado e confiável no iPhone. O convite autoriza consultas e alterações por até 8 horas neste navegador.</p>
+        <div class="pairing-actions">
+          <button type="button" class="button button-primary" id="pairing-issue">Gerar QR Code</button>
+          <button type="button" class="button button-secondary" id="pairing-cancel" hidden>Cancelar convite</button>
+        </div>
+        <p id="pairing-status" role="status" aria-live="polite">Validade de 2 minutos, para uma única conexão. Gerar outro QR Code invalida o anterior.</p>
+        <div id="pairing-display" hidden><div id="pairing-qr" class="pairing-qr"></div><p class="field-help">Escaneie e confirme a conexão no iPhone. Para conectar outro navegador, gere um novo convite.</p></div>
+      </section>
+      <section id="pairing-confirm" class="pairing-panel" aria-labelledby="pairing-confirm-title" hidden>
+        <h3 id="pairing-confirm-title">Conectar por QR Code</h3>
+        <p>Confirme para consultar os dados e gerenciar as geladeiras neste navegador. A sessão dura até 8 horas e termina ao reiniciar o servidor.</p>
+        <button type="button" class="button button-primary" id="pairing-connect" disabled>Conectar este dispositivo</button>
+      </section>
+      <p id="pairing-message" role="status" aria-live="polite"></p>
+      <details id="access-code-option">
+        <summary>Usar código de acesso manualmente</summary>
       <form id="access-form" method="post" action="/acesso">
         <label for="access-code">Código de acesso</label>
         <input id="access-code" name="codigo" type="password" required maxlength="128" autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="access-help" disabled>
         <p id="access-help" class="field-help">O código autoriza consultas e alterações neste navegador. Ele não será salvo no armazenamento do navegador.</p>
         <button class="button button-primary" id="access-submit" type="submit" disabled>Conectar dispositivo</button>
       </form>
+      </details>
       <button class="button button-secondary" id="access-logout" type="button" hidden>Sair deste dispositivo</button>
     </section>
     </main>

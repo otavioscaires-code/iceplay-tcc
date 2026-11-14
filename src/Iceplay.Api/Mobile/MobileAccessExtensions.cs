@@ -13,6 +13,7 @@ public static class MobileAccessExtensions
         var settings = builder.Configuration.GetSection("Mobile").Get<MobileAccessSettings>() ?? new();
         settings.Validate();
         builder.Services.AddSingleton(settings);
+        builder.Services.AddSingleton<MobilePairing>();
         // A sessão é local e temporária: reiniciar a aplicação invalida cookies e tokens.
         builder.Services.AddDataProtection().UseEphemeralDataProtectionProvider();
         builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
@@ -40,6 +41,12 @@ public static class MobileAccessExtensions
         {
             options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
             options.AddFixedWindowLimiter("mobile-login", limiter =>
+            {
+                limiter.PermitLimit = 8;
+                limiter.Window = TimeSpan.FromMinutes(1);
+                limiter.QueueLimit = 0;
+            });
+            options.AddFixedWindowLimiter("mobile-pairing", limiter =>
             {
                 limiter.PermitLimit = 8;
                 limiter.Window = TimeSpan.FromMinutes(1);

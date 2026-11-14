@@ -1,0 +1,25 @@
+{
+  "result": "passed",
+  "scope": "Backup privado consistente; nao e prova de hardware",
+  "createdAtUtc": "2026-11-14T04:30:32.378694+00:00",
+  "source": "C:\\Users\\otavi\\Downloads\\iceplay\\src\\Iceplay.Api\\Data\\iceplay.db",
+  "backup": "C:\\Users\\otavi\\Downloads\\iceplay\\.tools\\backups\\iceplay-20261114T043032Z-5cfd5f37.db",
+  "integrity": "ok",
+  "foreignKeyViolations": 0,
+  "counts": {
+    "Geladeiras": 1,
+    "Leituras": 3,
+    "ConfiguracoesGeladeiras": 0,
+    "Alertas": 0,
+    "EstadosMonitoramento": 0,
+    "Dispositivos": 0
+  },
+  "migrations": [
+    "20261013172101_InitialCreate",
+    "20261018023456_AddLeituras",
+    "20261109233935_AddConfiguracoesGeladeiras",
+    "20261112192436_AddAlertas",
+    "20261112194714_AddDispositivos"
+  ],
+  "historicalFieldsSha256": "942c9b5615a328c5683631c176f913f6696de7c28bd0ee70301e1e65d4d7cf65"
+}

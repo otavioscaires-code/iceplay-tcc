@@ -53,7 +53,8 @@ public sealed class MobileAccessMiddleware(RequestDelegate next)
             context.Response.Headers.CacheControl = "no-store";
             var path = context.Request.Path.Value ?? "";
             var accessEndpoint = path.Equals("/api/acesso", StringComparison.OrdinalIgnoreCase)
-                || path.Equals("/api/acesso/entrar", StringComparison.OrdinalIgnoreCase);
+                || path.Equals("/api/acesso/entrar", StringComparison.OrdinalIgnoreCase)
+                || path.TrimEnd('/').Equals("/api/acesso/pareamento/entrar", StringComparison.OrdinalIgnoreCase);
             var dispositivo = false;
             if (context.Request.Headers.Authorization.Count > 0)
             {

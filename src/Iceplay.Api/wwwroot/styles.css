@@ -174,6 +174,14 @@ h1 span { color: var(--ice); }
 .mobile-access label { display: block; font-weight: 650; }
 .mobile-access input { width: 100%; min-height: 46px; margin-top: 8px; padding: 10px 12px; border: 1px solid var(--border-strong); border-radius: var(--radius-small); background: var(--background); color: var(--text); font: inherit; font-size: 16px; }
 .mobile-access .button { margin-top: 18px; }
+.pairing-panel { margin-block: 24px; padding-top: 20px; border-top: 1px solid var(--border); }
+.pairing-panel h3 { margin-top: 0; }
+.pairing-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.pairing-actions .button { margin-top: 0; }
+.pairing-qr { width: min(280px, 100%); margin-top: 20px; padding: 8px; background: #fff; border-radius: var(--radius-small); }
+.pairing-qr svg { display: block; width: 100%; height: auto; aspect-ratio: 1; }
+#access-code-option { margin-top: 24px; }
+#access-code-option summary { min-height: 44px; cursor: pointer; color: var(--ice); }
 .mobile-nav { display: none; }
 
 @media (min-width: 700px) {

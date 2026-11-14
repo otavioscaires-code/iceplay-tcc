@@ -18,6 +18,12 @@ Push-Location $script:IceplayRoot
 try {
     & $script:IceplayDotnet build Iceplay.slnx --no-restore *>&1 | Set-Content (Join-Path $mobileVerificationEvidence 'build.log') -Encoding utf8
     if ($LASTEXITCODE -ne 0) { throw 'Build falhou' }
+    & $script:IceplayDotnet restore tests/Iceplay.Verification --locked-mode *>&1 | Set-Content (Join-Path $mobileVerificationEvidence 'pareamento-restore.log') -Encoding utf8
+    if ($LASTEXITCODE -ne 0) { throw 'Restauracao da verificacao de pareamento falhou' }
+    & $script:IceplayDotnet build tests/Iceplay.Verification --no-restore *>&1 | Set-Content (Join-Path $mobileVerificationEvidence 'pareamento-build.log') -Encoding utf8
+    if ($LASTEXITCODE -ne 0) { throw 'Build da verificacao de pareamento falhou' }
+    & $script:IceplayDotnet run --project tests/Iceplay.Verification --no-build --no-restore -- pareamento *>&1 | Set-Content (Join-Path $mobileVerificationEvidence 'pareamento-regras.json') -Encoding utf8
+    if ($LASTEXITCODE -ne 0) { throw 'Verificacao de pareamento falhou' }
     & "$PSScriptRoot/prepare-mobile.ps1" -EnderecoIp $EnderecoIp -Diretorio (Join-Path $mobileVerificationDirectory 'certificados') -PortaLocal $mobilePorts[0] -PortaHttps $mobilePorts[1] -PortaCertificado $mobilePorts[2] *>&1 | Set-Content (Join-Path $mobileVerificationEvidence 'preparacao-teste.log') -Encoding utf8
     & python -X utf8 "$PSScriptRoot/verify-mobile.py" --config (Join-Path $mobileVerificationDirectory 'certificados/settings.json') --dotnet $script:IceplayDotnet --database (Join-Path $mobileVerificationDirectory 'iceplay.db') --evidence $mobileVerificationEvidence
     if ($LASTEXITCODE -ne 0) { throw 'Verificação móvel falhou. Confira mobile-api.json e os logs.' }

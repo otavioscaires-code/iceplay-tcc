@@ -1,0 +1,994 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-14T04:23:04.813278+00:00",
+  "scope": "API móvel pela interface IPv4 local, TLS com CA explicitamente confiada e banco isolado; sem iPhone físico",
+  "isolatedDatabase": "C:\\Users\\otavi\\Downloads\\iceplay\\.tools\\verification\\mobile-20261114T042255Z-d330623d\\iceplay.db",
+  "checks": [
+    "GET /api/health por HTTP retorna 200",
+    "Banco isolado inicia vazio, sem seed",
+    "GET /acesso por HTTPS retorna 200",
+    "HTML móvel oferece conexão e assets versionados",
+    "GET / por HTTPS retorna 200",
+    "Página independente acessível por HTTPS antes do login: /",
+    "GET /dashboard por HTTPS retorna 200",
+    "Página independente acessível por HTTPS antes do login: /dashboard",
+    "GET /geladeiras por HTTPS retorna 200",
+    "Página independente acessível por HTTPS antes do login: /geladeiras",
+    "GET /historico por HTTPS retorna 200",
+    "Página independente acessível por HTTPS antes do login: /historico",
+    "GET /alertas por HTTPS retorna 200",
+    "Página independente acessível por HTTPS antes do login: /alertas",
+    "GET /configuracoes por HTTPS retorna 200",
+    "Página independente acessível por HTTPS antes do login: /configuracoes",
+    "GET /sobre por HTTPS retorna 200",
+    "Página independente acessível por HTTPS antes do login: /sobre",
+    "GET /acesso.js por HTTPS retorna 200",
+    "GET /styles.css por HTTPS retorna 200",
+    "GET /monitoramento.js por HTTPS retorna 200",
+    "GET /monitoramento-estado.mjs por HTTPS retorna 200",
+    "GET /api/health por HTTPS retorna 401",
+    "GET /api/geladeiras por HTTPS retorna 401",
+    "GET /api/geladeiras/1 por HTTPS retorna 401",
+    "POST /api/geladeiras por HTTPS retorna 401",
+    "PUT /api/geladeiras/1 por HTTPS retorna 401",
+    "DELETE /api/geladeiras/1 por HTTPS retorna 401",
+    "POST /api/leituras por HTTPS retorna 401",
+    "GET /api/leituras?geladeiraId=1&origem=Simulacao por HTTPS retorna 401",
+    "GET /api/monitoramento?origem=Simulacao por HTTPS retorna 401",
+    "GET /api/geladeiras/1/configuracao por HTTPS retorna 401",
+    "PUT /api/geladeiras/1/configuracao por HTTPS retorna 401",
+    "GET /api/alertas por HTTPS retorna 401",
+    "GET /api/alertas/1 por HTTPS retorna 401",
+    "GET /api/alertas/resumo?origem=Simulacao por HTTPS retorna 401",
+    "GET /api/geladeiras/1/dispositivos por HTTPS retorna 401",
+    "POST /api/geladeiras/1/dispositivos por HTTPS retorna 401",
+    "POST /api/geladeiras/1/dispositivos/1/revogar por HTTPS retorna 401",
+    "GET /certificado.cer por HTTP retorna 200",
+    "Porta HTTP entrega somente o certificado público esperado",
+    "GET / por HTTP retorna 200",
+    "GET /api/health por HTTP retorna 404",
+    "POST /api/acesso/entrar por HTTP retorna 404",
+    "GET /api/acesso por HTTPS retorna 400",
+    "TLS rejeita hostname que não pertence ao certificado",
+    "TLS exige confiar explicitamente na CA local; não usa bypass de validação",
+    "GET /api/acesso por HTTPS retorna 200",
+    "Acesso remoto inicia sem autenticação",
+    "Cookie antiforgery possui Secure, HttpOnly e SameSite Strict",
+    "POST /api/acesso/entrar por HTTPS retorna 400",
+    "POST /api/acesso/entrar por HTTPS retorna 401",
+    "POST /api/acesso/entrar por HTTPS retorna 204",
+    "Login cria cookie de sessão protegido, sem token em URL",
+    "POST /api/geladeiras por HTTPS retorna 400",
+    "GET /api/acesso por HTTPS retorna 200",
+    "Sessão é reconhecida e o token é renovado após login",
+    "POST /api/acesso/pareamento por HTTP retorna 403",
+    "POST /api/acesso/pareamento por HTTP retorna 403",
+    "POST /api/acesso/pareamento por HTTP retorna 403",
+    "POST /api/acesso/pareamento por HTTPS retorna 403",
+    "POST /api/acesso/pareamento por HTTP retorna 200",
+    "Convite usa HTTPS configurado e segredo no fragmento, sem credencial permanente na URL",
+    "QR temporario nao expoe codigo permanente e nao e cacheado",
+    "POST /api/acesso/pareamento por HTTPS retorna 401",
+    "POST /api/acesso/pareamento/entrar por HTTPS retorna 400",
+    "GET /api/acesso por HTTPS retorna 200",
+    "POST /api/acesso/pareamento/entrar por HTTPS retorna 403",
+    "POST /api/acesso/pareamento/entrar por HTTPS retorna 400",
+    "POST /api/acesso/pareamento/entrar por HTTPS retorna 401",
+    "POST /api/acesso/pareamento/entrar por HTTPS retorna 204",
+    "Pareamento abre a mesma sessao protegida do login por codigo",
+    "GET /api/geladeiras por HTTPS retorna 200",
+    "GET /api/acesso por HTTPS retorna 200",
+    "Celular pareado nao pode emitir novos convites",
+    "POST /api/acesso/pareamento/entrar por HTTPS retorna 401",
+    "POST /api/acesso/pareamento por HTTP retorna 200",
+    "POST /api/acesso/pareamento por HTTP retorna 200",
+    "POST /api/acesso/pareamento/entrar por HTTPS retorna 401",
+    "DELETE /api/acesso/pareamento por HTTP retorna 403",
+    "DELETE /api/acesso/pareamento por HTTP retorna 204",
+    "DELETE /api/acesso/pareamento por HTTP retorna 204",
+    "POST /api/acesso/pareamento/entrar por HTTPS retorna 401",
+    "POST /api/acesso/pareamento por HTTP retorna 200",
+    "POST /api/acesso/pareamento por HTTP retorna 404",
+    "POST /api/acesso/pareamento/entrar por HTTP retorna 404",
+    "POST /api/acesso/pareamento/entrar por HTTPS retorna 401",
+    "POST /api/acesso/pareamento/entrar por HTTPS retorna 401",
+    "POST /api/acesso/pareamento/entrar por HTTPS retorna 429",
+    "POST /api/geladeiras por HTTPS retorna 400",
+    "GET /api/alertas por HTTPS retorna 200",
+    "Sessao movel consulta alertas reais sem seed",
+    "GET /api/alertas/resumo?origem=Simulacao por HTTPS retorna 200",
+    "POST /api/geladeiras por HTTPS retorna 403",
+    "POST /api/geladeiras por HTTPS retorna 400",
+    "POST /api/geladeiras por HTTPS retorna 201",
+    "GET /api/geladeiras/1/configuracao por HTTPS retorna 200",
+    "Consulta HTTPS distingue equipamento ainda sem configuracao",
+    "PUT /api/geladeiras/1/configuracao por HTTPS retorna 400",
+    "PUT /api/geladeiras/1/configuracao por HTTPS retorna 403",
+    "PUT /api/geladeiras/1/configuracao por HTTPS retorna 201",
+    "Configuracao de teste e salva inativa pela API protegida",
+    "GET /api/geladeiras/1 por HTTPS retorna 200",
+    "PUT /api/geladeiras/1 por HTTPS retorna 200",
+    "POST /api/leituras por HTTPS retorna 201",
+    "GET /api/monitoramento?origem=Simulacao por HTTPS retorna 200",
+    "Painel autenticado preserva zero e porta fechada",
+    "Simulador existente envia pela API local da mesma instância",
+    "GET /api/monitoramento?origem=Simulacao por HTTPS retorna 200",
+    "Consulta HTTPS enxerga a leitura persistida enviada pelo simulador",
+    "GET /api/leituras?geladeiraId=1&origem=Simulacao por HTTPS retorna 200",
+    "Historico autenticado HTTPS consulta as duas leituras da mesma API",
+    "POST /api/geladeiras/1/dispositivos por HTTPS retorna 400",
+    "POST /api/geladeiras/1/dispositivos por HTTPS retorna 403",
+    "POST /api/geladeiras/1/dispositivos por HTTPS retorna 201",
+    "GET /api/health por HTTPS retorna 401",
+    "GET /api/health por HTTPS retorna 403",
+    "POST /api/leituras por HTTPS retorna 401",
+    "POST /api/leituras por HTTPS retorna 201",
+    "POST /api/leituras por HTTPS retorna 200",
+    "Emissor HTTPS sem cookie/CSRF autentica e repete sem duplicar fixture Hardware",
+    "POST /api/leituras por HTTP retorna 404",
+    "DELETE /api/geladeiras/1 por HTTPS retorna 409",
+    "POST /api/geladeiras por HTTPS retorna 201",
+    "DELETE /api/geladeiras/2 por HTTPS retorna 204",
+    "GET /api/geladeiras/2 por HTTPS retorna 404",
+    "POST /api/acesso/sair por HTTPS retorna 204",
+    "GET /api/geladeiras por HTTPS retorna 401",
+    "GET /api/leituras?geladeiraId=1&origem=Simulacao por HTTPS retorna 401",
+    "GET /api/acesso por HTTPS retorna 200",
+    "Saída remove a autenticação deste cliente",
+    "POST /api/acesso/entrar por HTTPS retorna 204",
+    "GET /api/geladeiras por HTTPS retorna 401",
+    "GET /api/leituras?geladeiraId=1&origem=Simulacao por HTTPS retorna 401",
+    "Reiniciar o servidor invalida a sessão anterior",
+    "GET /api/geladeiras por HTTPS retorna 401",
+    "GET /api/acesso por HTTPS retorna 200",
+    "POST /api/acesso/pareamento/entrar por HTTPS retorna 401",
+    "Reinicio invalida convite pendente e sessao aberta por QR",
+    "GET /api/acesso por HTTPS retorna 200",
+    "POST /api/acesso/entrar por HTTPS retorna 204",
+    "GET /api/geladeiras/1 por HTTPS retorna 200",
+    "Cadastro editado permanece após reiniciar",
+    "GET /api/geladeiras/1/configuracao por HTTPS retorna 200",
+    "Configuracao HTTPS persiste apos reinicio e nova autenticacao",
+    "GET /api/monitoramento?origem=Simulacao por HTTPS retorna 200",
+    "Última leitura permanece após reiniciar",
+    "GET /api/leituras?geladeiraId=1&origem=Simulacao por HTTPS retorna 200",
+    "Historico HTTPS permanece apos reinicio e nova autenticacao",
+    "POST /api/leituras por HTTPS retorna 200",
+    "Credencial e idempotencia persistem apos reinicio sem sessao de navegador",
+    "GET /api/acesso por HTTPS retorna 200",
+    "POST /api/geladeiras/1/dispositivos/1/revogar por HTTPS retorna 400",
+    "POST /api/geladeiras/1/dispositivos/1/revogar por HTTPS retorna 200",
+    "POST /api/leituras por HTTPS retorna 401",
+    "POST /api/acesso/sair por HTTPS retorna 400",
+    "GET /api/acesso por HTTPS retorna 200",
+    "POST /api/acesso/sair por HTTPS retorna 204",
+    "GET /api/acesso por HTTPS retorna 200",
+    "POST /api/acesso/entrar por HTTPS retorna 401",
+    "POST /api/acesso/entrar por HTTPS retorna 401",
+    "POST /api/acesso/entrar por HTTPS retorna 401",
+    "POST /api/acesso/entrar por HTTPS retorna 401",
+    "POST /api/acesso/entrar por HTTPS retorna 401",
+    "POST /api/acesso/entrar por HTTPS retorna 401",
+    "POST /api/acesso/entrar por HTTPS retorna 401",
+    "POST /api/acesso/entrar por HTTPS retorna 429",
+    "GET /api/health por HTTP retorna 403",
+    "GET / por HTTP retorna 403",
+    "POST /api/acesso/pareamento por HTTP retorna 404",
+    "Modo comum bloqueia acesso remoto mesmo se a URL for sobrescrita",
+    "SQLite mantém integridade",
+    "SQLite mantém vínculos válidos",
+    "Somente uma geladeira e tres leituras fixture permanecem no banco isolado (duas Simulacao, uma Hardware de software)",
+    "Migrations anteriores preservadas e esquema atual aplicado integralmente",
+    "Somente configuracao fixture permanece no banco isolado"
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "transport": "HTTP",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/acesso",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/dashboard",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/geladeiras",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/historico",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/alertas",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/configuracoes",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/sobre",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/acesso.js",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/styles.css",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/monitoramento.js",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/monitoramento-estado.mjs",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/1",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/geladeiras/1",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/leituras?geladeiraId=1&origem=Simulacao",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Simulacao",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/1/configuracao",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas/1",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas/resumo?origem=Simulacao",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/1/dispositivos",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/1/dispositivos",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/1/dispositivos/1/revogar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/certificado.cer",
+      "transport": "HTTP",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "transport": "HTTP",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "transport": "HTTP",
+      "status": 404
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTP",
+      "status": 404
+    },
+    {
+      "method": "GET",
+      "path": "/api/acesso",
+      "transport": "HTTPS",
+      "status": 400
+    },
+    {
+      "method": "GET",
+      "path": "/api/acesso",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTPS",
+      "status": 400
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTPS",
+      "status": 204
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 400
+    },
+    {
+      "method": "GET",
+      "path": "/api/acesso",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento",
+      "transport": "HTTP",
+      "status": 403
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento",
+      "transport": "HTTP",
+      "status": 403
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento",
+      "transport": "HTTP",
+      "status": 403
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento",
+      "transport": "HTTPS",
+      "status": 403
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento",
+      "transport": "HTTP",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento/entrar",
+      "transport": "HTTPS",
+      "status": 400
+    },
+    {
+      "method": "GET",
+      "path": "/api/acesso",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento/entrar",
+      "transport": "HTTPS",
+      "status": 403
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento/entrar",
+      "transport": "HTTPS",
+      "status": 400
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento/entrar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento/entrar",
+      "transport": "HTTPS",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/acesso",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento/entrar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento",
+      "transport": "HTTP",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento",
+      "transport": "HTTP",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento/entrar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/acesso/pareamento",
+      "transport": "HTTP",
+      "status": 403
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/acesso/pareamento",
+      "transport": "HTTP",
+      "status": 204
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/acesso/pareamento",
+      "transport": "HTTP",
+      "status": 204
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento/entrar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento",
+      "transport": "HTTP",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento",
+      "transport": "HTTP",
+      "status": 404
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento/entrar",
+      "transport": "HTTP",
+      "status": 404
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento/entrar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento/entrar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento/entrar",
+      "transport": "HTTPS",
+      "status": 429
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 400
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas/resumo?origem=Simulacao",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 403
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 400
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/1/configuracao",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "transport": "HTTPS",
+      "status": 400
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "transport": "HTTPS",
+      "status": 403
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1/configuracao",
+      "transport": "HTTPS",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/1",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/1",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "transport": "HTTPS",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Simulacao",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Simulacao",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/leituras?geladeiraId=1&origem=Simulacao",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/1/dispositivos",
+      "transport": "HTTPS",
+      "status": 400
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/1/dispositivos",
+      "transport": "HTTPS",
+      "status": 403
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/1/dispositivos",
+      "transport": "HTTPS",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "transport": "HTTPS",
+      "status": 403
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "transport": "HTTPS",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "transport": "HTTP",
+      "status": 404
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/geladeiras/1",
+      "transport": "HTTPS",
+      "status": 409
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 201
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/geladeiras/2",
+      "transport": "HTTPS",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/2",
+      "transport": "HTTPS",
+      "status": 404
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/sair",
+      "transport": "HTTPS",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/leituras?geladeiraId=1&origem=Simulacao",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/acesso",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTPS",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/leituras?geladeiraId=1&origem=Simulacao",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/acesso",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento/entrar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/acesso",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTPS",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/1",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/1/configuracao",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Simulacao",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/leituras?geladeiraId=1&origem=Simulacao",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/acesso",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/1/dispositivos/1/revogar",
+      "transport": "HTTPS",
+      "status": 400
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/1/dispositivos/1/revogar",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/sair",
+      "transport": "HTTPS",
+      "status": 400
+    },
+    {
+      "method": "GET",
+      "path": "/api/acesso",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/sair",
+      "transport": "HTTPS",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/api/acesso",
+      "transport": "HTTPS",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTPS",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/entrar",
+      "transport": "HTTPS",
+      "status": 429
+    },
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "transport": "HTTP",
+      "status": 403
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "transport": "HTTP",
+      "status": 403
+    },
+    {
+      "method": "POST",
+      "path": "/api/acesso/pareamento",
+      "transport": "HTTP",
+      "status": 404
+    }
+  ],
+  "errors": [],
+  "finishedAtUtc": "2026-11-14T04:23:19.254613+00:00",
+  "checkCount": 176,
+  "requestCount": 134
+}

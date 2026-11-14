@@ -14,6 +14,7 @@ import subprocess
 import time
 import urllib.error
 import urllib.request
+import urllib.parse
 
 
 def main():
@@ -105,6 +106,58 @@ def main():
             if not stream.closed:
                 stream.close()
 
+    def pairing_checks(operator_csrf):
+        route = "/api/acesso/pareamento"
+        enter = route + "/entrar"
+        local_headers = {"Origin": local, "X-ICEPLAY-LOCAL": "1"}
+        request(local, route, 403, "POST", opener=plain)
+        request(local, route, 403, "POST", headers={"Origin": local}, opener=plain)
+        request(local, route, 403, "POST", headers={"Origin": "https://externo.invalid", "X-ICEPLAY-LOCAL": "1"}, opener=plain)
+        request(secure, route, 403, "POST", headers={**operator_csrf, "Origin": secure, "X-ICEPLAY-LOCAL": "1"})
+        invitation, headers = request(local, route, 200, "POST", headers=local_headers, opener=plain)
+        parsed = urllib.parse.urlsplit(invitation["url"])
+        token = parsed.fragment.removeprefix("parear=")
+        check(parsed.scheme == "https" and parsed.netloc == urllib.parse.urlsplit(secure).netloc
+              and parsed.path == "/acesso" and not parsed.query and len(token) == 43,
+              "Convite usa HTTPS configurado e segredo no fragmento, sem credencial permanente na URL")
+        check(settings["AccessCode"] not in invitation["url"] and invitation["validadeSegundos"] == 120
+              and "no-store" in headers.get("Cache-Control", ""), "QR temporario nao expoe codigo permanente e nao e cacheado")
+        pairing_jar = http.cookiejar.CookieJar()
+        pairing_client = urllib.request.build_opener(urllib.request.ProxyHandler({}),
+            urllib.request.HTTPSHandler(context=context), urllib.request.HTTPCookieProcessor(pairing_jar))
+        request(secure, route, 401, "POST", headers=local_headers, opener=pairing_client)
+        request(secure, enter, 400, "POST", {"token": token}, opener=pairing_client)
+        current, _ = request(secure, "/api/acesso", 200, opener=pairing_client)
+        pairing_csrf = {"X-ICEPLAY-CSRF": current["csrfToken"]}
+        request(secure, enter, 403, "POST", {"token": token}, {**pairing_csrf, "Origin": "https://externo.invalid"}, opener=pairing_client)
+        request(secure, enter, 400, "POST", {"token": "invalido"}, pairing_csrf, opener=pairing_client)
+        request(secure, enter, 401, "POST", {"token": "a" * 43}, pairing_csrf, opener=pairing_client)
+        _, response_headers = request(secure, enter, 204, "POST", {"token": token}, pairing_csrf, opener=pairing_client)
+        cookie = response_headers.get("Set-Cookie", "").lower()
+        check("__host-iceplay.mobile=" in cookie and "secure" in cookie and "httponly" in cookie
+              and "samesite=strict" in cookie, "Pareamento abre a mesma sessao protegida do login por codigo")
+        request(secure, "/api/geladeiras", 200, opener=pairing_client)
+        current, _ = request(secure, "/api/acesso", 200, opener=pairing_client)
+        check(current["autenticado"] and not current["pareamentoDisponivel"], "Celular pareado nao pode emitir novos convites")
+        pairing_csrf = {"X-ICEPLAY-CSRF": current["csrfToken"]}
+        request(secure, enter, 401, "POST", {"token": token}, pairing_csrf, opener=pairing_client)
+        first, _ = request(local, route, 200, "POST", headers=local_headers, opener=plain)
+        second, _ = request(local, route, 200, "POST", headers=local_headers, opener=plain)
+        first_token = urllib.parse.urlsplit(first["url"]).fragment.removeprefix("parear=")
+        second_token = urllib.parse.urlsplit(second["url"]).fragment.removeprefix("parear=")
+        request(secure, enter, 401, "POST", {"token": first_token}, pairing_csrf, opener=pairing_client)
+        request(local, route, 403, "DELETE", headers={"Origin": "https://externo.invalid", "X-ICEPLAY-LOCAL": "1"}, opener=plain)
+        request(local, route, 204, "DELETE", headers=local_headers, opener=plain)
+        request(local, route, 204, "DELETE", headers=local_headers, opener=plain)
+        request(secure, enter, 401, "POST", {"token": second_token}, pairing_csrf, opener=pairing_client)
+        pending, _ = request(local, route, 200, "POST", headers=local_headers, opener=plain)
+        request(bootstrap, route, 404, "POST", headers=local_headers, opener=plain)
+        request(bootstrap, enter, 404, "POST", {"token": token}, opener=plain)
+        for _ in range(2):
+            request(secure, enter, 401, "POST", {"token": "a" * 43}, pairing_csrf, opener=pairing_client)
+        request(secure, enter, 429, "POST", {"token": "a" * 43}, pairing_csrf, opener=pairing_client)
+        return urllib.parse.urlsplit(pending["url"]).fragment.removeprefix("parear="), pairing_client
+
     try:
         start("startup")
         health, _ = request(local, "/api/health", 200)
@@ -157,6 +210,7 @@ def main():
         session, _ = request(secure, "/api/acesso", 200)
         check(session["autenticado"], "Sessão é reconhecida e o token é renovado após login")
         csrf = {"X-ICEPLAY-CSRF": session["csrfToken"]}
+        pending_pair_token, pairing_client = pairing_checks(csrf)
         request(secure, "/api/geladeiras", 400, "POST", {"nome": "FIXTURE MOBILE SEM CSRF"})
         alerts, _ = request(secure, "/api/alertas", 200)
         check(alerts["totalItens"] == 0 and alerts["itens"] == [], "Sessao movel consulta alertas reais sem seed")
@@ -226,6 +280,11 @@ def main():
         request(secure, "/api/geladeiras", 401)
         request(secure, history_path, 401)
         check(True, "Reiniciar o servidor invalida a sessão anterior")
+        request(secure, "/api/geladeiras", 401, opener=pairing_client)
+        pairing_session, _ = request(secure, "/api/acesso", 200, opener=pairing_client)
+        pairing_csrf = {"X-ICEPLAY-CSRF": pairing_session["csrfToken"]}
+        request(secure, "/api/acesso/pareamento/entrar", 401, "POST", {"token": pending_pair_token}, pairing_csrf, opener=pairing_client)
+        check(True, "Reinicio invalida convite pendente e sessao aberta por QR")
         session, _ = request(secure, "/api/acesso", 200)
         csrf = {"X-ICEPLAY-CSRF": session["csrfToken"]}
         request(secure, "/api/acesso/entrar", 204, "POST", {"codigo": settings["AccessCode"]}, csrf)
@@ -261,6 +320,7 @@ def main():
               "--AllowedHosts", "127.0.0.1;" + settings["Address"]])
         request(accidental, "/api/health", 403, opener=plain)
         request(accidental, "/", 403, opener=plain)
+        request(local, "/api/acesso/pareamento", 404, "POST", headers={"Origin": local, "X-ICEPLAY-LOCAL": "1"}, opener=plain)
         check(True, "Modo comum bloqueia acesso remoto mesmo se a URL for sobrescrita")
         stop()
         with sqlite3.connect(database.as_uri() + "?mode=ro", uri=True) as connection:

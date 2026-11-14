@@ -1,0 +1,10 @@
+{
+  "result": "passed",
+  "filesChecked": 48,
+  "privateFiles": [],
+  "sensitiveMatches": 0,
+  "sourceNuls": [],
+  "missingLocalLinks": [],
+  "migrationsChanged": false,
+  "backendDependenciesChanged": false
+}
