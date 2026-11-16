@@ -1,6 +1,6 @@
 # Protocolo de validação física
 
-**Preparado em 12/11/2026. Nenhum resultado físico foi preenchido.** O objetivo é verificar o caminho sensor → ESP32 → HTTPS/API → SQLite → interface/alertas. Compilar, executar um simulador ou declarar origem Hardware não substitui estes ensaios.
+**Preparado em 12/11/2026; primeira verificação USB parcial em 16/11/2026.** O objetivo é verificar o caminho sensor → ESP32 → HTTPS/API → SQLite → interface/alertas. Compilar, executar um simulador ou declarar origem Hardware não substitui estes ensaios. O [reconhecimento USB na COM3](../etapa-usb-2026-11-16.md) não encerra F01 nem comprova comunicação do firmware com sensores/API.
 
 ## Identificação antes de iniciar
 
@@ -12,7 +12,7 @@ Usar horário UTC nos registros técnicos e hora local identificada nas anotaç�
 
 | Caso | Procedimento previsto | Critério observável | Situação |
 | --- | --- | --- | --- |
-| F01 USB e firmware | Identificar a COM, compilar, gravar e abrir serial | Gravação confirmada e inicialização sem segredo no log | Pendente |
+| F01 USB e firmware | Identificar a COM, compilar, gravar e abrir serial | Gravação confirmada e inicialização sem segredo no log | Parcial: USB/COM3 reconhecido em 16/11; gravação e inicialização do firmware pendentes |
 | F02 Temperatura em bancada | Conferir três fios, resistor e conversão | Valor válido repetível pelo dispositivo e resposta 201 na API; desconectar sonda não gera zero/-127 como leitura válida | Pendente |
 | F03 Porta | Aproximar/afastar ímã; conferir polaridade | Estado debounced corresponde à posição observada e aparece em leituras posteriores; anotar latência/limitações | Pendente |
 | F04 Rede e UTC | Conectar WiFi de 2,4 GHz, sincronizar e enviar por HTTPS | Certificado validado, dois timestamps coerentes, dispositivo vinculado; sem ignorar TLS ou fabricar UTC | Pendente |

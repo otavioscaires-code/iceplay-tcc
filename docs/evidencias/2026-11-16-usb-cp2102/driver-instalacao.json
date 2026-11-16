@@ -1,0 +1,31 @@
+{
+  "Fornecedor": "Silicon Laboratories Inc.",
+  "Versao": "11.5.0.417",
+  "OrigemCatalogo": "https://www.catalog.update.microsoft.com/ScopedViewInline.aspx?updateid=34213758-173c-47ec-951d-16b2c9463881",
+  "OrigemArquivo": "https://catalog.s.download.windowsupdate.com/c/msdownload/update/driver/drvs/2026/02/3bc68c22-eb83-4383-b451-4c581d06d3fb_6092f1062939e09f524b5d8e9108530f7f516f13.cab",
+  "SHA256Arquivo": "7EA8A03769A05C7BB78718C360B5079BE354ED6437623408D51B9C1E8F5A122A",
+  "AssinaturaCatalogo": "Valid",
+  "Assinante": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+  "HardwareIdGenerico": "USB\\VID_10C4&PID_EA60",
+  "InfIdentificacao": [
+    "Provider=%Provider%",
+    "DriverVer = 12/10/2025,11.5.0.417",
+    "CatalogFile = silabser.cat",
+    "[Manufacturer]",
+    "%ManufacturerName%=SiLabsModelsSection, NTamd64.10.0...17134, NTarm.10.0...17134, NTarm64.10.0...17134, NTx86.10.0...17134",
+    "[SiLabsModelsSection.NTamd64.10.0...17134]",
+    "Provider=\"Silicon Laboratories Inc.\""
+  ],
+  "InfContemHardwareId": true,
+  "Sistema": "Windows 10 Pro x64, build 19045",
+  "Instalacao": {
+    "IniciouEmUtc": "2026-11-16T16:25:50.4322208Z",
+    "TerminouEmUtc": "2026-11-16T16:25:52.2643198Z",
+    "ExitCode": 0,
+    "Driver": "Silicon Labs CP210x",
+    "Inf": "silabser.inf",
+    "Versao": "11.5.0.417"
+  },
+  "FirmwareGravadoNestaEtapa": false,
+  "EnsaiosSensoresExecutados": false
+}

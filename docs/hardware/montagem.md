@@ -2,6 +2,8 @@
 
 Estado em 12/11/2026: preparação de software e conexões **previstas**. Não houve posse/montagem confirmada nesta etapa. Fotos de anúncios não substituem a identificação da peça recebida.
 
+Atualização de **16/11/2026**: fotos reais identificaram placa ESP32 DEVKITV1 com CP2102; após instalação autorizada do driver, o Windows reconheceu COM3 com status OK. As ligações dos sensores abaixo continuam previstas, sem ensaio. Ver [primeiro reconhecimento USB](../etapa-usb-2026-11-16.md).
+
 ## Componentes para uma geladeira
 
 | Componente | Quantidade necessária | Conferência |

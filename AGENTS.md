@@ -2,6 +2,8 @@
 
 Este repositório é o TCC ICEPLAY, um sistema IoT para monitoramento de geladeiras comerciais. Antes de qualquer alteração, leia `CONTEXTO_ICEPLAY.md`, o `README.md` e os arquivos diretamente relacionados à tarefa.
 
+Atualização de 16/11/2026: fotos reais identificaram ESP32 DEVKITV1 com CP2102. Após autorização explícita do usuário, driver Silicon Labs 11.5.0.417 instalado do catálogo Microsoft, catálogo assinado válido; Windows reconheceu COM3, status OK, problema 0 (antes: código 28, sem COM). Ver `docs/etapa-usb-2026-11-16.md`. F01 está parcial: não houve gravação, consulta ao processador, leitura de sensor ou envio físico. Não atribuir funcionamento de firmware ao reconhecimento USB. Pacote e registros privados em `.tools/drivers/`; não publicar binários nem identificadores exclusivos do dispositivo. Próxima tarefa é a verificação serial e conferência das peças; preservar todas as regras de autorização e o banco.
+
 ## Regras de continuidade
 
 - Não reescreva o projeto, não troque tecnologias e não remova funcionalidades sem uma justificativa técnica registrada e aprovação explícita do responsável pelo TCC.

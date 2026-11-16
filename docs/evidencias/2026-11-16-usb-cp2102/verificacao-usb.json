@@ -1,0 +1,35 @@
+{
+  "VerificadoEmUtc": "2026-11-16T16:26:05.5854806Z",
+  "Dispositivos": [
+    {
+      "Nome": "Silicon Labs CP210x USB to UART Bridge (COM3)",
+      "Classe": "Ports",
+      "Status": "OK",
+      "Propriedades": [
+        {
+          "KeyName": "DEVPKEY_Device_ProblemCode",
+          "Data": 0
+        },
+        {
+          "KeyName": "DEVPKEY_Device_DriverVersion",
+          "Data": "11.5.0.417"
+        },
+        {
+          "KeyName": "DEVPKEY_Device_DriverProvider",
+          "Data": "Silicon Laboratories Inc."
+        },
+        {
+          "KeyName": "DEVPKEY_Device_DriverInfPath",
+          "Data": "oem15.inf"
+        }
+      ]
+    }
+  ],
+  "Portas": [
+    {
+      "DeviceID": "COM3",
+      "Name": "Silicon Labs CP210x USB to UART Bridge (COM3)",
+      "Status": "OK"
+    }
+  ]
+}

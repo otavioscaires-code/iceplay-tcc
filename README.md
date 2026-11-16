@@ -1,5 +1,7 @@
 # ICEPLAY
 
+**16/11/2026:** primeiro reconhecimento USB da placa ESP32 DEVKITV1/CP2102. Driver instalado com autorização; Windows reconheceu **COM3, status OK**. Firmware ainda não gravado e sensores ainda não testados. [Diagnóstico, comandos e evidências](docs/etapa-usb-2026-11-16.md).
+
 [Fechamento de 13/11/2026](docs/fechamento-pre-hardware-2026-11-13.md): arquivos, comandos, resultados reais, banco preservado e pendências físicas/acadêmicas. O código das etapas de preparação está concluído; firmware compilado não significa hardware validado.
 
 Atualização de **12/11/2026**: alertas integrados à API/páginas e credenciais por dispositivo com ingestão idempotente, com cinco migrations. Configuração explicitamente ativa gera ocorrências; não há seed. Os contratos de [alertas](docs/contrato-alertas.md) e [dispositivos](docs/contrato-dispositivos.md) e os relatórios datados registram decisões e testes.
