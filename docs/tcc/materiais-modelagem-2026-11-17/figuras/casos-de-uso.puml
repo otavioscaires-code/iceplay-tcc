@@ -1,0 +1,26 @@
+@startuml
+left to right direction
+actor Operador
+actor "Emissor de leituras" as Emissor
+rectangle ICEPLAY {
+  usecase "UC01 Autorizar navegador" as UC01
+  usecase "UC02 Gerenciar geladeiras" as UC02
+  usecase "UC03 Consultar painel" as UC03
+  usecase "UC04 Consultar histórico" as UC04
+  usecase "UC05 Configurar monitoramento" as UC05
+  usecase "UC06 Consultar alertas" as UC06
+  usecase "UC07 Gerenciar credencial" as UC07
+  usecase "UC08 Enviar leitura" as UC08
+}
+Operador -- UC01
+Operador -- UC02
+Operador -- UC03
+Operador -- UC04
+Operador -- UC05
+Operador -- UC06
+Operador -- UC07
+Emissor -- UC08
+note bottom of Emissor
+Simulador executado; aquisição física pelo ESP32 pendente.
+end note
+@enduml

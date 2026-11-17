@@ -14,3 +14,5 @@ docs/evidencias/*.log whitespace=-blank-at-eof
 # Conserva os espaços/finais de linha emitidos pelos verificadores nesta evidência.
 docs/evidencias/2026-11-14-pareamento/**/*.log whitespace=-blank-at-eof,-blank-at-eol
 docs/evidencias/2026-11-14-leitor-qr/**/*.log whitespace=-blank-at-eof,-blank-at-eol
+# Preserva a saída original da rodada documental de 17/11.
+docs/evidencias/2026-11-17-modelagem-validacao/**/*.log -text whitespace=-blank-at-eof,-blank-at-eol

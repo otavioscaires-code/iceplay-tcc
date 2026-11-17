@@ -1,0 +1,76 @@
+@startuml
+hide empty methods
+skinparam classAttributeIconSize 0
+class Geladeira {
+  + Id: int
+  + Nome: string
+  + Localizacao: string?
+  + CriadoEmUtc: DateTime
+}
+class Leitura {
+  + Id: int
+  + GeladeiraId: int
+  + TemperaturaC: double
+  + PortaAberta: bool
+  + MedidoEmUtc: DateTime
+  + RecebidoEmUtc: DateTime
+  + Origem: OrigemLeitura
+  + DispositivoId: int?
+  + MedicaoId: string?
+}
+class ConfiguracaoGeladeira {
+  + GeladeiraId: int
+  + TemperaturaMinimaC: double
+  + TemperaturaMaximaC: double
+  + ToleranciaPortaAbertaSegundos: int
+  + AusenciaLeiturasSegundos: int
+  + OrigemMonitorada: OrigemLeitura
+  + MonitoramentoAtivo: bool
+  + InicioMonitoramentoEmUtc: DateTime?
+  + AtualizadoEmUtc: DateTime
+}
+class Dispositivo {
+  + Id: int
+  + GeladeiraId: int
+  + Nome: string
+  + CredencialHash: byte[]
+  + CriadoEmUtc: DateTime
+  + RevogadoEmUtc: DateTime?
+}
+class Alerta {
+  + Id: int
+  + GeladeiraId: int
+  + Origem: OrigemLeitura
+  + Tipo: TipoAlerta
+  + Gravidade: GravidadeAlerta
+  + InicioCondicaoEmUtc: DateTime
+  + AbertoEmUtc: DateTime
+  + UltimaEvidenciaEmUtc: DateTime
+  + EncerradoEmUtc: DateTime?
+  + MotivoEncerramento: MotivoEncerramento?
+  + LeituraAberturaId: int?
+  + TemperaturaAberturaC: double?
+  + TemperaturaMinimaC: double
+  + TemperaturaMaximaC: double
+  + ToleranciaPortaAbertaSegundos: int
+  + AusenciaLeiturasSegundos: int
+}
+class EstadoMonitoramento {
+  + GeladeiraId: int
+  + ConfiguracaoEmUtc: DateTime
+  + UltimaMedicaoEmUtc: DateTime?
+  + UltimaLeituraId: int
+  + InicioPortaAbertaEmUtc: DateTime?
+}
+Geladeira "1" -- "0..*" Leitura : Leitura.GeladeiraId
+Geladeira "1" -- "0..1" ConfiguracaoGeladeira : ConfiguracaoGeladeira.GeladeiraId
+Geladeira "1" -- "0..*" Alerta : Alerta.GeladeiraId
+Geladeira "1" -- "0..*" Dispositivo : Dispositivo.GeladeiraId
+ConfiguracaoGeladeira "1" -- "0..1" EstadoMonitoramento : EstadoMonitoramento.GeladeiraId
+Dispositivo "0..1" -- "0..*" Leitura : Leitura.DispositivoId
+Leitura "0..1" -- "0..*" Alerta : Alerta.LeituraAberturaId
+note bottom of EstadoMonitoramento
+UltimaLeituraId é marcador; não há FK declarada.
+end note
+note "? indica atributo anulável em C#; operações em controllers/serviços." as N1
+@enduml

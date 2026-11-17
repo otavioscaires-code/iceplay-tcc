@@ -1,0 +1,17 @@
+﻿ID;Requisito;Critério;Situação;Casos de uso;Validações
+RF01;Consultar a saúde real da API e do SQLite;Retornar 200 quando conectado e 503 para indisponibilidade exercitada pelo verificador.;Software verificado;UC03;TV01
+RF02;Navegar por páginas independentes;"Acessar e atualizar URLs próprias; rota inexistente retorna 404.";HTTP e DOM verificados;UC01 UC02 UC03 UC04 UC05 UC06 UC07;TV13 TV15
+RF03;Gerenciar geladeiras;"Cadastrar, listar, consultar, editar e excluir com validação; preservar registros após reinício.";Software verificado;UC02;TV02 TV03
+RF04;Receber temperatura e estado da porta;"Persistir leitura válida de uma geladeira existente; rejeitar campos obrigatórios ausentes.";"API verificada; aquisição física pendente";UC08;TV04
+RF05;Separar os dois instantes UTC;"Aceitar medição UTC válida e não futura; gerar recebimento no servidor e armazenar ambos.";Software verificado;UC04 UC08;TV04 TV05
+RF06;Identificar a origem das leituras;"Usar Simulacao ou Hardware; filtrar histórico e painel por origem. O rótulo não comprova sensor.";Software verificado;UC03 UC04 UC08;TV04 TV06 TV07
+RF07;Consultar histórico filtrado e paginado;"Filtrar equipamento, origem e período; validar paginação de 1 a 100 itens por página.";Software verificado;UC04;TV06
+RF08;Consultar o painel responsivo;Exibir última medição por origem, temperatura, porta, idade e estados sem dados/erro.;"Dados e DOM verificados; revisão visual parcial";UC03;TV07 TV13 TV15
+RF09;Identificar temperatura e porta anormais;Com monitoramento ativo, abrir episódios fora da faixa e por sequência observada de porta aberta.;Regras de software verificadas;UC05 UC06;TV09 TV10
+RF10;Detectar ausência de leituras;Avaliar a idade da medição ou início do acompanhamento, mesmo sem novo POST.;Software verificado;UC05 UC06;TV11
+RF11;Registrar e consultar episódios de alerta;"Persistir abertura, evidências e encerramento; consultar filtros e resumo sem duplicar episódio aberto.";Software verificado;UC06;TV09 TV10 TV11
+RF12;Executar simulação pela mesma API;Simulador envia amostras identificadas como Simulacao, sem cadastrar equipamentos automaticamente.;Simulação de software executada;UC08;TV04 TV07
+RF13;Integrar ESP32 e sensores físicos;"Ler DS18B20 e contato de porta; enviar por HTTPS; verificar montagem, aquisição e ensaio na geladeira.";"Parcial: compilação histórica e USB; sensores pendentes";UC08;TV16 TV17
+RF14;Configurar monitoramento por geladeira;Persistir faixa, tempos positivos, origem e ativação explícitos, sem parâmetros automáticos no banco.;Software verificado;UC05;TV08
+RF15;Autorizar emissor e evitar duplicação;"Vincular credencial ao equipamento; repetir UUID/conteúdo retorna o mesmo registro; alteração gera 409.";Software verificado por cliente de teste;UC07 UC08;TV12
+RF16;Autorizar navegador no acesso móvel local;"HTTPS, sessão, CSRF, código ou convite QR de 120 s e uso único; saída e expiração da sessão.";"TLS/HTTP e scripts verificados; câmera real pendente";UC01;TV14 TV15

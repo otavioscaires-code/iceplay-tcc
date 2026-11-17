@@ -1,5 +1,7 @@
 # ICEPLAY
 
+**17/11/2026:** material de documentação com Word editável, requisitos, casos de uso, diagrama de classes, arquitetura, tabelas e resultados de uma nova rodada de testes. [Abrir o material e as instruções de uso](docs/tcc/materiais-modelagem-2026-11-17/README.md). Build sem avisos/erros, 149 testes JavaScript e os dez verificadores existentes aprovados; sensores e ensaio na geladeira continuam pendentes. [Relatório desta entrega](docs/etapa-documentacao-modelagem-2026-11-17.md).
+
 **16/11/2026:** primeiro reconhecimento USB da placa ESP32 DEVKITV1/CP2102. Driver instalado com autorização; Windows reconheceu **COM3, status OK**. Firmware ainda não gravado e sensores ainda não testados. [Diagnóstico, comandos e evidências](docs/etapa-usb-2026-11-16.md).
 
 [Fechamento de 13/11/2026](docs/fechamento-pre-hardware-2026-11-13.md): arquivos, comandos, resultados reais, banco preservado e pendências físicas/acadêmicas. O código das etapas de preparação está concluído; firmware compilado não significa hardware validado.

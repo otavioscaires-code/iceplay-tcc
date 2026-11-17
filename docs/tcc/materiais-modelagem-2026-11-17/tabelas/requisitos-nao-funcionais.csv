@@ -1,0 +1,13 @@
+﻿ID;Qualidade;Critério;Estado e limite
+RNF01;Execução reproduzível;"SDK e pacotes fixados; setup, build e verificadores executáveis.";"Verificado neste PC; pacote de apresentação pendente."
+RNF02;Persistência e integridade;Migrations, restrições e dados mantidos após reinício nos testes isolados.;"Verificado; banco de uso preservado."
+RNF03;Contratos e erros compreensíveis;Respostas coerentes para entrada inválida, ausência, conflito, autorização e falha.;400, 401, 403, 404, 409 e 503 exercitados conforme cenário.
+RNF04;Consistência temporal;Contrato e armazenamento em UTC, com medição e recebimento distintos.;"Verificado em software; relógio físico pendente."
+RNF05;Organização do código;Separar contratos, controllers, entidades, persistência, regras e arquivos da interface.;"Estrutura inspecionada; não é métrica de qualidade absoluta."
+RNF06;Integridade das evidências;Distinguir fixtures, simulação, testes de software e ensaio físico.;"Logs e JSONs desta rodada preservados; sem resultados físicos fabricados."
+RNF07;Usabilidade e responsividade;"Navegação, mensagens, estados e teclado; conferir visualmente desktop e Safari.";"DOM/HTTP verificados; validação visual completa ainda pendente."
+RNF08;Dependências justificadas;"Preservar arquitetura e versões; não exigir framework frontend ou banco servidor.";"Dois pacotes NuGet diretos na API; testes usam ferramentas documentadas."
+RNF09;Limites operacionais explícitos;"Instância e arquivo local; documentar dependência de servidor, rede e amostragem.";Não há ensaio de disponibilidade contínua ou implantação distribuída.
+RNF10;Segurança conforme a implantação;HTTPS, sessão/CSRF e credencial de dispositivo no modo local protegido.;"Verificado nesse escopo; perfil público e login por usuário/senha pendentes."
+RNF11;Consultas com crescimento controlado;"Paginação, filtros e índices; controlar tamanho da resposta.";"Funcionalidade verificada; benchmark representativo não executado."
+RNF12;Transparência acadêmica;Registrar assistência de IA e manter revisão, compreensão e defesa pelo aluno.;"Assistência declarada; aprovação acadêmica não presumida."

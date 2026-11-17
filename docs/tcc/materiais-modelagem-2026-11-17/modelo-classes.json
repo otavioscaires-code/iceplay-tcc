@@ -1,0 +1,320 @@
+{
+  "sourceCommit": "98dabcc7888239de896db8410ee44b2ddfde831e",
+  "classes": {
+    "Geladeira": [
+      {
+        "name": "Id",
+        "type": "int",
+        "nullable": false
+      },
+      {
+        "name": "Nome",
+        "type": "string",
+        "nullable": false
+      },
+      {
+        "name": "Localizacao",
+        "type": "string?",
+        "nullable": true
+      },
+      {
+        "name": "CriadoEmUtc",
+        "type": "DateTime",
+        "nullable": false
+      }
+    ],
+    "Leitura": [
+      {
+        "name": "Id",
+        "type": "int",
+        "nullable": false
+      },
+      {
+        "name": "GeladeiraId",
+        "type": "int",
+        "nullable": false
+      },
+      {
+        "name": "TemperaturaC",
+        "type": "double",
+        "nullable": false
+      },
+      {
+        "name": "PortaAberta",
+        "type": "bool",
+        "nullable": false
+      },
+      {
+        "name": "MedidoEmUtc",
+        "type": "DateTime",
+        "nullable": false
+      },
+      {
+        "name": "RecebidoEmUtc",
+        "type": "DateTime",
+        "nullable": false
+      },
+      {
+        "name": "Origem",
+        "type": "OrigemLeitura",
+        "nullable": false
+      },
+      {
+        "name": "DispositivoId",
+        "type": "int?",
+        "nullable": true
+      },
+      {
+        "name": "MedicaoId",
+        "type": "string?",
+        "nullable": true
+      }
+    ],
+    "ConfiguracaoGeladeira": [
+      {
+        "name": "GeladeiraId",
+        "type": "int",
+        "nullable": false
+      },
+      {
+        "name": "TemperaturaMinimaC",
+        "type": "double",
+        "nullable": false
+      },
+      {
+        "name": "TemperaturaMaximaC",
+        "type": "double",
+        "nullable": false
+      },
+      {
+        "name": "ToleranciaPortaAbertaSegundos",
+        "type": "int",
+        "nullable": false
+      },
+      {
+        "name": "AusenciaLeiturasSegundos",
+        "type": "int",
+        "nullable": false
+      },
+      {
+        "name": "OrigemMonitorada",
+        "type": "OrigemLeitura",
+        "nullable": false
+      },
+      {
+        "name": "MonitoramentoAtivo",
+        "type": "bool",
+        "nullable": false
+      },
+      {
+        "name": "InicioMonitoramentoEmUtc",
+        "type": "DateTime?",
+        "nullable": true
+      },
+      {
+        "name": "AtualizadoEmUtc",
+        "type": "DateTime",
+        "nullable": false
+      }
+    ],
+    "Dispositivo": [
+      {
+        "name": "Id",
+        "type": "int",
+        "nullable": false
+      },
+      {
+        "name": "GeladeiraId",
+        "type": "int",
+        "nullable": false
+      },
+      {
+        "name": "Nome",
+        "type": "string",
+        "nullable": false
+      },
+      {
+        "name": "CredencialHash",
+        "type": "byte[]",
+        "nullable": false
+      },
+      {
+        "name": "CriadoEmUtc",
+        "type": "DateTime",
+        "nullable": false
+      },
+      {
+        "name": "RevogadoEmUtc",
+        "type": "DateTime?",
+        "nullable": true
+      }
+    ],
+    "Alerta": [
+      {
+        "name": "Id",
+        "type": "int",
+        "nullable": false
+      },
+      {
+        "name": "GeladeiraId",
+        "type": "int",
+        "nullable": false
+      },
+      {
+        "name": "Origem",
+        "type": "OrigemLeitura",
+        "nullable": false
+      },
+      {
+        "name": "Tipo",
+        "type": "TipoAlerta",
+        "nullable": false
+      },
+      {
+        "name": "Gravidade",
+        "type": "GravidadeAlerta",
+        "nullable": false
+      },
+      {
+        "name": "InicioCondicaoEmUtc",
+        "type": "DateTime",
+        "nullable": false
+      },
+      {
+        "name": "AbertoEmUtc",
+        "type": "DateTime",
+        "nullable": false
+      },
+      {
+        "name": "UltimaEvidenciaEmUtc",
+        "type": "DateTime",
+        "nullable": false
+      },
+      {
+        "name": "EncerradoEmUtc",
+        "type": "DateTime?",
+        "nullable": true
+      },
+      {
+        "name": "MotivoEncerramento",
+        "type": "MotivoEncerramento?",
+        "nullable": true
+      },
+      {
+        "name": "LeituraAberturaId",
+        "type": "int?",
+        "nullable": true
+      },
+      {
+        "name": "TemperaturaAberturaC",
+        "type": "double?",
+        "nullable": true
+      },
+      {
+        "name": "TemperaturaMinimaC",
+        "type": "double",
+        "nullable": false
+      },
+      {
+        "name": "TemperaturaMaximaC",
+        "type": "double",
+        "nullable": false
+      },
+      {
+        "name": "ToleranciaPortaAbertaSegundos",
+        "type": "int",
+        "nullable": false
+      },
+      {
+        "name": "AusenciaLeiturasSegundos",
+        "type": "int",
+        "nullable": false
+      }
+    ],
+    "EstadoMonitoramento": [
+      {
+        "name": "GeladeiraId",
+        "type": "int",
+        "nullable": false
+      },
+      {
+        "name": "ConfiguracaoEmUtc",
+        "type": "DateTime",
+        "nullable": false
+      },
+      {
+        "name": "UltimaMedicaoEmUtc",
+        "type": "DateTime?",
+        "nullable": true
+      },
+      {
+        "name": "UltimaLeituraId",
+        "type": "int",
+        "nullable": false
+      },
+      {
+        "name": "InicioPortaAbertaEmUtc",
+        "type": "DateTime?",
+        "nullable": true
+      }
+    ]
+  },
+  "associations": [
+    {
+      "left": "Geladeira",
+      "right": "Leitura",
+      "leftMultiplicity": "1",
+      "rightMultiplicity": "0..*",
+      "foreignKey": "Leitura.GeladeiraId",
+      "onDelete": "Restrict"
+    },
+    {
+      "left": "Geladeira",
+      "right": "ConfiguracaoGeladeira",
+      "leftMultiplicity": "1",
+      "rightMultiplicity": "0..1",
+      "foreignKey": "ConfiguracaoGeladeira.GeladeiraId",
+      "onDelete": "Cascade"
+    },
+    {
+      "left": "Geladeira",
+      "right": "Alerta",
+      "leftMultiplicity": "1",
+      "rightMultiplicity": "0..*",
+      "foreignKey": "Alerta.GeladeiraId",
+      "onDelete": "Restrict"
+    },
+    {
+      "left": "Geladeira",
+      "right": "Dispositivo",
+      "leftMultiplicity": "1",
+      "rightMultiplicity": "0..*",
+      "foreignKey": "Dispositivo.GeladeiraId",
+      "onDelete": "Cascade"
+    },
+    {
+      "left": "ConfiguracaoGeladeira",
+      "right": "EstadoMonitoramento",
+      "leftMultiplicity": "1",
+      "rightMultiplicity": "0..1",
+      "foreignKey": "EstadoMonitoramento.GeladeiraId",
+      "onDelete": "Cascade"
+    },
+    {
+      "left": "Dispositivo",
+      "right": "Leitura",
+      "leftMultiplicity": "0..1",
+      "rightMultiplicity": "0..*",
+      "foreignKey": "Leitura.DispositivoId",
+      "onDelete": "Restrict"
+    },
+    {
+      "left": "Leitura",
+      "right": "Alerta",
+      "leftMultiplicity": "0..1",
+      "rightMultiplicity": "0..*",
+      "foreignKey": "Alerta.LeituraAberturaId",
+      "onDelete": "Restrict"
+    }
+  ]
+}

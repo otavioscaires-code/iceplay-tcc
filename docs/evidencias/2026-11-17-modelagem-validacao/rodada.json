@@ -1,0 +1,69 @@
+{
+  "sourceCommit": "98dabcc7888239de896db8410ee44b2ddfde831e",
+  "result": "passed",
+  "startedAtUtc": "2026-11-17T14:57:13.2125739Z",
+  "finishedAtUtc": "2026-11-17T15:00:01.6449304Z",
+  "javaScriptFileCount": 10,
+  "verifiers": [
+    {
+      "verifier": "verify",
+      "result": "passed",
+      "startedAtUtc": "2026-11-17T14:57:41.0777623Z",
+      "finishedAtUtc": "2026-11-17T14:57:52.8940648Z"
+    },
+    {
+      "verifier": "verify-geladeiras",
+      "result": "passed",
+      "startedAtUtc": "2026-11-17T14:57:52.8964529Z",
+      "finishedAtUtc": "2026-11-17T14:58:08.1475300Z"
+    },
+    {
+      "verifier": "verify-leituras",
+      "result": "passed",
+      "startedAtUtc": "2026-11-17T14:58:08.1491380Z",
+      "finishedAtUtc": "2026-11-17T14:58:30.1397394Z"
+    },
+    {
+      "verifier": "verify-historico",
+      "result": "passed",
+      "startedAtUtc": "2026-11-17T14:58:30.1413717Z",
+      "finishedAtUtc": "2026-11-17T14:58:40.4146201Z"
+    },
+    {
+      "verifier": "verify-monitoramento",
+      "result": "passed",
+      "startedAtUtc": "2026-11-17T14:58:40.4161351Z",
+      "finishedAtUtc": "2026-11-17T14:58:50.3596171Z"
+    },
+    {
+      "verifier": "verify-configuracoes",
+      "result": "passed",
+      "startedAtUtc": "2026-11-17T14:58:50.3614907Z",
+      "finishedAtUtc": "2026-11-17T14:59:01.1063510Z"
+    },
+    {
+      "verifier": "verify-alertas",
+      "result": "passed",
+      "startedAtUtc": "2026-11-17T14:59:01.1081083Z",
+      "finishedAtUtc": "2026-11-17T14:59:25.1454800Z"
+    },
+    {
+      "verifier": "verify-dispositivos",
+      "result": "passed",
+      "startedAtUtc": "2026-11-17T14:59:25.1471956Z",
+      "finishedAtUtc": "2026-11-17T14:59:35.1873770Z"
+    },
+    {
+      "verifier": "verify-pages",
+      "result": "passed",
+      "startedAtUtc": "2026-11-17T14:59:35.1903081Z",
+      "finishedAtUtc": "2026-11-17T14:59:43.1215483Z"
+    },
+    {
+      "verifier": "verify-mobile",
+      "result": "passed",
+      "startedAtUtc": "2026-11-17T14:59:43.1237290Z",
+      "finishedAtUtc": "2026-11-17T15:00:01.6425874Z"
+    }
+  ]
+}

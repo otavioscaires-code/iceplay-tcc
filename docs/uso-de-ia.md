@@ -1,5 +1,13 @@
 # Registro de assistência por IA
 
+## Requisitos, modelagem e validação — 17/11/2026
+
+Codex inspecionou os arquivos e contratos existentes, consolidou requisitos sem renumerá-los, especificou oito casos de uso e conferiu seis entidades/49 atributos e sete associações no EF Core. Preparou figuras SVG/PNG, tabelas CSV, rastreabilidade, fontes editáveis e complemento Word em cópia do modelo institucional, sem alterar o original. As 22 páginas finais foram renderizadas pelo Microsoft Word existente e conferidas; as figuras são modelos, não capturas da aplicação. Não foram utilizados agentes auxiliares nesta tarefa.
+
+Foram executados setup/build, 149 testes JavaScript e os dez verificadores existentes em bancos isolados, sem falhas. Os logs e resultados estão em `evidencias/2026-11-17-modelagem-validacao/`; o método, correções da preparação do Word e limites estão em `etapa-documentacao-modelagem-2026-11-17.md`. Não houve mudança de runtime, banco de uso, migrations, firmware ou configurações de rede. Reconhecimento USB de 16/11 foi citado como evidência anterior parcial, sem inventar nova consulta, gravação, medição ou ensaio físico.
+
+O material distingue cenários executados, reconhecimento USB parcial e ensaios pendentes. Não inventa entrevistas, aprovação acadêmica, autoria sem assistência, precisão térmica ou redução de perdas. A revisão, compreensão, reprodução e defesa pelo aluno/orientador continuam necessárias. RA e documentos privados permanecem fora do Git e do pacote público. Commits/pushes seguem a autorização vigente de 30/10/2026.
+
 ## Fechamento documental de 13/11/2026
 
 Codex consolidou contexto, contratos, rastreabilidade, manual, roteiro de demonstração, figuras SVG e minutas textuais de monografia/artigo. As figuras foram geradas como vetores, rasterizadas e conferidas; não são capturas de interface ou de hardware. O aluno forneceu autoria, RA, orientador e campus. O RA e as cópias preenchidas foram mantidos em pasta privada ignorada, sem publicação. Fontes bibliográficas foram verificadas com escopo de leitura declarado, sem atribuir leitura integral não realizada ao aluno. A escrita e sua normalização continuam sujeitas à revisão do autor/orientador e aos resultados físicos.

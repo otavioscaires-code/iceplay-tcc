@@ -2,6 +2,8 @@
 
 Consolidado em 13/11/2026. Mantém RF01–RF13 do planejamento inicial e explicita extensões posteriores. As datas antigas em `planejamento.md` são planejamento histórico, não comprovação de conclusão retroativa.
 
+Atualização de 17/11/2026: o [complemento editável](tcc/materiais-modelagem-2026-11-17/README.md) detalha os 16 RF e 12 RNF, critérios de aceitação, oito casos de uso, regras, classes e 18 cenários. A [nova rodada de verificação](evidencias/2026-11-17-modelagem-validacao/rodada.json) aprovou o build, 149 testes JavaScript e os dez verificadores existentes. As contagens e os limites estão no [relatório da entrega](etapa-documentacao-modelagem-2026-11-17.md). Os identificadores abaixo foram preservados.
+
 | ID | Requisito atual | Implementação e verificação | Situação |
 | --- | --- | --- | --- |
 | RF01 | Saúde real API/SQLite | HealthController; `verify.ps1`, falha 503 e banco real consultado | Software verificado |
@@ -16,10 +18,10 @@ Consolidado em 13/11/2026. Mantém RF01–RF13 do planejamento inicial e explici
 | RF10 | Ausência sem depender de novo envio | Worker a cada segundo, idade da medição/início; `verify-alertas.ps1` | Software verificado |
 | RF11 | Persistir/consultar episódios e encerramento | AlertasController, índice único, página/filtros/resumo | Software verificado |
 | RF12 | Simulador pela mesma API, identificado | tools/simulator; verificadores de leitura/painel/móvel | Executado como Simulacao |
-| RF13 | Contrato e integração ESP32/DS18B20/reed | Firmware compilado, contrato, montagem/protocolo | Preparação concluída; integração física pendente |
+| RF13 | Contrato e integração ESP32/DS18B20/reed | Firmware compilado, contrato, montagem/protocolo; CP2102 reconhecido em COM3 em 16/11 | Reconhecimento USB parcial; gravação e sensores pendentes |
 | RF14 | Configurar parâmetros por geladeira | GET/PUT e formulário, sem defaults automáticos; verificador de configurações | Software verificado |
 | RF15 | Credencial por equipamento e reenvio idempotente | Dispositivos/Leituras, SHA-256 de segredo aleatório e UUID; testes de dispositivo/TLS | Software verificado |
-| RF16 | Acesso móvel local protegido | HTTPS, sub-rede, sessão/CSRF, login; verificador móvel | TLS/HTTP verificados; uso no iPhone parcialmente confirmado |
+| RF16 | Acesso móvel local protegido | HTTPS, sub-rede, sessão/CSRF, código/QR de 120 s e uso único; verificador móvel | TLS/HTTP/scripts verificados; câmera real do iPhone pendente |
 
 RF10 usa **instante de medição**, ajustando a formulação inicial baseada em recebimento: envio atrasado não deve parecer comunicação/medição recente. Essa decisão foi registrada antes do motor em `contrato-alertas.md`. A referência visual de 60 s continua independente e não é configuração de alerta.
 
@@ -39,4 +41,4 @@ RF10 usa **instante de medição**, ajustando a formulação inicial baseada em 
 
 Nome/localização possuem limites; IDs/datas de criação e recebimento pertencem ao servidor. Medição exige UTC válido e não futuro; zero/false são valores. Equipamento com leituras/alertas não é excluído. Limites/tempos/origem precisam ser explícitos. Episódio aberto é único por tipo/equipamento/origem; encerramento tem motivo. Porta depende de sequência observada e lacuna interrompe a contagem. Ausência funciona sem POST. Credencial de um equipamento não autoriza outro; repetir UUID/conteúdo retorna o mesmo registro, trocar conteúdo retorna conflito.
 
-As últimas evidências estão em `evidencias/2026-11-12-pre-hardware/` e `evidencias/2026-11-13-fechamento/`, com relatórios de etapa. Os números de asserções não são quantidade de funcionalidades nem porcentagem de cobertura. O aceite físico deve usar `hardware/protocolo-ensaio.md`, ainda pendente.
+As evidências históricas de 12–16/11 foram preservadas. A rodada mais recente de software está em `evidencias/2026-11-17-modelagem-validacao/`. Os números de asserções não são quantidade de funcionalidades nem porcentagem de cobertura. O aceite físico deve usar `hardware/protocolo-ensaio.md`, ainda pendente; USB reconhecido não equivale a sensoriamento validado.

@@ -1,0 +1,8 @@
+﻿Classe origem;Classe relacionada;Multiplicidade origem;Multiplicidade relacionada;FK;Exclusão EF
+Geladeira;Leitura;1;0..*;Leitura.GeladeiraId;Restrict
+Geladeira;ConfiguracaoGeladeira;1;0..1;ConfiguracaoGeladeira.GeladeiraId;Cascade
+Geladeira;Alerta;1;0..*;Alerta.GeladeiraId;Restrict
+Geladeira;Dispositivo;1;0..*;Dispositivo.GeladeiraId;Cascade
+ConfiguracaoGeladeira;EstadoMonitoramento;1;0..1;EstadoMonitoramento.GeladeiraId;Cascade
+Dispositivo;Leitura;0..1;0..*;Leitura.DispositivoId;Restrict
+Leitura;Alerta;0..1;0..*;Alerta.LeituraAberturaId;Restrict

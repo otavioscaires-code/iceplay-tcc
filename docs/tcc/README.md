@@ -2,6 +2,8 @@
 
 Preparação em 13/11/2026 com o estado real do código. `monografia.md` e `artigo.md` são **minutas textuais**, para o aluno revisar, compreender e discutir com Sérgio Mazini. Não são trabalho aprovado, versão Word normalizada ou resultados físicos. O RA é inserido somente na cópia privada em `.tools/documentacao-iceplay`.
 
+Complemento de **17/11/2026**: [material de requisitos, modelagem e validação](materiais-modelagem-2026-11-17/README.md), com Word editável de 22 páginas, figuras PNG/SVG, tabelas CSV, casos de uso detalhados e resultados verificáveis de software. O Word foi preparado a partir de uma cópia do modelo institucional, preservando o original e conferindo as páginas renderizadas. É um complemento para inserir nos capítulos de Projeto/Desenvolvimento, sujeito à revisão acadêmica e ajuste da numeração; não substitui a monografia final nem os ensaios físicos.
+
 O modelo Word enviado pelo aluno foi analisado anteriormente: capa/folhas iniciais, resumo/abstract, listas, sumário, Introdução, Fundamentação, Projeto, Desenvolvimento, Conclusão e Referências. Seu exemplo tratava de plataforma educacional, com tecnologias Java/PostgreSQL, datas e autores de demonstração. Esses conteúdos não pertencem ao ICEPLAY. O original não foi alterado; preservar sua organização institucional e substituir somente pelo conteúdo real deste projeto. Ano de entrega: 2026; campus informado: Araçatuba.
 
 ## O que já pode ser usado

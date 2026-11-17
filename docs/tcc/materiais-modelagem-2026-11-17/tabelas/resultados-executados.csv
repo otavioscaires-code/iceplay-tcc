@@ -1,0 +1,14 @@
+﻿Conjunto;Verificações ou testes;Requisições;Resultado;Evidência relativa à rodada
+Base e saúde;13;Não contabilizado neste relatório;Aprovado;verify/smoke-latest.json
+Cadastro de geladeiras;807;177;Aprovado;verify-geladeiras/crud-api.json
+Ingestão e SQLite;339;75;Aprovado;verify-leituras/leituras-api.json
+Histórico;145;68;Aprovado;verify-historico/historico-api.json
+Painel;70;29;Aprovado;verify-monitoramento/monitoramento-api.json
+Configurações;153;67;Aprovado;verify-configuracoes/configuracoes-api.json
+Alertas HTTP;92;68;Aprovado;verify-alertas/alertas-api.json
+Dispositivos;85;56;Aprovado;verify-dispositivos/dispositivos-api.json
+Páginas HTTP e DOM;216;52;Aprovado;verify-pages/pages-api.json
+Acesso móvel TLS e HTTP;181;137;Aprovado;verify-mobile/mobile-api.json
+Convites com relógio controlado;13;Não contabilizado neste relatório;Aprovado;verify-mobile/pareamento-regras.json
+Avaliador com relógio controlado;31;Não se aplica;Aprovado;verify-alertas/regras.log
+JavaScript;149;Não se aplica;Aprovado;javascript.log

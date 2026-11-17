@@ -1,6 +1,6 @@
 # Modelagem consolidada do ICEPLAY
 
-Modelo do código de 13/11/2026. `uml.md` permanece como versão histórica da base inicial. Os diagramas abaixo descrevem software atual; o nó físico está preparado em firmware, sem ensaio executado. As figuras SVG complementares ficam em `diagramas/` e não são capturas do sistema.
+Modelo do código, revisado em 17/11/2026 contra a versão `98dabcc`. `uml.md` e as figuras de `diagramas/` permanecem como versões históricas. Os diagramas descrevem software atual; o nó físico está preparado em firmware, sem ensaio de sensores executado. O reconhecimento USB de 16/11 é parcial. O [complemento editável](tcc/materiais-modelagem-2026-11-17/README.md) contém os requisitos, oito casos de uso detalhados, classes completas, figuras e rastreabilidade dos testes. As figuras são modelos, não capturas de execução.
 
 ## Componentes e implantação prevista
 
@@ -20,109 +20,50 @@ Existe um processo de API, não um serviço separado para cada caixa lógica. O 
 
 ## Casos de uso
 
-![Casos de uso do ICEPLAY](diagramas/casos-de-uso.svg)
+![Casos de uso do ICEPLAY](tcc/materiais-modelagem-2026-11-17/figuras/casos-de-uso.svg)
 
-Fonte PlantUML atual, com ator físico ainda pendente de validação:
+Fonte: código e requisitos do ICEPLAY, com assistência de IA, 17/11/2026. O limite deste modelo é a aplicação ICEPLAY: Operador e Emissor de leituras são papéis externos; relógio, worker e SQLite são internos. Por isso, o relógio não é ator nesta revisão. O emissor pode ser o simulador ou o futuro ESP32; o envio físico continua pendente. Não foram adicionados casos de uso fictícios de login por usuário/senha ou encerramento manual de alertas.
+
+Fonte editável em [PlantUML](tcc/materiais-modelagem-2026-11-17/figuras/casos-de-uso.puml). O SVG/PNG foi desenhado a partir do mesmo catálogo, sem executar um renderizador PlantUML nesta entrega:
 
 ```plantuml
 @startuml
 left to right direction
 actor Operador
 actor "Emissor de leituras" as Emissor
-actor "Relogio do servidor" as Relogio
 rectangle ICEPLAY {
-  usecase "Gerenciar geladeiras" as UC1
-  usecase "Consultar painel e historico" as UC2
-  usecase "Configurar monitoramento" as UC3
-  usecase "Consultar alertas" as UC4
-  usecase "Emitir e revogar credencial" as UC5
-  usecase "Enviar leitura validada" as UC6
-  usecase "Avaliar regras e episodios" as UC7
+  usecase "UC01 Autorizar navegador" as UC01
+  usecase "UC02 Gerenciar geladeiras" as UC02
+  usecase "UC03 Consultar painel" as UC03
+  usecase "UC04 Consultar histórico" as UC04
+  usecase "UC05 Configurar monitoramento" as UC05
+  usecase "UC06 Consultar alertas" as UC06
+  usecase "UC07 Gerenciar credencial" as UC07
+  usecase "UC08 Enviar leitura" as UC08
 }
-Operador --> UC1
-Operador --> UC2
-Operador --> UC3
-Operador --> UC4
-Operador --> UC5
-Emissor --> UC6
-Relogio --> UC7
+Operador -- UC01
+Operador -- UC02
+Operador -- UC03
+Operador -- UC04
+Operador -- UC05
+Operador -- UC06
+Operador -- UC07
+Emissor -- UC08
 note bottom of Emissor
 Simulador executado; ESP32 apenas compilado.
 end note
 @enduml
 ```
 
-Enviar leitura tem pré-condição de geladeira existente e contrato válido. Com credencial, deve corresponder ao equipamento/origem autorizados. Consultar histórico exige equipamento/origem; alterar parâmetros exige entradas válidas e sessão/CSRF no acesso remoto. Não existe caso de uso de normalizar alerta manualmente: o motivo vem das regras.
+Os oito casos estão [especificados com pré-condições, fluxo, alternativas, pós-condições e testes](tcc/materiais-modelagem-2026-11-17/modelagem-validacao.md#5-casos-de-uso). Enviar leitura exige geladeira e contrato válidos; com credencial, equipamento/origem autorizados. Consultar histórico exige equipamento/origem; alterar parâmetros exige entradas válidas e sessão/CSRF no acesso móvel protegido. A avaliação assíncrona das regras é detalhada na sequência abaixo.
 
 ## Classes e cardinalidades
 
-![Entidades e relacionamentos](diagramas/entidades.svg)
+![Classes e relacionamentos](tcc/materiais-modelagem-2026-11-17/figuras/classes.svg)
 
-```mermaid
-classDiagram
-  class Geladeira {
-    int Id
-    string Nome
-    string Localizacao
-    DateTime CriadoEmUtc
-  }
-  class Leitura {
-    int Id
-    int GeladeiraId
-    double TemperaturaC
-    bool PortaAberta
-    OrigemLeitura Origem
-    DateTime MedidoEmUtc
-    DateTime RecebidoEmUtc
-    int DispositivoId
-    string MedicaoId
-  }
-  class ConfiguracaoGeladeira {
-    int GeladeiraId
-    double TemperaturaMinimaC
-    double TemperaturaMaximaC
-    int ToleranciaPortaAbertaSegundos
-    int AusenciaLeiturasSegundos
-    OrigemLeitura OrigemMonitorada
-    bool MonitoramentoAtivo
-    DateTime InicioMonitoramentoEmUtc
-    DateTime AtualizadoEmUtc
-  }
-  class Alerta {
-    int Id
-    TipoAlerta Tipo
-    GravidadeAlerta Gravidade
-    DateTime InicioCondicaoEmUtc
-    DateTime AbertoEmUtc
-    DateTime UltimaEvidenciaEmUtc
-    DateTime EncerradoEmUtc
-    MotivoEncerramento MotivoEncerramento
-  }
-  class EstadoMonitoramento {
-    int GeladeiraId
-    DateTime ConfiguracaoEmUtc
-    DateTime UltimaMedicaoEmUtc
-    int UltimaLeituraId
-    DateTime InicioPortaAbertaEmUtc
-  }
-  class Dispositivo {
-    int Id
-    int GeladeiraId
-    string Nome
-    byteArray CredencialHash
-    DateTime CriadoEmUtc
-    DateTime RevogadoEmUtc
-  }
-  Geladeira "1" --> "0..*" Leitura
-  Geladeira "1" --> "0..1" ConfiguracaoGeladeira
-  Geladeira "1" --> "0..*" Alerta
-  Geladeira "1" --> "0..*" Dispositivo
-  ConfiguracaoGeladeira "1" --> "0..1" EstadoMonitoramento
-  Dispositivo "0..1" --> "0..*" Leitura
-  Leitura "0..1" --> "0..*" Alerta : abertura
-```
+Fonte: Models e IceplayDbContext do ICEPLAY, com assistência de IA, 17/11/2026. O diagrama apresenta as seis entidades, todos os 49 atributos públicos e as sete associações efetivamente mapeadas no EF Core. `?` indica atributo anulável em C#. Não foram inventados métodos nas entidades: operações são implementadas em controllers e serviços.
 
-O desenho simplifica nulabilidade: Localizacao, DispositivoId/MedicaoId, início de acompanhamento inativo, instantes opcionais de estado e encerramento/revogação são anuláveis no código. Alerta também guarda FK/origem, leitura/temperatura de abertura e cópia dos quatro parâmetros; ver entidade/contrato completos. Não há tabela separada para enumerações.
+O [dicionário completo e as multiplicidades/regras de exclusão](tcc/materiais-modelagem-2026-11-17/modelagem-validacao.md#6-classes-e-persistência), o [modelo JSON](tcc/materiais-modelagem-2026-11-17/modelo-classes.json) e a [fonte PlantUML](tcc/materiais-modelagem-2026-11-17/figuras/classes.puml) permitem conferir a figura. `UltimaLeituraId` do checkpoint é marcador e **não possui FK declarada**. Leituras legadas podem não ter dispositivo/UUID; o vínculo da leitura de abertura de alerta também é opcional. Não há tabela separada para enumerações. As figuras antigas foram preservadas como histórico e a versão completa acima é a referência para o TCC atual.
 
 ## Sequência de ingestão e avaliação
 

@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1510" viewBox="0 0 1100 1510" role="img" aria-label="Classes de domínio e associações persistidas do ICEPLAY">
+<title>Classes de domínio e associações persistidas do ICEPLAY</title>
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#12202d} .edge{fill:none;stroke:#354454;stroke-width:2.2} .small{font-size:20px} .body{font-size:23px}</style>
+<path class="edge" d="M500,170 H600"/>
+<path class="edge" d="M270,263 V520"/>
+<path class="edge" d="M500,225 H550 V610 H600"/>
+<path class="edge" d="M45,170 H18 V1290 H45"/>
+<path class="edge" d="M1055,245 H1081 V1290 H1055"/>
+<path class="edge" d="M270,848 V1185"/>
+<path class="edge" d="M500,770 H600"/>
+<rect x="45" y="85" width="455" height="178" fill="white" stroke="#263c50" stroke-width="2.2"/>
+<rect x="46" y="86" width="453" height="46" fill="#eef3f7"/>
+<line x1="45" y1="132" x2="500" y2="132" stroke="#263c50" stroke-width="1.8"/>
+<text x="272.5" y="117" font-size="25" text-anchor="middle" font-weight="bold">Geladeira</text>
+<text x="58" y="161" font-size="23" text-anchor="start">+ Id: int</text>
+<text x="58" y="191" font-size="23" text-anchor="start">+ Nome: string</text>
+<text x="58" y="221" font-size="23" text-anchor="start">+ Localizacao: string?</text>
+<text x="58" y="251" font-size="23" text-anchor="start">+ CriadoEmUtc: DateTime</text>
+<rect x="600" y="85" width="455" height="328" fill="white" stroke="#263c50" stroke-width="2.2"/>
+<rect x="601" y="86" width="453" height="46" fill="#eef3f7"/>
+<line x1="600" y1="132" x2="1055" y2="132" stroke="#263c50" stroke-width="1.8"/>
+<text x="827.5" y="117" font-size="25" text-anchor="middle" font-weight="bold">ConfiguracaoGeladeira</text>
+<text x="613" y="161" font-size="23" text-anchor="start">+ GeladeiraId: int</text>
+<text x="613" y="191" font-size="23" text-anchor="start">+ TemperaturaMinimaC: double</text>
+<text x="613" y="221" font-size="23" text-anchor="start">+ TemperaturaMaximaC: double</text>
+<text x="613" y="251" font-size="23" text-anchor="start">+ ToleranciaPortaAbertaSegundos: int</text>
+<text x="613" y="281" font-size="23" text-anchor="start">+ AusenciaLeiturasSegundos: int</text>
+<text x="613" y="311" font-size="23" text-anchor="start">+ OrigemMonitorada: OrigemLeitura</text>
+<text x="613" y="341" font-size="23" text-anchor="start">+ MonitoramentoAtivo: bool</text>
+<text x="613" y="371" font-size="23" text-anchor="start">+ InicioMonitoramentoEmUtc: DateTime?</text>
+<text x="613" y="401" font-size="23" text-anchor="start">+ AtualizadoEmUtc: DateTime</text>
+<rect x="45" y="520" width="455" height="328" fill="white" stroke="#263c50" stroke-width="2.2"/>
+<rect x="46" y="521" width="453" height="46" fill="#eef3f7"/>
+<line x1="45" y1="567" x2="500" y2="567" stroke="#263c50" stroke-width="1.8"/>
+<text x="272.5" y="552" font-size="25" text-anchor="middle" font-weight="bold">Leitura</text>
+<text x="58" y="596" font-size="23" text-anchor="start">+ Id: int</text>
+<text x="58" y="626" font-size="23" text-anchor="start">+ GeladeiraId: int</text>
+<text x="58" y="656" font-size="23" text-anchor="start">+ TemperaturaC: double</text>
+<text x="58" y="686" font-size="23" text-anchor="start">+ PortaAberta: bool</text>
+<text x="58" y="716" font-size="23" text-anchor="start">+ MedidoEmUtc: DateTime</text>
+<text x="58" y="746" font-size="23" text-anchor="start">+ RecebidoEmUtc: DateTime</text>
+<text x="58" y="776" font-size="23" text-anchor="start">+ Origem: OrigemLeitura</text>
+<text x="58" y="806" font-size="23" text-anchor="start">+ DispositivoId: int?</text>
+<text x="58" y="836" font-size="23" text-anchor="start">+ MedicaoId: string?</text>
+<rect x="600" y="520" width="455" height="568" fill="white" stroke="#263c50" stroke-width="2.2"/>
+<rect x="601" y="521" width="453" height="46" fill="#eef3f7"/>
+<line x1="600" y1="567" x2="1055" y2="567" stroke="#263c50" stroke-width="1.8"/>
+<text x="827.5" y="552" font-size="25" text-anchor="middle" font-weight="bold">Alerta</text>
+<text x="613" y="596" font-size="23" text-anchor="start">+ Id: int</text>
+<text x="613" y="626" font-size="23" text-anchor="start">+ GeladeiraId: int</text>
+<text x="613" y="656" font-size="23" text-anchor="start">+ Origem: OrigemLeitura</text>
+<text x="613" y="686" font-size="23" text-anchor="start">+ Tipo: TipoAlerta</text>
+<text x="613" y="716" font-size="23" text-anchor="start">+ Gravidade: GravidadeAlerta</text>
+<text x="613" y="746" font-size="23" text-anchor="start">+ InicioCondicaoEmUtc: DateTime</text>
+<text x="613" y="776" font-size="23" text-anchor="start">+ AbertoEmUtc: DateTime</text>
+<text x="613" y="806" font-size="23" text-anchor="start">+ UltimaEvidenciaEmUtc: DateTime</text>
+<text x="613" y="836" font-size="23" text-anchor="start">+ EncerradoEmUtc: DateTime?</text>
+<text x="613" y="866" font-size="23" text-anchor="start">+ MotivoEncerramento:</text>
+<text x="613" y="896" font-size="23" text-anchor="start">    MotivoEncerramento?</text>
+<text x="613" y="926" font-size="23" text-anchor="start">+ LeituraAberturaId: int?</text>
+<text x="613" y="956" font-size="23" text-anchor="start">+ TemperaturaAberturaC: double?</text>
+<text x="613" y="986" font-size="23" text-anchor="start">+ TemperaturaMinimaC: double</text>
+<text x="613" y="1016" font-size="23" text-anchor="start">+ TemperaturaMaximaC: double</text>
+<text x="613" y="1046" font-size="23" text-anchor="start">+ ToleranciaPortaAbertaSegundos: int</text>
+<text x="613" y="1076" font-size="23" text-anchor="start">+ AusenciaLeiturasSegundos: int</text>
+<rect x="45" y="1185" width="455" height="238" fill="white" stroke="#263c50" stroke-width="2.2"/>
+<rect x="46" y="1186" width="453" height="46" fill="#eef3f7"/>
+<line x1="45" y1="1232" x2="500" y2="1232" stroke="#263c50" stroke-width="1.8"/>
+<text x="272.5" y="1217" font-size="25" text-anchor="middle" font-weight="bold">Dispositivo</text>
+<text x="58" y="1261" font-size="23" text-anchor="start">+ Id: int</text>
+<text x="58" y="1291" font-size="23" text-anchor="start">+ GeladeiraId: int</text>
+<text x="58" y="1321" font-size="23" text-anchor="start">+ Nome: string</text>
+<text x="58" y="1351" font-size="23" text-anchor="start">+ CredencialHash: byte[]</text>
+<text x="58" y="1381" font-size="23" text-anchor="start">+ CriadoEmUtc: DateTime</text>
+<text x="58" y="1411" font-size="23" text-anchor="start">+ RevogadoEmUtc: DateTime?</text>
+<rect x="600" y="1185" width="455" height="208" fill="white" stroke="#263c50" stroke-width="2.2"/>
+<rect x="601" y="1186" width="453" height="46" fill="#eef3f7"/>
+<line x1="600" y1="1232" x2="1055" y2="1232" stroke="#263c50" stroke-width="1.8"/>
+<text x="827.5" y="1217" font-size="25" text-anchor="middle" font-weight="bold">EstadoMonitoramento</text>
+<text x="613" y="1261" font-size="23" text-anchor="start">+ GeladeiraId: int</text>
+<text x="613" y="1291" font-size="23" text-anchor="start">+ ConfiguracaoEmUtc: DateTime</text>
+<text x="613" y="1321" font-size="23" text-anchor="start">+ UltimaMedicaoEmUtc: DateTime?</text>
+<text x="613" y="1351" font-size="23" text-anchor="start">+ UltimaLeituraId: int</text>
+<text x="613" y="1381" font-size="23" text-anchor="start">+ InicioPortaAbertaEmUtc: DateTime?</text>
+<text x="507" y="157" font-size="21" text-anchor="start">1</text>
+<text x="592" y="157" font-size="21" text-anchor="end">0..1</text>
+<text x="282" y="290" font-size="21" text-anchor="start">1</text>
+<text x="282" y="509" font-size="21" text-anchor="start">0..*</text>
+<text x="507" y="212" font-size="21" text-anchor="start">1</text>
+<text x="592" y="597" font-size="21" text-anchor="end">0..*</text>
+<text x="25" y="155" font-size="21" text-anchor="start">1</text>
+<text x="37" y="1277" font-size="19" text-anchor="end">0..*</text>
+<text x="1095" y="231" font-size="19" text-anchor="end">1</text>
+<text x="1095" y="1276" font-size="19" text-anchor="end">0..1</text>
+<text x="282" y="876" font-size="21" text-anchor="start">0..*</text>
+<text x="282" y="1172" font-size="21" text-anchor="start">0..1</text>
+<text x="507" y="756" font-size="21" text-anchor="start">0..1</text>
+<text x="592" y="756" font-size="21" text-anchor="end">0..*</text>
+<text x="550" y="1463" font-size="21" text-anchor="middle">Associações conforme as FKs do EF Core  •  ? indica atributo anulável</text>
+<text x="550" y="1493" font-size="20" text-anchor="middle">UltimaLeituraId é marcador do checkpoint e não possui FK declarada</text>
+</svg>

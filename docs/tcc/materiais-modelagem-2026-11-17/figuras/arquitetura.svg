@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="940" viewBox="0 0 1050 940" role="img" aria-label="Arquitetura e fronteiras de validação do ICEPLAY">
+<title>Arquitetura e fronteiras de validação do ICEPLAY</title>
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#12202d} .edge{fill:none;stroke:#354454;stroke-width:2.2} .small{font-size:20px} .body{font-size:23px}</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#354454"/></marker></defs>
+<rect x="55" y="45" width="435" height="160" rx="8" fill="white" stroke="#263c50" stroke-width="2.5"/>
+<text x="272.5" y="82" font-size="26" text-anchor="middle" font-weight="bold">Navegador</text>
+<text x="272.5" y="122" font-size="23" text-anchor="middle">HTML CSS e JavaScript</text>
+<text x="272.5" y="153" font-size="23" text-anchor="middle">Computador e interface móvel</text>
+<rect x="560" y="45" width="435" height="160" rx="8" fill="white" stroke="#263c50" stroke-width="2.5" stroke-dasharray="10 6"/>
+<text x="777.5" y="82" font-size="26" text-anchor="middle" font-weight="bold">Emissor</text>
+<text x="777.5" y="122" font-size="23" text-anchor="middle">Simulador executado</text>
+<text x="777.5" y="153" font-size="23" text-anchor="middle">ESP32 e sensores pendentes</text>
+<rect x="250" y="345" width="550" height="215" rx="8" fill="white" stroke="#263c50" stroke-width="2.5"/>
+<text x="525.0" y="382" font-size="26" text-anchor="middle" font-weight="bold">Aplicação ASP.NET Core</text>
+<text x="525.0" y="422" font-size="23" text-anchor="middle">Controllers e contratos da API</text>
+<text x="525.0" y="453" font-size="23" text-anchor="middle">Autorização e validações</text>
+<text x="525.0" y="484" font-size="23" text-anchor="middle">EF Core e avaliador de alertas</text>
+<rect x="250" y="700" width="550" height="145" rx="8" fill="white" stroke="#263c50" stroke-width="2.5"/>
+<text x="525.0" y="737" font-size="26" text-anchor="middle" font-weight="bold">SQLite</text>
+<text x="525.0" y="777" font-size="23" text-anchor="middle">Geladeiras leituras e configurações</text>
+<text x="525.0" y="808" font-size="23" text-anchor="middle">Dispositivos alertas e checkpoint</text>
+<path class="edge" d="M270,205 V285 H400 V345" marker-end="url(#arrow)"/>
+<path class="edge" d="M780,205 V285 H650 V345" marker-end="url(#arrow)"/>
+<path class="edge" d="M525,560 V700" marker-end="url(#arrow)"/>
+<text x="90" y="323" font-size="20" text-anchor="start">Consultas e operações HTTP</text>
+<text x="702" y="319" font-size="21" text-anchor="start">POST de leituras</text>
+<text x="545" y="640" font-size="21" text-anchor="start">Persistência</text>
+<text x="525" y="902" font-size="22" text-anchor="middle">A linha tracejada identifica a aquisição física ainda sem ensaio</text>
+</svg>

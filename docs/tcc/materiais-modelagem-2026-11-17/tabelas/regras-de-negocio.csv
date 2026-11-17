@@ -1,0 +1,13 @@
+﻿ID;Regra
+RN01;"Nome da geladeira obrigatório até 100 caracteres; localização opcional até 200. Identificadores e criação são controlados pelo servidor."
+RN02;Excluir geladeira com leituras ou alertas retorna conflito e preserva o histórico. Não há exclusão em cascata dessas evidências.
+RN03;Medição deve ser UTC com sufixo Z e não posterior ao recebimento. O servidor não corrige silenciosamente o horário.
+RN04;Zero de temperatura e false para porta são valores válidos. Simulacao e Hardware são origens distintas e explícitas.
+RN05;"Monitoramento exige configuração explícita e ativa. Mínima é menor que máxima; tempos são inteiros positivos; origem é única por equipamento."
+RN06;Os limites da faixa são inclusivos: estar exatamente na mínima ou máxima não abre alerta de temperatura.
+RN07;"Porta por duração depende de medições que confirmem a sequência. Lacunas interrompem a contagem; tempo sem medição não prova porta aberta continuamente."
+RN08;Ausência é avaliada periodicamente pela idade da medição. Reenvio de uma medição antiga não renova sua atualidade.
+RN09;Há no máximo um episódio aberto por geladeira, origem e tipo. Encerramento distingue normalização, falta de dados, alteração e desativação.
+RN10;"Dispositivo autenticado envia somente para o equipamento vinculado. Mesmo UUID e corpo retornam o registro existente; corpo diferente retorna conflito."
+RN11;O segredo do dispositivo é exibido uma vez e persistido como hash. O rótulo Hardware e a credencial não substituem evidência de aquisição física.
+RN12;"Convite QR tem 120 segundos e um uso; sessão dura até 8 horas e termina ao reiniciar o servidor atual. Acesso por usuário/senha ainda não existe."
