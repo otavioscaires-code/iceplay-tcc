@@ -1,5 +1,9 @@
 # Registro de assistência por IA
 
+## Evidências por aula — 18/11/2026
+
+A partir da lista de acompanhamento enviada pelo aluno, Codex inspecionou cronograma, planejamento, ambiente, migration/SQL, histórico Git, registros de software/modelagem, manifesto visual e teste parcial do iPhone. Organizou `tcc/mapa-evidencias-cronograma-2026-11-18.md`, separando data prevista da aula, data de execução informada, data do commit e organização documental. Uma busca nos metadados superiores de 136 JSONs de evidência não encontrou execução nas datas indicadas para as primeiras três aulas e em 27/10, 03/11 e 10/11; isso não prova que atividades ou apresentações não aconteceram. O mapa não inventa equipe, divisão de tarefas, aprovação ou registros contemporâneos ausentes. As fotos reais do iPhone permanecem na conversa, sem publicação automática. Não houve agente auxiliar, nova execução de testes da aplicação, consulta ao banco/placa ou alteração de evidências/pacote visual históricos. O aluno/orientador deve revisar o mapa e complementar com originais que localizar.
+
 ## Imagens da evolução para documentação — 18/11/2026
 
 Codex (GPT-6) inspecionou fontes locais e histórico Git, selecionou oito capturas preservadas e organizou figuras de quatro trechos reais de código e três quadros derivados de relatórios/commits/capturas seriais. As imagens geradas agora são identificadas como figuras documentais de 18/11; as capturas antigas foram copiadas sem alteração de bytes. Não foi utilizado gerador de imagens para fabricar telas, IDE, terminal, hardware ou datas. O primeiro commit disponível é de 30/10, embora relatórios associados às capturas registrem etapas desde 13/10. Não houve criação de histórico retroativo.

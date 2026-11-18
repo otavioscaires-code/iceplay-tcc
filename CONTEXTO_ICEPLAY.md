@@ -1,5 +1,7 @@
 # CONTEXTO ICEPLAY
 
+**Acompanhamento documental, 18/11/2026:** `docs/tcc/mapa-evidencias-cronograma-2026-11-18.md` relaciona as 11 aulas às fontes reais e às lacunas. Não foram encontrados registros contemporâneos das primeiras três aulas nas fontes examinadas; datas de planejamento, execução, Git e organização permanecem distintas. O registro parcial de iPhone em 09/11 não valida o leitor QR posterior. Nenhum arquivo de evidência/pacote visual, runtime, banco ou estado físico foi alterado por este mapa.
+
 **Documentação visual, 18/11/2026:** material em `docs/tcc/evolucao-visual-2026-11-18/`: oito JPGs preservados sem alteração, quatro figuras de código do primeiro commit disponível e três quadros de registros reais, com PDF de 11 páginas, legendas e manifesto de procedência. Relatórios associados registram etapas desde 13/10; primeiro commit real `a788f2b` em 30/10. Figuras de código/quadros gerados em 18/11, sem fabricar capturas antigas. Conferência documental e visual própria desta entrega; testes da aplicação e físicos não foram repetidos. Ver `docs/etapa-evolucao-visual-2026-11-18.md`. Estado da placa e próximas tarefas físicas abaixo preservados.
 
 Referência consolidada em **13/11/2026**. Leia também `AGENTS.md`, `README.md`, os contratos e os arquivos da tarefa. As etapas anteriores permanecem nos relatórios datados e no Git; este resumo substitui suas listas antigas de pendências, sem atribuir testes novos a datas passadas.
