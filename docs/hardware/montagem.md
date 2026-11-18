@@ -6,6 +6,8 @@ Atualização de **16/11/2026**: fotos reais identificaram placa ESP32 DEVKITV1 
 
 Em **18/11/2026**, o esptool confirmou comunicação com ESP32-D0WD-V3/revisão 3.1 e flash 4 MB pela COM3. O usuário informou somente a placa conectada. Sensores/pinagem e montagem continuam pendentes; não houve gravação. Ver [consulta serial](../etapa-serial-2026-11-18.md).
 
+Atualização posterior: o usuário identificou o contato como Giltar SP-1006 e informou que o resistor de 4k7 ainda não está em mãos. O [diagnóstico GPIO27](../etapa-diagnostico-porta-2026-11-18.md) foi compilado, gravado com autorização e iniciou sem sensores; a resposta ao ímã ainda precisa ser ensaiada. A ligação de contato passivo GPIO27/GND abaixo serve ao diagnóstico isolado; manter a sonda desconectada nesta etapa.
+
 ## Componentes para uma geladeira
 
 | Componente | Quantidade necessária | Conferência |

@@ -1,6 +1,6 @@
 # ICEPLAY
 
-**18/11/2026:** primeira comunicação serial real com o processador, COM3: ESP32-D0WD-V3/revisão 3.1 e flash 4 MB, consulta esptool aprovada. Firmware ainda não gravado; sensores pendentes. [Resultado e evidências](docs/etapa-serial-2026-11-18.md).
+**18/11/2026:** comunicação serial real com ESP32-D0WD-V3/revisão 3.1 e flash 4 MB na COM3. Depois, [diagnóstico temporário de GPIO27](docs/etapa-diagnostico-porta-2026-11-18.md) compilado e gravado com autorização: inicialização e oito registros HIGH sem conexões confirmados. A placa está com esse diagnóstico; sensor/ímã e firmware principal de ingestão ainda pendentes. [Consulta ROM anterior](docs/etapa-serial-2026-11-18.md).
 
 **17/11/2026:** material de documentação com Word editável, requisitos, casos de uso, diagrama de classes, arquitetura, tabelas e resultados de uma nova rodada de testes. [Abrir o material e as instruções de uso](docs/tcc/materiais-modelagem-2026-11-17/README.md). Build sem avisos/erros, 149 testes JavaScript e os dez verificadores existentes aprovados; sensores e ensaio na geladeira continuam pendentes. [Relatório desta entrega](docs/etapa-documentacao-modelagem-2026-11-17.md).
 

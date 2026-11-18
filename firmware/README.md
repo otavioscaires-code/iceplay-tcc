@@ -1,5 +1,7 @@
 # Firmware ICEPLAY para ESP32
 
+**Situação física atual, 18/11/2026:** a placa está executando o [diagnóstico isolado da entrada de porta](diagnostico-porta/README.md), gravado com autorização, com boot e nível HIGH sem conexões confirmados. O firmware principal descrito abaixo permanece preservado em `esp32/`, ainda sem gravação/ingestão física validada. Não confundir os dois programas. Ver [resultados e limites](../docs/etapa-diagnostico-porta-2026-11-18.md).
+
 Estado de 12/11/2026: programa escrito e compilado para **ESP32 clássico ESP WROOM 32**, alvo `esp32dev`. Não foi gravado em uma placa nem ensaiado com sensores. O modelo físico, a porta USB/driver e as ligações devem ser conferidos quando as peças chegarem. O hardware usa a mesma API já utilizada pelo simulador; credencial não comprova medição física.
 
 Atualização de **18/11/2026**: placa recebida e comunicação serial consultada na COM3 com esptool 4.9.0, sem gravação: **ESP32-D0WD-V3, revisão 3.1, cristal 40 MHz, flash 4 MB**. Driver CP2102 já instalado em 16/11; não reinstalar sem novo diagnóstico. O [relatório serial](../docs/etapa-serial-2026-11-18.md) distingue essa aprovação da inicialização do firmware e das leituras físicas ainda pendentes. A configuração privada ainda precisa ser preparada.

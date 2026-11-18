@@ -1,0 +1,18 @@
+{
+  "result": "passed",
+  "scope": "Gravacao autorizada de diagnostico temporario, sem sensores conectados segundo o usuario",
+  "startedAtUtc": "2026-11-18T04:25:12.6606901Z",
+  "finishedAtUtc": "2026-11-18T04:25:31.5263409Z",
+  "port": "COM3",
+  "command": "python -m platformio run -d firmware/diagnostico-porta -e esp32dev -t upload --upload-port COM3",
+  "exitCode": 0,
+  "authorization": "Usuario: Autorizo; conectei somente o ESP32",
+  "firmware": "Diagnostico GPIO27, nao o firmware principal de ingestao ICEPLAY",
+  "binarySha256": "a6f1a04b10aded216d15a652cb014822fb4b40997bfa539e53de3ee6c66a7b6e",
+  "sourceSha256": "4a64f317ff3792c6eb7b5e8c9478ecad87c20e5e267ac1f7f047cd6be0932672",
+  "platformioIniSha256": "84b5374acbc7816022f8a258696a555c0b8c24971922d9cc5a9b9e8a61bea3aa",
+  "sourceBaseCommit": "8ba8baa80503d0c1f29d688754f951e09bf3adaf",
+  "sensorTested": false,
+  "originalPrivateLog": ".tools\\hardware\\20261118T042512Z-diagnostico-porta\\gravacao-integral.log",
+  "evidenceDirectory": "docs\\evidencias\\2026-11-18-diagnostico-porta\\20261118T042512Z"
+}

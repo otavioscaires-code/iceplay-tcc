@@ -1,5 +1,9 @@
 # Registro de assistência por IA
 
+## Diagnóstico de entrada de porta — 18/11/2026
+
+Após o usuário informar ausência do resistor correto e de multímetro, Codex preparou um programa isolado de bancada para GPIO27, preservando o firmware principal e a API. O usuário identificou Giltar SP-1006; a pesquisa confirmou o código/contato NA no site do fabricante. A compilação passou; após explicar a substituição do programa da placa, o usuário autorizou a gravação e conectou somente o ESP32. Upload, verificação de hash e boot do diagnóstico foram observados, seguidos de oito registros HIGH sem conexões na entrada. Isso não é teste do sensor/ímã nem medição de temperatura. Logs integrais com MAC permaneceram privados; cópias públicas foram sanitizadas. Não houve agente auxiliar ou criação de dados no banco. Detalhes, comandos e limites em `etapa-diagnostico-porta-2026-11-18.md`.
+
 ## Comunicação serial do ESP32 — 18/11/2026
 
 O usuário conectou somente a placa e confirmou LED aceso. Codex consultou portas/dispositivo presentes e executou esptool 4.9.0 já instalado, COM3, `--no-stub flash_id`, saída 0: ESP32-D0WD-V3/revisão 3.1, cristal 40 MHz e flash 4 MB. O usuário realizou a ação física; a IA auxiliou no diagnóstico, execução da consulta e registro. Não houve agente auxiliar, instalação, gravação, leitura de sensores, envio à API ou alteração do banco. O log integral com MAC permaneceu privado e ignorado; somente evidência sanitizada foi preparada para publicação. F01 permanece parcial e F02–F12 pendentes. Ver `etapa-serial-2026-11-18.md`.

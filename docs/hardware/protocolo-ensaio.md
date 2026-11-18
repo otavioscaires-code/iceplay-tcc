@@ -4,6 +4,8 @@
 
 Em **18/11/2026**, a [consulta serial ao ROM](../etapa-serial-2026-11-18.md) passou: ESP32-D0WD-V3/revisão 3.1 e flash 4 MB. Não houve gravação ou boot do firmware ICEPLAY. O teste é evidência física de comunicação serial, com alcance limitado; mantém F01 parcial.
 
+Posteriormente no mesmo dia, o [diagnóstico isolado GPIO27](../etapa-diagnostico-porta-2026-11-18.md) foi gravado com autorização e iniciou: oito amostras HIGH sem conexões. O ímã/contato ainda não foi testado. Esse resultado não encerra F01 para o firmware principal nem F03 para o sensor.
+
 ## Identificação antes de iniciar
 
 Registrar data, responsável, versão/commit do software, versão do firmware, modelo e identificação da placa/sonda/reed, cabo/fonte, GPIOs, polaridade da porta, posição da sonda/ímã, geladeira utilizada e condições de uso. Registrar parâmetros ativos e intervalo de aquisição. O cadastro deve permitir separar o ensaio das três leituras Simulacao já existentes.
@@ -14,7 +16,7 @@ Usar horário UTC nos registros técnicos e hora local identificada nas anotaç�
 
 | Caso | Procedimento previsto | Critério observável | Situação |
 | --- | --- | --- | --- |
-| F01 USB e firmware | Identificar a COM, compilar, gravar e abrir serial | Gravação confirmada e inicialização sem segredo no log | Parcial: USB/COM3 reconhecido em 16/11 e consulta ROM/flash_id aprovada em 18/11; gravação e inicialização do ICEPLAY pendentes |
+| F01 USB e firmware | Identificar a COM, compilar, gravar e abrir serial | Gravação confirmada e inicialização sem segredo no log | Parcial: USB/ROM e gravação/boot de diagnóstico GPIO27 aprovados; firmware principal de ingestão ainda pendente |
 | F02 Temperatura em bancada | Conferir três fios, resistor e conversão | Valor válido repetível pelo dispositivo e resposta 201 na API; desconectar sonda não gera zero/-127 como leitura válida | Pendente |
 | F03 Porta | Aproximar/afastar ímã; conferir polaridade | Estado debounced corresponde à posição observada e aparece em leituras posteriores; anotar latência/limitações | Pendente |
 | F04 Rede e UTC | Conectar WiFi de 2,4 GHz, sincronizar e enviar por HTTPS | Certificado validado, dois timestamps coerentes, dispositivo vinculado; sem ignorar TLS ou fabricar UTC | Pendente |
