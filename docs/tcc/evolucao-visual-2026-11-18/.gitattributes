@@ -1,0 +1,6 @@
+# As cópias arquivadas devem conservar os bytes usados no manifesto em qualquer checkout.
+*.pdf binary
+*.jpg binary
+*.png binary
+fontes_codigo/** -text
+fontes_relatorios/** -text whitespace=-blank-at-eof,-blank-at-eol

@@ -1,0 +1,44 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-18T04:56:20.581130+00:00",
+  "finishedAtUtc": "2026-11-18T04:56:28.751752+00:00",
+  "port": "COM3",
+  "baud": 115200,
+  "scope": "Entrada GPIO27 com ponte fisica de jumper, sem sensor; montagem informada pelo usuario",
+  "declaredWiring": {
+    "GND": "a20",
+    "GPIO27": "a10",
+    "bridge": "b10-b20"
+  },
+  "method": "PySerial existente, pulso RTS/EN e captura de 8 s; criterio LOW definido antes da leitura",
+  "expectedLevel": "LOW",
+  "minimumSamples": 3,
+  "bannerObserved": true,
+  "levelSamples": 8,
+  "observedLevels": [
+    "LOW"
+  ],
+  "jumperTested": true,
+  "jumperValidated": true,
+  "sensorTested": false,
+  "temperatureTested": false,
+  "apiUsed": false,
+  "firmwareFlashedInThisRun": false,
+  "captureError": null,
+  "sourceCommit": "9fdd613df52932a48ae5a45ecb1df814583b52a0",
+  "sourceSha256": "4a64f317ff3792c6eb7b5e8c9478ecad87c20e5e267ac1f7f047cd6be0932672",
+  "baselineEvidence": "../20261118T042615Z/serial.json",
+  "originalPrivateLog": ".tools\\hardware\\20261118T045620Z-ponte\\serial-integral.bin",
+  "publicLines": [
+    "ICEPLAY DIAGNOSTICO DE BANCADA: GPIO27, INPUT_PULLUP, debounce 50 ms.",
+    "Somente leitura eletrica; sem temperatura, WiFi ou envio a API.",
+    "uptime_ms=27 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=1027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=2027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=3027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=4027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=5027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=6027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=7027 GPIO27=LOW entrada_em_GND"
+  ]
+}

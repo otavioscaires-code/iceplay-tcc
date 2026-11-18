@@ -1,0 +1,44 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-11-18T18:47:33.926341+00:00",
+  "scope": "Conferência documental desta entrega, sem execução de build/API/SQLite/firmware ou sensores",
+  "integrityWithRepository": {
+    "result": "passed",
+    "checks": 129,
+    "failures": 0
+  },
+  "integrityWithoutRepository": {
+    "result": "passed",
+    "checks": 76,
+    "failures": 0
+  },
+  "imagesDecodedAndDimensionsChecked": 15,
+  "preservedScreenshotCopiesVerifiedAgainstGit": 8,
+  "sourceBytesUnchangedSinceCollection": 19,
+  "baselineGitSourceComparison": {
+    "byteExact": 10,
+    "onlyCRLF_LFConversion": 9
+  },
+  "codeSourcesAndExcerptsVerifiedAgainstGit": 4,
+  "pdfPages": 11,
+  "pdfCodeLinksChecked": 4,
+  "pdfSha256": "964031711edfa1da42808d59ddca02fc2b78bef9fa64a6795b21f029a4760157",
+  "visualInspection": {
+    "method": "Inspeção visual das oito capturas preservadas, sete PNGs documentais e 11 páginas do PDF rasterizadas a 110 dpi com Poppler",
+    "imagesReviewed": 15,
+    "pagesReviewed": 11,
+    "outcome": "Legendas, datas, proporções e legibilidade conferidas; sem cortes observados no texto preparado",
+    "note": "JPGs originais não foram retocados; marcas/rolagem da captura de origem permanecem"
+  },
+  "historicalCountersComparedToSources": {
+    "smoke": 13,
+    "database": 12,
+    "crudAssertions": 807,
+    "crudRequests": 177,
+    "browser": 14
+  },
+  "contentInspection": "Inspeção visual e busca textual sem MAC, chave privada ou token Bearer longo encontrados nas cópias selecionadas; sem banco ou configuração privada no pacote",
+  "applicationTestsRepeated": false,
+  "physicalTestsRepeated": false,
+  "baselineCommit": "80ae30238922ff13c99c03fd01f248666e0a46a1"
+}

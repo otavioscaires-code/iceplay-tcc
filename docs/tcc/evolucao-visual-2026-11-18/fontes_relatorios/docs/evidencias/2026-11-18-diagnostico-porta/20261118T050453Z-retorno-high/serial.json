@@ -1,0 +1,45 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-18T05:04:53.390358+00:00",
+  "finishedAtUtc": "2026-11-18T05:05:01.734309+00:00",
+  "port": "COM3",
+  "baud": 115200,
+  "scope": "Entrada GPIO27 apos retirar a ponte, mantendo os jumpers GND-a20 e GPIO27-a10 segundo o usuario; sem sensor",
+  "declaredWiring": {
+    "GND": "a20",
+    "GPIO27": "a10",
+    "bridge": "retirada de b10-b20"
+  },
+  "method": "PySerial existente, pulso RTS/EN e captura de 8 s; criterio HIGH definido antes da leitura",
+  "expectedLevel": "HIGH",
+  "minimumSamples": 3,
+  "bannerObserved": true,
+  "levelSamples": 8,
+  "observedLevels": [
+    "HIGH"
+  ],
+  "jumperTested": true,
+  "returnToHighValidated": true,
+  "sensorTested": false,
+  "temperatureTested": false,
+  "apiUsed": false,
+  "firmwareFlashedInThisRun": false,
+  "captureError": null,
+  "sourceCommit": "c238d9a1d51f6f978658e3fbbec20ec9fd3a8c36",
+  "sourceSha256": "4a64f317ff3792c6eb7b5e8c9478ecad87c20e5e267ac1f7f047cd6be0932672",
+  "baselineEvidence": "../20261118T042615Z/serial.json",
+  "closedCircuitEvidence": "../20261118T045620Z-ponte/serial.json",
+  "originalPrivateLog": ".tools\\hardware\\20261118T050453Z-retorno-high\\serial-integral.bin",
+  "publicLines": [
+    "ICEPLAY DIAGNOSTICO DE BANCADA: GPIO27, INPUT_PULLUP, debounce 50 ms.",
+    "Somente leitura eletrica; sem temperatura, WiFi ou envio a API.",
+    "uptime_ms=27 GPIO27=HIGH entrada_liberada",
+    "uptime_ms=1027 GPIO27=HIGH entrada_liberada",
+    "uptime_ms=2027 GPIO27=HIGH entrada_liberada",
+    "uptime_ms=3027 GPIO27=HIGH entrada_liberada",
+    "uptime_ms=4027 GPIO27=HIGH entrada_liberada",
+    "uptime_ms=5027 GPIO27=HIGH entrada_liberada",
+    "uptime_ms=6027 GPIO27=HIGH entrada_liberada",
+    "uptime_ms=7027 GPIO27=HIGH entrada_liberada"
+  ]
+}

@@ -1,5 +1,7 @@
 # Escrita acadêmica do ICEPLAY
 
+Complemento de **18/11/2026**: [imagens da evolução do projeto](evolucao-visual-2026-11-18/README.md), com 15 imagens separadas, legendas/fontes, caderno PDF de 11 páginas e cópias das fontes. Distingue capturas preservadas das figuras de código/quadros gerados agora e as datas dos relatórios do primeiro commit disponível. Usar nas seções de desenvolvimento/evolução, ajustando a numeração e revisando com o orientador.
+
 Preparação em 13/11/2026 com o estado real do código. `monografia.md` e `artigo.md` são **minutas textuais**, para o aluno revisar, compreender e discutir com Sérgio Mazini. Não são trabalho aprovado, versão Word normalizada ou resultados físicos. O RA é inserido somente na cópia privada em `.tools/documentacao-iceplay`.
 
 Complemento de **17/11/2026**: [material de requisitos, modelagem e validação](materiais-modelagem-2026-11-17/README.md), com Word editável de 22 páginas, figuras PNG/SVG, tabelas CSV, casos de uso detalhados e resultados verificáveis de software. O Word foi preparado a partir de uma cópia do modelo institucional, preservando o original e conferindo as páginas renderizadas. É um complemento para inserir nos capítulos de Projeto/Desenvolvimento, sujeito à revisão acadêmica e ajuste da numeração; não substitui a monografia final nem os ensaios físicos.

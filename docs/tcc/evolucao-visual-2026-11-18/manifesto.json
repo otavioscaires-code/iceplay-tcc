@@ -1,0 +1,542 @@
+{
+  "organizedOn": "18/11/2026",
+  "generatedAtUtc": "2026-11-18T18:39:44.592444+00:00",
+  "repositoryHeadAtCollection": "80ae30238922ff13c99c03fd01f248666e0a46a1",
+  "firstAvailableCommit": "a788f2bf39142153ca00b95f0574b1c4a72fad7f",
+  "firstAvailableCommitDate": "2026-10-30",
+  "earliestDocumentedStage": "2026-10-13",
+  "repository": "https://github.com/otavioscaires-code/iceplay-tcc",
+  "images": [
+    {
+      "number": 1,
+      "file": "imagens/01_base_desktop_13-10-2026.jpg",
+      "title": "Tela inicial da base em 13 de outubro",
+      "kind": "captura_preservada",
+      "caption": "Captura preservada da interface inicial: API operacional, SQLite conectado e zero geladeiras. Etapa registrada em 13/10/2026 no relatório do navegador; primeiro versionamento desse arquivo no Git em 30/10/2026. Sem sensores físicos.",
+      "sourceFiles": [
+        "docs/evidencias/tela-desktop.jpg",
+        "docs/evidencias/browser.json"
+      ],
+      "stageDate": "2026-10-13",
+      "reportedDateBasis": "Data da etapa conforme registro associado; inclusão Git identificada separadamente",
+      "firstGitCommit": "a788f2bf39142153ca00b95f0574b1c4a72fad7f",
+      "firstGitCommitDate": "2026-10-30T08:49:43-03:00",
+      "copiedAtUtc": "2026-11-18T18:39:44.592444+00:00",
+      "originalBytesPreserved": true,
+      "sha256": "28d0ce032369775d8a33e176ed43f92328057ac6fde5da5d4fde60203ea2ea2f",
+      "pixels": [
+        1265,
+        712
+      ]
+    },
+    {
+      "number": 2,
+      "file": "imagens/02_base_mobile_13-10-2026.jpg",
+      "title": "Apresentação móvel da base inicial",
+      "kind": "captura_preservada",
+      "caption": "Captura integral preservada da página inicial em largura móvel de navegador, associada à etapa de 13/10/2026. Demonstra a organização responsiva; não é captura de um ensaio em iPhone físico.",
+      "sourceFiles": [
+        "docs/evidencias/tela-mobile.jpg",
+        "docs/evidencias/browser.json"
+      ],
+      "stageDate": "2026-10-13",
+      "reportedDateBasis": "Data da etapa conforme registro associado; inclusão Git identificada separadamente",
+      "firstGitCommit": "a788f2bf39142153ca00b95f0574b1c4a72fad7f",
+      "firstGitCommitDate": "2026-10-30T08:49:43-03:00",
+      "copiedAtUtc": "2026-11-18T18:39:44.592444+00:00",
+      "originalBytesPreserved": true,
+      "sha256": "da509a6bc4a667d595d207b4475be123c046c90ca78490f1ea0705b18c758c67",
+      "pixels": [
+        360,
+        3227
+      ]
+    },
+    {
+      "number": 3,
+      "file": "imagens/03_cadastro_desktop_15-10-2026.jpg",
+      "title": "Cadastro e edição de geladeiras em 15 de outubro",
+      "kind": "captura_preservada",
+      "caption": "Captura preservada do cadastro, consulta, edição e exclusão pela interface. O registro visível é fixture identificada de software em banco isolado, não cadastro de equipamento comercial real. Relatório de navegador de 15/10/2026.",
+      "sourceFiles": [
+        "docs/evidencias/2026-10-15/cadastro-desktop.jpg",
+        "docs/evidencias/2026-10-15/browser.json"
+      ],
+      "stageDate": "2026-10-15",
+      "reportedDateBasis": "Data da etapa conforme registro associado; inclusão Git identificada separadamente",
+      "firstGitCommit": "a788f2bf39142153ca00b95f0574b1c4a72fad7f",
+      "firstGitCommitDate": "2026-10-30T08:49:43-03:00",
+      "copiedAtUtc": "2026-11-18T18:39:44.592444+00:00",
+      "originalBytesPreserved": true,
+      "sha256": "9553f35347d8ae1bf2209d519a98f85c5573e195763713f53bceb677f2a023c8",
+      "pixels": [
+        1265,
+        712
+      ]
+    },
+    {
+      "number": 4,
+      "file": "imagens/04_cadastro_mobile_15-10-2026.jpg",
+      "title": "Cadastro em largura móvel",
+      "kind": "captura_preservada",
+      "caption": "Captura integral preservada do cadastro em largura móvel, na etapa de 15/10/2026. A fixture TESTE UI identifica o uso de banco isolado. Não demonstra sensor físico.",
+      "sourceFiles": [
+        "docs/evidencias/2026-10-15/cadastro-mobile.jpg",
+        "docs/evidencias/2026-10-15/browser.json"
+      ],
+      "stageDate": "2026-10-15",
+      "reportedDateBasis": "Data da etapa conforme registro associado; inclusão Git identificada separadamente",
+      "firstGitCommit": "a788f2bf39142153ca00b95f0574b1c4a72fad7f",
+      "firstGitCommitDate": "2026-10-30T08:49:43-03:00",
+      "copiedAtUtc": "2026-11-18T18:39:44.592444+00:00",
+      "originalBytesPreserved": true,
+      "sha256": "322bf4f0b38ed2b617b61a528290607d8ba3d12bafa96bc78ca982237255733d",
+      "pixels": [
+        360,
+        4275
+      ]
+    },
+    {
+      "number": 5,
+      "file": "imagens/05_painel_desktop_19-10-2026.jpg",
+      "title": "Painel com dados identificados como simulação",
+      "kind": "captura_preservada",
+      "caption": "Captura preservada da etapa de 19/10/2026: painel consulta a API, separa a origem Simulação e apresenta temperatura, estado da porta e ausência de leitura. Dados fixture/simulador em cópia isolada; não são medições de sensores reais.",
+      "sourceFiles": [
+        "docs/evidencias/2026-10-19-painel/painel-desktop.jpg",
+        "docs/evidencias/2026-10-19-painel/browser.json"
+      ],
+      "stageDate": "2026-10-19",
+      "reportedDateBasis": "Data da etapa conforme registro associado; inclusão Git identificada separadamente",
+      "firstGitCommit": "a788f2bf39142153ca00b95f0574b1c4a72fad7f",
+      "firstGitCommitDate": "2026-10-30T08:49:43-03:00",
+      "copiedAtUtc": "2026-11-18T18:39:44.592444+00:00",
+      "originalBytesPreserved": true,
+      "sha256": "03d429b6a21ea3005bf82ae2b208256be2a8ac1988515156fef49fc6c05bd5d4",
+      "pixels": [
+        1265,
+        712
+      ]
+    },
+    {
+      "number": 6,
+      "file": "imagens/06_painel_mobile_19-10-2026.jpg",
+      "title": "Painel em largura móvel de navegador",
+      "kind": "captura_preservada",
+      "caption": "Captura integral preservada do painel de 19/10/2026 em largura móvel. Os registros são identificados como Simulação e pertencem a banco de teste. Não é prova de aquisição física ou de uso no Safari real.",
+      "sourceFiles": [
+        "docs/evidencias/2026-10-19-painel/painel-mobile.jpg",
+        "docs/evidencias/2026-10-19-painel/browser.json"
+      ],
+      "stageDate": "2026-10-19",
+      "reportedDateBasis": "Data da etapa conforme registro associado; inclusão Git identificada separadamente",
+      "firstGitCommit": "a788f2bf39142153ca00b95f0574b1c4a72fad7f",
+      "firstGitCommitDate": "2026-10-30T08:49:43-03:00",
+      "copiedAtUtc": "2026-11-18T18:39:44.592444+00:00",
+      "originalBytesPreserved": true,
+      "sha256": "d93a8564b9daa8a631656bfd4f6d78673ef8e8d6204abe4d0b6a5abec4d8e6f0",
+      "pixels": [
+        360,
+        7450
+      ]
+    },
+    {
+      "number": 7,
+      "file": "imagens/07_interface_desktop_14-11-2026.jpg",
+      "title": "Evolução visual e navegação por páginas",
+      "kind": "captura_preservada",
+      "caption": "Captura preservada em 14/11/2026: identidade Black & Ice Blue, menu lateral e página de acesso. Nenhum QR ativo ou código de acesso aparece. Essa tela é anterior à correção posterior do leitor interno; não demonstra a câmera real do iPhone.",
+      "sourceFiles": [
+        "docs/evidencias/2026-11-14-pareamento/visual-desktop.jpg",
+        "docs/etapa-pareamento-2026-11-14.md"
+      ],
+      "stageDate": "2026-11-14",
+      "reportedDateBasis": "Data da etapa conforme registro associado; inclusão Git identificada separadamente",
+      "firstGitCommit": "ac678054e3e036f02675889da9e3df17590a5d43",
+      "firstGitCommitDate": "2026-11-14T01:42:25-03:00",
+      "copiedAtUtc": "2026-11-18T18:39:44.592444+00:00",
+      "originalBytesPreserved": true,
+      "sha256": "1a29ab6c1416d7278261f6dc85e28268e87f2260d2cd51d47e80adaefa16e841",
+      "pixels": [
+        1086,
+        891
+      ]
+    },
+    {
+      "number": 8,
+      "file": "imagens/08_interface_mobile_14-11-2026.jpg",
+      "title": "Evolução visual em largura móvel",
+      "kind": "captura_preservada",
+      "caption": "Captura preservada da página de acesso em largura móvel no navegador, etapa de 14/11/2026, com convite cancelado. Não é teste de leitura de QR pela câmera física do iPhone.",
+      "sourceFiles": [
+        "docs/evidencias/2026-11-14-pareamento/visual-390.jpg",
+        "docs/etapa-pareamento-2026-11-14.md"
+      ],
+      "stageDate": "2026-11-14",
+      "reportedDateBasis": "Data da etapa conforme registro associado; inclusão Git identificada separadamente",
+      "firstGitCommit": "ac678054e3e036f02675889da9e3df17590a5d43",
+      "firstGitCommitDate": "2026-11-14T01:42:25-03:00",
+      "copiedAtUtc": "2026-11-18T18:39:44.592444+00:00",
+      "originalBytesPreserved": true,
+      "sha256": "ea36e07286717db0c5db512d337b38909bbdbfb896742225c0a29414351d701f",
+      "pixels": [
+        375,
+        1088
+      ]
+    },
+    {
+      "number": 9,
+      "file": "imagens/09_codigo_modelo_geladeira.png",
+      "title": "Modelo de geladeira e validações de campos",
+      "kind": "figura_de_codigo",
+      "caption": "Modelo de geladeira e validações de campos. Trecho real do código no primeiro commit disponível, a788f2b, registrado em 30/10/2026, linhas 1 a 17. Figura preparada em 18/11/2026; não é captura antiga de um editor. Quebras visuais não alteram o arquivo-fonte arquivado.",
+      "sourceFiles": [
+        "src/Iceplay.Api/Models/Geladeira.cs"
+      ],
+      "stageDate": null,
+      "generatedAtUtc": "2026-11-18T18:39:44.592444+00:00",
+      "sha256": "b679de952ac37a9377a366076380f74b244d7980ef7044260865b1bcfd8a4b89",
+      "pixels": [
+        1600,
+        1177
+      ],
+      "sourceCommit": "a788f2bf39142153ca00b95f0574b1c4a72fad7f",
+      "sourceCommitDate": "2026-10-30",
+      "sourceBlobSha256": "76bbb6f37338e5455582284639317821c328e92feb8cca63438b6c8c533b4fd2",
+      "sourceArchive": "fontes_codigo/src/Iceplay.Api/Models/Geladeira.cs",
+      "sourceStartLine": 1,
+      "sourceEndLine": 17,
+      "sourceLines": [
+        "using System.ComponentModel.DataAnnotations;",
+        "",
+        "namespace Iceplay.Api.Models;",
+        "",
+        "public sealed class Geladeira",
+        "{",
+        "    public int Id { get; set; }",
+        "",
+        "    [Required]",
+        "    [MaxLength(100)]",
+        "    public string Nome { get; set; } = string.Empty;",
+        "",
+        "    [MaxLength(200)]",
+        "    public string? Localizacao { get; set; }",
+        "",
+        "    public DateTime CriadoEmUtc { get; set; } = DateTime.UtcNow;",
+        "}"
+      ],
+      "sourceUrl": "https://github.com/otavioscaires-code/iceplay-tcc/blob/a788f2bf39142153ca00b95f0574b1c4a72fad7f/src/Iceplay.Api/Models/Geladeira.cs#L1"
+    },
+    {
+      "number": 10,
+      "file": "imagens/10_codigo_migration_inicial.png",
+      "title": "Migration inicial da tabela Geladeiras",
+      "kind": "figura_de_codigo",
+      "caption": "Migration inicial da tabela Geladeiras. Trecho real do código no primeiro commit disponível, a788f2b, registrado em 30/10/2026, linhas 12 a 30. Figura preparada em 18/11/2026; não é captura antiga de um editor. Quebras visuais não alteram o arquivo-fonte arquivado.",
+      "sourceFiles": [
+        "src/Iceplay.Api/Migrations/20261013172101_InitialCreate.cs"
+      ],
+      "stageDate": null,
+      "generatedAtUtc": "2026-11-18T18:39:44.592444+00:00",
+      "sha256": "fe4a3cbd50bbf4234921e7653dc5729563dcd2a3bb00e247987ba9df7c87ebf5",
+      "pixels": [
+        1600,
+        1553
+      ],
+      "sourceCommit": "a788f2bf39142153ca00b95f0574b1c4a72fad7f",
+      "sourceCommitDate": "2026-10-30",
+      "sourceBlobSha256": "bde22fdd8fbe3e06adc9133890f343f661c03ba2c38bccd3a91309da84eecd30",
+      "sourceArchive": "fontes_codigo/src/Iceplay.Api/Migrations/20261013172101_InitialCreate.cs",
+      "sourceStartLine": 12,
+      "sourceEndLine": 30,
+      "sourceLines": [
+        "        protected override void Up(MigrationBuilder migrationBuilder)",
+        "        {",
+        "            migrationBuilder.CreateTable(",
+        "                name: \"Geladeiras\",",
+        "                columns: table => new",
+        "                {",
+        "                    Id = table.Column<int>(type: \"INTEGER\", nullable: false)",
+        "                        .Annotation(\"Sqlite:Autoincrement\", true),",
+        "                    Nome = table.Column<string>(type: \"TEXT\", maxLength: 100, nullable: false),",
+        "                    Localizacao = table.Column<string>(type: \"TEXT\", maxLength: 200, nullable: true),",
+        "                    CriadoEmUtc = table.Column<DateTime>(type: \"TEXT\", nullable: false)",
+        "                },",
+        "                constraints: table =>",
+        "                {",
+        "                    table.PrimaryKey(\"PK_Geladeiras\", x => x.Id);",
+        "                    table.CheckConstraint(\"CK_Geladeiras_Localizacao\", \"\\\"Localizacao\\\" IS NULL OR length(\\\"Localizacao\\\") <= 200\");",
+        "                    table.CheckConstraint(\"CK_Geladeiras_Nome\", \"length(trim(\\\"Nome\\\")) >= 1 AND length(\\\"Nome\\\") <= 100\");",
+        "                });",
+        "        }"
+      ],
+      "sourceUrl": "https://github.com/otavioscaires-code/iceplay-tcc/blob/a788f2bf39142153ca00b95f0574b1c4a72fad7f/src/Iceplay.Api/Migrations/20261013172101_InitialCreate.cs#L12"
+    },
+    {
+      "number": 11,
+      "file": "imagens/11_codigo_saude_api_sqlite.png",
+      "title": "Consulta real do SQLite na rota de saúde",
+      "kind": "figura_de_codigo",
+      "caption": "Consulta real do SQLite na rota de saúde. Trecho real do código no primeiro commit disponível, a788f2b, registrado em 30/10/2026, linhas 17 a 29. Figura preparada em 18/11/2026; não é captura antiga de um editor. Quebras visuais não alteram o arquivo-fonte arquivado.",
+      "sourceFiles": [
+        "src/Iceplay.Api/Controllers/HealthController.cs"
+      ],
+      "stageDate": null,
+      "generatedAtUtc": "2026-11-18T18:39:44.592444+00:00",
+      "sha256": "7af2b5493cbc8fa17c563426224cfd5c9287f2076ce62d627b514bcef0017b0c",
+      "pixels": [
+        1600,
+        1083
+      ],
+      "sourceCommit": "a788f2bf39142153ca00b95f0574b1c4a72fad7f",
+      "sourceCommitDate": "2026-10-30",
+      "sourceBlobSha256": "60b6ba55bde0e2459ebba2da2e6858deee1db2f36e9ab62af53bb9e2775ce8ab",
+      "sourceArchive": "fontes_codigo/src/Iceplay.Api/Controllers/HealthController.cs",
+      "sourceStartLine": 17,
+      "sourceEndLine": 29,
+      "sourceLines": [
+        "        try",
+        "        {",
+        "            // Consultar a tabela verifica conexão e schema, mesmo sem cadastros.",
+        "            var refrigeratorCount = await database.Geladeiras.CountAsync(cancellationToken);",
+        "",
+        "            return Ok(new",
+        "            {",
+        "                status = \"healthy\",",
+        "                database = \"connected\",",
+        "                refrigeratorCount,",
+        "                checkedAtUtc = DateTime.UtcNow",
+        "            });",
+        "        }"
+      ],
+      "sourceUrl": "https://github.com/otavioscaires-code/iceplay-tcc/blob/a788f2bf39142153ca00b95f0574b1c4a72fad7f/src/Iceplay.Api/Controllers/HealthController.cs#L17"
+    },
+    {
+      "number": 12,
+      "file": "imagens/12_codigo_cadastro_api.png",
+      "title": "Cadastro pela API com persistência no EF Core",
+      "kind": "figura_de_codigo",
+      "caption": "Cadastro pela API com persistência no EF Core. Trecho real do código no primeiro commit disponível, a788f2b, registrado em 30/10/2026, linhas 36 a 51. Figura preparada em 18/11/2026; não é captura antiga de um editor. Quebras visuais não alteram o arquivo-fonte arquivado.",
+      "sourceFiles": [
+        "src/Iceplay.Api/Controllers/GeladeirasController.cs"
+      ],
+      "stageDate": null,
+      "generatedAtUtc": "2026-11-18T18:39:44.592444+00:00",
+      "sha256": "5608dea719aa594a7b52e5fdc5ab4c41d568eb1b6b84efb1e5818b7e8497ecc8",
+      "pixels": [
+        1600,
+        1177
+      ],
+      "sourceCommit": "a788f2bf39142153ca00b95f0574b1c4a72fad7f",
+      "sourceCommitDate": "2026-10-30",
+      "sourceBlobSha256": "de93e47f9a1f13bd4231d56821c133de06f0ea81c649f65ba6c46e25f18e2775",
+      "sourceArchive": "fontes_codigo/src/Iceplay.Api/Controllers/GeladeirasController.cs",
+      "sourceStartLine": 36,
+      "sourceEndLine": 51,
+      "sourceLines": [
+        "    [HttpPost]",
+        "    public async Task<ActionResult<GeladeiraResponse>> Criar(",
+        "        SalvarGeladeiraRequest request,",
+        "        CancellationToken cancellationToken)",
+        "    {",
+        "        var geladeira = new Geladeira",
+        "        {",
+        "            Nome = request.Nome!.Trim(),",
+        "            Localizacao = NormalizarLocalizacao(request.Localizacao)",
+        "        };",
+        "",
+        "        database.Geladeiras.Add(geladeira);",
+        "        await database.SaveChangesAsync(cancellationToken);",
+        "",
+        "        return CreatedAtAction(nameof(ObterPorId), new { id = geladeira.Id }, ParaResposta(geladeira));",
+        "    }"
+      ],
+      "sourceUrl": "https://github.com/otavioscaires-code/iceplay-tcc/blob/a788f2bf39142153ca00b95f0574b1c4a72fad7f/src/Iceplay.Api/Controllers/GeladeirasController.cs#L36"
+    },
+    {
+      "number": 13,
+      "file": "imagens/13_resultados_iniciais_preservados.png",
+      "title": "Verificação da base e do cadastro",
+      "kind": "quadro_de_relatorios",
+      "caption": "Quadro preparado em 18/11/2026 com resultados preservados de 13 e 15/10/2026. Não é captura de terminal nem repetição dos testes nesta tarefa. Asserções não são funcionalidades independentes.",
+      "sourceFiles": [
+        "docs/evidencias/build.log",
+        "docs/evidencias/smoke-latest.json",
+        "docs/evidencias/database-latest.json",
+        "docs/evidencias/2026-10-15/crud-api.json",
+        "docs/evidencias/2026-10-15/browser.json"
+      ],
+      "stageDate": null,
+      "generatedAtUtc": "2026-11-18T18:39:44.592444+00:00",
+      "sha256": "11c8cc9b7c9fbbe3329372a2aa9ff3af12ecd37d5b66edb2d91870fa9ff2a6e2",
+      "pixels": [
+        1600,
+        1165
+      ],
+      "testRows": [
+        [
+          "13/10/2026",
+          "Compilação da base",
+          "0 avisos e 0 erros"
+        ],
+        [
+          "13/10/2026",
+          "API e SQLite por HTTP",
+          "13 verificações aprovadas"
+        ],
+        [
+          "13/10/2026",
+          "Esquema e persistência SQLite",
+          "12 verificações aprovadas"
+        ],
+        [
+          "15/10/2026",
+          "CRUD pela API",
+          "807 asserções em 177 requisições"
+        ],
+        [
+          "15/10/2026",
+          "Fluxo no navegador",
+          "14 verificações aprovadas"
+        ]
+      ]
+    },
+    {
+      "number": 14,
+      "file": "imagens/14_historico_real_git.png",
+      "title": "Registro de evolução no Git",
+      "kind": "quadro_de_commits",
+      "caption": "Quadro gerado em 18/11/2026 com metadados reais do Git. A primeira versão disponível foi registrada em 30/10/2026; não há commits de 13/10 a apresentar. Os relatórios e capturas de etapas anteriores são fontes distintas.",
+      "sourceFiles": [],
+      "stageDate": null,
+      "generatedAtUtc": "2026-11-18T18:39:44.592444+00:00",
+      "sha256": "8bc783169632d32edc7ee8b13f6d51db5bdc8a40719520c3ab8bfb197e899074",
+      "pixels": [
+        1600,
+        1459
+      ],
+      "selectedCommits": [
+        {
+          "sha": "a788f2bf39142153ca00b95f0574b1c4a72fad7f",
+          "authorDate": "2026-10-30T08:49:43-03:00",
+          "committerDate": "2026-10-30T08:49:43-03:00",
+          "subject": "chore: registra base ICEPLAY validada e plano de continuidade"
+        },
+        {
+          "sha": "abca77b614206a11ca37f2c348d778e4cf43caf5",
+          "authorDate": "2026-10-30T08:56:10-03:00",
+          "committerDate": "2026-10-30T08:56:10-03:00",
+          "subject": "feat: adiciona historico de leituras filtrado e paginado"
+        },
+        {
+          "sha": "21f9e4bf9a8782651ea260d8a3f3a0f136219057",
+          "authorDate": "2026-10-30T09:24:03-03:00",
+          "committerDate": "2026-10-30T09:24:03-03:00",
+          "subject": "style: aplica identidade Black e Ice Blue ao ICEPLAY"
+        },
+        {
+          "sha": "7bd454153a4daf269626e9f2bf0cc7f0c1c7de69",
+          "authorDate": "2026-11-09T17:40:36-03:00",
+          "committerDate": "2026-11-09T17:40:36-03:00",
+          "subject": "feat: conclui paginas independentes e historico mobile"
+        },
+        {
+          "sha": "dafa7cb010ebe34481932bedaea865886a5bbd4c",
+          "authorDate": "2026-11-11T16:19:14-03:00",
+          "committerDate": "2026-11-11T16:19:14-03:00",
+          "subject": "feat: persiste configuracoes de monitoramento por geladeira"
+        },
+        {
+          "sha": "db960ebb22f02df9a7599685b2de88d7eb3d6f0d",
+          "authorDate": "2026-11-12T16:34:46-03:00",
+          "committerDate": "2026-11-12T16:34:46-03:00",
+          "subject": "feat: avalia regras e persiste episodios de alertas"
+        },
+        {
+          "sha": "caccaf3c8bf09826964bcee092401ff1b3748211",
+          "authorDate": "2026-11-12T17:04:11-03:00",
+          "committerDate": "2026-11-12T17:04:11-03:00",
+          "subject": "feat: autentica emissores e evita duplicacao de medicoes"
+        },
+        {
+          "sha": "b9b3d975dd2c81ecbf964a80a7f42e67849eaf34",
+          "authorDate": "2026-11-13T02:31:19-03:00",
+          "committerDate": "2026-11-13T02:31:19-03:00",
+          "subject": "feat: prepara firmware ESP32 e protocolo de ensaio fisico"
+        },
+        {
+          "sha": "90037f097c4aba6cd57364dafdf9e9dc206d35c1",
+          "authorDate": "2026-11-14T02:16:03-03:00",
+          "committerDate": "2026-11-14T02:16:03-03:00",
+          "subject": "Corrige acesso movel e adiciona leitor QR dentro da pagina"
+        },
+        {
+          "sha": "98dabcc7888239de896db8410ee44b2ddfde831e",
+          "authorDate": "2026-11-16T13:32:23-03:00",
+          "committerDate": "2026-11-16T13:32:23-03:00",
+          "subject": "Registra instalacao do driver CP2102 e reconhecimento da COM3"
+        },
+        {
+          "sha": "e38caf31a6243696c012de4dbbe7fc665278f31f",
+          "authorDate": "2026-11-17T12:53:45-03:00",
+          "committerDate": "2026-11-17T12:53:45-03:00",
+          "subject": "Documenta requisitos, casos de uso, classes e validacao do TCC"
+        },
+        {
+          "sha": "80ae30238922ff13c99c03fd01f248666e0a46a1",
+          "authorDate": "2026-11-18T02:07:45-03:00",
+          "committerDate": "2026-11-18T02:07:45-03:00",
+          "subject": "Confirma retorno a HIGH apos retirada da ponte GPIO27"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "file": "imagens/15_bancada_gpio27_registrada.png",
+      "title": "Primeiras verificações físicas da placa e da entrada",
+      "kind": "quadro_de_capturas_seriais",
+      "caption": "Figura documental preparada em 18/11/2026 a partir de capturas seriais reais, separadas por reinício. Oito HIGH, oito LOW e oito HIGH foram registrados em condições distintas. Sensor/ímã, temperatura e ingestão física permanecem pendentes.",
+      "sourceFiles": [
+        "docs/evidencias/2026-11-18-diagnostico-porta/20261118T042615Z/serial.json",
+        "docs/evidencias/2026-11-18-diagnostico-porta/20261118T045620Z-ponte/serial.json",
+        "docs/evidencias/2026-11-18-diagnostico-porta/20261118T050453Z-retorno-high/serial.json"
+      ],
+      "stageDate": null,
+      "generatedAtUtc": "2026-11-18T18:39:44.592444+00:00",
+      "sha256": "5c31f19598b414e9fd72711f3215c986a39b79c746923379465af90587b9be50",
+      "pixels": [
+        1600,
+        1011
+      ]
+    }
+  ],
+  "sourceSha256": {
+    "docs/evidencias/tela-desktop.jpg": "28d0ce032369775d8a33e176ed43f92328057ac6fde5da5d4fde60203ea2ea2f",
+    "docs/evidencias/browser.json": "0e75041b0c3dc97970721c0561ae7e259121c62e324ec8ae72f9ab64578caad7",
+    "docs/evidencias/tela-mobile.jpg": "da509a6bc4a667d595d207b4475be123c046c90ca78490f1ea0705b18c758c67",
+    "docs/evidencias/2026-10-15/cadastro-desktop.jpg": "9553f35347d8ae1bf2209d519a98f85c5573e195763713f53bceb677f2a023c8",
+    "docs/evidencias/2026-10-15/browser.json": "46ea03a136a90b9b815f64ecd81c48d51fd3d180ed9405fde9b7e467bdf1f38f",
+    "docs/evidencias/2026-10-15/cadastro-mobile.jpg": "322bf4f0b38ed2b617b61a528290607d8ba3d12bafa96bc78ca982237255733d",
+    "docs/evidencias/2026-10-19-painel/painel-desktop.jpg": "03d429b6a21ea3005bf82ae2b208256be2a8ac1988515156fef49fc6c05bd5d4",
+    "docs/evidencias/2026-10-19-painel/browser.json": "1ee304e949d461cd952f4358136eac594e0b625aedb5cddcec972ba47290044c",
+    "docs/evidencias/2026-10-19-painel/painel-mobile.jpg": "d93a8564b9daa8a631656bfd4f6d78673ef8e8d6204abe4d0b6a5abec4d8e6f0",
+    "docs/evidencias/2026-11-14-pareamento/visual-desktop.jpg": "1a29ab6c1416d7278261f6dc85e28268e87f2260d2cd51d47e80adaefa16e841",
+    "docs/etapa-pareamento-2026-11-14.md": "a266abf060d670df18601a72e74ab312abcffc5ab905b3c9a305ba50cc03fa6f",
+    "docs/evidencias/2026-11-14-pareamento/visual-390.jpg": "ea36e07286717db0c5db512d337b38909bbdbfb896742225c0a29414351d701f",
+    "docs/evidencias/build.log": "7c0b254d38d17303bef2357b095a36ad1e48f2c8582fb43fe7bb8191ced59ce5",
+    "docs/evidencias/smoke-latest.json": "c88a384de592a4ba4977cde033965ce9652ca72b78474dc90b55ee6af35d202f",
+    "docs/evidencias/database-latest.json": "73880f9cd93e092b0fb15ba0d0e2e9db7484d28f3a2e51c53d68fca8a7d245f8",
+    "docs/evidencias/2026-10-15/crud-api.json": "af3ba5bfea487571ca9f9fe795356eb4e96e7485981384d22ecdab133808181b",
+    "docs/evidencias/2026-11-18-diagnostico-porta/20261118T042615Z/serial.json": "7c2b006fbdeed6f3b9d432017cc09b69c54de0874d60fcc516a739872e2367fb",
+    "docs/evidencias/2026-11-18-diagnostico-porta/20261118T045620Z-ponte/serial.json": "2ed87c65b4994d429077eaf84e06ec47d1ec6ff9f7a0c332d6370e2e0978302c",
+    "docs/evidencias/2026-11-18-diagnostico-porta/20261118T050453Z-retorno-high/serial.json": "7cb5838041c955a405d1f2e4f9cbe2916f85bf3261a4bc25e4f35a4b64f7eb47"
+  },
+  "scope": "Capturas preservadas e figuras documentais derivadas de código/relatórios reais; sem reconstrução de telas nem novas medições",
+  "limitations": [
+    "Primeiro commit é de 30/10; relatórios anteriores têm suas próprias datas registradas",
+    "Figuras de código e quadros foram gerados em 18/11; não são capturas antigas de IDE/terminal",
+    "Fixtures e Simulacao não são medições de sensores; Hardware declarado não prova aquisição física",
+    "Capturas em largura móvel não equivalem a ensaio em iPhone físico",
+    "Fontes locais/Git são registros do projeto, não certificação independente de sua data de produção"
+  ],
+  "aiAssistance": "Inspeção, seleção, organização, geração de figuras documentais e verificação com assistência de IA. Revisão e defesa pelo responsável do TCC."
+}

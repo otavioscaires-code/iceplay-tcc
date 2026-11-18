@@ -1,0 +1,77 @@
+ICEPLAY - LEGENDAS PARA COPIAR
+Organização em 18/11/2026. Manter a distinção entre etapa, captura preservada e figura gerada agora.
+
+Figura 01 - Tela inicial da base em 13 de outubro
+Captura preservada da interface inicial: API operacional, SQLite conectado e zero geladeiras. Etapa registrada em 13/10/2026 no relatório do navegador; primeiro versionamento desse arquivo no Git em 30/10/2026. Sem sensores físicos.
+Arquivo: imagens/01_base_desktop_13-10-2026.jpg
+Fonte: docs/evidencias/tela-desktop.jpg; docs/evidencias/browser.json
+
+Figura 02 - Apresentação móvel da base inicial
+Captura integral preservada da página inicial em largura móvel de navegador, associada à etapa de 13/10/2026. Demonstra a organização responsiva; não é captura de um ensaio em iPhone físico.
+Arquivo: imagens/02_base_mobile_13-10-2026.jpg
+Fonte: docs/evidencias/tela-mobile.jpg; docs/evidencias/browser.json
+
+Figura 03 - Cadastro e edição de geladeiras em 15 de outubro
+Captura preservada do cadastro, consulta, edição e exclusão pela interface. O registro visível é fixture identificada de software em banco isolado, não cadastro de equipamento comercial real. Relatório de navegador de 15/10/2026.
+Arquivo: imagens/03_cadastro_desktop_15-10-2026.jpg
+Fonte: docs/evidencias/2026-10-15/cadastro-desktop.jpg; docs/evidencias/2026-10-15/browser.json
+
+Figura 04 - Cadastro em largura móvel
+Captura integral preservada do cadastro em largura móvel, na etapa de 15/10/2026. A fixture TESTE UI identifica o uso de banco isolado. Não demonstra sensor físico.
+Arquivo: imagens/04_cadastro_mobile_15-10-2026.jpg
+Fonte: docs/evidencias/2026-10-15/cadastro-mobile.jpg; docs/evidencias/2026-10-15/browser.json
+
+Figura 05 - Painel com dados identificados como simulação
+Captura preservada da etapa de 19/10/2026: painel consulta a API, separa a origem Simulação e apresenta temperatura, estado da porta e ausência de leitura. Dados fixture/simulador em cópia isolada; não são medições de sensores reais.
+Arquivo: imagens/05_painel_desktop_19-10-2026.jpg
+Fonte: docs/evidencias/2026-10-19-painel/painel-desktop.jpg; docs/evidencias/2026-10-19-painel/browser.json
+
+Figura 06 - Painel em largura móvel de navegador
+Captura integral preservada do painel de 19/10/2026 em largura móvel. Os registros são identificados como Simulação e pertencem a banco de teste. Não é prova de aquisição física ou de uso no Safari real.
+Arquivo: imagens/06_painel_mobile_19-10-2026.jpg
+Fonte: docs/evidencias/2026-10-19-painel/painel-mobile.jpg; docs/evidencias/2026-10-19-painel/browser.json
+
+Figura 07 - Evolução visual e navegação por páginas
+Captura preservada em 14/11/2026: identidade Black & Ice Blue, menu lateral e página de acesso. Nenhum QR ativo ou código de acesso aparece. Essa tela é anterior à correção posterior do leitor interno; não demonstra a câmera real do iPhone.
+Arquivo: imagens/07_interface_desktop_14-11-2026.jpg
+Fonte: docs/evidencias/2026-11-14-pareamento/visual-desktop.jpg; docs/etapa-pareamento-2026-11-14.md
+
+Figura 08 - Evolução visual em largura móvel
+Captura preservada da página de acesso em largura móvel no navegador, etapa de 14/11/2026, com convite cancelado. Não é teste de leitura de QR pela câmera física do iPhone.
+Arquivo: imagens/08_interface_mobile_14-11-2026.jpg
+Fonte: docs/evidencias/2026-11-14-pareamento/visual-390.jpg; docs/etapa-pareamento-2026-11-14.md
+
+Figura 09 - Modelo de geladeira e validações de campos
+Modelo de geladeira e validações de campos. Trecho real do código no primeiro commit disponível, a788f2b, registrado em 30/10/2026, linhas 1 a 17. Figura preparada em 18/11/2026; não é captura antiga de um editor. Quebras visuais não alteram o arquivo-fonte arquivado.
+Arquivo: imagens/09_codigo_modelo_geladeira.png
+Fonte: src/Iceplay.Api/Models/Geladeira.cs
+
+Figura 10 - Migration inicial da tabela Geladeiras
+Migration inicial da tabela Geladeiras. Trecho real do código no primeiro commit disponível, a788f2b, registrado em 30/10/2026, linhas 12 a 30. Figura preparada em 18/11/2026; não é captura antiga de um editor. Quebras visuais não alteram o arquivo-fonte arquivado.
+Arquivo: imagens/10_codigo_migration_inicial.png
+Fonte: src/Iceplay.Api/Migrations/20261013172101_InitialCreate.cs
+
+Figura 11 - Consulta real do SQLite na rota de saúde
+Consulta real do SQLite na rota de saúde. Trecho real do código no primeiro commit disponível, a788f2b, registrado em 30/10/2026, linhas 17 a 29. Figura preparada em 18/11/2026; não é captura antiga de um editor. Quebras visuais não alteram o arquivo-fonte arquivado.
+Arquivo: imagens/11_codigo_saude_api_sqlite.png
+Fonte: src/Iceplay.Api/Controllers/HealthController.cs
+
+Figura 12 - Cadastro pela API com persistência no EF Core
+Cadastro pela API com persistência no EF Core. Trecho real do código no primeiro commit disponível, a788f2b, registrado em 30/10/2026, linhas 36 a 51. Figura preparada em 18/11/2026; não é captura antiga de um editor. Quebras visuais não alteram o arquivo-fonte arquivado.
+Arquivo: imagens/12_codigo_cadastro_api.png
+Fonte: src/Iceplay.Api/Controllers/GeladeirasController.cs
+
+Figura 13 - Verificação da base e do cadastro
+Quadro preparado em 18/11/2026 com resultados preservados de 13 e 15/10/2026. Não é captura de terminal nem repetição dos testes nesta tarefa. Asserções não são funcionalidades independentes.
+Arquivo: imagens/13_resultados_iniciais_preservados.png
+Fonte: docs/evidencias/build.log; docs/evidencias/smoke-latest.json; docs/evidencias/database-latest.json; docs/evidencias/2026-10-15/crud-api.json; docs/evidencias/2026-10-15/browser.json
+
+Figura 14 - Registro de evolução no Git
+Quadro gerado em 18/11/2026 com metadados reais do Git. A primeira versão disponível foi registrada em 30/10/2026; não há commits de 13/10 a apresentar. Os relatórios e capturas de etapas anteriores são fontes distintas.
+Arquivo: imagens/14_historico_real_git.png
+Fonte: git log e historico-git.json
+
+Figura 15 - Primeiras verificações físicas da placa e da entrada
+Figura documental preparada em 18/11/2026 a partir de capturas seriais reais, separadas por reinício. Oito HIGH, oito LOW e oito HIGH foram registrados em condições distintas. Sensor/ímã, temperatura e ingestão física permanecem pendentes.
+Arquivo: imagens/15_bancada_gpio27_registrada.png
+Fonte: docs/evidencias/2026-11-18-diagnostico-porta/20261118T042615Z/serial.json; docs/evidencias/2026-11-18-diagnostico-porta/20261118T045620Z-ponte/serial.json; docs/evidencias/2026-11-18-diagnostico-porta/20261118T050453Z-retorno-high/serial.json

@@ -1,0 +1,134 @@
+[
+  {
+    "sha": "a788f2bf39142153ca00b95f0574b1c4a72fad7f",
+    "authorDate": "2026-10-30T08:49:43-03:00",
+    "committerDate": "2026-10-30T08:49:43-03:00",
+    "subject": "chore: registra base ICEPLAY validada e plano de continuidade"
+  },
+  {
+    "sha": "abca77b614206a11ca37f2c348d778e4cf43caf5",
+    "authorDate": "2026-10-30T08:56:10-03:00",
+    "committerDate": "2026-10-30T08:56:10-03:00",
+    "subject": "feat: adiciona historico de leituras filtrado e paginado"
+  },
+  {
+    "sha": "21f9e4bf9a8782651ea260d8a3f3a0f136219057",
+    "authorDate": "2026-10-30T09:24:03-03:00",
+    "committerDate": "2026-10-30T09:24:03-03:00",
+    "subject": "style: aplica identidade Black e Ice Blue ao ICEPLAY"
+  },
+  {
+    "sha": "89dc75bad231240265e968c12b787c8c44c592d1",
+    "authorDate": "2026-11-09T17:17:38-03:00",
+    "committerDate": "2026-11-09T17:17:38-03:00",
+    "subject": "docs: registra validacao parcial do ICEPLAY no iPhone"
+  },
+  {
+    "sha": "7bd454153a4daf269626e9f2bf0cc7f0c1c7de69",
+    "authorDate": "2026-11-09T17:40:36-03:00",
+    "committerDate": "2026-11-09T17:40:36-03:00",
+    "subject": "feat: conclui paginas independentes e historico mobile"
+  },
+  {
+    "sha": "dafa7cb010ebe34481932bedaea865886a5bbd4c",
+    "authorDate": "2026-11-11T16:19:14-03:00",
+    "committerDate": "2026-11-11T16:19:14-03:00",
+    "subject": "feat: persiste configuracoes de monitoramento por geladeira"
+  },
+  {
+    "sha": "db960ebb22f02df9a7599685b2de88d7eb3d6f0d",
+    "authorDate": "2026-11-12T16:34:46-03:00",
+    "committerDate": "2026-11-12T16:34:46-03:00",
+    "subject": "feat: avalia regras e persiste episodios de alertas"
+  },
+  {
+    "sha": "4a6199d310ff12166472b84db73bc4e10836cf82",
+    "authorDate": "2026-11-12T16:43:59-03:00",
+    "committerDate": "2026-11-12T16:43:59-03:00",
+    "subject": "feat: integra alertas e resumo real na interface"
+  },
+  {
+    "sha": "caccaf3c8bf09826964bcee092401ff1b3748211",
+    "authorDate": "2026-11-12T17:04:11-03:00",
+    "committerDate": "2026-11-12T17:04:11-03:00",
+    "subject": "feat: autentica emissores e evita duplicacao de medicoes"
+  },
+  {
+    "sha": "b9b3d975dd2c81ecbf964a80a7f42e67849eaf34",
+    "authorDate": "2026-11-13T02:31:19-03:00",
+    "committerDate": "2026-11-13T02:31:19-03:00",
+    "subject": "feat: prepara firmware ESP32 e protocolo de ensaio fisico"
+  },
+  {
+    "sha": "c9c0a297f55205a6a510e5b8607f99d9f90f4da9",
+    "authorDate": "2026-11-13T03:10:31-03:00",
+    "committerDate": "2026-11-13T03:10:31-03:00",
+    "subject": "fix: valida fracao UTC dos filtros de alertas"
+  },
+  {
+    "sha": "10a032996329d6cc55177e3cabc424bfc591c236",
+    "authorDate": "2026-11-13T03:27:23-03:00",
+    "committerDate": "2026-11-13T03:27:23-03:00",
+    "subject": "docs: consolida preparacao para hardware e minutas do TCC"
+  },
+  {
+    "sha": "ac678054e3e036f02675889da9e3df17590a5d43",
+    "authorDate": "2026-11-14T01:42:25-03:00",
+    "committerDate": "2026-11-14T01:42:25-03:00",
+    "subject": "Adiciona pareamento temporario por QR Code no acesso movel"
+  },
+  {
+    "sha": "90037f097c4aba6cd57364dafdf9e9dc206d35c1",
+    "authorDate": "2026-11-14T02:16:03-03:00",
+    "committerDate": "2026-11-14T02:16:03-03:00",
+    "subject": "Corrige acesso movel e adiciona leitor QR dentro da pagina"
+  },
+  {
+    "sha": "4d38830d04b41a2cbd056f16feb1bc022964974c",
+    "authorDate": "2026-11-14T03:11:00-03:00",
+    "committerDate": "2026-11-14T03:11:00-03:00",
+    "subject": "Documenta plano gratuito de acesso remoto para apresentacao"
+  },
+  {
+    "sha": "3f9a33455e1b23e6d36ad2e6b4d1bc92b4d9ae12",
+    "authorDate": "2026-11-14T03:15:54-03:00",
+    "committerDate": "2026-11-14T03:15:54-03:00",
+    "subject": "Ajusta apresentacao para executar no desktop com internet USB"
+  },
+  {
+    "sha": "98dabcc7888239de896db8410ee44b2ddfde831e",
+    "authorDate": "2026-11-16T13:32:23-03:00",
+    "committerDate": "2026-11-16T13:32:23-03:00",
+    "subject": "Registra instalacao do driver CP2102 e reconhecimento da COM3"
+  },
+  {
+    "sha": "e38caf31a6243696c012de4dbbe7fc665278f31f",
+    "authorDate": "2026-11-17T12:53:45-03:00",
+    "committerDate": "2026-11-17T12:53:45-03:00",
+    "subject": "Documenta requisitos, casos de uso, classes e validacao do TCC"
+  },
+  {
+    "sha": "8ba8baa80503d0c1f29d688754f951e09bf3adaf",
+    "authorDate": "2026-11-18T01:12:39-03:00",
+    "committerDate": "2026-11-18T01:12:39-03:00",
+    "subject": "Registra primeira comunicacao serial real com o ESP32"
+  },
+  {
+    "sha": "9fdd613df52932a48ae5a45ecb1df814583b52a0",
+    "authorDate": "2026-11-18T01:30:07-03:00",
+    "committerDate": "2026-11-18T01:30:07-03:00",
+    "subject": "Prepara e grava diagnostico isolado da entrada de porta"
+  },
+  {
+    "sha": "c238d9a1d51f6f978658e3fbbec20ec9fd3a8c36",
+    "authorDate": "2026-11-18T02:01:40-03:00",
+    "committerDate": "2026-11-18T02:01:40-03:00",
+    "subject": "Registra teste fisico da ponte GPIO27 com nivel LOW"
+  },
+  {
+    "sha": "80ae30238922ff13c99c03fd01f248666e0a46a1",
+    "authorDate": "2026-11-18T02:07:45-03:00",
+    "committerDate": "2026-11-18T02:07:45-03:00",
+    "subject": "Confirma retorno a HIGH apos retirada da ponte GPIO27"
+  }
+]

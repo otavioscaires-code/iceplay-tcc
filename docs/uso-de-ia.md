@@ -1,5 +1,11 @@
 # Registro de assistência por IA
 
+## Imagens da evolução para documentação — 18/11/2026
+
+Codex (GPT-6) inspecionou fontes locais e histórico Git, selecionou oito capturas preservadas e organizou figuras de quatro trechos reais de código e três quadros derivados de relatórios/commits/capturas seriais. As imagens geradas agora são identificadas como figuras documentais de 18/11; as capturas antigas foram copiadas sem alteração de bytes. Não foi utilizado gerador de imagens para fabricar telas, IDE, terminal, hardware ou datas. O primeiro commit disponível é de 30/10, embora relatórios associados às capturas registrem etapas desde 13/10. Não houve criação de histórico retroativo.
+
+O material em `tcc/evolucao-visual-2026-11-18/` contém imagens, PDF, legendas e fontes de procedência. A assistência incluiu composição com ferramentas locais existentes, renderização e inspeção das 11 páginas, conferência das 15 imagens e verificação documental. Não houve agente auxiliar, mudança de runtime/banco/migrations, nova execução de testes da aplicação, gravação de placa ou ensaio de sensores. Resultados antigos são citados como registros anteriores, sem reclassificar simulação ou teste de jumper como medição física de temperatura/porta. O aluno deve selecionar, compreender e revisar o conteúdo com o orientador, manter as fontes/legendas e declarar a assistência conforme as regras institucionais. Detalhes em `etapa-evolucao-visual-2026-11-18.md`.
+
 ## Ponte física da entrada GPIO27 — 18/11/2026
 
 O usuário realizou as ligações informadas de GND→a20 e D27→a10 e uma ponte macho-macho b10–b20, depois conectou o USB. Codex leu a COM3 com PySerial existente: banner e oito registros LOW em 8 s, com critério definido antes da leitura. Isso foi registrado como teste físico da entrada com jumper, sem atribuir funcionamento ao SP1006, medição de temperatura ou API. Não houve nova gravação ou mudança de firmware/banco. Pontas do sensor permanecem encapadas e o usuário informou ter alicate comum ou tesoura; o teste do ímã continua pendente. Evidências e limites em `etapa-diagnostico-porta-2026-11-18.md`. Sem agentes auxiliares.

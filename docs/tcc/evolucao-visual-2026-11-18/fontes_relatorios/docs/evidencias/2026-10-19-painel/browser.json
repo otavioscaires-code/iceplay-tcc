@@ -1,0 +1,112 @@
+{
+  "result": "passed",
+  "verifiedAtUtc": "2026-10-19T16:18:35.480Z",
+  "scope": "Interface em cópia de banco isolado; todos os registros são fixtures e Hardware é somente declaração de teste",
+  "checkCount": 17,
+  "checks": [
+    {
+      "description": "Painel mostra valores reais da API com simulação explícita",
+      "passed": true,
+      "atUtc": "2026-10-19T16:11:42.738Z"
+    },
+    {
+      "description": "Medições antigas são indicadas como desatualizadas",
+      "passed": true,
+      "atUtc": "2026-10-19T16:11:42.739Z"
+    },
+    {
+      "description": "Cadastro pela interface atualiza o painel e mantém ausência de leitura sem temperatura fictícia",
+      "passed": true,
+      "atUtc": "2026-10-19T16:11:43.091Z"
+    },
+    {
+      "description": "Atualização automática recebe o envio real do simulador e preserva zero/porta fechada",
+      "passed": true,
+      "atUtc": "2026-10-19T16:12:20.513Z"
+    },
+    {
+      "description": "Filtro Hardware declarado mostra somente sua origem, incluindo porta aberta e ausência de dados",
+      "passed": true,
+      "atUtc": "2026-10-19T16:12:20.681Z"
+    },
+    {
+      "description": "Referência visual pode ser desativada sem tratar a temperatura como normal",
+      "passed": true,
+      "atUtc": "2026-10-19T16:12:20.943Z"
+    },
+    {
+      "description": "Layout de 1280 pixels sem rolagem horizontal",
+      "passed": true,
+      "atUtc": "2026-10-19T16:12:50.497Z"
+    },
+    {
+      "description": "Novo envio do simulador atualiza temperatura e abertura da porta no painel",
+      "passed": true,
+      "atUtc": "2026-10-19T16:13:25.096Z"
+    },
+    {
+      "description": "Layout de 375 pixels sem rolagem horizontal",
+      "passed": true,
+      "atUtc": "2026-10-19T16:13:25.238Z"
+    },
+    {
+      "description": "API realmente parada remove valores anteriores e apresenta erro de comunicação",
+      "passed": true,
+      "atUtc": "2026-10-19T16:14:09.444Z"
+    },
+    {
+      "description": "Arquivos atualizados por versão carregam o layout real do painel",
+      "passed": true,
+      "atUtc": "2026-10-19T16:14:50.474Z"
+    },
+    {
+      "description": "Reinício real recupera os cadastros e leituras na interface",
+      "passed": true,
+      "atUtc": "2026-10-19T16:14:50.481Z"
+    },
+    {
+      "description": "CSS atualizado apresenta três colunas no desktop sem excesso horizontal",
+      "passed": true,
+      "atUtc": "2026-10-19T16:15:36.151Z"
+    },
+    {
+      "description": "CSS atualizado apresenta uma coluna no celular e seletor com alvo de toque de pelo menos 44 pixels",
+      "passed": true,
+      "atUtc": "2026-10-19T16:15:36.357Z"
+    },
+    {
+      "description": "Versão final remove valores antigos quando a API para",
+      "passed": true,
+      "atUtc": "2026-10-19T16:16:32.339Z"
+    },
+    {
+      "description": "Painel de saúde consulta novamente a API e não confirma banco com servidor parado",
+      "passed": true,
+      "atUtc": "2026-10-19T16:16:32.440Z"
+    },
+    {
+      "description": "Após reiniciar, painel e saúde recuperam os dados persistidos",
+      "passed": true,
+      "atUtc": "2026-10-19T16:18:35.480Z"
+    }
+  ],
+  "desktop": {
+    "columns": "361.328px 361.328px 361.344px",
+    "document": 1265,
+    "viewport": 1280
+  },
+  "mobile": {
+    "columns": "328px",
+    "document": 360,
+    "selectHeight": 46,
+    "viewport": 375
+  },
+  "screenshots": [
+    "painel-desktop.jpg",
+    "painel-mobile.jpg"
+  ],
+  "observationNotes": [
+    "O primeiro carregamento recuperou arquivos anteriores em cache. A página foi recarregada e CSS/JS receberam versão na URL. Layouts com CSS atualizado foram verificados e capturados novamente. A captura inicial foi preservada como painel-css-anterior.jpg."
+  ],
+  "isolatedDatabase": "C:\\Users\\otavi\\Downloads\\iceplay\\.tools\\verification\\ui-painel-e48hsep8\\iceplay.db"
+}

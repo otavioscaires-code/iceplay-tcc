@@ -1,0 +1,40 @@
+{
+  "executedAtUtc": "2026-10-13T17:40:34.9242681Z",
+  "result": "passed",
+  "type": "Software HTTP e SQLite; sem hardware ou leituras de sensores",
+  "sdk": "10.0.401",
+  "isolatedDatabase": "C:\\Users\\otavi\\Downloads\\iceplay\\.tools\\verification\\20261013T174025Z-6ac9b489\\iceplay.db",
+  "logDirectory": "C:\\Users\\otavi\\Downloads\\iceplay\\.tools\\verification\\20261013T174025Z-6ac9b489",
+  "checks": [
+    "GET /api/health retorna HTTP 200",
+    "API consulta SQLite com sucesso",
+    "Banco novo contém zero geladeiras, sem seed fictício",
+    "Saúde fornece timestamp UTC",
+    "Migration cria arquivo SQLite isolado",
+    "Página inicial é servida pela aplicação",
+    "Destinos da navegação existem no HTML servido",
+    "CSS é servido com tipo correto",
+    "JavaScript servido consulta a saúde",
+    "Rota inexistente retorna HTTP 404",
+    "Reinício reutiliza banco e migration sem falha",
+    "Banco sem schema retorna HTTP 503 real",
+    "Resposta de falha não divulga detalhes internos"
+  ],
+  "health": {
+    "status": "healthy",
+    "database": "connected",
+    "refrigeratorCount": 0,
+    "checkedAtUtc": "2026-10-13T17:40:29.8144464Z"
+  },
+  "restartHealth": {
+    "status": "healthy",
+    "database": "connected",
+    "refrigeratorCount": 0,
+    "checkedAtUtc": "2026-10-13T17:40:32.5081599Z"
+  },
+  "missingSchemaHealth": {
+    "status": "unhealthy",
+    "database": "unavailable",
+    "checkedAtUtc": "2026-10-13T17:40:34.8720272Z"
+  }
+}
