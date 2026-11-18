@@ -2,7 +2,7 @@
 
 Preparado em 18/11/2026 para adiantar a bancada enquanto o resistor de 4,7 kΩ do DS18B20 ainda não foi retirado. O firmware principal em `../esp32/` foi preservado: ele só forma leituras para a API com uma temperatura válida. Este programa temporário permite conferir a entrada GPIO27 pela serial, sem temperatura, rede, credenciais ou banco.
 
-**Estado de 18/11/2026:** compilação e gravação autorizada concluídas, inicialização observada pela serial e oito amostras `HIGH` sem conexões na entrada. Ver [relatório e evidências](../../docs/etapa-diagnostico-porta-2026-11-18.md). O sensor/ímã e o jumper ainda não foram ensaiados. F01 permanece parcial porque o firmware principal de ingestão ainda não foi gravado; F03 permanece pendente.
+**Estado de 18/11/2026:** compilação/gravação autorizadas, boot observado, oito registros `HIGH` sem conexões e, depois, oito `LOW` com ponte b10–b20 informada pelo usuário. Ver [relatório e evidências](../../docs/etapa-diagnostico-porta-2026-11-18.md). Retorno a HIGH após retirar a ponte e sensor/ímã ainda pendentes. F01 permanece parcial porque o firmware principal de ingestão ainda não foi gravado; F03 permanece pendente.
 
 ## Ferramentas existentes
 

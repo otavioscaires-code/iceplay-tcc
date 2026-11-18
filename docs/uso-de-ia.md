@@ -1,5 +1,9 @@
 # Registro de assistência por IA
 
+## Ponte física da entrada GPIO27 — 18/11/2026
+
+O usuário realizou as ligações informadas de GND→a20 e D27→a10 e uma ponte macho-macho b10–b20, depois conectou o USB. Codex leu a COM3 com PySerial existente: banner e oito registros LOW em 8 s, com critério definido antes da leitura. Isso foi registrado como teste físico da entrada com jumper, sem atribuir funcionamento ao SP1006, medição de temperatura ou API. Não houve nova gravação ou mudança de firmware/banco. Pontas do sensor permanecem encapadas e o usuário informou ter alicate comum ou tesoura; o teste do ímã continua pendente. Evidências e limites em `etapa-diagnostico-porta-2026-11-18.md`. Sem agentes auxiliares.
+
 ## Diagnóstico de entrada de porta — 18/11/2026
 
 Após o usuário informar ausência do resistor correto e de multímetro, Codex preparou um programa isolado de bancada para GPIO27, preservando o firmware principal e a API. O usuário identificou Giltar SP-1006; a pesquisa confirmou o código/contato NA no site do fabricante. A compilação passou; após explicar a substituição do programa da placa, o usuário autorizou a gravação e conectou somente o ESP32. Upload, verificação de hash e boot do diagnóstico foram observados, seguidos de oito registros HIGH sem conexões na entrada. Isso não é teste do sensor/ímã nem medição de temperatura. Logs integrais com MAC permaneceram privados; cópias públicas foram sanitizadas. Não houve agente auxiliar ou criação de dados no banco. Detalhes, comandos e limites em `etapa-diagnostico-porta-2026-11-18.md`.

@@ -6,6 +6,8 @@ Em **18/11/2026**, a [consulta serial ao ROM](../etapa-serial-2026-11-18.md) pas
 
 Posteriormente no mesmo dia, o [diagnóstico isolado GPIO27](../etapa-diagnostico-porta-2026-11-18.md) foi gravado com autorização e iniciou: oito amostras HIGH sem conexões. O ímã/contato ainda não foi testado. Esse resultado não encerra F01 para o firmware principal nem F03 para o sensor.
 
+Às 04:56 UTC, a ponte de jumper b10–b20, com GND→a20 e GPIO27→a10 informados pelo usuário, produziu oito registros LOW na serial. O teste de entrada passou. O retorno a HIGH após retirar a ponte ainda será verificado; o sensor/ímã não foi conectado e F03 segue pendente. Os registros estão no relatório de diagnóstico, sem alterar as evidências anteriores.
+
 ## Identificação antes de iniciar
 
 Registrar data, responsável, versão/commit do software, versão do firmware, modelo e identificação da placa/sonda/reed, cabo/fonte, GPIOs, polaridade da porta, posição da sonda/ímã, geladeira utilizada e condições de uso. Registrar parâmetros ativos e intervalo de aquisição. O cadastro deve permitir separar o ensaio das três leituras Simulacao já existentes.
