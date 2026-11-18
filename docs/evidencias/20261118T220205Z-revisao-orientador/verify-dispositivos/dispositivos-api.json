@@ -1,0 +1,1267 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-18T22:04:28.262233+00:00",
+  "scope": "Software HTTP/SQLite isolado; nao comprova hardware nem Safari",
+  "checks": [
+    "SQLite integro",
+    "Chaves estrangeiras integras",
+    "SQLite integro",
+    "Chaves estrangeiras integras",
+    "Upgrade preserva geladeira e episodio historicos com vinculo de leitura",
+    "Upgrade preserva os sete campos antigos e acrescenta metadados nulos",
+    "Nenhuma identidade ou credencial criada automaticamente",
+    "GET /api/leituras/9 retorna 200 (real: 200)",
+    "Contrato antigo continua consultavel com campos novos nulos",
+    "GET /api/alertas/3 retorna 200 (real: 200)",
+    "POST /api/geladeiras retorna 201 (real: 201)",
+    "POST /api/geladeiras retorna 201 (real: 201)",
+    "POST /api/geladeiras/8/dispositivos retorna 400 (real: 400)",
+    "POST /api/geladeiras/8/dispositivos retorna 400 (real: 400)",
+    "POST /api/geladeiras/8/dispositivos retorna 400 (real: 400)",
+    "POST /api/geladeiras/8/dispositivos retorna 400 (real: 400)",
+    "POST /api/geladeiras/8/dispositivos retorna 400 (real: 400)",
+    "POST /api/geladeiras/8/dispositivos retorna 400 (real: 400)",
+    "GET /api/geladeiras/2147483647/dispositivos retorna 404 (real: 404)",
+    "POST /api/geladeiras/2147483647/dispositivos retorna 404 (real: 404)",
+    "POST /api/geladeiras/8/dispositivos retorna 201 (real: 201)",
+    "Credencial usa segredo aleatorio de 256 bits e nome normalizado",
+    "POST /api/geladeiras/8/dispositivos retorna 409 (real: 409)",
+    "GET /api/geladeiras/8/dispositivos retorna 200 (real: 200)",
+    "Listagem nao revela segredo ou hash",
+    "Location permite consultar so metadados",
+    "GET /api/geladeiras/8/dispositivos/1 retorna 200 (real: 200)",
+    "GET /api/geladeiras/9/dispositivos/1 retorna 404 (real: 404)",
+    "POST /api/geladeiras/8/dispositivos/2147483647/revogar retorna 404 (real: 404)",
+    "Banco conserva somente hash do segredo, sem token em texto",
+    "POST /api/leituras retorna 401 (real: 401)",
+    "POST /api/leituras retorna 401 (real: 401)",
+    "POST /api/leituras retorna 401 (real: 401)",
+    "GET /api/health retorna 403 (real: 403)",
+    "GET /api/geladeiras/8/dispositivos retorna 403 (real: 403)",
+    "POST /api/geladeiras/8/dispositivos retorna 403 (real: 403)",
+    "POST /api/geladeiras retorna 403 (real: 403)",
+    "GET /api/leituras retorna 403 (real: 403)",
+    "POST /api/leituras retorna 403 (real: 403)",
+    "POST /api/leituras retorna 403 (real: 403)",
+    "POST /api/leituras retorna 400 (real: 400)",
+    "POST /api/leituras retorna 400 (real: 400)",
+    "POST /api/leituras retorna 400 (real: 400)",
+    "POST /api/leituras retorna 400 (real: 400)",
+    "POST /api/leituras retorna 400 (real: 400)",
+    "POST /api/leituras retorna 201 (real: 201)",
+    "Servidor vincula emissor autenticado e preserva zero/false, ignorando ID injetado",
+    "POST /api/leituras retorna 200 (real: 200)",
+    "Reenvio retorna mesmo registro e recebimento sem duplicar",
+    "POST /api/leituras retorna 409 (real: 409)",
+    "POST /api/leituras retorna (200, 201) (real: 201)",
+    "POST /api/leituras retorna (200, 201) (real: 200)",
+    "Reenvios concorrentes produzem exatamente uma criacao",
+    "SQLite integro",
+    "Chaves estrangeiras integras",
+    "POST /api/leituras retorna 200 (real: 200)",
+    "SQLite integro",
+    "Chaves estrangeiras integras",
+    "Reinicio preserva hash e idempotencia da medicao",
+    "POST /api/geladeiras/8/dispositivos/1/revogar retorna 200 (real: 200)",
+    "POST /api/geladeiras/8/dispositivos/1/revogar retorna 200 (real: 200)",
+    "Revogacao idempotente preserva instante",
+    "POST /api/leituras retorna 401 (real: 401)",
+    "POST /api/geladeiras/8/dispositivos retorna 201 (real: 201)",
+    "Nova identidade tem segredo independente",
+    "POST /api/leituras retorna 201 (real: 201)",
+    "POST /api/leituras retorna 201 (real: 201)",
+    "Operador/simulador conserva contrato anterior, sem falsificar identidade autenticada",
+    "PUT /api/geladeiras/8/configuracao retorna 201 (real: 201)",
+    "POST /api/leituras retorna 201 (real: 201)",
+    "GET /api/alertas?geladeiraId=8&origem=Hardware&tipo=TemperaturaForaFaixa&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?geladeiraId=8&origem=Hardware&tipo=TemperaturaForaFaixa&situacao=Aberto retorna 200 (real: 200)",
+    "GET /api/alertas?geladeiraId=8&origem=Hardware&tipo=TemperaturaForaFaixa&situacao=Aberto retorna 200 (real: 200)",
+    "Fluxo configurar -> emissor autenticado -> SQLite -> alerta executado com fixture de software",
+    "Alerta vincula a leitura autenticada correta",
+    "GET /api/monitoramento?origem=Hardware retorna 200 (real: 200)",
+    "Painel consulta mesma leitura autenticada e seus metadados",
+    "PUT /api/geladeiras/8/configuracao retorna 200 (real: 200)",
+    "POST /api/geladeiras/9/dispositivos retorna (201, 409) (real: 201)",
+    "POST /api/geladeiras/9/dispositivos retorna (201, 409) (real: 409)",
+    "Duas emissoes concorrentes conservam um unico dispositivo ativo",
+    "DELETE /api/geladeiras/9 retorna 204 (real: 204)",
+    "DELETE /api/geladeiras/8 retorna 409 (real: 409)",
+    "SQLite integro",
+    "Chaves estrangeiras integras"
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/leituras/9",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "id": 9,
+        "geladeiraId": 7,
+        "temperaturaC": 9,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-01T12:00:00Z",
+        "recebidoEmUtc": "2026-11-01T12:00:00Z",
+        "origem": "Simulacao",
+        "dispositivoId": null,
+        "medicaoId": null
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas/3",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "id": 3,
+        "geladeiraId": 7,
+        "geladeiraNome": "FIXTURE HISTORICA DISPOSITIVOS",
+        "origem": "Simulacao",
+        "tipo": "TemperaturaForaFaixa",
+        "gravidade": "Critico",
+        "situacao": "Aberto",
+        "inicioCondicaoEmUtc": "2026-11-01T12:00:00Z",
+        "abertoEmUtc": "2026-11-01T12:00:00Z",
+        "ultimaEvidenciaEmUtc": "2026-11-01T12:00:00Z",
+        "encerradoEmUtc": null,
+        "motivoEncerramento": null,
+        "leituraAberturaId": 9,
+        "temperaturaAberturaC": 9,
+        "temperaturaMinimaC": 0,
+        "temperaturaMaximaC": 5,
+        "toleranciaPortaAbertaSegundos": 30,
+        "ausenciaLeiturasSegundos": 60
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "nome": "FIXTURE EMISSOR - BANCO ISOLADO"
+      },
+      "responseBody": {
+        "id": 8,
+        "nome": "FIXTURE EMISSOR - BANCO ISOLADO",
+        "localizacao": null,
+        "criadoEmUtc": "2026-11-18T22:04:31.2344349Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "nome": "FIXTURE OUTRO - BANCO ISOLADO"
+      },
+      "responseBody": {
+        "id": 9,
+        "nome": "FIXTURE OUTRO - BANCO ISOLADO",
+        "localizacao": null,
+        "criadoEmUtc": "2026-11-18T22:04:31.51515Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/8/dispositivos",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {},
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "Nome": [
+            "Informe o nome do dispositivo."
+          ]
+        },
+        "traceId": "00-573b1769769c6012d8c2f9d760a4eec5-8749759f05675db9-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/8/dispositivos",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "nome": null
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "Nome": [
+            "Informe o nome do dispositivo."
+          ]
+        },
+        "traceId": "00-ff4d33b856218082a97e07d1294571dd-068546a01ea972f9-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/8/dispositivos",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "nome": ""
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "Nome": [
+            "Informe o nome do dispositivo."
+          ]
+        },
+        "traceId": "00-74d110613045273c279e9b4911288baa-2bacd492b701fc2a-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/8/dispositivos",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "nome": "   "
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "Nome": [
+            "Informe o nome do dispositivo."
+          ]
+        },
+        "traceId": "00-955ff87b17b8b59e27e5a83d953a4043-15e05cf0102ec3f4-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/8/dispositivos",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "nome": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "Nome": [
+            "The field Nome must be a string with a maximum length of 100."
+          ]
+        },
+        "traceId": "00-3d5d5baf84f629c4fc579e741d6655c3-db64e2224aa5be2c-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/8/dispositivos",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "nome": 12
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "request": [
+            "The request field is required."
+          ],
+          "$.nome": [
+            "The JSON value could not be converted to System.String. Path: $.nome | LineNumber: 0 | BytePositionInLine: 11."
+          ]
+        },
+        "traceId": "00-afee79e883289373d4625f7d6b373af2-cc0fc730e9c51535-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/2147483647/dispositivos",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+        "title": "Geladeira ou dispositivo não encontrado.",
+        "status": 404,
+        "traceId": "00-a939fa036e66b42e4399e81667848b04-87c25d030203a938-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/2147483647/dispositivos",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "requestBody": {
+        "nome": "FIXTURE"
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+        "title": "Geladeira ou dispositivo não encontrado.",
+        "status": 404,
+        "traceId": "00-e05e94b7e5723c1a3ac05dd78ef3e188-047ef038288bec26-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/8/dispositivos",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "nome": "  ESP32 FIXTURE  "
+      },
+      "responseBody": {
+        "dispositivo": {
+          "id": 1,
+          "geladeiraId": 8,
+          "nome": "ESP32 FIXTURE",
+          "criadoEmUtc": "2026-11-18T22:04:31.7463558Z",
+          "revogadoEmUtc": null
+        },
+        "credencial": "[REDACTED]"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/8/dispositivos",
+      "expectedStatus": 409,
+      "actualStatus": 409,
+      "requestBody": {
+        "nome": "SEGUNDO ATIVO"
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.10",
+        "title": "Já existe dispositivo ativo.",
+        "status": 409,
+        "detail": "Revogue a credencial anterior antes de emitir outra.",
+        "traceId": "00-b94eaab1d3f9a4a21e4f5ac08feb23da-4e209c605c219d49-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/8/dispositivos",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": [
+        {
+          "id": 1,
+          "geladeiraId": 8,
+          "nome": "ESP32 FIXTURE",
+          "criadoEmUtc": "2026-11-18T22:04:31.7463558Z",
+          "revogadoEmUtc": null
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/8/dispositivos/1",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "id": 1,
+        "geladeiraId": 8,
+        "nome": "ESP32 FIXTURE",
+        "criadoEmUtc": "2026-11-18T22:04:31.7463558Z",
+        "revogadoEmUtc": null
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/9/dispositivos/1",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+        "title": "Geladeira ou dispositivo não encontrado.",
+        "status": 404,
+        "traceId": "00-925b8699e6a6c25d324060bdc7443e55-e0684d4e0a05e784-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/8/dispositivos/2147483647/revogar",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+        "title": "Geladeira ou dispositivo não encontrado.",
+        "status": 404,
+        "traceId": "00-4904563243b2b67a519580a246c484e7-6c1fe078996b92d0-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 401,
+      "actualStatus": 401,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "medicaoId": "5d507514-0ab8-4316-adb9-62d19acbbe61",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.2",
+        "title": "Unauthorized",
+        "status": 401,
+        "detail": "Credencial de dispositivo inválida ou revogada.",
+        "traceId": "00-1fe050fccb4600472bf3981286ba1dd2-b90e197fdf7d0420-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 401,
+      "actualStatus": 401,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "medicaoId": "5d507514-0ab8-4316-adb9-62d19acbbe61",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.2",
+        "title": "Unauthorized",
+        "status": 401,
+        "detail": "Credencial de dispositivo inválida ou revogada.",
+        "traceId": "00-a0fde7bda1492e47981263b97c6e82b8-d7d12500dcf29ee8-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 401,
+      "actualStatus": 401,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "medicaoId": "5d507514-0ab8-4316-adb9-62d19acbbe61",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.2",
+        "title": "Unauthorized",
+        "status": 401,
+        "detail": "Credencial de dispositivo inválida ou revogada.",
+        "traceId": "00-8b7ba4f9780fcde845076e9031082e5b-eaec23427ed1fa4e-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "expectedStatus": 403,
+      "actualStatus": 403,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.4",
+        "title": "Forbidden",
+        "status": 403,
+        "detail": "A credencial de dispositivo autoriza somente POST /api/leituras.",
+        "traceId": "00-4e171be86ab8bccffcefcc3d6b140ee6-0996a4f74dfd7174-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/geladeiras/8/dispositivos",
+      "expectedStatus": 403,
+      "actualStatus": 403,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.4",
+        "title": "Forbidden",
+        "status": 403,
+        "detail": "A credencial de dispositivo autoriza somente POST /api/leituras.",
+        "traceId": "00-05ca329ffbd9b3cd44189ae87ec89087-8f61f12f068935ca-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/8/dispositivos",
+      "expectedStatus": 403,
+      "actualStatus": 403,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.4",
+        "title": "Forbidden",
+        "status": 403,
+        "detail": "A credencial de dispositivo autoriza somente POST /api/leituras.",
+        "traceId": "00-2b634cf7ea6895fb6d609deb5b408b40-b61ab932859a6945-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras",
+      "expectedStatus": 403,
+      "actualStatus": 403,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.4",
+        "title": "Forbidden",
+        "status": 403,
+        "detail": "A credencial de dispositivo autoriza somente POST /api/leituras.",
+        "traceId": "00-154749a8e44c9e0d82e98841c3dd2fc2-f328cf6598671b45-00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/leituras",
+      "expectedStatus": 403,
+      "actualStatus": 403,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.4",
+        "title": "Forbidden",
+        "status": 403,
+        "detail": "A credencial de dispositivo autoriza somente POST /api/leituras.",
+        "traceId": "00-821b82ae48e12f5a140bfc377b41f8ad-d42a75a6a569d955-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 403,
+      "actualStatus": 403,
+      "requestBody": {
+        "geladeiraId": 9,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "medicaoId": "5d507514-0ab8-4316-adb9-62d19acbbe61",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.4",
+        "title": "A credencial só permite leituras Hardware da geladeira vinculada.",
+        "status": 403,
+        "traceId": "00-3e5603f2ff322ff51d49f43c0772554e-4ebfb176e87894d8-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 403,
+      "actualStatus": 403,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Simulacao",
+        "medicaoId": "5d507514-0ab8-4316-adb9-62d19acbbe61",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.4",
+        "title": "A credencial só permite leituras Hardware da geladeira vinculada.",
+        "status": 403,
+        "traceId": "00-95a14ce2f8118c6daeb95202755ddc3d-fd9447c54027b287-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "MedicaoId": [
+            "O dispositivo deve identificar cada medição com um UUID."
+          ]
+        },
+        "traceId": "00-123e2f41c4c389e45407d1069ba5686b-edc3a4d01ce69f44-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "medicaoId": "",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "MedicaoId": [
+            "Use um UUID no formato D para identificar a medição."
+          ]
+        },
+        "traceId": "00-661cb38b9e2ee88c825d3200b0636dc5-c78bfb84ca8b7c6d-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "medicaoId": "invalido",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "MedicaoId": [
+            "Use um UUID no formato D para identificar a medição."
+          ]
+        },
+        "traceId": "00-b0e259a76972ab1aea664dbfc0c8acf9-a224cad677d7ef68-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "medicaoId": 123,
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "request": [
+            "The request field is required."
+          ],
+          "$.medicaoId": [
+            "The JSON value could not be converted to System.String. Path: $.medicaoId | LineNumber: 0 | BytePositionInLine: 144."
+          ]
+        },
+        "traceId": "00-daae28f5db058704f8a04b23b7f7f773-1fed1a3c99db807e-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "medicaoId": "{5d507514-0ab8-4316-adb9-62d19acbbe61}",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "MedicaoId": [
+            "The field MedicaoId must be a string with a maximum length of 36."
+          ]
+        },
+        "traceId": "00-9a182403eaba95905cf06b676e83ba8b-2f8194d292aeccca-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "medicaoId": "5d507514-0ab8-4316-adb9-62d19acbbe61",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "id": 10,
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "recebidoEmUtc": "2026-11-18T22:04:32.1877493Z",
+        "origem": "Hardware",
+        "dispositivoId": 1,
+        "medicaoId": "5d507514-0ab8-4316-adb9-62d19acbbe61"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "medicaoId": "5D507514-0AB8-4316-ADB9-62D19ACBBE61",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "id": 10,
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "recebidoEmUtc": "2026-11-18T22:04:32.1877493Z",
+        "origem": "Hardware",
+        "dispositivoId": 1,
+        "medicaoId": "5d507514-0ab8-4316-adb9-62d19acbbe61"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 409,
+      "actualStatus": 409,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 1,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "medicaoId": "5d507514-0ab8-4316-adb9-62d19acbbe61",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.10",
+        "title": "Identificador de medição já usado com conteúdo diferente.",
+        "status": 409,
+        "traceId": "00-08f3f4c57eccb3284dcfe3f7812dbff2-1bb062bd3e6fb2fe-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": [
+        200,
+        201
+      ],
+      "actualStatus": 201,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "medicaoId": "1c9bfc1e-1ab1-41b8-a8f9-209cec5fe8ff",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "id": 11,
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "recebidoEmUtc": "2026-11-18T22:04:32.337556Z",
+        "origem": "Hardware",
+        "dispositivoId": 1,
+        "medicaoId": "1c9bfc1e-1ab1-41b8-a8f9-209cec5fe8ff"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": [
+        200,
+        201
+      ],
+      "actualStatus": 200,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "medicaoId": "1c9bfc1e-1ab1-41b8-a8f9-209cec5fe8ff",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "id": 11,
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "recebidoEmUtc": "2026-11-18T22:04:32.337556Z",
+        "origem": "Hardware",
+        "dispositivoId": 1,
+        "medicaoId": "1c9bfc1e-1ab1-41b8-a8f9-209cec5fe8ff"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "medicaoId": "5d507514-0ab8-4316-adb9-62d19acbbe61",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "id": 10,
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "recebidoEmUtc": "2026-11-18T22:04:32.1877493Z",
+        "origem": "Hardware",
+        "dispositivoId": 1,
+        "medicaoId": "5d507514-0ab8-4316-adb9-62d19acbbe61"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/8/dispositivos/1/revogar",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "id": 1,
+        "geladeiraId": 8,
+        "nome": "ESP32 FIXTURE",
+        "criadoEmUtc": "2026-11-18T22:04:31.7463558Z",
+        "revogadoEmUtc": "2026-11-18T22:04:34.5510227Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/8/dispositivos/1/revogar",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "id": 1,
+        "geladeiraId": 8,
+        "nome": "ESP32 FIXTURE",
+        "criadoEmUtc": "2026-11-18T22:04:31.7463558Z",
+        "revogadoEmUtc": "2026-11-18T22:04:34.5510227Z"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 401,
+      "actualStatus": 401,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "medicaoId": "5d507514-0ab8-4316-adb9-62d19acbbe61",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.2",
+        "title": "Unauthorized",
+        "status": 401,
+        "detail": "Credencial de dispositivo inválida ou revogada.",
+        "traceId": "00-1354a083a075b8e37ce0316fc8be3324-ff949a0eb28429ad-00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/8/dispositivos",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "nome": "NOVA CREDENCIAL FIXTURE"
+      },
+      "responseBody": {
+        "dispositivo": {
+          "id": 2,
+          "geladeiraId": 8,
+          "nome": "NOVA CREDENCIAL FIXTURE",
+          "criadoEmUtc": "2026-11-18T22:04:34.7441262Z",
+          "revogadoEmUtc": null
+        },
+        "credencial": "[REDACTED]"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Hardware",
+        "medicaoId": "5d507514-0ab8-4316-adb9-62d19acbbe61",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "id": 12,
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "recebidoEmUtc": "2026-11-18T22:04:34.8645677Z",
+        "origem": "Hardware",
+        "dispositivoId": 2,
+        "medicaoId": "5d507514-0ab8-4316-adb9-62d19acbbe61"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "origem": "Simulacao",
+        "medicaoId": "5d507514-0ab8-4316-adb9-62d19acbbe61",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "id": 13,
+        "geladeiraId": 8,
+        "temperaturaC": 0,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:30.947246Z",
+        "recebidoEmUtc": "2026-11-18T22:04:34.9775007Z",
+        "origem": "Simulacao",
+        "dispositivoId": null,
+        "medicaoId": "5d507514-0ab8-4316-adb9-62d19acbbe61"
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/8/configuracao",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "temperaturaMinimaC": 1,
+        "temperaturaMaximaC": 5,
+        "toleranciaPortaAbertaSegundos": 30,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Hardware",
+        "monitoramentoAtivo": true
+      },
+      "responseBody": {
+        "geladeiraId": 8,
+        "configuracao": {
+          "temperaturaMinimaC": 1,
+          "temperaturaMaximaC": 5,
+          "toleranciaPortaAbertaSegundos": 30,
+          "ausenciaLeiturasSegundos": 60,
+          "origemMonitorada": "Hardware",
+          "monitoramentoAtivo": true,
+          "inicioMonitoramentoEmUtc": "2026-11-18T22:04:35.1315359Z",
+          "atualizadoEmUtc": "2026-11-18T22:04:35.1315359Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/leituras",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "requestBody": {
+        "geladeiraId": 8,
+        "temperaturaC": 9,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:35.213688Z",
+        "origem": "Hardware",
+        "medicaoId": "95fad35f-6e54-4c0d-a159-92cef51eb8f7",
+        "dispositivoId": 2147483647
+      },
+      "responseBody": {
+        "id": 14,
+        "geladeiraId": 8,
+        "temperaturaC": 9,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:35.213688Z",
+        "recebidoEmUtc": "2026-11-18T22:04:35.2313087Z",
+        "origem": "Hardware",
+        "dispositivoId": 2,
+        "medicaoId": "95fad35f-6e54-4c0d-a159-92cef51eb8f7"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?geladeiraId=8&origem=Hardware&tipo=TemperaturaForaFaixa&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": 8,
+        "origem": "Hardware",
+        "tipo": "TemperaturaForaFaixa",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?geladeiraId=8&origem=Hardware&tipo=TemperaturaForaFaixa&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": 8,
+        "origem": "Hardware",
+        "tipo": "TemperaturaForaFaixa",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 0,
+        "totalPaginas": 0,
+        "itens": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/alertas?geladeiraId=8&origem=Hardware&tipo=TemperaturaForaFaixa&situacao=Aberto",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "geladeiraId": 8,
+        "origem": "Hardware",
+        "tipo": "TemperaturaForaFaixa",
+        "gravidade": null,
+        "situacao": "Aberto",
+        "inicioUtc": null,
+        "fimUtc": null,
+        "pagina": 1,
+        "tamanhoPagina": 50,
+        "totalItens": 1,
+        "totalPaginas": 1,
+        "itens": [
+          {
+            "id": 4,
+            "geladeiraId": 8,
+            "geladeiraNome": "FIXTURE EMISSOR - BANCO ISOLADO",
+            "origem": "Hardware",
+            "tipo": "TemperaturaForaFaixa",
+            "gravidade": "Critico",
+            "situacao": "Aberto",
+            "inicioCondicaoEmUtc": "2026-11-18T22:04:35.213688Z",
+            "abertoEmUtc": "2026-11-18T22:04:35.7723048Z",
+            "ultimaEvidenciaEmUtc": "2026-11-18T22:04:35.213688Z",
+            "encerradoEmUtc": null,
+            "motivoEncerramento": null,
+            "leituraAberturaId": 14,
+            "temperaturaAberturaC": 9,
+            "temperaturaMinimaC": 1,
+            "temperaturaMaximaC": 5,
+            "toleranciaPortaAbertaSegundos": 30,
+            "ausenciaLeiturasSegundos": 60
+          }
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/monitoramento?origem=Hardware",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": null,
+      "responseBody": {
+        "consultadoEmUtc": "2026-11-18T22:04:36.1407992Z",
+        "origem": "Hardware",
+        "geladeiras": [
+          {
+            "id": 7,
+            "nome": "FIXTURE HISTORICA DISPOSITIVOS",
+            "localizacao": null,
+            "ultimaLeitura": null
+          },
+          {
+            "id": 8,
+            "nome": "FIXTURE EMISSOR - BANCO ISOLADO",
+            "localizacao": null,
+            "ultimaLeitura": {
+              "id": 14,
+              "geladeiraId": 8,
+              "temperaturaC": 9,
+              "portaAberta": false,
+              "medidoEmUtc": "2026-11-18T22:04:35.213688Z",
+              "recebidoEmUtc": "2026-11-18T22:04:35.2313087Z",
+              "origem": "Hardware",
+              "dispositivoId": 2,
+              "medicaoId": "95fad35f-6e54-4c0d-a159-92cef51eb8f7"
+            }
+          },
+          {
+            "id": 9,
+            "nome": "FIXTURE OUTRO - BANCO ISOLADO",
+            "localizacao": null,
+            "ultimaLeitura": null
+          }
+        ]
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/api/geladeiras/8/configuracao",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "requestBody": {
+        "temperaturaMinimaC": 1,
+        "temperaturaMaximaC": 5,
+        "toleranciaPortaAbertaSegundos": 30,
+        "ausenciaLeiturasSegundos": 60,
+        "origemMonitorada": "Hardware",
+        "monitoramentoAtivo": false
+      },
+      "responseBody": {
+        "geladeiraId": 8,
+        "configuracao": {
+          "temperaturaMinimaC": 1,
+          "temperaturaMaximaC": 5,
+          "toleranciaPortaAbertaSegundos": 30,
+          "ausenciaLeiturasSegundos": 60,
+          "origemMonitorada": "Hardware",
+          "monitoramentoAtivo": false,
+          "inicioMonitoramentoEmUtc": null,
+          "atualizadoEmUtc": "2026-11-18T22:04:36.1467048Z"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/9/dispositivos",
+      "expectedStatus": [
+        201,
+        409
+      ],
+      "actualStatus": 201,
+      "requestBody": {
+        "nome": "FIXTURE CONCORRENTE"
+      },
+      "responseBody": {
+        "dispositivo": {
+          "id": 3,
+          "geladeiraId": 9,
+          "nome": "FIXTURE CONCORRENTE",
+          "criadoEmUtc": "2026-11-18T22:04:36.2207646Z",
+          "revogadoEmUtc": null
+        },
+        "credencial": "[REDACTED]"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/geladeiras/9/dispositivos",
+      "expectedStatus": [
+        201,
+        409
+      ],
+      "actualStatus": 409,
+      "requestBody": {
+        "nome": "FIXTURE CONCORRENTE"
+      },
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.10",
+        "title": "Já existe dispositivo ativo.",
+        "status": 409,
+        "detail": "Revogue a credencial anterior antes de emitir outra.",
+        "traceId": "00-17cc9d1b5811d1e842b336dba3c56a93-2eefcfa41da6efb1-00"
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/geladeiras/9",
+      "expectedStatus": 204,
+      "actualStatus": 204,
+      "requestBody": null,
+      "responseBody": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/geladeiras/8",
+      "expectedStatus": 409,
+      "actualStatus": 409,
+      "requestBody": null,
+      "responseBody": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.10",
+        "title": "Geladeira possui leituras.",
+        "status": 409,
+        "detail": "O cadastro não pode ser excluído porque possui leituras armazenadas.",
+        "traceId": "00-a3bbadc1ed09967733dd96cd142ac190-f0c3fd2fcec84fe4-00"
+      }
+    }
+  ],
+  "assertions": 85,
+  "finishedAtUtc": "2026-11-18T22:04:36.599079+00:00"
+}

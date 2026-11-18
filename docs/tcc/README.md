@@ -1,5 +1,7 @@
 # Escrita acadêmica do ICEPLAY
 
+[Revisão técnica solicitada pelo professor, 18/11/2026](revisao-orientador-2026-11-18/README.md): complemento Word de 15 páginas, DER com chaves/cardinalidades, imagens preservadas, comparação documental Sitrad Pro/testo Saveris 2, conclusão e minutas revisadas. Sumário e listas automáticas do complemento atualizados e páginas conferidas. O Word exato enviado ao professor pelo amigo do aluno ainda precisa ser recebido para a integração e revisão final de paginação/citações. [Nova rodada de software e relatório](../etapa-revisao-orientador-2026-11-18.md): build sem avisos/erros, 149 testes JavaScript e dez verificadores aprovados, sem novo ensaio físico.
+
 [Mapa de evidências das 11 aulas, conferido em 18/11/2026](mapa-evidencias-cronograma-2026-11-18.md): relaciona datas previstas, registros reais e lacunas; inclui a distinção entre a validação parcial do iPhone em 09/11 e o leitor QR posterior ainda pendente de ensaio no aparelho.
 
 [Versão PDF do mapa](../../output/pdf/ICEPLAY_Mapa_Evidencias_Cronograma_2026-11-18.pdf): cinco páginas conferidas visualmente, com as 11 etapas e links para as fontes na revisão Git do mapa. A conversão preservou a fonte textual e suas ressalvas; não executou novos testes da aplicação. [Verificação de conteúdo e procedência](../../output/pdf/ICEPLAY_Mapa_Evidencias_Cronograma_2026-11-18.verificacao.json).
@@ -16,7 +18,7 @@ O modelo Word enviado pelo aluno foi analisado anteriormente: capa/folhas inicia
 
 - Introdução/problema/objetivos/delimitação, fundamentação de apoio e justificativa técnica.
 - Requisitos, regras, arquitetura, entidades, API, software implementado e resultados dos verificadores.
-- Fontes bibliográficas existentes e verificadas, com escopo de leitura declarado em `referencias.md`.
+- Fontes bibliográficas existentes e verificadas, com escopo de leitura em [fontes consultadas](revisao-orientador-2026-11-18/fontes-consultadas.md) e entradas externas em `referencias.md`.
 - Montagem/protocolo preparados e lista dos campos que precisam de resultado físico.
 - Modelo de artigo com metodologia/resultado de software e conclusão parcial.
 
@@ -25,5 +27,7 @@ O modelo Word enviado pelo aluno foi analisado anteriormente: capa/folhas inicia
 Preencher equipamentos/montagem reais, duração/condições, observações, falhas/retestes, dados e evidências. Revisar discussão/conclusão e então resumo/abstract. Confirmar com o orientador o formato/tamanho do artigo, folhas de aprovação, exigências do curso e entrega. Não preencher aprovação, assinatura, titulação acadêmica do orientador ou ficha catalográfica por suposição. Elementos pessoais opcionais, como dedicatória/agradecimentos, devem ser escritos pelo autor se desejados.
 
 Aplicar os estilos/títulos e sumário automático no Word, incluir as figuras atuais com fonte, conferir paginação/listas/referências e revisar cada página renderizada antes da entrega. O [guia oficial UNIP de 2025](https://unip.br/servicos/biblioteca/assets/download/manual_de_normalizacao_abnt.pdf) orienta a normalização; instruções específicas do professor prevalecem. As cópias geradas são fontes Markdown para edição; a normalização e a conferência de páginas pertencem ao fechamento acadêmico.
+
+`scripts/prepare-tcc.py` agora copia as figuras públicas para cada nova pasta privada de minutas, conferindo seus hashes e resolvendo os links locais. Essa geração foi executada e verificada em 18/11: três minutas e nove imagens. Preservar `.tools/documentacao-iceplay`; o script não cria a monografia final em Word nem publica dados pessoais.
 
 `../requisitos-rastreabilidade.md`, `../modelagem-atual.md`, os contratos, `../hardware/protocolo-ensaio.md` e os relatórios de etapa são os apêndices técnicos de referência. `../uso-de-ia.md` registra a assistência; o aluno permanece responsável por revisão, reprodução e defesa.

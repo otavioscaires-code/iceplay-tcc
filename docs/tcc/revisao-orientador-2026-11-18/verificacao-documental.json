@@ -1,0 +1,89 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-11-18T22:50:54.944918+00:00",
+  "scope": "Conferencia documental; nao substitui revisao da monografia completa nem ensaios fisicos",
+  "document": {
+    "file": "docs/tcc/revisao-orientador-2026-11-18/ICEPLAY_Revisao_Tecnica_Orientador.docx",
+    "sha256": "c7885f4752a1cff6cbeb731004720fb0902b7c913a7768535cedcb354282733a",
+    "pages": 15,
+    "renderer": "Microsoft Word existente via COM; PDF privado rasterizado com Poppler",
+    "packagedRendererAttempt": "Falhou por ausencia de soffice.exe; sem instalacao",
+    "nativeContents": 1,
+    "nativeFigureAndTableLists": 2,
+    "wordFields": 59,
+    "seqFigures": 6,
+    "seqTables": 1,
+    "seqFrames": 1,
+    "refFields": 6,
+    "images": 6,
+    "embeddedMediaMatchesSources": true,
+    "headingKeepWithNext": true,
+    "titleHasNoBorder": true,
+    "allPagesVisuallyInspected": true,
+    "visualReview": "Paginas 1 a 15 da renderizacao final v4 conferidas; sem cortes ou campos vazios",
+    "abntCertification": false
+  },
+  "figureSources": [
+    {
+      "figure": 1,
+      "file": "docs/tcc/materiais-modelagem-2026-11-17/figuras/casos-de-uso.png",
+      "sha256": "81a861046c39a6359a8d3cba0dc889943a6b9219e5a1f63ed4c9bd383af6efe0"
+    },
+    {
+      "figure": 2,
+      "file": "docs/tcc/materiais-modelagem-2026-11-17/figuras/arquitetura.png",
+      "sha256": "b73865b38b62e23f7c20104b341954f5784b49c1b130770e4b3f8066bdcbb12d"
+    },
+    {
+      "figure": 3,
+      "file": "docs/tcc/revisao-orientador-2026-11-18/figuras/der-chaves-cardinalidades.png",
+      "sha256": "80b00644e469890be497d8cdbe3f1b704c2e9fda5eb70ded029ae8c3e9608b16"
+    },
+    {
+      "figure": 4,
+      "file": "docs/tcc/evolucao-visual-2026-11-18/imagens/03_cadastro_desktop_15-10-2026.jpg",
+      "sha256": "9553f35347d8ae1bf2209d519a98f85c5573e195763713f53bceb677f2a023c8"
+    },
+    {
+      "figure": 5,
+      "file": "docs/tcc/evolucao-visual-2026-11-18/imagens/07_interface_desktop_14-11-2026.jpg",
+      "sha256": "1a29ab6c1416d7278261f6dc85e28268e87f2260d2cd51d47e80adaefa16e841"
+    },
+    {
+      "figure": 6,
+      "file": "docs/tcc/revisao-orientador-2026-11-18/figuras/foto-iphone-historico-09-11-2026.jpg",
+      "sha256": "e7ff255e447a21bfb1016040ac47f9ba48d0052209eab7798f11f44b06c99b89"
+    }
+  ],
+  "schema": {
+    "method": "SQL das cinco migrations executado em SQLite :memory:",
+    "tables": 6,
+    "columns": 49,
+    "foreignKeys": 7,
+    "sqlFile": "docs/sql/iceplay-criacao-2026-11-12.sql",
+    "sqlSha256": "531eb54b4b046bbbeb8556db98e21c73fcc9eb853bb2b7782f4997a14162cabe"
+  },
+  "markdown": {
+    "checkedLocalLinks": 101,
+    "monographFigures": 9,
+    "domInAcronyms": true,
+    "oauthIsNotSystemAcronym": true,
+    "localContractMovedToAppendix": true
+  },
+  "privateDraftGeneration": {
+    "executed": true,
+    "drafts": 3,
+    "copiedFigures": 9,
+    "allHashesVerified": true,
+    "checkedLocalLinks": 17,
+    "personalMetadataPublished": false
+  },
+  "softwareEvidence": "docs/evidencias/20261118T220205Z-revisao-orientador/rodada.json",
+  "limits": [
+    "Word que o amigo enviou ao professor ainda nao localizado",
+    "Sem certificacao ABNT ou aprovacao do orientador",
+    "Comparacao de produtos documental, sem experimento ou prova de novidade",
+    "Tentativa de screenshot nova falhou; imagens preservadas com datas",
+    "Sem novo ensaio ou gravacao fisica; sensores e geladeira pendentes"
+  ]
+}

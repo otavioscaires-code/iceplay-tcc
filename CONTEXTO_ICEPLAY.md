@@ -1,5 +1,7 @@
 # CONTEXTO ICEPLAY
 
+**Revisão solicitada pelo orientador, 18/11/2026:** `docs/tcc/revisao-orientador-2026-11-18/` reúne complemento Word editável de 15 páginas com campos automáticos atualizados, DER, figuras preservadas, comparação documental Sitrad Pro/testo Saveris 2, fontes e conclusão revisada. Minutas incorporam nove figuras, DOM, apêndices e resultados atuais. O Word que o amigo enviou ao professor ainda não foi identificado; não declarar a monografia completa normalizada ou aprovada. Nova rodada em `docs/evidencias/20261118T220205Z-revisao-orientador/`: build sem avisos/erros, 149 JavaScript, dez verificadores aprovados, avaliador 31 e convites 13. O gerador de minutas copia e confere nove imagens em pastas privadas novas. Interface isolada observada por acessibilidade; captura gráfica falhou, sem screenshot nova. Nenhum novo ensaio físico, banco de uso/migration ou runtime alterado. Ver `docs/etapa-revisao-orientador-2026-11-18.md`. Próximas ações: obter o Word do grupo e retomar os sensores conforme estado físico abaixo.
+
 **Acompanhamento documental, 18/11/2026:** `docs/tcc/mapa-evidencias-cronograma-2026-11-18.md` relaciona as 11 aulas às fontes reais e às lacunas. Não foram encontrados registros contemporâneos das primeiras três aulas nas fontes examinadas; datas de planejamento, execução, Git e organização permanecem distintas. O registro parcial de iPhone em 09/11 não valida o leitor QR posterior. Nenhum arquivo de evidência/pacote visual, runtime, banco ou estado físico foi alterado por este mapa.
 
 O mesmo mapa foi convertido em PDF de cinco páginas, em `output/pdf/ICEPLAY_Mapa_Evidencias_Cronograma_2026-11-18.pdf`, com links para as fontes, comparação do conteúdo e inspeção das páginas renderizadas. Fonte Markdown preservada; conversão documental sem nova execução da aplicação ou hardware.
@@ -30,7 +32,7 @@ ICEPLAY é o TCC de Ciência da Computação de Otávio Souza Caires, orientado 
 
 Prazo do professor: versão completa em **24/11/2026**, apresentação em **01/12/2026**, com evidências de execução. O usuário pediu encerrar o trabalho de software antes da chegada do hardware, por incrementos validados. Voz foi excluída do MVP em 09/11; notificações externas são futuras.
 
-**Software implementado e verificado:** CRUD, ingestão/simulador, painel, histórico, páginas independentes, acesso móvel, configurações, regras/alertas, credenciais de dispositivo e reenvio idempotente. **Firmware escrito e compilado:** ESP32 clássico, DS18B20 e reed. **Não validado:** montagem, gravação, sensor físico, comunicação real da placa, precisão e ensaio na geladeira. A nova interface ainda precisa de conferência visual no iPhone.
+**Software implementado e verificado:** CRUD, ingestão/simulador, painel, histórico, páginas independentes, acesso móvel, configurações, regras/alertas, credenciais de dispositivo e reenvio idempotente. **Firmware principal escrito e compilado:** ESP32 clássico, DS18B20 e reed; ainda não gravado na placa. **Bancada parcial comprovada:** reconhecimento USB, consulta serial/ROM, gravação/boot do diagnóstico temporário e estados HIGH/LOW/HIGH da entrada GPIO27 com jumper. **Não validado:** DS18B20, contato magnético com ímã, ingestão física autenticada, precisão e ensaio na geladeira. Novos formulários/leitor QR ainda precisam de conferência no iPhone.
 
 ## 2 Arquitetura e versões
 
@@ -133,7 +135,9 @@ Local: `http://localhost:5080`. Encerrar antes de recompilar. Para rede já prep
 
 ## 9 Testes e limites de verificação
 
-Scripts base/CRUD/leituras/histórico/painel/configurações/alertas/dispositivos/páginas/móvel usam bancos isolados; sempre passar nova pasta `-EvidenceDirectory`. Executar sequencialmente, sem servidor de uso em execução durante builds. Node: sete arquivos `scripts/*.test.mjs`, 112 testes na última rodada. Firmware: `scripts/verify-firmware.ps1` compila exemplo e cópia isolada configurada; não copia configuração privada nem grava placa.
+Scripts base/CRUD/leituras/histórico/painel/configurações/alertas/dispositivos/páginas/móvel usam bancos isolados; sempre passar nova pasta `-EvidenceDirectory`. Executar sequencialmente, sem servidor de uso em execução durante builds. Node: dez arquivos `scripts/*.test.mjs`, 149 testes na rodada de 18/11. Firmware: `scripts/verify-firmware.ps1` compila exemplo e cópia isolada configurada; não copia configuração privada nem grava placa.
+
+Última rodada de software: `docs/evidencias/20261118T220205Z-revisao-orientador/`, referência `bc89543`, executada em 18/11 de 22:02:05 a 22:05:06 UTC. Build zero avisos/erros; dez verificadores aprovados. Base 13; CRUD 807/177 requisições; leituras 339/75; histórico 145/68; painel 70/29; configurações 153/67; alertas HTTP 92/68, avaliador 31 asserções; dispositivos 85/56; páginas 216/52; móvel 181/137 e convites 13 asserções. JavaScript 149/149. Ver `resumo-software.json` e relatório da revisão; isso não repete firmware ou validação física.
 
 Resultados executados em 12–13/11: build .NET zero avisos/erros; base 13; CRUD 807/177 requisições; leituras 339/75; histórico 145/68; painel 70/29; configurações 153/67; alertas 31 com relógio controlado e HTTP 91/67 na rodada final; dispositivos 84/55; móvel 139/102; páginas 207/47; Node 112. Não somar como funcionalidades independentes ou porcentagem de cobertura. Consultar relatórios para requisições extras/simulador/concorrência e tentativas falhas preservadas. O commit `c9c0a29` corrigiu a aceitação de fração UTC vazia no filtro; ver `docs/correcao-filtro-utc-2026-11-13.md`.
 
@@ -145,7 +149,7 @@ Em 09/11 o usuário confirmou acesso, saúde, cadastro/edição/navegação, his
 
 Hardware previsto: uma placa ESP32 clássica, sonda DS18B20, um par reed/ímã, resistor 4k7 (não 47R), protoboard/jumpers e USB com dados. GPIO4 para DQ, pull-up a 3V3 e GPIO27/GND para contato; conferir fios/polaridade/modelo reais. Placa/alimentação fora da geladeira. Sem atuação na rede elétrica/compressor.
 
-Em 14/11, o usuário confirmou recebimento somente do cabo, kit de contatos magnéticos e resistores comprados com valor errado; naquele momento os demais componentes ainda não tinham chegado. Fotos posteriores identificaram a placa; em 18/11 foi comprovada comunicação serial do ESP32-D0WD-V3/revisão 3.1, com flash 4 MB. Montagem e pinagem das demais peças ainda precisam de conferência. Não há gravação de firmware ou ensaio de sensores validado; fotos/embalagens não comprovam contato seco nem aquisição de temperatura.
+Em 14/11, o usuário confirmou recebimento somente do cabo, kit de contatos magnéticos e resistores comprados com valor errado; naquele momento os demais componentes ainda não tinham chegado. Fotos posteriores identificaram a placa; em 18/11 foi comprovada comunicação serial do ESP32-D0WD-V3/revisão 3.1, com flash 4 MB. Depois foi gravado e iniciado o diagnóstico temporário GPIO27, com teste HIGH/LOW/HIGH usando jumper em capturas separadas. A placa permanece nesse diagnóstico. Montagem/pinagem da sonda, resistor 4k7 correto e ligação do SP1006/ímã precisam de conferência; sensores e programa principal de ingestão ainda não foram validados. Fotos/embalagens não comprovam contato seco nem aquisição de temperatura.
 
 Firmware: amostragem nominal 10 s, conversão 800 ms, debounce 50 ms, UTC SNTP, CA HTTPS, UUID/retry; uma amostra pendente em RAM até 30 s, sem histórico offline completo. Operações HTTP podem atrasar polling; não promete capturar todo pulso curto. `firmware/README.md` e `docs/hardware/` têm comandos, montagem e 12 ensaios pendentes. Configurar WiFi/chave em `config.local.h`, ignorado; verificador nunca publica binário privado.
 
@@ -157,9 +161,9 @@ Escrita em `docs/tcc/`: minuta de monografia, artigo de trabalho, referências v
 
 ## 12 Próximas prioridades
 
-1. Após USB/COM e consulta ROM aprovados em 18/11, conferir peças, fios/pinagem e polaridade; montar sem alimentação, preparar configuração privada e gravar conforme protocolo/autorização.
+1. Preservar o diagnóstico GPIO27 e o teste de jumper já aprovados. Conferir pontas/ferramenta e testar um contato SP1006 com ímã entre D27/GND, sem ponte paralela; USB desligado durante ligações. Conferir sonda/resistor 4k7 e então preparar/gravar o programa principal conforme protocolo/autorização. Não repetir instalação de driver/consulta ROM como ensaio dos sensores.
 2. Executar bancada e geladeira: temperatura/porta, HTTPS/UTC, erros, ausência/recuperação/reinício/revogação; guardar resultados reais.
 3. Conferir no iPhone os novos formulários, alertas e refinamentos em orientação/teclado/reconexão, sem confundir com os testes HTTP.
-4. Preencher parâmetros reais com o orientador, resultados físicos, discussão/limitações, capturas novas e concluir revisão/formatação do TCC/artigo/apresentação.
+4. Obter do amigo o Word efetivamente enviado ao professor e integrar a revisão de 18/11 preservando a versão do grupo. Preencher parâmetros reais com o orientador, resultados físicos, discussão/limitações e capturas novas; concluir revisão/formatação do TCC/artigo/apresentação.
 
 Não reconstruir módulos já concluídos, criar dados fictícios, trocar tecnologias ou considerar simulação equivalente ao ensaio físico.

@@ -1,0 +1,82 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-18T22:02:05.3075125Z",
+  "finishedAtUtc": "2026-11-18T22:05:06.4311469Z",
+  "sourceCommit": "bc89543d15993ba2274b3eb7134f0cf8a8e24115",
+  "scope": "Nova verificacao de software em bancos isolados; sem hardware ou medicao fisica",
+  "evidenceDirectory": "docs/evidencias/20261118T220205Z-revisao-orientador",
+  "steps": [
+    {
+      "name": "setup",
+      "result": "passed",
+      "log": "setup.log"
+    },
+    {
+      "name": "javascript",
+      "result": "passed",
+      "log": "javascript.log",
+      "files": 10
+    },
+    {
+      "name": "verify",
+      "result": "passed",
+      "directory": "verify",
+      "log": "verify-runner.log"
+    },
+    {
+      "name": "verify-geladeiras",
+      "result": "passed",
+      "directory": "verify-geladeiras",
+      "log": "verify-geladeiras-runner.log"
+    },
+    {
+      "name": "verify-leituras",
+      "result": "passed",
+      "directory": "verify-leituras",
+      "log": "verify-leituras-runner.log"
+    },
+    {
+      "name": "verify-historico",
+      "result": "passed",
+      "directory": "verify-historico",
+      "log": "verify-historico-runner.log"
+    },
+    {
+      "name": "verify-monitoramento",
+      "result": "passed",
+      "directory": "verify-monitoramento",
+      "log": "verify-monitoramento-runner.log"
+    },
+    {
+      "name": "verify-configuracoes",
+      "result": "passed",
+      "directory": "verify-configuracoes",
+      "log": "verify-configuracoes-runner.log"
+    },
+    {
+      "name": "verify-alertas",
+      "result": "passed",
+      "directory": "verify-alertas",
+      "log": "verify-alertas-runner.log"
+    },
+    {
+      "name": "verify-dispositivos",
+      "result": "passed",
+      "directory": "verify-dispositivos",
+      "log": "verify-dispositivos-runner.log"
+    },
+    {
+      "name": "verify-pages",
+      "result": "passed",
+      "directory": "verify-pages",
+      "log": "verify-pages-runner.log"
+    },
+    {
+      "name": "verify-mobile",
+      "result": "passed",
+      "directory": "verify-mobile",
+      "log": "verify-mobile-runner.log"
+    }
+  ],
+  "errors": []
+}

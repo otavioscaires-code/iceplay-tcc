@@ -1,0 +1,153 @@
+{
+  "checkedAtUtc": "2026-11-18T22:17:50.9311156Z",
+  "scope": "API real com banco isolado e fixtures Simulacao; interface inspecionada por acessibilidade, sem nova captura grafica",
+  "health": {
+    "status": "healthy",
+    "database": "connected",
+    "refrigeratorCount": 1,
+    "checkedAtUtc": "2026-11-18T22:17:50.9807065Z"
+  },
+  "geladeiras": [
+    {
+      "id": 1,
+      "nome": "TESTE SOFTWARE - SIMULACAO",
+      "localizacao": "Banco isolado para documentacao - sem sensores",
+      "criadoEmUtc": "2026-11-18T22:09:38.5336546Z"
+    }
+  ],
+  "historico": {
+    "geladeiraId": 1,
+    "origem": "Simulacao",
+    "inicioUtc": null,
+    "fimUtc": null,
+    "pagina": 1,
+    "tamanhoPagina": 50,
+    "totalItens": 6,
+    "totalPaginas": 1,
+    "itens": [
+      {
+        "id": 6,
+        "geladeiraId": 1,
+        "temperaturaC": 9,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:09:39.3109092Z",
+        "recebidoEmUtc": "2026-11-18T22:09:39.3139978Z",
+        "origem": "Simulacao",
+        "dispositivoId": null,
+        "medicaoId": null
+      },
+      {
+        "id": 5,
+        "geladeiraId": 1,
+        "temperaturaC": 4.4,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:08:39.0011772Z",
+        "recebidoEmUtc": "2026-11-18T22:09:39.0028366Z",
+        "origem": "Simulacao",
+        "dispositivoId": null,
+        "medicaoId": null
+      },
+      {
+        "id": 4,
+        "geladeiraId": 1,
+        "temperaturaC": 4.6,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:07:38.9676932Z",
+        "recebidoEmUtc": "2026-11-18T22:09:38.9694428Z",
+        "origem": "Simulacao",
+        "dispositivoId": null,
+        "medicaoId": null
+      },
+      {
+        "id": 3,
+        "geladeiraId": 1,
+        "temperaturaC": 4.2,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:06:38.911239Z",
+        "recebidoEmUtc": "2026-11-18T22:09:38.9128528Z",
+        "origem": "Simulacao",
+        "dispositivoId": null,
+        "medicaoId": null
+      },
+      {
+        "id": 2,
+        "geladeiraId": 1,
+        "temperaturaC": 4.3,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:05:38.8685804Z",
+        "recebidoEmUtc": "2026-11-18T22:09:38.8706728Z",
+        "origem": "Simulacao",
+        "dispositivoId": null,
+        "medicaoId": null
+      },
+      {
+        "id": 1,
+        "geladeiraId": 1,
+        "temperaturaC": 4.1,
+        "portaAberta": false,
+        "medidoEmUtc": "2026-11-18T22:04:38.7324583Z",
+        "recebidoEmUtc": "2026-11-18T22:09:38.7675073Z",
+        "origem": "Simulacao",
+        "dispositivoId": null,
+        "medicaoId": null
+      }
+    ]
+  },
+  "alertas": {
+    "geladeiraId": null,
+    "origem": "Simulacao",
+    "tipo": null,
+    "gravidade": null,
+    "situacao": null,
+    "inicioUtc": null,
+    "fimUtc": null,
+    "pagina": 1,
+    "tamanhoPagina": 20,
+    "totalItens": 2,
+    "totalPaginas": 1,
+    "itens": [
+      {
+        "id": 2,
+        "geladeiraId": 1,
+        "geladeiraNome": "TESTE SOFTWARE - SIMULACAO",
+        "origem": "Simulacao",
+        "tipo": "AusenciaLeituras",
+        "gravidade": "Atencao",
+        "situacao": "Aberto",
+        "inicioCondicaoEmUtc": "2026-11-18T22:11:39.3109092Z",
+        "abertoEmUtc": "2026-11-18T22:11:39.7187624Z",
+        "ultimaEvidenciaEmUtc": "2026-11-18T22:09:39.3109092Z",
+        "encerradoEmUtc": null,
+        "motivoEncerramento": null,
+        "leituraAberturaId": null,
+        "temperaturaAberturaC": null,
+        "temperaturaMinimaC": 2,
+        "temperaturaMaximaC": 8,
+        "toleranciaPortaAbertaSegundos": 20,
+        "ausenciaLeiturasSegundos": 120
+      },
+      {
+        "id": 1,
+        "geladeiraId": 1,
+        "geladeiraNome": "TESTE SOFTWARE - SIMULACAO",
+        "origem": "Simulacao",
+        "tipo": "TemperaturaForaFaixa",
+        "gravidade": "Critico",
+        "situacao": "Encerrado",
+        "inicioCondicaoEmUtc": "2026-11-18T22:09:39.3109092Z",
+        "abertoEmUtc": "2026-11-18T22:09:39.7416865Z",
+        "ultimaEvidenciaEmUtc": "2026-11-18T22:09:39.3109092Z",
+        "encerradoEmUtc": "2026-11-18T22:11:39.7187624Z",
+        "motivoEncerramento": "SemDadosRecentes",
+        "leituraAberturaId": 6,
+        "temperaturaAberturaC": 9,
+        "temperaturaMinimaC": 2,
+        "temperaturaMaximaC": 8,
+        "toleranciaPortaAbertaSegundos": 20,
+        "ausenciaLeiturasSegundos": 120
+      }
+    ]
+  },
+  "browserObservation": "Chrome nativo abriu Visao geral, mostrou API Operacional, fixture TESTE SOFTWARE - SIMULACAO e origem Simulacao",
+  "screenshotResult": "Captura WGC retornou FrameArrived/window capture timed out; clique nativo retornou coordinate input geometry is unavailable. Nenhuma imagem de execucao foi produzida nesta tentativa."
+}

@@ -1,5 +1,7 @@
 # ICEPLAY
 
+**18/11/2026 — revisão solicitada pelo orientador:** [complemento Word editável de 15 páginas e lista de atendimento](docs/tcc/revisao-orientador-2026-11-18/README.md), com DER, figuras reais, comparação documental de mercado, referências e conclusão revisada. Minutas atualizadas; o Word completo enviado pelo amigo ainda precisa ser recebido para ajustar a versão do grupo. Nova rodada real: build sem avisos/erros, 149 testes JavaScript e dez verificadores aprovados. [Comandos, resultados e limites](docs/etapa-revisao-orientador-2026-11-18.md). Não houve novo ensaio físico ou alteração da aplicação.
+
 **18/11/2026 — documentação visual:** [15 imagens com legendas, fontes e caderno PDF de 11 páginas](docs/tcc/evolucao-visual-2026-11-18/README.md). Capturas preservadas das etapas iniciais e figuras extraídas de código/relatórios reais. Os registros associados começam em 13/10; o primeiro commit disponível é de 30/10. Figuras preparadas agora estão identificadas. Não houve alteração de funcionamento ou novo ensaio físico nesta organização.
 
 **18/11/2026:** comunicação serial real com ESP32-D0WD-V3/revisão 3.1 e flash 4 MB na COM3. Depois, [diagnóstico temporário de GPIO27](docs/etapa-diagnostico-porta-2026-11-18.md) compilado e gravado com autorização: oito HIGH sem conexões, oito LOW com ponte de jumper e oito HIGH após retirar a ponte, em capturas separadas. A placa está com esse diagnóstico; sensor/ímã e firmware principal de ingestão ainda pendentes. [Consulta ROM anterior](docs/etapa-serial-2026-11-18.md).

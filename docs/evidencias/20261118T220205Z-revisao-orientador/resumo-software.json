@@ -1,0 +1,71 @@
+{
+  "scope": "Resultados efetivamente executados em 18/11/2026, sem hardware",
+  "sourceCommit": "bc89543d15993ba2274b3eb7134f0cf8a8e24115",
+  "rows": [
+    {
+      "name": "Base",
+      "checks": 13,
+      "requests": null,
+      "file": "verify/smoke-latest.json"
+    },
+    {
+      "name": "Geladeiras",
+      "checks": 807,
+      "requests": 177,
+      "file": "verify-geladeiras/crud-api.json"
+    },
+    {
+      "name": "Leituras",
+      "checks": 339,
+      "requests": 75,
+      "file": "verify-leituras/leituras-api.json"
+    },
+    {
+      "name": "Historico",
+      "checks": 145,
+      "requests": 68,
+      "file": "verify-historico/historico-api.json"
+    },
+    {
+      "name": "Painel",
+      "checks": 70,
+      "requests": 29,
+      "file": "verify-monitoramento/monitoramento-api.json"
+    },
+    {
+      "name": "Configuracoes",
+      "checks": 153,
+      "requests": 67,
+      "file": "verify-configuracoes/configuracoes-api.json"
+    },
+    {
+      "name": "Alertas",
+      "checks": 92,
+      "requests": 68,
+      "file": "verify-alertas/alertas-api.json"
+    },
+    {
+      "name": "Dispositivos",
+      "checks": 85,
+      "requests": 56,
+      "file": "verify-dispositivos/dispositivos-api.json"
+    },
+    {
+      "name": "Paginas",
+      "checks": 216,
+      "requests": 52,
+      "file": "verify-pages/pages-api.json"
+    },
+    {
+      "name": "Movel",
+      "checks": 181,
+      "requests": 137,
+      "file": "verify-mobile/mobile-api.json"
+    }
+  ],
+  "javascript": {
+    "tests": 149,
+    "passed": 149,
+    "failed": 0
+  }
+}

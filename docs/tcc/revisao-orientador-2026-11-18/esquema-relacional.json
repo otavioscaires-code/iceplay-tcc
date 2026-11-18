@@ -1,0 +1,429 @@
+{
+  "generatedAtUtc": "2026-11-18T22:17:51.942460+00:00",
+  "sourceCommit": "bc89543d15993ba2274b3eb7134f0cf8a8e24115",
+  "sourceSql": "docs/sql/iceplay-criacao-2026-11-12.sql",
+  "sourceSha256": "531eb54b4b046bbbeb8556db98e21c73fcc9eb853bb2b7782f4997a14162cabe",
+  "method": "SQL das cinco migrations executado somente em SQLite em memoria, sem banco de uso",
+  "domainTables": 6,
+  "columns": 49,
+  "foreignKeys": 7,
+  "tables": [
+    {
+      "table": "Alertas",
+      "columns": [
+        {
+          "name": "Id",
+          "sqliteType": "INTEGER",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "GeladeiraId",
+          "sqliteType": "INTEGER",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "Origem",
+          "sqliteType": "TEXT",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "Tipo",
+          "sqliteType": "TEXT",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "Gravidade",
+          "sqliteType": "TEXT",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "InicioCondicaoEmUtc",
+          "sqliteType": "TEXT",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "AbertoEmUtc",
+          "sqliteType": "TEXT",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "UltimaEvidenciaEmUtc",
+          "sqliteType": "TEXT",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "EncerradoEmUtc",
+          "sqliteType": "TEXT",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "MotivoEncerramento",
+          "sqliteType": "TEXT",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "LeituraAberturaId",
+          "sqliteType": "INTEGER",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "TemperaturaAberturaC",
+          "sqliteType": "REAL",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "TemperaturaMinimaC",
+          "sqliteType": "REAL",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "TemperaturaMaximaC",
+          "sqliteType": "REAL",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "ToleranciaPortaAbertaSegundos",
+          "sqliteType": "INTEGER",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "AusenciaLeiturasSegundos",
+          "sqliteType": "INTEGER",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ],
+      "foreignKeys": [
+        {
+          "parentTable": "Leituras",
+          "column": "LeituraAberturaId",
+          "parentColumn": "Id",
+          "onDelete": "RESTRICT"
+        },
+        {
+          "parentTable": "Geladeiras",
+          "column": "GeladeiraId",
+          "parentColumn": "Id",
+          "onDelete": "RESTRICT"
+        }
+      ],
+      "indexes": [
+        {
+          "name": "IX_Alertas_LeituraAberturaId",
+          "unique": false,
+          "partial": false
+        },
+        {
+          "name": "IX_Alertas_GeladeiraId_Origem_Tipo",
+          "unique": true,
+          "partial": true
+        },
+        {
+          "name": "IX_Alertas_AbertoEmUtc_Id",
+          "unique": false,
+          "partial": false
+        }
+      ]
+    },
+    {
+      "table": "ConfiguracoesGeladeiras",
+      "columns": [
+        {
+          "name": "GeladeiraId",
+          "sqliteType": "INTEGER",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "TemperaturaMinimaC",
+          "sqliteType": "REAL",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "TemperaturaMaximaC",
+          "sqliteType": "REAL",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "ToleranciaPortaAbertaSegundos",
+          "sqliteType": "INTEGER",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "AusenciaLeiturasSegundos",
+          "sqliteType": "INTEGER",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "OrigemMonitorada",
+          "sqliteType": "TEXT",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "MonitoramentoAtivo",
+          "sqliteType": "INTEGER",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "InicioMonitoramentoEmUtc",
+          "sqliteType": "TEXT",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "AtualizadoEmUtc",
+          "sqliteType": "TEXT",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ],
+      "foreignKeys": [
+        {
+          "parentTable": "Geladeiras",
+          "column": "GeladeiraId",
+          "parentColumn": "Id",
+          "onDelete": "CASCADE"
+        }
+      ],
+      "indexes": []
+    },
+    {
+      "table": "Dispositivos",
+      "columns": [
+        {
+          "name": "Id",
+          "sqliteType": "INTEGER",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "GeladeiraId",
+          "sqliteType": "INTEGER",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "Nome",
+          "sqliteType": "TEXT",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "CredencialHash",
+          "sqliteType": "BLOB",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "CriadoEmUtc",
+          "sqliteType": "TEXT",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "RevogadoEmUtc",
+          "sqliteType": "TEXT",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ],
+      "foreignKeys": [
+        {
+          "parentTable": "Geladeiras",
+          "column": "GeladeiraId",
+          "parentColumn": "Id",
+          "onDelete": "CASCADE"
+        }
+      ],
+      "indexes": [
+        {
+          "name": "IX_Dispositivos_GeladeiraId",
+          "unique": true,
+          "partial": true
+        }
+      ]
+    },
+    {
+      "table": "EstadosMonitoramento",
+      "columns": [
+        {
+          "name": "GeladeiraId",
+          "sqliteType": "INTEGER",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "ConfiguracaoEmUtc",
+          "sqliteType": "TEXT",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "UltimaMedicaoEmUtc",
+          "sqliteType": "TEXT",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "UltimaLeituraId",
+          "sqliteType": "INTEGER",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "InicioPortaAbertaEmUtc",
+          "sqliteType": "TEXT",
+          "nullable": true,
+          "primaryKey": false
+        }
+      ],
+      "foreignKeys": [
+        {
+          "parentTable": "ConfiguracoesGeladeiras",
+          "column": "GeladeiraId",
+          "parentColumn": "GeladeiraId",
+          "onDelete": "CASCADE"
+        }
+      ],
+      "indexes": []
+    },
+    {
+      "table": "Geladeiras",
+      "columns": [
+        {
+          "name": "Id",
+          "sqliteType": "INTEGER",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "Nome",
+          "sqliteType": "TEXT",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "Localizacao",
+          "sqliteType": "TEXT",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "CriadoEmUtc",
+          "sqliteType": "TEXT",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ],
+      "foreignKeys": [],
+      "indexes": []
+    },
+    {
+      "table": "Leituras",
+      "columns": [
+        {
+          "name": "Id",
+          "sqliteType": "INTEGER",
+          "nullable": false,
+          "primaryKey": true
+        },
+        {
+          "name": "DispositivoId",
+          "sqliteType": "INTEGER",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "GeladeiraId",
+          "sqliteType": "INTEGER",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "MedicaoId",
+          "sqliteType": "TEXT",
+          "nullable": true,
+          "primaryKey": false
+        },
+        {
+          "name": "MedidoEmUtc",
+          "sqliteType": "TEXT",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "Origem",
+          "sqliteType": "TEXT",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "PortaAberta",
+          "sqliteType": "INTEGER",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "RecebidoEmUtc",
+          "sqliteType": "TEXT",
+          "nullable": false,
+          "primaryKey": false
+        },
+        {
+          "name": "TemperaturaC",
+          "sqliteType": "REAL",
+          "nullable": false,
+          "primaryKey": false
+        }
+      ],
+      "foreignKeys": [
+        {
+          "parentTable": "Geladeiras",
+          "column": "GeladeiraId",
+          "parentColumn": "Id",
+          "onDelete": "RESTRICT"
+        },
+        {
+          "parentTable": "Dispositivos",
+          "column": "DispositivoId",
+          "parentColumn": "Id",
+          "onDelete": "RESTRICT"
+        }
+      ],
+      "indexes": [
+        {
+          "name": "IX_Leituras_GeladeiraId_MedidoEmUtc_Id",
+          "unique": false,
+          "partial": false
+        },
+        {
+          "name": "IX_Leituras_DispositivoId_MedicaoId",
+          "unique": true,
+          "partial": true
+        }
+      ]
+    }
+  ],
+  "diagramScope": "Visao de chaves e cardinalidades; dicionario completo neste arquivo. Diagrama nao representa ensaio ou medicao."
+}

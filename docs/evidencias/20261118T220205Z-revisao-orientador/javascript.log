@@ -1,0 +1,904 @@
+TAP version 13
+# Subtest: scripts reais de acesso e pareamento preservam convite inicial e CSRF
+ok 1 - scripts reais de acesso e pareamento preservam convite inicial e CSRF
+  ---
+  duration_ms: 401.0019
+  type: 'test'
+  ...
+# Subtest: aba existente reconhece novo hash e conecta usando helper CSRF real
+ok 2 - aba existente reconhece novo hash e conecta usando helper CSRF real
+  ---
+  duration_ms: 3.7065
+  type: 'test'
+  ...
+# Subtest: leitura na propria pagina conecta sem solicitar codigo permanente
+ok 3 - leitura na propria pagina conecta sem solicitar codigo permanente
+  ---
+  duration_ms: 24.6848
+  type: 'test'
+  ...
+# Subtest: modo local mantém acesso sem código e não envia token CSRF
+ok 4 - modo local mantém acesso sem código e não envia token CSRF
+  ---
+  duration_ms: 467.3063
+  type: 'test'
+  ...
+# Subtest: origem móvel exige conexão e mantém segredo fora da URL
+ok 5 - origem móvel exige conexão e mantém segredo fora da URL
+  ---
+  duration_ms: 3.3313
+  type: 'test'
+  ...
+# Subtest: após login as alterações usam token renovado e credenciais na mesma origem
+ok 6 - após login as alterações usam token renovado e credenciais na mesma origem
+  ---
+  duration_ms: 2.673
+  type: 'test'
+  ...
+# Subtest: GET não envia token de alteração
+ok 7 - GET não envia token de alteração
+  ---
+  duration_ms: 2.6
+  type: 'test'
+  ...
+# Subtest: código inválido mostra erro e não repete automaticamente o POST
+ok 8 - código inválido mostra erro e não repete automaticamente o POST
+  ---
+  duration_ms: 2.2516
+  type: 'test'
+  ...
+# Subtest: saída usa CSRF, limpa acesso e informa a mudança aos módulos
+ok 9 - saída usa CSRF, limpa acesso e informa a mudança aos módulos
+  ---
+  duration_ms: 2.4827
+  type: 'test'
+  ...
+# Subtest: consulta iniciada antes da saída não pode devolver dados à interface depois dela
+ok 10 - consulta iniciada antes da saída não pode devolver dados à interface depois dela
+  ---
+  duration_ms: 4.2362
+  type: 'test'
+  ...
+# Subtest: falha inicial de rede permite recuperação posterior
+ok 11 - falha inicial de rede permite recuperação posterior
+  ---
+  duration_ms: 2.3554
+  type: 'test'
+  ...
+# Subtest: página sem formulário consulta sessão e pode consumir API sem elementos inexistentes
+ok 12 - página sem formulário consulta sessão e pode consumir API sem elementos inexistentes
+  ---
+  duration_ms: 2.6364
+  type: 'test'
+  ...
+# Subtest: página móvel sem formulário mantém link para Acesso e informa 401 na barra
+ok 13 - página móvel sem formulário mantém link para Acesso e informa 401 na barra
+  ---
+  duration_ms: 2.0814
+  type: 'test'
+  ...
+# Subtest: falha inicial sem formulário é visível na barra e mantém caminho para Acesso
+ok 14 - falha inicial sem formulário é visível na barra e mantém caminho para Acesso
+  ---
+  duration_ms: 1.5997
+  type: 'test'
+  ...
+# Subtest: login na página própria redireciona para retorno interno permitido
+ok 15 - login na página própria redireciona para retorno interno permitido
+  ---
+  duration_ms: 7.566
+  type: 'test'
+  ...
+# Subtest: sem retorno, login na página própria abre Visão geral
+ok 16 - sem retorno, login na página própria abre Visão geral
+  ---
+  duration_ms: 2.2634
+  type: 'test'
+  ...
+# Subtest: retornos externos ou não previstos nunca são usados no redirecionamento
+ok 17 - retornos externos ou não previstos nunca são usados no redirecionamento
+  ---
+  duration_ms: 8.7991
+  type: 'test'
+  ...
+# Subtest: compatibilidade com painel existente mantém scroll sem redirecionar
+ok 18 - compatibilidade com painel existente mantém scroll sem redirecionar
+  ---
+  duration_ms: 1.457
+  type: 'test'
+  ...
+# Subtest: nova página consulta sessão já autenticada e obtém seu token renovado
+ok 19 - nova página consulta sessão já autenticada e obtém seu token renovado
+  ---
+  duration_ms: 3.1324
+  type: 'test'
+  ...
+# Subtest: formulário sem JavaScript não envia código em GET e inicia bloqueado
+ok 20 - formulário sem JavaScript não envia código em GET e inicia bloqueado
+  ---
+  duration_ms: 66.9678
+  type: 'test'
+  ...
+# Subtest: envios simultâneos de login geram somente um POST e bloqueiam controles
+ok 21 - envios simultâneos de login geram somente um POST e bloqueiam controles
+  ---
+  duration_ms: 4.0424
+  type: 'test'
+  ...
+# Subtest: filtros vazios permitem consulta global e URL preserva escolha e paginacao
+ok 22 - filtros vazios permitem consulta global e URL preserva escolha e paginacao
+  ---
+  duration_ms: 22.7198
+  type: 'test'
+  ...
+# Subtest: filtros invalidos nao viram consulta parcial silenciosa
+ok 23 - filtros invalidos nao viram consulta parcial silenciosa
+  ---
+  duration_ms: 306.3929
+  type: 'test'
+  ...
+# Subtest: periodo valida UTC Z, calendario e ordem e converte horario local
+ok 24 - periodo valida UTC Z, calendario e ordem e converte horario local
+  ---
+  duration_ms: 0.4935
+  type: 'test'
+  ...
+# Subtest: episodio valida zero como temperatura e distingue encerramento sem normalizacao
+ok 25 - episodio valida zero como temperatura e distingue encerramento sem normalizacao
+  ---
+  duration_ms: 0.613
+  type: 'test'
+  ...
+# Subtest: paginacao exige contagem, filtros e identidades coerentes
+ok 26 - paginacao exige contagem, filtros e identidades coerentes
+  ---
+  duration_ms: 0.5839
+  type: 'test'
+  ...
+# Subtest: resumo valida contagens, origem e situacao do avaliador
+ok 27 - resumo valida contagens, origem e situacao do avaliador
+  ---
+  duration_ms: 0.3763
+  type: 'test'
+  ...
+# Subtest: cliente real consulta API, renderiza texto seguro e mantem pagina na URL
+ok 28 - cliente real consulta API, renderiza texto seguro e mantem pagina na URL
+  ---
+  duration_ms: 507.122
+  type: 'test'
+  ...
+# Subtest: cliente pagina ocorrencias e consulta conserva filtros aplicados
+ok 29 - cliente pagina ocorrencias e consulta conserva filtros aplicados
+  ---
+  duration_ms: 6.8583
+  type: 'test'
+  ...
+# Subtest: alterar filtros cancela resultados anteriores ate nova busca
+ok 30 - alterar filtros cancela resultados anteriores ate nova busca
+  ---
+  duration_ms: 5.1135
+  type: 'test'
+  ...
+# Subtest: falha 401 limpa dados sem anunciar zero confirmado
+ok 31 - falha 401 limpa dados sem anunciar zero confirmado
+  ---
+  duration_ms: 3.3724
+  type: 'test'
+  ...
+# Subtest: falha 503 limpa dados sem anunciar zero confirmado
+ok 32 - falha 503 limpa dados sem anunciar zero confirmado
+  ---
+  duration_ms: 3.2053
+  type: 'test'
+  ...
+# Subtest: falha network limpa dados sem anunciar zero confirmado
+ok 33 - falha network limpa dados sem anunciar zero confirmado
+  ---
+  duration_ms: 4.0315
+  type: 'test'
+  ...
+# Subtest: falha invalid limpa dados sem anunciar zero confirmado
+ok 34 - falha invalid limpa dados sem anunciar zero confirmado
+  ---
+  duration_ms: 5.0935
+  type: 'test'
+  ...
+# Subtest: resposta antiga nao reaparece depois de trocar origem
+ok 35 - resposta antiga nao reaparece depois de trocar origem
+  ---
+  duration_ms: 5.3831
+  type: 'test'
+  ...
+# Subtest: resumo real exibe contagem e distingue zero sem monitoramento ativo
+ok 36 - resumo real exibe contagem e distingue zero sem monitoramento ativo
+  ---
+  duration_ms: 2.2499
+  type: 'test'
+  ...
+# Subtest: avaliador sem confirmacao recente nao apresenta zero como situacao normal
+ok 37 - avaliador sem confirmacao recente nao apresenta zero como situacao normal
+  ---
+  duration_ms: 2.9468
+  type: 'test'
+  ...
+# Subtest: parâmetros aceitam zero, temperaturas negativas, limites finitos e habilitação false
+ok 38 - parâmetros aceitam zero, temperaturas negativas, limites finitos e habilitação false
+  ---
+  duration_ms: 1.9178
+  type: 'test'
+  ...
+# Subtest: validação rejeita faixa invertida/igual, não finitos, tipos errados e campos ausentes
+ok 39 - validação rejeita faixa invertida/igual, não finitos, tipos errados e campos ausentes
+  ---
+  duration_ms: 0.3205
+  type: 'test'
+  ...
+# Subtest: tempos exigem inteiros positivos representáveis e origem/booleano são explícitos
+ok 40 - tempos exigem inteiros positivos representáveis e origem/booleano são explícitos
+  ---
+  duration_ms: 0.4677
+  type: 'test'
+  ...
+# Subtest: formulário vazio não vira zero e a escolha de origem não é presumida
+ok 41 - formulário vazio não vira zero e a escolha de origem não é presumida
+  ---
+  duration_ms: 0.9345
+  type: 'test'
+  ...
+# Subtest: resposta distingue configuração ausente e valida identidade e horários UTC
+ok 42 - resposta distingue configuração ausente e valida identidade e horários UTC
+  ---
+  duration_ms: 1.707
+  type: 'test'
+  ...
+# Subtest: sem geladeiras não há configuração nem envio automático
+ok 43 - sem geladeiras não há configuração nem envio automático
+  ---
+  duration_ms: 31.5071
+  type: 'test'
+  ...
+# Subtest: configuração inexistente abre campos vazios, sem defaults ou PUT
+ok 44 - configuração inexistente abre campos vazios, sem defaults ou PUT
+  ---
+  duration_ms: 2.7564
+  type: 'test'
+  ...
+# Subtest: salvar cria pela mesma API e apresenta somente confirmação do servidor
+ok 45 - salvar cria pela mesma API e apresenta somente confirmação do servidor
+  ---
+  duration_ms: 197.4918
+  type: 'test'
+  ...
+# Subtest: salvar novamente envia atualização sem trocar equipamento ou inventar horários
+ok 46 - salvar novamente envia atualização sem trocar equipamento ou inventar horários
+  ---
+  duration_ms: 2.6567
+  type: 'test'
+  ...
+# Subtest: envios simultâneos geram um único PUT e mantêm controles bloqueados durante a gravação
+ok 47 - envios simultâneos geram um único PUT e mantêm controles bloqueados durante a gravação
+  ---
+  duration_ms: 2.8207
+  type: 'test'
+  ...
+# Subtest: monitoramento ativo apresenta os instantes confirmados e a avaliacao periodica
+ok 48 - monitoramento ativo apresenta os instantes confirmados e a avaliacao periodica
+  ---
+  duration_ms: 1.9364
+  type: 'test'
+  ...
+# Subtest: selecionar geladeira sem configuração limpa todos os parâmetros do equipamento anterior
+ok 49 - selecionar geladeira sem configuração limpa todos os parâmetros do equipamento anterior
+  ---
+  duration_ms: 2.1231
+  type: 'test'
+  ...
+# Subtest: nova página relê parâmetros devolvidos pela API, sem valores apenas locais
+ok 50 - nova página relê parâmetros devolvidos pela API, sem valores apenas locais
+  ---
+  duration_ms: 3.5225
+  type: 'test'
+  ...
+# Subtest: lista inválida ou acesso negado mantém edição bloqueada e informa o problema
+ok 51 - lista inválida ou acesso negado mantém edição bloqueada e informa o problema
+  ---
+  duration_ms: 2.6512
+  type: 'test'
+  ...
+# Subtest: 401 e 404 da consulta limpam valores anteriores e exigem nova consulta
+ok 52 - 401 e 404 da consulta limpam valores anteriores e exigem nova consulta
+  ---
+  duration_ms: 3.764
+  type: 'test'
+  ...
+# Subtest: resposta atrasada de outra geladeira não restaura parâmetros antigos
+ok 53 - resposta atrasada de outra geladeira não restaura parâmetros antigos
+  ---
+  duration_ms: 2.3811
+  type: 'test'
+  ...
+# Subtest: faixa inválida é recusada antes de chamar PUT
+ok 54 - faixa inválida é recusada antes de chamar PUT
+  ---
+  duration_ms: 1.936
+  type: 'test'
+  ...
+# Subtest: 400 preserva edição e informa validação sem alegar gravação
+ok 55 - 400 preserva edição e informa validação sem alegar gravação
+  ---
+  duration_ms: 1.8804
+  type: 'test'
+  ...
+# Subtest: gravação com resposta perdida não é repetida e só libera após recarregar
+ok 56 - gravação com resposta perdida não é repetida e só libera após recarregar
+  ---
+  duration_ms: 2.793
+  type: 'test'
+  ...
+# Subtest: 503, 401 e resposta de sucesso incompatível não são apresentados como gravação confirmada
+ok 57 - 503, 401 e resposta de sucesso incompatível não são apresentados como gravação confirmada
+  ---
+  duration_ms: 6.9397
+  type: 'test'
+  ...
+# Subtest: mudança de acesso relê estado e não conserva edição de outra sessão
+ok 58 - mudança de acesso relê estado e não conserva edição de outra sessão
+  ---
+  duration_ms: 8.2838
+  type: 'test'
+  ...
+# Subtest: HTML inicia bloqueado sem JavaScript, tem unidades explícitas e não anuncia alertas funcionando
+ok 59 - HTML inicia bloqueado sem JavaScript, tem unidades explícitas e não anuncia alertas funcionando
+  ---
+  duration_ms: 68.5296
+  type: 'test'
+  ...
+# Subtest: inicio consulta metadados sem criar credencial automaticamente
+ok 60 - inicio consulta metadados sem criar credencial automaticamente
+  ---
+  duration_ms: 34.3461
+  type: 'test'
+  ...
+# Subtest: emissao exige confirmacao explicita e cancelar nao altera dados
+ok 61 - emissao exige confirmacao explicita e cancelar nao altera dados
+  ---
+  duration_ms: 2.3272
+  type: 'test'
+  ...
+# Subtest: nome vazio e recusado antes de preparar alteracao
+ok 62 - nome vazio e recusado antes de preparar alteracao
+  ---
+  duration_ms: 2.6038
+  type: 'test'
+  ...
+# Subtest: emissao mostra segredo uma vez e limpeza remove copia da tela
+ok 63 - emissao mostra segredo uma vez e limpeza remove copia da tela
+  ---
+  duration_ms: 4.2672
+  type: 'test'
+  ...
+# Subtest: recarregar metadados nao recupera segredo e mantem bloqueio de segundo ativo
+ok 64 - recarregar metadados nao recupera segredo e mantem bloqueio de segundo ativo
+  ---
+  duration_ms: 3.378
+  type: 'test'
+  ...
+# Subtest: revogar exige confirmacao e libera nova emissao depois da resposta
+ok 65 - revogar exige confirmacao e libera nova emissao depois da resposta
+  ---
+  duration_ms: 140.9375
+  type: 'test'
+  ...
+# Subtest: falha lost bloqueia repeticao ate consulta e limpa segredo
+ok 66 - falha lost bloqueia repeticao ate consulta e limpa segredo
+  ---
+  duration_ms: 2.3006
+  type: 'test'
+  ...
+# Subtest: falha 503 bloqueia repeticao ate consulta e limpa segredo
+ok 67 - falha 503 bloqueia repeticao ate consulta e limpa segredo
+  ---
+  duration_ms: 1.6601
+  type: 'test'
+  ...
+# Subtest: mudanca de acesso e saida limpam segredo sem localStorage
+ok 68 - mudanca de acesso e saida limpam segredo sem localStorage
+  ---
+  duration_ms: 2.3837
+  type: 'test'
+  ...
+# Subtest: falha de acesso ou banco vazio nao permite emissao
+ok 69 - falha de acesso ou banco vazio nao permite emissao
+  ---
+  duration_ms: 2.5431
+  type: 'test'
+  ...
+# Subtest: consulta atrasada de outra geladeira nao substitui selecao atual
+ok 70 - consulta atrasada de outra geladeira nao substitui selecao atual
+  ---
+  duration_ms: 2.4221
+  type: 'test'
+  ...
+# Subtest: UTC exige Z e datas existentes, preservando até sete casas
+ok 71 - UTC exige Z e datas existentes, preservando até sete casas
+  ---
+  duration_ms: 2.3432
+  type: 'test'
+  ...
+# Subtest: formulário local converte instantes reais para UTC e opcionais ausentes para null
+ok 72 - formulário local converte instantes reais para UTC e opcionais ausentes para null
+  ---
+  duration_ms: 0.6709
+  type: 'test'
+  ...
+# Subtest: filtros rejeitam IDs/origens/paginação e intervalo invertido, inclusive em sete casas
+ok 73 - filtros rejeitam IDs/origens/paginação e intervalo invertido, inclusive em sete casas
+  ---
+  duration_ms: 0.6172
+  type: 'test'
+  ...
+# Subtest: query inclui identidade/origem/página, omitindo datas opcionais
+ok 74 - query inclui identidade/origem/página, omitindo datas opcionais
+  ---
+  duration_ms: 0.2348
+  type: 'test'
+  ...
+# Subtest: DTO vazio e zero/false são dados válidos
+ok 75 - DTO vazio e zero/false são dados válidos
+  ---
+  duration_ms: 0.3698
+  type: 'test'
+  ...
+# Subtest: DTO não aceita mistura de equipamentos/origens, números em texto ou timestamp impossível
+ok 76 - DTO não aceita mistura de equipamentos/origens, números em texto ou timestamp impossível
+  ---
+  duration_ms: 0.4244
+  type: 'test'
+  ...
+# Subtest: DTO valida paginação, contagens e filtros efetivamente utilizados
+ok 77 - DTO valida paginação, contagens e filtros efetivamente utilizados
+  ---
+  duration_ms: 0.2771
+  type: 'test'
+  ...
+# Subtest: DTO confirma ordem temporal/ID e inclusividade sem perder submilissegundos
+ok 78 - DTO confirma ordem temporal/ID e inclusividade sem perder submilissegundos
+  ---
+  duration_ms: 0.4123
+  type: 'test'
+  ...
+# Subtest: gráfico vazio, um ponto e temperatura constante não inventam escala temporal
+ok 79 - gráfico vazio, um ponto e temperatura constante não inventam escala temporal
+  ---
+  duration_ms: 255.7005
+  type: 'test'
+  ...
+# Subtest: escala constante acrescenta margem visual sem alterar extremos medidos nem timestamps
+ok 80 - escala constante acrescenta margem visual sem alterar extremos medidos nem timestamps
+  ---
+  duration_ms: 0.4039
+  type: 'test'
+  ...
+# Subtest: coordenadas usam toda a largura disponível no celular e desktop
+ok 81 - coordenadas usam toda a largura disponível no celular e desktop
+  ---
+  duration_ms: 0.3969
+  type: 'test'
+  ...
+# Subtest: gráfico ordena somente os pontos fornecidos e mantém coordenadas finitas em extremos
+ok 82 - gráfico ordena somente os pontos fornecidos e mantém coordenadas finitas em extremos
+  ---
+  duration_ms: 1.2305
+  type: 'test'
+  ...
+# Subtest: cliente com banco sem geladeiras mostra vazio sem consultar leituras
+ok 83 - cliente com banco sem geladeiras mostra vazio sem consultar leituras
+  ---
+  duration_ms: 30.9116
+  type: 'test'
+  ...
+# Subtest: cliente consulta o contrato e renderiza tabela/gráfico da página
+ok 84 - cliente consulta o contrato e renderiza tabela/gráfico da página
+  ---
+  duration_ms: 19.7327
+  type: 'test'
+  ...
+# Subtest: cliente pagina mantendo filtros aplicados e representa somente a página recebida
+ok 85 - cliente pagina mantendo filtros aplicados e representa somente a página recebida
+  ---
+  duration_ms: 9.4201
+  type: 'test'
+  ...
+# Subtest: cliente reabre URL de histórico diretamente na página e origem solicitadas
+ok 86 - cliente reabre URL de histórico diretamente na página e origem solicitadas
+  ---
+  duration_ms: 2.8078
+  type: 'test'
+  ...
+# Subtest: resposta atrasada não repõe dados após o usuário alterar os filtros
+ok 87 - resposta atrasada não repõe dados após o usuário alterar os filtros
+  ---
+  duration_ms: 5.465
+  type: 'test'
+  ...
+# Subtest: 401 remove os resultados anteriores e mantém instrução de acesso
+ok 88 - 401 remove os resultados anteriores e mantém instrução de acesso
+  ---
+  duration_ms: 7.0759
+  type: 'test'
+  ...
+# Subtest: período inválido no formulário não chama a API nem conserva um gráfico antigo
+ok 89 - período inválido no formulário não chama a API nem conserva um gráfico antigo
+  ---
+  duration_ms: 6.3748
+  type: 'test'
+  ...
+# Subtest: filtros aguardam a lista de equipamentos e eventos prematuros não cancelam a inicialização
+ok 90 - filtros aguardam a lista de equipamentos e eventos prematuros não cancelam a inicialização
+  ---
+  duration_ms: 6.5362
+  type: 'test'
+  ...
+# Subtest: falha de acesso à lista mantém equipamento e busca bloqueados sem dados fictícios
+ok 91 - falha de acesso à lista mantém equipamento e busca bloqueados sem dados fictícios
+  ---
+  duration_ms: 1.6744
+  type: 'test'
+  ...
+# Subtest: mudança de acesso relê filtros e página da URL atual, não do carregamento inicial
+ok 92 - mudança de acesso relê filtros e página da URL atual, não do carregamento inicial
+  ---
+  duration_ms: 7.5967
+  type: 'test'
+  ...
+# Subtest: gráfico do cliente cabe na largura móvel e preserva dados completos acessíveis
+ok 93 - gráfico do cliente cabe na largura móvel e preserva dados completos acessíveis
+  ---
+  duration_ms: 6.3221
+  type: 'test'
+  ...
+# Subtest: largura do gráfico usa limite mínimo, máximo e fallback sem cortar pontos
+ok 94 - largura do gráfico usa limite mínimo, máximo e fallback sem cortar pontos
+  ---
+  duration_ms: 18.0734
+  type: 'test'
+  ...
+# Subtest: redimensionar redesenha somente a página aplicada sem consultar novamente nem restaurar dados removidos
+ok 95 - redimensionar redesenha somente a página aplicada sem consultar novamente nem restaurar dados removidos
+  ---
+  duration_ms: 7.1468
+  type: 'test'
+  ...
+# Subtest: decoder independente le os pixels do QR gerado para a URL completa
+ok 96 - decoder independente le os pixels do QR gerado para a URL completa
+  ---
+  duration_ms: 246.4772
+  type: 'test'
+  ...
+# Subtest: camera nao e solicitada automaticamente ao abrir a tela
+ok 97 - camera nao e solicitada automaticamente ao abrir a tela
+  ---
+  duration_ms: 1.1555
+  type: 'test'
+  ...
+# Subtest: leitura interna solicita camera traseira sem audio e entrega convite correto
+ok 98 - leitura interna solicita camera traseira sem audio e entrega convite correto
+  ---
+  duration_ms: 104.307
+  type: 'test'
+  ...
+# Subtest: permissao negada informa problema e permite tentar novamente
+ok 99 - permissao negada informa problema e permite tentar novamente
+  ---
+  duration_ms: 0.9181
+  type: 'test'
+  ...
+# Subtest: HTTP inseguro nao solicita camera
+ok 100 - HTTP inseguro nao solicita camera
+  ---
+  duration_ms: 1.0202
+  type: 'test'
+  ...
+# Subtest: camera indisponivel possui mensagem distinta
+ok 101 - camera indisponivel possui mensagem distinta
+  ---
+  duration_ms: 0.9654
+  type: 'test'
+  ...
+# Subtest: QR estrangeiro nao conecta e permite continuar enquadramento
+ok 102 - QR estrangeiro nao conecta e permite continuar enquadramento
+  ---
+  duration_ms: 0.947
+  type: 'test'
+  ...
+# Subtest: permissao resolvida depois de cancelar encerra stream tardio
+ok 103 - permissao resolvida depois de cancelar encerra stream tardio
+  ---
+  duration_ms: 0.8225
+  type: 'test'
+  ...
+# Subtest: duplo clique com permissao pendente nao pede camera duas vezes
+ok 104 - duplo clique com permissao pendente nao pede camera duas vezes
+  ---
+  duration_ms: 65.8163
+  type: 'test'
+  ...
+# Subtest: ocultar ou sair da pagina encerra camera e temporizador
+ok 105 - ocultar ou sair da pagina encerra camera e temporizador
+  ---
+  duration_ms: 1.4752
+  type: 'test'
+  ...
+# Subtest: limite de 90 segundos encerra captura sem renovar o convite
+ok 106 - limite de 90 segundos encerra captura sem renovar o convite
+  ---
+  duration_ms: 0.7469
+  type: 'test'
+  ...
+# Subtest: falha de video encerra camera sem confirmar leitura
+ok 107 - falha de video encerra camera sem confirmar leitura
+  ---
+  duration_ms: 0.7593
+  type: 'test'
+  ...
+# Subtest: biblioteca ausente nao solicita camera
+ok 108 - biblioteca ausente nao solicita camera
+  ---
+  duration_ms: 0.6568
+  type: 'test'
+  ...
+# Subtest: artefato decoder preserva hash e licenca local
+ok 109 - artefato decoder preserva hash e licenca local
+  ---
+  duration_ms: 42.5165
+  type: 'test'
+  ...
+# Subtest: zero e porta fechada permanecem valores válidos, distintos de ausência
+ok 110 - zero e porta fechada permanecem valores válidos, distintos de ausência
+  ---
+  duration_ms: 3.5105
+  type: 'test'
+  ...
+# Subtest: cadastro sem leitura e banco sem geladeiras são respostas válidas
+ok 111 - cadastro sem leitura e banco sem geladeiras são respostas válidas
+  ---
+  duration_ms: 0.6618
+  type: 'test'
+  ...
+# Subtest: respostas de outra origem e leituras misturadas são recusadas
+ok 112 - respostas de outra origem e leituras misturadas são recusadas
+  ---
+  duration_ms: 0.3881
+  type: 'test'
+  ...
+# Subtest: identidade inconsistente ou geladeiras duplicadas não podem ser exibidas
+ok 113 - identidade inconsistente ou geladeiras duplicadas não podem ser exibidas
+  ---
+  duration_ms: 0.211
+  type: 'test'
+  ...
+# Subtest: valores ausentes, strings numéricas e tipos incorretos são recusados
+ok 114 - valores ausentes, strings numéricas e tipos incorretos são recusados
+  ---
+  duration_ms: 0.3021
+  type: 'test'
+  ...
+# Subtest: datas inválidas, sem UTC e medição posterior ao recebimento são recusadas
+ok 115 - datas inválidas, sem UTC e medição posterior ao recebimento são recusadas
+  ---
+  duration_ms: 0.2479
+  type: 'test'
+  ...
+# Subtest: nenhuma leitura não é classificada como recente ou temperatura normal
+ok 116 - nenhuma leitura não é classificada como recente ou temperatura normal
+  ---
+  duration_ms: 0.2607
+  type: 'test'
+  ...
+# Subtest: referência de 60 segundos tem limite explícito
+ok 117 - referência de 60 segundos tem limite explícito
+  ---
+  duration_ms: 0.1249
+  type: 'test'
+  ...
+# Subtest: recebimento recente não torna medição atrasada recente
+ok 118 - recebimento recente não torna medição atrasada recente
+  ---
+  duration_ms: 0.1924
+  type: 'test'
+  ...
+# Subtest: referência visual pode mudar ou ser desativada sem alterar a leitura
+ok 119 - referência visual pode mudar ou ser desativada sem alterar a leitura
+  ---
+  duration_ms: 0.2651
+  type: 'test'
+  ...
+# Subtest: horário à frente da referência é indicado sem fingir recência
+ok 120 - horário à frente da referência é indicado sem fingir recência
+  ---
+  duration_ms: 0.1379
+  type: 'test'
+  ...
+# Subtest: idade é apresentada em português nos limites de segundos, minutos e dias
+ok 121 - idade é apresentada em português nos limites de segundos, minutos e dias
+  ---
+  duration_ms: 0.2306
+  type: 'test'
+  ...
+# Subtest: pareamento so aparece no computador e nao emite convite automaticamente
+ok 122 - pareamento so aparece no computador e nao emite convite automaticamente
+  ---
+  duration_ms: 32.2039
+  type: 'test'
+  ...
+# Subtest: emissao explicita gera SVG com margem branca e modulo preto sem texto secreto
+ok 123 - emissao explicita gera SVG com margem branca e modulo preto sem texto secreto
+  ---
+  duration_ms: 11.6098
+  type: 'test'
+  ...
+# Subtest: duplo clique durante emissao faz somente um POST
+ok 124 - duplo clique durante emissao faz somente um POST
+  ---
+  duration_ms: 40.2883
+  type: 'test'
+  ...
+# Subtest: cancelamento explicito limpa imagem e invalida convite pela API
+ok 125 - cancelamento explicito limpa imagem e invalida convite pela API
+  ---
+  duration_ms: 9.3111
+  type: 'test'
+  ...
+# Subtest: falha de cancelamento nao confirma revogacao inexistente
+ok 126 - falha de cancelamento nao confirma revogacao inexistente
+  ---
+  duration_ms: 9.5275
+  type: 'test'
+  ...
+# Subtest: expiracao visual remove QR e temporizador sem renovacao automatica
+ok 127 - expiracao visual remove QR e temporizador sem renovacao automatica
+  ---
+  duration_ms: 10.7544
+  type: 'test'
+  ...
+# Subtest: fragmento e retirado antes de HTTP e conexao exige confirmacao
+ok 128 - fragmento e retirado antes de HTTP e conexao exige confirmacao
+  ---
+  duration_ms: 2.5765
+  type: 'test'
+  ...
+# Subtest: confirmacao envia token apenas no JSON e nao repete o login
+ok 129 - confirmacao envia token apenas no JSON e nao repete o login
+  ---
+  duration_ms: 1.9747
+  type: 'test'
+  ...
+# Subtest: QR expirado informa falha, mantem alternativa manual e nao navega
+ok 130 - QR expirado informa falha, mantem alternativa manual e nao navega
+  ---
+  duration_ms: 1.5574
+  type: 'test'
+  ...
+# Subtest: sessao autenticada ignora token recebido e nao abre outra sessao
+ok 131 - sessao autenticada ignora token recebido e nao abre outra sessao
+  ---
+  duration_ms: 1.5043
+  type: 'test'
+  ...
+# Subtest: fragmento invalido e removido sem enviar token para a API
+ok 132 - fragmento invalido e removido sem enviar token para a API
+  ---
+  duration_ms: 1.6624
+  type: 'test'
+  ...
+# Subtest: resposta de convite sem HTTPS nao e apresentada
+ok 133 - resposta de convite sem HTTPS nao e apresentada
+  ---
+  duration_ms: 1.5699
+  type: 'test'
+  ...
+# Subtest: biblioteca indisponivel produz mensagem e mantem interface operavel
+ok 134 - biblioteca indisponivel produz mensagem e mantem interface operavel
+  ---
+  duration_ms: 1.6101
+  type: 'test'
+  ...
+# Subtest: sair da pagina limpa imagem sem alteracao automatica na API
+ok 135 - sair da pagina limpa imagem sem alteracao automatica na API
+  ---
+  duration_ms: 9.2189
+  type: 'test'
+  ...
+# Subtest: biblioteca local preserva hash do artefato oficial e licenca MIT
+ok 136 - biblioteca local preserva hash do artefato oficial e licenca MIT
+  ---
+  duration_ms: 34.1445
+  type: 'test'
+  ...
+# Subtest: convite recebido em aba ja aberta e reconhecido sem recarregar
+ok 137 - convite recebido em aba ja aberta e reconhecido sem recarregar
+  ---
+  duration_ms: 39.9304
+  type: 'test'
+  ...
+# Subtest: leitura interna valida mostra confirmacao e oculta codigo manual
+ok 138 - leitura interna valida mostra confirmacao e oculta codigo manual
+  ---
+  duration_ms: 1.7828
+  type: 'test'
+  ...
+# Subtest: leitor rejeita outro servidor, esquema, rota, query ou credenciais
+ok 139 - leitor rejeita outro servidor, esquema, rota, query ou credenciais
+  ---
+  duration_ms: 29.8067
+  type: 'test'
+  ...
+# Subtest: convites modo qr sao aceitos e falha permite reler sem exigir codigo
+ok 140 - convites modo qr sao aceitos e falha permite reler sem exigir codigo
+  ---
+  duration_ms: 1.6656
+  type: 'test'
+  ...
+# Subtest: computador mostra endereco do leitor no celular sem token
+ok 141 - computador mostra endereco do leitor no celular sem token
+  ---
+  duration_ms: 1.299
+  type: 'test'
+  ...
+# Subtest: desktop mantém navegação lateral e oculta botão móvel
+ok 142 - desktop mantém navegação lateral e oculta botão móvel
+  ---
+  duration_ms: 1.8827
+  type: 'test'
+  ...
+# Subtest: menu móvel abre por botão, informa expansão e foca link
+ok 143 - menu móvel abre por botão, informa expansão e foca link
+  ---
+  duration_ms: 0.8546
+  type: 'test'
+  ...
+# Subtest: Escape fecha menu e devolve foco ao botão
+ok 144 - Escape fecha menu e devolve foco ao botão
+  ---
+  duration_ms: 0.8615
+  type: 'test'
+  ...
+# Subtest: clique externo fecha, clique no menu preserva expansão
+ok 145 - clique externo fecha, clique no menu preserva expansão
+  ---
+  duration_ms: 0.7883
+  type: 'test'
+  ...
+# Subtest: mudança de viewport restaura navegação e fecha expansão anterior
+ok 146 - mudança de viewport restaura navegação e fecha expansão anterior
+  ---
+  duration_ms: 0.8576
+  type: 'test'
+  ...
+# Subtest: favoritos antigos apontam para documentos novos
+ok 147 - favoritos antigos apontam para documentos novos
+  ---
+  duration_ms: 3.1611
+  type: 'test'
+  ...
+# Subtest: rotas atuais e âncora do painel não são substituídas
+ok 148 - rotas atuais e âncora do painel não são substituídas
+  ---
+  duration_ms: 2.793
+  type: 'test'
+  ...
+# Subtest: ausência de menu não quebra documento
+ok 149 - ausência de menu não quebra documento
+  ---
+  duration_ms: 0.8486
+  type: 'test'
+  ...
+1..149
+# tests 149
+# suites 0
+# pass 149
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2302.9174

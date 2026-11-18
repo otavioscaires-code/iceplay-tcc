@@ -38,13 +38,15 @@ O firmware compilado utiliza ESP32 clássico, DS18B20 e reed, com UTC/HTTPS e um
 
 ## 4 Resultados de software
 
-Build .NET passou sem avisos/erros; 112 testes JavaScript passaram. Foram registrados, entre outros, 31 testes de regras com relógio controlado, 84 verificações/55 requisições de dispositivo, 139/102 de rede móvel e 207/47 de páginas, além das regressões anteriores. Não se somam essas contagens como cobertura ou funcionalidades independentes. Relatórios preservam tentativas interrompidas e correções.
+Na rodada de 18/11/2026, build .NET passou sem avisos/erros e os 149 testes JavaScript passaram. Foram registrados, entre outros, 31 testes de regras com relógio controlado, 85 verificações/56 requisições de dispositivo, 181/137 de rede móvel e 216/52 de páginas, além dos demais verificadores. Não se somam essas contagens como cobertura ou funcionalidades independentes. Os registros estão em `docs/evidencias/20261118T220205Z-revisao-orientador/`; rodadas anteriores preservam suas próprias datas e resultados.
 
 O upgrade do banco de uso para cinco migrations manteve uma geladeira e três leituras Simulacao, com o mesmo hash dos campos anteriores. O perfil de firmware configurado sinteticamente compilou; dois avisos de biblioteca foram registrados. Esses resultados verificam os cenários de software exercitados, não aquisição física. Uso parcial anterior no iPhone foi relatado, mas as novas telas exigem conferência visual.
 
 ## 5 Resultados físicos e discussão
 
-**Preencher após o ensaio.** Informar conjunto, geladeira/posição, duração, parâmetros, série real e evidências. Relatar falhas, perdas, atraso de amostragem/rede e comportamento de recuperação. Comparação com referência térmica só pode ser discutida se realizada e documentada. Não apresentar especificação do fabricante como exatidão medida.
+Em 16/11 houve reconhecimento USB e, em 18/11, comunicação serial e gravação autorizada de um diagnóstico temporário de GPIO27. Foram observados oito HIGH sem conexões, oito LOW com jumper e oito HIGH após sua retirada, em capturas separadas por reinício. Isso não é teste do sensor magnético ou do DS18B20. O firmware principal de ingestão ainda não foi gravado.
+
+Permanecem necessários os sensores e o ensaio na geladeira: identificar montagem/posição, duração, parâmetros, série real, falhas e recuperação. Comparação com referência térmica só pode ser discutida se realizada e documentada. A validação física integra o objetivo atual do TCC, não foi transferida para trabalho futuro e não é substituída pela especificação do fabricante.
 
 ## 6 Conclusão parcial
 

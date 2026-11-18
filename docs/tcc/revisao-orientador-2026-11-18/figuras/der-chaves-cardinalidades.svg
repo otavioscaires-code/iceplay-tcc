@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1690" viewBox="0 0 1800 1690">
+<rect width="1800" height="1690" fill="white"/>
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="none" stroke="#3e5265" stroke-width="1.4"/></marker></defs>
+<g font-family="Arial, sans-serif" fill="#111111">
+<text x="80" y="62" font-size="39" font-weight="bold">ICEPLAY Modelo relacional de chaves e cardinalidades</text>
+<polyline points="780,230 1020,230" fill="none" stroke="#3e5265" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="799" y="178" width="35" height="38" fill="white"/>
+<text x="805" y="208" font-size="31">1</text>
+<rect x="916" y="178" width="95" height="38" fill="white"/>
+<text x="922" y="208" font-size="31">0..*</text>
+<polyline points="430,350 430,610" fill="none" stroke="#3e5265" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="442" y="362" width="35" height="38" fill="white"/>
+<text x="448" y="392" font-size="31">1</text>
+<rect x="442" y="550" width="95" height="38" fill="white"/>
+<text x="448" y="580" font-size="31">0..1</text>
+<polyline points="1360,350 1360,610" fill="none" stroke="#3e5265" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1374" y="362" width="95" height="38" fill="white"/>
+<text x="1380" y="392" font-size="31">0..1</text>
+<rect x="1374" y="550" width="95" height="38" fill="white"/>
+<text x="1380" y="580" font-size="31">0..*</text>
+<polyline points="650,350 650,460 900,460 900,735 1020,735" fill="none" stroke="#3e5265" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="659" y="371" width="35" height="38" fill="white"/>
+<text x="665" y="401" font-size="31">1</text>
+<rect x="908" y="682" width="95" height="38" fill="white"/>
+<text x="914" y="712" font-size="31">0..*</text>
+<polyline points="430,820 430,1150" fill="none" stroke="#3e5265" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="442" y="840" width="35" height="38" fill="white"/>
+<text x="448" y="870" font-size="31">1</text>
+<rect x="442" y="1090" width="95" height="38" fill="white"/>
+<text x="448" y="1120" font-size="31">0..1</text>
+<polyline points="1360,930 1360,1150" fill="none" stroke="#3e5265" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1374" y="950" width="95" height="38" fill="white"/>
+<text x="1380" y="980" font-size="31">0..1</text>
+<rect x="1374" y="1090" width="95" height="38" fill="white"/>
+<text x="1380" y="1120" font-size="31">0..*</text>
+<polyline points="80,290 25,290 25,1470 1360,1470 1360,1400" fill="none" stroke="#3e5265" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="34" y="368" width="35" height="38" fill="white"/>
+<text x="40" y="398" font-size="31">1</text>
+<rect x="1374" y="1428" width="95" height="38" fill="white"/>
+<text x="1380" y="1458" font-size="31">0..*</text>
+<rect x="80" y="130" width="700" height="220" rx="7" fill="white" stroke="#394958" stroke-width="2"/>
+<path d="M81,190 H779" stroke="#394958" stroke-width="2"/>
+<text x="100" y="172" font-size="33" font-weight="bold">Geladeiras</text>
+<text x="100" y="236" font-size="30">PK  Id</text>
+<text x="100" y="283" font-size="30">Nome, Localizacao, CriadoEmUtc</text>
+<text x="100" y="333" font-size="25" fill="#4b5660">4 colunas no dicionario completo</text>
+<rect x="1020" y="130" width="700" height="220" rx="7" fill="white" stroke="#394958" stroke-width="2"/>
+<path d="M1021,190 H1719" stroke="#394958" stroke-width="2"/>
+<text x="1040" y="172" font-size="33" font-weight="bold">Dispositivos</text>
+<text x="1040" y="236" font-size="30">PK  Id</text>
+<text x="1040" y="283" font-size="30">FK  GeladeiraId</text>
+<text x="1040" y="333" font-size="25" fill="#4b5660">6 colunas no dicionario completo</text>
+<rect x="80" y="610" width="700" height="210" rx="7" fill="white" stroke="#394958" stroke-width="2"/>
+<path d="M81,670 H779" stroke="#394958" stroke-width="2"/>
+<text x="100" y="652" font-size="33" font-weight="bold">ConfiguracoesGeladeiras</text>
+<text x="100" y="716" font-size="30">PK, FK  GeladeiraId</text>
+<text x="100" y="803" font-size="25" fill="#4b5660">9 colunas no dicionario completo</text>
+<rect x="1020" y="610" width="700" height="320" rx="7" fill="white" stroke="#394958" stroke-width="2"/>
+<path d="M1021,670 H1719" stroke="#394958" stroke-width="2"/>
+<text x="1040" y="652" font-size="33" font-weight="bold">Leituras</text>
+<text x="1040" y="716" font-size="30">PK  Id</text>
+<text x="1040" y="763" font-size="30">FK  GeladeiraId</text>
+<text x="1040" y="810" font-size="30">FK opcional  DispositivoId</text>
+<text x="1040" y="857" font-size="30">MedicaoId: UUID da medicao</text>
+<text x="1040" y="913" font-size="25" fill="#4b5660">9 colunas no dicionario completo</text>
+<rect x="80" y="1150" width="700" height="250" rx="7" fill="white" stroke="#394958" stroke-width="2"/>
+<path d="M81,1210 H779" stroke="#394958" stroke-width="2"/>
+<text x="100" y="1192" font-size="33" font-weight="bold">EstadosMonitoramento</text>
+<text x="100" y="1256" font-size="30">PK, FK  GeladeiraId</text>
+<text x="100" y="1303" font-size="30">UltimaLeituraId: marcador sem FK</text>
+<text x="100" y="1383" font-size="25" fill="#4b5660">5 colunas no dicionario completo</text>
+<rect x="1020" y="1150" width="700" height="250" rx="7" fill="white" stroke="#394958" stroke-width="2"/>
+<path d="M1021,1210 H1719" stroke="#394958" stroke-width="2"/>
+<text x="1040" y="1192" font-size="33" font-weight="bold">Alertas</text>
+<text x="1040" y="1256" font-size="30">PK  Id</text>
+<text x="1040" y="1303" font-size="30">FK  GeladeiraId</text>
+<text x="1040" y="1350" font-size="30">FK opcional  LeituraAberturaId</text>
+<text x="1040" y="1383" font-size="25" fill="#4b5660">16 colunas no dicionario completo</text>
+<text x="80" y="1550" font-size="27">PK = chave primaria. FK = chave estrangeira. FK opcional aceita NULL.</text>
+<text x="80" y="1595" font-size="27">Cardinalidades expressam os vinculos armazenados; ha no maximo um dispositivo ativo por geladeira.</text>
+<text x="80" y="1640" font-size="27">Fonte: cinco migrations e DbContext do ICEPLAY. Esquema verificado em memoria em 18/11/2026.</text>
+</g>
+</svg>

@@ -1,0 +1,11 @@
+# Conclusão revisada
+
+Este trabalho apresentou o desenvolvimento do ICEPLAY, um protótipo voltado ao monitoramento de geladeiras comerciais. O núcleo de software foi implementado com interface web responsiva, API em ASP.NET Core, persistência em SQLite e avaliação de regras temporais. O firmware principal para ESP32 foi preparado e compilado, mantendo o contrato destinado à integração dos sensores.
+
+Na rodada de 18/11/2026, o build terminou sem avisos ou erros, os 149 testes JavaScript passaram e os dez verificadores de software foram concluídos sem falha. Os cenários exercitaram persistência, validação HTTP, separação de origens, reenvio idempotente autenticado e abertura/encerramento de episódios de temperatura, porta e ausência de leituras. Esses resultados sustentam os comportamentos verificados no ambiente de teste, sem constituir garantia geral de confiabilidade, precisão térmica ou disponibilidade em campo.
+
+Entre os desafios de implementação estiveram a interpretação de medições atrasadas, a continuidade das regras temporais e a preservação de integridade e rastreabilidade. A contribuição é uma integração acadêmica inspecionável e reproduzível desses componentes. A análise documental de Sitrad Pro e testo Saveris 2 mostra que monitoramento e alertas já existem no mercado; não foi demonstrado ineditismo ou superioridade comercial do ICEPLAY.
+
+Na integração física, foram comprovados reconhecimento USB, comunicação serial e teste da entrada GPIO27 com jumper. A aquisição pelo DS18B20, o contato magnético com ímã e o ensaio de ponta a ponta na geladeira ainda são necessários para concluir o objetivo geral do projeto. Permanecem também a validação móvel complementar e o ensaio no computador da apresentação. Assim, os objetivos de implementação de software foram atendidos nos cenários descritos, enquanto a validação completa do protótipo permanece em andamento.
+
+Após concluir essa etapa do TCC, a evolução pode incluir notificações por e-mail ou mensageria, exportação de relatórios operacionais, fila offline persistente e múltiplos operadores. Relatórios não devem ser apresentados como certificação de conformidade sanitária sem critérios e validação próprios. A versão final da conclusão deverá incorporar os resultados efetivos dos ensaios físicos e suas limitações.

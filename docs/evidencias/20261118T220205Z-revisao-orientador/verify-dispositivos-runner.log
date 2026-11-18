@@ -1,0 +1,5 @@
+PASSOU: DELETE /api/geladeiras/9 retorna 204 (real: 204)
+PASSOU: DELETE /api/geladeiras/8 retorna 409 (real: 409)
+PASSOU: SQLite integro
+PASSOU: Chaves estrangeiras integras
+passed: 85 verificacoes; 56 requisicoes
