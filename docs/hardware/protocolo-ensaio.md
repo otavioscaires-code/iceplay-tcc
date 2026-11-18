@@ -2,6 +2,8 @@
 
 **Preparado em 12/11/2026; primeira verificação USB parcial em 16/11/2026.** O objetivo é verificar o caminho sensor → ESP32 → HTTPS/API → SQLite → interface/alertas. Compilar, executar um simulador ou declarar origem Hardware não substitui estes ensaios. O [reconhecimento USB na COM3](../etapa-usb-2026-11-16.md) não encerra F01 nem comprova comunicação do firmware com sensores/API.
 
+Em **18/11/2026**, a [consulta serial ao ROM](../etapa-serial-2026-11-18.md) passou: ESP32-D0WD-V3/revisão 3.1 e flash 4 MB. Não houve gravação ou boot do firmware ICEPLAY. O teste é evidência física de comunicação serial, com alcance limitado; mantém F01 parcial.
+
 ## Identificação antes de iniciar
 
 Registrar data, responsável, versão/commit do software, versão do firmware, modelo e identificação da placa/sonda/reed, cabo/fonte, GPIOs, polaridade da porta, posição da sonda/ímã, geladeira utilizada e condições de uso. Registrar parâmetros ativos e intervalo de aquisição. O cadastro deve permitir separar o ensaio das três leituras Simulacao já existentes.
@@ -12,7 +14,7 @@ Usar horário UTC nos registros técnicos e hora local identificada nas anotaç�
 
 | Caso | Procedimento previsto | Critério observável | Situação |
 | --- | --- | --- | --- |
-| F01 USB e firmware | Identificar a COM, compilar, gravar e abrir serial | Gravação confirmada e inicialização sem segredo no log | Parcial: USB/COM3 reconhecido em 16/11; gravação e inicialização do firmware pendentes |
+| F01 USB e firmware | Identificar a COM, compilar, gravar e abrir serial | Gravação confirmada e inicialização sem segredo no log | Parcial: USB/COM3 reconhecido em 16/11 e consulta ROM/flash_id aprovada em 18/11; gravação e inicialização do ICEPLAY pendentes |
 | F02 Temperatura em bancada | Conferir três fios, resistor e conversão | Valor válido repetível pelo dispositivo e resposta 201 na API; desconectar sonda não gera zero/-127 como leitura válida | Pendente |
 | F03 Porta | Aproximar/afastar ímã; conferir polaridade | Estado debounced corresponde à posição observada e aparece em leituras posteriores; anotar latência/limitações | Pendente |
 | F04 Rede e UTC | Conectar WiFi de 2,4 GHz, sincronizar e enviar por HTTPS | Certificado validado, dois timestamps coerentes, dispositivo vinculado; sem ignorar TLS ou fabricar UTC | Pendente |

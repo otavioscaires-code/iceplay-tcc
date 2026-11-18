@@ -2,6 +2,8 @@
 
 Estado de 12/11/2026: programa escrito e compilado para **ESP32 clássico ESP WROOM 32**, alvo `esp32dev`. Não foi gravado em uma placa nem ensaiado com sensores. O modelo físico, a porta USB/driver e as ligações devem ser conferidos quando as peças chegarem. O hardware usa a mesma API já utilizada pelo simulador; credencial não comprova medição física.
 
+Atualização de **18/11/2026**: placa recebida e comunicação serial consultada na COM3 com esptool 4.9.0, sem gravação: **ESP32-D0WD-V3, revisão 3.1, cristal 40 MHz, flash 4 MB**. Driver CP2102 já instalado em 16/11; não reinstalar sem novo diagnóstico. O [relatório serial](../docs/etapa-serial-2026-11-18.md) distingue essa aprovação da inicialização do firmware e das leituras físicas ainda pendentes. A configuração privada ainda precisa ser preparada.
+
 ## Ferramentas e dependências
 
 - PlatformIO Core 6.1.18 em ambiente Python local `.tools/platformio-venv`.

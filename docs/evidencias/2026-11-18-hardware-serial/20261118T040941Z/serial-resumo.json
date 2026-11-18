@@ -1,0 +1,33 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-18T04:09:41.4767857Z",
+  "finishedAtUtc": "2026-11-18T04:09:42.9915227Z",
+  "sourceCommit": "e38caf31a6243696c012de4dbbe7fc665278f31f",
+  "scope": "Consulta serial ao carregador ROM; sem gravacao, sensores ou envio a API",
+  "port": "COM3",
+  "boardReportedByUser": "Somente ESP32 conectado; LED aceso",
+  "command": "python esptool.py --chip auto --port COM3 --baud 115200 --before default_reset --after hard_reset --no-stub --connect-attempts 3 flash_id",
+  "esptoolVersion": "4.9.0",
+  "exitCode": 0,
+  "chip": "ESP32-D0WD-V3 (revision v3.1)",
+  "crystal": "40MHz",
+  "flashSize": "4MB",
+  "features": "WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None",
+  "noStub": true,
+  "flashWritten": false,
+  "sensorsConnected": false,
+  "iceplayFirmwareBootValidated": false,
+  "sensorReadingsValidated": false,
+  "originalPrivateLog": ".tools\\hardware\\20261118T040941Z-serial\\esptool-flash-id.log",
+  "publicOutput": [
+    "esptool.py v4.9.0",
+    "Detecting chip type... Unsupported detection protocol, switching and trying again...",
+    "Detecting chip type... ESP32",
+    "Chip is ESP32-D0WD-V3 (revision v3.1)",
+    "Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None",
+    "Crystal is 40MHz",
+    "Detected flash size: 4MB",
+    "Hard resetting via RTS pin..."
+  ],
+  "omitted": "MAC e outros identificadores exclusivos permanecem somente no log privado ignorado"
+}

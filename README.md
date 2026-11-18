@@ -1,5 +1,7 @@
 # ICEPLAY
 
+**18/11/2026:** primeira comunicação serial real com o processador, COM3: ESP32-D0WD-V3/revisão 3.1 e flash 4 MB, consulta esptool aprovada. Firmware ainda não gravado; sensores pendentes. [Resultado e evidências](docs/etapa-serial-2026-11-18.md).
+
 **17/11/2026:** material de documentação com Word editável, requisitos, casos de uso, diagrama de classes, arquitetura, tabelas e resultados de uma nova rodada de testes. [Abrir o material e as instruções de uso](docs/tcc/materiais-modelagem-2026-11-17/README.md). Build sem avisos/erros, 149 testes JavaScript e os dez verificadores existentes aprovados; sensores e ensaio na geladeira continuam pendentes. [Relatório desta entrega](docs/etapa-documentacao-modelagem-2026-11-17.md).
 
 **16/11/2026:** primeiro reconhecimento USB da placa ESP32 DEVKITV1/CP2102. Driver instalado com autorização; Windows reconheceu **COM3, status OK**. Firmware ainda não gravado e sensores ainda não testados. [Diagnóstico, comandos e evidências](docs/etapa-usb-2026-11-16.md).

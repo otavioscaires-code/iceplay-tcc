@@ -16,3 +16,5 @@ docs/evidencias/2026-11-14-pareamento/**/*.log whitespace=-blank-at-eof,-blank-a
 docs/evidencias/2026-11-14-leitor-qr/**/*.log whitespace=-blank-at-eof,-blank-at-eol
 # Preserva a saída original da rodada documental de 17/11.
 docs/evidencias/2026-11-17-modelagem-validacao/**/*.log -text whitespace=-blank-at-eof,-blank-at-eol
+# Preserva a saída sanitizada da consulta serial de 18/11.
+docs/evidencias/2026-11-18-hardware-serial/**/*.log -text whitespace=-blank-at-eof,-blank-at-eol

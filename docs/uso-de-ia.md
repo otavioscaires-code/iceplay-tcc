@@ -1,5 +1,9 @@
 # Registro de assistência por IA
 
+## Comunicação serial do ESP32 — 18/11/2026
+
+O usuário conectou somente a placa e confirmou LED aceso. Codex consultou portas/dispositivo presentes e executou esptool 4.9.0 já instalado, COM3, `--no-stub flash_id`, saída 0: ESP32-D0WD-V3/revisão 3.1, cristal 40 MHz e flash 4 MB. O usuário realizou a ação física; a IA auxiliou no diagnóstico, execução da consulta e registro. Não houve agente auxiliar, instalação, gravação, leitura de sensores, envio à API ou alteração do banco. O log integral com MAC permaneceu privado e ignorado; somente evidência sanitizada foi preparada para publicação. F01 permanece parcial e F02–F12 pendentes. Ver `etapa-serial-2026-11-18.md`.
+
 ## Requisitos, modelagem e validação — 17/11/2026
 
 Codex inspecionou os arquivos e contratos existentes, consolidou requisitos sem renumerá-los, especificou oito casos de uso e conferiu seis entidades/49 atributos e sete associações no EF Core. Preparou figuras SVG/PNG, tabelas CSV, rastreabilidade, fontes editáveis e complemento Word em cópia do modelo institucional, sem alterar o original. As 22 páginas finais foram renderizadas pelo Microsoft Word existente e conferidas; as figuras são modelos, não capturas da aplicação. Não foram utilizados agentes auxiliares nesta tarefa.
