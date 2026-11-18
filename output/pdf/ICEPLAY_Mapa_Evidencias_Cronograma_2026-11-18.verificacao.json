@@ -1,0 +1,68 @@
+{
+  "result": "passed",
+  "generatedAtUtc": "2026-11-18T20:33:45.667492+00:00",
+  "sourceFile": "docs/tcc/mapa-evidencias-cronograma-2026-11-18.md",
+  "sourceCommit": "7da7ff9b94101ec7c1d89e066b606815ddf5e7f9",
+  "sourceSha256": "67272662712256961f14ae86f23da7898186092f7d54c86d02eaa1151c53b5d5",
+  "pdfSha256": "04005b89b5b2a6162fe64dd6684042dd13365b2e8b5a45e2aab819bd4e852833",
+  "pages": 5,
+  "stages": [
+    {
+      "date": "22/09/2026",
+      "stage": "1. Planejamento"
+    },
+    {
+      "date": "29/09/2026",
+      "stage": "2. Ambiente"
+    },
+    {
+      "date": "06/10/2026",
+      "stage": "3. Banco de dados"
+    },
+    {
+      "date": "13/10/2026",
+      "stage": "4. Estrutura"
+    },
+    {
+      "date": "20/10/2026",
+      "stage": "5. Funcionalidade principal I"
+    },
+    {
+      "date": "27/10/2026",
+      "stage": "6. Funcionalidade principal II"
+    },
+    {
+      "date": "03/11/2026",
+      "stage": "7. Integração"
+    },
+    {
+      "date": "10/11/2026",
+      "stage": "8. Testes"
+    },
+    {
+      "date": "17/11/2026",
+      "stage": "9. Refinamento"
+    },
+    {
+      "date": "24/11/2026",
+      "stage": "10. Versão final"
+    },
+    {
+      "date": "01/12/2026",
+      "stage": "11. Apresentação/validação"
+    }
+  ],
+  "textBlocksChecked": 58,
+  "sourceLinksChecked": 28,
+  "pdfLinks": 29,
+  "contentPreserved": true,
+  "applicationTestsExecuted": false,
+  "physicalTestsExecuted": false,
+  "pdfFile": "output/pdf/ICEPLAY_Mapa_Evidencias_Cronograma_2026-11-18.pdf",
+  "visualInspection": {
+    "pagesReviewed": 5,
+    "renderDpi": 110,
+    "outcome": "Cinco paginas inspecionadas; texto legivel, etapas completas e itens de lista sem divisao entre paginas",
+    "adjustment": "A primeira versao dividia o item 5; quebra corrigida antes da entrega. Fonte textual preservada."
+  }
+}

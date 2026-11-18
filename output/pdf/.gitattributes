@@ -1,0 +1,2 @@
+# PDFs devem conservar seus bytes e nao receber normalizacao de finais de linha.
+*.pdf binary

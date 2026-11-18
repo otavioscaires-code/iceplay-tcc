@@ -1,5 +1,9 @@
 # Registro de assistência por IA
 
+## Conversão do mapa de acompanhamento em PDF — 18/11/2026
+
+A pedido do aluno, Codex converteu o mapa textual das 11 aulas em PDF de cinco páginas, com ReportLab e fontes locais, usando o runtime gerenciado já disponível. A conversão preservou o Markdown e suas distinções de datas/evidências; os 58 blocos de conteúdo foram comparados à extração do PDF, e os 28 links de origem mais o link para o próprio mapa foram conferidos. Todas as páginas foram rasterizadas com Poppler e inspecionadas; uma quebra que dividia o quinto item da lista foi corrigida antes da entrega. O arquivo e a conferência estão em `output/pdf/`, referenciados no índice acadêmico. Não houve agente auxiliar, instalação de dependências, geração artificial de evidências, alteração do sistema ou nova execução de testes da aplicação/sensores.
+
 ## Evidências por aula — 18/11/2026
 
 A partir da lista de acompanhamento enviada pelo aluno, Codex inspecionou cronograma, planejamento, ambiente, migration/SQL, histórico Git, registros de software/modelagem, manifesto visual e teste parcial do iPhone. Organizou `tcc/mapa-evidencias-cronograma-2026-11-18.md`, separando data prevista da aula, data de execução informada, data do commit e organização documental. Uma busca nos metadados superiores de 136 JSONs de evidência não encontrou execução nas datas indicadas para as primeiras três aulas e em 27/10, 03/11 e 10/11; isso não prova que atividades ou apresentações não aconteceram. O mapa não inventa equipe, divisão de tarefas, aprovação ou registros contemporâneos ausentes. As fotos reais do iPhone permanecem na conversa, sem publicação automática. Não houve agente auxiliar, nova execução de testes da aplicação, consulta ao banco/placa ou alteração de evidências/pacote visual históricos. O aluno/orientador deve revisar o mapa e complementar com originais que localizar.
