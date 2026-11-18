@@ -6,7 +6,7 @@ Em **18/11/2026**, a [consulta serial ao ROM](../etapa-serial-2026-11-18.md) pas
 
 Posteriormente no mesmo dia, o [diagnóstico isolado GPIO27](../etapa-diagnostico-porta-2026-11-18.md) foi gravado com autorização e iniciou: oito amostras HIGH sem conexões. O ímã/contato ainda não foi testado. Esse resultado não encerra F01 para o firmware principal nem F03 para o sensor.
 
-Às 04:56 UTC, a ponte de jumper b10–b20, com GND→a20 e GPIO27→a10 informados pelo usuário, produziu oito registros LOW na serial. O teste de entrada passou. O retorno a HIGH após retirar a ponte ainda será verificado; o sensor/ímã não foi conectado e F03 segue pendente. Os registros estão no relatório de diagnóstico, sem alterar as evidências anteriores.
+Às 04:56 UTC, a ponte de jumper b10–b20, com GND→a20 e GPIO27→a10 informados pelo usuário, produziu oito LOW. Às 05:04 UTC, após retirar somente a ponte e reconectar, foram capturados oito HIGH. Entrada aprovada nas duas condições, em capturas separadas após reinícios. O sensor/ímã não foi conectado e F03 segue pendente. Os registros estão no relatório de diagnóstico, sem alterar evidências anteriores ou atribuir teste contínuo/debounce a essas capturas.
 
 ## Identificação antes de iniciar
 

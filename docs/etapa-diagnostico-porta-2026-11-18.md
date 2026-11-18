@@ -16,6 +16,7 @@ O programa imprime tempo desde o boot e sinal elétrico HIGH/LOW. Não chama ess
 | Gravação autorizada | Aprovada, saída 0; escrita/verificação de hash do esptool e reinício via RTS | [gravacao.json](evidencias/2026-11-18-diagnostico-porta/20261118T042512Z/gravacao.json) e [log sanitizado](evidencias/2026-11-18-diagnostico-porta/20261118T042512Z/gravacao-sanitizada.log) |
 | Inicialização e entrada sem conexões | Aprovada: banner do diagnóstico e oito amostras HIGH em captura de 8 s | [serial.json](evidencias/2026-11-18-diagnostico-porta/20261118T042615Z/serial.json) e [linhas sanitizadas](evidencias/2026-11-18-diagnostico-porta/20261118T042615Z/serial-sanitizada.log) |
 | Jumper GPIO27/GND | Aprovado posteriormente: oito registros LOW com a ponte b10–b20, conforme montagem informada pelo usuário | [serial.json da ponte](evidencias/2026-11-18-diagnostico-porta/20261118T045620Z-ponte/serial.json) e [log sanitizado](evidencias/2026-11-18-diagnostico-porta/20261118T045620Z-ponte/serial-sanitizada.log) |
+| Retirada da ponte | Aprovada: oito registros HIGH, preservando GND→a20 e D27→a10 segundo o usuário | [serial.json do retorno](evidencias/2026-11-18-diagnostico-porta/20261118T050453Z-retorno-high/serial.json) e [log sanitizado](evidencias/2026-11-18-diagnostico-porta/20261118T050453Z-retorno-high/serial-sanitizada.log) |
 | Sensor e ímã | Não executado | F03 permanece pendente |
 | Temperatura, ingestão, alertas físicos e geladeira | Não executados nesta etapa | Protocolo principal pendente |
 
@@ -53,4 +54,14 @@ Entre **04:56:20 e 04:56:28 UTC**, foi aberta a COM3 a 115200 baud, dado um puls
 
 O resultado é compatível com a ligação de GPIO27 a GND pela ponte, em contraste com os oito HIGH da captura anterior sem conexões. São capturas separadas, após reinícios; não representam uma transição contínua filmada nem um ensaio de sensor. A serial foi fechada ao final. Não houve API, banco, temperatura ou firmware principal nesta verificação.
 
-O usuário informou que os dois fios do sensor ainda estão encapados e que possui apenas alicate comum ou tesoura. O próximo passo da entrada é retirar somente a ponte, mantendo os dois jumpers do ESP32, e verificar retorno a HIGH. A preparação das pontas e o teste do SP1006/ímã continuam pendentes; não inserir isolamento plástico como se fosse contato elétrico nem manter a ponte em paralelo ao sensor, o que impediria observar a abertura do contato.
+O usuário informou que os dois fios do sensor ainda estão encapados e que possui apenas alicate comum ou tesoura. A retirada da ponte foi verificada no incremento seguinte. A preparação das pontas e o teste do SP1006/ímã continuam pendentes; não inserir isolamento plástico como se fosse contato elétrico nem manter a ponte em paralelo ao sensor, o que impediria observar a abertura do contato.
+
+## Incremento posterior: retorno a HIGH após retirar a ponte
+
+Após a orientação de desligar USB e retirar apenas o jumper macho-macho b10–b20, o usuário informou que retirou e reconectou. A COM3 estava presente com status OK. Antes da captura, o critério foi definido como banner e pelo menos três registros, todos `HIGH`.
+
+Entre **05:04:53 e 05:05:01 UTC de 18/11/2026**, uma nova captura de 8 s após pulso RTS/EN registrou o banner e **oito HIGH**, de uptime 27 a 7027 ms. Resultado aprovado, sem erro de captura. O hash da fonte corresponde ao mesmo programa gravado anteriormente; commit de referência `c238d9a1d51f6f978658e3fbbec20ec9fd3a8c36`. A serial foi fechada ao final e não houve nova gravação, API ou banco.
+
+Foram comprovadas as duas condições da entrada usando jumper: ligação ao GND produz LOW e retirada produz HIGH, coerente com INPUT_PULLUP. As três capturas HIGH inicial/LOW com ponte/HIGH após retirada ocorreram em reinícios distintos; não são registro contínuo de transição, medida de latência, teste de debounce ou resposta de um sensor magnético. F03 e os ensaios térmicos/integração continuam pendentes.
+
+Próximo passo: USB desligado, conferir as pontas dos dois fios do SP1006 e a ferramenta disponível, preparar somente os terminais necessários e só então ligar o contato entre as fileiras 10 e 20, preservando os dois jumpers do ESP32. A ponte macho-macho já foi retirada e não deve ser recolocada em paralelo ao sensor.
