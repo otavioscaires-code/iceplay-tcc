@@ -10,6 +10,8 @@ Posteriormente no mesmo dia, o [diagnóstico isolado GPIO27](../etapa-diagnostic
 
 ## Identificação antes de iniciar
 
+Atualização de **23/11/2026**: contato SP1006 ligado conforme foto/relato do usuário, com D27→a10 e GND→a20. O [ensaio do diagnóstico](../etapa-sensor-porta-2026-11-23.md) registrou oito HIGH após orientação de manter o ímã afastado e oito LOW após o usuário confirmar as peças juntas. São capturas separadas após reinícios. F03 continua incompleto: retorno ao afastar novamente, repetição e correspondência nas leituras do firmware principal/API ainda pendentes. Não houve nova gravação, aquisição de temperatura ou envio físico.
+
 Registrar data, responsável, versão/commit do software, versão do firmware, modelo e identificação da placa/sonda/reed, cabo/fonte, GPIOs, polaridade da porta, posição da sonda/ímã, geladeira utilizada e condições de uso. Registrar parâmetros ativos e intervalo de aquisição. O cadastro deve permitir separar o ensaio das três leituras Simulacao já existentes.
 
 Usar horário UTC nos registros técnicos e hora local identificada nas anotações. Fotografar a montagem sem credenciais, senha WiFi, código de acesso ou dados pessoais. Salvar logs, consultas e backup consistente. Definir com o orientador uma duração de observação que permita discutir estabilização, aberturas e recuperação; registrar a duração efetivamente realizada, não uma duração presumida.

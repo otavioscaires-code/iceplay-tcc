@@ -1,0 +1,52 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-23T23:56:34.986139+00:00",
+  "finishedAtUtc": "2026-11-23T23:56:43.154686+00:00",
+  "port": "COM3",
+  "baud": 115200,
+  "scope": "Diagnostico GPIO27 com contato magnetico ligado conforme relato/foto do usuario; condicao isolada, sem validar ciclo completo do sensor",
+  "declaredWiring": {
+    "GPIO27": "a10",
+    "GND": "a20",
+    "sensorWires": [
+      "b10",
+      "b20"
+    ],
+    "parallelBridge": "orientada ausencia"
+  },
+  "physicalConditionBasis": "Usuario informou \"Juntei\" apos orientacao de aproximar a peca sem fios da peca com fios; distancia e alinhamento nao medidos pela ferramenta.",
+  "criteriaDefinedBeforeCapture": {
+    "conditionRequested": "ima-proximo",
+    "expectedLevel": "LOW",
+    "minimumSamples": 3,
+    "bannerRequired": true,
+    "durationSeconds": 8
+  },
+  "method": "PySerial existente, pulso RTS/EN e captura limitada a 8 s; somente linhas permitidas publicadas",
+  "bannerObserved": true,
+  "levelSamples": 8,
+  "observedLevels": [
+    "LOW"
+  ],
+  "serialClosed": true,
+  "captureError": null,
+  "sensorMagnetCycleValidated": false,
+  "temperatureTested": false,
+  "apiUsed": false,
+  "firmwareFlashedInThisRun": false,
+  "sourceCommit": "941dfe4b76af89cd1edbe80882234a9ab3d2c583",
+  "sourceSha256": "4a64f317ff3792c6eb7b5e8c9478ecad87c20e5e267ac1f7f047cd6be0932672",
+  "originalPrivateLog": ".tools/hardware/20261123T235634Z-ima-proximo/serial-integral.bin",
+  "publicLines": [
+    "ICEPLAY DIAGNOSTICO DE BANCADA: GPIO27, INPUT_PULLUP, debounce 50 ms.",
+    "Somente leitura eletrica; sem temperatura, WiFi ou envio a API.",
+    "uptime_ms=26 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=1027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=2027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=3027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=4027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=5027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=6027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=7027 GPIO27=LOW entrada_em_GND"
+  ]
+}
