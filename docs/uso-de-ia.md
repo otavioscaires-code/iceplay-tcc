@@ -1,5 +1,9 @@
 # Registro de assistência por IA
 
+## Primeira condição do contato magnético — 23/11/2026
+
+Após o aluno informar pontas desencapadas, enviar foto da protoboard e confirmar D27→a10/GND→a20, Codex orientou a ligação de um contato em b10/b20 sem ponte paralela e afastamento da peça sem fios. O aluno executou a ação física e confirmou LED aceso. Codex consultou COM3/OK e capturou oito segundos com PySerial existente, sem nova gravação: banner do diagnóstico e oito HIGH. O critério HIGH foi definido antes da abertura da serial; a porta foi fechada ao final. O auxiliar e o log integral são privados; só linhas previstas foram publicadas. O teste não mede a distância nem observa diretamente a manipulação e HIGH sozinho não comprova o contato. F03 segue pendente de aproximação/retirada/repetição com ímã. Sem agente auxiliar, instalação, temperatura, API, banco ou nova compilação. Ver `etapa-sensor-porta-2026-11-23.md`. A orientação e o registro distinguem assistência de IA, montagem feita pelo aluno e resultado realmente capturado.
+
 ## Revisão solicitada pelo orientador — 18/11/2026
 
 Codex inspecionou a documentação, código, migrations e histórico existentes, revisou as minutas de monografia/artigo e as referências e preparou complemento Word de 15 páginas. A assistência incluiu comparação documental de Sitrad Pro e testo Saveris 2 com fontes oficiais, DER baseado no SQL/DbContext, chamadas de figuras, siglas, apêndices e conclusão compatível com o teste parcial GPIO27 e a integração física pendente. Não houve alegação de ineditismo, superioridade ou precisão térmica. O Word encaminhado pelo amigo ao professor não foi localizado; o aluno informou não saber a versão. Não se atribui ao complemento a correção daquele arquivo completo.

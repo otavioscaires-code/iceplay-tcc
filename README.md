@@ -1,5 +1,7 @@
 # ICEPLAY
 
+**23/11/2026 — retomada da porta:** [primeira captura com o contato ligado conforme relato](docs/etapa-sensor-porta-2026-11-23.md), após orientação de manter o ímã afastado: oito HIGH e boot do diagnóstico, COM3/OK. Isso ainda não valida o sensor; aproximação/retirada do ímã e repetição pendentes. Sem nova gravação, temperatura ou API.
+
 **18/11/2026 — revisão solicitada pelo orientador:** [complemento Word editável de 15 páginas e lista de atendimento](docs/tcc/revisao-orientador-2026-11-18/README.md), com DER, figuras reais, comparação documental de mercado, referências e conclusão revisada. Minutas atualizadas; o Word completo enviado pelo amigo ainda precisa ser recebido para ajustar a versão do grupo. Nova rodada real: build sem avisos/erros, 149 testes JavaScript e dez verificadores aprovados. [Comandos, resultados e limites](docs/etapa-revisao-orientador-2026-11-18.md). Não houve novo ensaio físico ou alteração da aplicação.
 
 **18/11/2026 — documentação visual:** [15 imagens com legendas, fontes e caderno PDF de 11 páginas](docs/tcc/evolucao-visual-2026-11-18/README.md). Capturas preservadas das etapas iniciais e figuras extraídas de código/relatórios reais. Os registros associados começam em 13/10; o primeiro commit disponível é de 30/10. Figuras preparadas agora estão identificadas. Não houve alteração de funcionamento ou novo ensaio físico nesta organização.

@@ -1,0 +1,10 @@
+ICEPLAY DIAGNOSTICO DE BANCADA: GPIO27, INPUT_PULLUP, debounce 50 ms.
+Somente leitura eletrica; sem temperatura, WiFi ou envio a API.
+uptime_ms=26 GPIO27=HIGH entrada_liberada
+uptime_ms=1027 GPIO27=HIGH entrada_liberada
+uptime_ms=2027 GPIO27=HIGH entrada_liberada
+uptime_ms=3027 GPIO27=HIGH entrada_liberada
+uptime_ms=4027 GPIO27=HIGH entrada_liberada
+uptime_ms=5027 GPIO27=HIGH entrada_liberada
+uptime_ms=6027 GPIO27=HIGH entrada_liberada
+uptime_ms=7027 GPIO27=HIGH entrada_liberada
