@@ -1,0 +1,37 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-11-24T00:18:30.220222+00:00",
+  "scope": "Conferencia de artefatos e compilacao; nao executa o novo firmware na placa",
+  "compiledSourceAndConfigMatch": true,
+  "privateBinaryHashMatches": true,
+  "compilerWarnings": 2,
+  "staticRamBytes": 21544,
+  "applicationFlashBytes": 275297,
+  "existingMainAndDoorDiagnosticUnchanged": true,
+  "apiSourcesUnchanged": true,
+  "localLinksChecked": 30,
+  "doorBenchSummary": "docs/evidencias/2026-11-23-sensor-porta/20261124T000740Z-ima-afastado/resumo-bancada.json",
+  "doorLevels": [
+    "HIGH",
+    "LOW",
+    "HIGH",
+    "LOW",
+    "HIGH"
+  ],
+  "doorSamples": [
+    8,
+    8,
+    8,
+    7,
+    8
+  ],
+  "temperatureRead": false,
+  "newFirmwareFlashed": false,
+  "apiUsed": false,
+  "pending": [
+    "Conferencia visual do resistor e pinagem da sonda",
+    "Montagem sem alimentacao",
+    "Nova autorizacao de gravacao e upload",
+    "Ensaio real de temperatura e integracao principal"
+  ]
+}

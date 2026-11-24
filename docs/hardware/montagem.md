@@ -1,5 +1,7 @@
 # Montagem prevista do protótipo
 
+**Atualização na noite de 23/11/2026:** contato SP1006 com D27→a10/GND→a20 e fios em b10/b20 conforme foto/relato; resposta básica ao ímã repetida no [diagnóstico GPIO27](../etapa-sensor-porta-2026-11-23.md), ainda sem porta instalada/API. O usuário confirmou possuir sonda e resistor 4k7. O [novo diagnóstico dos sensores](../etapa-diagnostico-sensores-2026-11-23.md) foi compilado, não gravado. Conferência de VDD/DQ/GND da sonda, resistor e ligação térmica ainda pendentes. A placa mantém o diagnóstico de porta; desligar o USB antes das próximas ligações.
+
 Estado em 12/11/2026: preparação de software e conexões **previstas**. Não houve posse/montagem confirmada nesta etapa. Fotos de anúncios não substituem a identificação da peça recebida.
 
 Atualização de **16/11/2026**: fotos reais identificaram placa ESP32 DEVKITV1 com CP2102; após instalação autorizada do driver, o Windows reconheceu COM3 com status OK. As ligações dos sensores abaixo continuam previstas, sem ensaio. Ver [primeiro reconhecimento USB](../etapa-usb-2026-11-16.md).

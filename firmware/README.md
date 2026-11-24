@@ -1,5 +1,7 @@
 # Firmware ICEPLAY para ESP32
 
+**Situação atual na noite de 23/11/2026:** [resposta elétrica básica do contato/ímã](../docs/etapa-sensor-porta-2026-11-23.md) verificada em HIGH/LOW/HIGH/LOW/HIGH, com cinco capturas separadas após reinícios. F03 permanece parcial para o estado em leituras do principal/API. Usuário confirmou sonda e resistor 4k7; [diagnóstico isolado dos sensores](diagnostico-sensores/README.md) preparado e compilado, sem rede/API, com dois avisos da OneWire. **Não foi gravado: a placa permanece com `diagnostico-porta`.** Temperatura e programa principal continuam pendentes de conferência/configuração/ensaio. [Preparação e evidências](../docs/etapa-diagnostico-sensores-2026-11-23.md).
+
 **Situação física atual, 18/11/2026:** a placa está executando o [diagnóstico isolado da entrada de porta](diagnostico-porta/README.md), gravado com autorização, com boot e nível HIGH sem conexões confirmados. O firmware principal descrito abaixo permanece preservado em `esp32/`, ainda sem gravação/ingestão física validada. Não confundir os dois programas. Ver [resultados e limites](../docs/etapa-diagnostico-porta-2026-11-18.md).
 
 Estado de 12/11/2026: programa escrito e compilado para **ESP32 clássico ESP WROOM 32**, alvo `esp32dev`. Não foi gravado em uma placa nem ensaiado com sensores. O modelo físico, a porta USB/driver e as ligações devem ser conferidos quando as peças chegarem. O hardware usa a mesma API já utilizada pelo simulador; credencial não comprova medição física.

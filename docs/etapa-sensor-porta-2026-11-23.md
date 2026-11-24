@@ -81,3 +81,27 @@ Foram observados o banner e **sete registros LOW**, uptime de 27 a 7027 ms; crit
 - Fonte com mesmo SHA-256; referência Git da captura `dad0d03b99a6f421e3ccfb249ffdd78932f7de4f`. Logs integrais privados em `.tools/hardware/20261124T000352Z-ima-proximo/`.
 
 A sequência de condições informadas é agora HIGH/LOW/HIGH/LOW, com 8/8/8/7 registros aceitos, em capturas separadas após reinícios. A aproximação apresentou novamente LOW; falta repetir o afastamento. Próxima ação: separar a peça sem fios aproximadamente um palmo, preservar fios/USB e avisar para a última conferência de retorno dessa repetição. F03 continua parcial por esse retorno e pelo estado em leituras posteriores do firmware principal/API. Sem nova gravação, temperatura, API, banco ou alteração do firmware.
+
+## Quinto incremento e fechamento da bancada básica
+
+O usuário informou novamente **“afastei”**. COM3 continuou OK. Antes da captura, definiu-se HIGH como esperado, com banner e mínimo de três amostras. Entre **24/11 às 00:07:40 e 00:07:48 UTC** (**23/11 às 21:07:40–21:07:48 de São Paulo**), foram observados o banner e **oito HIGH**, uptime 27 a 7027 ms. Critério aprovado, sem erro; serial fechada ao final.
+
+- [Resultado do afastamento repetido](evidencias/2026-11-23-sensor-porta/20261124T000740Z-ima-afastado/serial.json).
+- [Log sanitizado](evidencias/2026-11-23-sensor-porta/20261124T000740Z-ima-afastado/serial-sanitizada.log).
+- [Consolidação verificável das cinco condições](evidencias/2026-11-23-sensor-porta/20261124T000740Z-ima-afastado/resumo-bancada.json).
+- Comando executado: `& '.tools/platformio-venv/Scripts/python.exe' '.tools/hardware-tools/monitor_porta_2026_11_23.py' --condition ima-afastado --expected HIGH --confirmation 'Usuario informou afastei ao repetir o afastamento final da bancada; distancia nao medida pela ferramenta.'`.
+- Fonte com mesmo SHA-256; referência Git `037269bec7ff6f5a493f9ad722434a5aac3cb1b3`. Log integral privado em `.tools/hardware/20261124T000740Z-ima-afastado/`.
+
+| Condição, em ordem | Sinal | Registros aceitos |
+| --- | --- | --- |
+| Afastado inicialmente | HIGH | 8 |
+| Junto | LOW | 8 |
+| Afastado | HIGH | 8 |
+| Junto novamente | LOW | 7 |
+| Afastado novamente | HIGH | 8 |
+
+As duas aproximações e os dois retornos produziram o nível esperado nas posições informadas. **A resposta elétrica básica do contato/ímã em bancada foi verificada nesse alcance.** São 39 registros em cinco capturas separadas após reinícios, não 39 ensaios independentes ou uma gravação contínua de transições. A lacuna já registrada na quarta captura permanece sem causa determinada. Não foram medidos alcance, cadência sem perdas, latência ou eficácia do debounce.
+
+F03 segue **parcial**: ainda requer a correspondência da porta instalada e seu estado nas leituras do firmware principal/API. Encerrada a repetição básica prevista, sem necessidade de repetir novamente apenas para aumentar contagens. Placa permanece com o diagnóstico de porta, sem temperatura, rede/API ou novo upload.
+
+Na sequência, o usuário confirmou **“Tenho a sonda e o resistor 4k7”**. Isso registra disponibilidade informada, não conferência visual do valor, pinagem ou montagem da sonda. A próxima etapa é conferir essas peças com o USB desconectado e preparar o diagnóstico de temperatura; ver [preparação dos dois sensores](etapa-diagnostico-sensores-2026-11-23.md).

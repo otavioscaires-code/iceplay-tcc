@@ -1,0 +1,109 @@
+Processing esp32dev (platform: platformio/espressif32@6.12.0; board: esp32dev; framework: arduino)
+--------------------------------------------------------------------------------
+Library Manager: Installing paulstoffregen/OneWire @ 2.3.8
+Unpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Library Manager: OneWire@2.3.8 has been installed!
+Library Manager: Installing milesburton/DallasTemperature @ 4.0.5
+Unpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Library Manager: DallasTemperature@4.0.5 has been installed!
+Library Manager: Resolving dependencies...
+Verbose mode can be enabled via `-v, --verbose` option
+CONFIGURATION: https://docs.platformio.org/page/boards/espressif32/esp32dev.html
+PLATFORM: Espressif 32 (6.12.0) > Espressif ESP32 Dev Module
+HARDWARE: ESP32 240MHz, 320KB RAM, 4MB Flash
+DEBUG: Current (cmsis-dap) External (cmsis-dap, esp-bridge, esp-prog, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa)
+PACKAGES: 
+ - framework-arduinoespressif32 @ 3.20017.241212+sha.dcc1105b 
+ - tool-esptoolpy @ 2.40900.250804 (4.9.0) 
+ - toolchain-xtensa-esp32 @ 8.4.0+2021r2-patch5
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ chain, Compatibility ~ soft
+Found 35 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- OneWire @ 2.3.8
+|-- DallasTemperature @ 4.0.5
+Building in release mode
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\src\main.cpp.o
+Building C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\bootloader.bin
+Generating partitions C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\partitions.bin
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\lib7cd\OneWire\OneWire.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\libd94\DallasTemperature\DallasTemperature.cpp.o
+esptool.py v4.9.0
+Creating esp32 image...
+Merged 1 ELF section
+Successfully created esp32 image.
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\Esp.cpp.o
+C:/Users/otavi/Downloads/iceplay/.tools/firmware-libdeps-diagnostico-sensores/esp32dev/OneWire/OneWire.cpp:599:22: warning: extra tokens at end of #undef directive
+ #  undef noInterrupts() {portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;portENTER_CRITICAL(&mux)
+                      ^
+C:/Users/otavi/Downloads/iceplay/.tools/firmware-libdeps-diagnostico-sensores/esp32dev/OneWire/OneWire.cpp:600:20: warning: extra tokens at end of #undef directive
+ #  undef interrupts() portEXIT_CRITICAL(&mux);}
+                    ^
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\FirmwareMSC.cpp.o
+Archiving C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\libd94\libDallasTemperature.a
+Archiving C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\lib7cd\libOneWire.a
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\FunctionalInterrupt.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\HWCDC.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\HardwareSerial.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\IPAddress.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\IPv6Address.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\MD5Builder.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\Print.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\Stream.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\StreamString.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\Tone.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\USB.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\USBCDC.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\USBMSC.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\WMath.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\WString.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\base64.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\cbuf.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-adc.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-bt.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-cpu.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-dac.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-gpio.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-i2c-slave.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-i2c.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-ledc.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-matrix.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-misc.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-psram.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-rgb-led.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-rmt.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-sigmadelta.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-spi.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-time.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-timer.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-tinyusb.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-touch.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\esp32-hal-uart.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\firmware_msc_fat.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\libb64\cdecode.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\libb64\cencode.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\main.cpp.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\stdlib_noniso.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\wiring_pulse.c.o
+Compiling C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\FrameworkArduino\wiring_shift.c.o
+Archiving C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\libFrameworkArduino.a
+Linking C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\firmware.elf
+Retrieving maximum program size C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\firmware.elf
+Checking size C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+RAM:   [=         ]   6.6% (used 21544 bytes from 327680 bytes)
+Flash: [==        ]  21.0% (used 275297 bytes from 1310720 bytes)
+Building C:\Users\otavi\Downloads\iceplay\.tools\firmware-build-diagnostico-sensores\esp32dev\firmware.bin
+esptool.py v4.9.0
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+========================= [SUCCESS] Took 50.07 seconds =========================
+
+********************************************************************************
+There is a new version 6.2.0 of PlatformIO available.
+Please upgrade it via `platformio upgrade` or `python -m pip install -U platformio` command.
+Changes: https://docs.platformio.org/en/latest/history.html
+********************************************************************************
+

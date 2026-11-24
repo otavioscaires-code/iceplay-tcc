@@ -1,0 +1,80 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-11-24T00:13:33.930944+00:00",
+  "scope": "Resposta eletrica basica do contato/ima nas cinco condicoes de bancada, capturas separadas apos reinicios",
+  "positionSource": "Orientacao inicial e relatos seguintes do usuario; sem observacao direta de distancia/alinhamento pela ferramenta",
+  "localSessionDate": "2026-11-23",
+  "localTimezone": "America/Sao_Paulo",
+  "port": "COM3",
+  "baud": 115200,
+  "captures": [
+    {
+      "file": "docs/evidencias/2026-11-23-sensor-porta/20261123T235218Z-ima-afastado/serial.json",
+      "startedAtUtc": "2026-11-23T23:52:18.448061+00:00",
+      "conditionRequested": "ima-afastado",
+      "level": "HIGH",
+      "samples": 8,
+      "sourceSha256": "4a64f317ff3792c6eb7b5e8c9478ecad87c20e5e267ac1f7f047cd6be0932672"
+    },
+    {
+      "file": "docs/evidencias/2026-11-23-sensor-porta/20261123T235634Z-ima-proximo/serial.json",
+      "startedAtUtc": "2026-11-23T23:56:34.986139+00:00",
+      "conditionRequested": "ima-proximo",
+      "level": "LOW",
+      "samples": 8,
+      "sourceSha256": "4a64f317ff3792c6eb7b5e8c9478ecad87c20e5e267ac1f7f047cd6be0932672"
+    },
+    {
+      "file": "docs/evidencias/2026-11-23-sensor-porta/20261124T000012Z-ima-afastado/serial.json",
+      "startedAtUtc": "2026-11-24T00:00:12.550228+00:00",
+      "conditionRequested": "ima-afastado",
+      "level": "HIGH",
+      "samples": 8,
+      "sourceSha256": "4a64f317ff3792c6eb7b5e8c9478ecad87c20e5e267ac1f7f047cd6be0932672"
+    },
+    {
+      "file": "docs/evidencias/2026-11-23-sensor-porta/20261124T000352Z-ima-proximo/serial.json",
+      "startedAtUtc": "2026-11-24T00:03:52.238970+00:00",
+      "conditionRequested": "ima-proximo",
+      "level": "LOW",
+      "samples": 7,
+      "sourceSha256": "4a64f317ff3792c6eb7b5e8c9478ecad87c20e5e267ac1f7f047cd6be0932672"
+    },
+    {
+      "file": "docs/evidencias/2026-11-23-sensor-porta/20261124T000740Z-ima-afastado/serial.json",
+      "startedAtUtc": "2026-11-24T00:07:40.815117+00:00",
+      "conditionRequested": "ima-afastado",
+      "level": "HIGH",
+      "samples": 8,
+      "sourceSha256": "4a64f317ff3792c6eb7b5e8c9478ecad87c20e5e267ac1f7f047cd6be0932672"
+    }
+  ],
+  "levels": [
+    "HIGH",
+    "LOW",
+    "HIGH",
+    "LOW",
+    "HIGH"
+  ],
+  "acceptedSamplesPerCapture": [
+    8,
+    8,
+    8,
+    7,
+    8
+  ],
+  "totalAcceptedRecords": 39,
+  "approachRepeated": true,
+  "withdrawalRepeated": true,
+  "serialClosedAfterEveryCapture": true,
+  "continuousTransitionsMeasured": false,
+  "debounceMeasured": false,
+  "latencyMeasured": false,
+  "rangeMeasured": false,
+  "cadenceValidated": false,
+  "fullF03Status": "partial: estado em leituras do firmware principal/API e ensaio instalado ainda pendentes",
+  "temperatureTested": false,
+  "apiUsed": false,
+  "firmwareFlashedInThisStage": false,
+  "knownLimitation": "Quarta captura tem sete linhas aceitas e nenhuma de uptime 2027 ms no log capturado; causa nao determinada. Nao equivale a uma garantia de ausencia de perdas."
+}

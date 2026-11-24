@@ -1,0 +1,26 @@
+{
+  "result": "passed",
+  "exitCode": 0,
+  "startedAtUtc": "2026-11-24T00:12:41.0130023Z",
+  "finishedAtUtc": "2026-11-24T00:13:39.0128112Z",
+  "scope": "Somente compilacao do diagnostico isolado, sem gravar ou ler sensores",
+  "command": "python -m platformio run -d firmware/diagnostico-sensores -e esp32dev",
+  "sourceCommit": "037269bec7ff6f5a493f9ad722434a5aac3cb1b3",
+  "sourceSha256": "9728d47caac2bf857aa4cdcbad34fba6d220ca3bec1d745a8a4b75c907e0e69b",
+  "platformioIniSha256": "0a7f3966cf32c1f2572bc4564a77615d16169316a9bb663275764d55be6c6bde",
+  "platform": "platformio/espressif32@6.12.0",
+  "board": "esp32dev",
+  "libraries": [
+    "OneWire@2.3.8",
+    "DallasTemperature@4.0.5"
+  ],
+  "warningLines": [
+    "C:/Users/otavi/Downloads/iceplay/.tools/firmware-libdeps-diagnostico-sensores/esp32dev/OneWire/OneWire.cpp:599:22: warning: extra tokens at end of #undef directive",
+    "C:/Users/otavi/Downloads/iceplay/.tools/firmware-libdeps-diagnostico-sensores/esp32dev/OneWire/OneWire.cpp:600:20: warning: extra tokens at end of #undef directive"
+  ],
+  "firmwareFlashed": false,
+  "temperatureRead": false,
+  "apiUsed": false,
+  "currentBoardProgram": "diagnostico-porta, sem nova gravacao",
+  "binarySha256": "191f4647b426432f8f7e595e995cf3d442a2da359b119ab41c7f79bccfce0c34"
+}

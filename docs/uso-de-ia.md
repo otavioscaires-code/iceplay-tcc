@@ -1,5 +1,11 @@
 # Registro de assistência por IA
 
+## Fechamento da bancada da porta e preparação da temperatura — noite de 23/11/2026
+
+Após o usuário informar “afastei”, Codex capturou oito HIGH, com critério prévio, sem erro e com serial fechada. As cinco condições foram conferidas e consolidadas em HIGH/LOW/HIGH/LOW/HIGH, com 8/8/8/7/8 registros; não foram tratadas como transições contínuas ou 39 testes independentes. A resposta elétrica básica se repetiu; F03 segue parcial para porta instalada e leituras do principal/API. A lacuna da quarta captura foi preservada sem explicação inventada.
+
+O usuário confirmou ter sonda DS18B20 e resistor 4k7. Codex leu os programas/guias existentes, justificou a necessidade de diagnóstico sem rede e preparou `firmware/diagnostico-sensores/`, preservando os outros programas. Compilação executada e aprovada em 24/11 às 00:12 UTC, noite de 23/11 em São Paulo; dois avisos OneWire registrados, sem ocultar ou alterar biblioteca de fornecedor. O PlatformIO instalou cópias das mesmas duas bibliotecas/versionamentos já adotados, em `.tools`, sem dependência de aplicação nova. Os resultados/hashes estão no relatório de preparação. Não houve nova gravação, temperatura, API/banco ou agentes auxiliares. A placa continua com o diagnóstico anterior; conferência de peças/montagem e nova autorização de escrita estão pendentes. O aluno realiza as ações físicas; a IA auxiliou código, compilação, captura e documentação sem fabricar autoria ou resultados.
+
 ## Aproximação repetida — noite de 23/11/2026
 
 O usuário informou “Juntos!”. Codex conferiu COM3/OK e capturou oito segundos com LOW definido antes da leitura: banner e **sete LOW**, acima do mínimo prévio de três, sem exceção/serial fechada. A lacuna de uptime 2027 ms também não aparece no log integral consultado, sem causa determinada; não foi fabricada uma oitava amostra nem repetida a coleta para obter esse número. Evidência de 24/11 às 00:03 UTC, ainda noite de 23/11 em São Paulo. O resultado confirma o nível na aproximação repetida, em captura separada após reinício, sem provar cadência, latência, debounce ou integração completa. Retorno final e firmware principal/API pendentes. Logs integrais privados; linhas sanitizadas públicas; nenhum agente auxiliar, instalação, gravação, temperatura/API/banco. Ver quarto incremento de `etapa-sensor-porta-2026-11-23.md`.
