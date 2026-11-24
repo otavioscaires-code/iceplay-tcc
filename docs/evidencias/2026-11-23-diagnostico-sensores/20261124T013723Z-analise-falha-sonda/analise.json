@@ -1,0 +1,63 @@
+{
+  "result": "failureRecordedAndChecked",
+  "checkedAtUtc": "2026-11-24T01:37:23.953899+00:00",
+  "sourceCommit": "d17cfef305237cc064277259e231279264d3b28e",
+  "captures": [
+    {
+      "evidence": "docs/evidencias/2026-11-23-diagnostico-sensores/20261124T013106Z-serial-aquecimento-mao",
+      "startedAtUtc": "2026-11-24T01:31:06.051010+00:00",
+      "finishedAtUtc": "2026-11-24T01:31:22.119553+00:00",
+      "bannerObserved": false,
+      "temperatureSamples": 0,
+      "errorLines": 8,
+      "rawGpioRows": 20377,
+      "distinctGpioUptimes": 16,
+      "mostRepeatedGpioUptimes": [
+        [
+          1576602,
+          18615
+        ],
+        [
+          1577602,
+          1748
+        ]
+      ],
+      "serialClosed": true
+    },
+    {
+      "evidence": "docs/evidencias/2026-11-23-diagnostico-sensores/20261124T013218Z-serial-reverificacao-apos-falha",
+      "startedAtUtc": "2026-11-24T01:32:18.496036+00:00",
+      "finishedAtUtc": "2026-11-24T01:32:34.675842+00:00",
+      "bannerObserved": true,
+      "temperatureSamples": 0,
+      "errorLines": 8,
+      "rawGpioRows": 1999,
+      "distinctGpioUptimes": 17,
+      "mostRepeatedGpioUptimes": [
+        [
+          1648674,
+          1983
+        ],
+        [
+          27,
+          1
+        ]
+      ],
+      "serialClosed": true
+    }
+  ],
+  "interpretation": "Sem temperatura valida nas duas tentativas. Duplicacoes de GPIO preservadas, causa nao determinada; nao sao amostras fisicas independentes nem cadencia medida. Nao houve validacao de resposta termica.",
+  "reportedPhysicalState": "Usuario confirmou USB desconectado e depois informou que todos os fios da sonda sairam; sem borne ou ferro de solda em maos. Perguntou sobre soldagem, ainda nao executada.",
+  "nextAction": "Manter USB desligado, preparar tres terminacoes firmes e isoladas; conferir montagem e so entao retestar. Nao presumir sonda defeituosa.",
+  "previousSuccessfulEvidenceUnchanged": true,
+  "firmwareSourceAndBinaryUnchanged": true,
+  "protectedSourcesUnchanged": true,
+  "publicMacKeyBearerScanPassed": true,
+  "evidenceSha256": {
+    "docs/evidencias/2026-11-23-diagnostico-sensores/20261124T013106Z-serial-aquecimento-mao/serial-sanitizada.log": "7a0876346177eefa501d15c46fd69bd03c9a55bef52de879920178392bd54235",
+    "docs/evidencias/2026-11-23-diagnostico-sensores/20261124T013106Z-serial-aquecimento-mao/serial.json": "074ca523062488d65cb8696ffdc95e632c5d831933961521afd079d6164a9e65",
+    "docs/evidencias/2026-11-23-diagnostico-sensores/20261124T013218Z-serial-reverificacao-apos-falha/serial-sanitizada.log": "54137b2a5991b8040b76b765089f81419984f51fe33e9a361f5dbfb525b7d8e3",
+    "docs/evidencias/2026-11-23-diagnostico-sensores/20261124T013218Z-serial-reverificacao-apos-falha/serial.json": "b1b0abfeb0984421fe9a96a6f7707f15877ec3bc2fed346f49cc5042a5d3649b"
+  },
+  "newBackendTestsRun": false
+}

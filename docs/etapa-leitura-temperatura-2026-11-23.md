@@ -72,4 +72,24 @@ A compilação anterior teve dois avisos OneWire já documentados; não se afirm
 
 **F01 e F02 permanecem parciais** no [protocolo físico](hardware/protocolo-ensaio.md): gravação/boot do diagnóstico e aquisição USB foram demonstrados, mas faltam o firmware principal, resposta à variação térmica, ensaio de desconexão e envio autenticado com persistência. F03 permanece parcial para instalação e estado nas leituras do principal/API. Calibração, latência, ensaio na geladeira e integração ponta a ponta não foram demonstrados por essa coleta.
 
-Próxima ação solicitada ao aluno: segurar apenas a ponta metálica da sonda para observar uma possível subida em nova captura, sem mexer nas conexões. Esse ensaio depende da confirmação física do aluno e ainda não foi registrado como executado. Depois, planejar a desconexão com USB desligado e a integração de rede/UTC/API em etapa própria. Nenhum teste novo de backend/interface foi alegado: esses códigos, banco e migrations não foram alterados.
+Estado imediatamente após a captura inicial: foi solicitado ao aluno segurar apenas a ponta metálica da sonda para observar uma possível subida em nova captura, sem mexer nas conexões. Naquele momento a tentativa seguinte ainda não havia ocorrido; seu resultado está registrado abaixo. Depois, planejar a desconexão com USB desligado e a integração de rede/UTC/API em etapa própria. Nenhum teste novo de backend/interface foi alegado: esses códigos, banco e migrations não foram alterados.
+
+
+## Tentativa de aquecimento com falha e conexões soltas
+
+O usuário confirmou **“segurando”** a ponta metálica. A captura sem pulso de reset do coletor, em **24/11 às 01:31:06–01:31:22 UTC** (23/11 às 22:31 local), recebeu **zero temperaturas válidas e oito mensagens** `TEMPERATURA_ERRO=sonda_nao_pronta confira_pinagem_alimentacao_resistor_4k7`. A aquisição e o critério de subida em relação aos 24,4375 °C iniciais falharam. A ausência de valor não é uma temperatura de zero grau nem demonstra ausência de resposta ao calor: não houve medição válida para compará-la.
+
+Foi pedido ao aluno soltar a ponta. Uma única reverificação com reset, **01:32:18–01:32:34 UTC**, observou o banner e novamente **zero temperaturas e oito mensagens de erro**. As duas portas seriais foram fechadas, sem exceção de captura ou nova gravação. Os arquivos originais das tentativas foram preservados:
+
+| Captura | Temperaturas | Erros de sonda | Linhas GPIO brutas / uptimes distintos |
+| --- | --- | --- | --- |
+| [Tentativa com a mão](evidencias/2026-11-23-diagnostico-sensores/20261124T013106Z-serial-aquecimento-mao/serial.json) | 0 | 8 | 20.377 / 16 |
+| [Reverificação após reset](evidencias/2026-11-23-diagnostico-sensores/20261124T013218Z-serial-reverificacao-apos-falha/serial.json) | 0 | 8 | 1.999 / 17 |
+
+Há repetição anormal de linhas GPIO com o mesmo uptime. Na primeira captura, 1.576.602 ms aparece 18.615 vezes e 1.577.602 ms aparece 1.748 vezes; na segunda, um prefixo de 1.648.674 ms aparece 1.983 vezes antes do novo banner. A causa não foi determinada e não se atribui essa contagem a observações independentes ou cadência física. Os logs e JSONs não foram deduplicados ou alterados para ocultar a anomalia. A flag `thermalResponseTested` da tentativa identifica a condição solicitada, não aprovação da resposta térmica, que continua **não validada**.
+
+Depois, o usuário confirmou **USB desconectado** e informou que todos os fios da sonda saíram da protoboard. Isso identifica uma dificuldade real de fixação; não comprova defeito interno da sonda nem determina a causa exclusiva dos erros anteriores ou das linhas repetidas. A orientação de recolocar apenas amarelo foi superada por esse relato. O usuário informou não ter borne ou ferro de solda em mãos e perguntou se é possível soldar.
+
+Foi orientada a preparação de três terminações firmes, uma por fio, com pino/extensão compatível com protoboard e isolamento individual das emendas. Soldagem permanece uma opção **proposta, não executada**; manter USB desligado e conferir as ligações antes do reteste. Referências práticas consultadas: [SparkFun, emendas e isolamento](https://learn.sparkfun.com/tutorials/working-with-wire) e [NYU, pinos de header nas pontas dos fios](https://itp.nyu.edu/physcomp/labs/soldering/). Adaptador DS18B20 com bornes é outra opção, ainda não adquirido. Nenhuma troca de sensor ou alteração de circuito foi realizada.
+
+[Análise e conferência dos arquivos](evidencias/2026-11-23-diagnostico-sensores/20261124T013723Z-analise-falha-sonda/analise.json): contagens e mensagens coincidem com logs, hashes da aquisição anterior preservados, fonte/binário e códigos protegidos sem alterações, varredura pública sem MAC/chave privada/Bearer. O código utilizado nesta tentativa é o commit `d17cfef305237cc064277259e231279264d3b28e`, com a mesma fonte do diagnóstico. Sem API, banco, simulação, instalação, novo build ou suíte de backend/interface. F02 permanece parcial com falha registrada; F01/F03 e integração principal/geladeira mantêm suas pendências.

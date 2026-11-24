@@ -1,5 +1,9 @@
 # Registro de assistência por IA
 
+## Falha no aquecimento e fixação da sonda — noite de 23/11/2026
+
+Após confirmação “segurando”, Codex executou captura USB sem pulso de reset: zero temperaturas e oito mensagens de sonda não pronta. Reverificou uma vez com reset e obteve banner, zero temperaturas e oito erros. Registrou sem ocultar as muitas linhas GPIO repetidas; suas contagens brutas não são amostras independentes. O aluno confirmou USB desligado e depois relatou todos os fios da sonda soltos. Sem ferramentas de solda/conector em mãos, perguntou sobre soldagem. Codex consultou fontes primárias e propôs terminações rígidas com isolamento individual, ainda não executadas. A orientação de recolocar apenas amarelo foi superada pelo relato completo. [Resultados, anomalia e próximas ações](etapa-leitura-temperatura-2026-11-23.md#tentativa-de-aquecimento-com-falha-e-conexões-soltas). Sem nova gravação, dados simulados, alteração de fontes/API/banco/migrations ou agente auxiliar. A aquisição inicial válida foi preservada; aquecimento não foi aprovado e defeito interno da sonda não foi presumido.
+
 ## Gravação autorizada e primeira aquisição de temperatura — noite de 23/11/2026
 
 O aluno executou os passos físicos orientados e confirmou as ligações. Não houve medição por multímetro ou foto final de todos os jumpers; isso é registrado como confirmação verbal. Após sua autorização específica “autorizo”, Codex conferiu COM3 e hashes e executou o upload do diagnóstico já compilado de temperatura/porta. Saída 0, verificação da escrita e reset foram registrados. O binário gravado é o mesmo da compilação anterior, sem mudar a fonte ou o firmware principal.
