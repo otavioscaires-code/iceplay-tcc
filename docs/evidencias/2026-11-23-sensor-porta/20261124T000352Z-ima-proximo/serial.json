@@ -1,0 +1,51 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-24T00:03:52.238970+00:00",
+  "finishedAtUtc": "2026-11-24T00:04:00.538533+00:00",
+  "port": "COM3",
+  "baud": 115200,
+  "scope": "Diagnostico GPIO27 com contato magnetico ligado conforme relato/foto do usuario; condicao isolada, sem validar ciclo completo do sensor",
+  "declaredWiring": {
+    "GPIO27": "a10",
+    "GND": "a20",
+    "sensorWires": [
+      "b10",
+      "b20"
+    ],
+    "parallelBridge": "orientada ausencia"
+  },
+  "physicalConditionBasis": "Usuario informou Juntos! ao repetir a aproximacao; distancia e alinhamento nao medidos pela ferramenta.",
+  "criteriaDefinedBeforeCapture": {
+    "conditionRequested": "ima-proximo",
+    "expectedLevel": "LOW",
+    "minimumSamples": 3,
+    "bannerRequired": true,
+    "durationSeconds": 8
+  },
+  "method": "PySerial existente, pulso RTS/EN e captura limitada a 8 s; somente linhas permitidas publicadas",
+  "bannerObserved": true,
+  "levelSamples": 7,
+  "observedLevels": [
+    "LOW"
+  ],
+  "serialClosed": true,
+  "captureError": null,
+  "sensorMagnetCycleValidated": false,
+  "temperatureTested": false,
+  "apiUsed": false,
+  "firmwareFlashedInThisRun": false,
+  "sourceCommit": "dad0d03b99a6f421e3ccfb249ffdd78932f7de4f",
+  "sourceSha256": "4a64f317ff3792c6eb7b5e8c9478ecad87c20e5e267ac1f7f047cd6be0932672",
+  "originalPrivateLog": ".tools/hardware/20261124T000352Z-ima-proximo/serial-integral.bin",
+  "publicLines": [
+    "ICEPLAY DIAGNOSTICO DE BANCADA: GPIO27, INPUT_PULLUP, debounce 50 ms.",
+    "Somente leitura eletrica; sem temperatura, WiFi ou envio a API.",
+    "uptime_ms=27 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=1027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=3027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=4027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=5027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=6027 GPIO27=LOW entrada_em_GND",
+    "uptime_ms=7027 GPIO27=LOW entrada_em_GND"
+  ]
+}

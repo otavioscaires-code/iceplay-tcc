@@ -1,5 +1,9 @@
 # Registro de assistência por IA
 
+## Aproximação repetida — noite de 23/11/2026
+
+O usuário informou “Juntos!”. Codex conferiu COM3/OK e capturou oito segundos com LOW definido antes da leitura: banner e **sete LOW**, acima do mínimo prévio de três, sem exceção/serial fechada. A lacuna de uptime 2027 ms também não aparece no log integral consultado, sem causa determinada; não foi fabricada uma oitava amostra nem repetida a coleta para obter esse número. Evidência de 24/11 às 00:03 UTC, ainda noite de 23/11 em São Paulo. O resultado confirma o nível na aproximação repetida, em captura separada após reinício, sem provar cadência, latência, debounce ou integração completa. Retorno final e firmware principal/API pendentes. Logs integrais privados; linhas sanitizadas públicas; nenhum agente auxiliar, instalação, gravação, temperatura/API/banco. Ver quarto incremento de `etapa-sensor-porta-2026-11-23.md`.
+
 ## Retorno do contato após afastar — noite de 23/11/2026
 
 O usuário informou “afastei”. Codex conferiu COM3/OK, definiu HIGH antes da captura e leu por oito segundos o diagnóstico existente: banner e oito HIGH, sem erro, serial fechada. O timestamp é 24/11 às 00:00 UTC, correspondente à noite de 23/11 em São Paulo; essas datas foram preservadas. A sequência HIGH/LOW/HIGH das posições informadas foi consolidada como capturas separadas após reinícios, sem atribuir observação direta da manipulação, medição de distância/latência/debounce ou funcionamento da ingestão física. O coletor privado ganhou argumento de confirmação para não repetir o relato da conexão inicial do USB. Evidências anteriores preservadas, logs integrais privados e somente linhas permitidas publicadas. F03 segue parcial, pendentes repetição e firmware principal/API. Sem agente auxiliar, instalação, nova gravação, temperatura, API ou banco. Ver terceiro incremento de `etapa-sensor-porta-2026-11-23.md`.

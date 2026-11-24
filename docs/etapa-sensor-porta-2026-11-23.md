@@ -68,3 +68,16 @@ Entre **00:00:12 e 00:00:20 UTC de 24/11/2026**, foram observados o banner e **o
 A resposta nas três posições informadas é compatível com o contato abrindo/fechando pela aproximação do ímã. **As capturas são separadas por reinícios**: não demonstram uma transição contínua, latência, alcance ou eficácia do debounce. O campo `sensorMagnetCycleValidated: false` de cada JSON descreve o alcance daquela captura isolada. A sequência acima consolida somente os estados observados; a repetição e o fluxo físico com firmware principal/API ainda estão pendentes, portanto F03 segue parcial/incompleto.
 
 Próxima ação: repetir uma aproximação e um afastamento com novas capturas, preservando os fios e o diagnóstico. Não houve nova gravação, temperatura, rede/API ou banco; não são leituras do sistema de ingestão. Logs integrais permanecem privados em `.tools/hardware/20261124T000012Z-ima-afastado/`, e somente linhas permitidas foram publicadas. Nenhum ensaio anterior foi sobrescrito.
+
+## Quarto incremento: repetição com peças juntas
+
+O usuário informou **“Juntos!”** após a orientação de repetir a aproximação, mantendo conexões e USB. COM3 continuou OK. Antes de abrir a serial, foi definido LOW como esperado, com banner e pelo menos três amostras, sem exigir exatamente oito registros. A captura limitada a oito segundos ocorreu de **24/11 às 00:03:52 a 00:04:00 UTC**, equivalente a **23/11 às 21:03:52 a 21:04:00 em São Paulo**.
+
+Foram observados o banner e **sete registros LOW**, uptime de 27 a 7027 ms; critério aprovado, sem exceção de captura, serial fechada ao final. Os registros capturados não incluem uma linha de uptime 2027 ms, inclusive no log integral privado consultado. A causa dessa lacuna não foi determinada; não se transforma esse resultado em prova de cadência, ausência de perdas, latência ou qualidade da comunicação. Não foi repetida a captura apenas para obter oito linhas.
+
+- [Resultado da aproximação repetida](evidencias/2026-11-23-sensor-porta/20261124T000352Z-ima-proximo/serial.json).
+- [Linhas sanitizadas](evidencias/2026-11-23-sensor-porta/20261124T000352Z-ima-proximo/serial-sanitizada.log).
+- Comando executado: `& '.tools/platformio-venv/Scripts/python.exe' '.tools/hardware-tools/monitor_porta_2026_11_23.py' --condition ima-proximo --expected LOW --confirmation 'Usuario informou Juntos! ao repetir a aproximacao; distancia e alinhamento nao medidos pela ferramenta.'`.
+- Fonte com mesmo SHA-256; referência Git da captura `dad0d03b99a6f421e3ccfb249ffdd78932f7de4f`. Logs integrais privados em `.tools/hardware/20261124T000352Z-ima-proximo/`.
+
+A sequência de condições informadas é agora HIGH/LOW/HIGH/LOW, com 8/8/8/7 registros aceitos, em capturas separadas após reinícios. A aproximação apresentou novamente LOW; falta repetir o afastamento. Próxima ação: separar a peça sem fios aproximadamente um palmo, preservar fios/USB e avisar para a última conferência de retorno dessa repetição. F03 continua parcial por esse retorno e pelo estado em leituras posteriores do firmware principal/API. Sem nova gravação, temperatura, API, banco ou alteração do firmware.
