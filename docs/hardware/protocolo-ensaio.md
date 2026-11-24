@@ -1,5 +1,7 @@
 # Protocolo de validação física
 
+**Estado atual na noite de 23/11/2026:** diagnóstico de temperatura/porta gravado com autorização específica, boot confirmado e oito leituras reais de 24,4375 °C pela USB, sem mensagens de erro na captura de 16 s. [Resultado e escopo](../etapa-leitura-temperatura-2026-11-23.md). F01/F02/F03 parciais conforme tabela; rede, API, resposta térmica/desconexão e geladeira ainda pendentes. A placa executa `diagnostico-sensores`. Os registros anteriores abaixo mantêm suas datas e limitações.
+
 **Preparado em 12/11/2026; primeira verificação USB parcial em 16/11/2026.** O objetivo é verificar o caminho sensor → ESP32 → HTTPS/API → SQLite → interface/alertas. Compilar, executar um simulador ou declarar origem Hardware não substitui estes ensaios. O [reconhecimento USB na COM3](../etapa-usb-2026-11-16.md) não encerra F01 nem comprova comunicação do firmware com sensores/API.
 
 Em **18/11/2026**, a [consulta serial ao ROM](../etapa-serial-2026-11-18.md) passou: ESP32-D0WD-V3/revisão 3.1 e flash 4 MB. Não houve gravação ou boot do firmware ICEPLAY. O teste é evidência física de comunicação serial, com alcance limitado; mantém F01 parcial.
@@ -20,8 +22,8 @@ Usar horário UTC nos registros técnicos e hora local identificada nas anotaç�
 
 | Caso | Procedimento previsto | Critério observável | Situação |
 | --- | --- | --- | --- |
-| F01 USB e firmware | Identificar a COM, compilar, gravar e abrir serial | Gravação confirmada e inicialização sem segredo no log | Parcial: USB/ROM e gravação/boot de diagnóstico GPIO27 aprovados; firmware principal de ingestão ainda pendente |
-| F02 Temperatura em bancada | Conferir três fios, resistor e conversão | Valor válido repetível pelo dispositivo e resposta 201 na API; desconectar sonda não gera zero/-127 como leitura válida | Pendente |
+| F01 USB e firmware | Identificar a COM, compilar, gravar e abrir serial | Gravação confirmada e inicialização sem segredo no log | Parcial: USB/ROM, gravação/boot dos diagnósticos GPIO27 e sensores aprovados; firmware principal de ingestão ainda pendente |
+| F02 Temperatura em bancada | Conferir três fios, resistor e conversão | Valor válido repetível pelo dispositivo e resposta 201 na API; desconectar sonda não gera zero/-127 como leitura válida | Parcial: oito temperaturas reais de 24,4375 °C pela USB, sem erros na captura; variação térmica, desconexão e envio/API pendentes |
 | F03 Porta | Aproximar/afastar ímã; conferir polaridade | Estado debounced corresponde à posição observada e aparece em leituras posteriores; anotar latência/limitações | Parcial: HIGH/LOW/HIGH/LOW/HIGH no diagnóstico, em capturas separadas; porta instalada e estado nas leituras do firmware principal/API pendentes |
 | F04 Rede e UTC | Conectar WiFi de 2,4 GHz, sincronizar e enviar por HTTPS | Certificado validado, dois timestamps coerentes, dispositivo vinculado; sem ignorar TLS ou fabricar UTC | Pendente |
 | F05 Ponta a ponta | Consultar última leitura e histórico no iPhone | Mesmos IDs, temperatura, porta e origem da leitura persistida; foto e resposta HTTP correspondentes | Pendente |

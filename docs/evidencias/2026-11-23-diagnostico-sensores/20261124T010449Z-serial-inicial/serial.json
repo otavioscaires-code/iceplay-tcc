@@ -1,0 +1,197 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-24T01:04:49.239356+00:00",
+  "finishedAtUtc": "2026-11-24T01:05:05.433426+00:00",
+  "port": "COM3",
+  "baud": 115200,
+  "scope": "Primeira aquisicao serial de bancada do diagnostico-sensores; sem API, UTC de medicao ou calibracao",
+  "criteriaDefinedBeforeCapture": {
+    "durationSeconds": 16,
+    "bannerRequired": true,
+    "minimumValidTemperatures": 3,
+    "minimumGpioRecords": 3,
+    "noTemperatureErrorRequired": true,
+    "finiteRangeC": [
+      -55,
+      125
+    ],
+    "calibrationRequired": false
+  },
+  "bannerObserved": true,
+  "temperatureSamples": 8,
+  "temperatures": [
+    {
+      "receivedAtUtc": "2026-11-24T01:04:50.532724+00:00",
+      "uptimeMs": 972,
+      "temperatureC": 24.4375
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:04:52.419119+00:00",
+      "uptimeMs": 2859,
+      "temperatureC": 24.4375
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:04:54.421587+00:00",
+      "uptimeMs": 4861,
+      "temperatureC": 24.4375
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:04:56.422725+00:00",
+      "uptimeMs": 6863,
+      "temperatureC": 24.4375
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:04:58.425046+00:00",
+      "uptimeMs": 8865,
+      "temperatureC": 24.4375
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:05:00.427043+00:00",
+      "uptimeMs": 10867,
+      "temperatureC": 24.4375
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:05:02.428743+00:00",
+      "uptimeMs": 12869,
+      "temperatureC": 24.4375
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:05:04.430477+00:00",
+      "uptimeMs": 14871,
+      "temperatureC": 24.4375
+    }
+  ],
+  "minimumTemperatureC": 24.4375,
+  "maximumTemperatureC": 24.4375,
+  "gpioSamples": 16,
+  "gpioRecords": [
+    {
+      "receivedAtUtc": "2026-11-24T01:04:49.587266+00:00",
+      "uptimeMs": 27,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:04:50.586988+00:00",
+      "uptimeMs": 1028,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:04:51.586846+00:00",
+      "uptimeMs": 2028,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:04:52.588672+00:00",
+      "uptimeMs": 3030,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:04:53.589047+00:00",
+      "uptimeMs": 4030,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:04:54.591022+00:00",
+      "uptimeMs": 5032,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:04:55.591035+00:00",
+      "uptimeMs": 6032,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:04:56.592069+00:00",
+      "uptimeMs": 7034,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:04:57.592976+00:00",
+      "uptimeMs": 8034,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:04:58.594643+00:00",
+      "uptimeMs": 9036,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:04:59.595014+00:00",
+      "uptimeMs": 10036,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:05:00.596742+00:00",
+      "uptimeMs": 11038,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:05:01.596769+00:00",
+      "uptimeMs": 12038,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:05:02.598743+00:00",
+      "uptimeMs": 13040,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:05:03.598742+00:00",
+      "uptimeMs": 14040,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-24T01:05:04.599813+00:00",
+      "uptimeMs": 15042,
+      "level": "HIGH"
+    }
+  ],
+  "gpioLevels": [
+    "HIGH"
+  ],
+  "sensorErrors": [],
+  "serialClosed": true,
+  "captureError": null,
+  "timestampMeaning": "receivedAtUtc e o recebimento no computador; uptimeMs e tempo desde boot, nao medidoEmUtc da API",
+  "wiringBasis": "Sonda b30 vermelho, b32 preto, b34 amarelo; resistor c30-c34; GND c20-a32; 3V3-a30 e D4-a34, conforme orientacao e confirmacoes verbais do usuario",
+  "temperatureAcquisitionValidated": true,
+  "calibrationValidated": false,
+  "thermalResponseTested": false,
+  "sensorDisconnectionTested": false,
+  "doorPositionInThisCapture": "Nao definida como ensaio de posicao",
+  "apiUsed": false,
+  "mainIngestionFirmwareUsed": false,
+  "firmwareFlashedDuringCapture": false,
+  "sourceCommit": "36633d8463b4094312ce111c7ef1d73d5c7aaa2b",
+  "sourceSha256": "9728d47caac2bf857aa4cdcbad34fba6d220ca3bec1d745a8a4b75c907e0e69b",
+  "uploadEvidence": "docs/evidencias/2026-11-23-diagnostico-sensores/20261124T010317Z-gravacao/gravacao.json",
+  "originalPrivateLog": ".tools/hardware/20261124T010449Z-serial-diagnostico-sensores/serial-integral.bin",
+  "publicLines": [
+    "ICEPLAY DIAGNOSTICO DE SENSORES: DS18B20 GPIO4, porta GPIO27.",
+    "Bancada sem WiFi/API; uptime_ms nao e horario UTC. Sem valores simulados.",
+    "uptime_ms=27 GPIO27=HIGH",
+    "uptime_ms=972 TEMPERATURA_C=24.4375",
+    "uptime_ms=1028 GPIO27=HIGH",
+    "uptime_ms=2028 GPIO27=HIGH",
+    "uptime_ms=2859 TEMPERATURA_C=24.4375",
+    "uptime_ms=3030 GPIO27=HIGH",
+    "uptime_ms=4030 GPIO27=HIGH",
+    "uptime_ms=4861 TEMPERATURA_C=24.4375",
+    "uptime_ms=5032 GPIO27=HIGH",
+    "uptime_ms=6032 GPIO27=HIGH",
+    "uptime_ms=6863 TEMPERATURA_C=24.4375",
+    "uptime_ms=7034 GPIO27=HIGH",
+    "uptime_ms=8034 GPIO27=HIGH",
+    "uptime_ms=8865 TEMPERATURA_C=24.4375",
+    "uptime_ms=9036 GPIO27=HIGH",
+    "uptime_ms=10036 GPIO27=HIGH",
+    "uptime_ms=10867 TEMPERATURA_C=24.4375",
+    "uptime_ms=11038 GPIO27=HIGH",
+    "uptime_ms=12038 GPIO27=HIGH",
+    "uptime_ms=12869 TEMPERATURA_C=24.4375",
+    "uptime_ms=13040 GPIO27=HIGH",
+    "uptime_ms=14040 GPIO27=HIGH",
+    "uptime_ms=14871 TEMPERATURA_C=24.4375",
+    "uptime_ms=15042 GPIO27=HIGH"
+  ]
+}

@@ -1,5 +1,13 @@
 # Registro de assistência por IA
 
+## Gravação autorizada e primeira aquisição de temperatura — noite de 23/11/2026
+
+O aluno executou os passos físicos orientados e confirmou as ligações. Não houve medição por multímetro ou foto final de todos os jumpers; isso é registrado como confirmação verbal. Após sua autorização específica “autorizo”, Codex conferiu COM3 e hashes e executou o upload do diagnóstico já compilado de temperatura/porta. Saída 0, verificação da escrita e reset foram registrados. O binário gravado é o mesmo da compilação anterior, sem mudar a fonte ou o firmware principal.
+
+Codex capturou 16 s após reinício, com critérios prévios: banner, pelo menos três temperaturas válidas e três registros GPIO27, sem mensagens de erro de temperatura. Foram recebidas oito temperaturas de 24,4375 °C e 16 HIGH, sem erro, com serial fechada. Logs integrais/coletores/binário privados; somente saída sanitizada e metadados pertinentes publicados. A data técnica é 24/11 às 01:03–01:05 UTC, correspondente à noite de 23/11 em São Paulo. Nenhum valor foi fabricado, simulado ou inserido na API/banco. O horário do computador é de recebimento; uptime não é UTC de medição.
+
+Foi solicitado ao aluno segurar a ponta metálica para nova coleta de resposta térmica; a ação e o resultado ainda não foram confirmados. Não se afirma calibração, precisão medida, teste de desconexão ou integração na geladeira. F01/F02/F03 permanecem parciais. Não houve agente auxiliar, nova suíte de backend/interface, mudança de rede, banco ou migrations. Ver [gravação, aquisição e limites](etapa-leitura-temperatura-2026-11-23.md). O aluno deve compreender, reproduzir e declarar essa assistência conforme as regras institucionais.
+
 ## Conferência do resistor e dos fios da sonda — noite de 23/11/2026
 
 Codex identificou visualmente o nominal 4k7 na foto aproximada do resistor, sem afirmar medição. Como as cores do cabo não bastavam para confirmar a peça recebida, solicitou a fonte do fornecedor. O usuário enviou o anúncio e o trecho correspondente. Após falha da busca, o navegador IAB leu a descrição do item MLB7020060110, WFMNEGOCIOS, confirmando vermelho/VCC, preto/GND e amarelo/DQ com pull-up 4k7. Foram registrados apenas fonte e fatos relevantes; não se publicou a página inteira, dados pessoais ou fotos da conversa. Foi preparado um plano de posições na protoboard, explicitamente não executado. Sem novo teste físico, gravação, build ou mudança de API/firmware/banco/rede; a placa mantém o diagnóstico de porta. A orientação não presume precisão térmica ou funcionamento da sonda a partir da especificação comercial. Ver a conferência posterior em `etapa-diagnostico-sensores-2026-11-23.md`.

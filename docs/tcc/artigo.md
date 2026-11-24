@@ -12,7 +12,7 @@ Orientador {{ORIENTADOR}}
 
 ## Resumo provisório
 
-O ICEPLAY é um protótipo de monitoramento de temperatura e estado da porta de geladeiras, com persistência local e consulta pelo navegador do celular. Uma aplicação ASP.NET Core integra API, Entity Framework Core, SQLite e arquivos estáticos. O software inclui histórico paginado, parâmetros por equipamento, episódios de alerta e credencial para emissor com UUID de medição. A verificação incremental exercitou contratos, entradas inválidas, persistência/reinício e regras temporais. Um simulador usa a mesma API com origem identificada. O firmware ESP32 foi compilado, enquanto montagem e ensaio na geladeira permanecem pendentes. Os resultados apresentados são de software e não demonstram precisão térmica ou eficácia em campo. O protocolo físico preparado orienta a coleta posterior e delimita as conclusões possíveis.
+O ICEPLAY é um protótipo de monitoramento de temperatura e estado da porta de geladeiras, com persistência local e consulta pelo navegador do celular. Uma aplicação ASP.NET Core integra API, Entity Framework Core, SQLite e arquivos estáticos. O software inclui histórico paginado, parâmetros por equipamento, episódios de alerta e credencial para emissor com UUID de medição. A verificação incremental exercitou contratos, entradas inválidas, persistência/reinício e regras temporais. Um simulador usa a mesma API com origem identificada. O firmware principal ESP32 foi compilado; diagnósticos isolados demonstraram resposta básica do contato magnético e oito aquisições reais de temperatura pela USB. Integração física com API e ensaio na geladeira permanecem pendentes. Os resultados não demonstram precisão térmica ou eficácia em campo. O protocolo físico delimita as conclusões possíveis e orienta os ensaios restantes.
 
 Palavras chave IoT; monitoramento; refrigeração; persistência; sistemas web.
 
@@ -26,7 +26,7 @@ A fundamentação inicial utiliza trabalhos de sensoriamento conectado e monitor
 
 O desenvolvimento foi organizado em incrementos: persistência/cadastro, ingestão/simulador, painel/histórico, páginas, parâmetros, regras/alertas, autorização e firmware. A cada conjunto concluído foram executadas verificações e registradas evidências/commits reais. Testes de software utilizaram SQLite isolado. Um programa C# com relógio controlado exercitou regras; clientes HTTP verificaram o servidor real; testes JavaScript usaram DOM/fetch controlados.
 
-A validação física prevista identifica conjunto/montagem, condições, parâmetros e observações F01–F12. Inclui sensor, porta, rede/UTC, persistência, ausência/recuperação e consulta no iPhone. A etapa permanece não executada nesta versão do artigo. Assistência de IA utilizada em análise, código, testes e redação está registrada; o autor deve revisar, reproduzir e defender os artefatos.
+A validação física identifica conjunto/montagem, condições, parâmetros e observações F01–F12. Inclui sensor, porta, rede/UTC, persistência, ausência/recuperação e consulta no iPhone. Foram realizadas verificações parciais de bancada com diagnósticos isolados; a integração ponta a ponta permanece pendente. Assistência de IA utilizada em análise, código, testes e redação está registrada; o autor deve revisar, reproduzir e defender os artefatos.
 
 ## 3 Solução implementada
 
@@ -44,9 +44,9 @@ O upgrade do banco de uso para cinco migrations manteve uma geladeira e três le
 
 ## 5 Resultados físicos e discussão
 
-Em 16/11 houve reconhecimento USB e, em 18/11, comunicação serial e gravação autorizada de um diagnóstico temporário de GPIO27. Foram observados oito HIGH sem conexões, oito LOW com jumper e oito HIGH após sua retirada, em capturas separadas por reinício. Isso não é teste do sensor magnético ou do DS18B20. O firmware principal de ingestão ainda não foi gravado.
+Em 16/11 houve reconhecimento USB e, em 18/11, comunicação serial e gravação autorizada de um diagnóstico temporário de GPIO27. Foram observados oito HIGH sem conexões, oito LOW com jumper e oito HIGH após sua retirada, em capturas separadas por reinício. Na noite de 23/11, o contato SP-1006 com ímã produziu HIGH/LOW/HIGH/LOW/HIGH, com 8/8/8/7/8 registros em capturas separadas, verificando resposta elétrica básica sem medir latência/alcance. Depois de montagem confirmada verbalmente e autorização específica, um diagnóstico de temperatura/porta foi gravado. A captura de 24/11 às 01:04:49–01:05:05 UTC (23/11 à noite em São Paulo) recebeu oito temperaturas reais de 24,4375 °C pela USB, sem mensagens de erro; quatro casas não demonstram precisão experimental. [Relatório e dados da aquisição](../etapa-leitura-temperatura-2026-11-23.md). O firmware principal de ingestão ainda não foi gravado e não houve envio físico à API.
 
-Permanecem necessários os sensores e o ensaio na geladeira: identificar montagem/posição, duração, parâmetros, série real, falhas e recuperação. Comparação com referência térmica só pode ser discutida se realizada e documentada. A validação física integra o objetivo atual do TCC, não foi transferida para trabalho futuro e não é substituída pela especificação do fabricante.
+Permanecem necessários resposta térmica, ensaio de desconexão e integração na geladeira: identificar montagem/posição, duração, parâmetros, série real persistida, falhas e recuperação. Comparação com referência térmica só pode ser discutida se realizada e documentada. A validação física integra o objetivo atual do TCC, não foi transferida para trabalho futuro e não é substituída pela especificação do fabricante.
 
 ## 6 Conclusão parcial
 

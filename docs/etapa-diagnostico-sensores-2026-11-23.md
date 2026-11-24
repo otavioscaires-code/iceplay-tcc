@@ -1,5 +1,7 @@
 # Preparação da bancada de temperatura — noite de 23/11/2026
 
+**Atualização posterior:** após a conferência documental e os passos de montagem confirmados pelo usuário, houve autorização específica, gravação e primeira aquisição de temperatura. O [relatório da leitura real](etapa-leitura-temperatura-2026-11-23.md) registra oito temperaturas de 24,4375 °C pela USB. A placa agora executa o diagnóstico dos sensores. O texto abaixo preserva o estado da preparação e da conferência, anteriores a esse upload; seus “não executado” não descrevem o estado atual.
+
 ## Necessidade e escopo
 
 Após o [fechamento da resposta básica do contato](etapa-sensor-porta-2026-11-23.md), o usuário confirmou possuir a sonda DS18B20 e o resistor correto de 4k7. Sua disponibilidade foi informada; pinagem da sonda, valor visual do resistor e montagem ainda precisam de conferência, com alimentação desligada.

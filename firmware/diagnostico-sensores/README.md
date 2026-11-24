@@ -1,12 +1,12 @@
 # Diagnóstico isolado dos sensores
 
-Preparação para a bancada de temperatura, após o ensaio básico do contato magnético na noite de 23/11/2026. O usuário confirmou possuir a sonda DS18B20 e o resistor 4k7. Este programa usa os mesmos GPIOs e versões de bibliotecas do firmware principal, preservando `../esp32/` e `../diagnostico-porta/`.
+Programa usado na bancada de temperatura, após o ensaio básico do contato magnético na noite de 23/11/2026. Com autorização específica do usuário, foi gravado na COM3 às 01:03 UTC de 24/11 (22:03 de 23/11 em São Paulo). A captura posterior confirmou boot e oito leituras de 24,4375 °C sem mensagens de erro. **Este é o programa atual da placa**, sem Wi-Fi/API; variação térmica e desconexão ainda não foram ensaiadas. Ver [gravação, aquisição e limites](../../docs/etapa-leitura-temperatura-2026-11-23.md). Usa os mesmos GPIOs e versões de bibliotecas do firmware principal, preservando `../esp32/` e `../diagnostico-porta/`.
 
-**Compilação executada e aprovada**, saída 0: [resultado de 24/11 às 00:12 UTC, ainda noite de 23/11 em São Paulo](../../docs/evidencias/2026-11-23-diagnostico-sensores/20261124T001240Z-compilacao/compilacao.json). Dois avisos na OneWire 2.3.8; estimativas de 21.544 bytes de RAM estática e 275.297 bytes de aplicação flash. Gravação e leitura de temperatura ainda não executadas. Ver [relatório da preparação](../../docs/etapa-diagnostico-sensores-2026-11-23.md).
+**Compilação executada e aprovada**, saída 0: [resultado de 24/11 às 00:12 UTC, ainda noite de 23/11 em São Paulo](../../docs/evidencias/2026-11-23-diagnostico-sensores/20261124T001240Z-compilacao/compilacao.json). Dois avisos na OneWire 2.3.8; estimativas de 21.544 bytes de RAM estática e 275.297 bytes de aplicação flash. Naquele momento ainda não havia gravação ou leitura; os resultados posteriores estão no relatório acima. Ver [relatório da preparação](../../docs/etapa-diagnostico-sensores-2026-11-23.md).
 
 O diagnóstico anterior só lê GPIO27. O programa principal só inicia os sensores com configuração privada válida e forma amostras após sincronização UTC. Este diagnóstico separado permite verificar a sonda pela USB antes de configurar rede/credencial, sem enfraquecer aquelas regras. Não possui WiFi, API, configuração privada, banco ou simulação; não imprime MAC ou o identificador ROM exclusivo da sonda.
 
-**A compilação não significa gravação ou teste da sonda. A placa permanece com o diagnóstico de porta até uma nova gravação explicitamente autorizada.** Antes de alimentar a montagem, confirmar VDD/DQ/GND da sonda pela identificação do fornecedor e conferir as conexões, sem assumir apenas as cores.
+**Compilação, gravação e leitura são etapas distintas, com evidências próprias.** A gravação deste diagnóstico foi autorizada e executada na noite de 23/11. Para reproduzir a montagem, confirmar VDD/DQ/GND pela identificação do fornecedor e conferir as conexões antes de alimentar, sem assumir apenas as cores.
 
 ## Ligações e interpretação
 

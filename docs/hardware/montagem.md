@@ -1,5 +1,7 @@
 # Montagem prevista do protótipo
 
+**Estado atual na noite de 23/11/2026:** aluno confirmou os passos de montagem da sonda/4k7 conforme a tabela abaixo. Com autorização específica, o diagnóstico dos sensores foi gravado e iniciou; captura USB recebeu oito temperaturas reais de 24,4375 °C, sem mensagens de erro. [Relatório, ligações informadas e limites](../etapa-leitura-temperatura-2026-11-23.md). **Placa com `diagnostico-sensores`, sem Wi-Fi/API.** Não houve foto final ou medição por multímetro de todos os pontos. Resposta térmica/desconexão e ensaio na geladeira pendentes. Os registros datados abaixo descrevem a preparação anterior, não o estado atual da placa.
+
 **Pinagem conferida na noite de 23/11/2026:** o [anúncio da sonda WFMNEGOCIOS, item MLB7020060110](https://www.mercadolivre.com.br/sensor-de-temperatura-prova-dagua-ds18b20-cabo-1-metro/p/MLB2124686584?pdp_filters=item_id%3AMLB7020060110) foi lido no navegador, e o usuário forneceu o mesmo trecho: vermelho = VCC, preto = GND, amarelo = DQ, com pull-up de 4k7 recomendado. O resistor foi identificado visualmente pela foto como 4,7 kΩ; não foi medido. [Registro da conferência documental](../evidencias/2026-11-23-diagnostico-sensores/20261124T003635Z-pinagem-fornecedor/pinagem.json). Isso resolve a identificação do fornecedor, não comprova a montagem ou leitura da sonda. A placa ainda executa o diagnóstico de porta.
 
 **Atualização na noite de 23/11/2026:** contato SP1006 com D27→a10/GND→a20 e fios em b10/b20 conforme foto/relato; resposta básica ao ímã repetida no [diagnóstico GPIO27](../etapa-sensor-porta-2026-11-23.md), ainda sem porta instalada/API. O usuário confirmou possuir sonda e resistor 4k7. O [novo diagnóstico dos sensores](../etapa-diagnostico-sensores-2026-11-23.md) foi compilado, não gravado. Conferência de VDD/DQ/GND da sonda, resistor e ligação térmica ainda pendentes. A placa mantém o diagnóstico de porta; desligar o USB antes das próximas ligações.
@@ -30,17 +32,17 @@ Não usar a indicação “12 V” de um anúncio como autorização para aplica
 
 ## Ligações lógicas
 
-### Posições sugeridas na protoboard, ainda não executadas
+### Posições da protoboard confirmadas verbalmente na noite de 23/11
 
 Preservar os fios da porta em a10/b10 e a20/b20. Com USB desconectado, usar a área livre da metade a–e para a sonda:
 
-| Fio identificado pelo fornecedor | Função | Posição sugerida |
+| Fio identificado pelo fornecedor | Função | Posição informada |
 | --- | --- | --- |
 | Vermelho | VCC, alimentação | b30 |
 | Preto | GND, terra | b32 |
 | Amarelo | DQ, dados | b34 |
 
-O primeiro passo orientado é somente posicionar esses três fios e conferir a foto. A etapa seguinte prevê resistor entre c30/c34, jumper de 3V3 para a30, jumper de GPIO4/D4 para a34 e derivação do GND existente de c20 para a32. São posições **planejadas**, não ligações já confirmadas; conferir antes de energizar e obter autorização para a nova gravação. O número da fileira 34 não significa usar GPIO34: o pino de dados continua sendo GPIO4/D4.
+Após esses três fios, o aluno confirmou os passos do resistor entre c30/c34, jumper de 3V3 para a30, jumper de GPIO4/D4 para a34 e derivação do GND existente de c20 para a32. A confirmação foi verbal, sem foto final de toda a ligação ou multímetro; a aquisição serial posterior está no relatório acima. Para reproduzir ou alterar a montagem, desligar o USB e conferir antes de energizar. O número da fileira 34 não significa usar GPIO34: o pino de dados continua sendo GPIO4/D4.
 
 ### Esquema elétrico
 

@@ -1,0 +1,28 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-24T01:03:17.501098+00:00",
+  "authorization": {
+    "granted": true,
+    "userReply": "autorizo",
+    "scope": "Substituir diagnostico-porta pelo diagnostico de temperatura e porta, sem WiFi/API",
+    "wiringBasis": "Passos guiados, foto inicial e confirmacoes verbais do usuario; ultimos jumpers confirmados como feito"
+  },
+  "port": "COM3",
+  "sourceSha256": "9728d47caac2bf857aa4cdcbad34fba6d220ca3bec1d745a8a4b75c907e0e69b",
+  "platformioIniSha256": "0a7f3966cf32c1f2572bc4564a77615d16169316a9bb663275764d55be6c6bde",
+  "binaryBeforeUploadSha256": "191f4647b426432f8f7e595e995cf3d442a2da359b119ab41c7f79bccfce0c34",
+  "finishedAtUtc": "2026-11-24T01:03:33.951475+00:00",
+  "exitCode": 0,
+  "command": "python -m platformio run -d firmware/diagnostico-sensores -e esp32dev -t upload --upload-port COM3",
+  "sourceCommit": "36633d8463b4094312ce111c7ef1d73d5c7aaa2b",
+  "binaryAfterUploadSha256": "191f4647b426432f8f7e595e995cf3d442a2da359b119ab41c7f79bccfce0c34",
+  "verificationLogObserved": true,
+  "resetLogObserved": true,
+  "firmwareFlashed": true,
+  "bootObserved": false,
+  "temperatureRead": false,
+  "apiUsed": false,
+  "captureError": null,
+  "boardProgramAfterCommand": "diagnostico-sensores, boot ainda nao conferido",
+  "originalPrivateLog": ".tools/hardware/20261124T010317Z-gravacao-diagnostico-sensores/gravacao-integral.log"
+}
