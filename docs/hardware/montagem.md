@@ -1,5 +1,7 @@
 # Montagem prevista do protótipo
 
+**Pinagem conferida na noite de 23/11/2026:** o [anúncio da sonda WFMNEGOCIOS, item MLB7020060110](https://www.mercadolivre.com.br/sensor-de-temperatura-prova-dagua-ds18b20-cabo-1-metro/p/MLB2124686584?pdp_filters=item_id%3AMLB7020060110) foi lido no navegador, e o usuário forneceu o mesmo trecho: vermelho = VCC, preto = GND, amarelo = DQ, com pull-up de 4k7 recomendado. O resistor foi identificado visualmente pela foto como 4,7 kΩ; não foi medido. [Registro da conferência documental](../evidencias/2026-11-23-diagnostico-sensores/20261124T003635Z-pinagem-fornecedor/pinagem.json). Isso resolve a identificação do fornecedor, não comprova a montagem ou leitura da sonda. A placa ainda executa o diagnóstico de porta.
+
 **Atualização na noite de 23/11/2026:** contato SP1006 com D27→a10/GND→a20 e fios em b10/b20 conforme foto/relato; resposta básica ao ímã repetida no [diagnóstico GPIO27](../etapa-sensor-porta-2026-11-23.md), ainda sem porta instalada/API. O usuário confirmou possuir sonda e resistor 4k7. O [novo diagnóstico dos sensores](../etapa-diagnostico-sensores-2026-11-23.md) foi compilado, não gravado. Conferência de VDD/DQ/GND da sonda, resistor e ligação térmica ainda pendentes. A placa mantém o diagnóstico de porta; desligar o USB antes das próximas ligações.
 
 Estado em 12/11/2026: preparação de software e conexões **previstas**. Não houve posse/montagem confirmada nesta etapa. Fotos de anúncios não substituem a identificação da peça recebida.
@@ -27,6 +29,20 @@ Atualização posterior: o usuário identificou o contato como Giltar SP-1006 e 
 Não usar a indicação “12 V” de um anúncio como autorização para aplicar 12 V no ESP32. Primeiro confirmar se o sensor é contato seco passivo. Sensor eletrônico com LED/saída alimentada precisa de outro circuito e não faz parte desta ligação. ESP32 e sensores usam referência comum de GND; a linha de dados recebe pull-up para **3,3 V**.
 
 ## Ligações lógicas
+
+### Posições sugeridas na protoboard, ainda não executadas
+
+Preservar os fios da porta em a10/b10 e a20/b20. Com USB desconectado, usar a área livre da metade a–e para a sonda:
+
+| Fio identificado pelo fornecedor | Função | Posição sugerida |
+| --- | --- | --- |
+| Vermelho | VCC, alimentação | b30 |
+| Preto | GND, terra | b32 |
+| Amarelo | DQ, dados | b34 |
+
+O primeiro passo orientado é somente posicionar esses três fios e conferir a foto. A etapa seguinte prevê resistor entre c30/c34, jumper de 3V3 para a30, jumper de GPIO4/D4 para a34 e derivação do GND existente de c20 para a32. São posições **planejadas**, não ligações já confirmadas; conferir antes de energizar e obter autorização para a nova gravação. O número da fileira 34 não significa usar GPIO34: o pino de dados continua sendo GPIO4/D4.
+
+### Esquema elétrico
 
 Os nomes são **GPIOs**, não posições numeradas do conector da placa:
 

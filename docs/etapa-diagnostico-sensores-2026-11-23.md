@@ -43,3 +43,13 @@ Fonte: SHA-256 `9728d47caac2bf857aa4cdcbad34fba6d220ca3bec1d745a8a4b75c907e0e69b
 Próximos passos: desligar o USB, conferir foto/identificação da sonda e do resistor, confirmar VDD/DQ/GND pelo fornecedor, orientar a ligação e só então obter autorização explícita para substituir o diagnóstico da placa pelo novo programa. Não pressupor pinagem apenas pelas cores e não reutilizar a autorização limitada à gravação anterior de GPIO27 como autorização desta nova escrita.
 
 Ferramentas, builds e auxiliares em `.tools`, ignorados pelo Git. Nenhum segredo ou binário foi publicado. Preparação e registro tiveram assistência de IA, sem agentes auxiliares; ações físicas são realizadas pelo usuário. O projeto principal, banco de uso, migrations e evidências anteriores foram preservados. Não se apresenta compilação como ensaio de temperatura.
+
+## Conferência posterior das peças e da pinagem
+
+O usuário forneceu uma foto aproximada do resistor. As faixas significativas amarelo/violeta/vermelho, lidas no sentido indicado na foto, identificam nominal de 4,7 kΩ; não houve medição por multímetro. Depois informou fios preto, vermelho e amarelo e forneceu o link do anúncio da sonda.
+
+A ferramenta de busca não conseguiu abrir o anúncio; a consulta pelo navegador IAB funcionou. Na descrição visível do item **MLB7020060110**, vendedor **WFMNEGOCIOS**, a seção dos fios identifica vermelho como VCC, preto como GND e amarelo como DQ, recomendando pull-up de 4,7 kΩ. O usuário também colou esse mesmo trecho. Essa é a base documental da ligação, em vez de presumir função somente pelas cores. A alimentação escolhida no projeto é 3V3, dentro dos 3,0–5,5 V informados pelo fornecedor; o resistor fica entre dados e 3V3.
+
+[Registro documental](evidencias/2026-11-23-diagnostico-sensores/20261124T003635Z-pinagem-fornecedor/pinagem.json), criado em 24/11 às 00:36 UTC, ainda noite de 23/11 em São Paulo. Foram guardados somente fatos relevantes e fonte, sem página inteira, dados pessoais, imagens da conversa ou alteração de bytes das fotos originais. O SHA-256 da foto do resistor identifica a fonte privada, sem publicá-la.
+
+O próximo passo orientado é, com USB desligado, posicionar vermelho em b30, preto em b32 e amarelo em b34, na metade a–e, mantendo a porta como está. A [alocação completa planejada](hardware/montagem.md) separa esse passo das ligações seguintes do resistor e dos jumpers. **Montagem térmica ainda não confirmada, novo diagnóstico não gravado e nenhuma temperatura lida.** A especificação comercial de precisão não é resultado experimental do ICEPLAY. Firmware, API, banco e configurações do computador permaneceram intactos nesta conferência; não houve novo build/teste físico, pois foram alteradas somente instruções e registros documentais.

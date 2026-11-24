@@ -1,5 +1,9 @@
 # Registro de assistência por IA
 
+## Conferência do resistor e dos fios da sonda — noite de 23/11/2026
+
+Codex identificou visualmente o nominal 4k7 na foto aproximada do resistor, sem afirmar medição. Como as cores do cabo não bastavam para confirmar a peça recebida, solicitou a fonte do fornecedor. O usuário enviou o anúncio e o trecho correspondente. Após falha da busca, o navegador IAB leu a descrição do item MLB7020060110, WFMNEGOCIOS, confirmando vermelho/VCC, preto/GND e amarelo/DQ com pull-up 4k7. Foram registrados apenas fonte e fatos relevantes; não se publicou a página inteira, dados pessoais ou fotos da conversa. Foi preparado um plano de posições na protoboard, explicitamente não executado. Sem novo teste físico, gravação, build ou mudança de API/firmware/banco/rede; a placa mantém o diagnóstico de porta. A orientação não presume precisão térmica ou funcionamento da sonda a partir da especificação comercial. Ver a conferência posterior em `etapa-diagnostico-sensores-2026-11-23.md`.
+
 ## Fechamento da bancada da porta e preparação da temperatura — noite de 23/11/2026
 
 Após o usuário informar “afastei”, Codex capturou oito HIGH, com critério prévio, sem erro e com serial fechada. As cinco condições foram conferidas e consolidadas em HIGH/LOW/HIGH/LOW/HIGH, com 8/8/8/7/8 registros; não foram tratadas como transições contínuas ou 39 testes independentes. A resposta elétrica básica se repetiu; F03 segue parcial para porta instalada e leituras do principal/API. A lacuna da quarta captura foi preservada sem explicação inventada.

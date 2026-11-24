@@ -1,0 +1,42 @@
+{
+  "recordedAtUtc": "2026-11-24T00:36:35.898266+00:00",
+  "localSessionDate": "2026-11-23",
+  "scope": "Conferencia documental dos fios e identificacao visual do resistor, sem medir ou alimentar a sonda",
+  "sourceUrl": "https://www.mercadolivre.com.br/sensor-de-temperatura-prova-dagua-ds18b20-cabo-1-metro/p/MLB2124686584?pdp_filters=item_id%3AMLB7020060110",
+  "seller": "WFMNEGOCIOS",
+  "itemId": "MLB7020060110",
+  "productId": "MLB2124686584",
+  "sourceMethod": "Descricao visivel lida no navegador IAB, secao Fios do cabo; usuario tambem forneceu o mesmo trecho na conversa",
+  "searchToolCouldReadUrl": false,
+  "browserCouldReadDescription": true,
+  "wiresAccordingToSeller": {
+    "vermelho": "VCC/alimentacao",
+    "preto": "GND/terra",
+    "amarelo": "DQ/dados"
+  },
+  "supplierVoltageRangeV": [
+    3.0,
+    5.5
+  ],
+  "plannedEsp32SupplyV": 3.3,
+  "pullUpOhmsAccordingToSeller": 4700,
+  "resistorVisualIdentification": {
+    "nominalOhms": 4700,
+    "significantBands": [
+      "amarelo",
+      "violeta",
+      "vermelho"
+    ],
+    "method": "Foto aproximada fornecida pelo usuario, sem multimetro",
+    "measuredOhms": null,
+    "photoSha256": "4edda97aba6898c397b857acfb60ab73ee3f52d2eb79f8948dfb99714623d3c7"
+  },
+  "photosCopiedToRepository": false,
+  "fullPageOrPersonalDataSaved": false,
+  "temperatureSensorWiredConfirmed": false,
+  "temperatureRead": false,
+  "newDiagnosticFlashed": false,
+  "apiUsed": false,
+  "currentBoardProgram": "diagnostico-porta",
+  "nextStep": "Com USB desligado, orientar apenas posicionamento dos fios e conferir montagem antes de energizar"
+}
