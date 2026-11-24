@@ -1,0 +1,53 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-11-24T05:59:06.659652+00:00",
+  "sourceCommit": "4d07dc9aaaf744ad737cba384bfe5b41ea4bdff7",
+  "scope": "Revisao de copia da monografia, captura de execucao com Simulacao e QA documental; sem novo ensaio fisico ou alteracao de codigo/banco de uso",
+  "sourceDocxSha256": "3bc39c3ad7afc6a765fb7ef199f83a88e637a168470152129d51e47dbd0b55ba",
+  "finalDocxSha256": "737a2a8874124eecb585daa61d289e5d35d04e84e3e1c8d74f9871b90f285d96",
+  "finalPdfSha256": "c2530b218380a0e6f33f54d9c6fadc8aab3bcb5203db8112c868c13bc23f046c",
+  "pages": 37,
+  "figureCaptions": 12,
+  "numberedTables": 5,
+  "inlineImages": 13,
+  "checks": {
+    "sourceUnchanged": true,
+    "sourceMediaPreserved": true,
+    "wordAndPdf37Pages": true,
+    "noFieldErrors": true,
+    "figuresNumbered1to12": true,
+    "figureListMatchesBodyPages": true,
+    "oneTocAndTwoLists": true,
+    "isolatedDatabaseInitiallyEmpty": true,
+    "allFixtureReadingsAreSimulation": true,
+    "twoSimulatedAlertsObserved": true,
+    "ownedApiStopped": true,
+    "missingRescorlaReferenceAdded": true,
+    "washizakiSpellingCorrected": true,
+    "integrationStillPending": true,
+    "newPhotosPreservedInWord": true
+  },
+  "visualQa": {
+    "allPagesInspectedInContactSheet": true,
+    "enlargedPagesInspected": [
+      28,
+      32,
+      33
+    ],
+    "method": "PDF renderizado em PNG por pypdfium2, conferido visualmente; campos atualizados pelo Microsoft Word",
+    "abntCertification": false
+  },
+  "publicFigureHashes": {
+    "docs/tcc/revisao-monografia-2026-11-24/figuras/alertas-desktop.png": "488e94e02bba3a198fdd032884cd29a732ddf81c37b4121569c1283eb083ee05",
+    "docs/tcc/revisao-monografia-2026-11-24/figuras/configuracoes-desktop.png": "79c6ce4ca1a23559afb2fd0969b11b2816705919f1239eb8f825cd2399338a0c",
+    "docs/tcc/revisao-monografia-2026-11-24/figuras/registro-serial-transcrito.png": "057a995958b4cf266e6e05e6b7982deb272f7c55d3a63ba4040b35f402ee62a2"
+  },
+  "photoSourcesPrivate": true,
+  "wordPdfContainGroupMetadataAndRemainPrivate": true,
+  "hardwareStateUnchanged": "USB desligado e fios da sonda soltos; diagnostico-sensores preservado, firmware principal/API/geladeira pendentes",
+  "browserCaptureLimit": "Capturas de Configuracoes e Alertas salvas antes da ferramenta interromper a abertura de log local por nao conseguir determinar a URL atual no Windows; bloqueio nao contornado. Figura serial e transcricao identificada, nao screenshot de monitor.",
+  "advisorNameConfirmationPending": true,
+  "backendOrFirmwareChanged": false,
+  "newHardwareTest": false,
+  "softwareSuiteRerun": false
+}

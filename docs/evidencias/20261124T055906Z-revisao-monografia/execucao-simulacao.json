@@ -1,0 +1,161 @@
+{
+  "scope": "API real em SQLite isolado com fixtures Simulacao; capturas desktop de 24/11/2026, sem sensor",
+  "apiStartedAtUtc": "2026-11-24T05:37:36.3114878Z",
+  "initialHealth": {
+    "status": "healthy",
+    "database": "connected",
+    "refrigeratorCount": 0,
+    "checkedAtUtc": "2026-11-24T05:37:34.2456398Z"
+  },
+  "geladeira": {
+    "id": 1,
+    "nome": "TESTE SOFTWARE - SIMULACAO",
+    "localizacao": "Banco isolado para documentacao - sem sensores",
+    "criadoEmUtc": "2026-11-24T05:37:34.5206253Z"
+  },
+  "readings": [
+    {
+      "id": 1,
+      "geladeiraId": 1,
+      "temperaturaC": 4.1,
+      "portaAberta": false,
+      "medidoEmUtc": "2026-11-24T05:32:34.7830299Z",
+      "recebidoEmUtc": "2026-11-24T05:37:34.8543039Z",
+      "origem": "Simulacao",
+      "dispositivoId": null,
+      "medicaoId": null
+    },
+    {
+      "id": 2,
+      "geladeiraId": 1,
+      "temperaturaC": 4.3,
+      "portaAberta": false,
+      "medidoEmUtc": "2026-11-24T05:33:34.9791029Z",
+      "recebidoEmUtc": "2026-11-24T05:37:34.9811264Z",
+      "origem": "Simulacao",
+      "dispositivoId": null,
+      "medicaoId": null
+    },
+    {
+      "id": 3,
+      "geladeiraId": 1,
+      "temperaturaC": 4.2,
+      "portaAberta": false,
+      "medidoEmUtc": "2026-11-24T05:34:35.0481666Z",
+      "recebidoEmUtc": "2026-11-24T05:37:35.0532324Z",
+      "origem": "Simulacao",
+      "dispositivoId": null,
+      "medicaoId": null
+    },
+    {
+      "id": 4,
+      "geladeiraId": 1,
+      "temperaturaC": 4.6,
+      "portaAberta": false,
+      "medidoEmUtc": "2026-11-24T05:35:35.0888967Z",
+      "recebidoEmUtc": "2026-11-24T05:37:35.09116Z",
+      "origem": "Simulacao",
+      "dispositivoId": null,
+      "medicaoId": null
+    },
+    {
+      "id": 5,
+      "geladeiraId": 1,
+      "temperaturaC": 4.4,
+      "portaAberta": false,
+      "medidoEmUtc": "2026-11-24T05:36:35.1307725Z",
+      "recebidoEmUtc": "2026-11-24T05:37:35.1323584Z",
+      "origem": "Simulacao",
+      "dispositivoId": null,
+      "medicaoId": null
+    },
+    {
+      "id": 6,
+      "geladeiraId": 1,
+      "temperaturaC": 9,
+      "portaAberta": false,
+      "medidoEmUtc": "2026-11-24T05:37:35.3136381Z",
+      "recebidoEmUtc": "2026-11-24T05:37:35.3165326Z",
+      "origem": "Simulacao",
+      "dispositivoId": null,
+      "medicaoId": null
+    }
+  ],
+  "finalResponses": {
+    "/api/geladeiras/1/configuracao": {
+      "geladeiraId": 1,
+      "configuracao": {
+        "temperaturaMinimaC": 2,
+        "temperaturaMaximaC": 8,
+        "toleranciaPortaAbertaSegundos": 20,
+        "ausenciaLeiturasSegundos": 120,
+        "origemMonitorada": "Simulacao",
+        "monitoramentoAtivo": true,
+        "inicioMonitoramentoEmUtc": "2026-11-24T05:37:35.2483211Z",
+        "atualizadoEmUtc": "2026-11-24T05:37:35.2483211Z"
+      }
+    },
+    "/api/alertas?origem=Simulacao&pagina=1&tamanhoPagina=20": {
+      "geladeiraId": null,
+      "origem": "Simulacao",
+      "tipo": null,
+      "gravidade": null,
+      "situacao": null,
+      "inicioUtc": null,
+      "fimUtc": null,
+      "pagina": 1,
+      "tamanhoPagina": 20,
+      "totalItens": 2,
+      "totalPaginas": 1,
+      "itens": [
+        {
+          "id": 2,
+          "geladeiraId": 1,
+          "geladeiraNome": "TESTE SOFTWARE - SIMULACAO",
+          "origem": "Simulacao",
+          "tipo": "AusenciaLeituras",
+          "gravidade": "Atencao",
+          "situacao": "Aberto",
+          "inicioCondicaoEmUtc": "2026-11-24T05:39:35.3136381Z",
+          "abertoEmUtc": "2026-11-24T05:39:36.0044975Z",
+          "ultimaEvidenciaEmUtc": "2026-11-24T05:37:35.3136381Z",
+          "encerradoEmUtc": null,
+          "motivoEncerramento": null,
+          "leituraAberturaId": null,
+          "temperaturaAberturaC": null,
+          "temperaturaMinimaC": 2,
+          "temperaturaMaximaC": 8,
+          "toleranciaPortaAbertaSegundos": 20,
+          "ausenciaLeiturasSegundos": 120
+        },
+        {
+          "id": 1,
+          "geladeiraId": 1,
+          "geladeiraNome": "TESTE SOFTWARE - SIMULACAO",
+          "origem": "Simulacao",
+          "tipo": "TemperaturaForaFaixa",
+          "gravidade": "Critico",
+          "situacao": "Encerrado",
+          "inicioCondicaoEmUtc": "2026-11-24T05:37:35.3136381Z",
+          "abertoEmUtc": "2026-11-24T05:37:36.0067294Z",
+          "ultimaEvidenciaEmUtc": "2026-11-24T05:37:35.3136381Z",
+          "encerradoEmUtc": "2026-11-24T05:39:36.0044975Z",
+          "motivoEncerramento": "SemDadosRecentes",
+          "leituraAberturaId": 6,
+          "temperaturaAberturaC": 9,
+          "temperaturaMinimaC": 2,
+          "temperaturaMaximaC": 8,
+          "toleranciaPortaAbertaSegundos": 20,
+          "ausenciaLeiturasSegundos": 120
+        }
+      ]
+    }
+  },
+  "ownedApiShutdown": {
+    "stoppedAtUtc": "2026-11-24T05:57:25.5409474Z",
+    "ownedIsolatedProcessId": 4996,
+    "ownedProcessMatched": true,
+    "noLongerRunning": true,
+    "scope": "Somente API de captura desta revisão; banco e servidor de uso não encerrados."
+  }
+}

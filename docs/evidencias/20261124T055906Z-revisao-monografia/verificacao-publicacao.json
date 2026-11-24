@@ -1,0 +1,10 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-11-24T06:02:18.222042+00:00",
+  "localLinksChecked": 70,
+  "missingLinks": [],
+  "newPublicTextMacKeyBearerAndRaScanPassed": true,
+  "filledDocxAndPdfIgnored": true,
+  "applicationAndFirmwareUnchanged": true,
+  "scope": "Conferencia documental e de publicacao; nao e teste de software ou hardware adicional"
+}

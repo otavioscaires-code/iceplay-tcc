@@ -1,5 +1,13 @@
 # Registro de assistência por IA
 
+## Revisão da monografia recebida — 24/11/2026
+
+O aluno forneceu o Word do grupo. Codex inspecionou texto, tabelas, campos, figuras e fontes reais, preservou o original e revisou uma cópia com resultados parciais e falha posterior da bancada. A assistência incluiu escrita, formatação incremental, atualização dos campos no Word, renderização PDF e conferência visual das páginas. A integração física permanece uma pendência do projeto atual; não houve afirmação de estabilidade, calibração, aceite ou conformidade ABNT certificada.
+
+Foram executadas API e interface em SQLite novo e isolado, com seis leituras Simulacao. Capturas reais do Chrome mostram configurações e dois episódios. A instância criada nesta tarefa foi encerrada após conferência de PID/comando. Uma tentativa adicional de abrir o log local foi interrompida pela ferramenta de navegação por incerteza da URL no Windows; não houve contorno. A figura serial é uma transcrição identificada das oito leituras reais anteriores, e as fotos são de etapas parciais, com bytes preservados. Nenhum novo ensaio físico, gravação, modificação de código/banco de uso ou agente auxiliar ocorreu.
+
+O Word/PDF com dados do grupo e as fotos permanecem privados; só figuras públicas sem dados pessoais e conferências sanitizadas foram versionadas. Uma divergência no nome do orientador foi apresentada ao aluno e permanece pendente; o dado do arquivo foi mantido. O [relatório](etapa-monografia-revisao-2026-11-24.md) registra fontes, métodos e limites. O aluno deve revisar, compreender, reproduzir os resultados e declarar a assistência conforme as regras institucionais.
+
 ## Falha no aquecimento e fixação da sonda — noite de 23/11/2026
 
 Após confirmação “segurando”, Codex executou captura USB sem pulso de reset: zero temperaturas e oito mensagens de sonda não pronta. Reverificou uma vez com reset e obteve banner, zero temperaturas e oito erros. Registrou sem ocultar as muitas linhas GPIO repetidas; suas contagens brutas não são amostras independentes. O aluno confirmou USB desligado e depois relatou todos os fios da sonda soltos. Sem ferramentas de solda/conector em mãos, perguntou sobre soldagem. Codex consultou fontes primárias e propôs terminações rígidas com isolamento individual, ainda não executadas. A orientação de recolocar apenas amarelo foi superada pelo relato completo. [Resultados, anomalia e próximas ações](etapa-leitura-temperatura-2026-11-23.md#tentativa-de-aquecimento-com-falha-e-conexões-soltas). Sem nova gravação, dados simulados, alteração de fontes/API/banco/migrations ou agente auxiliar. A aquisição inicial válida foi preservada; aquecimento não foi aprovado e defeito interno da sonda não foi presumido.
