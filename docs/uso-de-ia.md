@@ -1,5 +1,9 @@
 # Registro de assistência por IA
 
+## Retorno do contato após afastar — noite de 23/11/2026
+
+O usuário informou “afastei”. Codex conferiu COM3/OK, definiu HIGH antes da captura e leu por oito segundos o diagnóstico existente: banner e oito HIGH, sem erro, serial fechada. O timestamp é 24/11 às 00:00 UTC, correspondente à noite de 23/11 em São Paulo; essas datas foram preservadas. A sequência HIGH/LOW/HIGH das posições informadas foi consolidada como capturas separadas após reinícios, sem atribuir observação direta da manipulação, medição de distância/latência/debounce ou funcionamento da ingestão física. O coletor privado ganhou argumento de confirmação para não repetir o relato da conexão inicial do USB. Evidências anteriores preservadas, logs integrais privados e somente linhas permitidas publicadas. F03 segue parcial, pendentes repetição e firmware principal/API. Sem agente auxiliar, instalação, nova gravação, temperatura, API ou banco. Ver terceiro incremento de `etapa-sensor-porta-2026-11-23.md`.
+
 ## Aproximação do ímã — 23/11/2026
 
 O usuário respondeu “Juntei” após orientação de posicionar a peça sem fios ao lado do contato conectado. Codex conferiu COM3/OK, definiu previamente LOW como esperado e capturou oito segundos do diagnóstico já gravado: banner e oito LOW, sem erro, com serial fechada ao final. O coletor privado foi ajustado apenas para descrever essa condição/relato, preservando a evidência anterior. Em comparação com oito HIGH da condição afastada, houve níveis distintos em capturas separadas após reinícios; não se atribui observação direta da posição, medida de latência/debounce ou validação do fluxo físico completo. F03 segue incompleto e requer retorno/repetição e ingestão posterior do programa principal. Sem agente auxiliar, nova gravação, temperatura, API ou banco. Logs integrais privados, linhas públicas sanitizadas e resultado no incremento de `etapa-sensor-porta-2026-11-23.md`.

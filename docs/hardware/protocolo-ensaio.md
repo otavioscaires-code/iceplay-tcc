@@ -10,7 +10,7 @@ Posteriormente no mesmo dia, o [diagnóstico isolado GPIO27](../etapa-diagnostic
 
 ## Identificação antes de iniciar
 
-Atualização de **23/11/2026**: contato SP1006 ligado conforme foto/relato do usuário, com D27→a10 e GND→a20. O [ensaio do diagnóstico](../etapa-sensor-porta-2026-11-23.md) registrou oito HIGH após orientação de manter o ímã afastado e oito LOW após o usuário confirmar as peças juntas. São capturas separadas após reinícios. F03 continua incompleto: retorno ao afastar novamente, repetição e correspondência nas leituras do firmware principal/API ainda pendentes. Não houve nova gravação, aquisição de temperatura ou envio físico.
+Atualização da noite de **23/11/2026**: contato SP1006 ligado conforme foto/relato do usuário, com D27→a10 e GND→a20. O [ensaio do diagnóstico](../etapa-sensor-porta-2026-11-23.md) registrou oito HIGH afastado, oito LOW com peças juntas e oito HIGH após novo afastamento. A última captura ocorreu em 24/11 às 00:00 UTC, equivalente a 23/11 às 21:00 em São Paulo. São capturas separadas após reinícios, sem medir transição/alcance/debounce. F03 continua incompleto: repetição e correspondência nas leituras do firmware principal/API ainda pendentes. Não houve nova gravação, aquisição de temperatura ou envio físico.
 
 Registrar data, responsável, versão/commit do software, versão do firmware, modelo e identificação da placa/sonda/reed, cabo/fonte, GPIOs, polaridade da porta, posição da sonda/ímã, geladeira utilizada e condições de uso. Registrar parâmetros ativos e intervalo de aquisição. O cadastro deve permitir separar o ensaio das três leituras Simulacao já existentes.
 
@@ -22,7 +22,7 @@ Usar horário UTC nos registros técnicos e hora local identificada nas anotaç�
 | --- | --- | --- | --- |
 | F01 USB e firmware | Identificar a COM, compilar, gravar e abrir serial | Gravação confirmada e inicialização sem segredo no log | Parcial: USB/ROM e gravação/boot de diagnóstico GPIO27 aprovados; firmware principal de ingestão ainda pendente |
 | F02 Temperatura em bancada | Conferir três fios, resistor e conversão | Valor válido repetível pelo dispositivo e resposta 201 na API; desconectar sonda não gera zero/-127 como leitura válida | Pendente |
-| F03 Porta | Aproximar/afastar ímã; conferir polaridade | Estado debounced corresponde à posição observada e aparece em leituras posteriores; anotar latência/limitações | Pendente |
+| F03 Porta | Aproximar/afastar ímã; conferir polaridade | Estado debounced corresponde à posição observada e aparece em leituras posteriores; anotar latência/limitações | Parcial: HIGH/LOW/HIGH no diagnóstico, em capturas separadas; repetição e estado nas leituras do firmware principal/API pendentes |
 | F04 Rede e UTC | Conectar WiFi de 2,4 GHz, sincronizar e enviar por HTTPS | Certificado validado, dois timestamps coerentes, dispositivo vinculado; sem ignorar TLS ou fabricar UTC | Pendente |
 | F05 Ponta a ponta | Consultar última leitura e histórico no iPhone | Mesmos IDs, temperatura, porta e origem da leitura persistida; foto e resposta HTTP correspondentes | Pendente |
 | F06 Temperatura e faixa | Observar variação real da sonda ou usar faixa de ensaio explicitamente identificada | Abre um episódio fora da faixa, não duplica em amostras sucessivas, encerra com amostra dentro da faixa; não confundir ajuste de faixa com falha térmica real | Pendente |

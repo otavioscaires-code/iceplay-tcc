@@ -1,6 +1,6 @@
 # ICEPLAY
 
-**23/11/2026 — bancada da porta:** [contato e ímã no diagnóstico GPIO27](docs/etapa-sensor-porta-2026-11-23.md): oito HIGH após orientação de afastamento e oito LOW após o usuário juntar as peças. Capturas separadas, COM3/OK; retorno ao afastar novamente, repetição e ingestão física ainda pendentes. Sem nova gravação, temperatura ou API.
+**23/11/2026 — bancada da porta:** [contato e ímã no diagnóstico GPIO27](docs/etapa-sensor-porta-2026-11-23.md): oito HIGH afastado, oito LOW com peças juntas e oito HIGH ao afastar novamente. Capturas separadas por reinícios, COM3/OK; repetição e ingestão física ainda pendentes. A última captura é de 24/11 às 00:00 UTC, ainda 23/11 em São Paulo. Sem nova gravação, temperatura ou API.
 
 **18/11/2026 — revisão solicitada pelo orientador:** [complemento Word editável de 15 páginas e lista de atendimento](docs/tcc/revisao-orientador-2026-11-18/README.md), com DER, figuras reais, comparação documental de mercado, referências e conclusão revisada. Minutas atualizadas; o Word completo enviado pelo amigo ainda precisa ser recebido para ajustar a versão do grupo. Nova rodada real: build sem avisos/erros, 149 testes JavaScript e dez verificadores aprovados. [Comandos, resultados e limites](docs/etapa-revisao-orientador-2026-11-18.md). Não houve novo ensaio físico ou alteração da aplicação.
 

@@ -48,3 +48,23 @@ COM3 continuou com status OK. **Antes da nova captura**, definiu-se LOW como esp
 As duas condições informadas produziram sinais distintos: oito HIGH após orientação de afastamento e oito LOW após o usuário juntar as peças. Isso é compatível com resposta do contato ao ímã. **São capturas separadas após reinícios**, não uma transição contínua, medida de alcance, latência ou teste do debounce.
 
 Próxima ação: afastar novamente a peça sem fios aproximadamente um palmo, manter fios/USB como estão e avisar para capturar o retorno esperado a HIGH; depois repetir aproximação/afastamento. F03 permanece incompleto: além da bancada, seu critério inclui o estado da porta em leituras posteriores do firmware principal/API. Nenhuma temperatura ou leitura de API foi criada nesta etapa e não houve nova gravação.
+
+## Terceiro incremento: retorno após afastar
+
+O usuário informou **“afastei”** após a orientação de separar a peça sem fios aproximadamente um palmo. COM3 permaneceu OK. Antes da captura, definiu-se HIGH como esperado, exigindo banner, pelo menos três amostras e ausência de erro. O coletor privado passou a aceitar `--confirmation` para registrar esse relato de retorno sem reutilizar a descrição da conexão inicial do USB; os arquivos anteriores não foram alterados.
+
+Entre **00:00:12 e 00:00:20 UTC de 24/11/2026**, foram observados o banner e **oito HIGH**, de uptime 27 a 7027 ms. Isso ocorreu na noite de **23/11, às 21:00 no horário de São Paulo (UTC−03:00)**; a pasta da etapa usa a data local e o identificador da captura usa UTC. Critério aprovado, sem erro, serial fechada ao final. Fonte do diagnóstico com mesmo SHA-256; referência Git `f5095880715b6b40a78a9a0faf8b639123522715`.
+
+- [Resultado do retorno](evidencias/2026-11-23-sensor-porta/20261124T000012Z-ima-afastado/serial.json).
+- [Linhas sanitizadas](evidencias/2026-11-23-sensor-porta/20261124T000012Z-ima-afastado/serial-sanitizada.log).
+- Comando executado: `& '.tools/platformio-venv/Scripts/python.exe' '.tools/hardware-tools/monitor_porta_2026_11_23.py' --condition ima-afastado --expected HIGH --confirmation 'Usuario informou afastei apos a captura com pecas juntas; distancia nao medida pela ferramenta.'`.
+
+| Condição solicitada/informada pelo usuário | Sinal observado | Quantidade |
+| --- | --- | --- |
+| Ímã afastado inicialmente | HIGH | 8 |
+| Peças juntas, confirmação “Juntei” | LOW | 8 |
+| Afastamento novamente, confirmação “afastei” | HIGH | 8 |
+
+A resposta nas três posições informadas é compatível com o contato abrindo/fechando pela aproximação do ímã. **As capturas são separadas por reinícios**: não demonstram uma transição contínua, latência, alcance ou eficácia do debounce. O campo `sensorMagnetCycleValidated: false` de cada JSON descreve o alcance daquela captura isolada. A sequência acima consolida somente os estados observados; a repetição e o fluxo físico com firmware principal/API ainda estão pendentes, portanto F03 segue parcial/incompleto.
+
+Próxima ação: repetir uma aproximação e um afastamento com novas capturas, preservando os fios e o diagnóstico. Não houve nova gravação, temperatura, rede/API ou banco; não são leituras do sistema de ingestão. Logs integrais permanecem privados em `.tools/hardware/20261124T000012Z-ima-afastado/`, e somente linhas permitidas foram publicadas. Nenhum ensaio anterior foi sobrescrito.
