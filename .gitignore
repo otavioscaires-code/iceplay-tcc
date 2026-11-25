@@ -23,3 +23,12 @@ __pycache__/
 # Firmware: configuracao privada e artefatos de compilacao
 firmware/esp32/include/config.local.h
 **/.pio/
+
+# Pacote executável extraído na raiz; preservar dados e logs fora do Git
+/app/
+/logs/
+/Iniciar-ICEPLAY.cmd
+/Iniciar-ICEPLAY-Mobile.cmd
+/Iniciar-ICEPLAY.ps1
+/LEIA-ME.txt
+/manifesto.json

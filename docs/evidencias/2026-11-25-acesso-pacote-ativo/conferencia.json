@@ -1,0 +1,31 @@
+{
+  "checkedAtUtc": "2026-11-25T03:39:02.437878+00:00",
+  "result": "passed",
+  "scope": "Servidor do pacote em perfil móvel existente; consultas locais, sem teste no iPhone",
+  "checks": {
+    "httpHealthHealthy": true,
+    "httpsAccessPageAvailable": true,
+    "httpsWithoutSessionRejected": true,
+    "tlsCertificateAndHostnameValidated": true,
+    "packageDatabasePreserved": true,
+    "databaseIntegrityOk": true
+  },
+  "localUrl": "http://localhost:5080",
+  "mobileUrl": "https://192.168.1.123:5443/acesso",
+  "counts": {
+    "Geladeiras": 0,
+    "Leituras": 0,
+    "ConfiguracoesGeladeiras": 0,
+    "Alertas": 0,
+    "Dispositivos": 0,
+    "EstadosMonitoramento": 0
+  },
+  "httpsUnauthenticatedStatus": 401,
+  "existingProfileReused": true,
+  "certificatesInstalled": false,
+  "firewallChanged": false,
+  "newReadingOrRegistrationCreated": false,
+  "userReportedPhoneNetwork": "4G/5G; conexão à mesma LAN ainda necessária",
+  "iphoneOrCameraValidated": false,
+  "newHardwareTest": false
+}

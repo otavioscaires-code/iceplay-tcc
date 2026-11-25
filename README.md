@@ -1,5 +1,7 @@
 # ICEPLAY
 
+**25/11/2026 — acesso pelo iPhone confirmado:** o aluno informou que leu o QR pela câmera dentro do site, confirmou a conexão e conseguiu abrir o painel, na mesma rede Wi-Fi do PC. [Registro manual e execução móvel do pacote](docs/etapa-acesso-pacote-2026-11-25.md), sem screenshot ou novo ensaio físico. A rede/notebook da apresentação e a integração dos sensores continuam pendentes.
+
 **25/11/2026 — retomada do fechamento:** [pacote de execução Windows x64 e instruções](docs/execucao-pacote-windows.md), testado sem SDK no PATH, com site, SQLite e persistência após reinício. Nova rodada passou: build sem avisos/erros, 149 JavaScript e dez verificadores. O pacote inicia vazio, sem banco/credenciais privados; preparação HTTPS e ensaio no notebook/celular continuam necessários. [O que foi conferido e o que falta para concluir](docs/plano-fechamento-2026-11-25.md). Usuário informou só sonda/jumpers/protoboard; fixação e reteste da sonda seguem pendentes, sem nova leitura/gravação.
 
 **24/11/2026 — descrições das figuras atualizadas:** [três imagens, SVGs e legendas](docs/tcc/figuras-atualizadas-2026-11-24/README.md) para as Figuras 1, 3 e 10. Reconhecem os ensaios USB parciais e a falha posterior da sonda; a integração física principal/API/geladeira continua pendente. Nova cópia privada Word/PDF de 37 páginas em `.tools/revisao-tcc-2026-11-24/entrega-figuras/`; versão anterior preservada. [Conferência documental](docs/etapa-figuras-atualizadas-2026-11-24.md), sem novo ensaio ou alteração da aplicação.

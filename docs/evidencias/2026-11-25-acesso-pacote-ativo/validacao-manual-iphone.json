@@ -1,0 +1,20 @@
+{
+  "recordedAtUtc": "2026-11-25T03:49:27.191210+00:00",
+  "type": "Teste manual relatado pelo aluno; sem captura instrumental ou screenshot",
+  "device": "iPhone",
+  "browserRequested": "Safari",
+  "networkReported": "Wi-Fi do mesmo roteador do computador",
+  "accessPageReported": "Abriu a tela de acesso do ICEPLAY",
+  "procedureRequested": [
+    "Gerar QR Code no computador",
+    "Ler QR Code pela camera dentro do site no iPhone",
+    "Conectar este dispositivo"
+  ],
+  "userReportedResult": "Conectou e consigo abrir o painel",
+  "manualPairingAndPanelAccessReported": true,
+  "screenshotProvided": false,
+  "presentationNotebookOrHotspotValidated": false,
+  "hardwareIngestionValidated": false,
+  "newHardwareReadings": 0,
+  "activeInvitationIncluded": false
+}
