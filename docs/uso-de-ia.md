@@ -1,5 +1,9 @@
 # Registro de assistência por IA
 
+## Atualização das figuras da monografia — 24/11/2026
+
+Codex preparou três imagens SVG/PNG com descrições coerentes com os registros parciais existentes: casos de uso, arquitetura e quadro dos ensaios de bancada. A assistência incluiu redação das legendas, substituição de três imagens em nova cópia privada do Word, atualização dos campos e exportação PDF pelo Word instalado, seguida de inspeção de páginas renderizadas. A habilidade de documentos orientou a conferência; seu renderizador não encontrou LibreOffice no PATH e foi utilizado o fluxo de processamento de arquivos Word já existente. Não houve agente auxiliar, nova captura de software/hardware ou geração de fotografia fictícia. Modelos e evidências anteriores, tabelas, demais fotografias, fontes do software, banco e migrations foram preservados. A leitura inicial e a falha posterior da sonda permanecem explícitas; a integração física completa continua pendente. O aluno deve conferir as legendas e declarar a assistência conforme as regras da instituição. Ver [entrega e limites](etapa-figuras-atualizadas-2026-11-24.md).
+
 ## Revisão da monografia recebida — 24/11/2026
 
 O aluno forneceu o Word do grupo. Codex inspecionou texto, tabelas, campos, figuras e fontes reais, preservou o original e revisou uma cópia com resultados parciais e falha posterior da bancada. A assistência incluiu escrita, formatação incremental, atualização dos campos no Word, renderização PDF e conferência visual das páginas. A integração física permanece uma pendência do projeto atual; não houve afirmação de estabilidade, calibração, aceite ou conformidade ABNT certificada.

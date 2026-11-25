@@ -1,0 +1,104 @@
+{
+  "checkedAtUtc": "2026-11-25T03:02:48.838119+00:00",
+  "scope": "Conferência dos artefatos documentais; nenhuma captura física ou nova suíte de software",
+  "allChecksPassed": true,
+  "checks": {
+    "previousRevisionPreserved": true,
+    "otherMediaPreserved": true,
+    "newImagesPresentWithoutReencoding": true,
+    "oldReplacedGraphicsAbsentFromNewCopy": true,
+    "tableContentPreserved": true,
+    "fieldMeaningsAndCountsPreserved": true,
+    "inlineImageCountPreserved": true,
+    "originalGroupDocumentPreserved": true,
+    "noFieldErrorsInPdf": true,
+    "twelveFigureSequenceFields": true,
+    "fiveTableSequenceFields": true,
+    "historicalSourceHashesPreserved": true,
+    "countsComparedToHistoricalJson": true,
+    "allTwelveFigureListPagesMatch": true,
+    "svgXmlAndPngFilesValid": true,
+    "visualInspectionCompleted": true
+  },
+  "pdfPages": 37,
+  "figurePages": {
+    "1": 20,
+    "2": 21,
+    "3": 23,
+    "4": 25,
+    "5": 26,
+    "6": 26,
+    "7": 27,
+    "8": 28,
+    "9": 29,
+    "10": 30,
+    "11": 31,
+    "12": 32
+  },
+  "word": {
+    "private": true,
+    "docxSha256": "eaa8c9a1f9aa4942785c3783f3d2acd705e6b6cdad222e1b5f01891408a9a0c7",
+    "pdfSha256": "b407e3cf173a0ed8da019d3ed246cddaf5fac5d5c28803b6a3871175d677a377",
+    "tablesOfContents": 1,
+    "tablesOfFigures": 2,
+    "inlineImages": 13,
+    "fields": 121,
+    "onlyReplacedFigures": [
+      1,
+      3,
+      10
+    ],
+    "previousVersionPreserved": true
+  },
+  "physicalResultsReferenced": {
+    "jumperRecords": [
+      8,
+      8,
+      8
+    ],
+    "reedRecords": [
+      8,
+      8,
+      8,
+      7,
+      8
+    ],
+    "initialTemperaturesC": [
+      24.4375,
+      24.4375,
+      24.4375,
+      24.4375,
+      24.4375,
+      24.4375,
+      24.4375,
+      24.4375
+    ],
+    "laterAttempts": [
+      {
+        "validTemperatures": 0,
+        "sensorErrors": 8
+      },
+      {
+        "validTemperatures": 0,
+        "sensorErrors": 8
+      }
+    ],
+    "independentTestCountClaimed": false
+  },
+  "visualQa": {
+    "allPagesOverview": true,
+    "enlargedPdfPages": [
+      7,
+      20,
+      23,
+      30
+    ],
+    "finalDiagramPngsInspected": 3
+  },
+  "renderer": "Microsoft Word existente; render_docx.py indisponível por ausência de soffice.exe no PATH",
+  "pdfPageRendering": "pypdfium2, 1.6x",
+  "abntCertification": false,
+  "newHardwareTest": false,
+  "newSoftwareSuite": false,
+  "advisorIdentityConfirmed": false
+}

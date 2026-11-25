@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="940" viewBox="0 0 1050 940" role="img" aria-label="Arquitetura do ICEPLAY com ensaios USB parciais e envio físico à API pendente">
+<title>Arquitetura e situação de validação do ICEPLAY — atualização documental de 24/11/2026</title>
+<rect width="1050" height="940" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#12202d}.edge{fill:none;stroke:#354454;stroke-width:2.5}.box{fill:white;stroke:#263c50;stroke-width:2.5}.title{font-size:25px;font-weight:bold}.body{font-size:21px}.label{font-size:20px}</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#354454"/></marker></defs>
+<rect class="box" x="30" y="45" width="310" height="185" rx="8"/>
+<text class="title" x="185" y="82" text-anchor="middle">Navegador</text>
+<text class="body" x="185" y="122" text-anchor="middle">HTML, CSS e JavaScript</text>
+<text class="body" x="185" y="153" text-anchor="middle">Computador e celular</text>
+<text class="body" x="185" y="184" text-anchor="middle">Interface web responsiva</text>
+<rect class="box" x="370" y="45" width="310" height="185" rx="8"/>
+<text class="title" x="525" y="82" text-anchor="middle">Simulador</text>
+<text class="body" x="525" y="122" text-anchor="middle">Envio à API exercitado</text>
+<text class="body" x="525" y="153" text-anchor="middle">Leituras identificadas</text>
+<text class="body" x="525" y="184" text-anchor="middle">como Simulacao</text>
+<rect class="box" x="710" y="45" width="310" height="185" rx="8" stroke-dasharray="10 6"/>
+<text class="title" x="865" y="82" text-anchor="middle">ESP32 e sensores</text>
+<text class="body" x="865" y="122" text-anchor="middle">Diagnóstico USB parcial</text>
+<text class="body" x="865" y="153" text-anchor="middle">Firmware principal pendente</text>
+<text class="body" x="865" y="184" text-anchor="middle">Envio à API não demonstrado</text>
+<path class="edge" d="M185,230 V315 H350 V385" marker-end="url(#arrow)"/>
+<path class="edge" d="M525,230 V385" marker-end="url(#arrow)"/>
+<path class="edge" d="M865,230 V315 H700 V385" stroke-dasharray="10 6" marker-end="url(#arrow)"/>
+<text class="label" x="45" y="343">Operações HTTP</text>
+<text class="label" x="540" y="343">POST</text>
+<text class="label" x="742" y="343">HTTPS previsto</text>
+<rect class="box" x="225" y="385" width="600" height="200" rx="8"/>
+<text class="title" x="525" y="426" text-anchor="middle">Aplicação ASP.NET Core</text>
+<text class="body" x="525" y="467" text-anchor="middle">Controllers e contratos da API</text>
+<text class="body" x="525" y="501" text-anchor="middle">Autorização e validações</text>
+<text class="body" x="525" y="535" text-anchor="middle">EF Core e avaliador de alertas</text>
+<path class="edge" d="M525,585 V695" marker-end="url(#arrow)"/>
+<text class="body" x="550" y="648">Persistência</text>
+<rect class="box" x="225" y="695" width="600" height="145" rx="8"/>
+<text class="title" x="525" y="732" text-anchor="middle">SQLite</text>
+<text class="body" x="525" y="772" text-anchor="middle">Geladeiras, leituras e configurações</text>
+<text class="body" x="525" y="803" text-anchor="middle">Dispositivos, alertas e estado do monitoramento</text>
+<text x="525" y="876" font-size="20" text-anchor="middle">Linhas contínuas: percursos exercitados em software.</text>
+<text x="525" y="902" font-size="20" text-anchor="middle">Tracejado: envio físico à API ainda não demonstrado.</text>
+<text x="525" y="928" font-size="19" text-anchor="middle">A bancada USB não comprova rede, persistência ou uso na geladeira.</text>
+</svg>

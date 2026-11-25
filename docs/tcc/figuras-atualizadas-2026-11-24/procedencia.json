@@ -1,0 +1,111 @@
+{
+  "generatedAtUtc": "2026-11-25T02:54:38.758149+00:00",
+  "documentaryDate": "2026-11-24",
+  "dateTimezone": "America/Sao_Paulo",
+  "scope": "Atualização de dois modelos e de um quadro documental; não são novas capturas ou novos ensaios",
+  "aiAssisted": true,
+  "newHardwareTest": false,
+  "newSoftwareTest": false,
+  "originalsReplacedOnDisk": false,
+  "sources": [
+    {
+      "file": "docs/tcc/materiais-modelagem-2026-11-17/figuras/casos-de-uso.svg",
+      "sha256": "6b0e1c87b5f507a8e86287ba0e54b39bc40459b3da9b2d52ac13374fbd0bd7b2"
+    },
+    {
+      "file": "docs/tcc/materiais-modelagem-2026-11-17/figuras/arquitetura.svg",
+      "sha256": "6a6256d70b21e02759226d0e809215957107f1c749eaf588f07adffab9986639"
+    },
+    {
+      "file": "docs/tcc/evolucao-visual-2026-11-18/imagens/15_bancada_gpio27_registrada.png",
+      "sha256": "5c31f19598b414e9fd72711f3215c986a39b79c746923379465af90587b9be50"
+    },
+    {
+      "file": "docs/evidencias/2026-11-18-diagnostico-porta/20261118T042615Z/serial.json",
+      "sha256": "7c2b006fbdeed6f3b9d432017cc09b69c54de0874d60fcc516a739872e2367fb"
+    },
+    {
+      "file": "docs/evidencias/2026-11-18-diagnostico-porta/20261118T045620Z-ponte/serial.json",
+      "sha256": "2ed87c65b4994d429077eaf84e06ec47d1ec6ff9f7a0c332d6370e2e0978302c"
+    },
+    {
+      "file": "docs/evidencias/2026-11-18-diagnostico-porta/20261118T050453Z-retorno-high/serial.json",
+      "sha256": "7cb5838041c955a405d1f2e4f9cbe2916f85bf3261a4bc25e4f35a4b64f7eb47"
+    },
+    {
+      "file": "docs/evidencias/2026-11-23-sensor-porta/20261124T000740Z-ima-afastado/resumo-bancada.json",
+      "sha256": "5157e797094470cd390a11b18df1a59bf52fb240dd4d621c296c6bbce0699612"
+    },
+    {
+      "file": "docs/evidencias/2026-11-23-diagnostico-sensores/20261124T010449Z-serial-inicial/serial.json",
+      "sha256": "10bdb0a662c6ccc04b295e86a52c8eea440a92f774f3a13235c5b379774626cd"
+    },
+    {
+      "file": "docs/evidencias/2026-11-23-diagnostico-sensores/20261124T013106Z-serial-aquecimento-mao/serial.json",
+      "sha256": "074ca523062488d65cb8696ffdc95e632c5d831933961521afd079d6164a9e65"
+    },
+    {
+      "file": "docs/evidencias/2026-11-23-diagnostico-sensores/20261124T013218Z-serial-reverificacao-apos-falha/serial.json",
+      "sha256": "b1b0abfeb0984421fe9a96a6f7707f15877ec3bc2fed346f49cc5042a5d3649b"
+    },
+    {
+      "file": "docs/etapa-sensor-porta-2026-11-23.md",
+      "sha256": "4ba24de2d6e2e484417a9a8ec3c8017b95d6e01bd1414045759113a482ebd732"
+    },
+    {
+      "file": "docs/etapa-leitura-temperatura-2026-11-23.md",
+      "sha256": "197345c1049dfef4641669b88173623e4e985f7a6cfa344f4fa15b3bc01bf914"
+    }
+  ],
+  "limitations": [
+    "F01/F02/F03 parciais",
+    "Firmware principal e aquisição física na API pendentes",
+    "Resposta térmica não validada; falha posterior preservada",
+    "Operação na geladeira não demonstrada",
+    "Linhas GPIO repetidas nas capturas com falha têm causa não determinada; não são testes independentes"
+  ],
+  "artifacts": [
+    {
+      "file": "docs/tcc/figuras-atualizadas-2026-11-24/figuras/arquitetura.png",
+      "sha256": "5f4651fec1acf40d25ed3a533b854a0f7dc2edd8409ac2a823a36d6a0464aab4",
+      "bytes": 441914,
+      "dimensions": [
+        3500,
+        3133
+      ]
+    },
+    {
+      "file": "docs/tcc/figuras-atualizadas-2026-11-24/figuras/arquitetura.svg",
+      "sha256": "3ca6643f3ad17041d5f04057b7c33338dbfe0a18b187f149eaa194c8f236071f",
+      "bytes": 3699
+    },
+    {
+      "file": "docs/tcc/figuras-atualizadas-2026-11-24/figuras/casos-de-uso.png",
+      "sha256": "257e7a0db01118616308f2f45fa9f7537fcdc015854caad86a23639cc444ffb0",
+      "bytes": 732366,
+      "dimensions": [
+        3333,
+        4433
+      ]
+    },
+    {
+      "file": "docs/tcc/figuras-atualizadas-2026-11-24/figuras/casos-de-uso.svg",
+      "sha256": "4a1bc5eb295606de5a66d2850a9a1229380eb33d9c384c48258154b597b78efb",
+      "bytes": 3788
+    },
+    {
+      "file": "docs/tcc/figuras-atualizadas-2026-11-24/figuras/validacao-parcial-bancada.png",
+      "sha256": "a99aecc6c94beab4f71b2ff3515ba77bd65a316f8e4ce49390deedbc79f9db42",
+      "bytes": 1029393,
+      "dimensions": [
+        5333,
+        3733
+      ]
+    },
+    {
+      "file": "docs/tcc/figuras-atualizadas-2026-11-24/figuras/validacao-parcial-bancada.svg",
+      "sha256": "a6458aa42f3874560862b4673d76a1d3216f4dc27c2c663b8ef4b23f5befc218",
+      "bytes": 3043
+    }
+  ]
+}
