@@ -1,0 +1,9 @@
+O perfil HTTPS usa outro endere�o de rede. Prepare um perfil para este computador e esta rede.
+No C:\Users\otavi\Downloads\iceplay\.tools\verification\pacote\a0068343f613483e830637f82c871e3e\copia com 
+espacos\ICEPLAY\Iniciar-ICEPLAY.ps1:21 caractere:9
++         throw 'O perfil HTTPS usa outro endere�o de rede. Prepare um  ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (O perfil HTTPS ...or e esta rede.:String) [], RuntimeException
+    + FullyQualifiedErrorId : O perfil HTTPS usa outro endere�o de rede. Prepare um perfil para este computador e esta 
+    rede.
+ 

@@ -1,0 +1,2 @@
+ICEPLAY pronto: http://localhost:56268
+ICEPLAY_CHECK={"status":"healthy","database":"connected","refrigeratorCount":0,"checkedAtUtc":"2026-11-25T03:15:09.5308385Z"}

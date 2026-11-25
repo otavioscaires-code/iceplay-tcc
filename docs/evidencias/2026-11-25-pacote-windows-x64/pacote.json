@@ -1,0 +1,22 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-25T03:14:56.2996221Z",
+  "scope": "Execucao do pacote Windows x64 em copia isolada, sem SDK no PATH; sem sensor fisico",
+  "checks": [
+    "ZIP limitado a pasta ICEPLAY, sem caminhos externos",
+    "Pacote original sem banco, certificados ou configuração privada",
+    "Manifesto declara publicação autocontida win-x64 e hashes conferem",
+    "Runtime incluído, sem depender de instalação compartilhada .NET",
+    "Iniciador funciona no Windows PowerShell 5.1, em pasta com espaços e sem SDK no PATH",
+    "Primeira execução cria banco isolado vazio, sem seed",
+    "Executável abre SQLite nativo incluído no pacote",
+    "Execução local atende somente loopback",
+    "Páginas e arquivos estáticos incluídos no executável distribuído",
+    "Cadastro e leitura explicitamente Simulacao persistem na cópia de teste",
+    "Reinício do pacote conserva cadastro e leitura com mesmos valores e IDs",
+    "Banco de uso preservado byte a byte"
+  ],
+  "error": null,
+  "finishedAtUtc": "2026-11-25T03:15:16.8205084Z",
+  "archiveSha256": "a9db4bdabc6b51c410567631c5e7812bd1c0e9b435fbee3c125d7da4c5469c0e"
+}

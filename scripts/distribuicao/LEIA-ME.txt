@@ -1,0 +1,41 @@
+ICEPLAY — EXECUÇÃO NO WINDOWS x64
+
+1. Extraia o ZIP inteiro para uma pasta onde você tenha permissão de escrita.
+2. Abra a pasta ICEPLAY e dê dois cliques em Iniciar-ICEPLAY.cmd.
+3. O navegador abre depois que a API e o banco estiverem disponíveis.
+4. Mantenha a janela do iniciador aberta. Encerre com Ctrl+C.
+
+O pacote inclui o runtime .NET e os arquivos do site. Não exige VS Code,
+Visual Studio, SDK .NET, Node, Python ou servidor SQLite para executar.
+Foi preparado para Windows x64 compatível com .NET 10. Teste no computador
+da apresentação antes do dia; as restrições desse computador podem variar.
+
+DADOS
+O pacote original inicia vazio, sem leituras ou cadastros de demonstração.
+O banco fica em app/data/iceplay.db e é reutilizado ao reiniciar.
+Não apague a pasta ao terminar. Preserve o banco e seu backup para a entrega.
+Banco de uso, certificados e credenciais não estão incluídos no ZIP original.
+Transporte um backup consistente separado se quiser levar os dados anteriores.
+Com todas as instâncias paradas e destino ainda vazio, copie esse backup para
+app/data/iceplay.db. Preserve a origem; não substitua um banco existente.
+Depois do uso, banco e logs tornam esta pasta privada.
+
+CELULAR E ESP32
+O iniciador comum abre somente no computador.
+O acesso pelo celular/ESP32 exige um perfil HTTPS preparado para o IP deste
+computador na rede atual, conforme o guia de acesso do projeto.
+Depois dessa preparação, arraste o settings.json privado do perfil para
+Iniciar-ICEPLAY-Mobile.cmd. O perfil referencia seus certificados privados,
+que também precisam estar nos caminhos preparados. O iniciador não instala
+certificados, não configura firewall e não ativa túnel para a internet.
+No computador, use a página Acesso para parear o navegador do celular por QR.
+No celular, confiança HTTPS e conexão à rede precisam ter sido conferidas.
+O perfil de outro computador/rede deve ser preparado novamente, não presumido.
+
+VERIFICAÇÃO SEM ABRIR O NAVEGADOR
+No Windows PowerShell, na pasta ICEPLAY:
+  .\Iniciar-ICEPLAY.ps1 -Verificar
+Esse comando inicia, consulta a saúde do banco e encerra a própria instância.
+
+Os dados de simulação e os ensaios físicos devem ser identificados como tais.
+Este pacote não comprova a montagem ou o funcionamento dos sensores.

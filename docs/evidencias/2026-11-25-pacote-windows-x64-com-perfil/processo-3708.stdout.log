@@ -1,0 +1,3 @@
+ICEPLAY pronto: http://localhost:56086
+No celular: https://192.168.1.123:56087/acesso
+ICEPLAY_CHECK={"status":"healthy","database":"connected","refrigeratorCount":1,"checkedAtUtc":"2026-11-25T03:17:25.5957595Z"}

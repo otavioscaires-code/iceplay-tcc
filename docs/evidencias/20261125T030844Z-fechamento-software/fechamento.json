@@ -1,0 +1,21 @@
+{
+  "checkedAtUtc": "2026-11-25T03:23:52.968035+00:00",
+  "result": "passed",
+  "softwareSuitePassed": true,
+  "javascriptPassed": 149,
+  "existingVerifiersPassed": 10,
+  "packageChecksPassed": 15,
+  "originalDatabaseHashPreserved": true,
+  "protectedSourceChanges": [],
+  "missingLinks": [],
+  "publicScope": {
+    "result": "passed",
+    "checkedTextFiles": 117,
+    "findings": [],
+    "runtimeSourcesUnchanged": true
+  },
+  "rawDeviceCredentialMatches": [],
+  "hardwareTestPerformed": false,
+  "iphoneOrPresentationNotebookValidated": false,
+  "hardwareNextStep": "Preparar tres terminacoes firmes e isoladas da sonda com USB desligado; usuario tem somente sonda, jumpers e protoboard"
+}

@@ -1,0 +1,85 @@
+PASSOU: SQLite integro
+PASSOU: Chaves estrangeiras integras
+PASSOU: SQLite integro
+PASSOU: Chaves estrangeiras integras
+PASSOU: Upgrade preserva geladeira e episodio historicos com vinculo de leitura
+PASSOU: Upgrade preserva os sete campos antigos e acrescenta metadados nulos
+PASSOU: Nenhuma identidade ou credencial criada automaticamente
+PASSOU: GET /api/leituras/9 retorna 200 (real: 200)
+PASSOU: Contrato antigo continua consultavel com campos novos nulos
+PASSOU: GET /api/alertas/3 retorna 200 (real: 200)
+PASSOU: POST /api/geladeiras retorna 201 (real: 201)
+PASSOU: POST /api/geladeiras retorna 201 (real: 201)
+PASSOU: POST /api/geladeiras/8/dispositivos retorna 400 (real: 400)
+PASSOU: POST /api/geladeiras/8/dispositivos retorna 400 (real: 400)
+PASSOU: POST /api/geladeiras/8/dispositivos retorna 400 (real: 400)
+PASSOU: POST /api/geladeiras/8/dispositivos retorna 400 (real: 400)
+PASSOU: POST /api/geladeiras/8/dispositivos retorna 400 (real: 400)
+PASSOU: POST /api/geladeiras/8/dispositivos retorna 400 (real: 400)
+PASSOU: GET /api/geladeiras/2147483647/dispositivos retorna 404 (real: 404)
+PASSOU: POST /api/geladeiras/2147483647/dispositivos retorna 404 (real: 404)
+PASSOU: POST /api/geladeiras/8/dispositivos retorna 201 (real: 201)
+PASSOU: Credencial usa segredo aleatorio de 256 bits e nome normalizado
+PASSOU: POST /api/geladeiras/8/dispositivos retorna 409 (real: 409)
+PASSOU: GET /api/geladeiras/8/dispositivos retorna 200 (real: 200)
+PASSOU: Listagem nao revela segredo ou hash
+PASSOU: Location permite consultar so metadados
+PASSOU: GET /api/geladeiras/8/dispositivos/1 retorna 200 (real: 200)
+PASSOU: GET /api/geladeiras/9/dispositivos/1 retorna 404 (real: 404)
+PASSOU: POST /api/geladeiras/8/dispositivos/2147483647/revogar retorna 404 (real: 404)
+PASSOU: Banco conserva somente hash do segredo, sem token em texto
+PASSOU: POST /api/leituras retorna 401 (real: 401)
+PASSOU: POST /api/leituras retorna 401 (real: 401)
+PASSOU: POST /api/leituras retorna 401 (real: 401)
+PASSOU: GET /api/health retorna 403 (real: 403)
+PASSOU: GET /api/geladeiras/8/dispositivos retorna 403 (real: 403)
+PASSOU: POST /api/geladeiras/8/dispositivos retorna 403 (real: 403)
+PASSOU: POST /api/geladeiras retorna 403 (real: 403)
+PASSOU: GET /api/leituras retorna 403 (real: 403)
+PASSOU: POST /api/leituras retorna 403 (real: 403)
+PASSOU: POST /api/leituras retorna 403 (real: 403)
+PASSOU: POST /api/leituras retorna 400 (real: 400)
+PASSOU: POST /api/leituras retorna 400 (real: 400)
+PASSOU: POST /api/leituras retorna 400 (real: 400)
+PASSOU: POST /api/leituras retorna 400 (real: 400)
+PASSOU: POST /api/leituras retorna 400 (real: 400)
+PASSOU: POST /api/leituras retorna 201 (real: 201)
+PASSOU: Servidor vincula emissor autenticado e preserva zero/false, ignorando ID injetado
+PASSOU: POST /api/leituras retorna 200 (real: 200)
+PASSOU: Reenvio retorna mesmo registro e recebimento sem duplicar
+PASSOU: POST /api/leituras retorna 409 (real: 409)
+PASSOU: POST /api/leituras retorna (200, 201) (real: 201)
+PASSOU: POST /api/leituras retorna (200, 201) (real: 200)
+PASSOU: Reenvios concorrentes produzem exatamente uma criacao
+PASSOU: SQLite integro
+PASSOU: Chaves estrangeiras integras
+PASSOU: POST /api/leituras retorna 200 (real: 200)
+PASSOU: SQLite integro
+PASSOU: Chaves estrangeiras integras
+PASSOU: Reinicio preserva hash e idempotencia da medicao
+PASSOU: POST /api/geladeiras/8/dispositivos/1/revogar retorna 200 (real: 200)
+PASSOU: POST /api/geladeiras/8/dispositivos/1/revogar retorna 200 (real: 200)
+PASSOU: Revogacao idempotente preserva instante
+PASSOU: POST /api/leituras retorna 401 (real: 401)
+PASSOU: POST /api/geladeiras/8/dispositivos retorna 201 (real: 201)
+PASSOU: Nova identidade tem segredo independente
+PASSOU: POST /api/leituras retorna 201 (real: 201)
+PASSOU: POST /api/leituras retorna 201 (real: 201)
+PASSOU: Operador/simulador conserva contrato anterior, sem falsificar identidade autenticada
+PASSOU: PUT /api/geladeiras/8/configuracao retorna 201 (real: 201)
+PASSOU: POST /api/leituras retorna 201 (real: 201)
+PASSOU: GET /api/alertas?geladeiraId=8&origem=Hardware&tipo=TemperaturaForaFaixa&situacao=Aberto retorna 200 (real: 200)
+PASSOU: GET /api/alertas?geladeiraId=8&origem=Hardware&tipo=TemperaturaForaFaixa&situacao=Aberto retorna 200 (real: 200)
+PASSOU: Fluxo configurar -> emissor autenticado -> SQLite -> alerta executado com fixture de software
+PASSOU: Alerta vincula a leitura autenticada correta
+PASSOU: GET /api/monitoramento?origem=Hardware retorna 200 (real: 200)
+PASSOU: Painel consulta mesma leitura autenticada e seus metadados
+PASSOU: PUT /api/geladeiras/8/configuracao retorna 200 (real: 200)
+PASSOU: POST /api/geladeiras/9/dispositivos retorna (201, 409) (real: 201)
+PASSOU: POST /api/geladeiras/9/dispositivos retorna (201, 409) (real: 409)
+PASSOU: Duas emissoes concorrentes conservam um unico dispositivo ativo
+PASSOU: DELETE /api/geladeiras/9 retorna 204 (real: 204)
+PASSOU: DELETE /api/geladeiras/8 retorna 409 (real: 409)
+PASSOU: SQLite integro
+PASSOU: Chaves estrangeiras integras
+passed: 84 verificacoes; 55 requisicoes
