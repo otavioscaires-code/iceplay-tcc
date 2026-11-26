@@ -1,0 +1,41 @@
+{
+  "recordedAtUtc": "2026-11-26T03:03:28.402182+00:00",
+  "result": "passed",
+  "privateArchiveFilename": "ICEPLAY_Projeto_Completo_25-11-2026.zip",
+  "privateArchiveBytes": 77804498,
+  "privateArchiveSha256": "9f144d58b35382c6b1d247c6125cd5966d228ae836f504e7831916e0b48c4ab0",
+  "sourceCommitIncluded": "beb8ccbad218fe0d9b4f53933ec3f5ea7e200d93",
+  "verifiedEntries": 2142,
+  "runtimeFilesByteExact": 446,
+  "crcPassed": true,
+  "privateGroupDocumentsIncluded": true,
+  "databaseOrNetworkSecretsIncluded": false,
+  "privateDocuments": [
+    {
+      "filename": "TCC_ICEPLAY_Atualizado_25-11-2026.docx",
+      "sha256": "f13c7b5636d39486a7a7d5e423dde44b3b6261e7e2293bc089220f372bbf2d9e"
+    },
+    {
+      "filename": "TCC_ICEPLAY_Atualizado_25-11-2026.pdf",
+      "sha256": "06bb22de3c85cb532d75d15de0b9c534d43562bb6ddaa2c21f00f171e9cb6874"
+    }
+  ],
+  "documentPages": 45,
+  "documentFigures": 20,
+  "documentTables": 5,
+  "databaseBackupDeliveredSeparately": true,
+  "finalObservedApiHealth": "healthy",
+  "finalObservedDatabaseHealth": "connected",
+  "finalObservedReading": {
+    "id": 1352,
+    "temperaturaC": 13.125,
+    "portaAberta": false,
+    "medidoEmUtc": "2026-11-26T03:03:21Z",
+    "origem": "Hardware",
+    "dispositivoId": 1
+  },
+  "scope": "Fechamento do pacote privado com código versionado, runtime previamente testado e Word/PDF conferidos. Metadados deste fechamento são posteriores ao commit incluído no ZIP; não alteram o produto. Não é nova execução do pacote, ensaio comercial ou calibração.",
+  "advisorConfirmationPending": true,
+  "presentationNotebookOrNetworkValidated": false,
+  "thirtyMinuteThermalCriterionPassed": false
+}

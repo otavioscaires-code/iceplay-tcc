@@ -10,7 +10,7 @@
 | Série térmica interna | Primeira desligada corrigida; primeira ligada incompleta; posterior de30min: 180 aquisições/1790s medidos, 13,2500–14,1250°C; queda entre médias de cinco amostras: 0,8500°C. Queda qualitativa mínima de1°C não atingida; resposta térmica incompleta. |
 | iPhone com Hardware | Captura real#1171/13,69°C/Fechada correlacionada ao SQLite e posterior ao reinício |
 | Monografia | Word/PDF de45 páginas/20 figuras/cinco tabelas revisados e conferidos; confirmar orientador da capa |
-| Transferência/apresentação | Regenerar ZIP privado completo e backup separado; notebook/hotspot continuam sem ensaio |
+| Transferência/apresentação | ZIP completo privado45p/20 figuras e backup separado conferidos; notebook/hotspot continuam sem ensaio |
 
 Os pacotes completos incluem dados do grupo na monografia e devem permanecer privados. O runtime verificado é conservado byte a byte; banco/segredos de rede não entram no ZIP de código/execução. Uma cópia consistente das aquisições é preservada separadamente, sem sobrescrever o banco de destino automaticamente.
 
