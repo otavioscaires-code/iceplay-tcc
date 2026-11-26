@@ -1,16 +1,18 @@
 # Fechamento do ICEPLAY — 25/11/2026
 
+**Fechamento de26/11:** [resultado atual e pendências específicas](etapa-fechamento-final-2026-11-26.md). Orientador confirmado; retenção temporária, recusa401 isolada e recuperação aprovadas. O notebook indicado está indisponível; não é possível validar o ambiente da apresentação agora. A tabela abaixo é atual; o restante preserva o planejamento anterior.
+
 **Estado atualizado na noite de 25/11:** a montagem da sonda foi recuperada; o principal foi compilado, gravado e iniciou na placa. O fluxo autenticado até API/SQLite/interface desktop, os episódios de porta/temperatura e a ausência após desligamento passaram. O reinício da API preservou as 802 leituras/quatro episódios. [Resultados físicos](etapa-integracao-fisica-2026-11-25.md) e [monografia atualizada](etapa-monografia-bancada-2026-11-25.md) distinguem cada controle. Os parágrafos posteriores preservam a preparação e os resultados da manhã.
 
 | Trabalho atual | Estado e próximo resultado necessário |
 | --- | --- |
 | Software, execução e firmware | Software/pacote verificados; principal em uso, sem novo backend/migration nesta continuidade |
-| Aquisição, alertas e persistência reais | Porta/temperatura/ausência/recuperação e persistência aprovadas nos controles descritos; revogação e buffer físicos sem ensaio |
+| Aquisição, alertas e persistência reais | Controles anteriores preservados; retenção RAM durante13s sem API e recusa401 em cópia isolada passaram; original recuperou1475–1477 após reinício. Perda de ACK/rotação física sem ensaio |
 | Instalação doméstica | Um ciclo de porta passou com dois ímãs na porta; abertura aproximada10s, sem cronômetro |
-| Série térmica interna | Primeira desligada corrigida; primeira ligada incompleta; posterior de30min: 180 aquisições/1790s medidos, 13,2500–14,1250°C; queda entre médias de cinco amostras: 0,8500°C. Queda qualitativa mínima de1°C não atingida; resposta térmica incompleta. |
+| Série térmica interna | Original30min:180/1790s, queda média0,85°C, critério1°C não atingido. Extensão retrospectiva286/2851s com queda1,0375°C é exploratória e não altera o resultado original |
 | iPhone com Hardware | Captura real#1171/13,69°C/Fechada correlacionada ao SQLite e posterior ao reinício |
-| Monografia | Word/PDF de45 páginas/20 figuras/cinco tabelas revisados e conferidos; confirmar orientador da capa |
-| Transferência/apresentação | ZIP completo privado45p/20 figuras e backup separado conferidos; notebook/hotspot continuam sem ensaio |
+| Monografia | Word/PDF45p/20figuras/cinco tabelas conferidos; orientador confirmado com grafia da capa. Novos controles e limites incorporados; documentos preenchidos privados |
+| Transferência/apresentação | Pacote autocontido e backup privado disponíveis; aluno informou outro notebook ainda indisponível. Preparar e ensaiar nesse notebook/rede antes de declarar apresentação pronta |
 
 Os pacotes completos incluem dados do grupo na monografia e devem permanecer privados. O runtime verificado é conservado byte a byte; banco/segredos de rede não entram no ZIP de código/execução. Uma cópia consistente das aquisições é preservada separadamente, sem sobrescrever o banco de destino automaticamente.
 

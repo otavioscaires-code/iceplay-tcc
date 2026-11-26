@@ -1,0 +1,29 @@
+# Fechamento do protótipo e da monografia — 26/11/2026
+
+O aluno confirmou o orientador, com a mesma grafia que já estava na capa, e informou que a apresentação usará **outro notebook, ainda indisponível**. A confirmação resolve a divergência documental; não representa aprovação do trabalho pelo orientador. O teste no equipamento e na rede da apresentação permanece necessário.
+
+## Retenção temporária e recusa da credencial
+
+O [controle com ESP32 real](evidencias/2026-11-25-firmware-principal/20261126T032340Z-buffer-revogacao/controle.json) definiu seus critérios antes da intervenção. A placa permaneceu no carregador, com o mesmo firmware, sensores, configuração e TLS. Uma cópia consistente privada do banco recebeu os envios do controle; não foram fabricadas medições por cliente de teste.
+
+1. A API do pacote foi interrompida por 13 s. Uma aquisição de 12,9375 °C, medida às **03:23:51 UTC**, foi aceita na cópia às **03:24:05,5321755 UTC**. Três novas aquisições dessa cópia coincidiram entre API e SQLite. Isso demonstra retenção temporária durante a indisponibilidade observada. Não demonstra persistência após desligar a placa, expiração do buffer ou reenvio do mesmo UUID após perda da confirmação.
+2. Somente o dispositivo 1 da **cópia** teve sua credencial revogada pela API. O POST seguinte do emissor físico recebeu **HTTP 401**; durante os 20 s posteriores à primeira recusa não houve nova leitura aceita. O silêncio posterior é compatível com o bloqueio previsto no firmware; não houve captura serial neste controle.
+3. A API voltou a usar o banco normal, com o mesmo executável e perfil HTTPS. A credencial original permaneceu ativa. O aluno retirou/recolocou somente o USB do carregador e confirmou o LED. A [recuperação](evidencias/2026-11-25-firmware-principal/20261126T032340Z-buffer-revogacao/recuperacao-banco-original.json) passou com três aquisições reais, IDs 1475–1477, de 12,875 °C, porta fechada, correlacionadas ao SQLite. O episódio de ausência 11 encerrou por `CondicaoNormalizada`.
+
+Todas as 1473 leituras do prefixo copiado foram comparadas e permaneceram idênticas. Uma leitura adicional havia chegado ao banco normal entre o backup e sua parada; também foi preservada. **IDs novos podem coincidir nos dois bancos**, pois são bancos distintos: UUIDs, conteúdo e banco de origem foram usados para distingui-los. Não se mesclaram as aquisições isoladas ao banco normal. Não houve nova emissão de credencial, gravação da placa, instalação ou alteração de firewall, confiança, certificado ou configurações do computador. A rotação da credencial e o reenvio físico após perda de confirmação continuam sem ensaio.
+
+## Continuação térmica exploratória
+
+A [consulta retrospectiva com corte fixo](evidencias/2026-11-25-firmware-principal/20261126T031034Z-extensao-termica-retrospectiva/extensao.json) reuniu as 286 aquisições já persistidas entre 02:23:00 e 03:10:31 UTC, IDs 1110–1395, abrangendo 2851 s (**47 min 31 s**). Todas coincidiram entre API e SQLite. As médias das primeiras e últimas cinco temperaturas foram 14,1000 e 13,0625 °C: queda de **1,0375 °C**. O maior intervalo entre medições foi de 11 s.
+
+Essa extensão tem caráter **exploratório**: seu corte foi escolhido depois da aquisição. Ela não muda o resultado da janela prospectiva original de 30 min: 180 aquisições/1790 s, queda de 0,8500 °C, inferior ao critério prévio de 1 °C. O [JSON original](evidencias/2026-11-25-firmware-principal/20261126T022259Z-geladeira-ligada/geladeira.json) e seu SHA-256 foram preservados. O estado ligado da geladeira foi informado anteriormente pelo aluno; não houve medição elétrica ou termômetro de referência. Não se declara calibração, exatidão, conservação de alimentos ou desempenho comercial.
+
+## Entrega e limites
+
+A revisão privada do Word/PDF retira a pergunta resolvida sobre o orientador e incorpora os controles, a recuperação e a extensão exploratória, mantendo 20 figuras, cinco tabelas, os IDs RF01–16/RNF01–12 e os bytes de todas as imagens da versão anterior. A [conferência da nova entrega](evidencias/2026-11-25-firmware-principal/revisao-fechamento-confirmado/validacao.json) registra hashes, paginação, campos, comentários e cobertura da inspeção visual. Os originais e as entregas anteriores permanecem preservados. Documentos preenchidos, fotografias e pacotes completos continuam privados.
+
+O MVP demonstrou aquisição real, ingestão autenticada, persistência, telas desktop/iPhone e alertas de temperatura, porta e ausência, com normalização. Permanecem limites específicos: interrupção de DQ ensaiada no diagnóstico USB, sem repetir no principal; reenvio após perda de confirmação e rotação de credencial sem teste físico; critério térmico prospectivo de 30 min não atingido. Esses limites não são apresentados como casos aprovados.
+
+Para a apresentação falta disponibilizar o notebook, extrair o pacote em pasta com escrita, preservar/restaurar deliberadamente o backup e preparar a rede/perfil HTTPS compatíveis com o IP e a configuração da placa. Depois será necessário conferir, **nesse conjunto real**, início da API, novas aquisições, painel no PC e pareamento/painel no iPhone. O ZIP não configura outro computador ou rede automaticamente. Ver [execução do pacote](execucao-pacote-windows.md) e [acesso pelo iPhone](acesso-iphone.md).
+
+Não houve mudança do código da aplicação, firmware ou migrations nesta etapa; não se repetiu a suíte de software já aprovada. Os testes novos foram os controles físicos descritos e a verificação documental/de empacotamento. A assistência de IA preparou os coletores e correlacionou dados/arquivos; o aluno executou as ações físicas e confirmou o orientador e a indisponibilidade do notebook.

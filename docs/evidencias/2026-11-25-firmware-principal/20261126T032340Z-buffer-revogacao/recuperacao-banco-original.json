@@ -1,0 +1,67 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-26T03:28:50.700273+00:00",
+  "finishedAtUtc": "2026-11-26T03:29:06.997337+00:00",
+  "userReportedAction": "Retirou e recolocou somente USB do carregador; LED acendeu.",
+  "criteriaReference": "controle.json/criteriaDefinedBeforeControl/restoreCriterion",
+  "freshOriginalReadings": [
+    {
+      "id": 1475,
+      "geladeiraId": 1,
+      "temperaturaC": 12.875,
+      "portaAberta": false,
+      "medidoEmUtc": "2026-11-26T03:28:45Z",
+      "recebidoEmUtc": "2026-11-26T03:28:46.6873223Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "3ba2afbf-064d-4795-af12-db667b18561f"
+    },
+    {
+      "id": 1476,
+      "geladeiraId": 1,
+      "temperaturaC": 12.875,
+      "portaAberta": false,
+      "medidoEmUtc": "2026-11-26T03:28:55Z",
+      "recebidoEmUtc": "2026-11-26T03:28:56.7072341Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "421881ce-1108-4ed2-a44f-e0ba08b64c98"
+    },
+    {
+      "id": 1477,
+      "geladeiraId": 1,
+      "temperaturaC": 12.875,
+      "portaAberta": false,
+      "medidoEmUtc": "2026-11-26T03:29:05Z",
+      "recebidoEmUtc": "2026-11-26T03:29:06.1654617Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "5a75daa3-932d-4c76-9be2-aa3ac842f57a"
+    }
+  ],
+  "apiSqliteMatchedReadings": 3,
+  "originalDeviceActive": true,
+  "originalCredentialAndMetadataUnchanged": true,
+  "allCopiedHistoricalReadingsPreserved": true,
+  "copiedPrefixCount": 1473,
+  "copiedPrefixMaximumId": 1473,
+  "configurationUnchangedDuringRecovery": true,
+  "originalDatabaseIntegrity": "ok",
+  "absenceEpisodesSnapshot": [
+    {
+      "Id": 4,
+      "AbertoEmUtc": "2026-11-26 00:55:07.0266523",
+      "EncerradoEmUtc": "2026-11-26 01:35:09.5675883",
+      "MotivoEncerramento": "CondicaoNormalizada"
+    },
+    {
+      "Id": 11,
+      "AbertoEmUtc": "2026-11-26 03:24:48.1555664",
+      "EncerradoEmUtc": "2026-11-26 03:28:46.8249005",
+      "MotivoEncerramento": "CondicaoNormalizada"
+    }
+  ],
+  "noOpenAbsenceEpisodeAtEnd": true,
+  "originalControlSha256": "a21189bc34593e912880b36ef2110ef2074f4b16a6654d7055e4cd5b5b815c82",
+  "scope": "Retomada fisica do mesmo firmware e credencial no banco original, depois de recusa401 em banco isolado e reinicio pelo carregador informado pelo aluno. IDs novos podem coincidir entre bancos distintos; correlacao usa o banco, UUID e valores, sem mesclar leituras de teste isolado ao original. Sem rotacao ou nova gravacao."
+}

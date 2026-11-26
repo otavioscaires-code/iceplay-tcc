@@ -1,0 +1,24 @@
+{
+  "result": "passed",
+  "backupDirectory": ".tools/exports/20261126T033736Z-dados-reais/",
+  "archiveName": "ICEPLAY_Dados_Reais_26-11-2026.zip",
+  "archiveSha256": "712949aeba45e5fc5debba08ab1f11512073928482cdf8877b0c277bf20b6763",
+  "archiveBytes": 125306,
+  "snapshotCounts": {
+    "Geladeiras": 2,
+    "Leituras": 1528,
+    "ConfiguracoesGeladeiras": 1,
+    "Alertas": 11,
+    "EstadosMonitoramento": 1,
+    "Dispositivos": 1
+  },
+  "consistentSqliteBackup": true,
+  "databaseIntegrityPassed": true,
+  "foreignKeyViolations": 0,
+  "zipCrcPassed": true,
+  "sourceDatabasePreserved": true,
+  "backupPrivateAndNotIncludedInGit": true,
+  "containsCredentialHashesButNotOriginalSecrets": true,
+  "automaticReplacementOfDestinationDatabase": false,
+  "scope": "Copia consistente privada apos a recuperacao dos controles fisicos. Retrato datado; as aquisicoes posteriores permanecem no banco ativo. Nao e novo ensaio de sensor."
+}

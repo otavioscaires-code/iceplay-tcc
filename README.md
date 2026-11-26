@@ -1,5 +1,9 @@
 # ICEPLAY
 
+**Fechamento em 26/11/2026:** o MVP foi demonstrado com sensores reais, API/SQLite, painel desktop/iPhone e alertas. Novos controles físicos confirmaram retenção temporária durante interrupção da API, recusa de credencial revogada em banco isolado e recuperação da credencial original. Orientador confirmado; Word/PDF privados atualizados com45 páginas/20 figuras/cinco tabelas. O outro notebook ainda está indisponível e sua execução/rede não foram testadas. O critério térmico original de30min não foi atingido; a extensão posterior é exploratória. [Entrega, resultados e limites](docs/etapa-fechamento-final-2026-11-26.md).
+
+As notas datadas seguintes preservam etapas anteriores; o fechamento acima é o estado atual.
+
 **Ensaio físico documentado em25/11/2026:** principal ESP32 gravado, envio HTTPS autenticado, SQLite, painel desktop/iPhone, episódios de porta/temperatura, ausência/recuperação e persistência após reinício. Instalação removível e aquisições em geladeira doméstica registradas; a primeira janela desligada e a abertura física aproximada de10s foram corrigidas explicitamente. [Resultados, critérios e limitações](docs/etapa-integracao-fisica-2026-11-25.md). Sem calibração ou ensaio comercial; rede/notebook da apresentação permanecem sem validação própria.
 
 **Monografia após os controles de ausência e reinício:** [cópia privada atualizada](docs/etapa-monografia-bancada-2026-11-25.md),41 páginas/16 figuras/cinco tabelas, com RF10/RNF02, captura real do alerta de ausência e persistência das 802 leituras. Sumário, listas e páginas conferidos; versões anteriores preservadas. Recuperação, instalação em geladeira e ambiente da apresentação ainda exigem seus registros.

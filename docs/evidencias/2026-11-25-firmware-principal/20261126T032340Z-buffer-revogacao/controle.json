@@ -1,0 +1,91 @@
+{
+  "result": "passed",
+  "criteriaDefinedBeforeControl": {
+    "definedAtUtc": "2026-11-26T03:23:40.850094+00:00",
+    "apiOutageSeconds": 13,
+    "minimumFreshCloneReadingsBeforeRevocation": 3,
+    "pendingBufferCriterion": "Ao menos uma medicao adquirida entre parada confirmada e pedido de reinicio, recebida depois do pedido de reinicio, antes do limite RAM de30s; origem Hardware/dispositivo1 e API/SQLite correspondentes.",
+    "revocationCriterion": "Revogar somente dispositivo1 da copia isolada; observar POST real /api/leituras401 e nenhuma nova linha aceita durante20s depois da primeira recusa.",
+    "restoreCriterion": "Restaurar mesmo executavel/perfil/banco original; dispositivo e configuracao originais inalterados; depois do reinicio fisico informado, exigir tres novas aquisicoes.",
+    "userAvailableForChargerPowerCycle": true,
+    "lostAcknowledgementSameUuidRetryValidated": false,
+    "credentialRotationOrFirmwareRewrite": false,
+    "firewallCertificateTrustOrOsSettingsChanges": false
+  },
+  "startedAtUtc": "2026-11-26T03:23:41.061459+00:00",
+  "cloneContainsRealCopiedReadings": true,
+  "syntheticSensorPostsCreated": false,
+  "apiStopConfirmedAtUtc": "2026-11-26T03:23:46.605693+00:00",
+  "cloneStartRequestedAtUtc": "2026-11-26T03:23:59.607172+00:00",
+  "cloneApiHealthyAtUtc": "2026-11-26T03:24:01.348784+00:00",
+  "cloneFreshReadingsBeforeRevocation": [
+    {
+      "Id": 1474,
+      "TemperaturaC": 12.9375,
+      "PortaAberta": 0,
+      "Origem": "Hardware",
+      "DispositivoId": 1,
+      "MedicaoId": "685bcba4-6c24-45c0-913e-76277a166f78",
+      "MedidoEmUtc": "2026-11-26 03:23:51",
+      "RecebidoEmUtc": "2026-11-26 03:24:05.5321755"
+    },
+    {
+      "Id": 1475,
+      "TemperaturaC": 12.9375,
+      "PortaAberta": 0,
+      "Origem": "Hardware",
+      "DispositivoId": 1,
+      "MedicaoId": "a85f4a7f-a0ae-46ed-bc16-6fc7a72fcaad",
+      "MedidoEmUtc": "2026-11-26 03:24:07",
+      "RecebidoEmUtc": "2026-11-26 03:24:07.998826"
+    },
+    {
+      "Id": 1476,
+      "TemperaturaC": 12.9375,
+      "PortaAberta": 0,
+      "Origem": "Hardware",
+      "DispositivoId": 1,
+      "MedicaoId": "c49dfa0d-0ccc-454d-b745-411e1a363f2b",
+      "MedidoEmUtc": "2026-11-26 03:24:16",
+      "RecebidoEmUtc": "2026-11-26 03:24:16.3020097"
+    }
+  ],
+  "delayedReadingsFromOutage": [
+    {
+      "Id": 1474,
+      "TemperaturaC": 12.9375,
+      "PortaAberta": 0,
+      "Origem": "Hardware",
+      "DispositivoId": 1,
+      "MedicaoId": "685bcba4-6c24-45c0-913e-76277a166f78",
+      "MedidoEmUtc": "2026-11-26 03:23:51",
+      "RecebidoEmUtc": "2026-11-26 03:24:05.5321755"
+    }
+  ],
+  "pendingBufferCriterionPassed": true,
+  "cloneApiSqliteMatch": true,
+  "originalMaxIdWhileCloneActive": 1474,
+  "revocationRequestedAtUtc": "2026-11-26T03:24:16.490763+00:00",
+  "revocationHttpStatus": 200,
+  "revokedAtUtcInClone": "2026-11-26T03:24:16.5247551Z",
+  "first401ObservedAtUtc": "2026-11-26T03:24:26.577062+00:00",
+  "rejectionObservationFinishedAtUtc": "2026-11-26T03:24:46.596365+00:00",
+  "noAcceptedReadingsAfterRevocation": true,
+  "revocationCriterionPassed": true,
+  "physicalPost401StatusLines": [
+    "Request finished HTTP/1.1 POST https://localhost:5443/api/leituras - 401 - application/problem+json;+charset=utf-8 11.4923ms"
+  ],
+  "cloneIntegrity": "ok",
+  "originalApiHealthyAtUtc": "2026-11-26T03:24:48.340608+00:00",
+  "originalDeviceUnchanged": true,
+  "originalConfigurationUnchanged": true,
+  "originalExistingReadingsPreserved": true,
+  "originalApiProcessId": 15208,
+  "originalMaxIdBeforePowerCycle": 1474,
+  "originalDeviceActive": true,
+  "profileUnchanged": true,
+  "executableUnchanged": true,
+  "finishedAtUtc": "2026-11-26T03:24:48.389614+00:00",
+  "powerCycleAndOriginalRecoveryStillPending": true,
+  "scope": "ESP32 real no carregador, mesmo principal/TLS; copia privada recebeu aquisicoes e teve somente sua credencial revogada. Banco original restaurado e sem revogacao. Recusa401 seguida de silencio e compatível com bloqueio do firmware; sem serial, rotacao de token ou reenvio de mesmo UUID apos perda de ACK."
+}
