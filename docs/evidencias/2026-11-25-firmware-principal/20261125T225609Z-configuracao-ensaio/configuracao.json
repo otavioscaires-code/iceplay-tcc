@@ -1,0 +1,22 @@
+{
+  "result": "passed",
+  "httpStatus": 201,
+  "before": {
+    "geladeiraId": 1,
+    "configuracao": null
+  },
+  "after": {
+    "geladeiraId": 1,
+    "configuracao": {
+      "temperaturaMinimaC": 0,
+      "temperaturaMaximaC": 40,
+      "toleranciaPortaAbertaSegundos": 10,
+      "ausenciaLeiturasSegundos": 45,
+      "origemMonitorada": "Hardware",
+      "monitoramentoAtivo": true,
+      "inicioMonitoramentoEmUtc": "2026-11-25T22:56:09.5763286Z",
+      "atualizadoEmUtc": "2026-11-25T22:56:09.5763286Z"
+    }
+  },
+  "scope": "Ativacao explicita de monitoramento Hardware no cadastro de bancada; sem inserir leituras."
+}

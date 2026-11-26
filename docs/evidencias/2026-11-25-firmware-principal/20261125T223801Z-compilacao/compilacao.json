@@ -1,0 +1,37 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-25T22:38:01.5323777+00:00",
+  "finishedAtUtc": "2026-11-25T22:38:32.5119242+00:00",
+  "scope": "Compilacao do firmware principal com configuracao privada real; nao comprova gravacao, rede ou ingestao fisica.",
+  "criteriaDefinedBeforeCompilation": {
+    "nativeExitCodeRequired": 0,
+    "realPrivateConfigurationPrepared": true,
+    "noSecretsInPublicEvidence": true,
+    "uploadAuthorizedOrPerformed": false,
+    "binaryRequired": true
+  },
+  "nativeExitCode": 0,
+  "sourceSha256": "3e402e75cc61758e8bd5d8c9275ac8bf7b7026e2d8e504f5fc99565b20186193",
+  "configuredForBench": true,
+  "geladeiraId": 1,
+  "dispositivoId": 1,
+  "warningOccurrencesInPrivateLog": 2,
+  "sanitizedSummary": [
+    "RAM:   [=         ]  14.6% (used 47708 bytes from 327680 bytes)",
+    "Flash: [=======   ]  71.1% (used 931785 bytes from 1310720 bytes)",
+    "========================= [SUCCESS] Took 30.10 seconds =========================",
+    "esp32dev       SUCCESS   00:00:30.101"
+  ],
+  "firmwareFlashed": false,
+  "networkTested": false,
+  "physicalApiIngestionValidated": false,
+  "privateLog": ".tools/hardware/20261125T223801Z-compilacao-principal/compilacao-integral.log",
+  "publicSourceHashes": {
+    "firmware/esp32/src/main.cpp": "3e402e75cc61758e8bd5d8c9275ac8bf7b7026e2d8e504f5fc99565b20186193",
+    "firmware/esp32/include/cliente-https.h": "d8c69aba63751c5572de61928ff1a1909b439d07743038275d5f56ac58fa04f2",
+    "firmware/esp32/include/config.example.h": "4fdfe6a92898eae7c7252bf68730e59c335c49953af791ba23a67c05f812be8c",
+    "firmware/esp32/platformio.ini": "294da54eaa035aa3549ca6efe9356fe23211d130089a873115ee833bdf76671c"
+  },
+  "binaryBytes": 938368,
+  "binarySha256": "d703eb005bc24f00c3128aed39562f45730f9f4d5314628bb65ede257d3a750a"
+}

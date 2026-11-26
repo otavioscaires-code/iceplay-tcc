@@ -1,0 +1,9 @@
+{
+  "observedAtUtc": "2026-11-25T22:48:27.629Z",
+  "scope": "Navegador desktop real; leituras fisicas ja correlacionadas com API e SQLite. Sem imagem nova do iPhone ou geladeira.",
+  "dashboardUrl": "http://localhost:5080/dashboard",
+  "dashboardOriginSelected": "Hardware declarado",
+  "historyUrl": "http://localhost:5080/historico?geladeiraId=1&origem=Hardware&pagina=1&tamanhoPagina=20",
+  "historyObservedTotal": 35,
+  "historyPageRows": 20
+}

@@ -1,0 +1,124 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-25T22:57:21.476102+00:00",
+  "finishedAtUtc": "2026-11-25T22:57:56.493257+00:00",
+  "scope": "Posicao informada pelo aluno; consulta de novas leituras reais em API e SQLite, sem medir latencia/debounce ou porta instalada.",
+  "criteriaDefinedBeforeCapture": {
+    "durationSeconds": 35,
+    "minimumConsecutiveDistinctRecentReadings": 3,
+    "expectedPortaAberta": true,
+    "geladeiraId": 1,
+    "dispositivoId": 1,
+    "origin": "Hardware",
+    "userReportedPosition": "ima afastado",
+    "serialResetSent": false,
+    "scope": "Posicao informada pelo aluno; consulta de novas leituras reais em API e SQLite, sem medir latencia/debounce ou porta instalada.",
+    "expectedPortaAlertStatus": "aberto",
+    "singleDoorEpisodeRequired": true
+  },
+  "apiGetResponses": 18,
+  "newDistinctReadings": 3,
+  "readings": [
+    {
+      "id": 99,
+      "geladeiraId": 1,
+      "temperaturaC": 27.5,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:57:28Z",
+      "recebidoEmUtc": "2026-11-25T22:57:29.4321182Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "8bacad99-1088-4de2-8c05-f021eccd9569"
+    },
+    {
+      "id": 100,
+      "geladeiraId": 1,
+      "temperaturaC": 27.5,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:57:38Z",
+      "recebidoEmUtc": "2026-11-25T22:57:39.6680526Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "0258926d-8049-4ac1-932b-3491446642ac"
+    },
+    {
+      "id": 101,
+      "geladeiraId": 1,
+      "temperaturaC": 27.5,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:57:48Z",
+      "recebidoEmUtc": "2026-11-25T22:57:49.3919865Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "84fdc5c8-fa47-4d73-b15d-5190400c3c5b"
+    }
+  ],
+  "sqliteChecks": [
+    {
+      "id": 99,
+      "apiAndSqliteMatch": true,
+      "sqliteReading": {
+        "Id": 99,
+        "GeladeiraId": 1,
+        "TemperaturaC": 27.5,
+        "PortaAberta": 1,
+        "MedidoEmUtc": "2026-11-25 22:57:28",
+        "RecebidoEmUtc": "2026-11-25 22:57:29.4321182",
+        "Origem": "Hardware",
+        "DispositivoId": 1,
+        "MedicaoId": "8bacad99-1088-4de2-8c05-f021eccd9569"
+      }
+    },
+    {
+      "id": 100,
+      "apiAndSqliteMatch": true,
+      "sqliteReading": {
+        "Id": 100,
+        "GeladeiraId": 1,
+        "TemperaturaC": 27.5,
+        "PortaAberta": 1,
+        "MedidoEmUtc": "2026-11-25 22:57:38",
+        "RecebidoEmUtc": "2026-11-25 22:57:39.6680526",
+        "Origem": "Hardware",
+        "DispositivoId": 1,
+        "MedicaoId": "0258926d-8049-4ac1-932b-3491446642ac"
+      }
+    },
+    {
+      "id": 101,
+      "apiAndSqliteMatch": true,
+      "sqliteReading": {
+        "Id": 101,
+        "GeladeiraId": 1,
+        "TemperaturaC": 27.5,
+        "PortaAberta": 1,
+        "MedidoEmUtc": "2026-11-25 22:57:48",
+        "RecebidoEmUtc": "2026-11-25 22:57:49.3919865",
+        "Origem": "Hardware",
+        "DispositivoId": 1,
+        "MedicaoId": "84fdc5c8-fa47-4d73-b15d-5190400c3c5b"
+      }
+    }
+  ],
+  "alertsSnapshotAtEnd": [
+    {
+      "Id": 1,
+      "GeladeiraId": 1,
+      "Origem": "Hardware",
+      "Tipo": "PortaAberta",
+      "Gravidade": "Atencao",
+      "InicioCondicaoEmUtc": "2026-11-25 22:56:18",
+      "AbertoEmUtc": "2026-11-25 22:56:30.0265443",
+      "UltimaEvidenciaEmUtc": "2026-11-25 22:57:48",
+      "EncerradoEmUtc": null,
+      "MotivoEncerramento": null,
+      "ToleranciaPortaAbertaSegundos": 10
+    }
+  ],
+  "errors": [],
+  "expectedDoorStateObserved": true,
+  "sourceSha256": "3e402e75cc61758e8bd5d8c9275ac8bf7b7026e2d8e504f5fc99565b20186193",
+  "installedDoorValidated": false,
+  "latencyMeasured": false,
+  "doorAlertCriterionPassed": true
+}

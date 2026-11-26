@@ -16,6 +16,8 @@
 #include "config.example.h"
 #endif
 
+#include "cliente-https.h"
+
 namespace {
 constexpr uint32_t INTERVALO_MS = 10000;
 constexpr uint32_t DEBOUNCE_MS = 50;
@@ -112,7 +114,7 @@ void enviarPendente(uint32_t agora) {
     }
     // Diferença assinada permite atravessar o rollover de millis(), com esperas curtas.
     if (WiFi.status() != WL_CONNECTED || static_cast<int32_t>(agora - proximaTentativa) < 0) return;
-    WiFiClientSecure client;
+    ClienteHttpsIceplay client;
     client.setCACert(CA_PEM);
     client.setHandshakeTimeout(5);
     HTTPClient http;

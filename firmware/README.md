@@ -1,5 +1,7 @@
 # Firmware ICEPLAY para ESP32
 
+**Estado vigente em 25/11/2026:** o firmware principal está gravado e iniciou na placa. [Ensaio físico de bancada](../docs/etapa-integracao-fisica-2026-11-25.md): envio HTTPS autenticado, temperatura/porta coincidentes na serial/API/SQLite, telas desktop e normalização de episódios de porta/temperatura. O [transporte TLS corrigido](../docs/decisao-tls-esp32-2026-11-25.md) mantém CA/SNI/verificação do nome. Binário de uso privado SHA-256 `6453fe9ee6eeb7c6c81761306de54317d4e88e0d35889e3bc9f433689221831b`. Não confundir com os diagnósticos antigos descritos abaixo. Geladeira, reconexão/alimentação por carregador e ambiente da apresentação ainda requerem evidência específica.
+
 **Situação atual na noite de 23/11/2026:** com autorização específica, o [diagnóstico isolado dos sensores](diagnostico-sensores/README.md) foi gravado na COM3 e iniciou. Captura USB de 16 s: oito temperaturas reais de 24,4375 °C, sem mensagens de erro, e 16 HIGH. **A placa executa `diagnostico-sensores`, sem Wi-Fi/API.** [Gravação, aquisição e limites](../docs/etapa-leitura-temperatura-2026-11-23.md). F01/F02 parciais: variação térmica, desconexão e programa principal/ingestão pendentes. O [contato/ímã](../docs/etapa-sensor-porta-2026-11-23.md) respondeu em HIGH/LOW/HIGH/LOW/HIGH em cinco capturas separadas; F03 parcial para instalação/principal/API. A compilação anterior do diagnóstico teve dois avisos OneWire.
 
 **Registro histórico de 18/11/2026:** naquela etapa a placa executava o [diagnóstico isolado da entrada de porta](diagnostico-porta/README.md), gravado com autorização, com boot e nível HIGH sem conexões confirmados. Foi substituído pelo diagnóstico dos sensores na noite de 23/11. O firmware principal descrito abaixo permanece preservado em `esp32/`, ainda sem gravação/ingestão física validada. Ver [resultados e limites daquela etapa](../docs/etapa-diagnostico-porta-2026-11-18.md).
@@ -36,14 +38,14 @@ Sensor ausente, família/CRC inválidos, modo parasita, conversão incompleta e 
 
 WiFi/TLS/HTTP usam operações com limites de espera. Durante uma requisição de rede bloqueante, a consulta do GPIO pode atrasar; abertura muito curta pode não ser registrada. Consumo dinâmico de memória, resposta elétrica, interferência, precisão, reconexão real e comportamento na geladeira **ainda dependem do ensaio físico**. Os percentuais de RAM/flash do compilador são estimativas estáticas, não medições do hardware.
 
-## Preparar quando houver a placa
+## Preparar uma nova placa ou instalação
 
 1. Confira os componentes e as [ligações lógicas](../docs/hardware/montagem.md), com a alimentação desconectada.
-2. Inicie o modo móvel já preparado: `scripts/run-mobile.ps1`. O IP precisa ser o configurado no certificado; não usar `localhost` na placa.
-3. Em **Configurações → Conectar ESP32**, escolha o equipamento, dê nome e confirme a emissão. Guarde a credencial exibida uma vez. Nenhuma foi emitida automaticamente no banco de uso.
+2. Inicie o modo móvel já preparado: `scripts/run-mobile.ps1` ou o pacote com o perfil existente. O firmware usa a identidade HTTPS `localhost` presente no certificado e `ICEPLAY_API_IP_CONEXAO` para rotear ao IP do computador, preservando CA e verificação do nome; não é loopback da placa. `prepare-firmware.ps1` preenche ambos a partir do perfil. Ver a [correção e o ensaio TLS](../docs/decisao-tls-esp32-2026-11-25.md).
+3. Em **Configurações → Conectar ESP32**, escolha o equipamento, dê nome e confirme a emissão. Guarde a credencial exibida uma vez. Preserve a credencial/configuração da bancada existente; emita outra apenas para uma nova instalação ou revogação intencional.
 4. Na raiz, execute `scripts/prepare-firmware.ps1 -GeladeiraId <ID real>`. O script pede SSID/senha e credencial sem exibi-las, incorpora somente o certificado público existente e cria `config.local.h`. Não sobrescreve arquivo privado. O padrão considera contato fechado quando o ímã está junto; `-InverterPorta` é para a polaridade oposta confirmada em bancada.
 5. Compile com `scripts/run-firmware.ps1 -Acao Compilar`.
-6. Confira no Gerenciador de Dispositivos a COM da placa. Execute pessoalmente, com o conjunto conectado, `scripts/run-firmware.ps1 -Acao Gravar -Porta COM3`, substituindo COM3. Não houve gravação nesta etapa.
+6. Confira no Gerenciador de Dispositivos a COM da placa. Execute pessoalmente, com o conjunto conectado, `scripts/run-firmware.ps1 -Acao Gravar -Porta COM3`, substituindo COM3. A bancada atual já está gravada; não repetir sem necessidade.
 7. `scripts/run-firmware.ps1 -Acao Monitorar -Porta COM3` abre o log a 115200 baud. O log não imprime senha/credencial; registre apenas evidências sem segredos.
 8. Configure os limites/tempos reais com o orientador e selecione **Hardware** com monitoramento ativo. Escolha prazo de ausência compatível com amostragem/rede; não foi definido limite sanitário automático.
 9. Execute o [protocolo de ensaio](../docs/hardware/protocolo-ensaio.md). Verificar compilação não encerra essa etapa.

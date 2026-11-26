@@ -23,7 +23,9 @@ try {
     New-Item -ItemType Directory -Path $firmwareFixtureProject -Force | Out-Null
     Copy-Item -LiteralPath (Join-Path $script:FirmwareRoot 'firmware/esp32/src') -Destination $firmwareFixtureProject -Recurse
     New-Item -ItemType Directory -Path (Join-Path $firmwareFixtureProject 'include') -Force | Out-Null
-    Copy-Item -LiteralPath (Join-Path $script:FirmwareRoot 'firmware/esp32/include/config.example.h') -Destination (Join-Path $firmwareFixtureProject 'include')
+    foreach ($firmwarePublicHeader in @('config.example.h','cliente-https.h')) {
+        Copy-Item -LiteralPath (Join-Path $script:FirmwareRoot ('firmware/esp32/include/' + $firmwarePublicHeader)) -Destination (Join-Path $firmwareFixtureProject 'include')
+    }
     $firmwareFixtureIni = (Get-Content -LiteralPath 'firmware/esp32/platformio.ini' -Raw).Replace('build_dir = ../../.tools/firmware-build','build_dir = .pio/build')
     [IO.File]::WriteAllText((Join-Path $firmwareFixtureProject 'platformio.ini'),$firmwareFixtureIni,[Text.UTF8Encoding]::new($false))
     $firmwareFixtureMobile = Join-Path $firmwareFixtureRoot 'certificado'

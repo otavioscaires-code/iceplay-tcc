@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1330" viewBox="0 0 1000 1330" role="img" aria-label="Casos de uso do ICEPLAY">
+<title>Casos de uso do ICEPLAY</title>
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#12202d} .edge{fill:none;stroke:#354454;stroke-width:2.2} .small{font-size:20px} .body{font-size:23px}</style>
+<rect x="230" y="52" width="540" height="1205" rx="8" fill="#fbfcfd" stroke="#263c50" stroke-width="2.5"/>
+<text x="500" y="91" font-size="28" text-anchor="middle" font-weight="bold">ICEPLAY</text>
+<path class="edge" d="M138,524 L283,170"/>
+<path class="edge" d="M138,524 L283,305"/>
+<path class="edge" d="M138,524 L283,440"/>
+<path class="edge" d="M138,524 L283,575"/>
+<path class="edge" d="M138,524 L283,710"/>
+<path class="edge" d="M138,524 L283,845"/>
+<path class="edge" d="M138,524 L283,980"/>
+<path class="edge" d="M862,1046 L717,1115"/>
+<g fill="none" stroke="#263c50" stroke-width="3"><circle cx="105" cy="480" r="19"/><path d="M105,499 v61 M72,524 h66 M105,560 l-30,43 M105,560 l30,43"/></g>
+<text x="105" y="637" font-size="23" text-anchor="middle" font-weight="bold">Operador</text>
+<g fill="none" stroke="#263c50" stroke-width="3"><circle cx="895" cy="1002" r="19"/><path d="M895,1021 v61 M862,1046 h66 M895,1082 l-30,43 M895,1082 l30,43"/></g>
+<text x="895" y="1159" font-size="23" text-anchor="middle" font-weight="bold">Emissor</text>
+<ellipse cx="500" cy="170" rx="217" ry="49" fill="white" stroke="#263c50" stroke-width="2.2"/>
+<text x="500" y="163" font-size="24" text-anchor="middle">UC01 Autorizar</text>
+<text x="500" y="193" font-size="24" text-anchor="middle">navegador</text>
+<ellipse cx="500" cy="305" rx="217" ry="49" fill="white" stroke="#263c50" stroke-width="2.2"/>
+<text x="500" y="298" font-size="24" text-anchor="middle">UC02 Gerenciar</text>
+<text x="500" y="328" font-size="24" text-anchor="middle">geladeiras</text>
+<ellipse cx="500" cy="440" rx="217" ry="49" fill="white" stroke="#263c50" stroke-width="2.2"/>
+<text x="500" y="433" font-size="24" text-anchor="middle">UC03 Consultar</text>
+<text x="500" y="463" font-size="24" text-anchor="middle">painel</text>
+<ellipse cx="500" cy="575" rx="217" ry="49" fill="white" stroke="#263c50" stroke-width="2.2"/>
+<text x="500" y="568" font-size="24" text-anchor="middle">UC04 Consultar</text>
+<text x="500" y="598" font-size="24" text-anchor="middle">histórico</text>
+<ellipse cx="500" cy="710" rx="217" ry="49" fill="white" stroke="#263c50" stroke-width="2.2"/>
+<text x="500" y="703" font-size="24" text-anchor="middle">UC05 Configurar</text>
+<text x="500" y="733" font-size="24" text-anchor="middle">monitoramento</text>
+<ellipse cx="500" cy="845" rx="217" ry="49" fill="white" stroke="#263c50" stroke-width="2.2"/>
+<text x="500" y="838" font-size="24" text-anchor="middle">UC06 Consultar</text>
+<text x="500" y="868" font-size="24" text-anchor="middle">alertas</text>
+<ellipse cx="500" cy="980" rx="217" ry="49" fill="white" stroke="#263c50" stroke-width="2.2"/>
+<text x="500" y="973" font-size="24" text-anchor="middle">UC07 Gerenciar</text>
+<text x="500" y="1003" font-size="24" text-anchor="middle">credencial</text>
+<ellipse cx="500" cy="1115" rx="217" ry="49" fill="white" stroke="#263c50" stroke-width="2.2"/>
+<text x="500" y="1108" font-size="24" text-anchor="middle">UC08 Enviar</text>
+<text x="500" y="1138" font-size="24" text-anchor="middle">leitura</text>
+<text x="500" y="1210" font-size="20" text-anchor="middle">Regras e avaliador são internos ao sistema</text>
+<text x="500" y="1287" font-size="21" text-anchor="middle">Emissor representa simulador ou ESP32</text>
+<text x="500" y="1318" font-size="20" text-anchor="middle">ESP32 → HTTPS/API ensaiado em bancada  •  Geladeira pendente</text>
+</svg>

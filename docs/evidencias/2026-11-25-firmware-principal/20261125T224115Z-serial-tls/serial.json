@@ -1,0 +1,295 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-25T22:41:15.153118+00:00",
+  "finishedAtUtc": "2026-11-25T22:42:15.401186+00:00",
+  "scope": "Captura real do firmware principal, dois controles TLS negativos e correlacao USB/API/SQLite; ainda sem observacao visual da interface ou instalacao na geladeira.",
+  "criteriaDefinedBeforeCapture": {
+    "durationSeconds": 60,
+    "bannerRequired": true,
+    "wifiConnectedRequired": true,
+    "wrongHostnameRejectedWithX509ErrorRequired": true,
+    "wrongCaRejectedWithX509ErrorRequired": true,
+    "minimumDistinctAcquiredSamples": 3,
+    "minimumSuccessfulHttpResults": 3,
+    "minimumSerialApiSqliteMatches": 3,
+    "geladeiraId": 1,
+    "dispositivoId": 1,
+    "origin": "Hardware",
+    "uiObservationRequiredForFullF05": true
+  },
+  "bannerObserved": true,
+  "wifiConnectedObserved": true,
+  "negativeTlsControlsPassed": true,
+  "acquiredSamples": [
+    {
+      "temperatureC": 27.125,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:41:21Z"
+    },
+    {
+      "temperatureC": 27.125,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:41:31Z"
+    },
+    {
+      "temperatureC": 27.125,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:41:41Z"
+    },
+    {
+      "temperatureC": 27.125,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:41:51Z"
+    },
+    {
+      "temperatureC": 27.1875,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:42:11Z"
+    }
+  ],
+  "distinctAcquiredSamples": 5,
+  "httpResults": [
+    201,
+    201,
+    201,
+    201,
+    201,
+    201
+  ],
+  "successfulHttpResults": 6,
+  "historyTotalBeforeCapture": 2,
+  "historyTotalAfterCapture": 8,
+  "serialApiSqliteMatches": [
+    {
+      "serialSample": {
+        "temperatureC": 27.125,
+        "portaAberta": true,
+        "medidoEmUtc": "2026-11-25T22:41:21Z"
+      },
+      "apiReading": {
+        "id": 3,
+        "geladeiraId": 1,
+        "temperaturaC": 27.125,
+        "portaAberta": true,
+        "medidoEmUtc": "2026-11-25T22:41:21Z",
+        "recebidoEmUtc": "2026-11-25T22:41:22.0757618Z",
+        "origem": "Hardware",
+        "dispositivoId": 1,
+        "medicaoId": "d1f6eefd-6d58-45a7-889f-1d72fa350dff"
+      },
+      "sqliteReading": {
+        "Id": 3,
+        "GeladeiraId": 1,
+        "TemperaturaC": 27.125,
+        "PortaAberta": 1,
+        "MedidoEmUtc": "2026-11-25 22:41:21",
+        "RecebidoEmUtc": "2026-11-25 22:41:22.0757618",
+        "Origem": "Hardware",
+        "DispositivoId": 1,
+        "MedicaoId": "d1f6eefd-6d58-45a7-889f-1d72fa350dff"
+      },
+      "apiAndSqliteMatch": true
+    },
+    {
+      "serialSample": {
+        "temperatureC": 27.125,
+        "portaAberta": true,
+        "medidoEmUtc": "2026-11-25T22:41:31Z"
+      },
+      "apiReading": {
+        "id": 4,
+        "geladeiraId": 1,
+        "temperaturaC": 27.125,
+        "portaAberta": true,
+        "medidoEmUtc": "2026-11-25T22:41:31Z",
+        "recebidoEmUtc": "2026-11-25T22:41:31.8520639Z",
+        "origem": "Hardware",
+        "dispositivoId": 1,
+        "medicaoId": "6169fc5c-d7b9-459d-8def-a88c1f7c1e05"
+      },
+      "sqliteReading": {
+        "Id": 4,
+        "GeladeiraId": 1,
+        "TemperaturaC": 27.125,
+        "PortaAberta": 1,
+        "MedidoEmUtc": "2026-11-25 22:41:31",
+        "RecebidoEmUtc": "2026-11-25 22:41:31.8520639",
+        "Origem": "Hardware",
+        "DispositivoId": 1,
+        "MedicaoId": "6169fc5c-d7b9-459d-8def-a88c1f7c1e05"
+      },
+      "apiAndSqliteMatch": true
+    },
+    {
+      "serialSample": {
+        "temperatureC": 27.125,
+        "portaAberta": true,
+        "medidoEmUtc": "2026-11-25T22:41:41Z"
+      },
+      "apiReading": {
+        "id": 5,
+        "geladeiraId": 1,
+        "temperaturaC": 27.125,
+        "portaAberta": true,
+        "medidoEmUtc": "2026-11-25T22:41:41Z",
+        "recebidoEmUtc": "2026-11-25T22:41:41.7946565Z",
+        "origem": "Hardware",
+        "dispositivoId": 1,
+        "medicaoId": "6fd02174-d1a5-476a-96ab-d7ed77e993ea"
+      },
+      "sqliteReading": {
+        "Id": 5,
+        "GeladeiraId": 1,
+        "TemperaturaC": 27.125,
+        "PortaAberta": 1,
+        "MedidoEmUtc": "2026-11-25 22:41:41",
+        "RecebidoEmUtc": "2026-11-25 22:41:41.7946565",
+        "Origem": "Hardware",
+        "DispositivoId": 1,
+        "MedicaoId": "6fd02174-d1a5-476a-96ab-d7ed77e993ea"
+      },
+      "apiAndSqliteMatch": true
+    },
+    {
+      "serialSample": {
+        "temperatureC": 27.125,
+        "portaAberta": true,
+        "medidoEmUtc": "2026-11-25T22:41:51Z"
+      },
+      "apiReading": {
+        "id": 6,
+        "geladeiraId": 1,
+        "temperaturaC": 27.125,
+        "portaAberta": true,
+        "medidoEmUtc": "2026-11-25T22:41:51Z",
+        "recebidoEmUtc": "2026-11-25T22:41:51.8282302Z",
+        "origem": "Hardware",
+        "dispositivoId": 1,
+        "medicaoId": "775c2eb4-80ca-4aeb-9d39-349c524f1e1d"
+      },
+      "sqliteReading": {
+        "Id": 6,
+        "GeladeiraId": 1,
+        "TemperaturaC": 27.125,
+        "PortaAberta": 1,
+        "MedidoEmUtc": "2026-11-25 22:41:51",
+        "RecebidoEmUtc": "2026-11-25 22:41:51.8282302",
+        "Origem": "Hardware",
+        "DispositivoId": 1,
+        "MedicaoId": "775c2eb4-80ca-4aeb-9d39-349c524f1e1d"
+      },
+      "apiAndSqliteMatch": true
+    },
+    {
+      "serialSample": {
+        "temperatureC": 27.1875,
+        "portaAberta": true,
+        "medidoEmUtc": "2026-11-25T22:42:11Z"
+      },
+      "apiReading": {
+        "id": 8,
+        "geladeiraId": 1,
+        "temperaturaC": 27.1875,
+        "portaAberta": true,
+        "medidoEmUtc": "2026-11-25T22:42:11Z",
+        "recebidoEmUtc": "2026-11-25T22:42:11.779836Z",
+        "origem": "Hardware",
+        "dispositivoId": 1,
+        "medicaoId": "4abf8d80-447b-4c60-b625-f785fd64a876"
+      },
+      "sqliteReading": {
+        "Id": 8,
+        "GeladeiraId": 1,
+        "TemperaturaC": 27.1875,
+        "PortaAberta": 1,
+        "MedidoEmUtc": "2026-11-25 22:42:11",
+        "RecebidoEmUtc": "2026-11-25 22:42:11.779836",
+        "Origem": "Hardware",
+        "DispositivoId": 1,
+        "MedicaoId": "4abf8d80-447b-4c60-b625-f785fd64a876"
+      },
+      "apiAndSqliteMatch": true
+    }
+  ],
+  "distinctMatchedReadings": 5,
+  "captureErrorType": null,
+  "serialClosed": true,
+  "physicalApiIngestionValidated": true,
+  "uiValidated": false,
+  "refrigeratorOperationValidated": false,
+  "calibrationValidated": false,
+  "serialRecords": [
+    {
+      "receivedAtUtc": "2026-11-25T22:41:15.847393+00:00",
+      "afterBanner": true,
+      "line": "ICEPLAY preparado: DS18B20/porta, HTTPS com CA, UTC e UUID. Validacao fisica ainda necessaria."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:41:17.650906+00:00",
+      "afterBanner": true,
+      "line": "Wi-Fi conectado. Aguardando UTC para TLS e medicao."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:41:20.814858+00:00",
+      "afterBanner": true,
+      "line": "Amostra adquirida: 27.1250 C; porta aberta; UTC 2026-11-25T22:41:21Z."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:41:21.004138+00:00",
+      "afterBanner": true,
+      "line": "TLS bancada: nome_incorreto=REJEITADO; CA_incorreta=REJEITADA."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:41:22.120661+00:00",
+      "afterBanner": true,
+      "line": "Resultado do envio: HTTP 201 (credencial omitida)."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:41:30.703672+00:00",
+      "afterBanner": true,
+      "line": "Amostra adquirida: 27.1250 C; porta aberta; UTC 2026-11-25T22:41:31Z."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:41:31.903341+00:00",
+      "afterBanner": true,
+      "line": "Resultado do envio: HTTP 201 (credencial omitida)."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:41:40.707513+00:00",
+      "afterBanner": true,
+      "line": "Amostra adquirida: 27.1250 C; porta aberta; UTC 2026-11-25T22:41:41Z."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:41:41.839890+00:00",
+      "afterBanner": true,
+      "line": "Resultado do envio: HTTP 201 (credencial omitida)."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:41:50.710214+00:00",
+      "afterBanner": true,
+      "line": "Amostra adquirida: 27.1250 C; porta aberta; UTC 2026-11-25T22:41:51Z."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:41:51.873506+00:00",
+      "afterBanner": true,
+      "line": "Resultado do envio: HTTP 201 (credencial omitida)."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:42:01.878158+00:00",
+      "afterBanner": true,
+      "line": "Resultado do envio: HTTP 201 (credencial omitida)."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:42:10.707712+00:00",
+      "afterBanner": true,
+      "line": "Amostra adquirida: 27.1875 C; porta aberta; UTC 2026-11-25T22:42:11Z."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:42:11.807865+00:00",
+      "afterBanner": true,
+      "line": "Resultado do envio: HTTP 201 (credencial omitida)."
+    }
+  ],
+  "sourceSha256": "3e402e75cc61758e8bd5d8c9275ac8bf7b7026e2d8e504f5fc99565b20186193",
+  "privateRawLog": ".tools/hardware/20261125T224115Z-serial-principal-tls/serial-integral.bin"
+}

@@ -37,7 +37,9 @@ function ConvertTo-FirmwareLiteral([string] $Value) {
     if ($Value.ToCharArray() | Where-Object { [char]::IsControl($_) }) { throw 'Nao use caracteres de controle na configuracao.' }
     return '"' + $Value.Replace('\','\\').Replace('"','\"') + '"'
 }
-$prepareApiUrl = "https://$($prepareMobile.Address):$($prepareMobile.HttpsPort)"
+# O certificado local contem DNS localhost. Mbed TLS 2.28 nao verifica IP SAN.
+# Separar a identidade DNS da rota IP preserva CA, SNI e verificacao do nome.
+$prepareApiUrl = "https://localhost:$($prepareMobile.HttpsPort)"
 $prepareFirmwareContent = @"
 #pragma once
 // Configuracao privada local; nunca incluir no Git ou em evidencias.
@@ -45,6 +47,7 @@ constexpr bool CONFIGURADO = true;
 constexpr char WIFI_SSID[] = $(ConvertTo-FirmwareLiteral $Ssid);
 constexpr char WIFI_SENHA[] = $(ConvertTo-FirmwareLiteral $prepareWifiPassword);
 constexpr char API_BASE_URL[] = $(ConvertTo-FirmwareLiteral $prepareApiUrl);
+#define ICEPLAY_API_IP_CONEXAO $(ConvertTo-FirmwareLiteral $prepareMobile.Address)
 constexpr char CREDENCIAL[] = $(ConvertTo-FirmwareLiteral $prepareDeviceToken);
 constexpr int GELADEIRA_ID = $GeladeiraId;
 constexpr int PINO_TEMPERATURA = 4;

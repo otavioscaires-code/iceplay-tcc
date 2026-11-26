@@ -1,0 +1,97 @@
+- link "Ir para o conteúdo":
+  - /url: "#conteudo"
+- complementary "Menu do ICEPLAY":
+  - link "ICEPLAY, visão geral":
+    - /url: /dashboard
+    - generic: ICEPLAY
+  - paragraph: Monitoramento inteligente
+  - navigation "Navegação principal":
+    - link "Visão geral":
+      - /url: /dashboard
+      - generic: Visão geral
+    - link "Geladeiras":
+      - /url: /geladeiras
+      - generic: Geladeiras
+    - link "Histórico":
+      - /url: /historico
+      - generic: Histórico
+    - link "Alertas":
+      - /url: /alertas
+      - generic: Alertas
+    - link "Configurações":
+      - /url: /configuracoes
+      - generic: Configurações
+  - link "Sobre o projeto":
+    - /url: /sobre
+  - generic: ICEPLAY · TCC
+- banner:
+  - generic: ICEPLAY / Configurações
+  - status: Acesso local neste computador. Não é necessário informar um código.
+- main:
+  - paragraph: ICEPLAY / Configurações
+  - heading "Configurações" [level=1]
+  - paragraph: Parâmetros e regras de monitoramento por equipamento.
+  - region "Parâmetros por geladeira":
+    - heading "Parâmetros por geladeira" [level=2]
+    - paragraph: Escolha os valores conforme o uso do equipamento. Nenhum limite de conservação foi presumido.
+    - link "Gerenciar geladeiras":
+      - /url: /geladeiras
+    - paragraph:
+      - text: Ative o monitoramento para avaliar os parâmetros a cada segundo enquanto o servidor estiver em execução. As ocorrências ficam em
+      - link "Alertas":
+        - /url: /alertas
+      - text: . Nenhum limite é preenchido automaticamente.
+    - generic: Geladeira
+    - combobox "Geladeira":
+      - 'option "Prototipo ICEPLAY - bancada real · #1" [selected]'
+    - button "Recarregar dados"
+    - status: Configuração consultada na API.
+    - group "Limites e tempos":
+      - generic: Limites e tempos
+      - generic: Temperatura mínima (°C)
+      - spinbutton "Temperatura mínima (°C)": "0"
+      - generic: Temperatura máxima (°C)
+      - spinbutton "Temperatura máxima (°C)": "28"
+      - paragraph: A mínima precisa ser menor que a máxima. Os limites são inclusivos e não certificam segurança de alimentos. Defina a faixa conforme o uso com o orientador.
+      - generic: Tolerância de porta aberta (segundos)
+      - spinbutton "Tolerância de porta aberta (segundos)": "10"
+      - generic: Prazo sem leituras (segundos)
+      - spinbutton "Prazo sem leituras (segundos)": "45"
+      - paragraph: O prazo considera o instante da medição; envios antigos não renovam a comunicação. Intervalos maiores ou iguais a este prazo interrompem a confirmação de porta continuamente aberta. A referência visual de 60 segundos do painel é independente.
+      - generic: Origem monitorada
+      - combobox "Origem monitorada":
+        - option "Selecione a origem"
+        - option "Simulação"
+        - option "Hardware declarado" [selected]
+      - paragraph: Hardware é uma declaração do emissor; não comprova sensor físico ou autenticado.
+      - checkbox "Ativar monitoramento e alertas" [checked]
+      - generic: Ativar monitoramento e alertas
+      - paragraph: Ativar ou trocar origem inicia acompanhamento. Editar parâmetros encerra os episódios anteriores e exige novas medições para temperatura e porta; o prazo de ausência mantém o início. Desativar encerra episódios com motivo explícito.
+    - button "Salvar configurações"
+    - region "Estado confirmado pela API":
+      - heading "Estado confirmado pela API" [level=3]
+      - paragraph: "Configuração salva para a geladeira #1. Origem: Hardware declarado. Monitoramento: ativo. O servidor avalia as regras a cada segundo enquanto estiver em execução."
+      - term: Início do monitoramento
+      - definition:
+        - time: 25/11/2026, 19:56:09
+      - term: Última atualização salva
+      - definition:
+        - time: 25/11/2026, 20:04:53
+  - region "Conectar ESP32":
+    - heading "Conectar ESP32" [level=2]
+    - paragraph: Uma credencial ativa por geladeira, exclusiva para envio de leituras. Prepare e grave a placa quando o hardware estiver disponível.
+    - button "Recarregar dispositivos"
+    - generic: Equipamento do dispositivo
+    - combobox "Equipamento do dispositivo":
+      - 'option "Prototipo ICEPLAY - bancada real · #1" [selected]'
+    - status: Metadados consultados. A credencial anterior não pode ser recuperada.
+    - paragraph: "ESP32 bancada fisica 25-11-2026 · #1 · Ativo"
+    - button "Revogar credencial"
+    - generic: Nome do dispositivo
+    - textbox "Nome do dispositivo" [disabled]
+    - button "Preparar emissão de credencial" [disabled]
+    - paragraph: Credencial confirma o emissor autorizado. A validação dos sensores físicos continua dependendo do ensaio com ESP32 e geladeira reais.
+- contentinfo:
+  - generic: ICEPLAY · Monitoramento de geladeiras
+  - link "Base técnica e próximas etapas":
+    - /url: /sobre

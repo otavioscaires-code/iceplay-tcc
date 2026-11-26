@@ -1,0 +1,45 @@
+{
+  "result": "passed",
+  "verifiedAtUtc": "2026-11-25T04:47:03.671977+00:00",
+  "scope": "Conferencia documental de quatro capturas USB; nao e novo ensaio fisico nem teste do firmware principal.",
+  "captures": [
+    {
+      "evidence": "docs/evidencias/2026-11-25-diagnostico-sensores/20261125T041312Z-retomada-sonda/serial.json",
+      "temperatureRecords": 8,
+      "jsonMatchesLog": true,
+      "hashMatches": true
+    },
+    {
+      "evidence": "docs/evidencias/2026-11-25-diagnostico-sensores/20261125T041735Z-aquecimento-mao/serial.json",
+      "temperatureRecords": 15,
+      "jsonMatchesLog": true,
+      "hashMatches": true
+    },
+    {
+      "evidence": "docs/evidencias/2026-11-25-diagnostico-sensores/20261125T042153Z-dq-desconectado/serial.json",
+      "temperatureRecords": 0,
+      "jsonMatchesLog": true,
+      "hashMatches": true
+    },
+    {
+      "evidence": "docs/evidencias/2026-11-25-diagnostico-sensores/20261125T042825Z-recuperacao-dq/serial.json",
+      "temperatureRecords": 8,
+      "jsonMatchesLog": true,
+      "hashMatches": true
+    }
+  ],
+  "originalDatabaseSha256": "e8ecae14a84243a292d3e21f953a14eea7d950c2c3fe929d43a4a68dd5ba9317",
+  "diagnosticSourceSha256": "9728d47caac2bf857aa4cdcbad34fba6d220ca3bec1d745a8a4b75c907e0e69b",
+  "protectedSourcesChanged": false,
+  "localApiHealthy": true,
+  "packageDatabaseCountsAtVerification": {
+    "Geladeiras": 1,
+    "Leituras": 0,
+    "ConfiguracoesGeladeiras": 0,
+    "Alertas": 0,
+    "EstadosMonitoramento": 0,
+    "Dispositivos": 0
+  },
+  "mainFirmwareFlashed": false,
+  "physicalApiIngestionValidated": false
+}

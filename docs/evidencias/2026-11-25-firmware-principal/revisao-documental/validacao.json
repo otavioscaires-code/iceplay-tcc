@@ -1,0 +1,52 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-11-25T23:53:05.145609+00:00",
+  "scope": "Revisao documental privada com resultados reais de bancada; sem novo ensaio fisico ou repeticao da suite de software.",
+  "pages": 40,
+  "numberedFigures": 15,
+  "numberedTables": 5,
+  "physicalWordTables": 6,
+  "requirementsIdsPreserved": {
+    "RF": 16,
+    "RNF": 12
+  },
+  "fieldsWithoutError": true,
+  "contentsAndIllustrationTableListsUpdated": true,
+  "priorThreePhotographsEmbeddedBytesPreserved": true,
+  "originalMonographUnchanged": true,
+  "useDatabaseOriginalSha256Unchanged": "e8ecae14a84243a292d3e21f953a14eea7d950c2c3fe929d43a4a68dd5ba9317",
+  "visualReview": {
+    "all40PagesReviewed": true,
+    "pages1to6IdenticalToEarlierReviewedRendering": true,
+    "nativeRenderingAtScale": 1.5,
+    "corrections": [
+      "Recorte do painel inclui a temperatura e ID32.",
+      "Removida quebra explicita redundante que criava pagina em branco.",
+      "Tabela5 e apendice de classes sem paginas orfas.",
+      "RNF01–RNF12 sem quebra dentro do identificador.",
+      "HTTP e HTTPS em entradas separadas."
+    ]
+  },
+  "renderer": "Microsoft Word existente; PDF rasterizado por pypdfium2. render_docx.py falhou por falta do LibreOffice no PATH; nao instalado.",
+  "privateDelivery": {
+    "docxSha256": "3a050c888ff143d3020b62748d39a51482080663b92078acf0e319032314a161",
+    "pdfSha256": "6c3683f3dddb1facf05030a85958afb24f9542abdb48f20a215244bab138cf25"
+  },
+  "formattingReference": {
+    "url": "https://www.unip.br/servicos/biblioteca/assets/download/manual_de_normalizacao_abnt.pdf",
+    "edition": "Guia UNIP, junho2025, consultado25/11/2026",
+    "reviewedItems": [
+      "Margens A4 existentes3/3/2/2cm preservadas.",
+      "Capa excluida da contagem; numeracao visivel a partir da introducao.",
+      "Elementos pre-textuais excluidos do sumario automatico.",
+      "Pontuacao e grafia de chamadas autor-data revistas.",
+      "Siglas DOM/CA/SNI/SNTP e listas conferidas."
+    ]
+  },
+  "abntCertification": false,
+  "pending": [
+    "Confirmar orientador, divergente entre conversa e Word; capa preservada.",
+    "F08/F09, operacao em geladeira e nova conferencia movel Hardware.",
+    "Ensaio no notebook/rede da apresentacao."
+  ]
+}

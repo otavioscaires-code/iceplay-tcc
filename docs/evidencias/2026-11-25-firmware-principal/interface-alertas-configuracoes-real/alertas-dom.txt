@@ -1,0 +1,126 @@
+- link "Ir para o conteúdo":
+  - /url: "#conteudo"
+- complementary "Menu do ICEPLAY":
+  - link "ICEPLAY, visão geral":
+    - /url: /dashboard
+    - generic: ICEPLAY
+  - paragraph: Monitoramento inteligente
+  - navigation "Navegação principal":
+    - link "Visão geral":
+      - /url: /dashboard
+      - generic: Visão geral
+    - link "Geladeiras":
+      - /url: /geladeiras
+      - generic: Geladeiras
+    - link "Histórico":
+      - /url: /historico
+      - generic: Histórico
+    - link "Alertas":
+      - /url: /alertas
+      - generic: Alertas
+    - link "Configurações":
+      - /url: /configuracoes
+      - generic: Configurações
+  - link "Sobre o projeto":
+    - /url: /sobre
+  - generic: ICEPLAY · TCC
+- banner:
+  - generic: ICEPLAY / Alertas
+  - status: Acesso local neste computador. Não é necessário informar um código.
+- main:
+  - paragraph: ICEPLAY / Alertas
+  - heading "Alertas" [level=1]
+  - paragraph: Ocorrências e situação dos alertas de monitoramento.
+  - paragraph:
+    - text: Ocorrências geradas pelos parâmetros ativos de cada geladeira. Encerrado pode significar normalização, interrupção dos dados ou mudança de configuração; confira o motivo.
+    - link "Configurar monitoramento":
+      - /url: /configuracoes
+    - text: .
+  - generic: Geladeira
+  - combobox "Geladeira":
+    - option "Todas as geladeiras"
+    - 'option "Prototipo ICEPLAY - bancada real · #1" [selected]'
+  - generic: Origem
+  - combobox "Origem":
+    - option "Todas"
+    - option "Simulação"
+    - option "Hardware declarado" [selected]
+  - generic: Tipo
+  - combobox "Tipo":
+    - option "Todos" [selected]
+    - option "Temperatura fora da faixa"
+    - option "Porta aberta"
+    - option "Ausência de leituras"
+  - generic: Gravidade
+  - combobox "Gravidade":
+    - option "Todas" [selected]
+    - option "Atenção"
+    - option "Crítico"
+  - generic: Situação
+  - combobox "Situação":
+    - option "Todas" [selected]
+    - option "Aberto"
+    - option "Encerrado"
+  - generic: Abertura a partir de (hora local)
+  - textbox "Abertura a partir de (hora local)"
+  - generic: Abertura até (hora local)
+  - textbox "Abertura até (hora local)"
+  - generic: Ocorrências por página
+  - combobox "Ocorrências por página":
+    - option "20" [selected]
+    - option "50"
+    - option "100"
+  - button "Buscar alertas"
+  - status: Consulta concluída. Encerramento e normalização são distinguidos pelo motivo.
+  - paragraph: 2 ocorrência(s); 2 nesta página. Datas no horário local.
+  - article:
+    - heading "Temperatura fora da faixa" [level=3]
+    - generic: Crítico · Aberto
+    - paragraph: "Prototipo ICEPLAY - bancada real · #1"
+    - paragraph: HARDWARE DECLARADO
+    - term: Abertura da ocorrência
+    - definition:
+      - time: 25/11/2026, 20:05:28
+    - term: Início observado da condição
+    - definition:
+      - time: 25/11/2026, 20:05:27
+    - term: Última evidência de medição
+    - definition:
+      - time: 25/11/2026, 20:10:07
+    - term: Temperatura na abertura
+    - definition: 29,938 °C
+    - term: Faixa usada
+    - definition: 0 a 28 °C
+    - link "Consultar histórico da geladeira":
+      - /url: /historico?geladeiraId=1&origem=Hardware
+  - article:
+    - heading "Porta aberta" [level=3]
+    - generic: Atenção · Encerrado
+    - paragraph: "Prototipo ICEPLAY - bancada real · #1"
+    - paragraph: HARDWARE DECLARADO
+    - term: Abertura da ocorrência
+    - definition:
+      - time: 25/11/2026, 19:56:30
+    - term: Início observado da condição
+    - definition:
+      - time: 25/11/2026, 19:56:18
+    - term: Última evidência de medição
+    - definition:
+      - time: 25/11/2026, 20:00:19
+    - term: Prazo usado
+    - definition: 10 segundos
+    - term: Encerramento
+    - definition:
+      - time: 25/11/2026, 20:00:28
+    - paragraph: Condição normalizada por medição recente
+    - link "Consultar histórico da geladeira":
+      - /url: /historico?geladeiraId=1&origem=Hardware
+  - navigation "Paginação de alertas":
+    - button "Anterior" [disabled]
+    - generic: Página 1 de 1
+    - button "Próxima" [disabled]
+  - paragraph: Atualização a cada 15 segundos enquanto os filtros estiverem aplicados e a página visível. Ausência de ocorrências não confirma funcionamento de equipamentos sem configuração ativa. Simulação permanece identificada.
+- contentinfo:
+  - generic: ICEPLAY · Monitoramento de geladeiras
+  - link "Base técnica e próximas etapas":
+    - /url: /sobre

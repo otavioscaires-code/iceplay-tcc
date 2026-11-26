@@ -1,0 +1,34 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-25T22:49:20.3829458+00:00",
+  "finishedAtUtc": "2026-11-25T22:49:43.5836664+00:00",
+  "scope": "Gravacao autorizada do firmware principal na COM3; boot, sensores e envio sao verificados separadamente.",
+  "criteriaDefinedBeforeUpload": {
+    "explicitUserAuthorizationReceived": true,
+    "authorizationText": "Autorizo gravar o firmware principal",
+    "port": "COM3",
+    "nativeExitCodeRequired": 0,
+    "authorizedSourceSha256": "3e402e75cc61758e8bd5d8c9275ac8bf7b7026e2d8e504f5fc99565b20186193",
+    "authorizedBinarySha256": "6453fe9ee6eeb7c6c81761306de54317d4e88e0d35889e3bc9f433689221831b",
+    "serialCaptureSeparate": true
+  },
+  "nativeExitCode": 0,
+  "sourceSha256": "3e402e75cc61758e8bd5d8c9275ac8bf7b7026e2d8e504f5fc99565b20186193",
+  "binarySha256": "6453fe9ee6eeb7c6c81761306de54317d4e88e0d35889e3bc9f433689221831b",
+  "binaryMatchesAuthorizedCompilation": true,
+  "flashedWithNativeSuccess": true,
+  "bootObserved": false,
+  "physicalApiIngestionValidated": false,
+  "verifiedSegmentMessages": 4,
+  "resetAfterUploadMessageObserved": true,
+  "sanitizedSummary": [
+    "Hash of data verified.",
+    "Hash of data verified.",
+    "Hash of data verified.",
+    "Hash of data verified.",
+    "Hard resetting via RTS pin...",
+    "========================= [SUCCESS] Took 22.36 seconds =========================",
+    "esp32dev       SUCCESS   00:00:22.364"
+  ],
+  "privateLog": ".tools/hardware/20261125T224920Z-gravacao-principal/gravacao-integral.log"
+}

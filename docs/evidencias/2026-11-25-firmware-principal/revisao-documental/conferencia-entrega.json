@@ -1,0 +1,11 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-11-25T23:55:30.668338+00:00",
+  "changedPublicFiles": 89,
+  "jsonFilesParsed": 37,
+  "privateValuesOrUniqueIdentifiersFound": 0,
+  "backendTestsMigrationsSourceUnchanged": true,
+  "originalDatabaseHashUnchanged": true,
+  "mainSourceSha256": "3e402e75cc61758e8bd5d8c9275ac8bf7b7026e2d8e504f5fc99565b20186193",
+  "scope": "Conferencia de entrega e privacidade; nao e uma nova execucao de testes do software ou ensaio fisico."
+}

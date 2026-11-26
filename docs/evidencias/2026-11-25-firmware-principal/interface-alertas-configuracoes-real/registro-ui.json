@@ -1,0 +1,19 @@
+{
+  "observedAtUtc": "2026-11-25T23:11:06.082Z",
+  "scope": "Capturas nativas reais do ensaio de bancada, sem alterar configuracoes pelo navegador.",
+  "alerts": "Um episodio de temperatura aberto e um de porta encerrado por normalizacao, ambos Hardware.",
+  "configuration": {
+    "geladeiraId": 1,
+    "temperaturaMinimaC": 0,
+    "temperaturaMaximaC": 28,
+    "toleranciaPortaAbertaSegundos": 10,
+    "ausenciaLeiturasSegundos": 45,
+    "origemMonitorada": "Hardware",
+    "monitoramentoAtivo": true
+  },
+  "device": {
+    "id": 1,
+    "status": "Ativo",
+    "credentialVisible": false
+  }
+}

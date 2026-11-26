@@ -1,0 +1,29 @@
+{
+  "httpStatus": 200,
+  "before": {
+    "geladeiraId": 1,
+    "configuracao": {
+      "temperaturaMinimaC": 0,
+      "temperaturaMaximaC": 40,
+      "toleranciaPortaAbertaSegundos": 10,
+      "ausenciaLeiturasSegundos": 45,
+      "origemMonitorada": "Hardware",
+      "monitoramentoAtivo": true,
+      "inicioMonitoramentoEmUtc": "2026-11-25T22:56:09.5763286Z",
+      "atualizadoEmUtc": "2026-11-25T22:56:09.5763286Z"
+    }
+  },
+  "after": {
+    "geladeiraId": 1,
+    "configuracao": {
+      "temperaturaMinimaC": 0,
+      "temperaturaMaximaC": 28,
+      "toleranciaPortaAbertaSegundos": 10,
+      "ausenciaLeiturasSegundos": 45,
+      "origemMonitorada": "Hardware",
+      "monitoramentoAtivo": true,
+      "inicioMonitoramentoEmUtc": "2026-11-25T22:56:09.5763286Z",
+      "atualizadoEmUtc": "2026-11-25T23:04:53.9653891Z"
+    }
+  }
+}

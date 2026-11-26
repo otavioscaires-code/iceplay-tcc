@@ -1,0 +1,336 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-25T04:17:35.628834+00:00",
+  "finishedAtUtc": "2026-11-25T04:18:06.197753+00:00",
+  "port": "COM3",
+  "baud": 115200,
+  "scope": "Observacao de temperatura sob condicao de ponta metalica segurada pelo usuario; comparacao com captura de referencia, sem calibracao ou API",
+  "criteriaDefinedBeforeCapture": {
+    "durationSeconds": 30,
+    "bannerRequired": false,
+    "minimumValidTemperatures": 3,
+    "minimumGpioRecords": 3,
+    "minimumDistinctTemperatureUptimes": 3,
+    "minimumDistinctGpioUptimes": 3,
+    "noTemperatureErrorRequired": true,
+    "finiteRangeC": [
+      -55,
+      125
+    ],
+    "calibrationRequired": false,
+    "referenceBaselineMaximumC": 26.75,
+    "minimumThermalRiseC": 0.25,
+    "minimumReadingsAboveThermalThreshold": 3,
+    "physicalCondition": "Usuario segura somente a ponta metalica, sem mexer nas conexoes"
+  },
+  "bannerObserved": false,
+  "temperatureSamples": 15,
+  "temperatures": [
+    {
+      "receivedAtUtc": "2026-11-25T04:17:35.768501+00:00",
+      "uptimeMs": 263119,
+      "temperatureC": 27.4375
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:37.778523+00:00",
+      "uptimeMs": 265121,
+      "temperatureC": 27.5
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:39.778625+00:00",
+      "uptimeMs": 267123,
+      "temperatureC": 27.5625
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:41.783092+00:00",
+      "uptimeMs": 269125,
+      "temperatureC": 27.625
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:43.782606+00:00",
+      "uptimeMs": 271127,
+      "temperatureC": 27.6875
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:45.782988+00:00",
+      "uptimeMs": 273129,
+      "temperatureC": 27.75
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:47.788550+00:00",
+      "uptimeMs": 275131,
+      "temperatureC": 27.8125
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:49.790585+00:00",
+      "uptimeMs": 277133,
+      "temperatureC": 27.8125
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:51.792422+00:00",
+      "uptimeMs": 279135,
+      "temperatureC": 27.875
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:53.794255+00:00",
+      "uptimeMs": 281137,
+      "temperatureC": 27.875
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:55.796750+00:00",
+      "uptimeMs": 283139,
+      "temperatureC": 27.9375
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:57.798204+00:00",
+      "uptimeMs": 285141,
+      "temperatureC": 27.9375
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:59.797846+00:00",
+      "uptimeMs": 287143,
+      "temperatureC": 28.0
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:18:01.798468+00:00",
+      "uptimeMs": 289145,
+      "temperatureC": 28.0
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:18:03.801690+00:00",
+      "uptimeMs": 291147,
+      "temperatureC": 28.0
+    }
+  ],
+  "minimumTemperatureC": 27.4375,
+  "maximumTemperatureC": 28.0,
+  "gpioSamples": 30,
+  "gpioRecords": [
+    {
+      "receivedAtUtc": "2026-11-25T04:17:35.947434+00:00",
+      "uptimeMs": 263290,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:36.946373+00:00",
+      "uptimeMs": 264290,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:37.948815+00:00",
+      "uptimeMs": 265292,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:38.948415+00:00",
+      "uptimeMs": 266292,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:39.948495+00:00",
+      "uptimeMs": 267294,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:40.948843+00:00",
+      "uptimeMs": 268294,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:41.948281+00:00",
+      "uptimeMs": 269296,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:42.949109+00:00",
+      "uptimeMs": 270296,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:43.954553+00:00",
+      "uptimeMs": 271298,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:44.954736+00:00",
+      "uptimeMs": 272298,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:45.955443+00:00",
+      "uptimeMs": 273300,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:46.956167+00:00",
+      "uptimeMs": 274300,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:47.958217+00:00",
+      "uptimeMs": 275302,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:48.958236+00:00",
+      "uptimeMs": 276302,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:49.959998+00:00",
+      "uptimeMs": 277304,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:50.958053+00:00",
+      "uptimeMs": 278304,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:51.961825+00:00",
+      "uptimeMs": 279306,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:52.961997+00:00",
+      "uptimeMs": 280306,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:53.964199+00:00",
+      "uptimeMs": 281308,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:54.964625+00:00",
+      "uptimeMs": 282308,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:55.965873+00:00",
+      "uptimeMs": 283310,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:56.965628+00:00",
+      "uptimeMs": 284310,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:57.968536+00:00",
+      "uptimeMs": 285312,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:58.968525+00:00",
+      "uptimeMs": 286312,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:17:59.968046+00:00",
+      "uptimeMs": 287314,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:18:00.970065+00:00",
+      "uptimeMs": 288314,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:18:01.968024+00:00",
+      "uptimeMs": 289316,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:18:02.972153+00:00",
+      "uptimeMs": 290316,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:18:03.972577+00:00",
+      "uptimeMs": 291318,
+      "level": "HIGH"
+    },
+    {
+      "receivedAtUtc": "2026-11-25T04:18:04.972988+00:00",
+      "uptimeMs": 292318,
+      "level": "HIGH"
+    }
+  ],
+  "distinctTemperatureUptimes": 15,
+  "distinctGpioUptimes": 30,
+  "repeatedGpioRecords": 0,
+  "gpioLevels": [
+    "HIGH"
+  ],
+  "sensorErrors": [],
+  "serialClosed": true,
+  "captureError": null,
+  "timestampMeaning": "receivedAtUtc e o recebimento no computador; uptimeMs e tempo desde boot, nao medidoEmUtc da API",
+  "wiringBasis": "Usuario informou tres extensoes macho-femea firmes, conferiu todas as ligacoes e confirmou USB/LED. Sem foto final ou multimetro. Sonda b30 vermelho, b32 preto, b34 amarelo; resistor c30-c34; GND c20-a32; 3V3-a30 e D4-a34, conforme orientacao e confirmacoes verbais do usuario",
+  "temperatureAcquisitionValidated": true,
+  "calibrationValidated": false,
+  "referenceCapture": "docs/evidencias/2026-11-25-diagnostico-sensores/20261125T041312Z-retomada-sonda/serial.json",
+  "referenceBaselineMaximumC": 26.75,
+  "thermalThresholdC": 27.0,
+  "distinctTemperaturesAboveThreshold": 15,
+  "thermalRiseObserved": true,
+  "resetPulseSentByCollector": false,
+  "thermalResponseTested": true,
+  "sensorDisconnectionTested": false,
+  "doorPositionInThisCapture": "Nao definida como ensaio de posicao",
+  "apiUsed": false,
+  "mainIngestionFirmwareUsed": false,
+  "firmwareFlashedDuringCapture": false,
+  "sourceCommit": "10e0627cdf863fcdb9951756e04f61e31869e7a3",
+  "sourceSha256": "9728d47caac2bf857aa4cdcbad34fba6d220ca3bec1d745a8a4b75c907e0e69b",
+  "uploadEvidence": "docs/evidencias/2026-11-23-diagnostico-sensores/20261124T010317Z-gravacao/gravacao.json",
+  "originalPrivateLog": ".tools/hardware/20261125T041735Z-serial-diagnostico-sensores/serial-integral.bin",
+  "publicLines": [
+    "uptime_ms=263119 TEMPERATURA_C=27.4375",
+    "uptime_ms=263290 GPIO27=HIGH",
+    "uptime_ms=264290 GPIO27=HIGH",
+    "uptime_ms=265121 TEMPERATURA_C=27.5000",
+    "uptime_ms=265292 GPIO27=HIGH",
+    "uptime_ms=266292 GPIO27=HIGH",
+    "uptime_ms=267123 TEMPERATURA_C=27.5625",
+    "uptime_ms=267294 GPIO27=HIGH",
+    "uptime_ms=268294 GPIO27=HIGH",
+    "uptime_ms=269125 TEMPERATURA_C=27.6250",
+    "uptime_ms=269296 GPIO27=HIGH",
+    "uptime_ms=270296 GPIO27=HIGH",
+    "uptime_ms=271127 TEMPERATURA_C=27.6875",
+    "uptime_ms=271298 GPIO27=HIGH",
+    "uptime_ms=272298 GPIO27=HIGH",
+    "uptime_ms=273129 TEMPERATURA_C=27.7500",
+    "uptime_ms=273300 GPIO27=HIGH",
+    "uptime_ms=274300 GPIO27=HIGH",
+    "uptime_ms=275131 TEMPERATURA_C=27.8125",
+    "uptime_ms=275302 GPIO27=HIGH",
+    "uptime_ms=276302 GPIO27=HIGH",
+    "uptime_ms=277133 TEMPERATURA_C=27.8125",
+    "uptime_ms=277304 GPIO27=HIGH",
+    "uptime_ms=278304 GPIO27=HIGH",
+    "uptime_ms=279135 TEMPERATURA_C=27.8750",
+    "uptime_ms=279306 GPIO27=HIGH",
+    "uptime_ms=280306 GPIO27=HIGH",
+    "uptime_ms=281137 TEMPERATURA_C=27.8750",
+    "uptime_ms=281308 GPIO27=HIGH",
+    "uptime_ms=282308 GPIO27=HIGH",
+    "uptime_ms=283139 TEMPERATURA_C=27.9375",
+    "uptime_ms=283310 GPIO27=HIGH",
+    "uptime_ms=284310 GPIO27=HIGH",
+    "uptime_ms=285141 TEMPERATURA_C=27.9375",
+    "uptime_ms=285312 GPIO27=HIGH",
+    "uptime_ms=286312 GPIO27=HIGH",
+    "uptime_ms=287143 TEMPERATURA_C=28.0000",
+    "uptime_ms=287314 GPIO27=HIGH",
+    "uptime_ms=288314 GPIO27=HIGH",
+    "uptime_ms=289145 TEMPERATURA_C=28.0000",
+    "uptime_ms=289316 GPIO27=HIGH",
+    "uptime_ms=290316 GPIO27=HIGH",
+    "uptime_ms=291147 TEMPERATURA_C=28.0000",
+    "uptime_ms=291318 GPIO27=HIGH",
+    "uptime_ms=292318 GPIO27=HIGH"
+  ]
+}

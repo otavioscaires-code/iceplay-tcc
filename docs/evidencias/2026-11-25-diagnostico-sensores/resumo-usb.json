@@ -1,0 +1,168 @@
+{
+  "generatedAtUtc": "2026-11-25T04:39:16.543158+00:00",
+  "scope": "Diagnostico USB real, sem Wi-Fi/API; transcricao e contagens nao equivalem a ensaios independentes.",
+  "sourceSha256": "9728d47caac2bf857aa4cdcbad34fba6d220ca3bec1d745a8a4b75c907e0e69b",
+  "captures": [
+    {
+      "evidence": "docs/evidencias/2026-11-25-diagnostico-sensores/20261125T041312Z-retomada-sonda/serial.json",
+      "evidenceSha256": "435ccca3863a36177808f34c9eb74f0121fec20b8ac3026010c51f0a7e53c9ba",
+      "collectorSha256": "d77768bdf74fcd73ae0548880e89400a2e0f0b7de54fa78c49c8bdc87a9c4890",
+      "startedAtUtc": "2026-11-25T04:13:12.302684+00:00",
+      "finishedAtUtc": "2026-11-25T04:13:28.552441+00:00",
+      "result": "passed",
+      "bannerObserved": true,
+      "temperatureRecords": 8,
+      "distinctTemperatureUptimes": 8,
+      "temperatureRangeC": [
+        26.6875,
+        26.75
+      ],
+      "temperatureRecordsAfterBanner": 8,
+      "gpioRecords": 2000,
+      "distinctGpioUptimes": 17,
+      "gpioRecordsAfterBanner": 16,
+      "distinctGpioUptimesAfterBanner": 16,
+      "sensorErrorRecordsAfterBanner": 0,
+      "temperatureErrorFields": {
+        "captureError": null
+      },
+      "criteriaDefinedBeforeCapture": {
+        "durationSeconds": 16,
+        "bannerRequired": true,
+        "minimumValidTemperatures": 3,
+        "minimumGpioRecords": 3,
+        "minimumDistinctTemperatureUptimes": 3,
+        "minimumDistinctGpioUptimes": 3,
+        "noTemperatureErrorRequired": true,
+        "finiteRangeC": [
+          -55,
+          125
+        ],
+        "calibrationRequired": false
+      }
+    },
+    {
+      "evidence": "docs/evidencias/2026-11-25-diagnostico-sensores/20261125T041735Z-aquecimento-mao/serial.json",
+      "evidenceSha256": "bc793662eafd13a6c268258d1f100b7a3d6269fdb2b041b2c53aadeb842af57d",
+      "collectorSha256": "192182fdf103839345cad7e73aace804b06bac3a3b062a6f20d9b0b94832f70c",
+      "startedAtUtc": "2026-11-25T04:17:35.628834+00:00",
+      "finishedAtUtc": "2026-11-25T04:18:06.197753+00:00",
+      "result": "passed",
+      "bannerObserved": false,
+      "temperatureRecords": 15,
+      "distinctTemperatureUptimes": 15,
+      "temperatureRangeC": [
+        27.4375,
+        28.0
+      ],
+      "temperatureRecordsAfterBanner": null,
+      "gpioRecords": 30,
+      "distinctGpioUptimes": 30,
+      "gpioRecordsAfterBanner": null,
+      "distinctGpioUptimesAfterBanner": null,
+      "sensorErrorRecordsAfterBanner": null,
+      "temperatureErrorFields": {
+        "captureError": null
+      },
+      "criteriaDefinedBeforeCapture": {
+        "durationSeconds": 30,
+        "bannerRequired": false,
+        "minimumValidTemperatures": 3,
+        "minimumGpioRecords": 3,
+        "minimumDistinctTemperatureUptimes": 3,
+        "minimumDistinctGpioUptimes": 3,
+        "noTemperatureErrorRequired": true,
+        "finiteRangeC": [
+          -55,
+          125
+        ],
+        "calibrationRequired": false,
+        "referenceBaselineMaximumC": 26.75,
+        "minimumThermalRiseC": 0.25,
+        "minimumReadingsAboveThermalThreshold": 3,
+        "physicalCondition": "Usuario segura somente a ponta metalica, sem mexer nas conexoes"
+      }
+    },
+    {
+      "evidence": "docs/evidencias/2026-11-25-diagnostico-sensores/20261125T042153Z-dq-desconectado/serial.json",
+      "evidenceSha256": "efedf3cb708ae0d43bc0360d69efced2bbf0a9b372c767d07f391c07e268af24",
+      "collectorSha256": "9293ea42dd84af381e6d91d373ab3503d45a01021db5a52d0cf8e99bab274c98",
+      "startedAtUtc": "2026-11-25T04:21:53.542169+00:00",
+      "finishedAtUtc": "2026-11-25T04:22:05.985820+00:00",
+      "result": "passed",
+      "bannerObserved": true,
+      "temperatureRecords": 0,
+      "distinctTemperatureUptimes": 0,
+      "temperatureRangeC": null,
+      "temperatureRecordsAfterBanner": 0,
+      "gpioRecords": 2005,
+      "distinctGpioUptimes": 13,
+      "gpioRecordsAfterBanner": 12,
+      "distinctGpioUptimesAfterBanner": 12,
+      "sensorErrorRecordsAfterBanner": 6,
+      "temperatureErrorFields": {
+        "captureError": null,
+        "sensorErrorsAfterBanner": 6
+      },
+      "criteriaDefinedBeforeCapture": {
+        "durationSeconds": 12,
+        "bannerRequired": true,
+        "minimumValidTemperatures": 0,
+        "maximumValidTemperaturesAfterBanner": 0,
+        "minimumSensorErrorsAfterBanner": 3,
+        "minimumGpioRecords": 3,
+        "minimumDistinctTemperatureUptimes": 0,
+        "minimumDistinctGpioUptimes": 3,
+        "noTemperatureErrorRequired": false,
+        "finiteRangeC": [
+          -55,
+          125
+        ],
+        "calibrationRequired": false
+      }
+    },
+    {
+      "evidence": "docs/evidencias/2026-11-25-diagnostico-sensores/20261125T042825Z-recuperacao-dq/serial.json",
+      "evidenceSha256": "9e59bce8cf18d6d22a1490c1dfe5faabb4f498f238e9da163bcc0e39e5e49e25",
+      "collectorSha256": "e084714bf579255828cd3a11375cf5b73494bc84bc02062f3ea3f60bf6dfabd3",
+      "startedAtUtc": "2026-11-25T04:28:25.559628+00:00",
+      "finishedAtUtc": "2026-11-25T04:28:41.745342+00:00",
+      "result": "passed",
+      "bannerObserved": true,
+      "temperatureRecords": 8,
+      "distinctTemperatureUptimes": 8,
+      "temperatureRangeC": [
+        25.6875,
+        25.6875
+      ],
+      "temperatureRecordsAfterBanner": 8,
+      "gpioRecords": 1958,
+      "distinctGpioUptimes": 16,
+      "gpioRecordsAfterBanner": 16,
+      "distinctGpioUptimesAfterBanner": 16,
+      "sensorErrorRecordsAfterBanner": 0,
+      "temperatureErrorFields": {
+        "captureError": null,
+        "sensorErrorsAfterBanner": 0
+      },
+      "criteriaDefinedBeforeCapture": {
+        "durationSeconds": 16,
+        "bannerRequired": true,
+        "minimumValidTemperatures": 3,
+        "minimumGpioRecords": 3,
+        "minimumDistinctTemperatureUptimes": 3,
+        "minimumDistinctGpioUptimes": 3,
+        "noTemperatureErrorRequired": true,
+        "finiteRangeC": [
+          -55,
+          125
+        ],
+        "calibrationRequired": false
+      }
+    }
+  ],
+  "mainFirmwareFlashed": false,
+  "physicalApiIngestionValidated": false,
+  "calibrationValidated": false,
+  "refrigeratorOperationValidated": false
+}

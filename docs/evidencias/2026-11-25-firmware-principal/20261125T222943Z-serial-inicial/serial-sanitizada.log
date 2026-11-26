@@ -1,0 +1,13 @@
+ICEPLAY preparado: DS18B20/porta, HTTPS com CA, UTC e UUID. Validacao fisica ainda necessaria.
+Wi-Fi conectado. Aguardando UTC para TLS e medicao.
+Amostra adquirida: 27.2500 C; porta aberta; UTC 2026-11-25T22:29:49Z.
+Resultado do envio: HTTP -1 (credencial omitida).
+Resultado do envio: HTTP -1 (credencial omitida).
+Resultado do envio: HTTP -1 (credencial omitida).
+Resultado do envio: HTTP -1 (credencial omitida).
+Amostra pendente expirou apos 30 s; proxima coleta usara novo UUID. Nao ha historico offline completo.
+Amostra adquirida: 27.2500 C; porta aberta; UTC 2026-11-25T22:30:20Z.
+Resultado do envio: HTTP -1 (credencial omitida).
+Resultado do envio: HTTP -1 (credencial omitida).
+Resultado do envio: HTTP -1 (credencial omitida).
+Resultado do envio: HTTP -1 (credencial omitida).

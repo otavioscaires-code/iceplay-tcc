@@ -1,0 +1,22 @@
+{
+  "result": "passed",
+  "verifiedAtUtc": "2026-11-25T22:26:17.535291+00:00",
+  "scope": "Conferencia da preparacao e de evidencias; nao e novo ensaio fisico.",
+  "sourceAndBinaryHashesMatch": true,
+  "privateCompiledBinaryPreserved": true,
+  "privateConfigurationIgnoredByGit": true,
+  "originalDatabaseSha256": "e8ecae14a84243a292d3e21f953a14eea7d950c2c3fe929d43a4a68dd5ba9317",
+  "usbEvidenceFilesWithExactGitBytes": 10,
+  "packageCounts": {
+    "Geladeiras": 1,
+    "Dispositivos": 1,
+    "Leituras": 0,
+    "ConfiguracoesGeladeiras": 0,
+    "Alertas": 0
+  },
+  "deviceLinkedToBenchAndActive": true,
+  "localApiHealthy": true,
+  "publicEvidenceScanPassed": true,
+  "mainFirmwareFlashed": false,
+  "physicalApiIngestionValidated": false
+}

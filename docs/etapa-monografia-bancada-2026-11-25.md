@@ -1,0 +1,27 @@
+# Revisão da monografia com integração física de bancada
+
+Em 25/11/2026 foi preparada uma nova cópia privada Word/PDF, a partir da entrega de figuras de 24/11. A revisão tem **40 páginas físicas, 15 figuras e cinco tabelas numeradas**. O original, as versões anteriores e suas fontes permanecem preservados. A monografia preenchida contém dados do grupo e fotografias e não é publicada neste repositório.
+
+## Conteúdo incorporado
+
+Resumo, abstract, objetivos, requisitos, arquitetura, firmware, resultados, tabela de validação e conclusão agora reconhecem a gravação/inicialização do principal e o fluxo físico de bancada. As falhas de fixação da sonda e X509 e os respectivos retestes foram preservados. Não se atribui instalação em geladeira aos ensaios sobre a mesa.
+
+As imagens atualizadas incluem casos de uso, arquitetura, painel com leitura física #32, parâmetros de 0–28 °C/10 s/45 s/Hardware ativo e dois episódios reais durante o aquecimento. O diagrama de classes foi incluído no Apêndice A, com seis classes e 49 atributos, preservando o modelo existente e seus identificadores. O DER continua no corpo do trabalho.
+
+A nova transcrição serial identifica quatro amostras e quatro HTTP 201 da versão de uso, correlacionados aos IDs 58–61. É uma transcrição de log, não screenshot ao vivo. O gráfico utiliza 89 aquisições efetivamente persistidas, de 23:04:57 a 23:19:26 UTC; apresenta o limite de ensaio e o episódio térmico, sem interpolar lacunas ou alegar calibração. Os [artefatos públicos e sua procedência](tcc/integracao-fisica-2026-11-25/README.md) complementam o [relatório físico](etapa-integracao-fisica-2026-11-25.md).
+
+O episódio térmico encerrou às 23:15:47,0317152 UTC por `CondicaoNormalizada`. A primeira janela de resfriamento de 180 s ainda fora da faixa permanece incompleta nos registros; a observação posterior passou sem alterar a configuração.
+
+## Apresentação e conferência
+
+Sumário e listas automáticas foram atualizados. Foram corrigidos recorte do painel, quebra redundante que gerava página em branco, separação HTTP/HTTPS na lista de siglas, largura dos IDs RNF, tabela de validação e diagrama de classes. Títulos permanecem com o texto seguinte. As 15 legendas e cinco tabelas são numeradas por campos do Word; não há erro de campo no PDF final.
+
+A revisão consultou o [guia da Biblioteca da UNIP, edição de junho de 2025](https://www.unip.br/servicos/biblioteca/assets/download/manual_de_normalizacao_abnt.pdf). Foram conferidos margens A4 existentes, contagem a partir da folha de rosto, numeração visível na introdução, sumário, siglas e chamadas autor-data. Foram preservadas as características do modelo fornecido; essa conferência não é certificação de conformidade ABNT.
+
+O `render_docx.py` foi executado e falhou porque `soffice.exe` não estava no PATH. Sem instalação, o Microsoft Word existente atualizou os campos e exportou o PDF. As 40 páginas foram rasterizadas e inspecionadas; as seis primeiras são byte a byte iguais às imagens já conferidas da rodada anterior. As três fotografias originais incorporadas permaneceram com os mesmos bytes. [Registro verificável](evidencias/2026-11-25-firmware-principal/revisao-documental/validacao.json).
+
+## Limites para a entrega
+
+A capa foi preservada porque o orientador informado na conversa diverge do Word do grupo; uma nova confirmação foi solicitada. Não há registro de aprovação do orientador ou da banca. Permanecem pendentes os ensaios físicos de ausência/recuperação, operação em geladeira, nova conferência móvel com Hardware e execução no notebook/rede da apresentação.
+
+Arquivos privados em `.tools/revisao-tcc-2026-11-25/entrega-bancada-v5/`. Banco original `src/Iceplay.Api/data/iceplay.db` conferido com SHA-256 inalterado. O banco do pacote contém as aquisições reais de bancada e continua separado. Não houve nova suíte de software, alteração de backend/migration, instalação ou mudança de confiança/firewall nesta revisão documental. A IA auxiliou redação, desenho, consultas e conferência; as manipulações físicas foram realizadas e relatadas pelo aluno.

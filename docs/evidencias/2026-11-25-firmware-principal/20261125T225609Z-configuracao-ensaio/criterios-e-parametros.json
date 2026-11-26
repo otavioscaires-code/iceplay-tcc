@@ -1,0 +1,13 @@
+{
+  "scope": "Parametros explicitos de ensaio em bancada; nao representam faixa sanitaria ou configuracao de geladeira instalada.",
+  "definedAtUtc": "2026-11-25T22:56:09.5324570+00:00",
+  "parameters": {
+    "temperaturaMinimaC": 0,
+    "temperaturaMaximaC": 40,
+    "toleranciaPortaAbertaSegundos": 10,
+    "ausenciaLeiturasSegundos": 45,
+    "origemMonitorada": "Hardware",
+    "monitoramentoAtivo": true
+  },
+  "expectedDoorAlert": "Um episodio apos abertura mantida por pelo menos a tolerancia, sem duplicacao; encerrar apos fechamento."
+}

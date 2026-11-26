@@ -1,0 +1,123 @@
+{
+  "result": "incomplete",
+  "startedAtUtc": "2026-11-25T22:29:43.507456+00:00",
+  "finishedAtUtc": "2026-11-25T22:30:43.907083+00:00",
+  "scope": "Captura real do firmware principal e correlacao USB/API/SQLite; ainda sem observacao visual da interface ou instalacao na geladeira.",
+  "criteriaDefinedBeforeCapture": {
+    "durationSeconds": 60,
+    "bannerRequired": true,
+    "wifiConnectedRequired": true,
+    "minimumDistinctAcquiredSamples": 3,
+    "minimumSuccessfulHttpResults": 3,
+    "minimumSerialApiSqliteMatches": 3,
+    "geladeiraId": 1,
+    "dispositivoId": 1,
+    "origin": "Hardware",
+    "uiObservationRequiredForFullF05": true
+  },
+  "bannerObserved": true,
+  "wifiConnectedObserved": true,
+  "acquiredSamples": [
+    {
+      "temperatureC": 27.25,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:29:49Z"
+    },
+    {
+      "temperatureC": 27.25,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:30:20Z"
+    }
+  ],
+  "distinctAcquiredSamples": 2,
+  "httpResults": [
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1
+  ],
+  "successfulHttpResults": 0,
+  "historyTotalBeforeCapture": 0,
+  "historyTotalAfterCapture": 0,
+  "serialApiSqliteMatches": [],
+  "distinctMatchedReadings": 0,
+  "captureErrorType": null,
+  "serialClosed": true,
+  "physicalApiIngestionValidated": false,
+  "uiValidated": false,
+  "refrigeratorOperationValidated": false,
+  "calibrationValidated": false,
+  "serialRecords": [
+    {
+      "receivedAtUtc": "2026-11-25T22:29:44.333069+00:00",
+      "afterBanner": true,
+      "line": "ICEPLAY preparado: DS18B20/porta, HTTPS com CA, UTC e UUID. Validacao fisica ainda necessaria."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:29:46.043706+00:00",
+      "afterBanner": true,
+      "line": "Wi-Fi conectado. Aguardando UTC para TLS e medicao."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:29:49.496865+00:00",
+      "afterBanner": true,
+      "line": "Amostra adquirida: 27.2500 C; porta aberta; UTC 2026-11-25T22:29:49Z."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:29:49.633839+00:00",
+      "afterBanner": true,
+      "line": "Resultado do envio: HTTP -1 (credencial omitida)."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:29:51.767431+00:00",
+      "afterBanner": true,
+      "line": "Resultado do envio: HTTP -1 (credencial omitida)."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:29:56.067543+00:00",
+      "afterBanner": true,
+      "line": "Resultado do envio: HTTP -1 (credencial omitida)."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:30:04.181611+00:00",
+      "afterBanner": true,
+      "line": "Resultado do envio: HTTP -1 (credencial omitida)."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:30:19.477873+00:00",
+      "afterBanner": true,
+      "line": "Amostra pendente expirou apos 30 s; proxima coleta usara novo UUID. Nao ha historico offline completo."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:30:20.317686+00:00",
+      "afterBanner": true,
+      "line": "Amostra adquirida: 27.2500 C; porta aberta; UTC 2026-11-25T22:30:20Z."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:30:20.416891+00:00",
+      "afterBanner": true,
+      "line": "Resultado do envio: HTTP -1 (credencial omitida)."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:30:22.506099+00:00",
+      "afterBanner": true,
+      "line": "Resultado do envio: HTTP -1 (credencial omitida)."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:30:26.640268+00:00",
+      "afterBanner": true,
+      "line": "Resultado do envio: HTTP -1 (credencial omitida)."
+    },
+    {
+      "receivedAtUtc": "2026-11-25T22:30:34.775291+00:00",
+      "afterBanner": true,
+      "line": "Resultado do envio: HTTP -1 (credencial omitida)."
+    }
+  ],
+  "sourceSha256": "b93526f8d1a5948e0678fb93c2e519e43e2a2c4829e119c8d5f0bcfa962aab10",
+  "privateRawLog": ".tools/hardware/20261125T222943Z-serial-principal-inicial/serial-integral.bin"
+}

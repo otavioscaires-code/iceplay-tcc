@@ -1,0 +1,93 @@
+{
+  "preparedAtUtc": "2026-11-25T23:40:27.217104+00:00",
+  "scope": "Modelos e gráfico preparados agora; não são capturas históricas. Gráfico extraído por SELECT somente leitura do banco real de bancada.",
+  "graph": {
+    "rows": 89,
+    "firstId": 144,
+    "lastId": 232,
+    "firstMeasuredAtUtc": "2026-11-25T23:04:57+00:00",
+    "lastMeasuredAtUtc": "2026-11-25T23:19:26+00:00",
+    "gapsOver15Seconds": [],
+    "alertId": 2,
+    "alertOpenedAtUtc": "2026-11-25 23:05:28.0300385",
+    "alertClosedAtUtc": "2026-11-25 23:15:47.0317152",
+    "closureReason": "CondicaoNormalizada",
+    "interpolation": false,
+    "calibrationOrAccuracyMeasured": false
+  },
+  "sourceEvidence": [
+    "docs/evidencias/2026-11-25-firmware-principal/20261125T230556Z-temperatura-aquecimento/temperatura.json",
+    "docs/evidencias/2026-11-25-firmware-principal/20261125T230828Z-temperatura-resfriamento/temperatura.json",
+    "docs/evidencias/2026-11-25-firmware-principal/20261125T231857Z-temperatura-resfriamento/temperatura.json"
+  ],
+  "files": [
+    {
+      "path": "docs/evidencias/2026-11-25-firmware-principal/interface-alertas-configuracoes-real/alertas-dom.txt",
+      "sha256": "5efb3913ef3223b7f45e1b9a75ebf7510454aac59e56fa3e5763219f4202f2ec"
+    },
+    {
+      "path": "docs/evidencias/2026-11-25-firmware-principal/interface-alertas-configuracoes-real/alertas-hardware-bancada.jpg",
+      "sha256": "855b4d0617d423aa9d97c9b0aa63f33e5671b5b332f7207f72218ace2d62a489"
+    },
+    {
+      "path": "docs/evidencias/2026-11-25-firmware-principal/interface-alertas-configuracoes-real/configuracoes-dom.txt",
+      "sha256": "7aa55ed5f52d9afe00a5770ea7604de6fb81e530f7577076a63f84eabb111ef1"
+    },
+    {
+      "path": "docs/evidencias/2026-11-25-firmware-principal/interface-alertas-configuracoes-real/configuracoes-hardware-bancada.jpg",
+      "sha256": "6f20973de3496b998e24027b13cdf8fe8d14d2eb409641ced898b1eaead72d1f"
+    },
+    {
+      "path": "docs/evidencias/2026-11-25-firmware-principal/interface-alertas-configuracoes-real/registro-ui.json",
+      "sha256": "e939561a38a29391849465d3f05a613b97ea7bada9288b8475eeabe0bed3c8d4"
+    },
+    {
+      "path": "docs/tcc/integracao-fisica-2026-11-25/arquitetura-bancada.png",
+      "sha256": "dec7ad0a07bcb027fc5f7738377e4902e76ea8c50345f07c3eafcd520a1a6266"
+    },
+    {
+      "path": "docs/tcc/integracao-fisica-2026-11-25/arquitetura-bancada.svg",
+      "sha256": "446513ce29a2862411badbcc643c066c2edb1dbf122e1149c9515650fc22a0da"
+    },
+    {
+      "path": "docs/tcc/integracao-fisica-2026-11-25/casos-de-uso-bancada.png",
+      "sha256": "213b350b482e649aa088f88dcf910d0bb9be9231f34a8e2814e8c68bd46774e0"
+    },
+    {
+      "path": "docs/tcc/integracao-fisica-2026-11-25/casos-de-uso-bancada.svg",
+      "sha256": "054df13df2170a62c478c65c28b0ec08384edb72e1dde6427e47c6feb40193f5"
+    },
+    {
+      "path": "docs/tcc/integracao-fisica-2026-11-25/historico-bancada-18-23.png",
+      "sha256": "cdec1cf25751f3d3bd0acc4fa9d3705ec11444368cd4408a35e5f11f2cca33da"
+    },
+    {
+      "path": "docs/tcc/integracao-fisica-2026-11-25/historico-bancada-18-23.svg",
+      "sha256": "a856942a72f46e75c68f9dd34ac45f6e14161b2cb3740a6cfac9e9dd53080ccf"
+    },
+    {
+      "path": "docs/tcc/integracao-fisica-2026-11-25/serial-principal-transcricao.png",
+      "sha256": "f6bcfdc204860a084e3fce2cfa9dba7f03d275190b37785033f1c9f0a7db4fbe"
+    },
+    {
+      "path": "docs/tcc/integracao-fisica-2026-11-25/serial-principal-transcricao.svg",
+      "sha256": "af04b9d2886ffc53d424f47d7671debbf76445bf16fd44ff0c3d3bac71a23d51"
+    },
+    {
+      "path": "docs/tcc/integracao-fisica-2026-11-25/temperatura-bancada.png",
+      "sha256": "f21bf83756925ec578e81dc00819ccc0cce5d9a62e214fbf35aef124351cc72c"
+    },
+    {
+      "path": "docs/tcc/integracao-fisica-2026-11-25/temperatura-bancada.svg",
+      "sha256": "85f13765cd45f593d1f0d3adcb1215661255a2309a0e1a41fb30a74573d2f40c"
+    },
+    {
+      "path": "docs/tcc/integracao-fisica-2026-11-25/temperaturas-bancada-230453-231928-utc.csv",
+      "sha256": "ac7ffb8212f98e6dbf458d88fbf1521375c1733ff47be5ec1d27209949ed867d"
+    }
+  ],
+  "updatedModels": {
+    "casos-de-uso-bancada": "Rodape atualizado em25/11, atores/UC01–UC08 preservados.",
+    "historico-bancada-18-23": "Quadro original organizado24/11; rodape atualizado25/11 identifica-o como historico e aponta para integracao posterior."
+  }
+}

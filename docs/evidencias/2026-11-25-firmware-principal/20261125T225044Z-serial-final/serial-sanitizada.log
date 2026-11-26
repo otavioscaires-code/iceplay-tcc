@@ -1,0 +1,10 @@
+ICEPLAY preparado: DS18B20/porta, HTTPS com CA, UTC e UUID. Validacao fisica ainda necessaria.
+Wi-Fi conectado. Aguardando UTC para TLS e medicao.
+Amostra adquirida: 27.3125 C; porta aberta; UTC 2026-11-25T22:50:49Z.
+Resultado do envio: HTTP 201 (credencial omitida).
+Amostra adquirida: 27.3125 C; porta aberta; UTC 2026-11-25T22:50:59Z.
+Resultado do envio: HTTP 201 (credencial omitida).
+Amostra adquirida: 27.3125 C; porta aberta; UTC 2026-11-25T22:51:09Z.
+Resultado do envio: HTTP 201 (credencial omitida).
+Amostra adquirida: 27.3125 C; porta aberta; UTC 2026-11-25T22:51:19Z.
+Resultado do envio: HTTP 201 (credencial omitida).

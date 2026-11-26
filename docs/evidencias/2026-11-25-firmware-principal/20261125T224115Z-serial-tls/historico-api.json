@@ -1,0 +1,100 @@
+{
+  "geladeiraId": 1,
+  "origem": "Hardware",
+  "inicioUtc": null,
+  "fimUtc": null,
+  "pagina": 1,
+  "tamanhoPagina": 100,
+  "totalItens": 8,
+  "totalPaginas": 1,
+  "itens": [
+    {
+      "id": 8,
+      "geladeiraId": 1,
+      "temperaturaC": 27.1875,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:42:11Z",
+      "recebidoEmUtc": "2026-11-25T22:42:11.779836Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "4abf8d80-447b-4c60-b625-f785fd64a876"
+    },
+    {
+      "id": 7,
+      "geladeiraId": 1,
+      "temperaturaC": 27.125,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:42:01Z",
+      "recebidoEmUtc": "2026-11-25T22:42:01.8375644Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "9a5ff3b0-195f-4a91-ba62-6cce7ca92962"
+    },
+    {
+      "id": 6,
+      "geladeiraId": 1,
+      "temperaturaC": 27.125,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:41:51Z",
+      "recebidoEmUtc": "2026-11-25T22:41:51.8282302Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "775c2eb4-80ca-4aeb-9d39-349c524f1e1d"
+    },
+    {
+      "id": 5,
+      "geladeiraId": 1,
+      "temperaturaC": 27.125,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:41:41Z",
+      "recebidoEmUtc": "2026-11-25T22:41:41.7946565Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "6fd02174-d1a5-476a-96ab-d7ed77e993ea"
+    },
+    {
+      "id": 4,
+      "geladeiraId": 1,
+      "temperaturaC": 27.125,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:41:31Z",
+      "recebidoEmUtc": "2026-11-25T22:41:31.8520639Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "6169fc5c-d7b9-459d-8def-a88c1f7c1e05"
+    },
+    {
+      "id": 3,
+      "geladeiraId": 1,
+      "temperaturaC": 27.125,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:41:21Z",
+      "recebidoEmUtc": "2026-11-25T22:41:22.0757618Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "d1f6eefd-6d58-45a7-889f-1d72fa350dff"
+    },
+    {
+      "id": 2,
+      "geladeiraId": 1,
+      "temperaturaC": 27.125,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:41:09Z",
+      "recebidoEmUtc": "2026-11-25T22:41:10.5118655Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "507d2aeb-4eef-482b-a0a6-dd7822b6fefc"
+    },
+    {
+      "id": 1,
+      "geladeiraId": 1,
+      "temperaturaC": 27.125,
+      "portaAberta": true,
+      "medidoEmUtc": "2026-11-25T22:41:00Z",
+      "recebidoEmUtc": "2026-11-25T22:41:00.7072939Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "38362a2f-abe5-4dc7-9b58-c118d7f9fce0"
+    }
+  ]
+}

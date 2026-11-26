@@ -1,0 +1,133 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-25T22:53:56.132946+00:00",
+  "finishedAtUtc": "2026-11-25T22:54:31.148797+00:00",
+  "scope": "Posicao informada pelo aluno; consulta de novas leituras reais em API e SQLite, sem medir latencia/debounce ou porta instalada.",
+  "criteriaDefinedBeforeCapture": {
+    "durationSeconds": 35,
+    "minimumConsecutiveDistinctRecentReadings": 3,
+    "expectedPortaAberta": false,
+    "geladeiraId": 1,
+    "dispositivoId": 1,
+    "origin": "Hardware",
+    "userReportedPosition": "ima mantido junto",
+    "serialResetSent": false,
+    "scope": "Posicao informada pelo aluno; consulta de novas leituras reais em API e SQLite, sem medir latencia/debounce ou porta instalada."
+  },
+  "apiGetResponses": 18,
+  "newDistinctReadings": 4,
+  "readings": [
+    {
+      "id": 77,
+      "geladeiraId": 1,
+      "temperaturaC": 27.375,
+      "portaAberta": false,
+      "medidoEmUtc": "2026-11-25T22:53:58Z",
+      "recebidoEmUtc": "2026-11-25T22:53:58.7353979Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "221730d9-4891-40fa-aff1-d751fbea51b0"
+    },
+    {
+      "id": 78,
+      "geladeiraId": 1,
+      "temperaturaC": 27.375,
+      "portaAberta": false,
+      "medidoEmUtc": "2026-11-25T22:54:08Z",
+      "recebidoEmUtc": "2026-11-25T22:54:08.6154516Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "018b1a78-6d98-4ea1-9d51-c47f0f102a95"
+    },
+    {
+      "id": 79,
+      "geladeiraId": 1,
+      "temperaturaC": 27.375,
+      "portaAberta": false,
+      "medidoEmUtc": "2026-11-25T22:54:18Z",
+      "recebidoEmUtc": "2026-11-25T22:54:18.8159375Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "0584dd04-0256-496e-b713-356a542547a8"
+    },
+    {
+      "id": 80,
+      "geladeiraId": 1,
+      "temperaturaC": 27.375,
+      "portaAberta": false,
+      "medidoEmUtc": "2026-11-25T22:54:28Z",
+      "recebidoEmUtc": "2026-11-25T22:54:28.5930316Z",
+      "origem": "Hardware",
+      "dispositivoId": 1,
+      "medicaoId": "8513dfc7-6087-4f6c-b690-a22dbd4df6f7"
+    }
+  ],
+  "sqliteChecks": [
+    {
+      "id": 77,
+      "apiAndSqliteMatch": true,
+      "sqliteReading": {
+        "Id": 77,
+        "GeladeiraId": 1,
+        "TemperaturaC": 27.375,
+        "PortaAberta": 0,
+        "MedidoEmUtc": "2026-11-25 22:53:58",
+        "RecebidoEmUtc": "2026-11-25 22:53:58.7353979",
+        "Origem": "Hardware",
+        "DispositivoId": 1,
+        "MedicaoId": "221730d9-4891-40fa-aff1-d751fbea51b0"
+      }
+    },
+    {
+      "id": 78,
+      "apiAndSqliteMatch": true,
+      "sqliteReading": {
+        "Id": 78,
+        "GeladeiraId": 1,
+        "TemperaturaC": 27.375,
+        "PortaAberta": 0,
+        "MedidoEmUtc": "2026-11-25 22:54:08",
+        "RecebidoEmUtc": "2026-11-25 22:54:08.6154516",
+        "Origem": "Hardware",
+        "DispositivoId": 1,
+        "MedicaoId": "018b1a78-6d98-4ea1-9d51-c47f0f102a95"
+      }
+    },
+    {
+      "id": 79,
+      "apiAndSqliteMatch": true,
+      "sqliteReading": {
+        "Id": 79,
+        "GeladeiraId": 1,
+        "TemperaturaC": 27.375,
+        "PortaAberta": 0,
+        "MedidoEmUtc": "2026-11-25 22:54:18",
+        "RecebidoEmUtc": "2026-11-25 22:54:18.8159375",
+        "Origem": "Hardware",
+        "DispositivoId": 1,
+        "MedicaoId": "0584dd04-0256-496e-b713-356a542547a8"
+      }
+    },
+    {
+      "id": 80,
+      "apiAndSqliteMatch": true,
+      "sqliteReading": {
+        "Id": 80,
+        "GeladeiraId": 1,
+        "TemperaturaC": 27.375,
+        "PortaAberta": 0,
+        "MedidoEmUtc": "2026-11-25 22:54:28",
+        "RecebidoEmUtc": "2026-11-25 22:54:28.5930316",
+        "Origem": "Hardware",
+        "DispositivoId": 1,
+        "MedicaoId": "8513dfc7-6087-4f6c-b690-a22dbd4df6f7"
+      }
+    }
+  ],
+  "alertsSnapshotAtEnd": [],
+  "errors": [],
+  "expectedDoorStateObserved": true,
+  "sourceSha256": "3e402e75cc61758e8bd5d8c9275ac8bf7b7026e2d8e504f5fc99565b20186193",
+  "installedDoorValidated": false,
+  "latencyMeasured": false
+}

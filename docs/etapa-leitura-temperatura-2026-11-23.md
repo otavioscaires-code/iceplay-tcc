@@ -1,5 +1,7 @@
 # Primeira aquisição física de temperatura — noite de 23/11/2026
 
+**Reteste posterior, 25/11/2026:** [montagem recuperada, aquisição, aumento qualitativo com a mão e interrupção/recuperação de DQ](etapa-retomada-sonda-2026-11-25.md) observados no mesmo diagnóstico USB. As falhas e resultados originais deste relatório permanecem preservados; firmware principal/API/geladeira ainda pendentes.
+
 ## Escopo e montagem informada
 
 Após a [compilação e conferência da pinagem](etapa-diagnostico-sensores-2026-11-23.md), o aluno confirmou a execução dos passos de montagem da sonda DS18B20 e do resistor nominal de 4,7 kΩ. Não houve medição por multímetro ou conferência visual final de todos os jumpers. A ligação abaixo é a orientação confirmada verbalmente pelo aluno, não uma certificação elétrica:

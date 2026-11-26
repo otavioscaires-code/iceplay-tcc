@@ -1,0 +1,13 @@
+{
+  "scope": "Ensaio termico em bancada; nao representa faixa sanitaria. Mesmos parametros deverao ser mantidos durante aquecimento e resfriamento.",
+  "expected": "Um episodio com novas temperaturas fisicas acima de 28 C, seguido de encerramento por CondicaoNormalizada apos esfriar dentro da mesma faixa.",
+  "definedAtUtc": "2026-11-25T23:04:53.9383896+00:00",
+  "parameters": {
+    "temperaturaMinimaC": 0,
+    "temperaturaMaximaC": 28,
+    "toleranciaPortaAbertaSegundos": 10,
+    "ausenciaLeiturasSegundos": 45,
+    "origemMonitorada": "Hardware",
+    "monitoramentoAtivo": true
+  }
+}
