@@ -1,0 +1,21 @@
+{
+  "result": "passed",
+  "bytes": 77844633,
+  "sha256": "ea3327fec538d85fc32a81b08c2a15ae13ba745255757f8edeb2ffb4a8de249c",
+  "sourceCommit": "babb4a741b581e3d8cff33dc8f17a8256861df1c",
+  "verifiedEntries": 2152,
+  "runtimeFilesByteExact": 446,
+  "crcPassed": true,
+  "databaseOrNetworkSecretsIncluded": false,
+  "privateGroupDocumentsIncluded": true,
+  "isNewRuntimeExecutionTest": false,
+  "privateDirectory": ".tools/exports/20261126T033918Z-projeto-completo",
+  "archiveName": "ICEPLAY_Projeto_Completo_26-11-2026.zip",
+  "documentPages": 45,
+  "documentFigures": 20,
+  "documentTables": 5,
+  "advisorConfirmedByUser": true,
+  "presentationNotebookStillUnavailable": true,
+  "backupArchiveSeparate": ".tools/exports/20261126T033736Z-dados-reais/ICEPLAY_Dados_Reais_26-11-2026.zip",
+  "filledMonographAndArchiveNotIncludedInGit": true
+}
