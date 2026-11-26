@@ -1,0 +1,18 @@
+{
+  "result": "passed",
+  "recordedAtUtc": "2026-11-26T16:18:07.230611+00:00",
+  "counts": {
+    "Geladeiras": 2,
+    "Leituras": 2058,
+    "ConfiguracoesGeladeiras": 1,
+    "Alertas": 16,
+    "EstadosMonitoramento": 1,
+    "Dispositivos": 1
+  },
+  "crcPassed": true,
+  "sourcePreserved": true,
+  "archiveBytes": 169341,
+  "archiveSha256": "ed92c5a323fd60db3865d43947c00269dc7d14e9be186443c29f3ad8dc0fb7a7",
+  "private": true,
+  "databasePublished": false
+}

@@ -1,6 +1,6 @@
 # Aviso sonoro e revisão do ICEPLAY em 26 de novembro
 
-O aviso sonoro foi implementado e o aluno confirmou os três bipes de teste no PC e no iPhone. A regressão de software passou sem falhas. O Word/PDF foi atualizado e conferido, mantendo os resultados físicos e suas limitações. O outro notebook continua indisponível; sua rede e execução exigem ensaio no destino.
+O aviso sonoro foi implementado e o aluno confirmou os três bipes de teste no PC e no iPhone, além da repetição automática no PC. A regressão de software passou sem falhas e as medições físicas voltaram após o reinício USB relatado. Há uma divergência atual na porta: fechada no relato, mas aberta nas medições, inclusive após aproximar os ímãs. O Word/PDF registra essa pendência. O outro notebook continua indisponível; sua rede e execução exigem ensaio no destino.
 
 ## Alterações
 
@@ -24,17 +24,20 @@ O [inventário](evidencias/20261126T154501Z-som-auditoria-regressao/inventario-c
 | Estabilidade | 305 asserções e 250 requisições HTTP, até oito clientes; fixtures isoladas. |
 | Runtime Windows com som | 24 verificações, inclusive PowerShell 5.1 sem SDK no PATH, persistência após reinício, perfil HTTPS sintético e correspondência dos assets servidos. |
 | Som nos aparelhos | Bipes de teste ouvidos pelo aluno no PC e iPhone. |
-| TCC | Word/PDF de 45 páginas, 20 figuras e cinco tabelas; campos, listas e todas as páginas conferidos. Imagens anteriores preservadas byte a byte. |
+| TCC | Word/PDF de 46 páginas, 20 figuras e cinco tabelas, incluindo apêndice da operação de hoje; campos, listas e todas as páginas conferidos. Imagens anteriores preservadas byte a byte. |
 | Banco de uso | Prefixo completo de 1.944 leituras e metadados preservados; SQLite íntegro, sem violações de vínculos ou fixtures Simulacao. |
 
 Os [resultados da rodada](evidencias/20261126T154501Z-som-auditoria-regressao/rodada.json), [runtime](evidencias/20261126T154501Z-som-auditoria-regressao/runtime.json), [documento](evidencias/20261126T154501Z-som-auditoria-regressao/documento.json) e [confirmações manuais](evidencias/20261126T154501Z-som-auditoria-regressao/confirmacoes-manuais.json) detalham a procedência. Os testes DOM usam controle de áudio em software. O acesso de automação ao navegador estava indisponível nesta conversa; não houve nova captura de tela nativa dessa implementação.
 
 ## Operação física e pendências
 
-A API estava encerrada no início da conferência e foi reaberta com o perfil existente. O aluno confirmou LED aceso, mas a última leitura permanecia em 26/11 às 01:46:54 locais. Foi solicitado reiniciar somente o USB do carregador para verificar a retomada; essa conferência operacional é distinta dos ensaios anteriores. O resultado é registrado no adendo de operação, sem atribuir recência às medições antigas.
+A API estava encerrada no início da conferência e foi reaberta com o perfil existente. A última leitura permanecia em 26/11 às 01:46:54 locais. Após o reinício somente do USB relatado pelo aluno, a [retomada passou](evidencias/20261126T154501Z-som-auditoria-regressao/operacao-retomada.json) com três amostras recentes do mesmo dispositivo, IDs 1981–1983, de 4,3750, 4,2500 e 4,1875 °C, coincidentes na API e no SQLite. Ausência #14 normalizou. Isso não é novo ensaio térmico com critérios prospectivos.
+
+O aluno informou porta fisicamente fechada, enquanto o dado indicava aberta. A [aproximação dos ímãs ficou incompleta](evidencias/20261126T154501Z-som-auditoria-regressao/aproximacao-ima-operacao.json): as três leituras finais continuaram abertas. A fixação/contato precisa de inspeção atual antes da demonstração. Não se inverteu a polaridade ou alteraram parâmetros para esconder o resultado. Os ciclos de 25/11 permanecem registros históricos; não provam estabilidade da montagem de hoje. O aluno foi avisado para soltar os ímãs; não há ação física mantida em espera.
 
 - Ensaiar o outro notebook e a rede efetiva da apresentação quando disponíveis, incluindo HTTPS, celular e rota da ESP32.
 - Conferir medições recentes antes de demonstrar. API saudável e LED aceso não comprovam que a placa está enviando.
+- Corrigir a divergência atual do contato da porta e conferir o estado fechado após a correção. Uma foto atual da posição e dos contatos é necessária para orientar o próximo ajuste.
 - Preservar o resultado térmico: a janela prospectiva de 30 minutos teve queda média de 0,85 °C, abaixo do critério de 1 °C. A extensão de 47 min 31 s foi exploratória e não altera o resultado original.
 - Permanecem sem ensaio físico no principal a interrupção DQ, o reenvio após perda de confirmação e a rotação de credencial. Há testes de software correspondentes, com alcance próprio.
 - Calibração, comparação com termômetro de referência, operação comercial e disponibilidade prolongada permanecem fora da validação realizada.

@@ -1,0 +1,22 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-11-26T16:08:48.052608+00:00",
+  "preservedHistoricalReadings": 1944,
+  "allHistoricalReadingsUnchanged": true,
+  "metadataUnchanged": {
+    "Geladeiras": true,
+    "ConfiguracoesGeladeiras": true,
+    "Dispositivos": true,
+    "__EFMigrationsHistory": true
+  },
+  "sourceDatabaseUnchanged": true,
+  "sqliteIntegrity": "ok",
+  "foreignKeyViolations": 0,
+  "simulationReadingsInLiveBank": 0,
+  "liveReadingCount": 2007,
+  "latestReadingId": 2007,
+  "latestMeasurementUtc": "2026-11-26T16:08:45Z",
+  "latestTemperatureC": 11,
+  "latestDoorOpen": true,
+  "newPhysicalSetupTest": false
+}

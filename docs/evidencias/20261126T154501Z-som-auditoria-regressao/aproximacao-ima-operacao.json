@@ -1,0 +1,28 @@
+{
+  "result": "incomplete",
+  "startedAtUtc": "2026-11-26T16:10:25.932051+00:00",
+  "finishedAtUtc": "2026-11-26T16:11:01.986570+00:00",
+  "scope": "Aproximação dos ímãs relatada pelo aluno com porta fisicamente fechada; observação API/SQLite, sem alteração de firmware, fios, parâmetros ou credencial. Não valida fixação final ou duração física.",
+  "lastThreeReadings": [
+    {
+      "id": 2021,
+      "temperatureC": 9.5625,
+      "doorOpen": true,
+      "measuredAtUtc": "2026-11-26 16:10:49"
+    },
+    {
+      "id": 2020,
+      "temperatureC": 9.6875,
+      "doorOpen": true,
+      "measuredAtUtc": "2026-11-26 16:10:39"
+    },
+    {
+      "id": 2019,
+      "temperatureC": 9.8125,
+      "doorOpen": true,
+      "measuredAtUtc": "2026-11-26 16:10:29"
+    }
+  ],
+  "apiMatchesSqliteForClosedReadings": false,
+  "installedDoorCycleTestedAgain": false
+}

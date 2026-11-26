@@ -1,12 +1,20 @@
 {
-  "recordedAtUtc": "2026-11-26T16:03:18.019041+00:00",
+  "recordedAtUtc": "2026-11-26T16:17:11.172468+00:00",
   "source": "Respostas do aluno nesta conversa em 26/11/2026",
   "pcTestSoundHeard": true,
   "iphoneFirstAttemptHeard": false,
   "iphoneRetestWithSilentModeOffPending": false,
   "presentationNotebookAvailable": false,
   "esp32CurrentlyPoweredConfirmed": true,
-  "newPhysicalMeasurementsObservedThisTurn": false,
+  "newPhysicalMeasurementsObservedThisTurn": true,
   "iphoneRetestHeard": true,
-  "esp32UsbRestartRequested": true
+  "esp32UsbRestartRequested": true,
+  "esp32UsbRestartConfirmed": true,
+  "pcAutomaticRepeatConfirmed": true,
+  "physicalDoorReportedClosed": true,
+  "doorReadingMatchesPhysicalState": false,
+  "magnetApproximationConfirmedByUser": true,
+  "magnetApproximationClosedStatePassed": false,
+  "userToldToReleaseMagnets": true,
+  "currentDoorInstallationValidated": false
 }

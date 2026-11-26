@@ -1,0 +1,38 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-26T16:04:40.563079+00:00",
+  "finishedAtUtc": "2026-11-26T16:04:54.721922+00:00",
+  "scope": "Conferência operacional após reinício USB relatado pelo aluno; API/SQLite somente leitura, sem regravar firmware ou alterar montagem, parâmetros ou credencial. Não é novo ensaio térmico.",
+  "baselineLastReadingId": 1944,
+  "queries": 8,
+  "distinctFreshReadings": [
+    {
+      "id": 1981,
+      "temperatureC": 4.375,
+      "doorOpen": true,
+      "measuredAtUtc": "2026-11-26T16:04:33Z",
+      "receivedAtUtc": "2026-11-26T16:04:34.5880756Z",
+      "deviceId": 1,
+      "apiMatchesSqlite": true
+    },
+    {
+      "id": 1982,
+      "temperatureC": 4.25,
+      "doorOpen": true,
+      "measuredAtUtc": "2026-11-26T16:04:43Z",
+      "receivedAtUtc": "2026-11-26T16:04:44.5522702Z",
+      "deviceId": 1,
+      "apiMatchesSqlite": true
+    },
+    {
+      "id": 1983,
+      "temperatureC": 4.1875,
+      "doorOpen": true,
+      "measuredAtUtc": "2026-11-26T16:04:53Z",
+      "receivedAtUtc": "2026-11-26T16:04:54.5909548Z",
+      "deviceId": 1,
+      "apiMatchesSqlite": true
+    }
+  ],
+  "minimumFreshReadingsRequired": 3
+}
