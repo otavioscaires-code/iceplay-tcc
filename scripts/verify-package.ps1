@@ -111,6 +111,14 @@ try {
     Assert-Package ($configurationHtml.Content -ceq [IO.File]::ReadAllText((Join-Path $app 'wwwroot/configuracoes.html'))) 'Rota de configurações entrega o HTML do pacote, com a versão publicada do módulo'
     $configurationScript=Invoke-WebRequest -Uri ($url+'/configuracoes.js') -Headers @{'Cache-Control'='no-cache'} -TimeoutSec 5
     Assert-Package ($configurationScript.Content -ceq [IO.File]::ReadAllText((Join-Path $app 'wwwroot/configuracoes.js'))) 'JavaScript de configurações servido corresponde ao arquivo conferido no pacote'
+    foreach ($asset in @(
+        @('/index.html','index.html'), @('/alertas','alertas.html'),
+        @('/som-alertas.js','som-alertas.js'), @('/som-estado.mjs','som-estado.mjs'),
+        @('/styles.css','styles.css'), @('/geladeiras','geladeiras.html'), @('/geladeiras.js','geladeiras.js')
+    )) {
+        $served=Invoke-WebRequest -Uri ($url+$asset[0]) -Headers @{'Cache-Control'='no-cache'} -TimeoutSec 5
+        Assert-Package ($served.StatusCode -eq 200 -and $served.Content -ceq [IO.File]::ReadAllText((Join-Path $app ('wwwroot/'+$asset[1])))) "Asset $($asset[0]) servido corresponde ao arquivo conferido no pacote"
+    }
     $record=Invoke-RestMethod -Uri ($url+'/api/geladeiras') -Method Post -ContentType 'application/json' -Body '{"nome":"Verificacao isolada do pacote"}'
     $payload=@{geladeiraId=$record.id;temperaturaC=3.625;portaAberta=$false;medidoEmUtc=[DateTime]::UtcNow.AddSeconds(-1).ToString('o');origem='Simulacao'} | ConvertTo-Json
     $reading=Invoke-RestMethod -Uri ($url+'/api/leituras') -Method Post -ContentType 'application/json' -Body $payload

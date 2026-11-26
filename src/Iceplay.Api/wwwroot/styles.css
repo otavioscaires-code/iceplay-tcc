@@ -408,6 +408,11 @@ input::placeholder { color: var(--muted); opacity: 1; }
 .settings-heading p, .settings-saved p { color: var(--muted); font-size: 14px; }
 .settings-heading .button { flex-shrink: 0; }
 .settings-notice { padding: 14px 16px; border-left: 2px solid var(--accent); background: var(--surface-raised); color: var(--ice); font-size: 13px; }
+#som-alertas { margin-bottom: 24px; }
+#som-alertas h2 { font-size: 18px; margin: 0 0 8px; }
+#som-alertas .button-primary { width: auto; }
+#som-alertas p { margin: 10px 0; line-height: 1.6; }
+#som-status[data-state="error"] { color: var(--danger); }
 .settings-selector { display: flex; align-items: flex-end; gap: 16px; margin: 24px 0 12px; }
 .settings-selector > div { flex: 1; min-width: 0; }
 .settings-workspace fieldset { min-width: 0; margin: 24px 0; padding: 0; border: 0; }

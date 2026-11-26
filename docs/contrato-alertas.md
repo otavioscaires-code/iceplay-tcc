@@ -28,3 +28,13 @@ As alterações de um ciclo por equipamento usam transação de escrita SQLite. 
 `GET /api/alertas/resumo?origem=Simulacao` exige origem e retorna contagens reais de abertos/críticos, equipamentos monitorados e sem configuração ativa, cinco ocorrências recentes e situação do avaliador. A interface deve distinguir serviço sem avaliação recente de confirmação de zero ocorrências.
 
 Testes de software, integração HTTP e simulação não comprovam funcionamento físico. Os resultados executados serão registrados no relatório desta etapa.
+
+## Aviso sonoro no navegador
+
+Adicionado em 26/11/2026 por solicitação do usuário. Visão geral e Alertas oferecem **Ativar som**, **Testar som** e **Silenciar**. Começa desativado em cada página. O teste reproduz três notas locais e não cria ocorrências. Ativar também reproduz uma amostra e começa a consultar o resumo da API a cada 15 segundos, somente com a página visível.
+
+O aviso considera todos os equipamentos da origem escolhida nessa página. Em Alertas, os demais filtros não restringem o som; Todas consulta Hardware e Simulação. Há aviso na primeira consulta com episódios abertos e repetição a cada 30 segundos enquanto persistirem. Zero episódios interrompe a repetição e permite avisar uma nova ocorrência. Uma subida de temperatura dentro da faixa não abre um alerta por tendência.
+
+Falha de rede, resposta inválida ou avaliador sem confirmação recente não autorizam novos bipes. O sistema tenta consultar novamente. Trocar de origem cancela a consulta anterior; mudança de acesso desativa o som. Página oculta pausa o aviso. Se o navegador interromper o áudio, será necessário ativar novamente. Silenciar afeta apenas esta página e não encerra episódios no banco. Navegar ou recarregar exige nova ativação.
+
+É áudio do computador ou celular, sem buzzer no ESP32. Mantenha a página visível, aparelho desbloqueado e volume ligado; não há garantia com navegador fechado ou tela bloqueada. A criação/retomada do AudioContext ocorre no clique, conforme as [orientações da Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Best_practices). A confirmação de audibilidade em cada aparelho é um ensaio manual separado dos testes DOM/HTTP.

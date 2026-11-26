@@ -8,12 +8,13 @@
   <title>ICEPLAY | Visão geral</title>
   <link rel="icon" href="/assets/iceplay-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/theme.css?v=20261109-pages">
-  <link rel="stylesheet" href="/styles.css?v=20261112-alertas">
+  <link rel="stylesheet" href="/styles.css?v=20261126-som">
   <script src="/shell.js?v=20261109-pages" defer></script>
   <script src="/acesso.js?v=20261114-leitor" defer></script>
   <script src="/app.js?v=20261109-pages" defer></script>
   <script type="module" src="/monitoramento.js?v=20261109-pages"></script>
   <script type="module" src="/alertas-resumo.js?v=20261112-alertas"></script>
+  <script type="module" src="/som-alertas.js?v=20261126-som"></script>
 </head>
 <body class="app-layout" data-page="dashboard">
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -37,6 +38,13 @@
     </header>
     <main id="conteudo" class="page-content">
       <header class="page-heading"><p class="eyebrow">ICEPLAY / Visão geral</p><h1>Visão geral</h1><p>Acompanhe as últimas medições, portas e o estado real da aplicação.</p></header>
+      <section id="som-alertas" class="settings-notice" aria-labelledby="som-titulo" hidden>
+        <h2 id="som-titulo">Aviso sonoro</h2>
+        <p>O som acompanha todas as geladeiras da origem selecionada nesta página. Selecione Hardware para acompanhar a ESP32.</p>
+        <div class="device-actions"><button id="som-ativar" class="button button-primary" type="button" aria-pressed="false">Ativar som</button><button id="som-testar" class="button button-secondary" type="button">Testar som</button><button id="som-silenciar" class="button button-secondary" type="button" disabled>Silenciar</button></div>
+        <p id="som-status" role="status" aria-live="polite">Som desativado.</p>
+        <p class="field-help">Mantenha esta página visível e o volume ligado. Ao trocar de página ou recarregar, ative novamente. Tela bloqueada e navegador fechado não têm aviso garantido. Silenciar não encerra os alertas.</p>
+      </section>
       <div class="overview-grid">
 <aside class="health-panel" aria-labelledby="health-title" id="health-panel" aria-busy="false">
           <div class="panel-heading">

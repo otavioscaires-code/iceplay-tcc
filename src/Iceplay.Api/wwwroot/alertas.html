@@ -8,10 +8,11 @@
   <title>ICEPLAY | Alertas</title>
   <link rel="icon" href="/assets/iceplay-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/theme.css?v=20261109-pages">
-  <link rel="stylesheet" href="/styles.css?v=20261112-alertas">
+  <link rel="stylesheet" href="/styles.css?v=20261126-som">
   <script src="/shell.js?v=20261109-pages" defer></script>
   <script src="/acesso.js?v=20261114-leitor" defer></script>
   <script type="module" src="/alertas.js?v=20261112-alertas"></script>
+  <script type="module" src="/som-alertas.js?v=20261126-som"></script>
 </head>
 <body class="app-layout" data-page="alertas">
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -35,6 +36,13 @@
     </header>
     <main id="conteudo" class="page-content">
       <header class="page-heading"><p class="eyebrow">ICEPLAY / Alertas</p><h1>Alertas</h1><p>Ocorrências e situação dos alertas de monitoramento.</p></header>
+      <section id="som-alertas" class="settings-notice" aria-labelledby="som-titulo" hidden>
+        <h2 id="som-titulo">Aviso sonoro</h2>
+        <p>O som acompanha todas as geladeiras da origem selecionada abaixo, independentemente dos outros filtros. Selecione Hardware para acompanhar a ESP32.</p>
+        <div class="device-actions"><button id="som-ativar" class="button button-primary" type="button" aria-pressed="false">Ativar som</button><button id="som-testar" class="button button-secondary" type="button">Testar som</button><button id="som-silenciar" class="button button-secondary" type="button" disabled>Silenciar</button></div>
+        <p id="som-status" role="status" aria-live="polite">Som desativado.</p>
+        <p class="field-help">Mantenha esta página visível e o volume ligado. Ao trocar de página ou recarregar, ative novamente. Tela bloqueada e navegador fechado não têm aviso garantido. Silenciar não encerra os alertas.</p>
+      </section>
       <p class="monitor-note">Ocorrências geradas pelos parâmetros ativos de cada geladeira. Encerrado pode significar normalização, interrupção dos dados ou mudança de configuração; confira o motivo. <a href="/configuracoes">Configurar monitoramento</a>.</p>
       <form id="alertas-form" class="history-filters alert-filters" method="get" action="/alertas">
         <div class="form-field"><label for="alertas-geladeira">Geladeira</label><select id="alertas-geladeira" name="geladeiraId"><option value="">Todas as geladeiras</option></select></div>

@@ -145,7 +145,7 @@ import { validarMonitoramento } from "./monitoramento-estado.mjs";
         if (response.status === 400) throw new ApiError("Os dados não foram aceitos. Revise o nome e a localização.", 400, problem?.errors);
         if (response.status === 404) throw new ApiError("Geladeira não encontrada. O cadastro pode ter sido removido; recarregue a lista.", 404);
         if (response.status === 409 && method === "DELETE") {
-          throw new ApiError("Esta geladeira possui leituras registradas e não pode ser excluída. O cadastro e as leituras foram preservados. Você pode continuar consultando e editando os cadastros.", 409);
+          throw new ApiError("Esta geladeira possui leituras ou alertas armazenados e não pode ser excluída. O cadastro e seu histórico foram preservados. Você pode continuar consultando e editando os cadastros.", 409);
         }
         if (response.status === 503) throw new ApiError("A API está temporariamente indisponível. Verifique a aplicação e recarregue a lista.", 503);
         const message = mutating
