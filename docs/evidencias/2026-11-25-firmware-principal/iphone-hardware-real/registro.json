@@ -1,0 +1,28 @@
+{
+  "recordedAtUtc": "2026-11-26T02:34:14.551533+00:00",
+  "source": "Captura do Safari no iPhone fornecida pelo aluno no chat, após orientação de acesso/pareamento",
+  "privateOriginalImageSha256": "4fb791e083315b49d8c3da52a9c2cd6e0919db7c5c125df18f88ec03105750ec",
+  "originalPreservedByteExact": true,
+  "imagePublishedToGit": false,
+  "visible": {
+    "readingId": 1171,
+    "temperatureText": "13,69 °C",
+    "doorText": "Fechada",
+    "measurementLocalText": "25/11/2026, 23:33:10",
+    "receptionLocalText": "25/11/2026, 23:33:10",
+    "originLabel": "HARDWARE DECLARADO",
+    "recencyText": "Leitura recente; há11s"
+  },
+  "sqliteRow": {
+    "Id": 1171,
+    "GeladeiraId": 1,
+    "TemperaturaC": 13.6875,
+    "PortaAberta": 0,
+    "MedidoEmUtc": "2026-11-26 02:33:10",
+    "RecebidoEmUtc": "2026-11-26 02:33:10.7922874",
+    "Origem": "Hardware",
+    "DispositivoId": 1
+  },
+  "roundedTemperatureAndDoorMatch": true,
+  "scope": "Comprova visualização móvel da aquisição física correlacionada ao ensaio autenticado do dispositivo1. Descrição do cadastro ainda é histórica de bancada, e não localização atual. Não é nova captura do histórico, câmera QR, hotspot ou notebook da apresentação. Acesso ocorreu após o reinício documentado da API."
+}

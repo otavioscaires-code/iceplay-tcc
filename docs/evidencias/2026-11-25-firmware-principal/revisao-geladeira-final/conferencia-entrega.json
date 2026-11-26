@@ -1,0 +1,12 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-11-26T02:59:44.931529+00:00",
+  "changedPublicFiles": 52,
+  "jsonFilesParsed": 22,
+  "privateValuesAcademicIdentifiersOrMacPatternsFound": 0,
+  "applicationTestsMigrationsAndFirmwareSourceUnchanged": true,
+  "originalDatabaseHashUnchanged": true,
+  "rawDoorCapturePreservedAfterHumanCorrection": true,
+  "figureManifestHashesPassed": true,
+  "scope": "Conferência da entrega documental/ensaios domésticos; não repete a suíte de software e não certifica calibração ou aplicação comercial."
+}

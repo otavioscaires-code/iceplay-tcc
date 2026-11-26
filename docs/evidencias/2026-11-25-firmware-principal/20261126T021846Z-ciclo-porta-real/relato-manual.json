@@ -1,0 +1,21 @@
+{
+  "recordedAtUtc": "2026-11-26T02:29:01.935064+00:00",
+  "source": "Relato manual do aluno no chat, posterior à captura instrumental",
+  "instrumentalCapture": "docs/evidencias/2026-11-25-firmware-principal/20261126T021846Z-ciclo-porta-real/ciclo-porta.json",
+  "instrumentalCaptureSha256": "a4368a759cb03f3897e66e89113e9150723e4d291b250c984646b4c946c75d1a",
+  "plannedOpenSecondsApproximate": 30,
+  "initialUserConfirmation": "Fiz a sequência e a porta está fechada",
+  "correctedUserReport": "Eu não deixei a porta aberta por 30 segundos, só por uns 10 e fechei. Faço novamente?",
+  "actualOpenSecondsReportedApproximate": 10,
+  "physicalDurationStopwatchMeasured": false,
+  "plannedThirtySecondPhysicalOpeningValidated": false,
+  "humanActionConfirmationPendingResolvedByThisAdendum": true,
+  "doorLeftClosedReported": true,
+  "wirelessMagnetsFixedOnlyToMovingDoorReported": 2,
+  "functionalStateSequenceObserved": true,
+  "doorAlertId": 10,
+  "closureReasonObserved": "CondicaoNormalizada",
+  "scope": "Ciclo funcional instalado observado na API/SQLite, com variação em relação ao procedimento previsto. A duração aproximada relatada não equivale ao intervalo dos estados amostrados. Não valida abertura física de 30 segundos, latência, alcance, debounce, exatidão ou estabilidade prolongada da instalação.",
+  "rawCaptureAndCriteriaPreserved": true,
+  "repeatRequested": false
+}

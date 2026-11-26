@@ -1,0 +1,119 @@
+Browser tab: 4, Title: "ICEPLAY | Alertas", URL: "http://localhost:5080/alertas?inicioUtc=2026-11-26T02%3A19%3A00.000Z&pagina=1&tamanhoPagina=20".
+1 AXWebArea ICEPLAY | Alertas, URL: localhost:5080/alertas?inicioUtc=2026-11-26T02%3A19%3A00.000Z&pagina=1&tamanhoPagina=20
+	2 link Description: Ir para o conteúdo, Value: localhost:5080/alertas?inicioUtc=2026-11-26T02%3A19%3A00.000Z&pagina=1&tamanhoPagina=20#conteudo
+	3 container Description: Menu do ICEPLAY, ID: menu-lateral
+		4 link Description: ICEPLAY, visão geral, Value: localhost:5080/dashboard
+		5 text Monitoramento inteligente
+		6 container Navegação principal
+			7 link Description: Visão geral, Value: localhost:5080/dashboard
+			8 link Description: Geladeiras, Value: localhost:5080/geladeiras
+			9 link Description: Histórico, Value: localhost:5080/historico
+			10 link Description: Alertas, Value: localhost:5080/alertas
+			11 link Description: Configurações, Value: localhost:5080/configuracoes
+		12 link Description: Sobre o projeto, Value: localhost:5080/sobre
+		13 text ICEPLAY · TCC
+	14 container
+		15 text ICEPLAY   Alertas
+		16 text Acesso local neste computador. Não é necessário informar um código.
+	17 container conteudo
+		18 container
+			19 text ICEPLAY / ALERTAS
+			20 heading Alertas, Value: 1
+				21 text Alertas
+			22 text Ocorrências e situação dos alertas de monitoramento.
+		23 container
+			24 text Ocorrências geradas pelos parâmetros ativos de cada geladeira. Encerrado pode significar normalização, interrupção dos dados ou mudança de configuração; confira o motivo. 
+			25 link Description: Configurar monitoramento, Value: localhost:5080/configuracoes
+			26 text .
+		27 container alertas-form
+			28 text Geladeira
+			29 pop up button (collapsed, settable) Geladeira, Value: Todas as geladeiras, ID: alertas-geladeira, Secondary Actions: Expand
+				30 menu
+					31 (selected) Todas as geladeiras
+					32 Prototipo ICEPLAY - bancada real · #1
+			33 text Origem
+			34 pop up button (collapsed, settable) Origem, Value: Todas, ID: alertas-origem, Secondary Actions: Expand
+				35 menu
+					36 (selected) Todas
+					37 Simulação
+					38 Hardware declarado
+			39 text Tipo
+			40 pop up button (collapsed, settable) Tipo, Value: Todos, ID: alertas-tipo, Secondary Actions: Expand
+				41 menu
+					42 (selected) Todos
+					43 Temperatura fora da faixa
+					44 Porta aberta
+					45 Ausência de leituras
+			46 text Gravidade
+			47 pop up button (collapsed, settable) Gravidade, Value: Todas, ID: alertas-gravidade, Secondary Actions: Expand
+				48 menu
+					49 (selected) Todas
+					50 Atenção
+					51 Crítico
+			52 text Situação
+			53 pop up button (collapsed, settable) Situação, Value: Todas, ID: alertas-situacao, Secondary Actions: Expand
+				54 menu
+					55 (selected) Todas
+					56 Aberto
+					57 Encerrado
+			58 text Abertura a partir de (hora local)
+			59 date field (settable) Abertura a partir de (hora local), Value: 2026-11-25T23:19, ID: alertas-inicio
+				60 container
+					61 stepper
+					62 stepper
+					63 stepper
+					64 stepper
+					65 stepper
+					66 stepper
+				67 pop up button Mostrar seletor de horário e data local Mostrar seletor de horário e data local
+			68 text Abertura até (hora local)
+			69 date field (settable) Abertura até (hora local), ID: alertas-fim
+				70 container
+					71 stepper
+					72 stepper
+					73 stepper
+					74 stepper
+					75 stepper
+					76 stepper
+				77 pop up button Mostrar seletor de horário e data local Mostrar seletor de horário e data local
+			78 text Ocorrências por página
+			79 pop up button (collapsed, settable) Ocorrências por página, Value: 20, ID: alertas-tamanho, Secondary Actions: Expand
+				80 menu
+					81 (selected) 20
+					82 50
+					83 100
+			84 button Buscar alertas, ID: alertas-buscar
+		319 text Consulta concluída. Encerramento e normalização são distinguidos pelo motivo.
+		320 text 1 ocorrência(s); 1 nesta página. Datas no horário local.
+		321 container
+			322 heading Porta aberta, Value: 3
+				323 text Porta aberta
+			324 text Atenção · Encerrado Prototipo ICEPLAY - bancada real · #1 HARDWARE DECLARADO
+			325 definition list
+				326 container Abertura da ocorrência
+					327 text Abertura da ocorrência
+				328 text 25/11/2026, 23:20:02
+				329 container Início observado da condição
+					330 text Início observado da condição
+				331 text 25/11/2026, 23:19:51
+				332 container Última evidência de medição
+					333 text Última evidência de medição
+				334 text 25/11/2026, 23:20:11
+				335 container Prazo usado
+					336 text Prazo usado
+				337 text 10 segundos
+				338 container Encerramento
+					339 text Encerramento
+				340 text 25/11/2026, 23:20:21
+			341 text Condição normalizada por medição recente
+			342 link Description: Consultar histórico da geladeira, Value: localhost:5080/historico?geladeiraId=1&origem=Hardware
+		311 container Paginação de alertas
+			312 button (disabled) Anterior, ID: alertas-anterior
+			343 text Página 1 de 1
+			314 button (disabled) Próxima, ID: alertas-proxima
+		315 text Atualização a cada 15 segundos enquanto os filtros estiverem aplicados e a página visível. Ausência de ocorrências não confirma funcionamento de equipamentos sem configuração ativa. Simulação permanece identificada.
+	316 container
+		317 text ICEPLAY · Monitoramento de geladeiras
+		318 link Description: Base técnica e próximas etapas, Value: localhost:5080/sobre
+
+The focused UI element is 1 AXWebArea ICEPLAY | Alertas, URL: localhost:5080/alertas?inicioUtc=2026-11-26T02%3A19%3A00.000Z&pagina=1&tamanhoPagina=20

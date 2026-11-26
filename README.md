@@ -1,5 +1,7 @@
 # ICEPLAY
 
+**Ensaio físico documentado em25/11/2026:** principal ESP32 gravado, envio HTTPS autenticado, SQLite, painel desktop/iPhone, episódios de porta/temperatura, ausência/recuperação e persistência após reinício. Instalação removível e aquisições em geladeira doméstica registradas; a primeira janela desligada e a abertura física aproximada de10s foram corrigidas explicitamente. [Resultados, critérios e limitações](docs/etapa-integracao-fisica-2026-11-25.md). Sem calibração ou ensaio comercial; rede/notebook da apresentação permanecem sem validação própria.
+
 **Monografia após os controles de ausência e reinício:** [cópia privada atualizada](docs/etapa-monografia-bancada-2026-11-25.md),41 páginas/16 figuras/cinco tabelas, com RF10/RNF02, captura real do alerta de ausência e persistência das 802 leituras. Sumário, listas e páginas conferidos; versões anteriores preservadas. Recuperação, instalação em geladeira e ambiente da apresentação ainda exigem seus registros.
 
 **Noite de 25/11 — ausência e persistência reais:** o ESP32 desligado deixou de enviar, e o sistema abriu o alerta de ausência após 45,03 s. O reinício posterior da API preservou as 802 leituras, quatro episódios e todas as demais linhas do banco. [Relatório com evidências](docs/etapa-integracao-fisica-2026-11-25.md). Recuperação e observação na geladeira doméstica ainda estão em preparação; a monografia anterior será atualizada com os novos resultados. O ensaio no computador e na rede da apresentação continua necessário.

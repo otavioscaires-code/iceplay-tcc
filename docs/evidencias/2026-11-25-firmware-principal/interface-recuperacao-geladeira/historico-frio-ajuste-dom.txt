@@ -1,0 +1,635 @@
+- link "Ir para o conteúdo":
+  - /url: "#conteudo"
+- complementary "Menu do ICEPLAY":
+  - link "ICEPLAY, visão geral":
+    - /url: /dashboard
+    - generic: ICEPLAY
+  - paragraph: Monitoramento inteligente
+  - navigation "Navegação principal":
+    - link "Visão geral":
+      - /url: /dashboard
+      - generic: Visão geral
+    - link "Geladeiras":
+      - /url: /geladeiras
+      - generic: Geladeiras
+    - link "Histórico":
+      - /url: /historico
+      - generic: Histórico
+    - link "Alertas":
+      - /url: /alertas
+      - generic: Alertas
+    - link "Configurações":
+      - /url: /configuracoes
+      - generic: Configurações
+  - link "Sobre o projeto":
+    - /url: /sobre
+  - generic: ICEPLAY · TCC
+- banner:
+  - generic: ICEPLAY / Histórico
+  - status: Acesso local neste computador. Não é necessário informar um código.
+- main:
+  - paragraph: ICEPLAY / Histórico
+  - heading "Histórico" [level=1]
+  - paragraph: Consulte as medições armazenadas, por equipamento, origem e período.
+  - region "Consulta de leituras armazenadas":
+    - heading "Consulta de leituras armazenadas" [level=2]
+    - generic: Geladeira
+    - combobox "Geladeira":
+      - 'option "Prototipo ICEPLAY - bancada real · #1" [selected]'
+    - generic: Origem
+    - combobox "Origem":
+      - option "Simulação"
+      - option "Hardware declarado" [selected]
+    - generic: Medição a partir de (hora local)
+    - textbox "Medição a partir de (hora local)"
+    - generic: Medição até (hora local)
+    - textbox "Medição até (hora local)"
+    - generic: Leituras por página
+    - combobox "Leituras por página":
+      - option "20"
+      - option "50" [selected]
+      - option "100"
+    - button "Buscar leituras"
+    - paragraph: O período filtra o horário da medição, incluindo os limites, convertido para UTC na consulta. Hardware é uma origem declarada. As páginas podem mudar com novos envios.
+    - status: Histórico consultado. O gráfico mostra somente as leituras desta página.
+    - region "Temperatura na página consultada":
+      - heading "Temperatura na página consultada" [level=2]
+      - paragraph: Gráfico dos pontos desta página, em ordem de medição; não representa todo o período. A escala é visual, não um limite de alerta. A tabela preserva os valores e horários completos.
+      - region "Gráfico de temperatura da página consultada":
+        - img "Temperaturas das leituras da página atual 50 leitura(s), em ordem do horário de medição. Valores e datas completos também disponíveis na tabela. A linha conecta as amostras exibidas e não representa medições entre elas. A escala vertical é visual e não define limites de alerta.":
+          - generic: 9,38 °C
+          - generic: 9,31 °C
+          - 'generic "Leitura #806: 9,38 °C; 25/11/2026, 22:35:38; UTC: 2026-11-26T01:35:38Z"'
+          - 'generic "Leitura #807: 9,38 °C; 25/11/2026, 22:35:48; UTC: 2026-11-26T01:35:48Z"'
+          - 'generic "Leitura #808: 9,38 °C; 25/11/2026, 22:35:58; UTC: 2026-11-26T01:35:58Z"'
+          - 'generic "Leitura #809: 9,38 °C; 25/11/2026, 22:36:08; UTC: 2026-11-26T01:36:08Z"'
+          - 'generic "Leitura #810: 9,38 °C; 25/11/2026, 22:36:18; UTC: 2026-11-26T01:36:18Z"'
+          - 'generic "Leitura #811: 9,38 °C; 25/11/2026, 22:36:28; UTC: 2026-11-26T01:36:28Z"'
+          - 'generic "Leitura #812: 9,38 °C; 25/11/2026, 22:36:38; UTC: 2026-11-26T01:36:38Z"'
+          - 'generic "Leitura #813: 9,38 °C; 25/11/2026, 22:36:48; UTC: 2026-11-26T01:36:48Z"'
+          - 'generic "Leitura #814: 9,38 °C; 25/11/2026, 22:36:58; UTC: 2026-11-26T01:36:58Z"'
+          - 'generic "Leitura #815: 9,38 °C; 25/11/2026, 22:37:08; UTC: 2026-11-26T01:37:08Z"'
+          - 'generic "Leitura #816: 9,38 °C; 25/11/2026, 22:37:18; UTC: 2026-11-26T01:37:18Z"'
+          - 'generic "Leitura #817: 9,38 °C; 25/11/2026, 22:37:28; UTC: 2026-11-26T01:37:28Z"'
+          - 'generic "Leitura #818: 9,38 °C; 25/11/2026, 22:37:38; UTC: 2026-11-26T01:37:38Z"'
+          - 'generic "Leitura #819: 9,38 °C; 25/11/2026, 22:37:48; UTC: 2026-11-26T01:37:48Z"'
+          - 'generic "Leitura #820: 9,38 °C; 25/11/2026, 22:37:52; UTC: 2026-11-26T01:37:52Z"'
+          - 'generic "Leitura #821: 9,38 °C; 25/11/2026, 22:37:54; UTC: 2026-11-26T01:37:54Z"'
+          - 'generic "Leitura #822: 9,38 °C; 25/11/2026, 22:37:56; UTC: 2026-11-26T01:37:56Z"'
+          - 'generic "Leitura #823: 9,38 °C; 25/11/2026, 22:37:59; UTC: 2026-11-26T01:37:59Z"'
+          - 'generic "Leitura #824: 9,38 °C; 25/11/2026, 22:38:07; UTC: 2026-11-26T01:38:07Z"'
+          - 'generic "Leitura #825: 9,38 °C; 25/11/2026, 22:38:17; UTC: 2026-11-26T01:38:17Z"'
+          - 'generic "Leitura #826: 9,38 °C; 25/11/2026, 22:38:27; UTC: 2026-11-26T01:38:27Z"'
+          - 'generic "Leitura #827: 9,38 °C; 25/11/2026, 22:38:37; UTC: 2026-11-26T01:38:37Z"'
+          - 'generic "Leitura #828: 9,38 °C; 25/11/2026, 22:38:47; UTC: 2026-11-26T01:38:47Z"'
+          - 'generic "Leitura #829: 9,38 °C; 25/11/2026, 22:38:57; UTC: 2026-11-26T01:38:57Z"'
+          - 'generic "Leitura #830: 9,38 °C; 25/11/2026, 22:39:07; UTC: 2026-11-26T01:39:07Z"'
+          - 'generic "Leitura #831: 9,38 °C; 25/11/2026, 22:39:17; UTC: 2026-11-26T01:39:17Z"'
+          - 'generic "Leitura #832: 9,31 °C; 25/11/2026, 22:39:27; UTC: 2026-11-26T01:39:27Z"'
+          - 'generic "Leitura #833: 9,38 °C; 25/11/2026, 22:39:37; UTC: 2026-11-26T01:39:37Z"'
+          - 'generic "Leitura #834: 9,31 °C; 25/11/2026, 22:39:47; UTC: 2026-11-26T01:39:47Z"'
+          - 'generic "Leitura #835: 9,31 °C; 25/11/2026, 22:39:57; UTC: 2026-11-26T01:39:57Z"'
+          - 'generic "Leitura #836: 9,31 °C; 25/11/2026, 22:40:07; UTC: 2026-11-26T01:40:07Z"'
+          - 'generic "Leitura #837: 9,38 °C; 25/11/2026, 22:40:17; UTC: 2026-11-26T01:40:17Z"'
+          - 'generic "Leitura #838: 9,31 °C; 25/11/2026, 22:40:27; UTC: 2026-11-26T01:40:27Z"'
+          - 'generic "Leitura #839: 9,31 °C; 25/11/2026, 22:40:37; UTC: 2026-11-26T01:40:37Z"'
+          - 'generic "Leitura #840: 9,31 °C; 25/11/2026, 22:40:47; UTC: 2026-11-26T01:40:47Z"'
+          - 'generic "Leitura #841: 9,31 °C; 25/11/2026, 22:40:57; UTC: 2026-11-26T01:40:57Z"'
+          - 'generic "Leitura #842: 9,31 °C; 25/11/2026, 22:41:07; UTC: 2026-11-26T01:41:07Z"'
+          - 'generic "Leitura #843: 9,31 °C; 25/11/2026, 22:41:17; UTC: 2026-11-26T01:41:17Z"'
+          - 'generic "Leitura #844: 9,31 °C; 25/11/2026, 22:41:27; UTC: 2026-11-26T01:41:27Z"'
+          - 'generic "Leitura #845: 9,31 °C; 25/11/2026, 22:41:37; UTC: 2026-11-26T01:41:37Z"'
+          - 'generic "Leitura #846: 9,31 °C; 25/11/2026, 22:41:47; UTC: 2026-11-26T01:41:47Z"'
+          - 'generic "Leitura #847: 9,31 °C; 25/11/2026, 22:41:57; UTC: 2026-11-26T01:41:57Z"'
+          - 'generic "Leitura #848: 9,31 °C; 25/11/2026, 22:42:07; UTC: 2026-11-26T01:42:07Z"'
+          - 'generic "Leitura #849: 9,31 °C; 25/11/2026, 22:42:17; UTC: 2026-11-26T01:42:17Z"'
+          - 'generic "Leitura #850: 9,31 °C; 25/11/2026, 22:42:27; UTC: 2026-11-26T01:42:27Z"'
+          - 'generic "Leitura #851: 9,31 °C; 25/11/2026, 22:42:37; UTC: 2026-11-26T01:42:37Z"'
+          - 'generic "Leitura #852: 9,31 °C; 25/11/2026, 22:42:47; UTC: 2026-11-26T01:42:47Z"'
+          - 'generic "Leitura #853: 9,31 °C; 25/11/2026, 22:42:57; UTC: 2026-11-26T01:42:57Z"'
+          - 'generic "Leitura #854: 9,31 °C; 25/11/2026, 22:43:07; UTC: 2026-11-26T01:43:07Z"'
+          - 'generic "Leitura #855: 9,31 °C; 25/11/2026, 22:43:17; UTC: 2026-11-26T01:43:17Z"'
+          - generic: 25/11/2026, 22:35:38
+          - generic: 25/11/2026, 22:43:17
+    - paragraph: "855 leitura(s) no filtro; 50 nesta página. Origem: Hardware declarado."
+    - region "Tabela de leituras":
+      - table "Leituras da página consultada, em ordem decrescente de medição":
+        - caption: Leituras da página consultada, em ordem decrescente de medição
+        - rowgroup:
+          - row "ID Geladeira Temperatura Porta Medição (hora local) Recebimento (hora local) Origem":
+            - columnheader "ID"
+            - columnheader "Geladeira"
+            - columnheader "Temperatura"
+            - columnheader "Porta"
+            - columnheader "Medição (hora local)"
+            - columnheader "Recebimento (hora local)"
+            - columnheader "Origem"
+        - rowgroup:
+          - 'row "#855 #1 9,31 °C Aberta 25/11/2026, 22:43:17 25/11/2026, 22:43:17 Hardware declarado"':
+            - cell "#855"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:43:17":
+              - time: 25/11/2026, 22:43:17
+            - cell "25/11/2026, 22:43:17":
+              - time: 25/11/2026, 22:43:17
+            - cell "Hardware declarado"
+          - 'row "#854 #1 9,31 °C Aberta 25/11/2026, 22:43:07 25/11/2026, 22:43:07 Hardware declarado"':
+            - cell "#854"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:43:07":
+              - time: 25/11/2026, 22:43:07
+            - cell "25/11/2026, 22:43:07":
+              - time: 25/11/2026, 22:43:07
+            - cell "Hardware declarado"
+          - 'row "#853 #1 9,31 °C Aberta 25/11/2026, 22:42:57 25/11/2026, 22:42:58 Hardware declarado"':
+            - cell "#853"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:42:57":
+              - time: 25/11/2026, 22:42:57
+            - cell "25/11/2026, 22:42:58":
+              - time: 25/11/2026, 22:42:58
+            - cell "Hardware declarado"
+          - 'row "#852 #1 9,31 °C Aberta 25/11/2026, 22:42:47 25/11/2026, 22:42:48 Hardware declarado"':
+            - cell "#852"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:42:47":
+              - time: 25/11/2026, 22:42:47
+            - cell "25/11/2026, 22:42:48":
+              - time: 25/11/2026, 22:42:48
+            - cell "Hardware declarado"
+          - 'row "#851 #1 9,31 °C Aberta 25/11/2026, 22:42:37 25/11/2026, 22:42:37 Hardware declarado"':
+            - cell "#851"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:42:37":
+              - time: 25/11/2026, 22:42:37
+            - cell "25/11/2026, 22:42:37":
+              - time: 25/11/2026, 22:42:37
+            - cell "Hardware declarado"
+          - 'row "#850 #1 9,31 °C Aberta 25/11/2026, 22:42:27 25/11/2026, 22:42:28 Hardware declarado"':
+            - cell "#850"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:42:27":
+              - time: 25/11/2026, 22:42:27
+            - cell "25/11/2026, 22:42:28":
+              - time: 25/11/2026, 22:42:28
+            - cell "Hardware declarado"
+          - 'row "#849 #1 9,31 °C Aberta 25/11/2026, 22:42:17 25/11/2026, 22:42:18 Hardware declarado"':
+            - cell "#849"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:42:17":
+              - time: 25/11/2026, 22:42:17
+            - cell "25/11/2026, 22:42:18":
+              - time: 25/11/2026, 22:42:18
+            - cell "Hardware declarado"
+          - 'row "#848 #1 9,31 °C Aberta 25/11/2026, 22:42:07 25/11/2026, 22:42:08 Hardware declarado"':
+            - cell "#848"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:42:07":
+              - time: 25/11/2026, 22:42:07
+            - cell "25/11/2026, 22:42:08":
+              - time: 25/11/2026, 22:42:08
+            - cell "Hardware declarado"
+          - 'row "#847 #1 9,31 °C Aberta 25/11/2026, 22:41:57 25/11/2026, 22:41:57 Hardware declarado"':
+            - cell "#847"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:41:57":
+              - time: 25/11/2026, 22:41:57
+            - cell "25/11/2026, 22:41:57":
+              - time: 25/11/2026, 22:41:57
+            - cell "Hardware declarado"
+          - 'row "#846 #1 9,31 °C Aberta 25/11/2026, 22:41:47 25/11/2026, 22:41:47 Hardware declarado"':
+            - cell "#846"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:41:47":
+              - time: 25/11/2026, 22:41:47
+            - cell "25/11/2026, 22:41:47":
+              - time: 25/11/2026, 22:41:47
+            - cell "Hardware declarado"
+          - 'row "#845 #1 9,31 °C Aberta 25/11/2026, 22:41:37 25/11/2026, 22:41:38 Hardware declarado"':
+            - cell "#845"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:41:37":
+              - time: 25/11/2026, 22:41:37
+            - cell "25/11/2026, 22:41:38":
+              - time: 25/11/2026, 22:41:38
+            - cell "Hardware declarado"
+          - 'row "#844 #1 9,31 °C Aberta 25/11/2026, 22:41:27 25/11/2026, 22:41:28 Hardware declarado"':
+            - cell "#844"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:41:27":
+              - time: 25/11/2026, 22:41:27
+            - cell "25/11/2026, 22:41:28":
+              - time: 25/11/2026, 22:41:28
+            - cell "Hardware declarado"
+          - 'row "#843 #1 9,31 °C Aberta 25/11/2026, 22:41:17 25/11/2026, 22:41:18 Hardware declarado"':
+            - cell "#843"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:41:17":
+              - time: 25/11/2026, 22:41:17
+            - cell "25/11/2026, 22:41:18":
+              - time: 25/11/2026, 22:41:18
+            - cell "Hardware declarado"
+          - 'row "#842 #1 9,31 °C Aberta 25/11/2026, 22:41:07 25/11/2026, 22:41:07 Hardware declarado"':
+            - cell "#842"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:41:07":
+              - time: 25/11/2026, 22:41:07
+            - cell "25/11/2026, 22:41:07":
+              - time: 25/11/2026, 22:41:07
+            - cell "Hardware declarado"
+          - 'row "#841 #1 9,31 °C Aberta 25/11/2026, 22:40:57 25/11/2026, 22:40:58 Hardware declarado"':
+            - cell "#841"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:40:57":
+              - time: 25/11/2026, 22:40:57
+            - cell "25/11/2026, 22:40:58":
+              - time: 25/11/2026, 22:40:58
+            - cell "Hardware declarado"
+          - 'row "#840 #1 9,31 °C Aberta 25/11/2026, 22:40:47 25/11/2026, 22:40:47 Hardware declarado"':
+            - cell "#840"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:40:47":
+              - time: 25/11/2026, 22:40:47
+            - cell "25/11/2026, 22:40:47":
+              - time: 25/11/2026, 22:40:47
+            - cell "Hardware declarado"
+          - 'row "#839 #1 9,31 °C Aberta 25/11/2026, 22:40:37 25/11/2026, 22:40:37 Hardware declarado"':
+            - cell "#839"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:40:37":
+              - time: 25/11/2026, 22:40:37
+            - cell "25/11/2026, 22:40:37":
+              - time: 25/11/2026, 22:40:37
+            - cell "Hardware declarado"
+          - 'row "#838 #1 9,31 °C Aberta 25/11/2026, 22:40:27 25/11/2026, 22:40:28 Hardware declarado"':
+            - cell "#838"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:40:27":
+              - time: 25/11/2026, 22:40:27
+            - cell "25/11/2026, 22:40:28":
+              - time: 25/11/2026, 22:40:28
+            - cell "Hardware declarado"
+          - 'row "#837 #1 9,38 °C Aberta 25/11/2026, 22:40:17 25/11/2026, 22:40:17 Hardware declarado"':
+            - cell "#837"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:40:17":
+              - time: 25/11/2026, 22:40:17
+            - cell "25/11/2026, 22:40:17":
+              - time: 25/11/2026, 22:40:17
+            - cell "Hardware declarado"
+          - 'row "#836 #1 9,31 °C Aberta 25/11/2026, 22:40:07 25/11/2026, 22:40:07 Hardware declarado"':
+            - cell "#836"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:40:07":
+              - time: 25/11/2026, 22:40:07
+            - cell "25/11/2026, 22:40:07":
+              - time: 25/11/2026, 22:40:07
+            - cell "Hardware declarado"
+          - 'row "#835 #1 9,31 °C Aberta 25/11/2026, 22:39:57 25/11/2026, 22:39:57 Hardware declarado"':
+            - cell "#835"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:39:57":
+              - time: 25/11/2026, 22:39:57
+            - cell "25/11/2026, 22:39:57":
+              - time: 25/11/2026, 22:39:57
+            - cell "Hardware declarado"
+          - 'row "#834 #1 9,31 °C Aberta 25/11/2026, 22:39:47 25/11/2026, 22:39:47 Hardware declarado"':
+            - cell "#834"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:39:47":
+              - time: 25/11/2026, 22:39:47
+            - cell "25/11/2026, 22:39:47":
+              - time: 25/11/2026, 22:39:47
+            - cell "Hardware declarado"
+          - 'row "#833 #1 9,38 °C Aberta 25/11/2026, 22:39:37 25/11/2026, 22:39:37 Hardware declarado"':
+            - cell "#833"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:39:37":
+              - time: 25/11/2026, 22:39:37
+            - cell "25/11/2026, 22:39:37":
+              - time: 25/11/2026, 22:39:37
+            - cell "Hardware declarado"
+          - 'row "#832 #1 9,31 °C Aberta 25/11/2026, 22:39:27 25/11/2026, 22:39:28 Hardware declarado"':
+            - cell "#832"
+            - cell "#1"
+            - cell "9,31 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:39:27":
+              - time: 25/11/2026, 22:39:27
+            - cell "25/11/2026, 22:39:28":
+              - time: 25/11/2026, 22:39:28
+            - cell "Hardware declarado"
+          - 'row "#831 #1 9,38 °C Aberta 25/11/2026, 22:39:17 25/11/2026, 22:39:17 Hardware declarado"':
+            - cell "#831"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:39:17":
+              - time: 25/11/2026, 22:39:17
+            - cell "25/11/2026, 22:39:17":
+              - time: 25/11/2026, 22:39:17
+            - cell "Hardware declarado"
+          - 'row "#830 #1 9,38 °C Aberta 25/11/2026, 22:39:07 25/11/2026, 22:39:07 Hardware declarado"':
+            - cell "#830"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:39:07":
+              - time: 25/11/2026, 22:39:07
+            - cell "25/11/2026, 22:39:07":
+              - time: 25/11/2026, 22:39:07
+            - cell "Hardware declarado"
+          - 'row "#829 #1 9,38 °C Aberta 25/11/2026, 22:38:57 25/11/2026, 22:38:57 Hardware declarado"':
+            - cell "#829"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:38:57":
+              - time: 25/11/2026, 22:38:57
+            - cell "25/11/2026, 22:38:57":
+              - time: 25/11/2026, 22:38:57
+            - cell "Hardware declarado"
+          - 'row "#828 #1 9,38 °C Aberta 25/11/2026, 22:38:47 25/11/2026, 22:38:48 Hardware declarado"':
+            - cell "#828"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:38:47":
+              - time: 25/11/2026, 22:38:47
+            - cell "25/11/2026, 22:38:48":
+              - time: 25/11/2026, 22:38:48
+            - cell "Hardware declarado"
+          - 'row "#827 #1 9,38 °C Aberta 25/11/2026, 22:38:37 25/11/2026, 22:38:37 Hardware declarado"':
+            - cell "#827"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:38:37":
+              - time: 25/11/2026, 22:38:37
+            - cell "25/11/2026, 22:38:37":
+              - time: 25/11/2026, 22:38:37
+            - cell "Hardware declarado"
+          - 'row "#826 #1 9,38 °C Aberta 25/11/2026, 22:38:27 25/11/2026, 22:38:27 Hardware declarado"':
+            - cell "#826"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:38:27":
+              - time: 25/11/2026, 22:38:27
+            - cell "25/11/2026, 22:38:27":
+              - time: 25/11/2026, 22:38:27
+            - cell "Hardware declarado"
+          - 'row "#825 #1 9,38 °C Aberta 25/11/2026, 22:38:17 25/11/2026, 22:38:17 Hardware declarado"':
+            - cell "#825"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:38:17":
+              - time: 25/11/2026, 22:38:17
+            - cell "25/11/2026, 22:38:17":
+              - time: 25/11/2026, 22:38:17
+            - cell "Hardware declarado"
+          - 'row "#824 #1 9,38 °C Aberta 25/11/2026, 22:38:07 25/11/2026, 22:38:07 Hardware declarado"':
+            - cell "#824"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:38:07":
+              - time: 25/11/2026, 22:38:07
+            - cell "25/11/2026, 22:38:07":
+              - time: 25/11/2026, 22:38:07
+            - cell "Hardware declarado"
+          - 'row "#823 #1 9,38 °C Aberta 25/11/2026, 22:37:59 25/11/2026, 22:37:59 Hardware declarado"':
+            - cell "#823"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:37:59":
+              - time: 25/11/2026, 22:37:59
+            - cell "25/11/2026, 22:37:59":
+              - time: 25/11/2026, 22:37:59
+            - cell "Hardware declarado"
+          - 'row "#822 #1 9,38 °C Aberta 25/11/2026, 22:37:56 25/11/2026, 22:37:57 Hardware declarado"':
+            - cell "#822"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:37:56":
+              - time: 25/11/2026, 22:37:56
+            - cell "25/11/2026, 22:37:57":
+              - time: 25/11/2026, 22:37:57
+            - cell "Hardware declarado"
+          - 'row "#821 #1 9,38 °C Fechada 25/11/2026, 22:37:54 25/11/2026, 22:37:55 Hardware declarado"':
+            - cell "#821"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Fechada"
+            - cell "25/11/2026, 22:37:54":
+              - time: 25/11/2026, 22:37:54
+            - cell "25/11/2026, 22:37:55":
+              - time: 25/11/2026, 22:37:55
+            - cell "Hardware declarado"
+          - 'row "#820 #1 9,38 °C Aberta 25/11/2026, 22:37:52 25/11/2026, 22:37:52 Hardware declarado"':
+            - cell "#820"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:37:52":
+              - time: 25/11/2026, 22:37:52
+            - cell "25/11/2026, 22:37:52":
+              - time: 25/11/2026, 22:37:52
+            - cell "Hardware declarado"
+          - 'row "#819 #1 9,38 °C Aberta 25/11/2026, 22:37:48 25/11/2026, 22:37:49 Hardware declarado"':
+            - cell "#819"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:37:48":
+              - time: 25/11/2026, 22:37:48
+            - cell "25/11/2026, 22:37:49":
+              - time: 25/11/2026, 22:37:49
+            - cell "Hardware declarado"
+          - 'row "#818 #1 9,38 °C Aberta 25/11/2026, 22:37:38 25/11/2026, 22:37:38 Hardware declarado"':
+            - cell "#818"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:37:38":
+              - time: 25/11/2026, 22:37:38
+            - cell "25/11/2026, 22:37:38":
+              - time: 25/11/2026, 22:37:38
+            - cell "Hardware declarado"
+          - 'row "#817 #1 9,38 °C Aberta 25/11/2026, 22:37:28 25/11/2026, 22:37:28 Hardware declarado"':
+            - cell "#817"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:37:28":
+              - time: 25/11/2026, 22:37:28
+            - cell "25/11/2026, 22:37:28":
+              - time: 25/11/2026, 22:37:28
+            - cell "Hardware declarado"
+          - 'row "#816 #1 9,38 °C Aberta 25/11/2026, 22:37:18 25/11/2026, 22:37:19 Hardware declarado"':
+            - cell "#816"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:37:18":
+              - time: 25/11/2026, 22:37:18
+            - cell "25/11/2026, 22:37:19":
+              - time: 25/11/2026, 22:37:19
+            - cell "Hardware declarado"
+          - 'row "#815 #1 9,38 °C Aberta 25/11/2026, 22:37:08 25/11/2026, 22:37:09 Hardware declarado"':
+            - cell "#815"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:37:08":
+              - time: 25/11/2026, 22:37:08
+            - cell "25/11/2026, 22:37:09":
+              - time: 25/11/2026, 22:37:09
+            - cell "Hardware declarado"
+          - 'row "#814 #1 9,38 °C Aberta 25/11/2026, 22:36:58 25/11/2026, 22:36:59 Hardware declarado"':
+            - cell "#814"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:36:58":
+              - time: 25/11/2026, 22:36:58
+            - cell "25/11/2026, 22:36:59":
+              - time: 25/11/2026, 22:36:59
+            - cell "Hardware declarado"
+          - 'row "#813 #1 9,38 °C Aberta 25/11/2026, 22:36:48 25/11/2026, 22:36:49 Hardware declarado"':
+            - cell "#813"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:36:48":
+              - time: 25/11/2026, 22:36:48
+            - cell "25/11/2026, 22:36:49":
+              - time: 25/11/2026, 22:36:49
+            - cell "Hardware declarado"
+          - 'row "#812 #1 9,38 °C Aberta 25/11/2026, 22:36:38 25/11/2026, 22:36:39 Hardware declarado"':
+            - cell "#812"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:36:38":
+              - time: 25/11/2026, 22:36:38
+            - cell "25/11/2026, 22:36:39":
+              - time: 25/11/2026, 22:36:39
+            - cell "Hardware declarado"
+          - 'row "#811 #1 9,38 °C Aberta 25/11/2026, 22:36:28 25/11/2026, 22:36:28 Hardware declarado"':
+            - cell "#811"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:36:28":
+              - time: 25/11/2026, 22:36:28
+            - cell "25/11/2026, 22:36:28":
+              - time: 25/11/2026, 22:36:28
+            - cell "Hardware declarado"
+          - 'row "#810 #1 9,38 °C Aberta 25/11/2026, 22:36:18 25/11/2026, 22:36:18 Hardware declarado"':
+            - cell "#810"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:36:18":
+              - time: 25/11/2026, 22:36:18
+            - cell "25/11/2026, 22:36:18":
+              - time: 25/11/2026, 22:36:18
+            - cell "Hardware declarado"
+          - 'row "#809 #1 9,38 °C Aberta 25/11/2026, 22:36:08 25/11/2026, 22:36:08 Hardware declarado"':
+            - cell "#809"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:36:08":
+              - time: 25/11/2026, 22:36:08
+            - cell "25/11/2026, 22:36:08":
+              - time: 25/11/2026, 22:36:08
+            - cell "Hardware declarado"
+          - 'row "#808 #1 9,38 °C Aberta 25/11/2026, 22:35:58 25/11/2026, 22:35:58 Hardware declarado"':
+            - cell "#808"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:35:58":
+              - time: 25/11/2026, 22:35:58
+            - cell "25/11/2026, 22:35:58":
+              - time: 25/11/2026, 22:35:58
+            - cell "Hardware declarado"
+          - 'row "#807 #1 9,38 °C Aberta 25/11/2026, 22:35:48 25/11/2026, 22:35:48 Hardware declarado"':
+            - cell "#807"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:35:48":
+              - time: 25/11/2026, 22:35:48
+            - cell "25/11/2026, 22:35:48":
+              - time: 25/11/2026, 22:35:48
+            - cell "Hardware declarado"
+          - 'row "#806 #1 9,38 °C Aberta 25/11/2026, 22:35:38 25/11/2026, 22:35:38 Hardware declarado"':
+            - cell "#806"
+            - cell "#1"
+            - cell "9,38 °C"
+            - cell "Aberta"
+            - cell "25/11/2026, 22:35:38":
+              - time: 25/11/2026, 22:35:38
+            - cell "25/11/2026, 22:35:38":
+              - time: 25/11/2026, 22:35:38
+            - cell "Hardware declarado"
+    - navigation "Paginação de leituras":
+      - button "Anterior" [disabled]
+      - paragraph: Página 1 de 18
+      - button "Próxima"
+- contentinfo:
+  - generic: ICEPLAY · Monitoramento de geladeiras
+  - link "Base técnica e próximas etapas":
+    - /url: /sobre

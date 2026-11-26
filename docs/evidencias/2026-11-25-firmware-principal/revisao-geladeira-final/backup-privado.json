@@ -1,0 +1,17 @@
+{
+  "recordedAtUtc": "2026-11-26T03:00:40.124976+00:00",
+  "scope": "Backup privado consistente depois dos ensaios; sem publicação do banco. Dois cadastros existentes preservados; somente cadastro1 participou da aquisição. Não identifica responsável/data de criação do cadastro adicional.",
+  "privateArchiveSha256": "b2b1e157d220763e194a41f7c72bf5f6db19e07c6fd528ac3c6c4ae82c428b3f",
+  "privateArchiveBytes": 105604,
+  "counts": {
+    "Geladeiras": 2,
+    "Leituras": 1293,
+    "ConfiguracoesGeladeiras": 1,
+    "Alertas": 10,
+    "EstadosMonitoramento": 1,
+    "Dispositivos": 1
+  },
+  "crcPassed": true,
+  "sourcePreserved": true,
+  "databaseOrCredentialsPublished": false
+}

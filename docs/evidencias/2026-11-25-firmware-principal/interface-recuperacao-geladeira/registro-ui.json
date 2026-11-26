@@ -1,0 +1,76 @@
+{
+  "organizedAtUtc": "2026-11-26T01:50:32.309536+00:00",
+  "scope": "Capturas nativas reais, sem alterar pixels, durante recuperacao e observacao termica domestica.",
+  "absenceScreenshot": {
+    "episodeId": 4,
+    "closedAtLocal": "25/11/2026 22:35:09",
+    "reason": "CondicaoNormalizada"
+  },
+  "historyScreenshot": {
+    "totalAtCapture": 855,
+    "pageSize": 50,
+    "origin": "Hardware",
+    "wholeExperimentRepresented": false
+  },
+  "dashboardScreenshot": {
+    "readingId": 861,
+    "temperatureShownC": 9.31,
+    "rawTemperatureC": 9.3125,
+    "doorStateShown": "Fechada",
+    "measuredAtLocal": "25/11/2026 22:44:08"
+  },
+  "doorInstallationValidatedByScreenshot": false,
+  "doorContext": "Aproximacao do ima reconhecida, mas aluno esclareceu depois que a fita unia as pecas e ambas estavam fixadas na parte estacionaria. Nao comprova abertura/fechamento real da geladeira.",
+  "registrationContext": "Cadastro de bancada ID1 mantido; a localizacao antiga mostrada na tela nao foi atualizada durante o ensaio. A posicao da sonda na geladeira domestica foi relatada pelo aluno.",
+  "nativeSnapshotsAreDifferentMoments": true,
+  "files": [
+    {
+      "path": "docs/evidencias/2026-11-25-firmware-principal/interface-recuperacao-geladeira/ausencia-normalizada-carregador.jpg",
+      "sha256": "385bd3d96e084c16be2cd522cfb087c4442979f94329300cf89c0eadb2a69d13",
+      "sourceBytesPreserved": true,
+      "fileWrittenAtUtc": "2026-11-26T01:43:26.920920+00:00"
+    },
+    {
+      "path": "docs/evidencias/2026-11-25-firmware-principal/interface-recuperacao-geladeira/ausencia-normalizada-dom.txt",
+      "sha256": "04f6882274f37e954ef2b941bac0fd500da78ba4c762610f313d0e4f5a177b54",
+      "sourceBytesPreserved": true,
+      "fileWrittenAtUtc": "2026-11-26T01:43:26.942547+00:00"
+    },
+    {
+      "path": "docs/evidencias/2026-11-25-firmware-principal/interface-recuperacao-geladeira/ausencia-normalizada-ui.json",
+      "sha256": "e9f5a2fd07be391d6ca36f07eb60f17d3d5f8e2bfa16614f8aeea883f19f9027",
+      "sourceBytesPreserved": true,
+      "fileWrittenAtUtc": "2026-11-26T01:43:26.953501+00:00"
+    },
+    {
+      "path": "docs/evidencias/2026-11-25-firmware-principal/interface-recuperacao-geladeira/historico-frio-ajuste-porta.jpg",
+      "sha256": "94dbdb7e71fe7416a4ba400b22298e4756a8a2ac0a168b38aa40af1b237ea566",
+      "sourceBytesPreserved": true,
+      "fileWrittenAtUtc": "2026-11-26T01:43:46.069704+00:00"
+    },
+    {
+      "path": "docs/evidencias/2026-11-25-firmware-principal/interface-recuperacao-geladeira/historico-frio-ajuste-dom.txt",
+      "sha256": "30d24dab7f60936a442119a3c436ec47c2d47367190dc22f99800523089a9b9b",
+      "sourceBytesPreserved": true,
+      "fileWrittenAtUtc": "2026-11-26T01:43:46.138305+00:00"
+    },
+    {
+      "path": "docs/evidencias/2026-11-25-firmware-principal/interface-recuperacao-geladeira/historico-frio-ui.json",
+      "sha256": "904a57e8223833ce1b80dc26f3af436d5b521c3307055234ff7c6179996c9bf4",
+      "sourceBytesPreserved": true,
+      "fileWrittenAtUtc": "2026-11-26T01:43:46.138305+00:00"
+    },
+    {
+      "path": "docs/evidencias/2026-11-25-firmware-principal/interface-recuperacao-geladeira/painel-frio-ajuste-porta.jpg",
+      "sha256": "771a6738a5ec317a38100032a378bf7c5957e399cac00096180e5d382965d713",
+      "sourceBytesPreserved": true,
+      "fileWrittenAtUtc": "2026-11-26T01:44:10.029031+00:00"
+    },
+    {
+      "path": "docs/evidencias/2026-11-25-firmware-principal/interface-recuperacao-geladeira/painel-frio-ajuste-dom.txt",
+      "sha256": "d042b4f30de2d553e44b1f2586a4712acac27edab69ebb424e20e203c5cc7e09",
+      "sourceBytesPreserved": true,
+      "fileWrittenAtUtc": "2026-11-26T01:44:10.048342+00:00"
+    }
+  ]
+}

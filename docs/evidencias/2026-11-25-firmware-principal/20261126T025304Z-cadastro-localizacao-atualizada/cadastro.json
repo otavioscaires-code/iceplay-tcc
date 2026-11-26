@@ -1,0 +1,18 @@
+{
+  "recordedAtUtc": "2026-11-26T02:53:05.025702+00:00",
+  "scope": "Atualização somente dos metadados editáveis do cadastro1 após a coleta térmica. Corrige descrição antiga de bancada, sem alterar leituras, parâmetros, dispositivo, credencial ou criação. Não é novo ensaio físico.",
+  "before": {
+    "id": 1,
+    "nome": "Prototipo ICEPLAY - bancada real",
+    "localizacao": "Bancada de testes fisicos; ainda sem instalacao na geladeira",
+    "criadoEmUtc": "2026-11-25T04:42:28.0752576Z"
+  },
+  "after": {
+    "id": 1,
+    "nome": "Prototipo ICEPLAY - geladeira domestica",
+    "localizacao": "Ensaio domestico de 25/11/2026; sonda na prateleira do meio e eletronica externa.",
+    "criadoEmUtc": "2026-11-25T04:42:28.0752576Z"
+  },
+  "configurationAndDevicesUnchanged": true,
+  "thermalCaptureFinishedBeforeMutation": true
+}

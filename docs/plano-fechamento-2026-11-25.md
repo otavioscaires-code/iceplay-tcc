@@ -4,15 +4,15 @@
 
 | Trabalho atual | Estado e próximo resultado necessário |
 | --- | --- |
-| Software, execução e firmware | Verificações de software/pacote aprovadas; principal em uso e sem nova alteração de fonte nesta continuidade |
-| Aquisição, alertas e persistência reais | Bancada/ausência aprovadas; todas as linhas iguais após reinício. Recuperação com a mesma credencial ainda precisa de captura |
-| Instalação na geladeira doméstica | Ponta metálica dentro conforme relato; foto parcial recebida. Corrigir distância/alinhamento do contato/ímã e apoiar o ESP32 em base isolante antes de alimentar |
-| Série real na geladeira | Coletor preparado para 15 min; ainda não executado. Registrar alimentação, posição, duração, lacunas e fotografia final |
-| iPhone com Hardware | Leitor/pareamento doméstico já relatado; nova consulta das medições físicas após o reinício ainda pendente |
-| Monografia | Word/PDF privados de 41 páginas, 16 figuras e cinco tabelas conferidos; atualizar somente com os próximos resultados efetivos e confirmar o orientador da capa |
-| Transferência/apresentação | ZIP completo privado preparado com runtime/código/Word/PDF e hashes conferidos. Banco e perfil de rede ficam separados; notebook/hotspot ainda não ensaiados |
+| Software, execução e firmware | Software/pacote verificados; principal em uso, sem novo backend/migration nesta continuidade |
+| Aquisição, alertas e persistência reais | Porta/temperatura/ausência/recuperação e persistência aprovadas nos controles descritos; revogação e buffer físicos sem ensaio |
+| Instalação doméstica | Um ciclo de porta passou com dois ímãs na porta; abertura aproximada10s, sem cronômetro |
+| Série térmica interna | Primeira desligada corrigida; primeira ligada incompleta; posterior de30min: 180 aquisições/1790s medidos, 13,2500–14,1250°C; queda entre médias de cinco amostras: 0,8500°C. Queda qualitativa mínima de1°C não atingida; resposta térmica incompleta. |
+| iPhone com Hardware | Captura real#1171/13,69°C/Fechada correlacionada ao SQLite e posterior ao reinício |
+| Monografia | Word/PDF de45 páginas/20 figuras/cinco tabelas revisados e conferidos; confirmar orientador da capa |
+| Transferência/apresentação | Regenerar ZIP privado completo e backup separado; notebook/hotspot continuam sem ensaio |
 
-O ZIP completo é um retrato da fonte `d4d756e`, com o runtime previamente testado preservado byte a byte e os documentos privados. Não inclui o banco de uso, credenciais ou perfil HTTPS e não significa que o destino esteja preparado. As instruções do pacote identificam essa preparação. Não publicar o ZIP completo no GitHub, pois contém os dados do grupo no Word/PDF.
+Os pacotes completos incluem dados do grupo na monografia e devem permanecer privados. O runtime verificado é conservado byte a byte; banco/segredos de rede não entram no ZIP de código/execução. Uma cópia consistente das aquisições é preservada separadamente, sem sobrescrever o banco de destino automaticamente.
 
 ## Registro da preparação matinal
 
@@ -39,7 +39,7 @@ O [primeiro ensaio do pacote](evidencias/2026-11-25-pacote-windows-x64/pacote.js
 
 A preparação de certificados/rede no notebook continua seguindo o guia existente e exige as ferramentas ali descritas. O pacote facilita a execução depois de preparada a máquina; não se declara acesso móvel no destino validado. Não houve novo ensaio físico, gravação, coleta serial, instalação, mudança de confiança/firewall ou ativação de acesso público. O estado da placa continua sendo diagnóstico dos sensores, sem rede/API. A falha posterior da sonda continua registrada.
 
-## Sequência que falta para encerrar o TCC
+## Planejamento matinal preservado
 
 | Ordem | Trabalho restante | Evidência necessária |
 | --- | --- | --- |

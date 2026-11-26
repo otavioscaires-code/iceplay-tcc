@@ -1,0 +1,198 @@
+- link "Ir para o conteúdo":
+  - /url: "#conteudo"
+- complementary "Menu do ICEPLAY":
+  - link "ICEPLAY, visão geral":
+    - /url: /dashboard
+    - generic: ICEPLAY
+  - paragraph: Monitoramento inteligente
+  - navigation "Navegação principal":
+    - link "Visão geral":
+      - /url: /dashboard
+      - generic: Visão geral
+    - link "Geladeiras":
+      - /url: /geladeiras
+      - generic: Geladeiras
+    - link "Histórico":
+      - /url: /historico
+      - generic: Histórico
+    - link "Alertas":
+      - /url: /alertas
+      - generic: Alertas
+    - link "Configurações":
+      - /url: /configuracoes
+      - generic: Configurações
+  - link "Sobre o projeto":
+    - /url: /sobre
+  - generic: ICEPLAY · TCC
+- banner:
+  - generic: ICEPLAY / Visão geral
+  - status: Acesso local neste computador. Não é necessário informar um código.
+- main:
+  - paragraph: ICEPLAY / Visão geral
+  - heading "Visão geral" [level=1]
+  - paragraph: Acompanhe as últimas medições, portas e o estado real da aplicação.
+  - complementary "Estado da base":
+    - paragraph: Verificação da aplicação
+    - heading "Estado da base" [level=2]
+    - generic: Conectada
+    - term: API
+    - definition: Operacional
+    - term: Banco SQLite
+    - definition: Conectado
+    - term: Geladeiras cadastradas
+    - definition: "1"
+    - status: A API respondeu e consultou o banco com sucesso. Esta verificação não representa uma leitura de sensores.
+    - button "Verificar conexão":
+      - text: Verificar conexão
+      - generic: ↻
+    - paragraph:
+      - text: Última verificação (hora local)
+      - time: 25/11/2026, 22:44:09
+  - region "Cada medição tem contexto.":
+    - paragraph: Uma visão clara
+    - heading "Cada medição tem contexto." [level=2]
+    - paragraph: Confira a origem e os horários antes de interpretar temperatura e estado da porta.
+    - link "Consultar histórico":
+      - /url: /historico
+      - text: Consultar histórico
+      - generic: ↗
+    - paragraph: Simulação é identificada. Hardware declarado não comprova um sensor autenticado.
+  - region "Resumo da origem selecionada":
+    - article:
+      - paragraph: Com leitura
+      - strong: "1"
+      - generic: Equipamentos na consulta
+    - article:
+      - paragraph: Sem leitura
+      - strong: "0"
+      - generic: Na origem selecionada
+    - article:
+      - paragraph: Portas abertas
+      - strong: "0"
+      - generic: Estado na última medição
+    - article:
+      - paragraph: Alertas abertos
+      - strong: "0"
+      - link "Consultar ocorrências":
+        - /url: /alertas?situacao=Aberto
+  - region "Últimas leituras.":
+    - paragraph: Monitoramento
+    - heading "Últimas leituras." [level=2]
+    - paragraph: Uma leitura por geladeira, escolhida pelo horário da medição na origem selecionada.
+    - generic: Origem das leituras
+    - combobox "Origem das leituras":
+      - option "Simulação"
+      - option "Hardware declarado" [selected]
+    - generic: Referência visual de idade
+    - combobox "Referência visual de idade":
+      - option "60 segundos" [selected]
+      - option "5 minutos"
+      - option "Somente mostrar a idade"
+    - button "Atualizar painel"
+    - paragraph: "Hardware declarado: origem informada pelo emissor; não confirma sensor ou dispositivo autenticado."
+    - paragraph: Mais de 60 segundos desde a medição marca a leitura como desatualizada. Referência desta sessão; não configura limites nem gera alertas.
+    - paragraph:
+      - text: "Consulta à API (hora local):"
+      - time: 25/11/2026, 22:44:09
+    - paragraph: Atualização automática a cada 15 segundos enquanto esta página estiver visível.
+    - status: Consulta concluída. A recência é calculada pelo horário da medição.
+    - paragraph: 1 geladeira(s) consultada(s); 1 com leitura na origem selecionada.
+    - article:
+      - heading "Prototipo ICEPLAY - bancada real" [level=3]
+      - generic: HARDWARE DECLARADO
+      - paragraph: Bancada de testes fisicos; ainda sem instalacao na geladeira
+      - paragraph: Leitura recente
+      - paragraph: Última temperatura registrada
+      - paragraph: 9,31 °C
+      - term: Porta na medição
+      - definition: Fechada
+      - term: Medição (hora local)
+      - definition:
+        - time: 25/11/2026, 22:44:08
+      - term: Recebimento (hora local)
+      - definition:
+        - time: 25/11/2026, 22:44:08
+      - term: Idade da medição
+      - definition: há 1 s
+      - paragraph: "Geladeira #1 · Leitura #861"
+    - paragraph: A referência visual de recência é independente das regras de alerta. O estado da porta corresponde à medição exibida. Configure os parâmetros de cada equipamento para ativar a avaliação.
+  - region "Alertas recentes":
+    - paragraph: Ocorrências
+    - heading "Alertas recentes" [level=2]
+    - link "Ver todos":
+      - /url: /alertas
+    - status: "0 aberto(s), 0 crítico(s). 1 equipamento(s) monitorado(s); 0 sem monitoramento nesta origem. Consulta: 25/11/2026, 22:44:09."
+    - article:
+      - heading "Porta aberta" [level=3]
+      - generic: Atenção · Encerrado
+      - paragraph: "Prototipo ICEPLAY - bancada real · #1"
+      - paragraph: HARDWARE DECLARADO
+      - term: Abertura da ocorrência
+      - definition:
+        - time: 25/11/2026, 22:38:08
+      - term: Encerramento
+      - definition:
+        - time: 25/11/2026, 22:43:58
+      - paragraph: Condição normalizada por medição recente
+      - link "Consultar histórico da geladeira":
+        - /url: /historico?geladeiraId=1&origem=Hardware
+    - article:
+      - heading "Porta aberta" [level=3]
+      - generic: Atenção · Encerrado
+      - paragraph: "Prototipo ICEPLAY - bancada real · #1"
+      - paragraph: HARDWARE DECLARADO
+      - term: Abertura da ocorrência
+      - definition:
+        - time: 25/11/2026, 22:35:19
+      - term: Encerramento
+      - definition:
+        - time: 25/11/2026, 22:37:55
+      - paragraph: Condição normalizada por medição recente
+      - link "Consultar histórico da geladeira":
+        - /url: /historico?geladeiraId=1&origem=Hardware
+    - article:
+      - heading "Ausência de leituras" [level=3]
+      - generic: Atenção · Encerrado
+      - paragraph: "Prototipo ICEPLAY - bancada real · #1"
+      - paragraph: HARDWARE DECLARADO
+      - term: Abertura da ocorrência
+      - definition:
+        - time: 25/11/2026, 21:55:07
+      - term: Encerramento
+      - definition:
+        - time: 25/11/2026, 22:35:09
+      - paragraph: Condição normalizada por medição recente
+      - link "Consultar histórico da geladeira":
+        - /url: /historico?geladeiraId=1&origem=Hardware
+    - article:
+      - heading "Porta aberta" [level=3]
+      - generic: Atenção · Encerrado
+      - paragraph: "Prototipo ICEPLAY - bancada real · #1"
+      - paragraph: HARDWARE DECLARADO
+      - term: Abertura da ocorrência
+      - definition:
+        - time: 25/11/2026, 21:53:33
+      - term: Encerramento
+      - definition:
+        - time: 25/11/2026, 21:55:07
+      - paragraph: Encerrado sem dados recentes; normalização não confirmada
+      - link "Consultar histórico da geladeira":
+        - /url: /historico?geladeiraId=1&origem=Hardware
+    - article:
+      - heading "Temperatura fora da faixa" [level=3]
+      - generic: Crítico · Encerrado
+      - paragraph: "Prototipo ICEPLAY - bancada real · #1"
+      - paragraph: HARDWARE DECLARADO
+      - term: Abertura da ocorrência
+      - definition:
+        - time: 25/11/2026, 20:05:28
+      - term: Encerramento
+      - definition:
+        - time: 25/11/2026, 20:15:47
+      - paragraph: Condição normalizada por medição recente
+      - link "Consultar histórico da geladeira":
+        - /url: /historico?geladeiraId=1&origem=Hardware
+- contentinfo:
+  - generic: ICEPLAY · Monitoramento de geladeiras
+  - link "Base técnica e próximas etapas":
+    - /url: /sobre

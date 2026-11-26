@@ -1,0 +1,65 @@
+{
+  "preparedAtUtc": "2026-11-26T02:53:05.877086+00:00",
+  "scope": "Modelos atualizados e gráfico gerado a partir das aquisições reais em três janelas. Não é screenshot, medição elétrica ou calibração. Primeiro período desligado corrigido por adendo; limites de alerta0–28°C não representam recomendação sanitária.",
+  "panels": [
+    {
+      "evidence": "docs/evidencias/2026-11-25-firmware-principal/20261126T013801Z-geladeira-domestica/geladeira.json",
+      "sha256": "1cccb1472b102f38a4da12cb7916ca8fe4889e3293a83b95bc341631bcc5c743",
+      "readings": 91,
+      "firstId": 824,
+      "lastId": 914,
+      "result": "passed",
+      "minimumC": 9.3125,
+      "maximumC": 11.875,
+      "gapsOver30Seconds": []
+    },
+    {
+      "evidence": "docs/evidencias/2026-11-25-firmware-principal/20261126T020002Z-geladeira-ligada/geladeira.json",
+      "sha256": "6757a90222a4cde52064d458856e7cd52c0553e25caae581b503cb8c88023d7d",
+      "readings": 102,
+      "firstId": 958,
+      "lastId": 1059,
+      "result": "incomplete",
+      "minimumC": 12.0625,
+      "maximumC": 12.125,
+      "gapsOver30Seconds": []
+    },
+    {
+      "evidence": "docs/evidencias/2026-11-25-firmware-principal/20261126T022259Z-geladeira-ligada/geladeira.json",
+      "sha256": "a6677980b9530538929b2c5f1e5a0f28a2111935bce20c32024cd1ea0016f896",
+      "readings": 180,
+      "firstId": 1110,
+      "lastId": 1289,
+      "result": "incomplete",
+      "minimumC": 13.25,
+      "maximumC": 14.125,
+      "gapsOver30Seconds": []
+    }
+  ],
+  "files": [
+    {
+      "path": "docs/tcc/observacao-geladeira-2026-11-25/arquitetura.png",
+      "sha256": "3370f92251324a9456e094ecaa87b18cf78afaf516496d4c78fd69cd08a66a86"
+    },
+    {
+      "path": "docs/tcc/observacao-geladeira-2026-11-25/arquitetura.svg",
+      "sha256": "214b6ab638f9af118e6add9dd3c2f9441b701ddab6e0f657e52a49bc9b475a81"
+    },
+    {
+      "path": "docs/tcc/observacao-geladeira-2026-11-25/casos-de-uso.png",
+      "sha256": "ef919a07020c60f0895dd474e4f9d00b4d1de056acf9d0f162bee34949dc3a19"
+    },
+    {
+      "path": "docs/tcc/observacao-geladeira-2026-11-25/casos-de-uso.svg",
+      "sha256": "4f9d84ebf355bcc2848067df98d2a70bf2bdc270cf652165bd2212d1aa800316"
+    },
+    {
+      "path": "docs/tcc/observacao-geladeira-2026-11-25/janelas-termicas.png",
+      "sha256": "d4097a1dc63a1c15d6cc0e651500ecfe4120da790727604035a03376e433520c"
+    },
+    {
+      "path": "docs/tcc/observacao-geladeira-2026-11-25/janelas-termicas.svg",
+      "sha256": "f5263a82ae58b96cfaa225dd7e6b4e22ed72a2dc5edcb604438f5ed50a96361e"
+    }
+  ]
+}

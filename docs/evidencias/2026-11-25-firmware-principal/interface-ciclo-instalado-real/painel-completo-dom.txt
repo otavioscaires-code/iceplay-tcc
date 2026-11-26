@@ -1,0 +1,192 @@
+Browser tab: 4, Title: "ICEPLAY | Visão geral", URL: "http://localhost:5080/dashboard".
+1 AXWebArea ICEPLAY | Visão geral, URL: localhost:5080/dashboard
+	2 link Description: Ir para o conteúdo, Value: localhost:5080/dashboard#conteudo
+	3 container Description: Menu do ICEPLAY, ID: menu-lateral
+		4 link Description: ICEPLAY, visão geral, Value: localhost:5080/dashboard
+		5 text Monitoramento inteligente
+		6 container Navegação principal
+			7 link Description: Visão geral, Value: localhost:5080/dashboard
+			8 link Description: Geladeiras, Value: localhost:5080/geladeiras
+			9 link Description: Histórico, Value: localhost:5080/historico
+			10 link Description: Alertas, Value: localhost:5080/alertas
+			11 link Description: Configurações, Value: localhost:5080/configuracoes
+		12 link Description: Sobre o projeto, Value: localhost:5080/sobre
+		13 text ICEPLAY · TCC
+	14 container
+		15 text ICEPLAY   Visão geral
+		16 text Acesso local neste computador. Não é necessário informar um código.
+	17 container conteudo
+		18 container
+			19 text ICEPLAY / VISÃO GERAL
+			20 heading Visão geral, Value: 1
+				21 text Visão geral
+			22 text Acompanhe as últimas medições, portas e o estado real da aplicação.
+		23 container Estado da base, ID: health-panel
+			24 text VERIFICAÇÃO DA APLICAÇÃO
+			25 heading Estado da base, Value: 2, ID: health-title
+				26 text Estado da base
+			125 text Conectada
+			28 definition list
+				29 container API
+					30 text API
+				126 text Operacional
+				32 container Banco SQLite
+					33 text Banco SQLite
+				127 text Conectado
+				35 container Geladeiras cadastradas
+					36 text Geladeiras cadastradas
+				128 text 1
+			129 text A API respondeu e consultou o banco com sucesso. Esta verificação não representa uma leitura de sensores.
+			39 button Verificar conexão, ID: check-health
+			40 container
+				41 text Última verificação (hora local)
+				130 text 25/11/2026, 23:29:59
+		43 container Cada medição tem contexto.
+			44 text UMA VISÃO CLARA
+			45 heading Cada medição tem contexto., Value: 2, ID: overview-context-title
+				46 text Cada medição tem contexto.
+			47 text Confira a origem e os horários antes de interpretar temperatura e estado da porta.
+			48 link Description: Consultar histórico, Value: localhost:5080/historico
+			49 text Simulação é identificada. Hardware declarado não comprova um sensor autenticado.
+		50 container Resumo da origem selecionada
+			51 container
+				52 text Com leitura
+				131 text 1
+				54 text Equipamentos na consulta
+			55 container
+				56 text Sem leitura
+				132 text 0
+				58 text Na origem selecionada
+			59 container
+				60 text Portas abertas
+				133 text 0
+				62 text Estado na última medição
+			63 container
+				64 text Alertas abertos
+				134 text 0
+				66 link Description: Consultar ocorrências, Value: localhost:5080/alertas?situacao=Aberto
+		67 container Últimas leituras., ID: monitoramento
+			68 container
+				69 text MONITORAMENTO
+			70 heading Últimas leituras., Value: 2, ID: monitoramento-title
+				71 text Últimas leituras.
+			72 text Uma leitura por geladeira, escolhida pelo horário da medição na origem selecionada.
+			73 text Origem das leituras
+			74 pop up button (collapsed, settable) Origem das leituras, Value: Hardware declarado, ID: monitoramento-origem, Secondary Actions: Expand
+				75 menu
+					76 Simulação
+					77 (selected) Hardware declarado
+			78 text Referência visual de idade
+			79 pop up button (collapsed, settable) Referência visual de idade, Value: 60 segundos, ID: monitoramento-referencia, Secondary Actions: Expand
+				80 menu
+					81 (selected) 60 segundos
+					82 5 minutos
+					83 Somente mostrar a idade
+			84 button Atualizar painel, ID: atualizar-monitoramento
+			135 text Hardware declarado: origem informada pelo emissor; não confirma sensor ou dispositivo autenticado.
+			136 text Mais de 60 segundos desde a medição marca a leitura como desatualizada. Referência desta sessão; não configura limites nem gera alertas.
+			87 container
+				88 text Consulta à API (hora local): 
+				137 text 25/11/2026, 23:29:59
+			90 text Atualização automática a cada 15 segundos enquanto esta página estiver visível.
+			138 text Consulta concluída. A recência é calculada pelo horário da medição.
+			139 text 1 geladeira(s) consultada(s); 1 com leitura na origem selecionada.
+			140 container
+				141 heading Prototipo ICEPLAY - bancada real, Value: 3
+					142 text Prototipo ICEPLAY - bancada real
+				143 text HARDWARE DECLARADO Bancada de testes fisicos; ainda sem instalacao na geladeira Leitura recente Última temperatura registrada
+				144 container Última temperatura: 13,81 °C
+					145 text 13,81 °C
+				146 definition list
+					147 container Porta na medição
+						148 text Porta na medição
+					149 text Fechada
+					150 container Medição (hora local)
+						151 text Medição (hora local)
+					152 text 25/11/2026, 23:29:50
+					153 container Recebimento (hora local)
+						154 text Recebimento (hora local)
+					155 text 25/11/2026, 23:29:50
+					156 container Idade da medição
+						157 text Idade da medição
+					227 text há 15 s
+				159 text Geladeira #1 · Leitura #1151
+			113 text A referência visual de recência é independente das regras de alerta. O estado da porta corresponde à medição exibida. Configure os parâmetros de cada equipamento para ativar a avaliação.
+		114 container Alertas recentes
+			115 container
+				116 text OCORRÊNCIAS
+			117 heading Alertas recentes, Value: 2, ID: alertas-visao-title
+				118 text Alertas recentes
+			119 link Description: Ver todos, Value: localhost:5080/alertas
+			160 text 0 aberto(s), 0 crítico(s). 1 equipamento(s) monitorado(s); 0 sem monitoramento nesta origem. Consulta: 25/11/2026, 23:29:59.
+			161 container alertas-visao-lista
+				162 container
+					163 heading Porta aberta, Value: 3
+						164 text Porta aberta
+					165 text Atenção · Encerrado Prototipo ICEPLAY - bancada real · #1 HARDWARE DECLARADO
+					166 definition list
+						167 container Abertura da ocorrência
+							168 text Abertura da ocorrência
+						169 text 25/11/2026, 23:20:02
+						170 container Encerramento
+							171 text Encerramento
+						172 text 25/11/2026, 23:20:21
+					173 text Condição normalizada por medição recente
+					174 link Description: Consultar histórico da geladeira, Value: localhost:5080/historico?geladeiraId=1&origem=Hardware
+				175 container
+					176 heading Porta aberta, Value: 3
+						177 text Porta aberta
+					178 text Atenção · Encerrado Prototipo ICEPLAY - bancada real · #1 HARDWARE DECLARADO
+					179 definition list
+						180 container Abertura da ocorrência
+							181 text Abertura da ocorrência
+						182 text 25/11/2026, 23:14:49
+						183 container Encerramento
+							184 text Encerramento
+						185 text 25/11/2026, 23:14:53
+					186 text Condição normalizada por medição recente
+					187 link Description: Consultar histórico da geladeira, Value: localhost:5080/historico?geladeiraId=1&origem=Hardware
+				188 container
+					189 heading Porta aberta, Value: 3
+						190 text Porta aberta
+					191 text Atenção · Encerrado Prototipo ICEPLAY - bancada real · #1 HARDWARE DECLARADO
+					192 definition list
+						193 container Abertura da ocorrência
+							194 text Abertura da ocorrência
+						195 text 25/11/2026, 23:12:57
+						196 container Encerramento
+							197 text Encerramento
+						198 text 25/11/2026, 23:13:02
+					199 text Condição normalizada por medição recente
+					200 link Description: Consultar histórico da geladeira, Value: localhost:5080/historico?geladeiraId=1&origem=Hardware
+				201 container
+					202 heading Porta aberta, Value: 3
+						203 text Porta aberta
+					204 text Atenção · Encerrado Prototipo ICEPLAY - bancada real · #1 HARDWARE DECLARADO
+					205 definition list
+						206 container Abertura da ocorrência
+							207 text Abertura da ocorrência
+						208 text 25/11/2026, 22:46:03
+						209 container Encerramento
+							210 text Encerramento
+						211 text 25/11/2026, 23:12:40
+					212 text Condição normalizada por medição recente
+					213 link Description: Consultar histórico da geladeira, Value: localhost:5080/historico?geladeiraId=1&origem=Hardware
+				214 container
+					215 heading Porta aberta, Value: 3
+						216 text Porta aberta
+					217 text Atenção · Encerrado Prototipo ICEPLAY - bancada real · #1 HARDWARE DECLARADO
+					218 definition list
+						219 container Abertura da ocorrência
+							220 text Abertura da ocorrência
+						221 text 25/11/2026, 22:38:08
+						222 container Encerramento
+							223 text Encerramento
+						224 text 25/11/2026, 22:43:58
+					225 text Condição normalizada por medição recente
+					226 link Description: Consultar histórico da geladeira, Value: localhost:5080/historico?geladeiraId=1&origem=Hardware
+	122 container
+		123 text ICEPLAY · Monitoramento de geladeiras
+		124 link Description: Base técnica e próximas etapas, Value: localhost:5080/sobre
+
+The focused UI element is 74 pop up button (collapsed, settable) Origem das leituras, Value: Hardware declarado, ID: monitoramento-origem, Secondary Actions: Expand

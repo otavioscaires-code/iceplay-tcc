@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="720" height="460" preserveAspectRatio="xMinYMin meet" viewBox="0 0 720 460" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="720" height="460"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-460)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="720" height="460" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="15" y="335" width="310" height="100" rx="5" ry="5" style="stroke: rgb(20%,25%,33%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="73.9208984375" y="407.0" style="font-family: ArialICEBold; font-size: 14px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,814) scale(1,-1)">Navegador desktop e iPhone</text>
+			<text x="92.2001953125" y="385.0" style="font-family: ArialICE; font-size: 14px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,770) scale(1,-1)">HTML, CSS e JavaScript</text>
+			<text x="63.76611328125" y="363.0" style="font-family: ArialICE; font-size: 14px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,726) scale(1,-1)">Aquisição física exibida no iPhone</text>
+			<rect x="395" y="335" width="310" height="100" rx="5" ry="5" style="stroke: rgb(20%,25%,33%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(93%,96%,100%); fill-rule: evenodd;"/>
+			<text x="460.1279296875" y="407.0" style="font-family: ArialICEBold; font-size: 14px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,814) scale(1,-1)">ESP32 e firmware principal</text>
+			<text x="429.76611328125" y="385.0" style="font-family: ArialICE; font-size: 14px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,770) scale(1,-1)">DS18B20 no GPIO4 · reed no GPIO27</text>
+			<text x="436.373046875" y="363.0" style="font-family: ArialICE; font-size: 14px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,726) scale(1,-1)">Aquisição e ciclo de porta ensaiados</text>
+			<rect x="150" y="165" width="420" height="110" rx="5" ry="5" style="stroke: rgb(20%,25%,33%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(97%,98%,98%); fill-rule: evenodd;"/>
+			<text x="276.75537109375" y="242.0" style="font-family: ArialICEBold; font-size: 14px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,484) scale(1,-1)">Aplicação ASP.NET Core</text>
+			<text x="264.27294921875" y="220.0" style="font-family: ArialICE; font-size: 14px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,440) scale(1,-1)">API, autenticação e validações</text>
+			<text x="265.0625" y="198.0" style="font-family: ArialICE; font-size: 14px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,396) scale(1,-1)">EF Core e avaliador de alertas</text>
+			<rect x="195" y="35" width="330" height="75" rx="5" ry="5" style="stroke: rgb(20%,25%,33%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="337.44140625" y="83.5" style="font-family: ArialICEBold; font-size: 14px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,167) scale(1,-1)">SQLite</text>
+			<text x="258.4453125" y="61.5" style="font-family: ArialICE; font-size: 14px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,123) scale(1,-1)">Leituras, parâmetros e episódios</text>
+			<path d="M 170,335 L 255,275 Z" style="stroke: rgb(27%,33%,41%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="251 283, 259 283, 255 275" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(27%,33%,41%); fill-rule: evenodd;"/>
+			<text x="98.9873046875" y="300" style="font-family: ArialICE; font-size: 12px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,600) scale(1,-1)">Consultas HTTP</text>
+			<path d="M 550,335 L 465,275 Z" style="stroke: rgb(27%,33%,41%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="461 283, 469 283, 465 275" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(27%,33%,41%); fill-rule: evenodd;"/>
+			<text x="534.298828125" y="300" style="font-family: ArialICE; font-size: 12px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,600) scale(1,-1)">POST autenticado por HTTPS</text>
+			<path d="M 360,165 L 360,110 Z" style="stroke: rgb(27%,33%,41%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<polygon points="356 118, 364 118, 360 110" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(27%,33%,41%); fill-rule: evenodd;"/>
+			<text x="391.3193359375" y="133" style="font-family: ArialICE; font-size: 12px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,266) scale(1,-1)">Persistência</text>
+			<text x="160.90893554687497" y="11" style="font-family: ArialICE; font-size: 13px;fill: rgb(5%,9%,16%); stroke:none;" transform="translate(0,22) scale(1,-1)">Ensaio doméstico registrado · Apresentação em outra rede pendente</text>
+		</g>
+	</g>
+</svg>

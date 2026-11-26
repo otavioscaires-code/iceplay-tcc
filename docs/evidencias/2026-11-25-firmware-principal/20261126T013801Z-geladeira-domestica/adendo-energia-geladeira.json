@@ -1,0 +1,20 @@
+{
+  "registeredAtUtc": "2026-11-26T02:01:24.9358618Z",
+  "originalReportSha256": "1cccb1472b102f38a4da12cb7916ca8fe4889e3293a83b95bc341631bcc5c743",
+  "originalReportPreserved": true,
+  "source": "Esclarecimento explicito posterior do aluno na conversa",
+  "userReport": "Ja estava desligada antes de colocar a sonda",
+  "refrigeratorMainsPowerThroughoutFirstPeriod": "desligada",
+  "esp32PowerSource": "carregador USB, ligado",
+  "acquiredReadings": 91,
+  "measuredSpanSeconds": 885.0,
+  "temperatureMinimumC": 9.3125,
+  "temperatureMaximumC": 11.875,
+  "rawCollectorResult": "passed",
+  "interpretation": "O passed do coletor confirma criterios mecanicos de aquisicao/integridade e o limiar funcional declarado, mas NAO valida refrigeracao ativa. O valor abaixo de15C nao demonstra que o compressor estava funcionando.",
+  "sensorApiSqliteAcquisitionInsideRefrigeratorObserved": true,
+  "activeRefrigerationValidated": false,
+  "thermalCalibrationValidated": false,
+  "doorInstallationValidated": false,
+  "followup": "Aluno depois confirmou ligar a geladeira e fechar a porta. Nova captura ligada tem criterios previos distintos e pasta propria; nao substituir esta janela."
+}

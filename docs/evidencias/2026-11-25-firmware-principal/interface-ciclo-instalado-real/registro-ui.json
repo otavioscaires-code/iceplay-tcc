@@ -1,0 +1,39 @@
+{
+  "preparedAtUtc": "2026-11-26T02:31:30.590552+00:00",
+  "nativeScreenshotsUnmodified": true,
+  "scope": "Ciclo instalado com dois ímãs na porta; episódio10 normalizado. Duração física corrigida pelo aluno para cerca de10s, sem cronômetro. Nome/local do cadastro permanecem os da bancada. Painel mostra a aquisição posterior#1151,13,8125°C, não o instante exato do ciclo.",
+  "linkedEvidence": "docs/evidencias/2026-11-25-firmware-principal/20261126T021846Z-ciclo-porta-real/relato-manual.json",
+  "privatePhotosOrActiveInvitesIncluded": false,
+  "files": [
+    {
+      "path": "episodio-capturado-em.json",
+      "bytes": 229,
+      "sha256": "80fe59486a0b247cb5974e20b4d6fff181c246f5e56cf048f884173a3ac1497f"
+    },
+    {
+      "path": "episodio-porta-final-dom.txt",
+      "bytes": 5591,
+      "sha256": "f63e28c855cde53b73d9ee8ec1b67e609964182d0651c2855bc66ff50b280f02"
+    },
+    {
+      "path": "episodio-porta-final.jpg",
+      "bytes": 115315,
+      "sha256": "895fc826ef2e171bbab55e2131f8d95feced192b887fb973a5df9d943f601c85"
+    },
+    {
+      "path": "painel-completo-capturado-em.json",
+      "bytes": 255,
+      "sha256": "96f784c428052d82f65831f557d10de916fd16c7ea04e4aeb4d8e7451233d406"
+    },
+    {
+      "path": "painel-completo-dom.txt",
+      "bytes": 9179,
+      "sha256": "a9c14a8d304806a24dfe3e65fea19c66b8f51350ec6e840df95aac2ba7398a8b"
+    },
+    {
+      "path": "painel-completo.jpg",
+      "bytes": 294752,
+      "sha256": "d1df5e39263d5fa32a2b43f3bb68679f3712ccdb5399f6441aa9f956bb389407"
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # Montagem prevista do protótipo
 
+**Montagem efetivamente ensaiada em25/11/2026:** três fios da sonda fixados em extensões macho–fêmea separadas, posições b30/b32/b34 conferidas, resistor4k7 e GPIO4/27 mantidos. Principal em uso; ESP32/protoboard/carregador fora e ponta metálica na prateleira do meio da geladeira doméstica. Contato com fios na parte fixa e **dois ímãs sem fios juntos na porta móvel**, presos por fitas independentes do corpo; um ciclo funcional instalado e painel no iPhone registrados. Os ajustes anteriores com peças unidas/ambas fixas não são a montagem aprovada. Sem soldagem na protoboard ou alteração elétrica da geladeira. [Evidências e limitações](../etapa-integracao-fisica-2026-11-25.md). Registros datados seguintes são históricos.
+
 **Retomada em 25/11/2026:** usuário informou ter somente sonda, jumpers e protoboard. Não confirmou ferro/estanho/isolamento nem adaptador com bornes; não há recuperação da fixação demonstrada. Preparar três terminações firmes e isoladas antes de reenergizar. Uma opção é soldar cada fio a uma extensão/pino e isolar cada emenda; outra é um adaptador com terminais de parafuso independentes e identificação VCC/GND/DQ. Não soldar na protoboard branca. Manter USB desligado; leituras anteriores e falha posterior continuam com seus resultados e datas.
 
 **Atualização posterior na noite de 23/11:** após duas capturas sem temperatura válida, o aluno confirmou USB desligado e informou que todos os fios da sonda saíram. **As posições informadas abaixo descrevem a ligação anterior; a montagem da sonda agora precisa ser restabelecida com terminações firmes.** Foi discutida soldagem de extensões/pinos com isolamento individual, ainda não realizada. Manter USB desligado até conferência. [Falha e plano de retomada](../etapa-leitura-temperatura-2026-11-23.md#tentativa-de-aquecimento-com-falha-e-conexões-soltas).
@@ -24,7 +26,7 @@ Atualização posterior: o usuário identificou o contato como Giltar SP-1006 e 
 | --- | --- | --- |
 | ESP32 DevKit com módulo ESP WROOM 32 clássico | 1 | Alvo preparado `esp32dev`; conferir modelo/conector recebidos. |
 | Sonda DS18B20 de três fios | 1 | Identificar VDD, DQ e GND pela documentação do fornecedor, sem presumir apenas as cores. |
-| Contato magnético passivo reed com ímã | 1 par | Dois fios de contato seco, sem saída alimentada. Kit com cinco pares é excedente, não necessário. |
+| Contato magnético passivo reed com ímã | 1 contato e 2 ímãs no ensaio doméstico | Modelo-base de um par; a fixação real usou dois ímãs sem fios juntos na porta. Geometria e alcance não medidos; não é garantia para outras montagens. |
 | Resistor **4,7 kΩ / 4k7 / 4700 Ω**, 1/4 W, 5% | 1 | Pull-up de dados. **47R é 47 Ω e não é o valor deste circuito.** Reservas são opcionais. |
 | Protoboard | 1 | Conferir espaço para a largura da placa; jumpers macho/fêmea permitem posicioná-la ao lado. |
 | Jumpers macho/macho e macho/fêmea | 1 pequeno conjunto de cada | O conjunto precisa permitir as conexões abaixo; não depende de comprar centenas. |

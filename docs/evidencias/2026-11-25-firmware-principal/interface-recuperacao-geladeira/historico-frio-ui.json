@@ -1,0 +1,5 @@
+{
+  "capturedAtUtc": "2026-11-26T01:43:46.138Z",
+  "scope": "Historico nativo de Hardware durante a observacao termica domestica; porta ainda em ajuste. Grafico somente da pagina consultada, sem afirmar instalacao do contato aprovada.",
+  "url": "http://localhost:5080/historico?geladeiraId=1&origem=Hardware&pagina=1&tamanhoPagina=50"
+}
