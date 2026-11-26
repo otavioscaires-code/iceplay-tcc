@@ -54,6 +54,22 @@ A manipulação física foi relatada pelo aluno; os valores, IDs, origem, víncu
 
 ## Continuidade
 
-Ausência/recuperação, instalação na geladeira, nova conferência móvel com leituras físicas e notebook/rede da apresentação exigem evidências próprias. O aluno confirmou possuir carregador USB ou powerbank; a placa poderá operar alimentada por ele, mantendo API e computador ligados e a mesma rede Wi-Fi acessível. Isso ainda não equivale a um ensaio nessa alimentação.
+### Ausência confirmada
+
+O aluno confirmou retirar somente o USB e observar o LED apagado. O [ensaio F08](evidencias/2026-11-25-firmware-principal/20261126T005443Z-comunicacao-ausencia/comunicacao.json) passou: 70,04 s de observação, 35 consultas, zero novas aquisições e API/SQLite saudáveis em todas as consultas observadas, com configuração inalterada. A última aquisição foi ID802, às00:54:22 UTC de26/11, ainda25/11 às21:54:22 em São Paulo. O episódio AusenciaLeituras ID4 abriu às00:55:07,0266523 UTC, aproximadamente45,03 s após essa medição, sem novo POST.
+
+A [captura nativa do alerta aberto](evidencias/2026-11-25-firmware-principal/interface-ausencia-real/ausencia-aberta.jpg) mostra também um episódio posterior de porta, ID3, encerrado por `SemDadosRecentes`. A posição do ímã anterior a esse episódio não foi controlada; ele não é apresentado como uma segunda normalização da porta. O episódio controlado ID1 permanece com o encerramento correto descrito acima. Timestamps UTC e datas locais permanecem distintos nos arquivos, sem retroagir registros.
+
+### Reinício real do servidor
+
+Com o ESP32 ainda desligado, foi criado um backup consistente privado do SQLite e registrada a condição anterior à parada. O processo do pacote foi conferido pelo caminho completo, encerrado e iniciado novamente com o mesmo perfil HTTPS. O [controle de persistência](evidencias/2026-11-25-firmware-principal/20261126T010805Z-reinicio-api/reinicio.json) passou: API saudável, 802 leituras, quatro episódios, um cadastro, uma configuração e um dispositivo; todas as linhas das tabelas, incluindo as migrations, mantiveram o SHA lógico `2b1b550cbf3e240883d6824bf87e4f56fb1d4bc6080acddf0bfd8224c48b0cf9`.
+
+O episódio de ausência ID4 permaneceu aberto e o dispositivo ID1 continuou ativo. A captura anterior foi às01:08:05 UTC e a posterior às01:12:21 UTC de26/11, ainda noite de25/11 em São Paulo. Esses horários delimitam as consultas, não medem a duração da indisponibilidade. O controle não valida reconexão da sessão no iPhone, reenvio do buffer ou nova ingestão da placa. Não houve mudança de certificados, confiança ou firewall.
+
+### Preparação da geladeira
+
+O aluno confirmou disponibilidade de **geladeira doméstica**, carregador USB/powerbank e montagem apoiada fora do equipamento, ainda desligada. Confirmou somente a ponta metálica na prateleira do meio e fechamento sem esmagar o cabo. Encontrou o corpo com dois fios e o ímã do contato; a fixação externa e o alinhamento ainda aguardam confirmação. Esse preparo não comprova operação em refrigeração comercial.
+
+Recuperação, operação na geladeira, nova conferência móvel com leituras físicas e notebook/rede da apresentação exigem evidências próprias. A placa poderá operar alimentada pelo carregador, mantendo API e computador ligados e a mesma rede Wi-Fi acessível. Essa alimentação ainda será ensaiada.
 
 O banco do pacote `app/data/iceplay.db` contém esta bancada. O banco original de `src/Iceplay.Api/data/iceplay.db`, suas leituras Simulacao e as cinco migrations permanecem separados e preservados. Credencial, senha, configurações, binários e logs integrais ficam privados em `.tools`. A assistência de IA executou ferramentas/organizou registros; o aluno realizou as manipulações físicas relatadas.

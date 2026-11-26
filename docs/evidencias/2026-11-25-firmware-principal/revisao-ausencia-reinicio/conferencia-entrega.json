@@ -1,0 +1,10 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-11-26T01:23:07.801672+00:00",
+  "changedPublicFiles": 12,
+  "jsonFilesParsed": 4,
+  "privateValuesOrUniqueIdentifiersFound": 0,
+  "applicationTestsMigrationsAndFirmwareSourceUnchanged": true,
+  "originalDatabaseHashUnchanged": true,
+  "scope": "Conferencia da entrega de ausencia/reinicio/documentacao; nao repete testes de software ou ensaios fisicos."
+}

@@ -1,0 +1,48 @@
+{
+  "result": "passed",
+  "before": {
+    "observedAtUtc": "2026-11-26T01:08:05.146273+00:00",
+    "processId": 13740,
+    "snapshot": {
+      "counts": {
+        "Alertas": 4,
+        "ConfiguracoesGeladeiras": 1,
+        "Dispositivos": 1,
+        "EstadosMonitoramento": 1,
+        "Geladeiras": 1,
+        "Leituras": 802,
+        "__EFMigrationsHistory": 5,
+        "__EFMigrationsLock": 0
+      },
+      "logicalRowsSha256": "2b1b550cbf3e240883d6824bf87e4f56fb1d4bc6080acddf0bfd8224c48b0cf9",
+      "absenceId4StillOpen": true,
+      "deviceId1Active": true
+    },
+    "apiHealthy": true
+  },
+  "after": {
+    "observedAtUtc": "2026-11-26T01:12:21.612125+00:00",
+    "processId": 8396,
+    "snapshot": {
+      "counts": {
+        "Alertas": 4,
+        "ConfiguracoesGeladeiras": 1,
+        "Dispositivos": 1,
+        "EstadosMonitoramento": 1,
+        "Geladeiras": 1,
+        "Leituras": 802,
+        "__EFMigrationsHistory": 5,
+        "__EFMigrationsLock": 0
+      },
+      "logicalRowsSha256": "2b1b550cbf3e240883d6824bf87e4f56fb1d4bc6080acddf0bfd8224c48b0cf9",
+      "absenceId4StillOpen": true,
+      "deviceId1Active": true
+    },
+    "apiHealthy": true
+  },
+  "sameLogicalRows": true,
+  "physicalBoardWasOff": true,
+  "scope": "Reinicio real do servidor do pacote com dados fisicos persistidos; ESP32 desligado. Sessao do iPhone e buffer da placa nao ensaiados por este controle.",
+  "backupPrivate": true,
+  "certificateTrustOrFirewallChanged": false
+}

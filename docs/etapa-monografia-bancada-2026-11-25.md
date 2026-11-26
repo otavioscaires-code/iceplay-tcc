@@ -1,5 +1,7 @@
 # Revisão da monografia com integração física de bancada
 
+**Atualização na noite local de 25/11, concluída às 01:21 UTC de 26/11:** nova cópia privada em `.tools/revisao-tcc-2026-11-25/entrega-continuidade-v3/`, com **41 páginas, 16 figuras e cinco tabelas numeradas**. Inclui o alerta real de ausência após retirar a alimentação e a preservação das 802 leituras/quatro episódios após reiniciar a API. RF10/RNF02, resumo, abstract, resultados e conclusão foram ajustados; a nova Figura15 usa a captura nativa do episódio de ausência, recortada somente no layout do Word. O diagrama de classes passou à Figura16 por campo automático. Todas as imagens da versão anterior foram preservadas byte a byte. Sumário/listas e as 41 páginas foram conferidos, sem erro de campo; a conclusão permanece em uma página. [Conferência desta versão](evidencias/2026-11-25-firmware-principal/revisao-ausencia-reinicio/validacao.json). A recuperação e a operação na geladeira ainda não foram executadas nesta revisão; capa/orientador continuam aguardando confirmação. Os parágrafos seguintes registram a entrega anterior, preservada.
+
 Em 25/11/2026 foi preparada uma nova cópia privada Word/PDF, a partir da entrega de figuras de 24/11. A revisão tem **40 páginas físicas, 15 figuras e cinco tabelas numeradas**. O original, as versões anteriores e suas fontes permanecem preservados. A monografia preenchida contém dados do grupo e fotografias e não é publicada neste repositório.
 
 ## Conteúdo incorporado

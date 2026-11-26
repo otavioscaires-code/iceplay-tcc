@@ -1,0 +1,19 @@
+{
+  "scope": "Captura nativa real de ausencia aberta apos desligamento relatado do ESP32; JPEG preservado sem alteracao de pixels.",
+  "absenceAlertId": 4,
+  "lastPhysicalReadingId": 802,
+  "absenceTimeoutSeconds": 45,
+  "additionalDoorEpisode": "Episodio posterior de porta ID3 encerrou por SemDadosRecentes. Sua posicao anterior nao foi controlada neste ensaio; nao e uma segunda normalizacao de porta.",
+  "files": [
+    {
+      "path": "docs/evidencias/2026-11-25-firmware-principal/interface-ausencia-real/ausencia-aberta.jpg",
+      "sha256": "995edf7d9526a2fadef184654c69048ac8a6ed62fcca24f419dd7d340c9cb466",
+      "fileWrittenAtUtc": "2026-11-26T00:55:56.437119+00:00"
+    },
+    {
+      "path": "docs/evidencias/2026-11-25-firmware-principal/interface-ausencia-real/ausencia-dom.txt",
+      "sha256": "6999f99d6781c2c42cfab1c9014734e8824fee9c78739ffc56698853763e96aa",
+      "fileWrittenAtUtc": "2026-11-26T00:55:56.485678+00:00"
+    }
+  ]
+}
