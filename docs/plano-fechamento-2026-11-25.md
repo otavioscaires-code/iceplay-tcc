@@ -1,5 +1,21 @@
 # Fechamento do ICEPLAY — 25/11/2026
 
+**Estado atualizado na noite de 25/11:** a montagem da sonda foi recuperada; o principal foi compilado, gravado e iniciou na placa. O fluxo autenticado até API/SQLite/interface desktop, os episódios de porta/temperatura e a ausência após desligamento passaram. O reinício da API preservou as 802 leituras/quatro episódios. [Resultados físicos](etapa-integracao-fisica-2026-11-25.md) e [monografia atualizada](etapa-monografia-bancada-2026-11-25.md) distinguem cada controle. Os parágrafos posteriores preservam a preparação e os resultados da manhã.
+
+| Trabalho atual | Estado e próximo resultado necessário |
+| --- | --- |
+| Software, execução e firmware | Verificações de software/pacote aprovadas; principal em uso e sem nova alteração de fonte nesta continuidade |
+| Aquisição, alertas e persistência reais | Bancada/ausência aprovadas; todas as linhas iguais após reinício. Recuperação com a mesma credencial ainda precisa de captura |
+| Instalação na geladeira doméstica | Ponta metálica dentro conforme relato; foto parcial recebida. Corrigir distância/alinhamento do contato/ímã e apoiar o ESP32 em base isolante antes de alimentar |
+| Série real na geladeira | Coletor preparado para 15 min; ainda não executado. Registrar alimentação, posição, duração, lacunas e fotografia final |
+| iPhone com Hardware | Leitor/pareamento doméstico já relatado; nova consulta das medições físicas após o reinício ainda pendente |
+| Monografia | Word/PDF privados de 41 páginas, 16 figuras e cinco tabelas conferidos; atualizar somente com os próximos resultados efetivos e confirmar o orientador da capa |
+| Transferência/apresentação | ZIP completo privado preparado com runtime/código/Word/PDF e hashes conferidos. Banco e perfil de rede ficam separados; notebook/hotspot ainda não ensaiados |
+
+O ZIP completo é um retrato da fonte `d4d756e`, com o runtime previamente testado preservado byte a byte e os documentos privados. Não inclui o banco de uso, credenciais ou perfil HTTPS e não significa que o destino esteja preparado. As instruções do pacote identificam essa preparação. Não publicar o ZIP completo no GitHub, pois contém os dados do grupo no Word/PDF.
+
+## Registro da preparação matinal
+
 O aluno solicitou retomar e terminar o TCC. Ao esclarecer a montagem, informou possuir somente sonda, jumpers e protoboard, sem confirmar ferro/estanho ou adaptador com bornes. A recuperação das conexões ainda não foi demonstrada. A orientação continua sendo manter o USB desligado e preparar três terminações firmes e isoladas antes do reteste. Soldar extensões é uma opção; não se solda na protoboard branca.
 
 ## Software e execução conferidos nesta etapa

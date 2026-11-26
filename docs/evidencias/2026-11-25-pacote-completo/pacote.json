@@ -1,0 +1,18 @@
+{
+  "result": "passed",
+  "checkedAtUtc": "2026-11-26T01:28:53.2480121Z",
+  "sourceCommit": "d4d756e1af403738d2968d306ae862190e05aa3f",
+  "archiveName": "ICEPLAY_Projeto_Completo_25-11-2026.zip",
+  "bytes": 75010404,
+  "sha256": "e97bf2cf1571538f5de59b7c6fd6fef383c9d68c8387145f5bbd48a7b6e9a0da",
+  "verifiedEntries": 2096,
+  "runtimeFilesByteExact": 446,
+  "crcPassed": true,
+  "databaseOrNetworkSecretsIncluded": false,
+  "privateGroupDocumentsIncluded": true,
+  "documentPages": 41,
+  "numberedFigures": 16,
+  "numberedTables": 5,
+  "isNewRuntimeExecutionTest": false,
+  "scope": "Conferencia de empacotamento: runtime previamente verificado preservado e fonte/documentos adicionados. Arquivo completo e privado por conter o Word/PDF do grupo; instalacao na geladeira e apresentacao ainda nao validadas."
+}
