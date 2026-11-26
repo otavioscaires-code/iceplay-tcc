@@ -107,6 +107,10 @@ try {
         if ($response.StatusCode -ne 200) { throw "Recurso ausente: $page" }
     }
     Assert-Package $true 'Páginas e arquivos estáticos incluídos no executável distribuído'
+    $configurationHtml=Invoke-WebRequest -Uri ($url+'/configuracoes') -Headers @{'Cache-Control'='no-cache'} -TimeoutSec 5
+    Assert-Package ($configurationHtml.Content -ceq [IO.File]::ReadAllText((Join-Path $app 'wwwroot/configuracoes.html'))) 'Rota de configurações entrega o HTML do pacote, com a versão publicada do módulo'
+    $configurationScript=Invoke-WebRequest -Uri ($url+'/configuracoes.js') -Headers @{'Cache-Control'='no-cache'} -TimeoutSec 5
+    Assert-Package ($configurationScript.Content -ceq [IO.File]::ReadAllText((Join-Path $app 'wwwroot/configuracoes.js'))) 'JavaScript de configurações servido corresponde ao arquivo conferido no pacote'
     $record=Invoke-RestMethod -Uri ($url+'/api/geladeiras') -Method Post -ContentType 'application/json' -Body '{"nome":"Verificacao isolada do pacote"}'
     $payload=@{geladeiraId=$record.id;temperaturaC=3.625;portaAberta=$false;medidoEmUtc=[DateTime]::UtcNow.AddSeconds(-1).ToString('o');origem='Simulacao'} | ConvertTo-Json
     $reading=Invoke-RestMethod -Uri ($url+'/api/leituras') -Method Post -ContentType 'application/json' -Body $payload
