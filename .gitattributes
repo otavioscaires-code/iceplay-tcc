@@ -32,3 +32,5 @@ docs/tcc/integracao-fisica-2026-11-25/*.json -text whitespace=-blank-at-eof,-bla
 docs/tcc/observacao-geladeira-2026-11-25/*.svg -text whitespace=-blank-at-eof,-blank-at-eol
 docs/tcc/observacao-geladeira-2026-11-25/*.json -text whitespace=-blank-at-eof,-blank-at-eol
 docs/evidencias/2026-11-25-firmware-principal/**/*.csv -text whitespace=-blank-at-eof,-blank-at-eol
+# A transcrição nativa de acessibilidade conserva espaços emitidos pela interface.
+docs/evidencias/2026-11-25-firmware-principal/**/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
