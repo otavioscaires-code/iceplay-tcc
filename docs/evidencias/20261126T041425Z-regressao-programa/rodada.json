@@ -1,0 +1,120 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-26T04:14:25.941829+00:00",
+  "finishedAtUtc": "2026-11-26T04:18:10.207266+00:00",
+  "sourceCommit": "1758f3f564ec4203ca0b40b216488db48dc2c948",
+  "scope": "Software e pacote Windows em bancos isolados; sem novos ensaios fisicos ou validacao no notebook da apresentacao.",
+  "steps": [
+    {
+      "name": "javascript",
+      "exitCode": 0,
+      "elapsedSeconds": 3.0,
+      "logSha256": "0c99c07fc08bcc3304e6c47b69f0a010f634e2e834ee60dacf6e8ad1beade739",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "setup-build",
+      "exitCode": 0,
+      "elapsedSeconds": 31.52,
+      "logSha256": "40bd27edcf8c3e20da49e4f15224fcffff32397d807657349bdc02969af1765b",
+      "rawLogPrivate": true,
+      "finalBuildSummary": [
+        "0 Aviso(s)",
+        "0 Erro(s)"
+      ]
+    },
+    {
+      "name": "verify",
+      "exitCode": 0,
+      "elapsedSeconds": 13.55,
+      "logSha256": "f789173310a2ac594ba93f8ddb92e844cd21796d64dd8c9c45fe92de2799d85b",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-geladeiras",
+      "exitCode": 0,
+      "elapsedSeconds": 16.47,
+      "logSha256": "2e3b4f985b8554f1da32f3969edbfe90a222387aac9c72aa841dd2ffe6754b14",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-leituras",
+      "exitCode": 0,
+      "elapsedSeconds": 19.78,
+      "logSha256": "916e10fb639d0807e6649d78f3803bf2a9afe03fd2645e0c714a17e09cb016a9",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-monitoramento",
+      "exitCode": 0,
+      "elapsedSeconds": 12.88,
+      "logSha256": "d3ed68f30e6692608c24c850cfbab73b08b18a51b28ac25872dd53f15bf69579",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-historico",
+      "exitCode": 0,
+      "elapsedSeconds": 11.78,
+      "logSha256": "651ce34ea6ffd257c0b490bf0c390656c7f52f5cbe9abd39b3c871babdb6d7a0",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-pages",
+      "exitCode": 0,
+      "elapsedSeconds": 9.3,
+      "logSha256": "1b00f5a5d6e3cdb34e5871123dc8b3f1e20b593055ac6c5d727eb38e341fd1d2",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-configuracoes",
+      "exitCode": 0,
+      "elapsedSeconds": 10.89,
+      "logSha256": "3a3dc8e9d45ceea42b0ed1465e8273c5ff150dbbe3481e6ca31979c2b0dc48ca",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-alertas",
+      "exitCode": 0,
+      "elapsedSeconds": 27.7,
+      "logSha256": "beed7bc3218f9ed6f4569f68a1d8901de4195b9b5c77080cb4a20ebebd3a2d85",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-dispositivos",
+      "exitCode": 0,
+      "elapsedSeconds": 11.06,
+      "logSha256": "cce655f2e9585bb4454b49d3276248cd031a1630bde878eaddb652a697993953",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-mobile",
+      "exitCode": 0,
+      "elapsedSeconds": 21.17,
+      "logSha256": "24ae0f27ac4c60574ab34fc795428abb1163e271f80f4fc63a47440f155c7c01",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "pacote-distribuido",
+      "exitCode": 0,
+      "elapsedSeconds": 34.62,
+      "logSha256": "3380c226f42c93d8806bf4b6a6726d7cc3ddacf205e2d8f1df61e44bf8b0371b",
+      "rawLogPrivate": true
+    }
+  ],
+  "liveHistoricalReadingsMaximumIdPreserved": 1748,
+  "allHistoricalReadingsPreserved": true,
+  "liveMetadataTablesUnchanged": {
+    "Geladeiras": true,
+    "ConfiguracoesGeladeiras": true,
+    "Dispositivos": true,
+    "__EFMigrationsHistory": true
+  },
+  "originalSourceDatabaseHashUnchanged": true,
+  "privateMobileProfileUnchanged": true,
+  "liveDatabaseIntegrity": "ok",
+  "liveForeignKeyViolations": 0,
+  "mainApiHealthyAtEnd": true,
+  "consistentBeforeBackupPrivate": true,
+  "rawEvidenceDirectoryPrivate": ".tools/verification/20261126T041425Z-regressao-programa",
+  "firewallOrTrustChanged": false
+}

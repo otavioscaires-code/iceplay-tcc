@@ -79,7 +79,9 @@ async function interfaceFixture({ empty = false, stored = new Map(), delayedId =
         if (putMode === "401") return new Response(null, { status: 401 });
         if (putMode === "503") return new Response(null, { status: 503 });
         const existed = stored.has(id);
-        stored.set(id, configuracao(JSON.parse(options.body)));
+        const incoming = JSON.parse(options.body);
+        stored.set(id, configuracao({ ...incoming, inicioMonitoramentoEmUtc: incoming.monitoramentoAtivo
+          ? stored.get(id)?.inicioMonitoramentoEmUtc ?? configuracao().atualizadoEmUtc : null }));
         if (putMode === "network") throw new TypeError("Resposta de gravação perdida na fixture");
         if (putMode === "invalid") return Response.json(resposta(null, id));
         return Response.json(resposta(stored.get(id), id), { status: existed ? 200 : 201 });
@@ -121,7 +123,8 @@ test("salvar cria pela mesma API e apresenta somente confirmação do servidor",
   assert.equal(request.method, "PUT"); assert.equal(request.path, "/api/geladeiras/1/configuracao");
   assert.deepEqual(JSON.parse(request.body), parametros());
   assert.equal(request.headers["Content-Type"], "application/json");
-  assert.equal(f.node("minima").value, "0"); assert.match(f.node("status").textContent, /salva no banco.*não gera alertas/);
+  assert.equal(f.node("minima").value, "0"); assert.match(f.node("status").textContent, /salva no banco/);
+  assert.match(f.node("resumo").textContent, /Monitoramento: inativo.*não geram novas ocorrências enquanto inativo/);
   assert.equal(f.node("salvar").disabled, false); assert.equal(f.node("atualizacao").dateTime, configuracao().atualizadoEmUtc);
 });
 test("salvar novamente envia atualização sem trocar equipamento ou inventar horários", async () => {
@@ -129,6 +132,17 @@ test("salvar novamente envia atualização sem trocar equipamento ou inventar ho
   assert.equal(f.node("maxima").value, "5"); f.preencher({ maxima: "8" }); await f.salvar();
   assert.equal(f.requests.filter(x => x.method === "PUT").length, 1);
   assert.equal(f.node("maxima").value, "8"); assert.match(f.node("resumo").textContent, /geladeira #1/);
+});
+
+test("salvar monitoramento ativo confirma o servidor sem negar a avaliação de alertas", async () => {
+  const f = await interfaceFixture(); f.preencher({ ativo: true }); await f.salvar();
+  assert.equal(JSON.parse(f.requests.at(-1).body).monitoramentoAtivo, true);
+  assert.equal(f.stored.get(1).monitoramentoAtivo, true);
+  assert.equal(f.node("ativo").checked, true);
+  assert.equal(f.node("inicio").dateTime, f.stored.get(1).inicioMonitoramentoEmUtc);
+  assert.equal(f.node("status").dataset.state, "success");
+  assert.match(f.node("resumo").textContent, /Monitoramento: ativo.*avalia as regras a cada segundo/);
+  assert.doesNotMatch(f.node("status").textContent, /esta versão.*não gera alertas/i);
 });
 test("envios simultâneos geram um único PUT e mantêm controles bloqueados durante a gravação", async () => {
   const f = await interfaceFixture(); f.preencher();

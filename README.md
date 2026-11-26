@@ -1,5 +1,7 @@
 # ICEPLAY
 
+**Nova rodada de26/11/2026:** build sem avisos/erros, dez verificadores e pacote anterior aprovados. Nos testes de tela foi corrigida a confirmação antiga de Configurações que negava a geração de alertas. A regressão passou em150 testes JavaScript; novo verificador de concorrência/histórico/revogação/reinício passou em305 verificações/250 requisições HTTP isoladas. [Resultados e limites](docs/etapa-testes-programa-2026-11-26.md). A correção está aplicada aos dois assets da execução local, com backups privados; recarregue a página para carregar o módulo atualizado.
+
 **Fechamento em 26/11/2026:** o MVP foi demonstrado com sensores reais, API/SQLite, painel desktop/iPhone e alertas. Novos controles físicos confirmaram retenção temporária durante interrupção da API, recusa de credencial revogada em banco isolado e recuperação da credencial original. Orientador confirmado; Word/PDF privados atualizados com45 páginas/20 figuras/cinco tabelas. O outro notebook ainda está indisponível e sua execução/rede não foram testadas. O critério térmico original de30min não foi atingido; a extensão posterior é exploratória. [Entrega, resultados e limites](docs/etapa-fechamento-final-2026-11-26.md).
 
 As notas datadas seguintes preservam etapas anteriores; o fechamento acima é o estado atual.

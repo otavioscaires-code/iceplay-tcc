@@ -1,0 +1,112 @@
+{
+  "result": "passed",
+  "finishedAtUtc": "2026-11-26T04:30:10.527189+00:00",
+  "scope": "Regressao de software e conferencia nativa da interface em copia isolada. Nao e novo ensaio fisico, Safari real ou validacao do notebook da apresentacao.",
+  "baseline": {
+    "node": {
+      "tests": 149,
+      "pass": 149,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "existingVerifiersPassed": 10,
+    "buildWarnings": 0,
+    "buildErrors": 0,
+    "packageVersion": ".tools/exports/20261126T033918Z-projeto-completo/ICEPLAY_Projeto_Completo_26-11-2026.zip"
+  },
+  "regressionReproducedBeforeFix": {
+    "tests": 23,
+    "pass": 22,
+    "fail": 1,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "nodeAfterFix": {
+    "tests": 150,
+    "pass": 150,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "affectedVerifiersAfterFix": {
+    "verify-configuracoes-corrigido": {
+      "result": "passed",
+      "checks": 153,
+      "requests": 67,
+      "rawReportSha256": "10d17b958973483b80a6749bb5dfa9eed932cdc36afdd4072e8696fa7dff4eca"
+    },
+    "verify-pages-corrigido": {
+      "result": "passed",
+      "checks": 216,
+      "requests": 52,
+      "rawReportSha256": "a4ac19c7ac7591aefdd098ef87da7471363486e2405e68f87a3aff0c73cddb6e"
+    },
+    "verify-mobile": {
+      "result": "passed",
+      "checks": 181,
+      "requests": 137,
+      "rawReportSha256": "400f0dd6906e8c56598586a614323553ebc0e941278ab1e72e99bce0f4346980"
+    },
+    "pacote": {
+      "result": "passed",
+      "checks": 15,
+      "requests": 0,
+      "rawReportSha256": "354767016075ec9e10fbb470c3f2269bd20ea9190e00edfcdc395ab03937d9db"
+    }
+  },
+  "concurrency": {
+    "assertions": 305,
+    "httpRequests": 250,
+    "maxConcurrentClients": 8,
+    "duplicateRequests": 72,
+    "distinctAuthenticatedReadingsBeforeConflict": 17,
+    "simulationCohort": 100,
+    "simulationWritesWhileQuerying": 40,
+    "historyQueriesWhileWriting": 20,
+    "revocationRaceAccepted": 4,
+    "fixedCutoffCohortPreserved": true,
+    "rawReportSha256": "8c2276f689658252d7a972b83d19cb75bce9d43e6d4ece8d41a1ea19b7782cab"
+  },
+  "nativeBrowser": {
+    "engine": "Navegador integrado, copia do executavel publicado em banco isolado",
+    "fixtureOrigin": "Simulacao",
+    "physicalIphoneTest": false,
+    "dashboardAndEmptyRefrigeratorObserved": true,
+    "historyPageTwoSurvivedReload": true,
+    "emptyHistoryDidNotInventReadings": true,
+    "invalidTemperatureRangeRejected": true,
+    "savedActiveConfigurationSurvivedReload": true,
+    "oldSuccessClaimReproduced": "Configuração salva no banco. Esta versão ainda não gera alertas.",
+    "fixedSuccessClaimObservedAfterReload": "Configuração salva no banco. Confira abaixo o estado de monitoramento confirmado pela API.",
+    "activeAndClosedTemperatureEpisodesObserved": true,
+    "viewportWidth": 390,
+    "viewportHeight": 844,
+    "documentWidth": 375,
+    "historyChartWidth": 297,
+    "mobileMenuOpenedAndNavigated": true,
+    "javascriptConsoleErrorsInFinalHistoryTab": 0,
+    "screenshotsObservedButNotArchived": true,
+    "viewportOverrideResetAndTemporaryTabsClosed": true,
+    "visualApiAndPublisherStopped": true
+  },
+  "sourceHashesAtVerification": {
+    "src/Iceplay.Api/wwwroot/configuracoes.js": "cc4c115f664d2958088e49a7e46168c232130e540a65829a84838eecdc36a452",
+    "src/Iceplay.Api/wwwroot/configuracoes.html": "8178097116339f33be726555957dd71d7b551ffd65baf4abd6a82437d60b7993",
+    "scripts/configuracoes.test.mjs": "1b6ecd6a0da2305bfca2510c52ee615c6c841ea1d662aaac284e6d4c21a25f8c",
+    "scripts/verify-estabilidade.py": "ccdd0435f8e553d510cd94c3324694a6d7c3a2ae13952840300b6eb75a5f9631",
+    "scripts/verify-estabilidade.ps1": "f1453c8063b5fcc426af84531661c70035eb8fda57ea053226645b38a3ff7914"
+  },
+  "liveDataPreservation": {
+    "historicalReadingsPreserved": true,
+    "metadataTablesUnchanged": {
+      "Geladeiras": true,
+      "ConfiguracoesGeladeiras": true,
+      "Dispositivos": true,
+      "__EFMigrationsHistory": true
+    },
+    "sourceDatabaseUnchanged": true,
+    "mobileProfileUnchanged": true
+  },
+  "newPackagePublicationAndVerificationRequired": true
+}

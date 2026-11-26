@@ -134,7 +134,7 @@ async function salvar(event) {
     if (seq !== sequencia) return;
     if (!data.configuracao || Object.entries(parametros).some(([field, value]) => data.configuracao[field] !== value))
       throw new Error("A API não confirmou os parâmetros enviados.");
-    renderizar(data); mensagem("Configuração salva no banco. Esta versão ainda não gera alertas.", "success");
+    renderizar(data); mensagem("Configuração salva no banco. Confira abaixo o estado de monitoramento confirmado pela API.", "success");
   } catch (error) {
     if (seq !== sequencia) return;
     if (error.httpStatus === 400) mensagem(error.message, "error");

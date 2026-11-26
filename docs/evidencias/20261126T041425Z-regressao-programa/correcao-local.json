@@ -1,0 +1,20 @@
+{
+  "result": "passed",
+  "appliedAtUtc": "2026-11-26T04:25:01.073841+00:00",
+  "scope": "Correcao de texto de confirmacao e versao do modulo no HTML, replicadas para os dois assets da execucao publicada local. Sem reinicio da API, alteracao de banco, firmware ou regras.",
+  "files": [
+    {
+      "path": "app/wwwroot/configuracoes.js",
+      "beforeSha256": "1392e77146b03697143a2c4a50dc406bdd331991d48284f9d284043ce059555d",
+      "afterSha256": "cc4c115f664d2958088e49a7e46168c232130e540a65829a84838eecdc36a452"
+    },
+    {
+      "path": "app/wwwroot/configuracoes.html",
+      "beforeSha256": "df7e4ad86d125ceb1eab1a0e5efd1b59d7e6c01b130b85b4c424fcc40c4318ac",
+      "afterSha256": "8178097116339f33be726555957dd71d7b551ffd65baf4abd6a82437d60b7993"
+    }
+  ],
+  "previousAssetsBackedUpPrivately": true,
+  "mainApiHealthyAfterCopy": true,
+  "nativeBrowserVerificationStillRequired": true
+}
