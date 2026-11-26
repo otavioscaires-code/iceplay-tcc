@@ -1,0 +1,2383 @@
+{
+  "checkedAtUtc": "2026-11-26T15:59:20.144106+00:00",
+  "sourceCommit": "311ef9d11183e9e67ef10708e8ad4f0bcfe55873",
+  "scope": "Inventário de código versionado. Inspeção de módulos e fluxos próprios, testes executados e conferência de contratos/esquema; não certifica auditoria manual de cada linha das dependências, arquivos gerados e ferramentas. Declarações são localizadas por heurística, sem representar cobertura de testes.",
+  "files": [
+    {
+      "path": "firmware/esp32/include/cliente-https.h",
+      "kind": "product",
+      "lines": 59,
+      "sha256": "5d99a8e7f6f5e78b0418fdf07ff013553f898eda2a14a2dde0a2a4ebd70a78ad",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "firmware/esp32/include/config.example.h",
+      "kind": "product",
+      "lines": 16,
+      "sha256": "4fdfe6a92898eae7c7252bf68730e59c335c49953af791ba23a67c05f812be8c",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "firmware/esp32/platformio.ini",
+      "kind": "product",
+      "lines": 17,
+      "sha256": "294da54eaa035aa3549ca6efe9356fe23211d130089a873115ee833bdf76671c",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "firmware/esp32/src/main.cpp",
+      "kind": "product",
+      "lines": 204,
+      "sha256": "3e402e75cc61758e8bd5d8c9275ac8bf7b7026e2d8e504f5fc99565b20186193",
+      "declarationsHeuristic": [
+        {
+          "line": 38,
+          "signature": "bool portaDoNivel(int nivel) {"
+        },
+        {
+          "line": 43,
+          "signature": "void atualizarPorta(uint32_t agora) {"
+        },
+        {
+          "line": 52,
+          "signature": "bool localizarSensor() {"
+        },
+        {
+          "line": 65,
+          "signature": "void uuid(char* destino) {"
+        },
+        {
+          "line": 76,
+          "signature": "void concluirConversao(uint32_t agora) {"
+        },
+        {
+          "line": 108,
+          "signature": "void enviarPendente(uint32_t agora) {"
+        },
+        {
+          "line": 149,
+          "signature": "void manterRede(uint32_t agora) {"
+        },
+        {
+          "line": 164,
+          "signature": "void setup() {"
+        },
+        {
+          "line": 185,
+          "signature": "void loop() {"
+        }
+      ]
+    },
+    {
+      "path": "scripts/acesso-pareamento.test.mjs",
+      "kind": "tests-and-tools",
+      "lines": 78,
+      "sha256": "aac97d10cfcb111b26f489c3e68154082a3a7994747afced9dc15bf458252cc9",
+      "declarationsHeuristic": [
+        {
+          "line": 11,
+          "signature": "async function fixture(hash = '') {"
+        }
+      ]
+    },
+    {
+      "path": "scripts/acesso.test.mjs",
+      "kind": "tests-and-tools",
+      "lines": 214,
+      "sha256": "065ea65032423168be3087ff2c200f8804a1f975aad98833551cdabfaf97338c",
+      "declarationsHeuristic": [
+        {
+          "line": 9,
+          "signature": "async function browserFixture({ required = true, startupFailure = false, hasForm = true,"
+        }
+      ]
+    },
+    {
+      "path": "scripts/alertas.test.mjs",
+      "kind": "tests-and-tools",
+      "lines": 155,
+      "sha256": "d8825fb85302d4bcd30029f7223f8285e23628b400e9f27061ef5d9fb8963fb4",
+      "declarationsHeuristic": [
+        {
+          "line": 61,
+          "signature": "async function fixture(summary = false) {"
+        }
+      ]
+    },
+    {
+      "path": "scripts/backup-database.py",
+      "kind": "tests-and-tools",
+      "lines": 49,
+      "sha256": "fd6a049ce572710a94f16dc8432b855d9af29dbd91d6d1e2f399e08cdc039623",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/common-firmware.ps1",
+      "kind": "tests-and-tools",
+      "lines": 7,
+      "sha256": "6247050d0cab1c1c4a82974c579adcae1e7f0b3f0423f3841557919c8dfe375f",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/common.ps1",
+      "kind": "tests-and-tools",
+      "lines": 13,
+      "sha256": "79899283e43bdf9bfcba3f22a4070549316f6742f000e67bc6bde57ba27df7d3",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/configuracoes.test.mjs",
+      "kind": "tests-and-tools",
+      "lines": 233,
+      "sha256": "1b6ecd6a0da2305bfca2510c52ee615c6c841ea1d662aaac284e6d4c21a25f8c",
+      "declarationsHeuristic": [
+        {
+          "line": 51,
+          "signature": "async function interfaceFixture({ empty = false, stored = new Map(), delayedId = null, denyList = false, invalidList = false } = {}) {"
+        },
+        {
+          "line": 97,
+          "signature": "function preencher(change = {}) {"
+        }
+      ]
+    },
+    {
+      "path": "scripts/dispositivos.test.mjs",
+      "kind": "tests-and-tools",
+      "lines": 111,
+      "sha256": "15fbbfba1d966e8d270b4fcf8b70f18c48ef8cf4aac6ff4ae2db91226d666786",
+      "declarationsHeuristic": [
+        {
+          "line": 11,
+          "signature": "async function fixture({ deny = false, empty = false } = {}) {"
+        },
+        {
+          "line": 47,
+          "signature": "function findButton(text) { const walk = n => { if (n.tag === \"button\" && n.textContent === text) return n; for (const child of n.children) if (typeof child !=="
+        }
+      ]
+    },
+    {
+      "path": "scripts/distribuicao/Iniciar-ICEPLAY-Mobile.cmd",
+      "kind": "tests-and-tools",
+      "lines": 11,
+      "sha256": "98000491772ddac6c888840fb5eae7996c4447337b64d453ad415299c599c686",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/distribuicao/Iniciar-ICEPLAY.cmd",
+      "kind": "tests-and-tools",
+      "lines": 5,
+      "sha256": "522d9f384c180c37b737564a4b7e0671d6bc63d4baf083687425b97620092b20",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/distribuicao/Iniciar-ICEPLAY.ps1",
+      "kind": "tests-and-tools",
+      "lines": 88,
+      "sha256": "592b61bdd87136517b4daee35bc7972f2b2031b5a3cd1a1054ec741e9773f60e",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/historico-estado.test.mjs",
+      "kind": "tests-and-tools",
+      "lines": 312,
+      "sha256": "b828e6901ec398003da272e23b6863d1189259077d522a1eafa4bbd8cd63892a",
+      "declarationsHeuristic": [
+        {
+          "line": 116,
+          "signature": "async function interfaceFixture({ empty = false, search = \"\", delayHistory = false, delayEquipment = false, denyEquipment = false, chartWidth = 760, constantTem"
+        },
+        {
+          "line": 134,
+          "signature": "function responseFor(path) {"
+        }
+      ]
+    },
+    {
+      "path": "scripts/install-dotnet.ps1",
+      "kind": "tests-and-tools",
+      "lines": 35,
+      "sha256": "272eb387d593b92e78baeee98f8ae0317544c1d0d42ef06eb9d9742f631fc556",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/install-firmware-tools.ps1",
+      "kind": "tests-and-tools",
+      "lines": 17,
+      "sha256": "cdd55be4688ddb96020e09fac2a873469718a8cf825c2cb15e001395091d7d68",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/leitor-qr.test.mjs",
+      "kind": "tests-and-tools",
+      "lines": 179,
+      "sha256": "46fa61b08dfcbfee86510dcc546579cfb5bb47fe1b12d91ead5a2bbb37e34e73",
+      "declarationsHeuristic": [
+        {
+          "line": 24,
+          "signature": "function fixture({ secure = true, mediaError = null, pending = false, accept = true,"
+        }
+      ]
+    },
+    {
+      "path": "scripts/mobile-firewall.ps1",
+      "kind": "tests-and-tools",
+      "lines": 22,
+      "sha256": "a496dc0bfe7422a83ff8bc8f90eb276d59e5180a8d412fc3bd06267099ae9362",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/monitoramento-estado.test.mjs",
+      "kind": "tests-and-tools",
+      "lines": 78,
+      "sha256": "742eb2a3fe5809f18115640fef11110b7fc9dd23d17d178236a7413bea8b178b",
+      "declarationsHeuristic": [
+        {
+          "line": 6,
+          "signature": "function leitura(overrides = {}) {"
+        },
+        {
+          "line": 10,
+          "signature": "function snapshot(ultimaLeitura = leitura()) {"
+        }
+      ]
+    },
+    {
+      "path": "scripts/pareamento.test.mjs",
+      "kind": "tests-and-tools",
+      "lines": 253,
+      "sha256": "bd75ee3db7fa06b8ed0056726a5413b60277416e66aba950811708ab6eb00c59",
+      "declarationsHeuristic": [
+        {
+          "line": 13,
+          "signature": "async function fixture({ required = false, authenticated = false, hash = \"\", missingLibrary = false,"
+        },
+        {
+          "line": 25,
+          "signature": "function element() {"
+        }
+      ]
+    },
+    {
+      "path": "scripts/prepare-firmware.ps1",
+      "kind": "tests-and-tools",
+      "lines": 66,
+      "sha256": "f45e01318fe7f6d3d649bab8f065600718a8326a629180c50f038b140445f368",
+      "declarationsHeuristic": [
+        {
+          "line": 36,
+          "signature": "function ConvertTo-FirmwareLiteral([string] $Value) {"
+        }
+      ]
+    },
+    {
+      "path": "scripts/prepare-mobile.ps1",
+      "kind": "tests-and-tools",
+      "lines": 88,
+      "sha256": "6d0ce8bba17fec1378b31b16aabfa56d890bd5b27b65af043457fd884c9e3dda",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/prepare-tcc.py",
+      "kind": "tests-and-tools",
+      "lines": 67,
+      "sha256": "79b9ad10d40b9ab8f294eb0585745f2b5edb63807cdba6172939a3402f60ac46",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/publish-local.ps1",
+      "kind": "tests-and-tools",
+      "lines": 73,
+      "sha256": "b45665f981540e5de725ce23156d88484c9972b3e58e175a08b3839c3f1e9c40",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/run-firmware.ps1",
+      "kind": "tests-and-tools",
+      "lines": 17,
+      "sha256": "c8d628a9dca314cabcb73599a70e28b6a82c9f5bb5125b827942694b3bf7814b",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/run-mobile.ps1",
+      "kind": "tests-and-tools",
+      "lines": 31,
+      "sha256": "626f4f2aeff68d4c231140398b430a4300336421bece97b07d195160bf87f74c",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/run.ps1",
+      "kind": "tests-and-tools",
+      "lines": 10,
+      "sha256": "00cd976cef34fcdddb1d155e24e7c67a62e18aa2967c4ae26e093c39c0114ea8",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/setup.ps1",
+      "kind": "tests-and-tools",
+      "lines": 14,
+      "sha256": "b24ff3ae0444463652a42f593176e24e0ff96294dee58cc0701a07898d83a262",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/shell.test.mjs",
+      "kind": "tests-and-tools",
+      "lines": 68,
+      "sha256": "8f2b9711520494b3d639cb2b90482596b4c928702fc02b408173161eb47d15b3",
+      "declarationsHeuristic": [
+        {
+          "line": 7,
+          "signature": "function fixture({ mobile = false, pathname = \"/dashboard\", hash = \"\", missingMenu = false } = {}) {"
+        }
+      ]
+    },
+    {
+      "path": "scripts/som-alertas.test.mjs",
+      "kind": "tests-and-tools",
+      "lines": 124,
+      "sha256": "b18b2ffaf27ef2de8fa8ca2df2c5a8b198d1848d150133cae7c19b731990acb4",
+      "declarationsHeuristic": [
+        {
+          "line": 40,
+          "signature": "async function fixture({ webkit = false, unsupported = false, resumeFails = false } = {}) {"
+        }
+      ]
+    },
+    {
+      "path": "scripts/verification_http.py",
+      "kind": "tests-and-tools",
+      "lines": 111,
+      "sha256": "e277878181aed76aaede56cad7b4fe18b3e4671f2a5b3ec5878ca19ca6f7ff6a",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/verify-alertas.ps1",
+      "kind": "tests-and-tools",
+      "lines": 22,
+      "sha256": "cd4328d3186153063ddebfedb993c101fa1b6a5ab0366399f172690c7d967db5",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/verify-alertas.py",
+      "kind": "tests-and-tools",
+      "lines": 85,
+      "sha256": "2cd9d9b5b5ce173b88f7006325f476cf866737bca8d2394c8352bdba0f14164a",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/verify-configuracoes.ps1",
+      "kind": "tests-and-tools",
+      "lines": 16,
+      "sha256": "6cf444301062225f82b7123a1d26dadefb6f49a28d94c7439755672347153817",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/verify-configuracoes.py",
+      "kind": "tests-and-tools",
+      "lines": 256,
+      "sha256": "4d83113a503bbbb255e1fb00d9381169a563fd8639d60857cf648a1b7eced55a",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/verify-database.py",
+      "kind": "tests-and-tools",
+      "lines": 195,
+      "sha256": "0416520a78cbc5dfed2a74f9266e685d8dd83fab6332d9376c773331b457a723",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/verify-dispositivos.ps1",
+      "kind": "tests-and-tools",
+      "lines": 17,
+      "sha256": "5cb4d1b19ed413bd0a351243e60824cd91747ffe62fbf74eb92eb5d7c38704fc",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/verify-dispositivos.py",
+      "kind": "tests-and-tools",
+      "lines": 122,
+      "sha256": "e089c2487e83cc4ad8615c444ab77b6535be320558e8328f62bcabd58369c70d",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/verify-estabilidade.ps1",
+      "kind": "tests-and-tools",
+      "lines": 17,
+      "sha256": "f1453c8063b5fcc426af84531661c70035eb8fda57ea053226645b38a3ff7914",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/verify-estabilidade.py",
+      "kind": "tests-and-tools",
+      "lines": 131,
+      "sha256": "ccdd0435f8e553d510cd94c3324694a6d7c3a2ae13952840300b6eb75a5f9631",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/verify-firmware.ps1",
+      "kind": "tests-and-tools",
+      "lines": 68,
+      "sha256": "c32911feb73091ff83077457fa76e7fe0b9c5244ea5896999e5002482594145f",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/verify-geladeiras.ps1",
+      "kind": "tests-and-tools",
+      "lines": 399,
+      "sha256": "32a3a6a27443e3830c1f31cf713d548e96351674334e8d3dbef592754c01a25e",
+      "declarationsHeuristic": [
+        {
+          "line": 43,
+          "signature": "function Assert-Crud([bool] $condition, [string] $description) {"
+        },
+        {
+          "line": 50,
+          "signature": "function Start-CrudApi([string] $environment, [string] $databaseFile, [string] $label) {"
+        },
+        {
+          "line": 82,
+          "signature": "function Stop-CrudApi($instance) {"
+        },
+        {
+          "line": 93,
+          "signature": "function Wait-CrudApi($instance) {"
+        },
+        {
+          "line": 106,
+          "signature": "function Invoke-CrudRequest {"
+        },
+        {
+          "line": 160,
+          "signature": "function Assert-CrudEntity($actual, $expected, [string] $label) {"
+        },
+        {
+          "line": 179,
+          "signature": "function Assert-CrudState($instance, [object[]] $expected, [string] $label) {"
+        },
+        {
+          "line": 191,
+          "signature": "function Assert-CrudValidation($response, [string] $field, [string] $label) {"
+        }
+      ]
+    },
+    {
+      "path": "scripts/verify-historico.ps1",
+      "kind": "tests-and-tools",
+      "lines": 193,
+      "sha256": "6f4c133f7ae11ff5d88c025865ab4cd9cf1f9d6a9020759ffc4a05fa461f7a6c",
+      "declarationsHeuristic": [
+        {
+          "line": 19,
+          "signature": "function Assert-History([bool]$condition,[string]$description) {"
+        },
+        {
+          "line": 24,
+          "signature": "function Start-HistoryApi([string]$environment,[string]$database,[string]$label) {"
+        },
+        {
+          "line": 47,
+          "signature": "function Stop-HistoryApi($instance) {"
+        },
+        {
+          "line": 54,
+          "signature": "function Invoke-HistoryRequest($instance,[string]$method,[string]$path,[int]$expected,$body=$null) {"
+        },
+        {
+          "line": 65,
+          "signature": "function Assert-HistoryIds($page,[int[]]$ids,[long]$total,[long]$pages) {"
+        },
+        {
+          "line": 70,
+          "signature": "function Get-HistoryDatabaseSnapshot {"
+        }
+      ]
+    },
+    {
+      "path": "scripts/verify-leituras.ps1",
+      "kind": "tests-and-tools",
+      "lines": 533,
+      "sha256": "9b759f932d4969c0366cc7a62d9d9bde4282ff9381259d1d36a3750d2505099d",
+      "declarationsHeuristic": [
+        {
+          "line": 50,
+          "signature": "function Assert-Leituras([bool] $condition, [string] $description) {"
+        },
+        {
+          "line": 57,
+          "signature": "function Start-LeiturasProcess([string[]] $arguments, [string] $environment, [string] $databaseFile, [string] $label, [string] $url) {"
+        },
+        {
+          "line": 83,
+          "signature": "function Stop-LeiturasProcess($instance) {"
+        },
+        {
+          "line": 94,
+          "signature": "function Invoke-LeiturasEf([string[]] $arguments, [string] $label) {"
+        },
+        {
+          "line": 104,
+          "signature": "function Start-LeiturasApi([string] $environment, [string] $databaseFile, [string] $label) {"
+        },
+        {
+          "line": 114,
+          "signature": "function Wait-LeiturasApi($instance) {"
+        },
+        {
+          "line": 127,
+          "signature": "function Invoke-LeiturasRequest {"
+        },
+        {
+          "line": 170,
+          "signature": "function Convert-LeiturasUtc([string] $value) {"
+        },
+        {
+          "line": 175,
+          "signature": "function Assert-LeituraEntity($actual, $expected, [string] $label) {"
+        },
+        {
+          "line": 198,
+          "signature": "function Assert-LeiturasParent($instance, $expected) {"
+        },
+        {
+          "line": 208,
+          "signature": "function Invoke-LeiturasPython([string] $code, [string[]] $arguments, [string] $label) {"
+        },
+        {
+          "line": 294,
+          "signature": "function Assert-LeiturasCount([int] $expectedCount, [string] $label) {"
+        }
+      ]
+    },
+    {
+      "path": "scripts/verify-mobile.ps1",
+      "kind": "tests-and-tools",
+      "lines": 31,
+      "sha256": "2a2627ff4f687236d1baf1cb175fc42ed946f1b74efe976a3bee57d6ce976416",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/verify-mobile.py",
+      "kind": "tests-and-tools",
+      "lines": 357,
+      "sha256": "86cd4730c5b52359d79f501c8730b9f281f7619f25e3cc3c10c68e2a9dede652",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "scripts/verify-monitoramento.ps1",
+      "kind": "tests-and-tools",
+      "lines": 166,
+      "sha256": "374eb0c57fcc108a91acb1f4d9b26b7fc2a0b86d9a379768252947f85dc64232",
+      "declarationsHeuristic": [
+        {
+          "line": 19,
+          "signature": "function Assert-Panel([bool]$condition,[string]$description) {"
+        },
+        {
+          "line": 24,
+          "signature": "function Start-PanelApi([string]$environment,[string]$database,[string]$label) {"
+        },
+        {
+          "line": 46,
+          "signature": "function Stop-PanelApi($instance) {"
+        },
+        {
+          "line": 53,
+          "signature": "function Invoke-PanelRequest($instance,[string]$method,[string]$path,[int]$expected,$body=$null) {"
+        },
+        {
+          "line": 64,
+          "signature": "function Assert-PanelReading($snapshot,[int]$parent,[int]$reading,[double]$temperature,[bool]$door,[string]$origin) {"
+        }
+      ]
+    },
+    {
+      "path": "scripts/verify-package.ps1",
+      "kind": "tests-and-tools",
+      "lines": 160,
+      "sha256": "aa7dcd9101bd82ab4d48dc3728ff404ad537ba0f3e5e28faed6d28f21a6fd657",
+      "declarationsHeuristic": [
+        {
+          "line": 21,
+          "signature": "function Assert-Package([bool] $condition,[string] $message) {"
+        },
+        {
+          "line": 26,
+          "signature": "function Get-PackagePort {"
+        },
+        {
+          "line": 31,
+          "signature": "function Start-PackageProcess([string] $exe,[string[]] $arguments,[string] $directory) {"
+        },
+        {
+          "line": 50,
+          "signature": "function Stop-PackageProcess($instance) {"
+        },
+        {
+          "line": 60,
+          "signature": "function Wait-PackageHealth($instance,[string] $baseUrl) {"
+        }
+      ]
+    },
+    {
+      "path": "scripts/verify-pages.ps1",
+      "kind": "tests-and-tools",
+      "lines": 181,
+      "sha256": "764d97a3bea3aca51666589440d3792082856d2db23ae09ab32ffdda2adbcd6d",
+      "declarationsHeuristic": [
+        {
+          "line": 19,
+          "signature": "function Assert-Pages([bool]$condition,[string]$description) {"
+        },
+        {
+          "line": 24,
+          "signature": "function Start-PagesApi([string]$label) {"
+        },
+        {
+          "line": 47,
+          "signature": "function Stop-PagesApi($instance) {"
+        },
+        {
+          "line": 54,
+          "signature": "function Invoke-PagesRequest($instance,[string]$method,[string]$path,[int]$expected,$body=$null) {"
+        },
+        {
+          "line": 63,
+          "signature": "function Get-PagesSnapshot {"
+        },
+        {
+          "line": 78,
+          "signature": "function Get-PagesAttribute([string]$tag,[string]$name) {"
+        }
+      ]
+    },
+    {
+      "path": "scripts/verify.ps1",
+      "kind": "tests-and-tools",
+      "lines": 132,
+      "sha256": "a299005ae32e41fef1cf7980f4391c6e337685b24d47017a402e08c3dd2347e6",
+      "declarationsHeuristic": [
+        {
+          "line": 18,
+          "signature": "function Assert-Iceplay([bool] $condition, [string] $description) {"
+        },
+        {
+          "line": 24,
+          "signature": "function Start-IceplayVerification([string] $environment, [string] $databaseFile, [string] $label) {"
+        },
+        {
+          "line": 48,
+          "signature": "function Stop-IceplayVerification($instance) {"
+        },
+        {
+          "line": 57,
+          "signature": "function Wait-IceplayHealth($instance) {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Contracts/AlertaResponse.cs",
+      "kind": "product",
+      "lines": 11,
+      "sha256": "8b7c226fdabd3a6cc42f0ba6147ee479f06853eadd24a178e6aa4709e5993a1d",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Contracts/ConfiguracaoGeladeiraResponse.cs",
+      "kind": "product",
+      "lines": 15,
+      "sha256": "4def62e7edd52ba31f937b3b6092f402a56dceb6b3b754d10e36273545ba5288",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Contracts/ConsultarAlertasRequest.cs",
+      "kind": "product",
+      "lines": 49,
+      "sha256": "2ab495edbc12311359a763a6ebbfe2e27432fd84004aa31a7cbec3360aff2da6",
+      "declarationsHeuristic": [
+        {
+          "line": 18,
+          "signature": "public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)"
+        },
+        {
+          "line": 32,
+          "signature": "public DateTime? ObterInicioUtc() => TryUtc(InicioUtc, out var value) ? value : null;"
+        },
+        {
+          "line": 33,
+          "signature": "public DateTime? ObterFimUtc() => TryUtc(FimUtc, out var value) ? value : null;"
+        },
+        {
+          "line": 35,
+          "signature": "private static bool TryUtc(string? value, out DateTime? result)"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Contracts/ConsultarHistoricoRequest.cs",
+      "kind": "product",
+      "lines": 71,
+      "sha256": "8c2629f5e901e7f1e1ab6fddc49341cf0bed0c4cd682c4a9726aecbe66c1da37",
+      "declarationsHeuristic": [
+        {
+          "line": 40,
+          "signature": "public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)"
+        },
+        {
+          "line": 59,
+          "signature": "public DateTime? ObterInicioUtc() => TentarConverter(InicioUtc, out var value) ? value : null;"
+        },
+        {
+          "line": 60,
+          "signature": "public DateTime? ObterFimUtc() => TentarConverter(FimUtc, out var value) ? value : null;"
+        },
+        {
+          "line": 62,
+          "signature": "private static bool TentarConverter(string? value, out DateTime? instante)"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Contracts/CriarLeituraRequest.cs",
+      "kind": "product",
+      "lines": 73,
+      "sha256": "2bbf4679e5c886f8bed405ce8e20f364ced09d473ce35a3f7301bc13ea59b3f1",
+      "declarationsHeuristic": [
+        {
+          "line": 43,
+          "signature": "public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)"
+        },
+        {
+          "line": 67,
+          "signature": "public bool TentarObterMedidoEmUtc(out DateTime medidoEmUtc) => DateTime.TryParseExact("
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Contracts/DispositivoResponse.cs",
+      "kind": "product",
+      "lines": 13,
+      "sha256": "fd740e6e2e71aaacfdcab7c4c118391b055ec0a559a97821e95d93a9fb7dd78b",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Contracts/GeladeiraResponse.cs",
+      "kind": "product",
+      "lines": 7,
+      "sha256": "641845ccfd2eb0d8450741dec609b6e570fd73527946a57c8b448cc6aa7f4afa",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Contracts/HistoricoLeiturasResponse.cs",
+      "kind": "product",
+      "lines": 12,
+      "sha256": "28d970ecc83c51f8f5153938f192ba0288ef7dc4fbaa6186c6036dde6b9e9255",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Contracts/LeituraResponse.cs",
+      "kind": "product",
+      "lines": 12,
+      "sha256": "294528eb83a44d79754cacec9370328c8b8594c66140c56dc9d4630dd4273e1a",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Contracts/MonitoramentoResponse.cs",
+      "kind": "product",
+      "lines": 12,
+      "sha256": "c9f5b220b6bdce22a51d8a3216e281c98f461bd757632dd257baa3d3f32bef7f",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Contracts/SalvarConfiguracaoRequest.cs",
+      "kind": "product",
+      "lines": 60,
+      "sha256": "779e03bab992a2639aa175ef81e31eb3595c5ec5e38584694f7c980a57137738",
+      "declarationsHeuristic": [
+        {
+          "line": 33,
+          "signature": "public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Contracts/SalvarGeladeiraRequest.cs",
+      "kind": "product",
+      "lines": 13,
+      "sha256": "aba3efa71f03271fb571076c6e5a2d050c54d67081a3c04f9f97e44ea1a78155",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Controllers/AcessoController.cs",
+      "kind": "product",
+      "lines": 103,
+      "sha256": "0f109a6c969578719bec6e083e107c059eac36beb150d6ec058f83f85910ee52",
+      "declarationsHeuristic": [
+        {
+          "line": 17,
+          "signature": "public IActionResult Consultar()"
+        },
+        {
+          "line": 28,
+          "signature": "public async Task<IActionResult> Entrar(CodigoAcessoRequest request)"
+        },
+        {
+          "line": 39,
+          "signature": "public IActionResult CriarPareamento()"
+        },
+        {
+          "line": 49,
+          "signature": "public IActionResult CancelarPareamento()"
+        },
+        {
+          "line": 59,
+          "signature": "public async Task<IActionResult> EntrarPorPareamento(PareamentoRequest request)"
+        },
+        {
+          "line": 71,
+          "signature": "private bool CanManagePairing() => settings.IsLocal(HttpContext)"
+        },
+        {
+          "line": 75,
+          "signature": "private Task SignIn()"
+        },
+        {
+          "line": 84,
+          "signature": "public async Task<IActionResult> Sair()"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Controllers/AlertasController.cs",
+      "kind": "product",
+      "lines": 82,
+      "sha256": "9a845efb67506f93196adf08d1384af311b1c6593760b84e641ee47cdd294cfe",
+      "declarationsHeuristic": [
+        {
+          "line": 16,
+          "signature": "public async Task<ActionResult<AlertasResponse>> Listar([FromQuery] ConsultarAlertasRequest request, CancellationToken ct)"
+        },
+        {
+          "line": 44,
+          "signature": "public async Task<ActionResult<AlertaResponse>> Obter(int id, CancellationToken ct)"
+        },
+        {
+          "line": 51,
+          "signature": "public async Task<IActionResult> Resumo([FromQuery] string? origem, CancellationToken ct)"
+        },
+        {
+          "line": 71,
+          "signature": "private async Task<List<AlertaResponse>> ComNomes(IQueryable<Alerta> query, CancellationToken ct)"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Controllers/ConfiguracoesController.cs",
+      "kind": "product",
+      "lines": 86,
+      "sha256": "9a641058ba1bab504ba0a3bd8a10b4071f888e841fa346e4247815b88b631307",
+      "declarationsHeuristic": [
+        {
+          "line": 14,
+          "signature": "public async Task<ActionResult<ConfiguracaoGeladeiraResponse>> Obter(int id, CancellationToken cancellationToken)"
+        },
+        {
+          "line": 33,
+          "signature": "public async Task<ActionResult<ConfiguracaoGeladeiraResponse>> Salvar("
+        },
+        {
+          "line": 75,
+          "signature": "private ObjectResult GeladeiraNaoEncontrada() => Problem("
+        },
+        {
+          "line": 80,
+          "signature": "private static ConfiguracaoGeladeiraResponse ParaResposta(int id, ConfiguracaoGeladeira? configuracao) =>"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Controllers/DispositivosController.cs",
+      "kind": "product",
+      "lines": 60,
+      "sha256": "caa848c6c98bd02ae0a43fdf09c9685db68d2026fb7dfbbdfe83280acf80e359",
+      "declarationsHeuristic": [
+        {
+          "line": 15,
+          "signature": "public async Task<ActionResult<List<DispositivoResponse>>> Listar(int geladeiraId, CancellationToken ct)"
+        },
+        {
+          "line": 23,
+          "signature": "public async Task<ActionResult<DispositivoResponse>> Obter(int geladeiraId, int dispositivoId, CancellationToken ct)"
+        },
+        {
+          "line": 30,
+          "signature": "public async Task<ActionResult<EmitirCredencialResponse>> Criar(int geladeiraId, CriarDispositivoRequest request, CancellationToken ct)"
+        },
+        {
+          "line": 47,
+          "signature": "public async Task<ActionResult<DispositivoResponse>> Revogar(int geladeiraId, int dispositivoId, CancellationToken ct)"
+        },
+        {
+          "line": 58,
+          "signature": "private ObjectResult NaoEncontrado() => Problem(statusCode: 404, title: \"Geladeira ou dispositivo não encontrado.\");"
+        },
+        {
+          "line": 59,
+          "signature": "private static DispositivoResponse Resposta(Dispositivo device) => new(device.Id, device.GeladeiraId, device.Nome, device.CriadoEmUtc, device.RevogadoEmUtc);"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Controllers/GeladeirasController.cs",
+      "kind": "product",
+      "lines": 165,
+      "sha256": "5bba65335cc29272caf06177feba9d5bed69b04e8ca1b788ac02eef79e062724",
+      "declarationsHeuristic": [
+        {
+          "line": 15,
+          "signature": "public async Task<ActionResult<List<GeladeiraResponse>>> Listar(CancellationToken cancellationToken)"
+        },
+        {
+          "line": 27,
+          "signature": "public async Task<ActionResult<GeladeiraResponse>> ObterPorId(int id, CancellationToken cancellationToken)"
+        },
+        {
+          "line": 37,
+          "signature": "public async Task<ActionResult<GeladeiraResponse>> Criar("
+        },
+        {
+          "line": 54,
+          "signature": "public async Task<ActionResult<GeladeiraResponse>> Atualizar("
+        },
+        {
+          "line": 91,
+          "signature": "public async Task<IActionResult> Excluir(int id, CancellationToken cancellationToken)"
+        },
+        {
+          "line": 142,
+          "signature": "private Task<bool> Existe(int id, CancellationToken cancellationToken) =>"
+        },
+        {
+          "line": 145,
+          "signature": "private ObjectResult GeladeiraNaoEncontrada() => Problem("
+        },
+        {
+          "line": 150,
+          "signature": "private ObjectResult GeladeiraComLeituras() => Problem("
+        },
+        {
+          "line": 155,
+          "signature": "private ObjectResult GeladeiraComAlertas() => Problem("
+        },
+        {
+          "line": 160,
+          "signature": "private static GeladeiraResponse ParaResposta(Geladeira geladeira) =>"
+        },
+        {
+          "line": 163,
+          "signature": "private static string? NormalizarLocalizacao(string? localizacao) =>"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Controllers/HealthController.cs",
+      "kind": "product",
+      "lines": 42,
+      "sha256": "60b6ba55bde0e2459ebba2da2e6858deee1db2f36e9ab62af53bb9e2775ce8ab",
+      "declarationsHeuristic": [
+        {
+          "line": 15,
+          "signature": "public async Task<IActionResult> Get(CancellationToken cancellationToken)"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Controllers/LeiturasController.cs",
+      "kind": "product",
+      "lines": 170,
+      "sha256": "61470d9b3ed2bf5a1ce6e75cdc17196b6fd5f65acc1d2a70c15d8e19abfa02c8",
+      "declarationsHeuristic": [
+        {
+          "line": 16,
+          "signature": "public async Task<ActionResult<HistoricoLeiturasResponse>> ConsultarHistorico("
+        },
+        {
+          "line": 53,
+          "signature": "public async Task<ActionResult<LeituraResponse>> Criar("
+        },
+        {
+          "line": 145,
+          "signature": "public async Task<ActionResult<LeituraResponse>> ObterPorId(int id, CancellationToken cancellationToken)"
+        },
+        {
+          "line": 157,
+          "signature": "private ObjectResult GeladeiraNaoEncontrada() => Problem("
+        },
+        {
+          "line": 162,
+          "signature": "private static LeituraResponse ParaResposta(Leitura leitura) => new("
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Controllers/MonitoramentoController.cs",
+      "kind": "product",
+      "lines": 62,
+      "sha256": "ef9f22ab83cbdf15b97dc96548005fc91af025823790a4ffed338efb7ff723e0",
+      "declarationsHeuristic": [
+        {
+          "line": 15,
+          "signature": "public async Task<ActionResult<MonitoramentoResponse>> Consultar("
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Data/DatabaseExceptionHandler.cs",
+      "kind": "product",
+      "lines": 38,
+      "sha256": "0f0d4467b41fce240da725fbcbd2feb38fb6e61cd81956af9ca1fe3c7b30ea08",
+      "declarationsHeuristic": [
+        {
+          "line": 10,
+          "signature": "public async ValueTask<bool> TryHandleAsync("
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Data/IceplayDbContext.cs",
+      "kind": "product",
+      "lines": 160,
+      "sha256": "4cf0cfa536c8682309d65f63239f9a2baada1442f310dfaa3269cabe7c7a0e96",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Devices/DispositivoCredentials.cs",
+      "kind": "product",
+      "lines": 30,
+      "sha256": "b950f3fc84af23e7c962e61bad6f665ed1bee9258f1b51bc985d5f22e749b143",
+      "declarationsHeuristic": [
+        {
+          "line": 14,
+          "signature": "public static EmissorAutenticado? Obter(HttpContext context) => context.Items.TryGetValue(ItemKey, out var value) ? value as EmissorAutenticado : null;"
+        },
+        {
+          "line": 15,
+          "signature": "public static string NovoSegredo() => Convert.ToHexStringLower(RandomNumberGenerator.GetBytes(32));"
+        },
+        {
+          "line": 18,
+          "signature": "public async Task<bool> AutenticarAsync(HttpContext context)"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Iceplay.Api.csproj",
+      "kind": "product",
+      "lines": 15,
+      "sha256": "1395e91b1ab66608960922136801169dfba0aa60b48eb667b9b2a3977f801862",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Migrations/20261013172101_InitialCreate.Designer.cs",
+      "kind": "generated-model",
+      "lines": 53,
+      "sha256": "172e2f34dcc1f342638523c951de08a9ae88cea9da1772c10297bd0662c4a1cb",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Migrations/20261013172101_InitialCreate.cs",
+      "kind": "product",
+      "lines": 39,
+      "sha256": "1de4f910bc32f2b63a271f2332410eb94c7f77aeb8abebb2b2939b4149c31b66",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Migrations/20261018023456_AddLeituras.Designer.cs",
+      "kind": "generated-model",
+      "lines": 105,
+      "sha256": "6070e9b145a5f6a7f50ec551f050a8d00e0d737e844a925ed155923151bbc148",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Migrations/20261018023456_AddLeituras.cs",
+      "kind": "product",
+      "lines": 56,
+      "sha256": "6492354cf6b167998a82280c039ea8e31975818738a47792a7206be6d1b4742e",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Migrations/20261109233935_AddConfiguracoesGeladeiras.Designer.cs",
+      "kind": "generated-model",
+      "lines": 164,
+      "sha256": "736005f3c5ab46328c53694fb8e0617c70bfa9a0ae6cb41303a205fb99b4078b",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Migrations/20261109233935_AddConfiguracoesGeladeiras.cs",
+      "kind": "product",
+      "lines": 54,
+      "sha256": "f3ea6e9b7f7bb12265fd7400d397e3b5b95834c56d122f0ec1533fbf41cd8cb6",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Migrations/20261112192436_AddAlertas.Designer.cs",
+      "kind": "generated-model",
+      "lines": 287,
+      "sha256": "e02d4d090f82743542a39d377137d7140234e54f958702f0ce75f5000d1308f6",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Migrations/20261112192436_AddAlertas.cs",
+      "kind": "product",
+      "lines": 107,
+      "sha256": "4de0489a6edcc99f932e8664daceb7c961b32316a691a52b6b6ec47ae5748639",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Migrations/20261112194714_AddDispositivos.Designer.cs",
+      "kind": "generated-model",
+      "lines": 352,
+      "sha256": "3ed68f929b73174ab4b6cfd6c0d82dcf1d81a01f0606f8c74fec8b0c38467efe",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Migrations/20261112194714_AddDispositivos.cs",
+      "kind": "product",
+      "lines": 99,
+      "sha256": "88c6cf633a15d9f3a30c0a03dded9d2801c77a57010675efb044a15a469efad5",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Migrations/IceplayDbContextModelSnapshot.cs",
+      "kind": "generated-model",
+      "lines": 349,
+      "sha256": "64f67291c0e7ac9d0d886ea933c12bf94ba8f0fb9bb6d0bd11e9662f418a8b8a",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Mobile/MobileAccessExtensions.cs",
+      "kind": "product",
+      "lines": 67,
+      "sha256": "76392f634571a91589113b80e35e788a7812e06e91b40ee34339990c8f41ef87",
+      "declarationsHeuristic": [
+        {
+          "line": 11,
+          "signature": "public static void AddMobileAccess(this WebApplicationBuilder builder)"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Mobile/MobileAccessMiddleware.cs",
+      "kind": "product",
+      "lines": 106,
+      "sha256": "4c82bff1b7f95d478870b1b3f055ce20b152cc729f89f186304edb3fe1f391ec",
+      "declarationsHeuristic": [
+        {
+          "line": 9,
+          "signature": "public async Task InvokeAsync(HttpContext context, MobileAccessSettings settings, IAntiforgery antiforgery, DispositivoCredentials credentials)"
+        },
+        {
+          "line": 104,
+          "signature": "private static Task Reject(HttpContext context, int status, string detail) =>"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Mobile/MobileAccessSettings.cs",
+      "kind": "product",
+      "lines": 64,
+      "sha256": "90216550f56cb4cc8ae112d9b54fb97fee9155608a33ddfdc71547ad746e288e",
+      "declarationsHeuristic": [
+        {
+          "line": 22,
+          "signature": "public void Validate()"
+        },
+        {
+          "line": 36,
+          "signature": "public bool IsLocal(HttpContext context) => !Enabled ||"
+        },
+        {
+          "line": 40,
+          "signature": "public bool Allows(IPAddress? address)"
+        },
+        {
+          "line": 55,
+          "signature": "public bool MatchesCode(string code) => CryptographicOperations.FixedTimeEquals("
+        },
+        {
+          "line": 58,
+          "signature": "private static bool IsPrivateV4(IPAddress address)"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Mobile/MobilePairing.cs",
+      "kind": "product",
+      "lines": 51,
+      "sha256": "1a8ceb54e270c880e0247ac10c9650509ce712c6edd974f8c0b14bbe950781f4",
+      "declarationsHeuristic": [
+        {
+          "line": 16,
+          "signature": "public PairingInvitation Issue()"
+        },
+        {
+          "line": 27,
+          "signature": "public bool TryConsume(string token)"
+        },
+        {
+          "line": 43,
+          "signature": "public void Revoke()"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Models/Alerta.cs",
+      "kind": "product",
+      "lines": 25,
+      "sha256": "e2d1544223c1b2c9c2af396aca5dc9756a8f44e49c4bdbb2b00de88d3d5ddf43",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Models/ConfiguracaoGeladeira.cs",
+      "kind": "product",
+      "lines": 14,
+      "sha256": "769c0b32c2069910f1f63de25143f459acb3afabd7bcce9df24b53e2d40df1cf",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Models/Dispositivo.cs",
+      "kind": "product",
+      "lines": 11,
+      "sha256": "a28c24b5a3f2cff14ebeadc02d2c6b5015b7a846b3bdcbcee11e90e443b06d0b",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Models/EstadoMonitoramento.cs",
+      "kind": "product",
+      "lines": 12,
+      "sha256": "0e51d8faca6fb6a3e060f8abb7eb0cb0c4f6c952367142dd07b7c27d2661fdfe",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Models/Geladeira.cs",
+      "kind": "product",
+      "lines": 17,
+      "sha256": "76bbb6f37338e5455582284639317821c328e92feb8cca63438b6c8c533b4fd2",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Models/Leitura.cs",
+      "kind": "product",
+      "lines": 14,
+      "sha256": "5ce7ed63ea6c2e610b4c3e2729aaf5a5a325f6be0405af2c4a5f691618b8fb9c",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Models/OrigemLeitura.cs",
+      "kind": "product",
+      "lines": 7,
+      "sha256": "0b493ba6e0cb56b260a5eadcc548f613163fc2459891773458723eac5f0a326f",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Monitoring/AlertasWorker.cs",
+      "kind": "product",
+      "lines": 31,
+      "sha256": "35f5bc2e8f448abc860e9d01427d83aed4b53a0aedbf121e24039e9dfc6bbb74",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/Monitoring/AvaliacaoStatus.cs",
+      "kind": "product",
+      "lines": 18,
+      "sha256": "3b64301218cd917c77349ada4e53039981773f72bc1961d0e2e2c5eb1a519942",
+      "declarationsHeuristic": [
+        {
+          "line": 11,
+          "signature": "public void Concluiu(DateTime agora) { lock (gate) { ultimoSucesso = agora; falhou = false; } }"
+        },
+        {
+          "line": 12,
+          "signature": "public void Falhou() { lock (gate) falhou = true; }"
+        },
+        {
+          "line": 13,
+          "signature": "public SituacaoAvaliador Obter(DateTime agora)"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Monitoring/AvaliadorAlertas.cs",
+      "kind": "product",
+      "lines": 148,
+      "sha256": "7418b0c14dd73c0a1d53822b17cb943400148e9e69e39f1b20cdbd0c9853ffdb",
+      "declarationsHeuristic": [
+        {
+          "line": 9,
+          "signature": "public async Task AvaliarAsync(CancellationToken cancellationToken = default)"
+        },
+        {
+          "line": 20,
+          "signature": "private async Task AvaliarGeladeiraAsync(int id, CancellationToken ct)"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/Program.cs",
+      "kind": "product",
+      "lines": 85,
+      "sha256": "6bcf7d359671a740835fa4158caa8af508595392efaec719a7d17a2d130755db",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/acesso.html",
+      "kind": "product",
+      "lines": 93,
+      "sha256": "df05b4337b6b0b35fb037bbdefbc76faca059c5a05ca7d79404727ee23581176",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/acesso.js",
+      "kind": "product",
+      "lines": 145,
+      "sha256": "4797e41d2234a4c4019fbae4fc8055197e67e02d9a152e75fc53f5e497f325c3",
+      "declarationsHeuristic": [
+        {
+          "line": 15,
+          "signature": "function updateLoginControls() {"
+        },
+        {
+          "line": 21,
+          "signature": "function showStatus(message) {"
+        },
+        {
+          "line": 26,
+          "signature": "function returnPath() {"
+        },
+        {
+          "line": 33,
+          "signature": "function renderSession(value) {"
+        },
+        {
+          "line": 56,
+          "signature": "async function refreshSession() {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/alertas-estado.mjs",
+      "kind": "product",
+      "lines": 72,
+      "sha256": "d6f90edb4587d3bc79f41453d33c3df0b5cff722daa7835547683097bbebdab3",
+      "declarationsHeuristic": [
+        {
+          "line": 6,
+          "signature": "function exigir(ok) { if (!ok) throw new Error(\"A API devolveu dados de alertas inválidos. Consulte novamente.\"); }"
+        },
+        {
+          "line": 7,
+          "signature": "export function instanteUtc(value) {"
+        },
+        {
+          "line": 12,
+          "signature": "export function localParaUtc(value) {"
+        },
+        {
+          "line": 20,
+          "signature": "export function validarFiltros(f) {"
+        },
+        {
+          "line": 31,
+          "signature": "export function filtrosDaUrl(search) {"
+        },
+        {
+          "line": 37,
+          "signature": "export function criarConsulta(f) {"
+        },
+        {
+          "line": 41,
+          "signature": "export function validarAlerta(a) {"
+        },
+        {
+          "line": 53,
+          "signature": "export function validarPagina(data, f) {"
+        },
+        {
+          "line": 64,
+          "signature": "export function validarResumo(data, origem) {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/alertas-render.mjs",
+      "kind": "product",
+      "lines": 39,
+      "sha256": "67c9bc0fd3196b079eec681ed7e84228c56d382e0e1f79817ef74735a3097a74",
+      "declarationsHeuristic": [
+        {
+          "line": 3,
+          "signature": "export function elemento(tag, classe = \"\", texto) {"
+        },
+        {
+          "line": 9,
+          "signature": "function horario(value) {"
+        },
+        {
+          "line": 14,
+          "signature": "export function criarCard(alerta, compacto = false) {"
+        },
+        {
+          "line": 22,
+          "signature": "function dado(label, value) { const div = elemento(\"div\"), dd = elemento(\"dd\"); dd.append(value); div.append(elemento(\"dt\", \"\", label), dd); dl.append(div); }"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/alertas-resumo.js",
+      "kind": "product",
+      "lines": 36,
+      "sha256": "d7515dd10f0360f1d07fbe890aaed7c591b1e8d67e74875c745635c9f697bcdd",
+      "declarationsHeuristic": [
+        {
+          "line": 7,
+          "signature": "async function atualizar() {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/alertas.html",
+      "kind": "product",
+      "lines": 68,
+      "sha256": "ffbaa845082ea87b743784794009dcc6b69e125de07eebb1e1f7fb8db808e048",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/alertas.js",
+      "kind": "product",
+      "lines": 87,
+      "sha256": "d9bd77691b84e51c82648bd892ba3ad2ac9579a51202baf18bedc6d67e4365db",
+      "declarationsHeuristic": [
+        {
+          "line": 8,
+          "signature": "function mensagem(text, state = \"info\") { ui.status.textContent = text; ui.status.dataset.state = state; }"
+        },
+        {
+          "line": 9,
+          "signature": "function controles() {"
+        },
+        {
+          "line": 15,
+          "signature": "function limpar(text) { pagina = null; ui.lista.replaceChildren(elemento(\"p\", \"monitor-empty\", text)); ui.resumo.textContent = \"\"; ui.pagina.textContent = \"Nenh"
+        },
+        {
+          "line": 16,
+          "signature": "function cancelar() { sequencia++; controller?.abort(); ocupado = false; controles(); }"
+        },
+        {
+          "line": 17,
+          "signature": "function formulario(numero = 1) {"
+        },
+        {
+          "line": 23,
+          "signature": "function erro(response) { return new Error(response.status === 401 ? \"Conecte este dispositivo na página Acesso.\""
+        },
+        {
+          "line": 28,
+          "signature": "async function consultar(filtros) {"
+        },
+        {
+          "line": 54,
+          "signature": "async function iniciar() {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/app.js",
+      "kind": "product",
+      "lines": 126,
+      "sha256": "6fed84e6007fc194fc7694ac4d35fc127a8f997abfef9ae1a99d3da5f6c8f329",
+      "declarationsHeuristic": [
+        {
+          "line": 15,
+          "signature": "function setBadge(state, text) {"
+        },
+        {
+          "line": 20,
+          "signature": "function clearReceivedValues() {"
+        },
+        {
+          "line": 27,
+          "signature": "function getCheckedDate(value) {"
+        },
+        {
+          "line": 33,
+          "signature": "function showCheckedAt(value) {"
+        },
+        {
+          "line": 41,
+          "signature": "function showFailure(apiText, databaseText, message) {"
+        },
+        {
+          "line": 48,
+          "signature": "async function checkHealth() {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/configuracoes-estado.mjs",
+      "kind": "product",
+      "lines": 49,
+      "sha256": "e24c94d4f167dfd257b3d690302e087367d1e2690eb213bf8e5fbebba944cd5b",
+      "declarationsHeuristic": [
+        {
+          "line": 4,
+          "signature": "function instanteUtcValido(value) {"
+        },
+        {
+          "line": 9,
+          "signature": "function chaveUtc(value) {"
+        },
+        {
+          "line": 13,
+          "signature": "export function validarParametros(value) {"
+        },
+        {
+          "line": 28,
+          "signature": "export function parametrosDoFormulario(fields) {"
+        },
+        {
+          "line": 37,
+          "signature": "export function validarRespostaConfiguracao(data, geladeiraId) {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/configuracoes.html",
+      "kind": "product",
+      "lines": 78,
+      "sha256": "8178097116339f33be726555957dd71d7b551ffd65baf4abd6a82437d60b7993",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/configuracoes.js",
+      "kind": "product",
+      "lines": 158,
+      "sha256": "cc4c115f664d2958088e49a7e46168c232130e540a65829a84838eecdc36a452",
+      "declarationsHeuristic": [
+        {
+          "line": 8,
+          "signature": "function mensagem(text, state = \"info\") { ui.status.textContent = text; ui.status.dataset.state = state; }"
+        },
+        {
+          "line": 9,
+          "signature": "function atualizarControles() {"
+        },
+        {
+          "line": 19,
+          "signature": "function horario(node, value) {"
+        },
+        {
+          "line": 24,
+          "signature": "function limpar() {"
+        },
+        {
+          "line": 31,
+          "signature": "function renderizar(data) {"
+        },
+        {
+          "line": 44,
+          "signature": "function iniciarOperacao(tipo) {"
+        },
+        {
+          "line": 49,
+          "signature": "async function requisitar(path, controller, options = {}) {"
+        },
+        {
+          "line": 56,
+          "signature": "function erroHttp(response) {"
+        },
+        {
+          "line": 65,
+          "signature": "function erroConsulta(error) {"
+        },
+        {
+          "line": 70,
+          "signature": "async function carregarConfiguracao(id) {"
+        },
+        {
+          "line": 87,
+          "signature": "async function iniciar() {"
+        },
+        {
+          "line": 117,
+          "signature": "async function salvar(event) {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/dispositivos.js",
+      "kind": "product",
+      "lines": 123,
+      "sha256": "bc5034f0b14b2e9099bc352725a2b05df37b184b84820ccca44a0a9b3b6b8a8d",
+      "declarationsHeuristic": [
+        {
+          "line": 7,
+          "signature": "function mensagem(text, state = \"info\") { ui.status.textContent = text; ui.status.dataset.state = state; }"
+        },
+        {
+          "line": 8,
+          "signature": "function ocultar() { ui.credencial.value = \"\"; ui.segredo.hidden = true; }"
+        },
+        {
+          "line": 9,
+          "signature": "function controles() {"
+        },
+        {
+          "line": 19,
+          "signature": "function validar(d, equipamento) {"
+        },
+        {
+          "line": 25,
+          "signature": "function renderizar() {"
+        },
+        {
+          "line": 43,
+          "signature": "async function pedir(path, current, options = {}) {"
+        },
+        {
+          "line": 54,
+          "signature": "async function carregar(id) {"
+        },
+        {
+          "line": 67,
+          "signature": "async function iniciar() {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/geladeiras.html",
+      "kind": "product",
+      "lines": 106,
+      "sha256": "7b407ec86901f0a684614a94e973f1e51e299c801cd657b71b52de5cfa05d6be",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/geladeiras.js",
+      "kind": "product",
+      "lines": 482,
+      "sha256": "98bd3c1904a8a565765380fbc5818caa750d3e4f8dcb8d8018151032f4256a4b",
+      "declarationsHeuristic": [
+        {
+          "line": 47,
+          "signature": "function setStatus(message, state = \"info\") {"
+        },
+        {
+          "line": 52,
+          "signature": "function updateControls() {"
+        },
+        {
+          "line": 63,
+          "signature": "function setBusy(value) {"
+        },
+        {
+          "line": 68,
+          "signature": "function clearFieldErrors() {"
+        },
+        {
+          "line": 76,
+          "signature": "function showFieldError(name, message) {"
+        },
+        {
+          "line": 83,
+          "signature": "function trimWhitespace(value) {"
+        },
+        {
+          "line": 88,
+          "signature": "function validateForm() {"
+        },
+        {
+          "line": 110,
+          "signature": "function showServerValidation(errors) {"
+        },
+        {
+          "line": 124,
+          "signature": "async function apiRequest(path, method = \"GET\", body = undefined) {"
+        },
+        {
+          "line": 177,
+          "signature": "function isRecord(value) {"
+        },
+        {
+          "line": 186,
+          "signature": "function element(tag, className, text) {"
+        },
+        {
+          "line": 193,
+          "signature": "function closeDetails() {"
+        },
+        {
+          "line": 198,
+          "signature": "function markListUnavailable(message) {"
+        },
+        {
+          "line": 207,
+          "signature": "function resetForm() {"
+        },
+        {
+          "line": 217,
+          "signature": "function renderList(records) {"
+        },
+        {
+          "line": 255,
+          "signature": "async function consultMonitoring() {"
+        },
+        {
+          "line": 279,
+          "signature": "async function fetchAndRenderList() {"
+        },
+        {
+          "line": 289,
+          "signature": "async function reloadList() {"
+        },
+        {
+          "line": 304,
+          "signature": "async function getRecord(id) {"
+        },
+        {
+          "line": 310,
+          "signature": "function handleReadError(error) {"
+        },
+        {
+          "line": 317,
+          "signature": "async function consultRecord(id) {"
+        },
+        {
+          "line": 350,
+          "signature": "async function editRecord(id) {"
+        },
+        {
+          "line": 376,
+          "signature": "async function refreshAfterChange(message) {"
+        },
+        {
+          "line": 387,
+          "signature": "function handleMutationError(error) {"
+        },
+        {
+          "line": 396,
+          "signature": "async function saveRecord(event) {"
+        },
+        {
+          "line": 420,
+          "signature": "function openDeleteConfirmation(record, trigger) {"
+        },
+        {
+          "line": 430,
+          "signature": "function closeDeleteConfirmation(restoreFocus = false) {"
+        },
+        {
+          "line": 438,
+          "signature": "async function deleteRecord() {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/historico-estado.mjs",
+      "kind": "product",
+      "lines": 115,
+      "sha256": "a8480d45eb6f80873f5a957d924424c2d0e7b037796e02a6c3740083c35ab433",
+      "declarationsHeuristic": [
+        {
+          "line": 4,
+          "signature": "export function instanteUtcValido(value) {"
+        },
+        {
+          "line": 12,
+          "signature": "function chaveUtc(value) {"
+        },
+        {
+          "line": 16,
+          "signature": "export function dataLocalParaUtc(value) {"
+        },
+        {
+          "line": 27,
+          "signature": "export function utcParaLocal(value) {"
+        },
+        {
+          "line": 35,
+          "signature": "export function validarFiltros(filtros) {"
+        },
+        {
+          "line": 50,
+          "signature": "export function filtrosDoFormulario({ geladeiraId, origem, inicio, fim, tamanhoPagina }, pagina = 1) {"
+        },
+        {
+          "line": 55,
+          "signature": "export function criarConsulta(filtros) {"
+        },
+        {
+          "line": 64,
+          "signature": "export function validarHistorico(data, filtros) {"
+        },
+        {
+          "line": 92,
+          "signature": "export function calcularSerie(itens, largura = 760, altura = 280) {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/historico.html",
+      "kind": "product",
+      "lines": 62,
+      "sha256": "a0665f71fd4d7efdbbaa37280e90f06cf29e6c09b21bbf89c2e0391d59aa08d5",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/historico.js",
+      "kind": "product",
+      "lines": 198,
+      "sha256": "87352625e49a4696dd550beff6076a16243084664d8140452d5a3654a249b230",
+      "declarationsHeuristic": [
+        {
+          "line": 8,
+          "signature": "function elemento(tag, className = \"\", text) {"
+        },
+        {
+          "line": 14,
+          "signature": "function mensagem(text, state = \"info\") { ui.status.textContent = text; ui.status.dataset.state = state; }"
+        },
+        {
+          "line": 15,
+          "signature": "function atualizarControles() {"
+        },
+        {
+          "line": 23,
+          "signature": "function limpar(text = \"Nenhuma consulta disponível.\") {"
+        },
+        {
+          "line": 31,
+          "signature": "function cancelar() { sequencia++; controlador?.abort(); ocupado = false; atualizarControles(); }"
+        },
+        {
+          "line": 32,
+          "signature": "function horario(value) {"
+        },
+        {
+          "line": 37,
+          "signature": "function numero(value) {"
+        },
+        {
+          "line": 40,
+          "signature": "function svgElement(tag, attrs = {}, text) {"
+        },
+        {
+          "line": 46,
+          "signature": "function renderizarGrafico(itens) {"
+        },
+        {
+          "line": 75,
+          "signature": "function renderizar(data) {"
+        },
+        {
+          "line": 93,
+          "signature": "function erroConsulta(response) {"
+        },
+        {
+          "line": 100,
+          "signature": "async function consultar(filtros) {"
+        },
+        {
+          "line": 128,
+          "signature": "function lerFormulario(pagina = 1) {"
+        },
+        {
+          "line": 132,
+          "signature": "async function iniciar() {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/index.html",
+      "kind": "product",
+      "lines": 118,
+      "sha256": "8d5af2d0ee0681aaa3ca05894eb081814062fcde7e202045d7b4b449ce07ed84",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/leitor-qr.js",
+      "kind": "product",
+      "lines": 118,
+      "sha256": "1bcdfa20c72fc760afa4fe35ca5739ca935a90b6c0b82ac890cb884aa734c0fd",
+      "declarationsHeuristic": [
+        {
+          "line": 14,
+          "signature": "function closeCamera() {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/monitoramento-estado.mjs",
+      "kind": "product",
+      "lines": 55,
+      "sha256": "4b92aa721c3314cd27a76da3aaebcc07bf8af043980c0d81949103886441f464",
+      "declarationsHeuristic": [
+        {
+          "line": 1,
+          "signature": "function instanteUtcValido(value) {"
+        },
+        {
+          "line": 7,
+          "signature": "export function validarMonitoramento(data, origem) {"
+        },
+        {
+          "line": 33,
+          "signature": "export function estadoDaLeitura(leitura, referenciaSegundos, agoraServidorMs) {"
+        },
+        {
+          "line": 48,
+          "signature": "export function formatarIdade(segundos) {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/monitoramento.js",
+      "kind": "product",
+      "lines": 192,
+      "sha256": "304f6fbe6a0f525f6c9277042ad646aacd853edaee46524e5900b691760de16d",
+      "declarationsHeuristic": [
+        {
+          "line": 19,
+          "signature": "function elemento(tag, className, texto) {"
+        },
+        {
+          "line": 26,
+          "signature": "function mensagem(texto, estado = \"info\") {"
+        },
+        {
+          "line": 31,
+          "signature": "function limparDados() {"
+        },
+        {
+          "line": 44,
+          "signature": "function atualizarNotas() {"
+        },
+        {
+          "line": 54,
+          "signature": "function atualizarIdades() {"
+        },
+        {
+          "line": 69,
+          "signature": "function adicionarDado(dl, titulo, valor) {"
+        },
+        {
+          "line": 77,
+          "signature": "function horario(value) {"
+        },
+        {
+          "line": 84,
+          "signature": "function renderizar(data) {"
+        },
+        {
+          "line": 131,
+          "signature": "async function consultar({ limpar = false, silencioso = false } = {}) {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/pareamento.js",
+      "kind": "product",
+      "lines": 218,
+      "sha256": "3ecc6aa468d869adbde684528081a8aa44a46400b3dffb482c9bc65642f6eecb",
+      "declarationsHeuristic": [
+        {
+          "line": 22,
+          "signature": "function captureFragment() {"
+        },
+        {
+          "line": 34,
+          "signature": "function renderControls() {"
+        },
+        {
+          "line": 69,
+          "signature": "function clearQr() {"
+        },
+        {
+          "line": 77,
+          "signature": "function makeQr(url) {"
+        },
+        {
+          "line": 103,
+          "signature": "async function syncSession() {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/shell.js",
+      "kind": "product",
+      "lines": 30,
+      "sha256": "a4f1893785dbe0039718c76a7c0eecdb3e76a7fb82febc599bd60300af2e84d1",
+      "declarationsHeuristic": [
+        {
+          "line": 13,
+          "signature": "function setOpen(value, focus = false) {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/sobre.html",
+      "kind": "product",
+      "lines": 88,
+      "sha256": "bf5b12b20a2cb8b61468a22fc3dc950ad93d1c7950e9a2d2a73285085921e2f1",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/som-alertas.js",
+      "kind": "product",
+      "lines": 124,
+      "sha256": "95d0f391380eed91e4a3d82cf237b19a6fae77c1e305438f96028aa3b12ad617",
+      "declarationsHeuristic": [
+        {
+          "line": 8,
+          "signature": "function iniciar() {"
+        },
+        {
+          "line": 15,
+          "signature": "function informar(texto, erro = false) {"
+        },
+        {
+          "line": 24,
+          "signature": "function pararNotas() {"
+        },
+        {
+          "line": 29,
+          "signature": "function cancelarConsulta() { geracao++; consulta?.abort(); consulta = null; }"
+        },
+        {
+          "line": 31,
+          "signature": "function desligar(texto = \"Som silenciado neste dispositivo. Os alertas continuam registrados.\") {"
+        },
+        {
+          "line": 35,
+          "signature": "function tocar() {"
+        },
+        {
+          "line": 52,
+          "signature": "async function prepararAudio(habilitar) {"
+        },
+        {
+          "line": 75,
+          "signature": "async function atualizar() {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/som-estado.mjs",
+      "kind": "product",
+      "lines": 27,
+      "sha256": "ea4cac0f9b7ae0b1a3518e3993b3256445ef585f41644e57208e855f96bb8ae4",
+      "declarationsHeuristic": [
+        {
+          "line": 2,
+          "signature": "export function criarControleSom(agora = () => performance.now(), intervaloMs = 30000) {"
+        },
+        {
+          "line": 23,
+          "signature": "export function origensDoSom(valor) {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/styles.css",
+      "kind": "product",
+      "lines": 440,
+      "sha256": "83a2ff376282c65a193cbebd56660eea434e625f3ef97c138b75b6261469c05e",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/theme.css",
+      "kind": "product",
+      "lines": 27,
+      "sha256": "413f3006190739ac63bcebb16b077b6f2bf46dbee656dec6def9af79dc02fe27",
+      "declarationsHeuristic": []
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/vendor/jsqr-v1.4.0.js",
+      "kind": "dependency",
+      "lines": 10102,
+      "sha256": "bc40c8a15196236b2314db0856f72ca0b49980cd5413b8c852a7349f5fee0859",
+      "declarationsHeuristic": [
+        {
+          "line": 1,
+          "signature": "(function webpackUniversalModuleDefinition(root, factory) {"
+        },
+        {
+          "line": 16,
+          "signature": "/******/ \tfunction __webpack_require__(moduleId) {"
+        },
+        {
+          "line": 46,
+          "signature": "/******/ \t// define getter function for harmony exports"
+        },
+        {
+          "line": 57,
+          "signature": "/******/ \t// getDefaultExport function for compatibility with non-harmony modules"
+        },
+        {
+          "line": 60,
+          "signature": "/******/ \t\t\tfunction getDefault() { return module['default']; } :"
+        },
+        {
+          "line": 61,
+          "signature": "/******/ \t\t\tfunction getModuleExports() { return module; };"
+        },
+        {
+          "line": 84,
+          "signature": "function BitMatrix(data, width) {"
+        },
+        {
+          "line": 121,
+          "signature": "function addOrSubtractGF(a, b) {"
+        },
+        {
+          "line": 126,
+          "signature": "function GenericGF(primitive, size, genBase) {"
+        },
+        {
+          "line": 192,
+          "signature": "function GenericGFPoly(field, coefficients) {"
+        },
+        {
+          "line": 331,
+          "signature": "function scan(matrix) {"
+        },
+        {
+          "line": 364,
+          "signature": "function jsQR(data, width, height, providedOptions) {"
+        },
+        {
+          "line": 393,
+          "signature": "function numBetween(value, min, max) {"
+        },
+        {
+          "line": 398,
+          "signature": "function Matrix(width, height) {"
+        },
+        {
+          "line": 410,
+          "signature": "function binarize(data, width, height, returnInverted) {"
+        },
+        {
+          "line": 515,
+          "signature": "function numBitsDiffering(x, y) {"
+        },
+        {
+          "line": 524,
+          "signature": "function pushBit(bit, byte) {"
+        },
+        {
+          "line": 572,
+          "signature": "function buildFunctionPatternMask(version) {"
+        },
+        {
+          "line": 596,
+          "signature": "function readCodewords(matrix, version, formatInfo) {"
+        },
+        {
+          "line": 632,
+          "signature": "function readVersion(matrix) {"
+        },
+        {
+          "line": 674,
+          "signature": "function readFormatInformation(matrix) {"
+        },
+        {
+          "line": 720,
+          "signature": "function getDataBlocks(codewords, version, ecLevel) {"
+        },
+        {
+          "line": 762,
+          "signature": "function decodeMatrix(matrix) {"
+        },
+        {
+          "line": 797,
+          "signature": "function decode(matrix) {"
+        },
+        {
+          "line": 849,
+          "signature": "function decodeNumeric(stream, size) {"
+        },
+        {
+          "line": 895,
+          "signature": "function decodeAlphanumeric(stream, size) {"
+        },
+        {
+          "line": 915,
+          "signature": "function decodeByte(stream, size) {"
+        },
+        {
+          "line": 932,
+          "signature": "function decodeKanji(stream, size) {"
+        },
+        {
+          "line": 951,
+          "signature": "function decode(data, version) {"
+        },
+        {
+          "line": 1050,
+          "signature": "function BitStream(bytes) {"
+        },
+        {
+          "line": 8156,
+          "signature": "function runEuclideanAlgorithm(field, a, b, R) {"
+        },
+        {
+          "line": 8199,
+          "signature": "function findErrorLocations(field, errorLocator) {"
+        },
+        {
+          "line": 8218,
+          "signature": "function findErrorMagnitudes(field, errorEvaluator, errorLocations) {"
+        },
+        {
+          "line": 8237,
+          "signature": "function decode(bytes, twoS) {"
+        },
+        {
+          "line": 9599,
+          "signature": "function squareToQuadrilateral(p1, p2, p3, p4) {"
+        },
+        {
+          "line": 9636,
+          "signature": "function quadrilateralToSquare(p1, p2, p3, p4) {"
+        },
+        {
+          "line": 9651,
+          "signature": "function times(a, b) {"
+        },
+        {
+          "line": 9664,
+          "signature": "function extract(image, location) {"
+        },
+        {
+          "line": 9703,
+          "signature": "function sum(values) {"
+        },
+        {
+          "line": 9707,
+          "signature": "function reorderFinderPatterns(pattern1, pattern2, pattern3) {"
+        },
+        {
+          "line": 9735,
+          "signature": "function computeDimension(topLeft, topRight, bottomLeft, matrix) {"
+        },
+        {
+          "line": 9759,
+          "signature": "function countBlackWhiteRunTowardsPoint(origin, end, matrix, length) {"
+        },
+        {
+          "line": 9821,
+          "signature": "function countBlackWhiteRun(origin, end, matrix, length) {"
+        },
+        {
+          "line": 9832,
+          "signature": "function scoreBlackWhiteRun(sequence, ratios) {"
+        },
+        {
+          "line": 9843,
+          "signature": "function scorePattern(point, ratios, matrix) {"
+        },
+        {
+          "line": 9876,
+          "signature": "function recenterLocation(matrix, p) {"
+        },
+        {
+          "line": 9897,
+          "signature": "function locate(matrix) {"
+        },
+        {
+          "line": 10055,
+          "signature": "function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, bottomLeft) {"
+        }
+      ]
+    },
+    {
+      "path": "src/Iceplay.Api/wwwroot/vendor/qrcodegen-v1.8.0.js",
+      "kind": "dependency",
+      "lines": 837,
+      "sha256": "6a1116192ed1dd67fa1bf31e77f5817103d71c23bbac24c382e698b7668bdd01",
+      "declarationsHeuristic": [
+        {
+          "line": 60,
+          "signature": "// Indicates function modules that are not subjected to masking. Discarded when constructor finishes."
+        },
+        {
+          "line": 102,
+          "signature": "// As a conservative upper bound, this function is guaranteed to succeed for strings that have 738 or fewer"
+        },
+        {
+          "line": 111,
+          "signature": "// This function always encodes using the binary segment mode, not any text mode. The maximum number of"
+        },
+        {
+          "line": 125,
+          "signature": "// This function allows the user to create a custom sequence of segments that switches"
+        },
+        {
+          "line": 183,
+          "signature": "/*-- Private helper methods for constructor: Drawing function modules --*/"
+        },
+        {
+          "line": 184,
+          "signature": "// Reads this object's version field, and draws and marks all function modules."
+        },
+        {
+          "line": 275,
+          "signature": "// Sets the color of a module and marks it as a function module."
+        },
+        {
+          "line": 345,
+          "signature": "// The function modules must be marked and the codeword bits must be drawn"
+        },
+        {
+          "line": 477,
+          "signature": "// all function modules are excluded. This includes remainder bits, so it might not be a multiple of 8."
+        },
+        {
+          "line": 494,
+          "signature": "// This stateless pure function could be implemented as a (40*4)-cell lookup table."
+        },
+        {
+          "line": 551,
+          "signature": "// returns either 0, 1, or 2. A helper function for getPenaltyScore()."
+        },
+        {
+          "line": 559,
+          "signature": "// Must be called at the end of a line (row or column) of modules. A helper function for getPenaltyScore()."
+        },
+        {
+          "line": 569,
+          "signature": "// Pushes the given value to the front and drops the last value. A helper function for getPenaltyScore()."
+        },
+        {
+          "line": 606,
+          "signature": "function appendBits(val, len, bb) {"
+        },
+        {
+          "line": 613,
+          "signature": "function getBit(x, i) {"
+        },
+        {
+          "line": 617,
+          "signature": "function assert(cond) {"
+        },
+        {
+          "line": 626,
+          "signature": "* and call a static factory function such as QrSegment.makeNumeric()."
+        }
+      ]
+    }
+  ],
+  "totalFiles": 132,
+  "totalLines": 24015,
+  "productionFiles": 76
+}

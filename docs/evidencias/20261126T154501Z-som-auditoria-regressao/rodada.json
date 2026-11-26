@@ -1,0 +1,125 @@
+{
+  "result": "passed",
+  "startedAtUtc": "2026-11-26T15:45:01.839695+00:00",
+  "finishedAtUtc": "2026-11-26T15:48:08.918183+00:00",
+  "sourceCommit": "ad8887f0e54d43a688edd0746210f61893df73d7",
+  "scope": "Software e pacote Windows em bancos isolados; sem novos ensaios fisicos ou validacao no notebook da apresentacao.",
+  "steps": [
+    {
+      "name": "javascript",
+      "exitCode": 0,
+      "elapsedSeconds": 1.19,
+      "logSha256": "9dab069255f1b4ee81c709435ae7f9f5978cbfc44ec72dc0eca04a8b78177de6",
+      "rawLogPrivate": true,
+      "tests": 161,
+      "pass": 161,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    {
+      "name": "setup-build",
+      "exitCode": 0,
+      "elapsedSeconds": 23.98,
+      "logSha256": "bfa4d183a1e58895338967f11826ac8960e448fbae43837066dbdffbb21b4fd1",
+      "rawLogPrivate": true,
+      "finalBuildSummary": [
+        "0 Aviso(s)",
+        "0 Erro(s)"
+      ]
+    },
+    {
+      "name": "verify",
+      "exitCode": 0,
+      "elapsedSeconds": 12.8,
+      "logSha256": "483408c20e97f90ca70d178eba72d21bbd7d5e79e526358b9582bb489cb59a09",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-geladeiras",
+      "exitCode": 0,
+      "elapsedSeconds": 15.42,
+      "logSha256": "769172259fc12155ba87dfac150603add9e9bad98c923fa684fbe25522c47d38",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-leituras",
+      "exitCode": 0,
+      "elapsedSeconds": 19.73,
+      "logSha256": "a2c07cb4bb2e2df52e77372ecb0e25fa6e784f5779f7de54033ed8e02e0654c1",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-monitoramento",
+      "exitCode": 0,
+      "elapsedSeconds": 12.05,
+      "logSha256": "d3ed68f30e6692608c24c850cfbab73b08b18a51b28ac25872dd53f15bf69579",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-historico",
+      "exitCode": 0,
+      "elapsedSeconds": 11.81,
+      "logSha256": "651ce34ea6ffd257c0b490bf0c390656c7f52f5cbe9abd39b3c871babdb6d7a0",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-pages",
+      "exitCode": 0,
+      "elapsedSeconds": 9.62,
+      "logSha256": "515ecbb425f012b883c06ae72ee4e2accc8755f57e3107d11613841bd6a7f628",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-configuracoes",
+      "exitCode": 0,
+      "elapsedSeconds": 10.86,
+      "logSha256": "3a3dc8e9d45ceea42b0ed1465e8273c5ff150dbbe3481e6ca31979c2b0dc48ca",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-alertas",
+      "exitCode": 0,
+      "elapsedSeconds": 24.8,
+      "logSha256": "fee1bde21fb12dd99b410bb6c2e3db6b0c8b02de2e137007c69fd7c834a14b4b",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-dispositivos",
+      "exitCode": 0,
+      "elapsedSeconds": 10.41,
+      "logSha256": "13e64afa06205cd1bc11515f518e64a6f41954fad0372d9839ae0b5d997949c3",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-mobile",
+      "exitCode": 0,
+      "elapsedSeconds": 20.53,
+      "logSha256": "24ae0f27ac4c60574ab34fc795428abb1163e271f80f4fc63a47440f155c7c01",
+      "rawLogPrivate": true
+    },
+    {
+      "name": "verify-estabilidade",
+      "exitCode": 0,
+      "elapsedSeconds": 13.64,
+      "logSha256": "e4f55e204936ecc696f96c7458f80f954002318312055197b1fdb77663582eb6",
+      "rawLogPrivate": true
+    }
+  ],
+  "liveHistoricalReadingsMaximumIdPreserved": 1944,
+  "allHistoricalReadingsPreserved": true,
+  "liveMetadataTablesUnchanged": {
+    "Geladeiras": true,
+    "ConfiguracoesGeladeiras": true,
+    "Dispositivos": true,
+    "__EFMigrationsHistory": true
+  },
+  "originalSourceDatabaseHashUnchanged": true,
+  "privateMobileProfileUnchanged": true,
+  "liveDatabaseIntegrity": "ok",
+  "liveForeignKeyViolations": 0,
+  "mainApiHealthyAtEnd": true,
+  "consistentBeforeBackupPrivate": true,
+  "rawEvidenceDirectoryPrivate": ".tools/verification/20261126T154501Z-som-auditoria-regressao",
+  "firewallOrTrustChanged": false
+}

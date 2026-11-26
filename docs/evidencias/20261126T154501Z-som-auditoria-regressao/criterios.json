@@ -1,0 +1,40 @@
+{
+  "startedAtUtc": "2026-11-26T15:45:01.839695+00:00",
+  "softwareOnly": true,
+  "existingVerifiers": [
+    "verify",
+    "verify-geladeiras",
+    "verify-leituras",
+    "verify-monitoramento",
+    "verify-historico",
+    "verify-pages",
+    "verify-configuracoes",
+    "verify-alertas",
+    "verify-dispositivos",
+    "verify-mobile",
+    "verify-estabilidade"
+  ],
+  "nodeTestFiles": [
+    "acesso-pareamento.test.mjs",
+    "acesso.test.mjs",
+    "alertas.test.mjs",
+    "configuracoes.test.mjs",
+    "dispositivos.test.mjs",
+    "historico-estado.test.mjs",
+    "leitor-qr.test.mjs",
+    "monitoramento-estado.test.mjs",
+    "pareamento.test.mjs",
+    "shell.test.mjs",
+    "som-alertas.test.mjs"
+  ],
+  "minimumNodeTestsExpected": 161,
+  "package": ".tools/exports/20261126T033918Z-projeto-completo/ICEPLAY_Projeto_Completo_26-11-2026.zip",
+  "allChecksMustExitZero": true,
+  "liveDatabaseMustNotReceiveTestFixtures": true,
+  "mainApiOrSensorsWillNotBeRestartedDuringTests": true,
+  "sourceHasUncommittedSoundChanges": true,
+  "firewallOrTrustChangesAllowed": false,
+  "presentationNotebookValidated": false,
+  "packageFieldNote": "O caminho package foi herdado do helper anterior e não foi executado nesta rodada de 13 passos. O novo runtime com som foi testado separadamente e passou em 24 checks; ver runtime.json.",
+  "originalGeneratedCriteriaSha256": "0cb3bc614c7fa05596537ca09248cb741d5306a72f7951fd321edd99584889d7"
+}

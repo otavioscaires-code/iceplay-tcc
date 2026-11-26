@@ -1,0 +1,12 @@
+{
+  "result": "passed",
+  "sourceCommit": "311ef9d11183e9e67ef10708e8ad4f0bcfe55873",
+  "runtimeZipSha256": "4ea098d04f13363e10f69706e57c357ac711b5dc6af34997e6a86dc8c1e931a0",
+  "runtimeZipBytes": 53742046,
+  "checks": 24,
+  "testEvidenceSha256": "c749adba5a2a9402677044e1e2a52edef7860b4e2c122cf804a72d4e487eed98",
+  "softwareOnly": true,
+  "noSdkOnPathTested": true,
+  "syntheticHttpsProfileTestedWithoutTrustInstallation": true,
+  "presentationEnvironmentValidated": false
+}

@@ -1,5 +1,7 @@
 # ICEPLAY Sistema IoT para monitoramento de geladeiras comerciais
 
+**Minuta histórica de 23/11/2026.** A versão Word/PDF privada atual incorpora os ensaios posteriores e o aviso sonoro de 26/11. Consulte a [revisão atual e evidências](../etapa-som-auditoria-2026-11-26.md); os trechos abaixo preservam o estado desta minuta e não substituem a entrega final.
+
 Universidade Paulista UNIP
 
 Curso de Ciência da Computação
