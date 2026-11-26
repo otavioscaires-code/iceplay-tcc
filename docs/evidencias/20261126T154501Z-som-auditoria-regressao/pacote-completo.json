@@ -1,0 +1,19 @@
+{
+  "result": "passed",
+  "bytes": 77923492,
+  "sha256": "c0ee123533b2c471bf46e4d8874620983149145c01bd5e014001b2739b0ea0d5",
+  "sourceCommit": "7b8349b5a921a89feac0c448ee48bba79596dcfe",
+  "verifiedEntries": 2184,
+  "runtimeFilesByteExact": 452,
+  "crcPassed": true,
+  "databaseOrNetworkSecretsIncluded": false,
+  "privateGroupDocumentsIncluded": true,
+  "recordedAtUtc": "2026-11-26T16:19:35.945401+00:00",
+  "privateArchiveRelativePath": ".tools/exports/20261126T161820Z-projeto-completo/ICEPLAY_Projeto_Com_Som_26-11-2026.zip",
+  "documentPages": 46,
+  "runtimeChecks": 24,
+  "pcAndIphoneTestSoundManuallyConfirmed": true,
+  "pcAutomaticRepeatManuallyConfirmed": true,
+  "currentDoorInstallationValidated": false,
+  "presentationEnvironmentValidated": false
+}
