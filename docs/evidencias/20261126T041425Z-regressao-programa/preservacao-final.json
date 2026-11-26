@@ -1,0 +1,17 @@
+{
+  "checkedAtUtc": "2026-11-26T04:35:26.200075+00:00",
+  "historicalReadingsThroughId": 1748,
+  "allHistoricalReadingsPreserved": true,
+  "metadataTablesUnchanged": {
+    "Geladeiras": true,
+    "ConfiguracoesGeladeiras": true,
+    "Dispositivos": true,
+    "__EFMigrationsHistory": true
+  },
+  "databaseIntegrity": "ok",
+  "simulationRowsInLiveDatabase": 0,
+  "apiHealthy": true,
+  "latestPhysicalReadingId": 1874,
+  "latestReadingAgeSeconds": 10.2,
+  "sourceDatabaseHashUnchanged": true
+}

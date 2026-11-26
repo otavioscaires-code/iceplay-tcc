@@ -1,0 +1,20 @@
+{
+  "result": "passed",
+  "bytes": 77861750,
+  "sha256": "255dfe5f96fc338f23096e799b0c928857034cf1a139ce8214ca615c65c52543",
+  "sourceCommit": "2910904fb921a138283e75d545a41d350717a55a",
+  "verifiedEntries": 2161,
+  "runtimeFilesByteExact": 446,
+  "crcPassed": true,
+  "databaseOrNetworkSecretsIncluded": false,
+  "privateGroupDocumentsIncluded": true,
+  "isNewRuntimeExecutionTest": false,
+  "privateDirectory": ".tools/exports/20261126T043427Z-projeto-completo",
+  "archiveName": "ICEPLAY_Projeto_Testado_26-11-2026.zip",
+  "runtimeSource": ".tools/exports/2026-11-26-programa-testado-windows-x64/ICEPLAY_Windows_x64.zip",
+  "runtimeExecutionChecksPassed": 17,
+  "softwareSummaryPublicationRequirementResolved": true,
+  "historicalMonographIncludedUnchanged": true,
+  "physicalSensorsRetestedInThisRound": false,
+  "presentationNotebookStillUnvalidated": true
+}
